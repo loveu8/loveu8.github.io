@@ -1,2 +1,12 @@
 <h3>I am Top</h3>
-<br>
+<button onclick="changeA()">A</button><button onclick="changeB()">B</button>
+<hr>
+<script>
+    function changeA() {
+        $("#content").load("ContentA.html");
+    }
+
+    function changeB() {
+        $("#content").load("ContentB.html");
+    }
+</script>
