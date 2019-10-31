@@ -39,8 +39,7 @@
 
     ui.start('#firebaseui-auth-container', {
         signInOptions: [
-            firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-            firebase.auth.FacebookAuthProvider.PROVIDER_ID, {
+            firebase.auth.GoogleAuthProvider.PROVIDER_ID, {
                 provider: firebase.auth.EmailAuthProvider.PROVIDER_ID,
                 signInMethod: firebase.auth.EmailAuthProvider.EMAIL_LINK_SIGN_IN_METHOD,
                 // Allow the user the ability to complete sign-in cross device,
@@ -76,6 +75,8 @@
             }
         ]
     });
+
+    var provider = new firebase.auth.GoogleAuthProvider();
 
     firebase.auth().signInWithPopup(provider).then(function(result) {
         // This gives you a Google Access Token. You can use it to access the Google API.
