@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+
+<body>
+    <div id='firebaseui-auth-container'></div>
+</body>
+<script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+<link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+<script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-app.js"></script>
+<!-- Add Firebase products that you want to use -->
+<script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-firestore.js"></script>
+<script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+        apiKey: "AIzaSyDzGZVmnq_ExpRVkzctUXWZQuDPiDLTZog",
+        authDomain: "api-project-553198362950.firebaseapp.com",
+        databaseURL: "https://api-project-553198362950.firebaseio.com",
+        projectId: "api-project-553198362950",
+        storageBucket: "api-project-553198362950.appspot.com",
+        messagingSenderId: "553198362950",
+        appId: "1:553198362950:web:6162918a3e36fa2eae8547"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+
+    var ui = new firebaseui.auth.AuthUI(firebase.auth());
+    ui.start('#firebaseui-auth-container', {
+        signInOptions: [
+            firebase.auth.EmailAuthProvider.PROVIDER_ID
+        ],
+        // Other config options...
+    });
+
+    ui.start('#firebaseui-auth-container', {
+        signInOptions: [
+            firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+            firebase.auth.FacebookAuthProvider.PROVIDER_ID, {
+                provider: firebase.auth.EmailAuthProvider.PROVIDER_ID,
+                signInMethod: firebase.auth.EmailAuthProvider.EMAIL_LINK_SIGN_IN_METHOD,
+                // Allow the user the ability to complete sign-in cross device,
+                // including the mobile apps specified in the ActionCodeSettings
+                // object below.
+                forceSameDevice: false,
+                // Used to define the optional firebase.auth.ActionCodeSettings if
+                // additional state needs to be passed along request and whether to open
+                // the link in a mobile app if it is installed.
+                emailLinkSignIn: function() {
+                    return {
+                        // Additional state showPromo=1234 can be retrieved from URL on
+                        // sign-in completion in signInSuccess callback by checking
+                        // window.location.href.
+                        url: 'https://www.example.com/completeSignIn?showPromo=1234',
+                        // Custom FDL domain.
+                        dynamicLinkDomain: 'example.page.link',
+                        // Always true for email link sign-in.
+                        handleCodeInApp: true,
+                        // Whether to handle link in iOS app if installed.
+                        iOS: {
+                            bundleId: 'com.example.ios'
+                        },
+                        // Whether to handle link in Android app if opened in an Android
+                        // device.
+                        android: {
+                            packageName: 'com.example.android',
+                            installApp: true,
+                            minimumVersion: '12'
+                        }
+                    };
+                }
+            }
+        ]
+    });
+
+
+    function signInWithGoogle() {
+        var googleAuthProvider = new firebase.auth.GoogleAuthProvider
+        firebase.auth().signInWithPopup(googleAuthProvider)
+            .then(function(data) {
+                console.log(data)
+            })
+            .catch(function(error) {
+                console.log(error)
+            })
+    }
+</script>
+
+</html>
