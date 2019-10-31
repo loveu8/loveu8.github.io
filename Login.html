@@ -95,18 +95,6 @@
         // ...
     });
 
-    auth.currentUser.linkWithPopup(provider).then(function(result) {
-        // Accounts successfully linked.
-        var credential = result.credential;
-        var user = result.user;
-        console.log('linkWithPopup:' + user);
-        // ...
-    }).catch(function(error) {
-        // Handle Errors here.
-        // ...
-    });
-
-
     firebase.auth().getRedirectResult().then(function(result) {
         if (result.credential) {
             // This gives you a Google Access Token. You can use it to access the Google API.
@@ -123,18 +111,6 @@
         var email = error.email;
         // The firebase.auth.AuthCredential type that was used.
         var credential = error.credential;
-        // ...
-    });
-
-    firebase.auth().getRedirectResult().then(function(result) {
-        if (result.credential) {
-            // Accounts successfully linked.
-            var credential = result.credential;
-            var user = result.user;
-            console.log('getRedirectResult 2:' + user);
-        }
-    }).catch(function(error) {
-        // Handle Errors here.
         // ...
     });
 </script>
