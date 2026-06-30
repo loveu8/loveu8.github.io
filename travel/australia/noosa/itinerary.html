@@ -1,555 +1,60 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-TW">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Noosa 行程 2026/07/04–05</title>
+<title>Noosa 行程 2026/07/04-05</title>
 <link rel="stylesheet" href="style.css">
-
 </head>
 <body>
 
-<!-- ══ TOP ROUTE BAR ══ -->
 <div class="map-chip-panel" id="mapChipPanel">
-  <button class="theme-toggle" type="button" id="themeToggle" aria-label="切換深色模式" title="切換深色模式">◐</button>
-  <div class="chip-strip" id="chip-day1">
-    <span class="chip d1" data-chip="carina">Carina</span><span class="chip-arrow">→</span>
-    <span class="chip d1" data-chip="ngungun">Mt Ngungun</span><span class="chip-arrow">→</span>
-    <span class="chip d1" data-chip="coffeeclub">Coffee Club</span><span class="chip-arrow">→</span>
-    <span class="chip d1" data-chip="eumundi">Eumundi Markets</span><span class="chip-arrow">→</span>
-    <span class="chip d1" data-chip="noosa">Noosa River Retreat</span><span class="chip-arrow">→</span>
-    <span class="chip d1" data-chip="noosanp">Noosa National Park</span>
-  </div>
-  <div class="chip-strip" id="chip-day2" style="display:none">
-    <span class="chip d2" data-chip="hotel">Noosa River Retreat</span><span class="chip-arrow">→</span>
-    <span class="chip d2" data-chip="farmersmarket">Farmers Market</span><span class="chip-arrow">→</span>
-    <span class="chip d2" data-chip="coolum">Mt Coolum</span><span class="chip-arrow">→</span>
-    <span class="chip d2" data-chip="viethaus">Viet Haus</span><span class="chip-arrow">→</span>
-    <span class="chip d2" data-chip="home">Carina</span>
+  <div class="chip-strip" id="chipStrip"></div>
+  <div class="top-actions">
+    <button class="lang-toggle" type="button" id="langToggle" aria-label="Switch language">EN</button>
+    <button class="theme-toggle" type="button" id="themeToggle" aria-label="切換深色模式" title="切換深色模式">◐</button>
   </div>
 </div>
 
 <div class="app">
-
-<!-- ══════════════════════════════
-     MAP PANEL
-══════════════════════════════ -->
-<div class="map-panel">
-
-  <!-- Day 1 Map -->
-  <div class="map-wrap active" id="map-day1">
-    <iframe
-      src="https://maps.google.com/maps?q=Mount+Ngungun+Glass+House+Mountains+Queensland&output=embed&z=10"
-      loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Day1 Map">
-    </iframe>
-    <a href="https://www.google.com/maps/dir/?api=1&origin=Carina%20QLD&destination=Noosa%20National%20Park%20Carpark&waypoints=Mount%20Ngungun%20Glass%20House%20Mountains%7CThe%20Coffee%20Club%20Beerwah%7CEumundi%20Markets%7CNoosa%20River%20Retreat%20Holiday%20Apartments%20Noosaville&travelmode=driving"
-       target="_blank" class="map-nav-float d1">🗺️ 開啟完整導航</a>
+  <div class="map-panel" id="mapPanel">
+    <div class="map-loading" id="mapLoading" aria-live="polite">
+      <span class="map-loading-spinner"></span>
+      <span id="mapLoadingText">地圖更新中</span>
+    </div>
   </div>
 
-  <!-- Day 2 Map -->
-  <div class="map-wrap" id="map-day2">
-    <iframe
-      src="https://maps.google.com/maps?q=Mount+Coolum+National+Park+Queensland&output=embed&z=10"
-      loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Day2 Map">
-    </iframe>
-    <a href="https://www.google.com/maps/dir/?api=1&origin=Noosa%20River%20Retreat%20Holiday%20Apartments%20Noosaville&destination=Carina%20QLD&waypoints=Noosa%20Farmers%20Market%7CMount%20Coolum%20Walking%20Trail%7CViet%20Haus%20Ocean%20St%20Maroochydore&travelmode=driving"
-       target="_blank" class="map-nav-float d2">🗺️ 開啟完整導航</a>
-  </div>
+  <div class="resize-divider" id="resizeDivider" title="拖曳調整地圖與行程寬度"></div>
 
-</div><!-- /map-panel -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-sticky">
+      <div class="sheet-handle" id="sheetHandle">
+        <div class="handle-bar"></div>
+        <span class="handle-hint" id="handleHint">▲ 查看行程</span>
+      </div>
 
-<!-- Draggable resize divider (desktop only) -->
-<div class="resize-divider" id="resizeDivider" title="拖曳調整地圖與行程寬度"></div>
+      <div class="sidebar-header" id="sidebarHeader">
+        <div class="sidebar-title-wrap">
+          <span class="s-emoji">🌊</span>
+          <div>
+            <div class="sidebar-name" id="tripTitle">NOOSA 週末行程</div>
+            <div class="sidebar-sub" id="tripSubtitle">2026/07/04-05 · 全程自駕 · 素食友善</div>
+          </div>
+        </div>
+        <button class="print-btn" id="printBtn" type="button">🖨️ 列印</button>
+      </div>
 
-<!-- ══════════════════════════════
-     SIDEBAR / BOTTOM SHEET
-══════════════════════════════ -->
-<aside class="sidebar" id="sidebar">
-
-  <!-- ── STICKY TOP (always visible on mobile) ── -->
-  <div class="sidebar-sticky">
-
-    <!-- Drag handle (mobile) -->
-    <div class="sheet-handle" onclick="toggleSidebar()">
-      <div class="handle-bar"></div>
-      <span class="handle-hint" id="handleHint">▲ 查看行程</span>
+      <div class="day-tabs" id="dayTabs"></div>
     </div>
 
-    <!-- Trip header -->
-    <div class="sidebar-header" onclick="toggleSidebar()">
-      <div class="sidebar-title-wrap">
-        <span class="s-emoji">🌊</span>
-        <div>
-          <div class="sidebar-name">NOOSA 週末行程</div>
-          <div class="sidebar-sub">2026/07/04–05 · 全程自駕 · 素食友善</div>
-        </div>
-      </div>
-      <button class="print-btn" onclick="event.stopPropagation(); window.print()">🖨️ 列印</button>
-    </div>
+    <div class="sidebar-body" id="sidebarBody"></div>
+  </aside>
+</div>
 
-    <!-- Day tabs -->
-    <div class="day-tabs">
-      <button class="day-tab active" onclick="switchDay(1, this)">
-        <span class="tab-label">Day 1</span>
-        <span class="tab-sub">07/04 (六) Ngungun→努沙</span>
-      </button>
-      <button class="day-tab" onclick="switchDay(2, this)">
-        <span class="tab-label">Day 2</span>
-        <span class="tab-sub">07/05 (日) Coolum→返家</span>
-      </button>
-    </div>
-  </div><!-- /sidebar-sticky -->
-
-  <!-- ── SCROLLABLE BODY ── -->
-  <div class="sidebar-body">
-
-    <!-- ─── DAY 1 CONTENT ─── -->
-    <div class="day-content active" id="day1-content">
-
-      <div class="route-strip d1">
-        <span class="route-strip-label">🗺️ Mt Ngungun → Coffee Club → Eumundi → Noosa River Retreat → Noosa National Park</span>
-        <a href="https://www.google.com/maps/dir/?api=1&origin=Carina%20QLD&destination=Noosa%20National%20Park%20Carpark&waypoints=Mount%20Ngungun%20Glass%20House%20Mountains%7CThe%20Coffee%20Club%20Beerwah%7CEumundi%20Markets%7CNoosa%20River%20Retreat%20Holiday%20Apartments%20Noosaville&travelmode=driving"
-           target="_blank" class="nav-btn d1">導航</a>
-      </div>
-
-      <div class="timeline">
-
-        <!-- 出發 -->
-        <div class="tl-item" data-chip="carina">
-          <div class="tl-time">06:30<br>07:40</div>
-          <div class="tl-axis"><div class="tl-dot dot-blue"></div><div class="tl-line"></div></div>
-          <div class="tl-body">
-            <div class="tl-main">🚗 Carina 出發 → Mount Ngungun 步道口</div>
-            <div class="tl-links">
-              <a href="https://www.google.com/maps/dir/?api=1&origin=Carina%20QLD&destination=Mount%20Ngungun%20Glass%20House%20Mountains%20QLD&travelmode=driving" target="_blank" class="tl-link d1">📍 導航</a>
-            </div>
-            <div class="tl-tags"><span class="tag tag-drive">開車 約 70 分鐘</span><span class="tag tag-warn">⚡ 出發備品</span></div>
-            <div class="tl-note">早出發，停車和準備更充裕。<strong>記得帶簡單麵包跟香蕉備用！</strong></div>
-          </div>
-        </div>
-
-        <!-- Mount Ngungun - 主要行程（+ 備案並排） -->
-        <div class="tl-item" data-chip="ngungun">
-          <div class="tl-time">07:40<br>09:40</div>
-          <div class="tl-axis"><div class="tl-dot dot-green"></div><div class="tl-line"></div></div>
-          <div class="tl-body">
-            <div class="tl-main">⛰️ 爬山</div>
-            <div class="tl-parallel">
-
-              <!-- 主要 -->
-              <div class="tl-card tl-card-main">
-                <div class="tl-card-label">✅ 主要行程</div>
-                <div class="tl-card-name">Mount Ngungun Summit Walk</div>
-                <div class="tl-card-tags">
-                  <span class="tag tag-hike">Grade 3</span>
-                  <span class="tag tag-hike">2.4km 來回</span>
-                  <span class="tag tag-hike">2 小時</span>
-                  <span class="tag tag-hike">253m</span>
-                </div>
-                <div class="tl-card-links">
-                  <a href="https://www.google.com/maps/search/?api=1&query=Mount%20Ngungun%20Glass%20House%20Mountains" target="_blank" class="tl-link d1">📍 地圖</a>
-                </div>
-                <div class="tl-card-note">登頂可遠眺玻璃屋山群全景，360° 全景視野。</div>
-                <div class="tl-photos">
-                  <img class="tl-photo" src="pics/Mount Ngungun Summit Track.JPG" alt="Mount Ngungun" onclick="openLightbox(this.src)">
-                  <img class="tl-photo" src="pics/Mount Ngungun Summit Track - 1.JPG" alt="Mount Ngungun Summit" onclick="openLightbox(this.src)">
-                </div>
-              </div>
-
-              <!-- 備案 -->
-              <div class="tl-card tl-card-backup">
-                <div class="tl-card-label">⚡ 備案</div>
-                <div class="tl-card-name">Glass House Mountains Lookout</div>
-                <div class="tl-card-tags">
-                  <span class="tag tag-hike">Grade 3</span>
-                  <span class="tag tag-hike">800m</span>
-                  <span class="tag tag-hike">約 1 小時</span>
-                </div>
-                <div class="tl-card-links">
-                  <a href="https://www.google.com/maps/search/?api=1&query=Glass%20House%20Mountains%20Lookout" target="_blank" class="tl-link d1">📍 地圖</a>
-                </div>
-                <div class="tl-card-note">觀景台短步道，輕鬆版，體力或時間不足時的替代選擇。</div>
-                <div class="tl-photos">
-                  <img class="tl-photo" src="pics/Glass House Mountains Lookout Track.JPG" alt="Glass House Lookout" onclick="openLightbox(this.src)">
-                  <img class="tl-photo" src="pics/Glass House Mountains Lookout Track - 1.JPG" alt="Glass House Lookout 2" onclick="openLightbox(this.src)">
-                </div>
-              </div>
-
-            </div>
-          </div>
-        </div>
-
-        <!-- 前往 Beerwah -->
-        <div class="tl-item">
-          <div class="tl-time">09:40<br>09:55</div>
-          <div class="tl-axis"><div class="tl-dot sm dot-gray"></div><div class="tl-line"></div></div>
-          <div class="tl-body">
-            <div class="tl-main">🚗 前往 Beerwah Village</div>
-            <div class="tl-links">
-              <a href="https://www.google.com/maps/dir/?api=1&origin=Mount%20Ngungun%20Glass%20House%20Mountains&destination=The%20Coffee%20Club%20Cafe%20Beerwah%20QLD&travelmode=driving" target="_blank" class="tl-link d1">📍 導航</a>
-            </div>
-            <div class="tl-tags"><span class="tag tag-drive">短程 約 10–15 分鐘</span></div>
-          </div>
-        </div>
-
-        <!-- Coffee Club Beerwah - 爬山後餐點（+ 備案並排） -->
-        <div class="tl-item" data-chip="coffeeclub">
-          <div class="tl-time">09:55<br>11:25</div>
-          <div class="tl-axis"><div class="tl-dot dot-orange"></div><div class="tl-line"></div></div>
-          <div class="tl-body">
-            <div class="tl-main">☕ 爬山後餐點 <span class="tag tag-warn" style="font-size:var(--fs-2xs)">含開車緩衝 1.5h</span></div>
-            <div class="tl-parallel">
-
-              <!-- 主要 -->
-              <div class="tl-card tl-card-main">
-                <div class="tl-card-label">✅ 主要</div>
-                <div class="tl-card-name">The Coffee Club Café - Beerwah</div>
-                <div class="tl-card-tags">
-                  <span class="tag tag-food">AUD 20–30/人</span>
-                  <span class="tag tag-food">素食 OK</span>
-                </div>
-                <div class="tl-card-links">
-                  <a href="https://www.google.com/maps/search/?api=1&query=The%20Coffee%20Club%20Cafe%20Beerwah" target="_blank" class="tl-link d1">📍 地圖</a>
-                </div>
-                <div class="tl-card-note">Beerwah Village，爬完山補充體力的好據點。</div>
-              </div>
-
-              <!-- 備案 -->
-              <div class="tl-card tl-card-backup">
-                <div class="tl-card-label">⚡ 備案</div>
-                <div class="tl-card-name">The Lookout Cafe</div>
-                <div class="tl-card-tags">
-                  <span class="tag tag-food">AUD 20–30/人</span>
-                  <span class="tag tag-food">Veg / Vegan OK</span>
-                </div>
-                <div class="tl-card-links">
-                  <a href="https://www.google.com/maps/search/?api=1&query=The%20Lookout%20Cafe%20Glass%20House%20Mountains" target="_blank" class="tl-link d1">📍 地圖</a>
-                </div>
-                <div class="tl-card-note">Glass House Mtns，08:30–14:30。</div>
-              </div>
-
-            </div>
-          </div>
-        </div>
-
-        <!-- 前往 Eumundi -->
-        <div class="tl-item">
-          <div class="tl-time">11:25<br>12:10</div>
-          <div class="tl-axis"><div class="tl-dot sm dot-gray"></div><div class="tl-line"></div></div>
-          <div class="tl-body">
-            <div class="tl-main">🚗 前往 Eumundi</div>
-            <div class="tl-links">
-              <a href="https://www.google.com/maps/dir/?api=1&origin=The%20Coffee%20Club%20Cafe%20Beerwah&destination=Eumundi%20Markets&travelmode=driving" target="_blank" class="tl-link d1">📍 導航</a>
-            </div>
-            <div class="tl-tags"><span class="tag tag-drive">開車 約 40–45 分鐘</span></div>
-            <div class="tl-note">週六 + school holiday，停車時間保守估計。</div>
-          </div>
-        </div>
-
-        <!-- Eumundi Markets -->
-        <div class="tl-item" data-chip="eumundi">
-          <div class="tl-time">12:10<br>13:30</div>
-          <div class="tl-axis"><div class="tl-dot dot-orange"></div><div class="tl-line"></div></div>
-          <div class="tl-body">
-            <div class="tl-main">🛍️ Eumundi Markets</div>
-            <div class="tl-links">
-              <a href="https://www.google.com/maps/search/?api=1&query=Eumundi%20Markets" target="_blank" class="tl-link d1">📍 Eumundi Markets</a>
-            </div>
-            <div class="tl-tags"><span class="tag tag-shop">市集 07:30–14:00</span></div>
-            <div class="tl-note">已在 Coffee Club 吃過，這段以逛市集為主。<strong>建議 13:30 前離開</strong>，不要等到 14:00 關門。</div>
-            <div class="tl-photos">
-              <img class="tl-photo" src="pics/Eumundi Markets.JPG" alt="Eumundi Markets" onclick="openLightbox(this.src)">
-            </div>
-          </div>
-        </div>
-
-        <!-- Eumundi → Noosa -->
-        <div class="tl-item">
-          <div class="tl-time">13:30<br>14:15</div>
-          <div class="tl-axis"><div class="tl-dot sm dot-gray"></div><div class="tl-line"></div></div>
-          <div class="tl-body">
-            <div class="tl-main">🚗 Eumundi → Noosa River Retreat</div>
-            <div class="tl-links">
-              <a href="https://www.google.com/maps/dir/?api=1&origin=Eumundi%20Markets&destination=Noosa%20River%20Retreat%20Holiday%20Apartments%20Noosaville&travelmode=driving" target="_blank" class="tl-link d1">📍 導航</a>
-            </div>
-            <div class="tl-tags"><span class="tag tag-drive">開車 約 30 分鐘</span></div>
-          </div>
-        </div>
-
-        <!-- Check-in -->
-        <div class="tl-item" data-chip="noosa">
-          <div class="tl-time">14:15<br>15:15</div>
-          <div class="tl-axis"><div class="tl-dot dot-purple"></div><div class="tl-line"></div></div>
-          <div class="tl-body">
-            <div class="tl-main">🏨 Check-in · Noosa River Retreat + 休息</div>
-            <div class="tl-links">
-              <a href="https://www.google.com/maps/search/?api=1&query=Noosa%20River%20Retreat%20Holiday%20Apartments%20Noosaville" target="_blank" class="tl-link d1">📍 地圖</a>
-            </div>
-            <div class="tl-tags"><span class="tag tag-rest">下午 2 點後可入住</span></div>
-            <div class="tl-note">放行李、稍作休息，準備下午健行。</div>
-            <div class="tl-photos">
-              <img class="tl-photo" src="pics/Noosa River Retreat Holiday Apartments.JPG" alt="Noosa River Retreat" onclick="openLightbox(this.src)">
-            </div>
-          </div>
-        </div>
-
-        <!-- Drive to Noosa NP -->
-        <div class="tl-item" data-chip="noosanp">
-          <div class="tl-time">15:15<br>15:35</div>
-          <div class="tl-axis"><div class="tl-dot sm dot-gray"></div><div class="tl-line"></div></div>
-          <div class="tl-body">
-            <div class="tl-main">🚗 前往 Noosa National Park 停車場</div>
-            <div class="tl-links">
-              <a href="https://www.google.com/maps/dir/?api=1&origin=Noosa%20River%20Retreat%20Holiday%20Apartments%20Noosaville&destination=Noosa%20National%20Park%20Carpark&travelmode=driving" target="_blank" class="tl-link d1">📍 導航</a>
-            </div>
-            <div class="tl-note">週末停車場可能客滿，備案停 Hastings Street 附近。</div>
-          </div>
-        </div>
-
-        <!-- Noosa Coastal Walk -->
-        <div class="tl-item" data-chip="noosanp">
-          <div class="tl-time">15:35<br>17:00</div>
-          <div class="tl-axis"><div class="tl-dot dot-green"></div><div class="tl-line"></div></div>
-          <div class="tl-body">
-            <div class="tl-main">🌿 Noosa National Park：Tea Tree Bay → Dolphin Point</div>
-            <div class="tl-links">
-              <a href="https://www.google.com/maps/search/?api=1&query=Noosa%20National%20Park%20Carpark" target="_blank" class="tl-link d1">📍 停車場</a>
-              <a href="https://www.google.com/maps/search/?api=1&query=Tea%20Tree%20Bay%20Beach%20Noosa" target="_blank" class="tl-link d1">📍 Tea Tree Bay</a>
-              <a href="https://www.google.com/maps/search/?api=1&query=Dolphin%20Point%20Lookout%20Noosa" target="_blank" class="tl-link d1">📍 Dolphin Point</a>
-            </div>
-            <div class="tl-tags"><span class="tag tag-hike">原路折返（非環線）</span><span class="tag tag-hike">1.2km 單程</span><span class="tag tag-hike">約 75–100 分鐘</span></div>
-            <div class="tl-note">沿海步道，有機會看到海豚。</div>
-            <div class="tl-photos">
-              <img class="tl-photo" src="pics/Noosa Coastal Walk.JPG" alt="Noosa Coastal Walk" onclick="openLightbox(this.src)">
-            </div>
-          </div>
-        </div>
-
-        <!-- Massimo's -->
-        <div class="tl-item" data-chip="noosa">
-          <div class="tl-time">17:00<br>17:30</div>
-          <div class="tl-axis"><div class="tl-dot dot-orange"></div><div class="tl-line"></div></div>
-          <div class="tl-body">
-            <div class="tl-main">🍦 Massimo's Gelateria</div>
-            <div class="tl-links">
-              <a href="https://www.google.com/maps/search/?api=1&query=Massimo%27s%20Gelateria%20Noosa" target="_blank" class="tl-link d1">📍 地圖</a>
-            </div>
-            <div class="tl-tags"><span class="tag tag-food">週六開到 21:30</span></div>
-            <div class="tl-note">走完步道後的完美甜點。</div>
-          </div>
-        </div>
-
-        <!-- Dinner -->
-        <div class="tl-item">
-          <div class="tl-time">18:00<br>19:30</div>
-          <div class="tl-axis"><div class="tl-dot dot-orange"></div></div>
-          <div class="tl-body">
-            <div class="tl-main">🍽️ 晚餐（三選一）</div>
-            <div class="tl-links">
-              <a href="https://www.google.com/maps/search/?api=1&query=Leela%20Noosa" target="_blank" class="tl-link d1">📍 Leela Noosa</a>
-              <a href="https://www.google.com/maps/search/?api=1&query=Raw%20and%20Rice%20Noosa" target="_blank" class="tl-link d1">📍 Raw + Rice</a>
-              <a href="https://www.google.com/maps/search/?api=1&query=Somedays%20Pizza%20Noosa" target="_blank" class="tl-link d1">📍 Somedays Pizza</a>
-            </div>
-            <div class="tl-note">控預算首推 <strong>Leela Noosa</strong> 或 <strong>Raw + Rice</strong>。Somedays Pizza 氣氛好但較貴。</div>
-          </div>
-        </div>
-
-      </div><!-- /timeline -->
-
-      <div class="section-label">🍽️ Day 1 餐廳與素食預算</div>
-      <div class="food-cards">
-        <div class="food-row"><div class="fr-type">爬山後餐</div><div class="fr-info"><div class="fr-name">The Coffee Club Café - Beerwah</div><div class="fr-veg">部分 Vegan 可調</div></div><div class="fr-budget">AUD 20–30</div></div>
-        <div class="food-row"><div class="fr-type">爬山後備案</div><div class="fr-info"><div class="fr-name">The Lookout Cafe（Glass House）</div><div class="fr-veg">Veg / Vegan OK</div></div><div class="fr-budget">AUD 20–30</div></div>
-        <div class="food-row"><div class="fr-type">市集逛逛</div><div class="fr-info"><div class="fr-name">Eumundi Markets 小吃</div><div class="fr-veg">素食容易找</div></div><div class="fr-budget">AUD 視需要</div></div>
-        <div class="food-row"><div class="fr-type">晚餐首選</div><div class="fr-info"><div class="fr-name">Leela Noosa</div><div class="fr-veg">素食咖哩選擇多</div></div><div class="fr-budget">AUD 20–30</div></div>
-        <div class="food-row"><div class="fr-type">晚餐輕食</div><div class="fr-info"><div class="fr-name">Raw + Rice Noosa</div><div class="fr-veg">Tofu / Vegan OK</div></div><div class="fr-budget">AUD 17–25</div></div>
-        <div class="food-row"><div class="fr-type">晚餐氣氛</div><div class="fr-info"><div class="fr-name">Somedays Pizza Noosa</div><div class="fr-veg">Veg / Vegan 選項</div></div><div class="fr-budget">AUD 30–40</div></div>
-      </div>
-
-    </div><!-- /day1-content -->
-
-
-    <!-- ─── DAY 2 CONTENT ─── -->
-    <div class="day-content" id="day2-content">
-
-      <div class="route-strip d2">
-        <span class="route-strip-label">🗺️ Farmers Mkt → Mt Coolum → Viet Haus → Carina</span>
-        <a href="https://www.google.com/maps/dir/?api=1&origin=Noosa%20River%20Retreat%20Holiday%20Apartments%20Noosaville&destination=Carina%20QLD&waypoints=Noosa%20Farmers%20Market%7CMount%20Coolum%20Walking%20Trail%7CViet%20Haus%20Ocean%20St%20Maroochydore&travelmode=driving"
-           target="_blank" class="nav-btn d2">導航</a>
-      </div>
-
-      <div class="timeline">
-
-        <div class="tl-item" data-chip="farmersmarket">
-          <div class="tl-time">07:00<br>08:10</div>
-          <div class="tl-axis"><div class="tl-dot dot-orange"></div><div class="tl-line"></div></div>
-          <div class="tl-body">
-            <div class="tl-main">🥦 早餐：Noosa Farmers Market</div>
-            <div class="tl-links">
-              <a href="https://www.google.com/maps/search/?api=1&query=Noosa%20Farmers%20Market" target="_blank" class="tl-link d2">📍 地圖</a>
-            </div>
-            <div class="tl-tags"><span class="tag tag-food">市集早餐 AUD 10–25/人</span><span class="tag tag-shop">週日 07:00–12:00</span></div>
-            <div class="tl-note">水果、麵包、咖啡、蔬食攤位，素食選項容易找。</div>
-          </div>
-        </div>
-
-        <div class="tl-item">
-          <div class="tl-time">08:10<br>08:25</div>
-          <div class="tl-axis"><div class="tl-dot sm dot-gray"></div><div class="tl-line"></div></div>
-          <div class="tl-body">
-            <div class="tl-main">🚗 回飯店</div>
-            <div class="tl-links">
-              <a href="https://www.google.com/maps/dir/?api=1&origin=Noosa%20Farmers%20Market&destination=Noosa%20River%20Retreat%20Holiday%20Apartments%20Noosaville&travelmode=driving" target="_blank" class="tl-link d2">📍 導航</a>
-            </div>
-            <div class="tl-note">不要在市場逛太久，後面要爬 Mount Coolum。</div>
-          </div>
-        </div>
-
-        <div class="tl-item" data-chip="hotel">
-          <div class="tl-time">08:25<br>09:00</div>
-          <div class="tl-axis"><div class="tl-dot dot-purple"></div><div class="tl-line"></div></div>
-          <div class="tl-body">
-            <div class="tl-main">🧳 收拾行李</div>
-            <div class="tl-tags"><span class="tag tag-warn">⚠️ 重要！不可壓縮</span></div>
-            <div class="tl-note">留足夠時間整理，避免倉皇退房。</div>
-          </div>
-        </div>
-
-        <div class="tl-item" data-chip="hotel">
-          <div class="tl-time">09:00</div>
-          <div class="tl-axis"><div class="tl-dot dot-purple"></div><div class="tl-line"></div></div>
-          <div class="tl-body">
-            <div class="tl-main">🏨 退房 · Noosa River Retreat</div>
-            <div class="tl-links">
-              <a href="https://www.google.com/maps/search/?api=1&query=Noosa%20River%20Retreat%20Holiday%20Apartments%20Noosaville" target="_blank" class="tl-link d2">📍 地圖</a>
-            </div>
-            <div class="tl-tags"><span class="tag tag-rest">官方退房時間 10:00 前</span></div>
-            <div class="tl-note">09:00 退房非常安全，行程不趕。</div>
-          </div>
-        </div>
-
-        <div class="tl-item">
-          <div class="tl-time">09:00<br>09:40</div>
-          <div class="tl-axis"><div class="tl-dot sm dot-gray"></div><div class="tl-line"></div></div>
-          <div class="tl-body">
-            <div class="tl-main">🚗 前往 Mount Coolum Walking Trail</div>
-            <div class="tl-links">
-              <a href="https://www.google.com/maps/dir/?api=1&origin=Noosa%20River%20Retreat%20Holiday%20Apartments%20Noosaville&destination=Mount%20Coolum%20Walking%20Trail&travelmode=driving" target="_blank" class="tl-link d2">📍 導航</a>
-            </div>
-            <div class="tl-tags"><span class="tag tag-drive">開車 約 30 分鐘</span></div>
-          </div>
-        </div>
-
-        <div class="tl-item">
-          <div class="tl-time">09:40<br>10:00</div>
-          <div class="tl-axis"><div class="tl-dot sm dot-gray"></div><div class="tl-line"></div></div>
-          <div class="tl-body">
-            <div class="tl-main">🅿️ 停車、整理、暖身</div>
-            <div class="tl-links">
-              <a href="https://www.google.com/maps/search/?api=1&query=Mount%20Coolum%20Walking%20Trail" target="_blank" class="tl-link d2">📍 地圖</a>
-            </div>
-            <div class="tl-note">停車可能熱門，保留 20 分鐘。上廁所、整理水和外套。</div>
-          </div>
-        </div>
-
-        <div class="tl-item" data-chip="coolum">
-          <div class="tl-time">10:00<br>12:00</div>
-          <div class="tl-axis"><div class="tl-dot dot-green"></div><div class="tl-line"></div></div>
-          <div class="tl-body">
-            <div class="tl-main">⛰️ Mount Coolum Walking Trail（登頂）</div>
-            <div class="tl-links">
-              <a href="https://www.google.com/maps/search/?api=1&query=Mount%20Coolum%20Walking%20Trail" target="_blank" class="tl-link d2">📍 地圖</a>
-            </div>
-            <div class="tl-tags"><span class="tag tag-hike">Grade 4</span><span class="tag tag-hike">Steep / Rocky</span><span class="tag tag-hike">1.9km 來回</span><span class="tag tag-hike">約 2 小時</span></div>
-            <div class="tl-note">官方 Grade 4，有陡峭岩石路段。<strong>攜帶充足水分</strong>，穿防滑登山鞋。</div>
-            <div class="tl-photos">
-              <img class="tl-photo" src="pics/Mount Coolum Track.JPG" alt="Mount Coolum" onclick="openLightbox(this.src)">
-              <img class="tl-photo" src="pics/Mount Coolum Track - 1.JPG" alt="Mount Coolum Summit" onclick="openLightbox(this.src)">
-            </div>
-          </div>
-        </div>
-
-        <div class="tl-item">
-          <div class="tl-time">12:00<br>12:20</div>
-          <div class="tl-axis"><div class="tl-dot sm dot-gray"></div><div class="tl-line"></div></div>
-          <div class="tl-body">
-            <div class="tl-main">🧘 下山休息、補水、換衣服</div>
-            <div class="tl-tags"><span class="tag tag-warn">⚠️ 必留緩衝時間</span></div>
-            <div class="tl-note">這段一定要留，不然去午餐會很狼狽。</div>
-          </div>
-        </div>
-
-        <div class="tl-item">
-          <div class="tl-time">12:20<br>12:50</div>
-          <div class="tl-axis"><div class="tl-dot sm dot-gray"></div><div class="tl-line"></div></div>
-          <div class="tl-body">
-            <div class="tl-main">🚗 Mount Coolum → Viet Haus（Maroochydore）</div>
-            <div class="tl-links">
-              <a href="https://www.google.com/maps/dir/?api=1&origin=Mount%20Coolum%20Walking%20Trail&destination=Viet%20Haus%20Ocean%20St%20Maroochydore&travelmode=driving" target="_blank" class="tl-link d2">📍 導航</a>
-            </div>
-            <div class="tl-tags"><span class="tag tag-drive">開車 約 20 分鐘</span></div>
-          </div>
-        </div>
-
-        <div class="tl-item" data-chip="viethaus">
-          <div class="tl-time">12:50<br>14:00</div>
-          <div class="tl-axis"><div class="tl-dot dot-orange"></div><div class="tl-line"></div></div>
-          <div class="tl-body">
-            <div class="tl-main">🍜 午餐：Viet Haus</div>
-            <div class="tl-links">
-              <a href="https://www.google.com/maps/search/?api=1&query=Viet%20Haus%20Ocean%20St%20Maroochydore" target="_blank" class="tl-link d2">📍 Viet Haus 地圖</a>
-            </div>
-            <div class="tl-tags"><span class="tag tag-food">越南料理</span><span class="tag tag-food">Shop 9 / 12-20 Ocean St</span></div>
-            <div class="tl-note">越南河粉、春卷，有素食選項可詢問。爬完山後吃熱湯麵非常舒服。</div>
-          </div>
-        </div>
-
-        <div class="tl-item" data-chip="home">
-          <div class="tl-time">14:00<br>16:00</div>
-          <div class="tl-axis"><div class="tl-dot dot-blue"></div></div>
-          <div class="tl-body">
-            <div class="tl-main">🏠 Sunshine Plaza → Carina 返家</div>
-            <div class="tl-links">
-              <a href="https://www.google.com/maps/dir/?api=1&origin=Viet%20Haus%20Ocean%20St%20Maroochydore&destination=Carina%20QLD&travelmode=driving" target="_blank" class="tl-link d2">📍 導航</a>
-            </div>
-            <div class="tl-tags"><span class="tag tag-drive">約 1.5–2 小時</span></div>
-            <div class="tl-note">週日下午回布里斯本車流較多，保守估計 2 小時。</div>
-          </div>
-        </div>
-
-      </div><!-- /timeline -->
-
-      <div class="section-label">🍽️ Day 2 餐廳與素食預算</div>
-      <div class="food-cards">
-        <div class="food-row"><div class="fr-type">早餐</div><div class="fr-info"><div class="fr-name">Noosa Farmers Market</div><div class="fr-veg">蔬食攤位多</div></div><div class="fr-budget">AUD 10–25</div></div>
-        <div class="food-row"><div class="fr-type">午餐</div><div class="fr-info"><div class="fr-name">Viet Haus — Shop 9/12-20 Ocean St, Maroochydore</div><div class="fr-veg">越南料理・素食選項可詢問</div></div><div class="fr-budget">AUD 15–25</div></div>
-      </div>
-
-      <div class="tips-box">
-        <div class="tips-title">⚠️ 重要提醒</div>
-        <ul class="tips-list">
-          <li>Noosa NP 停車場週末可能客滿，備案停 Hastings Street 附近</li>
-          <li>Mount Coolum Grade 4，帶足夠水分和防滑登山鞋</li>
-          <li>Eumundi 週六 + 學校假期，停車預留多一點時間</li>
-          <li>週日下午回布里斯本，抓 2 小時車程比較穩</li>
-          <li>Noosa Farmers Market 週日 07:00–12:00，不要誤點</li>
-          <li>收行李時間 08:25–09:00 不可壓縮，非常重要</li>
-        </ul>
-      </div>
-
-    </div><!-- /day2-content -->
-
-  </div><!-- /sidebar-body -->
-</aside><!-- /sidebar -->
-
-</div><!-- /app -->
-
-<!-- Mobile map-updated hint -->
 <div id="mapToast" class="map-toast">↓ 地圖已更新，收起行程可查看</div>
 
-<!-- Lightbox -->
-<div class="lightbox" id="lightbox" onclick="closeLightbox()">
-  <span class="lightbox-close" onclick="closeLightbox()">✕</span>
+<div class="lightbox" id="lightbox">
+  <span class="lightbox-close" id="lightboxClose">✕</span>
   <img id="lightbox-img" src="" alt="">
 </div>
 
