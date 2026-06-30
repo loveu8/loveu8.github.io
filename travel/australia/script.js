@@ -1,10 +1,40 @@
 var sidebar = document.getElementById('sidebar');
 var handleHint = document.getElementById('handleHint');
+var themeToggle = document.getElementById('themeToggle');
+
+function applyTheme(theme) {
+  if (theme === 'system') {
+    document.documentElement.removeAttribute('data-theme');
+  } else {
+    document.documentElement.setAttribute('data-theme', theme);
+  }
+  if (!themeToggle) return;
+  var isDark = document.documentElement.getAttribute('data-theme') === 'dark' ||
+    (!document.documentElement.hasAttribute('data-theme') && window.matchMedia('(prefers-color-scheme: dark)').matches);
+  themeToggle.textContent = isDark ? '☼' : '◐';
+  themeToggle.setAttribute('aria-label', isDark ? '切換淺色模式' : '切換深色模式');
+  themeToggle.setAttribute('title', isDark ? '切換淺色模式' : '切換深色模式');
+}
+
+applyTheme(localStorage.getItem('theme') || 'system');
+
+if (themeToggle) {
+  themeToggle.addEventListener('click', function() {
+    var current = document.documentElement.getAttribute('data-theme');
+    var next = current === 'dark' ? 'light' : 'dark';
+    localStorage.setItem('theme', next);
+    applyTheme(next);
+  });
+}
+
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function() {
+  if (!localStorage.getItem('theme')) applyTheme('system');
+});
 
 function toggleSidebar() {
   if (window.innerWidth >= 768) return;
   var expanded = sidebar.classList.toggle('expanded');
-  handleHint.textContent = expanded ? '▼ 收起' : '▲ 查看行程';
+  handleHint.textContent = expanded ? '▼ 收起行程' : '▲ 查看行程';
 }
 
 function setActiveChip(chipKey) {
@@ -37,7 +67,7 @@ function switchDay(day, tabEl) {
 
   if (window.innerWidth < 768) {
     sidebar.classList.add('expanded');
-    handleHint.textContent = '▼ 收起';
+    handleHint.textContent = '▼ 收起行程';
     document.querySelector('.sidebar-body').scrollTop = 0;
   }
 }
