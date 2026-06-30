@@ -9,7 +9,7 @@
 <body>
 
 <div class="map-chip-panel" id="mapChipPanel">
-  <div class="chip-strip" id="chipStrip"></div>
+  <div class="chip-strip" id="chipStrip" role="group"></div>
   <div class="top-actions">
     <button class="lang-toggle" type="button" id="langToggle" aria-label="Switch language">EN</button>
     <button class="theme-toggle" type="button" id="themeToggle" aria-label="切換深色模式" title="切換深色模式">◐</button>
@@ -44,10 +44,12 @@
         <button class="print-btn" id="printBtn" type="button">🖨️ 列印</button>
       </div>
 
-      <div class="day-tabs" id="dayTabs"></div>
+      <div class="day-tabs" id="dayTabs" role="tablist"></div>
     </div>
 
     <div class="sidebar-body" id="sidebarBody"></div>
+
+    <button class="back-to-top" id="backToTop" type="button">↑</button>
   </aside>
 </div>
 

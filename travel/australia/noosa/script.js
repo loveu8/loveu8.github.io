@@ -17,7 +17,12 @@ var ITINERARY_DATA =
         "mapUpdated": "↓ 地圖已更新，收起行程可查看",
         "main": "✅ 主要",
         "mainPlan": "✅ 主要行程",
-        "backup": "⚡ 備案"
+        "backup": "⚡ 備案",
+        "routeStops": "行程路線站點",
+        "dayTabsLabel": "選擇天數",
+        "backToTop": "回到頂部",
+        "vegPicks": "🌱 素食推薦",
+        "generalPicks": "🍖 一般餐點推薦"
       },
       "tripTitle": "NOOSA 週末行程",
       "tripSubtitle": "2026/07/04-05 · 全程自駕 · 素食友善"
@@ -37,7 +42,12 @@ var ITINERARY_DATA =
         "mapUpdated": "↓ Map updated. Collapse itinerary to view it.",
         "main": "✅ Main",
         "mainPlan": "✅ Main plan",
-        "backup": "⚡ Backup"
+        "backup": "⚡ Backup",
+        "routeStops": "Route stops",
+        "dayTabsLabel": "Choose day",
+        "backToTop": "Back to top",
+        "vegPicks": "🌱 Vegetarian picks",
+        "generalPicks": "🍖 General / meat picks"
       },
       "tripTitle": "NOOSA Weekend Itinerary",
       "tripSubtitle": "2026/07/04-05 · Self-drive · Vegetarian friendly"
@@ -146,11 +156,11 @@ var ITINERARY_DATA =
           "time": ["12:10", "13:30"],
           "chip": "eumundi",
           "dot": "orange",
-          "title": { "zh-TW": "🛍️ Eumundi Markets", "en": "🛍️ Eumundi Markets" },
-          "intro": { "zh-TW": "陽光海岸知名週末市集，適合買小吃和手作小物。", "en": "A well-known Sunshine Coast market for snacks, crafts, and browsing." },
+          "title": { "zh-TW": "🛍️ Eumundi Markets · 市集午餐", "en": "🛍️ Eumundi Markets · market lunch" },
+          "intro": { "zh-TW": "陽光海岸知名週末市集，適合買小吃和手作小物，這段時間直接在市集解決中餐。", "en": "A well-known Sunshine Coast market for snacks, crafts, and browsing — eat lunch right here at the food stalls." },
           "links": [{ "label": { "zh-TW": "📍 Eumundi Markets", "en": "📍 Eumundi Markets" }, "url": "https://www.google.com/maps/search/?api=1&query=Eumundi%20Markets", "theme": "d1" }],
           "tags": [{ "type": "shop", "text": { "zh-TW": "市集 07:30-14:00", "en": "Market 07:30-14:00" } }],
-          "note": { "zh-TW": "已在 Coffee Club 吃過，這段以逛市集為主。建議 13:30 前離開。", "en": "Keep this as market browsing after Coffee Club. Aim to leave before 13:30." },
+          "note": { "zh-TW": "中餐推薦攤位：Seko Food（中東口味捲餅，素食/全素選擇多）、Samosa Cart（印度咖哩餃，全素）、Turkish Gozleme（土耳其烤餅，起司/菠菜素食口味）。市集攤位每週略有變動，到場可再確認。建議 13:30 前離開。", "en": "Recommended lunch stalls: Seko Food (Middle Eastern wraps, many vegan/vegetarian options), Samosa Cart (Indian samosas, fully vegetarian), Turkish Gozleme (cheese/spinach vegetarian options). Stalls rotate week to week, so confirm on site. Aim to leave before 13:30." },
           "photos": [{ "src": "pics/Eumundi Markets.JPG", "alt": "Eumundi Markets" }]
         },
         {
@@ -187,12 +197,23 @@ var ITINERARY_DATA =
         }
       ],
       "foodSection": {
-        "title": { "zh-TW": "🍽️ Day 1 餐廳與素食預算", "en": "🍽️ Day 1 food and vegetarian budget" },
-        "rows": [
-          { "type": { "zh-TW": "爬山後餐", "en": "Post-hike" }, "name": "The Coffee Club Cafe - Beerwah", "veg": { "zh-TW": "部分 Vegan 可調", "en": "Some vegan adjustments" }, "budget": "AUD 20-30" },
-          { "type": { "zh-TW": "晚餐首選", "en": "Dinner pick" }, "name": "Leela Noosa", "veg": { "zh-TW": "素食咖哩選擇多", "en": "Many vegetarian curries" }, "budget": "AUD 20-30" },
-          { "type": { "zh-TW": "晚餐輕食", "en": "Light dinner" }, "name": "Raw + Rice Noosa", "veg": { "zh-TW": "Tofu / Vegan OK", "en": "Tofu / vegan OK" }, "budget": "AUD 17-25" },
-          { "type": { "zh-TW": "晚餐氣氛", "en": "Atmosphere" }, "name": "Somedays Pizza Noosa", "veg": { "zh-TW": "Veg / Vegan 選項", "en": "Veg / vegan options" }, "budget": "AUD 30-40" }
+        "title": { "zh-TW": "🍽️ Day 1 餐廳與預算", "en": "🍽️ Day 1 food and budget" },
+        "vegRows": [
+          { "type": { "zh-TW": "爬山後餐", "en": "Post-hike" }, "name": "The Coffee Club Cafe - Beerwah", "veg": { "zh-TW": "推薦：Tomato & Pesto Flat Grill", "en": "Pick: Tomato & Pesto Flat Grill" }, "budget": "AUD 20-30", "mapUrl": "https://www.google.com/maps/search/?api=1&query=The%20Coffee%20Club%20Cafe%20Beerwah" },
+          { "type": { "zh-TW": "市集午餐", "en": "Market lunch" }, "name": "Seko Food (Eumundi Markets)", "veg": { "zh-TW": "中東捲餅，素食/全素選擇多", "en": "Middle Eastern wraps, many vegan/veg picks" }, "budget": "AUD 12-18", "mapUrl": "https://www.google.com/maps/search/?api=1&query=Seko%20Food%20Eumundi%20Markets" },
+          { "type": { "zh-TW": "市集午餐", "en": "Market lunch" }, "name": "Samosa Cart (Eumundi Markets)", "veg": { "zh-TW": "印度咖哩餃，全素食", "en": "Indian samosas, fully vegetarian" }, "budget": "AUD 8-12", "mapUrl": "https://www.google.com/maps/search/?api=1&query=Samosa%20Cart%20Eumundi%20Markets" },
+          { "type": { "zh-TW": "市集午餐", "en": "Market lunch" }, "name": "Turkish Gozleme (Eumundi Markets)", "veg": { "zh-TW": "起司/菠菜素食口味", "en": "Cheese / spinach vegetarian fillings" }, "budget": "AUD 10-15", "mapUrl": "https://www.google.com/maps/search/?api=1&query=Turkish%20Gozleme%20Eumundi%20Markets" },
+          { "type": { "zh-TW": "晚餐首選", "en": "Dinner pick" }, "name": "Leela Noosa", "veg": { "zh-TW": "推薦：Saag Aloo / Chana Masala 等素食咖哩", "en": "Pick: Saag Aloo / Chana Masala veg curries" }, "budget": "AUD 20-30", "mapUrl": "https://www.google.com/maps/search/?api=1&query=Leela%20Noosa" },
+          { "type": { "zh-TW": "晚餐輕食", "en": "Light dinner" }, "name": "Raw + Rice Noosa", "veg": { "zh-TW": "推薦：豆腐 / 野菇碗（自選配料）", "en": "Pick: tofu / sticky mushroom bowl (build your own)" }, "budget": "AUD 17-25", "mapUrl": "https://www.google.com/maps/search/?api=1&query=Raw%20%2B%20Rice%20Noosa" },
+          { "type": { "zh-TW": "晚餐氣氛", "en": "Atmosphere" }, "name": "Somedays Pizza Noosa", "veg": { "zh-TW": "推薦：Margherita 蔬食披薩", "en": "Pick: Margherita veg pizza" }, "budget": "AUD 30-40", "mapUrl": "https://www.google.com/maps/search/?api=1&query=Somedays%20Pizza%20Noosa" }
+        ],
+        "generalRows": [
+          { "type": { "zh-TW": "爬山後餐", "en": "Post-hike" }, "name": "The Coffee Club Cafe - Beerwah", "veg": { "zh-TW": "推薦：雞肉三明治 / 牛排三明治", "en": "Pick: Chicken Schnitzel / Steak Sandwich" }, "budget": "AUD 20-30", "mapUrl": "https://www.google.com/maps/search/?api=1&query=The%20Coffee%20Club%20Cafe%20Beerwah" },
+          { "type": { "zh-TW": "市集午餐", "en": "Market lunch" }, "name": "Pops Dim Sims (Eumundi Markets)", "veg": { "zh-TW": "招牌雞肉/豬肉煎餃（也有素食口味）", "en": "Signature chicken / pork dim sims (veg version also available)" }, "budget": "AUD 6-10", "mapUrl": "https://www.google.com/maps/search/?api=1&query=Pops%20Dim%20Sims%20Eumundi%20Markets" },
+          { "type": { "zh-TW": "市集午餐", "en": "Market lunch" }, "name": "Traditional German Sausages (Eumundi Markets)", "veg": { "zh-TW": "德式香腸佐酸菜法棍", "en": "German sausage with sauerkraut in a baguette" }, "budget": "AUD 10-15", "mapUrl": "https://www.google.com/maps/search/?api=1&query=Traditional%20German%20Sausages%20Eumundi%20Markets" },
+          { "type": { "zh-TW": "晚餐首選", "en": "Dinner pick" }, "name": "Leela Noosa", "veg": { "zh-TW": "推薦：肉類咖哩任選", "en": "Pick: choice of meat curries" }, "budget": "AUD 22-32", "mapUrl": "https://www.google.com/maps/search/?api=1&query=Leela%20Noosa" },
+          { "type": { "zh-TW": "晚餐輕食", "en": "Light dinner" }, "name": "Raw + Rice Noosa", "veg": { "zh-TW": "推薦：鮭魚 / 雞肉碗（自選配料）", "en": "Pick: salmon / chicken bowl (build your own)" }, "budget": "AUD 19-27", "mapUrl": "https://www.google.com/maps/search/?api=1&query=Raw%20%2B%20Rice%20Noosa" },
+          { "type": { "zh-TW": "晚餐氣氛", "en": "Atmosphere" }, "name": "Somedays Pizza Noosa", "veg": { "zh-TW": "推薦：Prosciutto / 煙燻肉腸披薩", "en": "Pick: Prosciutto / smoked meat pizza" }, "budget": "AUD 30-40", "mapUrl": "https://www.google.com/maps/search/?api=1&query=Somedays%20Pizza%20Noosa" }
         ]
       }
     },
@@ -213,7 +234,7 @@ var ITINERARY_DATA =
           "intro": { "zh-TW": "週日早上市集，水果、咖啡和蔬食選項都容易找。", "en": "A Sunday morning market with fruit, coffee, and vegetarian-friendly options." },
           "links": [{ "label": { "zh-TW": "📍 地圖", "en": "📍 Map" }, "url": "https://www.google.com/maps/search/?api=1&query=Noosa%20Farmers%20Market", "theme": "d2" }],
           "tags": [{ "type": "food", "text": { "zh-TW": "市集早餐 AUD 10-25/人", "en": "Market breakfast AUD 10-25 pp" } }, { "type": "shop", "text": { "zh-TW": "週日 07:00-12:00", "en": "Sun 07:00-12:00" } }],
-          "note": { "zh-TW": "水果、麵包、咖啡、蔬食攤位，素食選項容易找。", "en": "Good for fruit, bread, coffee, and easy vegetarian options." }
+          "note": { "zh-TW": "大家推薦：Flying West（口碑很好的咖啡）、Roti 配仁當咖哩、現烤可頌與班尼迪克蛋等熱食攤位。建議空腹早點到，邊逛邊試吃。攤位每週略有變動，到場可再確認。", "en": "Crowd favourites: Flying West coffee, roti with rendang curry, fresh pastries, and hot breakfast stalls. Arrive hungry and early to graze your way through. Stalls rotate week to week, so confirm on site." }
         },
         {
           "time": ["08:25", "09:00"],
@@ -255,10 +276,17 @@ var ITINERARY_DATA =
         }
       ],
       "foodSection": {
-        "title": { "zh-TW": "🍽️ Day 2 餐廳與素食預算", "en": "🍽️ Day 2 food and vegetarian budget" },
-        "rows": [
-          { "type": { "zh-TW": "早餐", "en": "Breakfast" }, "name": "Noosa Farmers Market", "veg": { "zh-TW": "蔬食攤位多", "en": "Many vegetarian stalls" }, "budget": "AUD 10-25" },
-          { "type": { "zh-TW": "午餐", "en": "Lunch" }, "name": "Viet Haus - Shop 9/12-20 Ocean St, Maroochydore", "veg": { "zh-TW": "越南料理・素食選項可詢問", "en": "Vietnamese, ask for vegetarian options" }, "budget": "AUD 15-25" }
+        "title": { "zh-TW": "🍽️ Day 2 餐廳與預算", "en": "🍽️ Day 2 food and budget" },
+        "vegRows": [
+          { "type": { "zh-TW": "早餐市集", "en": "Breakfast" }, "name": "Noosa Farmers Market", "veg": { "zh-TW": "新鮮水果、果汁、烘焙、蔬食攤位多", "en": "Fresh fruit, juice, baked goods, many vegetarian stalls" }, "budget": "AUD 10-25", "mapUrl": "https://www.google.com/maps/search/?api=1&query=Noosa%20Farmers%20Market" },
+          { "type": { "zh-TW": "推薦咖啡", "en": "Coffee pick" }, "name": "Flying West Coffee (Noosa Farmers Market)", "veg": { "zh-TW": "在地口碑咖啡攤", "en": "Locally loved coffee stall" }, "budget": "AUD 5-8", "mapUrl": "https://www.google.com/maps/search/?api=1&query=Flying%20West%20Coffee%20Noosa%20Farmers%20Market" },
+          { "type": { "zh-TW": "推薦早餐", "en": "Breakfast pick" }, "name": "Roti & Rendang Curry stall (Noosa Farmers Market)", "veg": { "zh-TW": "推薦：素食仁當咖哩配 Roti（可詢問）", "en": "Pick: vegetarian rendang with roti (ask on site)" }, "budget": "AUD 10-15", "mapUrl": "https://www.google.com/maps/search/?api=1&query=Rendang%20Curry%20Roti%20Noosa%20Farmers%20Market" },
+          { "type": { "zh-TW": "午餐", "en": "Lunch" }, "name": "Viet Haus - Shop 9/12-20 Ocean St, Maroochydore", "veg": { "zh-TW": "推薦：蔬食河粉 / 鮮蔬春捲（可詢問）", "en": "Pick: vegetable pho / fresh veg spring rolls (ask on site)" }, "budget": "AUD 15-25", "mapUrl": "https://www.google.com/maps/search/?api=1&query=Viet%20Haus%20Ocean%20St%20Maroochydore" }
+        ],
+        "generalRows": [
+          { "type": { "zh-TW": "推薦早餐", "en": "Breakfast pick" }, "name": "培根蛋堡 / 德式香腸攤位 (Noosa Farmers Market)", "veg": { "zh-TW": "經典市集早餐，攤位每週略有不同", "en": "Classic market breakfast, exact stall rotates weekly" }, "budget": "AUD 10-18", "mapUrl": "https://www.google.com/maps/search/?api=1&query=Noosa%20Farmers%20Market" },
+          { "type": { "zh-TW": "推薦早餐", "en": "Breakfast pick" }, "name": "Roti & Rendang Curry stall (Noosa Farmers Market)", "veg": { "zh-TW": "推薦：經典牛肉仁當咖哩", "en": "Pick: classic beef rendang" }, "budget": "AUD 10-15", "mapUrl": "https://www.google.com/maps/search/?api=1&query=Rendang%20Curry%20Roti%20Noosa%20Farmers%20Market" },
+          { "type": { "zh-TW": "午餐", "en": "Lunch" }, "name": "Viet Haus - Shop 9/12-20 Ocean St, Maroochydore", "veg": { "zh-TW": "推薦：招牌牛肉河粉 Pho Bo", "en": "Pick: signature beef pho (Pho Bo)" }, "budget": "AUD 16-26", "mapUrl": "https://www.google.com/maps/search/?api=1&query=Viet%20Haus%20Ocean%20St%20Maroochydore" }
         ]
       },
       "tips": {
@@ -278,7 +306,9 @@ var state = {
   data: null,
   lang: localStorage.getItem('lang') || 'zh-TW',
   day: 1,
-  mapTimer: null
+  mapTimer: null,
+  chipObserver: null,
+  chipVisibility: {}
 };
 
 var els = {
@@ -303,7 +333,8 @@ var els = {
   resizeDivider: document.getElementById('resizeDivider'),
   lightbox: document.getElementById('lightbox'),
   lightboxImg: document.getElementById('lightbox-img'),
-  lightboxClose: document.getElementById('lightboxClose')
+  lightboxClose: document.getElementById('lightboxClose'),
+  backToTop: document.getElementById('backToTop')
 };
 
 function t(value) {
@@ -390,12 +421,47 @@ function toggleSidebar() {
 
 function setActiveChip(chipKey) {
   els.chipStrip.querySelectorAll('.chip').forEach(function(chip) {
-    chip.classList.toggle('active', chip.dataset.chip === chipKey);
+    var isActive = chip.dataset.chip === chipKey;
+    chip.classList.toggle('active', isActive);
+    if (isActive) {
+      chip.setAttribute('aria-current', 'step');
+    } else {
+      chip.removeAttribute('aria-current');
+    }
   });
 
   if (!chipKey) return;
   var target = els.chipStrip.querySelector('[data-chip="' + chipKey + '"]');
   if (target) target.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+}
+
+function setupScrollSpy() {
+  if (state.chipObserver) {
+    state.chipObserver.disconnect();
+    state.chipObserver = null;
+  }
+  if (!window.IntersectionObserver) return;
+
+  var items = Array.prototype.slice.call(els.sidebarBody.querySelectorAll('.tl-item[data-chip]'));
+  state.chipVisibility = {};
+  if (!items.length) return;
+
+  state.chipObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      state.chipVisibility[entry.target.dataset.chip] = entry.isIntersecting;
+    });
+    var current = null;
+    items.forEach(function(item) {
+      if (state.chipVisibility[item.dataset.chip]) current = item.dataset.chip;
+    });
+    if (current) setActiveChip(current);
+  }, {
+    root: els.sidebarBody,
+    rootMargin: '0px 0px -70% 0px',
+    threshold: 0
+  });
+
+  items.forEach(function(item) { state.chipObserver.observe(item); });
 }
 
 function currentDay() {
@@ -455,8 +521,11 @@ function renderMap(day) {
 function renderTabs() {
   els.dayTabs.innerHTML = '';
   state.data.days.forEach(function(day) {
-    var tab = el('button', 'day-tab' + (day.id === state.day ? ' active' : ''));
+    var isActive = day.id === state.day;
+    var tab = el('button', 'day-tab' + (isActive ? ' active' : ''));
     tab.type = 'button';
+    tab.setAttribute('role', 'tab');
+    tab.setAttribute('aria-selected', isActive ? 'true' : 'false');
     tab.innerHTML = '<span class="tab-label"></span><span class="tab-sub"></span>';
     tab.querySelector('.tab-label').textContent = t(day.label);
     tab.querySelector('.tab-sub').textContent = t(day.tabSub);
@@ -544,24 +613,44 @@ function renderItem(item, day, isLast) {
   return row;
 }
 
-function renderFoodSection(section) {
-  if (!section) return null;
-  var frag = document.createDocumentFragment();
-  frag.appendChild(el('div', 'section-label', t(section.title)));
+function renderFoodRows(rows, dietClass) {
   var cards = el('div', 'food-cards');
-
-  section.rows.forEach(function(row) {
+  rows.forEach(function(row) {
     var food = el('div', 'food-row');
     food.appendChild(el('div', 'fr-type', t(row.type)));
     var info = el('div', 'fr-info');
     info.appendChild(el('div', 'fr-name', row.name));
-    info.appendChild(el('div', 'fr-veg', t(row.veg)));
+    info.appendChild(el('div', 'fr-veg ' + dietClass, t(row.veg)));
     food.appendChild(info);
     food.appendChild(el('div', 'fr-budget', row.budget));
+    if (row.mapUrl) {
+      var link = el('a', 'fr-link', '📍');
+      link.href = row.mapUrl;
+      link.target = '_blank';
+      link.rel = 'noopener';
+      link.setAttribute('aria-label', ui('map') + ': ' + row.name);
+      link.title = ui('map');
+      food.appendChild(link);
+    }
     cards.appendChild(food);
   });
+  return cards;
+}
 
-  frag.appendChild(cards);
+function renderFoodSection(section) {
+  if (!section) return null;
+  var frag = document.createDocumentFragment();
+  frag.appendChild(el('div', 'section-label', t(section.title)));
+
+  if (section.vegRows && section.vegRows.length) {
+    frag.appendChild(el('div', 'subsection-label', ui('vegPicks')));
+    frag.appendChild(renderFoodRows(section.vegRows, 'fr-veg-pick'));
+  }
+  if (section.generalRows && section.generalRows.length) {
+    frag.appendChild(el('div', 'subsection-label', ui('generalPicks')));
+    frag.appendChild(renderFoodRows(section.generalRows, 'fr-general-pick'));
+  }
+
   return frag;
 }
 
@@ -610,6 +699,10 @@ function renderStaticText() {
   els.langToggle.textContent = ui('languageButton');
   els.mapLoadingText.textContent = ui('mapLoading');
   els.mapToast.textContent = ui('mapUpdated');
+  els.chipStrip.setAttribute('aria-label', ui('routeStops'));
+  els.dayTabs.setAttribute('aria-label', ui('dayTabsLabel'));
+  els.backToTop.setAttribute('aria-label', ui('backToTop'));
+  els.backToTop.setAttribute('title', ui('backToTop'));
   applyTheme(localStorage.getItem('theme') || 'system');
 }
 
@@ -621,6 +714,7 @@ function render() {
   renderMap(day);
   renderDayContent(day);
   setActiveChip(null);
+  setupScrollSpy();
 }
 
 function switchDay(dayId) {
@@ -746,6 +840,14 @@ function setupEvents() {
   els.lightboxClose.addEventListener('click', closeLightbox);
   document.addEventListener('keydown', function(event) {
     if (event.key === 'Escape') closeLightbox();
+  });
+
+  els.sidebarBody.addEventListener('scroll', function() {
+    els.backToTop.classList.toggle('show', els.sidebarBody.scrollTop > 280);
+  });
+  els.backToTop.addEventListener('click', function() {
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    els.sidebarBody.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
   });
 
   setupResize();
