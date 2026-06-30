@@ -159,6 +159,12 @@
 - **Max readable line length:** Notes and descriptions should stay under roughly 72 characters when possible.
 - **No nested cards:** Cards can contain content, but avoid card-inside-card styling unless showing true alternatives such as main vs backup route choices.
 
+## Breakpoints
+- **Single breakpoint: `768px`.** This is a deliberate choice, not an oversight — the app only has two layout modes (mobile bottom-sheet, desktop split-view), so there is no intermediate tablet-specific design.
+- **Rule:** Before adding a second breakpoint, confirm there is an actual layout that breaks between 768px and the next natural size (e.g. 1024px). Do not add breakpoints speculatively.
+- **Below 768px:** Map fills the screen, itinerary lives in a draggable bottom sheet.
+- **At/above 768px:** Side-by-side map + sidebar, fixed 420px sidebar width (resizable between 1/4 and 1/2 of viewport width).
+
 ## Shape, Borders, and Shadows
 - **Small radius:** 6px for badges and dense tags.
 - **Default radius:** 8px for buttons, chips, timeline rows, and thumbnails.
@@ -166,6 +172,22 @@
 - **Sheet radius:** 20px only for the mobile bottom sheet top corners.
 - **Borders:** Use 1px solid token borders for structure.
 - **Shadows:** Keep functional. Use shadows to show panel elevation over maps, not as decoration.
+
+## Elevation / Z-Index Scale
+- **Rule:** Every new `z-index` must map to one of these named layers — never invent an arbitrary in-between number.
+- **Scale (current usage):**
+  | Layer | Value | Used by |
+  |---|---|---|
+  | `base` | 1 | Map panel |
+  | `raised` | 10 | Floating map-nav button, desktop sidebar |
+  | `control` | 20 | Resize divider (desktop) |
+  | `overlay` | 30 | In-panel loading scrim (`.map-loading`) |
+  | `bar` | 50 | Fixed top chip/route bar |
+  | `sheet` | 200 | Mobile bottom sheet (sidebar) |
+  | `toast` | 500 | Map-update toast |
+  | `modal` | 9999 | Lightbox |
+- **Why:** Z-index values were previously scattered ad hoc (1, 2, 10, 20, 30, 50, 200, 500, 9999) with no documented meaning, making it easy to pick a colliding or wrong-order value when adding new floating UI. Naming the existing values (no CSS changes needed) gives future additions a clear slot to fit into.
+- **Gaps between layers are intentional** (e.g. room between `bar` (50) and `sheet` (200)) so a new layer can be inserted without renumbering existing ones.
 
 ## Components
 - **Buttons:** Solid blue, green, or coral depending on action meaning. Text must be short and high contrast.
@@ -175,6 +197,14 @@
 - **Route strips:** May use a very subtle gradient between soft tokens, but text contrast must remain strong.
 - **Photos:** Rounded 8px, object-fit cover, no heavy filters. Photos should feel inspectable.
 - **Alerts / tips:** Amber or coral family, never gray-only. Important warnings must be visible in both themes.
+- **Loading state:** A centered spinner over a translucent, blurred scrim (see `.map-loading`). Use for in-place loading inside a panel that already has visible structure (e.g. the map while an iframe swaps). Auto-hide after a timeout as a fallback in case the load event never fires.
+- **Error / empty state:** Reuse the `tips-box`-style alert card (icon + title + short message), never a bare unstyled text string. Must be legible in both themes and should suggest what the user can do next (e.g. reload) when practical.
+- **Scroll affordance:** Any horizontally scrollable strip that sits flush against fixed controls (buttons, panel edges) must use an edge fade rather than a hard cut. Apply `mask-image: linear-gradient(to right, transparent, black 14px, black calc(100% - 20px), transparent)` (with the `-webkit-` prefix) on the scroll container. This signals "more content this way" and avoids the scrollable region looking clipped by the fixed control next to it.
+
+## Iconography
+- **Current approach:** Emoji as lightweight icons (🚗 ⛰️ ☕ 🏨 🌿 🍦 🍽️ ⚠️). Chosen deliberately to avoid pulling in an icon font/SVG set for a personal single-page itinerary site.
+- **Known risk:** Emoji glyph style differs across OS/browser (Windows vs macOS vs Android render the same codepoint very differently), which works against the "Google clarity" consistency goal. Treat emoji as decoration/scannability aids, not as the sole carrier of meaning — pair with text labels (already the pattern here).
+- **When to revisit:** If the site grows more pages/components, or cross-platform visual consistency becomes a real complaint (not hypothetical), switch to a small inline SVG icon set instead of expanding emoji usage further.
 
 ## Motion
 - **Approach:** Minimal functional.
@@ -182,11 +212,19 @@
 - **Easing:** Use `cubic-bezier(0.32, 0.72, 0, 1)` for sheet motion. Use standard ease-out for simple UI transitions.
 - **Rule:** Motion should explain state changes. Do not add decorative animation.
 
+## Layout Alignment Rule
+- **Same-row controls must share one flex line.** When two or more elements visually sit on the same horizontal bar (e.g. a chip strip next to icon buttons), put them in a single flex container with `align-items: center` rather than positioning one of them with `position: absolute` and a hand-picked `top` offset.
+- **Why:** Absolute-positioned siblings are centered against arbitrary fixed values (`top: 6px`, etc.) that drift out of sync the moment padding, font size, or line-height changes on the other sibling, producing a small but visible vertical misalignment.
+- **How to apply:** Give the shared row container `display: flex; align-items: center;`. Let the flexible/scrollable content (e.g. chip strip) take `flex: 1; min-width: 0;` and give fixed-size siblings (e.g. button groups) `flex-shrink: 0`. Avoid `position: absolute` for anything that should align with flow content on the same row.
+
 ## Accessibility
 - Maintain WCAG AA contrast for text and controls in both light and dark modes.
 - Touch targets should be at least 40px tall for primary controls when practical.
 - Do not communicate meaning by color alone. Keep labels, icons, or text.
 - Preserve print readability. Print mode should remain mostly light regardless of current theme.
+- **Keyboard focus:** Every interactive element (chips, tabs, buttons, links) must show a visible `:focus-visible` style — do not rely on the browser default outline blending into the surface, and never use `outline: none` without a replacement. Use `outline: 2px solid var(--color-primary); outline-offset: 2px;` as the default focus ring, swapping to a high-contrast token if the element's own background is already primary-colored.
+- **Reduced motion:** Wrap non-essential motion (bottom sheet slide, hover transforms, theme/lang toggle transitions) in `@media (prefers-reduced-motion: reduce)` and shorten or remove it. Functional motion that communicates state (e.g. the loading spinner) can stay, since removing it would hide that something is happening.
+- **Safe area insets:** Not yet implemented. The fixed top bar and mobile bottom sheet should eventually add `env(safe-area-inset-top)` / `env(safe-area-inset-bottom)` padding so they don't sit under a phone's notch or home-indicator gesture bar. Flagged here as a known gap, not yet hit in practice.
 
 ## Implementation Rules
 - Define colors as semantic CSS custom properties first, then map existing component tokens to them.
@@ -198,3 +236,5 @@
 | Date | Decision | Rationale |
 |------|----------|-----------|
 | 2026-07-01 | Initial design system created | Establishes a color and UI direction between Google and Instagram, with explicit light/dark tokens for future site work. |
+| 2026-07-01 | Map panel switched from `position: fixed` to `position: absolute`; top bar's chip strip and icon buttons merged into one flex row | Fixed full-viewport map panel was rendering behind the fixed top bar, hiding the top of the map on mobile. Absolutely-positioned icon buttons were centered against a hand-picked `top` offset that drifted from the chip strip's own vertical centering, causing a visible misalignment on the same row. |
+| 2026-07-01 | Documented Breakpoints, Elevation/Z-Index Scale, Iconography, Loading/Empty/Error states, Scroll Affordance pattern, and expanded Accessibility (focus-visible, reduced motion, safe-area) | Researched standard design-system documentation structure (USWDS, Microsoft Atlas, Kickstand UI token scales) and found these were implemented in code or implicitly decided but never written down, risking inconsistency as the site grows. Documentation-only pass — no CSS/JS changed. |
