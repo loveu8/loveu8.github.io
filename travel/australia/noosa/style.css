@@ -288,6 +288,7 @@ a { color: inherit; text-decoration: none; }
 }
 .lang-toggle:active,
 .theme-toggle:active { transform: translateY(0); }
+.theme-toggle svg { display: block; }
 
 .map-nav-float {
   position: absolute;

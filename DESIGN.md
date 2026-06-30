@@ -207,6 +207,7 @@
 - **Current approach:** Emoji as lightweight icons (🚗 ⛰️ ☕ 🏨 🌿 🍦 🍽️ ⚠️). Chosen deliberately to avoid pulling in an icon font/SVG set for a personal single-page itinerary site.
 - **Known risk:** Emoji glyph style differs across OS/browser (Windows vs macOS vs Android render the same codepoint very differently), which works against the "Google clarity" consistency goal. Treat emoji as decoration/scannability aids, not as the sole carrier of meaning — pair with text labels (already the pattern here).
 - **When to revisit:** If the site grows more pages/components, or cross-platform visual consistency becomes a real complaint (not hypothetical), switch to a small inline SVG icon set instead of expanding emoji usage further.
+- **2026-07-01 update:** The dark-mode toggle's "☼" (U+263C) glyph turned out not to be vertically centered within its own glyph box in the rendering font, so it sat visibly off-center inside the round button — a real instance of the risk above, not hypothetical. Replaced with a small inline SVG sun icon (`SUN_ICON_SVG` in `script.js`), which centers by construction regardless of font/OS. The light-mode "◐" glyph was unaffected and left as-is. Treat this as the template for future icon swaps: prefer inline SVG over a Unicode glyph for any icon where pixel-precise centering matters (small circular buttons especially).
 
 ## Motion
 - **Approach:** Minimal functional.
