@@ -876,11 +876,8 @@ function closeLightbox() {
 function handleTimelineClick(event) {
   var link = event.target.closest('a.tl-link');
   if (link) {
-    if (window.innerWidth < 768) {
-      event.preventDefault();
-      var linkItem = link.closest('.tl-item');
-      selectItem(linkItem, link.href);
-    }
+    var linkItem = link.closest('.tl-item');
+    selectItem(linkItem, link.href);
     return;
   }
 
