@@ -156,7 +156,7 @@ html, body {
 body {
   display: flex;
   flex-direction: column;
-  font-family: -apple-system, 'Segoe UI', 'Microsoft JhengHei', 'PingFang TC', sans-serif;
+  font-family: 'Open Sans', 'Noto Sans TC', -apple-system, 'Segoe UI', 'Microsoft JhengHei', 'PingFang TC', sans-serif;
   color: var(--text);
   font-size: var(--fs-base);
   line-height: 1.65;

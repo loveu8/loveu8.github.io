@@ -60,7 +60,7 @@ var ITINERARY_DATA =
     },
     "day2": {
       "query": "Mount Coolum National Park Queensland",
-      "routeUrl": "https://www.google.com/maps/dir/?api=1&origin=Noosa%20River%20Retreat%20Holiday%20Apartments%20Noosaville&destination=Carina%20QLD&waypoints=Noosa%20Farmers%20Market%7CMount%20Coolum%20Walking%20Trail%7CViet%20Haus%20Ocean%20St%20Maroochydore&travelmode=driving"
+      "routeUrl": "https://www.google.com/maps/dir/?api=1&origin=Noosa%20River%20Retreat%20Holiday%20Apartments%20Noosaville&destination=Carina%20QLD&waypoints=Noosa%20Farmers%20Market%7CMount%20Coolum%20Walking%20Trail%7CViet%20Haus%20Ocean%20St%20Maroochydore%7CSunshine%20Plaza%20Maroochydore&travelmode=driving"
     }
   },
   "days": [
@@ -153,6 +153,14 @@ var ITINERARY_DATA =
           ]
         },
         {
+          "kind": "transit",
+          "time": ["11:25", "12:10"],
+          "label": { "zh-TW": "Beerwah Village → Eumundi Markets", "en": "Beerwah Village → Eumundi Markets" },
+          "duration": { "zh-TW": "開車 約 30-35 分鐘", "en": "Drive about 30-35 min" },
+          "navUrl": "https://www.google.com/maps/dir/?api=1&origin=The%20Coffee%20Club%20Cafe%20Beerwah%20QLD&destination=Eumundi%20Markets&travelmode=driving",
+          "theme": "d1"
+        },
+        {
           "time": ["12:10", "13:30"],
           "chip": "eumundi",
           "dot": "orange",
@@ -162,6 +170,14 @@ var ITINERARY_DATA =
           "tags": [{ "type": "shop", "text": { "zh-TW": "市集 07:30-14:00", "en": "Market 07:30-14:00" } }],
           "note": { "zh-TW": "中餐推薦攤位：Seko Food（中東口味捲餅，素食/全素選擇多）、Samosa Cart（印度咖哩餃，全素）、Turkish Gozleme（土耳其烤餅，起司/菠菜素食口味）。市集攤位每週略有變動，到場可再確認。建議 13:30 前離開。", "en": "Recommended lunch stalls: Seko Food (Middle Eastern wraps, many vegan/vegetarian options), Samosa Cart (Indian samosas, fully vegetarian), Turkish Gozleme (cheese/spinach vegetarian options). Stalls rotate week to week, so confirm on site. Aim to leave before 13:30." },
           "photos": [{ "src": "pics/Eumundi Markets.JPG", "alt": "Eumundi Markets" }]
+        },
+        {
+          "kind": "transit",
+          "time": ["13:30", "14:15"],
+          "label": { "zh-TW": "Eumundi Markets → Noosa River Retreat", "en": "Eumundi Markets → Noosa River Retreat" },
+          "duration": { "zh-TW": "開車 約 15-20 分鐘", "en": "Drive about 15-20 min" },
+          "navUrl": "https://www.google.com/maps/dir/?api=1&origin=Eumundi%20Markets&destination=Noosa%20River%20Retreat%20Holiday%20Apartments%20Noosaville&travelmode=driving",
+          "theme": "d1"
         },
         {
           "time": ["14:15", "15:15"],
@@ -175,6 +191,14 @@ var ITINERARY_DATA =
           "photos": [{ "src": "pics/Noosa River Retreat Holiday Apartments.JPG", "alt": "Noosa River Retreat" }]
         },
         {
+          "kind": "transit",
+          "time": ["15:15", "15:35"],
+          "label": { "zh-TW": "Noosa River Retreat → Noosa National Park", "en": "Noosa River Retreat → Noosa National Park" },
+          "duration": { "zh-TW": "開車 約 10 分鐘", "en": "Drive about 10 min" },
+          "navUrl": "https://www.google.com/maps/dir/?api=1&origin=Noosa%20River%20Retreat%20Holiday%20Apartments%20Noosaville&destination=Noosa%20National%20Park%20Carpark&travelmode=driving",
+          "theme": "d1"
+        },
+        {
           "time": ["15:35", "17:00"],
           "chip": "noosanp",
           "dot": "green",
@@ -186,7 +210,15 @@ var ITINERARY_DATA =
           "photos": [{ "src": "pics/Noosa Coastal Walk.JPG", "alt": "Noosa Coastal Walk" }]
         },
         {
-          "time": ["17:00", "17:30"],
+          "kind": "transit",
+          "time": ["17:00", "17:10"],
+          "label": { "zh-TW": "Noosa National Park → Massimo's Gelateria", "en": "Noosa National Park → Massimo's Gelateria" },
+          "duration": { "zh-TW": "步行或開車 約 10 分鐘", "en": "About 10 min on foot or by car" },
+          "navUrl": "https://www.google.com/maps/dir/?api=1&origin=Noosa%20National%20Park%20Carpark&destination=Massimo%27s%20Gelateria%20Noosa&travelmode=walking",
+          "theme": "d1"
+        },
+        {
+          "time": ["17:10", "17:40"],
           "chip": "noosa",
           "dot": "orange",
           "title": { "zh-TW": "🍦 Massimo's Gelateria", "en": "🍦 Massimo's Gelateria" },
@@ -223,8 +255,8 @@ var ITINERARY_DATA =
       "mapId": "day2",
       "label": { "zh-TW": "Day 2", "en": "Day 2" },
       "tabSub": { "zh-TW": "07/05 (日) Coolum→返家", "en": "Jul 05 Sun · Coolum to home" },
-      "route": { "zh-TW": "🗺️ Farmers Mkt → Mt Coolum → Viet Haus → Carina", "en": "🗺️ Farmers Market → Mt Coolum → Viet Haus → Carina" },
-      "chips": [["hotel", "Noosa River Retreat"], ["farmersmarket", "Farmers Market"], ["coolum", "Mt Coolum"], ["viethaus", "Viet Haus"], ["home", "Carina"]],
+      "route": { "zh-TW": "🗺️ Farmers Mkt → Mt Coolum → Viet Haus → Sunshine Plaza → Carina", "en": "🗺️ Farmers Market → Mt Coolum → Viet Haus → Sunshine Plaza → Carina" },
+      "chips": [["hotel", "Noosa River Retreat"], ["farmersmarket", "Farmers Market"], ["coolum", "Mt Coolum"], ["viethaus", "Viet Haus"], ["sunshineplaza", "Sunshine Plaza"], ["home", "Carina"]],
       "items": [
         {
           "time": ["07:00", "08:10"],
@@ -237,12 +269,28 @@ var ITINERARY_DATA =
           "note": { "zh-TW": "大家推薦：Flying West（口碑很好的咖啡）、Roti 配仁當咖哩、現烤可頌與班尼迪克蛋等熱食攤位。建議空腹早點到，邊逛邊試吃。攤位每週略有變動，到場可再確認。", "en": "Crowd favourites: Flying West coffee, roti with rendang curry, fresh pastries, and hot breakfast stalls. Arrive hungry and early to graze your way through. Stalls rotate week to week, so confirm on site." }
         },
         {
+          "kind": "transit",
+          "time": ["08:10", "08:25"],
+          "label": { "zh-TW": "Noosa Farmers Market → 飯店", "en": "Noosa Farmers Market → hotel" },
+          "duration": { "zh-TW": "開車 約 5-10 分鐘", "en": "Drive about 5-10 min" },
+          "navUrl": "https://www.google.com/maps/dir/?api=1&origin=Noosa%20Farmers%20Market&destination=Noosa%20River%20Retreat%20Holiday%20Apartments%20Noosaville&travelmode=driving",
+          "theme": "d2"
+        },
+        {
           "time": ["08:25", "09:00"],
           "chip": "hotel",
           "dot": "purple",
           "title": { "zh-TW": "🧳 收拾行李", "en": "🧳 Pack and reset" },
           "tags": [{ "type": "warn", "text": { "zh-TW": "⚠️ 重要！不可壓縮", "en": "⚠️ Important buffer" } }],
           "note": { "zh-TW": "留足夠時間整理，避免倉皇退房。", "en": "Leave real time to pack so checkout is not rushed." }
+        },
+        {
+          "kind": "transit",
+          "time": ["09:00", "10:00"],
+          "label": { "zh-TW": "飯店 → Mount Coolum Walking Trail", "en": "Hotel → Mount Coolum Walking Trail" },
+          "duration": { "zh-TW": "開車 約 20-25 分鐘（含緩衝）", "en": "Drive about 20-25 min (includes buffer)" },
+          "navUrl": "https://www.google.com/maps/dir/?api=1&origin=Noosa%20River%20Retreat%20Holiday%20Apartments%20Noosaville&destination=Mount%20Coolum%20Walking%20Trail&travelmode=driving",
+          "theme": "d2"
         },
         {
           "time": ["10:00", "12:00"],
@@ -256,6 +304,14 @@ var ITINERARY_DATA =
           "photos": [{ "src": "pics/Mount Coolum Track.JPG", "alt": "Mount Coolum" }, { "src": "pics/Mount Coolum Track - 1.JPG", "alt": "Mount Coolum Summit" }]
         },
         {
+          "kind": "transit",
+          "time": ["12:00", "12:50"],
+          "label": { "zh-TW": "Mount Coolum → Viet Haus (Maroochydore)", "en": "Mount Coolum → Viet Haus (Maroochydore)" },
+          "duration": { "zh-TW": "開車 約 15 分鐘（含停車）", "en": "Drive about 15 min (includes parking)" },
+          "navUrl": "https://www.google.com/maps/dir/?api=1&origin=Mount%20Coolum%20Walking%20Trail&destination=Viet%20Haus%20Ocean%20St%20Maroochydore&travelmode=driving",
+          "theme": "d2"
+        },
+        {
           "time": ["12:50", "14:00"],
           "chip": "viethaus",
           "dot": "orange",
@@ -267,11 +323,29 @@ var ITINERARY_DATA =
         },
         {
           "kind": "transit",
-          "time": ["14:00", "16:00"],
+          "time": ["14:00", "14:10"],
+          "label": { "zh-TW": "Viet Haus → Sunshine Plaza", "en": "Viet Haus → Sunshine Plaza" },
+          "duration": { "zh-TW": "開車 約 5-10 分鐘", "en": "Drive about 5-10 min" },
+          "navUrl": "https://www.google.com/maps/dir/?api=1&origin=Viet%20Haus%20Ocean%20St%20Maroochydore&destination=Sunshine%20Plaza%20Maroochydore&travelmode=driving",
+          "theme": "d2"
+        },
+        {
+          "time": ["14:10", "15:00"],
+          "chip": "sunshineplaza",
+          "dot": "purple",
+          "title": { "zh-TW": "🛍️ Sunshine Plaza · 購物/休息", "en": "🛍️ Sunshine Plaza · shopping / rest" },
+          "intro": { "zh-TW": "Maroochydore 的大型購物中心，回程前補貨或找個地方坐下休息。", "en": "A large Maroochydore shopping centre — a good stop for last-minute shopping or a sit-down break before the drive home." },
+          "links": [{ "label": { "zh-TW": "📍 地圖", "en": "📍 Map" }, "url": "https://www.google.com/maps/search/?api=1&query=Sunshine%20Plaza%20Maroochydore", "theme": "d2" }],
+          "tags": [{ "type": "shop", "text": { "zh-TW": "大型購物中心", "en": "Major shopping centre" } }],
+          "note": { "zh-TW": "長途開車回布里斯本前，適合上廁所、買點心、稍作休息。", "en": "A good last chance for a restroom break and snacks before the long drive back to Brisbane." }
+        },
+        {
+          "kind": "transit",
+          "time": ["15:00", "17:00"],
           "chip": "home",
           "label": { "zh-TW": "🏠 Sunshine Plaza → Carina 返家", "en": "🏠 Sunshine Plaza → Carina home" },
           "duration": { "zh-TW": "約 1.5-2 小時", "en": "About 1.5-2 hours" },
-          "navUrl": "https://www.google.com/maps/dir/?api=1&origin=Viet%20Haus%20Ocean%20St%20Maroochydore&destination=Carina%20QLD&travelmode=driving",
+          "navUrl": "https://www.google.com/maps/dir/?api=1&origin=Sunshine%20Plaza%20Maroochydore&destination=Carina%20QLD&travelmode=driving",
           "theme": "d2",
           "note": { "zh-TW": "週日下午回布里斯本車流較多，保守估計 2 小時。", "en": "Sunday afternoon traffic back to Brisbane can be heavier. Budget 2 hours." }
         }
@@ -360,12 +434,27 @@ function mapEmbedUrl(query) {
     '&output=embed&z=14&language=' + encodeURIComponent(state.lang);
 }
 
+var DIRFLG_BY_MODE = { driving: 'd', walking: 'w', bicycling: 'b', transit: 'r' };
+
+function directionsEmbedUrl(origin, destination, travelMode) {
+  return 'https://maps.google.com/maps?saddr=' + encodeURIComponent(origin) +
+    '&daddr=' + encodeURIComponent(destination) +
+    '&dirflg=' + (DIRFLG_BY_MODE[travelMode] || 'd') +
+    '&output=embed&z=12&language=' + encodeURIComponent(state.lang);
+}
+
 function convertToEmbed(href) {
   try {
     var url = new URL(href);
+    if (url.pathname.indexOf('/maps/dir/') !== -1) {
+      var origin = url.searchParams.get('origin');
+      var destination = url.searchParams.get('destination');
+      if (!origin || !destination) return null;
+      return directionsEmbedUrl(origin, destination, url.searchParams.get('travelmode'));
+    }
     var query = url.searchParams.get('query');
-    var destination = url.searchParams.get('destination');
-    var value = query || destination;
+    var destinationOnly = url.searchParams.get('destination');
+    var value = query || destinationOnly;
     if (!value) return null;
     return mapEmbedUrl(value);
   } catch (err) {
