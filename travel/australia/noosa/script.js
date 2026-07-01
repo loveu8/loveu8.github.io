@@ -14,7 +14,8 @@ var ITINERARY_DATA =
         "navigate": "導航",
         "map": "地圖",
         "mapLoading": "地圖更新中",
-        "mapUpdated": "↓ 地圖已更新，收起行程可查看",
+        "viewMap": "🗺️ 查看地圖",
+        "openInGoogleMaps": "↗ Google Maps",
         "main": "✅ 主要",
         "mainPlan": "✅ 主要行程",
         "backup": "⚡ 備案",
@@ -39,7 +40,8 @@ var ITINERARY_DATA =
         "navigate": "Navigate",
         "map": "Map",
         "mapLoading": "Updating map",
-        "mapUpdated": "↓ Map updated. Collapse itinerary to view it.",
+        "viewMap": "🗺️ View map",
+        "openInGoogleMaps": "↗ Google Maps",
         "main": "✅ Main",
         "mainPlan": "✅ Main plan",
         "backup": "⚡ Backup",
@@ -392,7 +394,6 @@ var els = {
   mapPanel: document.getElementById('mapPanel'),
   mapLoading: document.getElementById('mapLoading'),
   mapLoadingText: document.getElementById('mapLoadingText'),
-  mapToast: document.getElementById('mapToast'),
   chipStrip: document.getElementById('chipStrip'),
   dayTabs: document.getElementById('dayTabs'),
   sidebar: document.getElementById('sidebar'),
@@ -477,15 +478,6 @@ function updateIframeSrc(iframe, src) {
   if (!iframe || iframe.src === src) return;
   showMapLoading();
   iframe.src = src;
-}
-
-function showMapToast() {
-  if (window.innerWidth >= 768) return;
-  els.mapToast.classList.add('show');
-  window.clearTimeout(window._toastTimer);
-  window._toastTimer = window.setTimeout(function() {
-    els.mapToast.classList.remove('show');
-  }, 2200);
 }
 
 var SUN_ICON_SVG = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">' +
@@ -644,13 +636,27 @@ function renderTags(tags) {
   return wrap;
 }
 
+function renderExternalLink(url, theme) {
+  var link = el('a', 'tl-external-link ' + (theme || currentDay().theme), ui('openInGoogleMaps'));
+  link.href = url;
+  link.target = '_blank';
+  link.rel = 'noopener';
+  link.setAttribute('aria-label', ui('openInGoogleMaps'));
+  return link;
+}
+
 function renderLinks(links) {
   var wrap = el('div', 'tl-links');
   (links || []).forEach(function(link) {
-    var node = el('a', 'tl-link ' + (link.theme || currentDay().theme), t(link.label));
-    node.href = link.url;
-    node.target = '_blank';
-    wrap.appendChild(node);
+    var row = el('div', 'tl-loc');
+    var theme = link.theme || currentDay().theme;
+    var nameBtn = el('button', 'tl-loc-name tl-map-btn ' + theme, t(link.label));
+    nameBtn.type = 'button';
+    nameBtn.dataset.href = link.url;
+    nameBtn.setAttribute('aria-label', ui('viewMap') + ': ' + t(link.label));
+    row.appendChild(nameBtn);
+    row.appendChild(renderExternalLink(link.url, link.theme));
+    wrap.appendChild(row);
   });
   return wrap;
 }
@@ -700,12 +706,15 @@ function renderTransitItem(item, isLast) {
   line.appendChild(el('span', 'tl-transit-icon', item.mode || '🚗'));
   var labelText = t(item.label);
   if (item.duration) labelText += ' · ' + t(item.duration);
-  line.appendChild(el('span', 'tl-transit-label', labelText));
   if (item.navUrl) {
-    var navLink = el('a', 'tl-link tl-transit-link ' + (item.theme || 'd1'), ui('navigate'));
-    navLink.href = item.navUrl;
-    navLink.target = '_blank';
-    line.appendChild(navLink);
+    var labelBtn = el('button', 'tl-transit-label tl-map-btn ' + (item.theme || 'd1'), labelText);
+    labelBtn.type = 'button';
+    labelBtn.dataset.href = item.navUrl;
+    labelBtn.setAttribute('aria-label', ui('viewMap') + ': ' + labelText);
+    line.appendChild(labelBtn);
+    line.appendChild(renderExternalLink(item.navUrl, item.theme || 'd1'));
+  } else {
+    line.appendChild(el('span', 'tl-transit-label', labelText));
   }
   body.appendChild(line);
   if (item.note) body.appendChild(el('div', 'tl-transit-note', t(item.note)));
@@ -834,7 +843,6 @@ function renderStaticText() {
   els.handleHint.textContent = els.sidebar.classList.contains('expanded') ? ui('collapse') : ui('expand');
   els.langToggle.textContent = ui('languageButton');
   els.mapLoadingText.textContent = ui('mapLoading');
-  els.mapToast.textContent = ui('mapUpdated');
   els.chipStrip.setAttribute('aria-label', ui('routeStops'));
   els.dayTabs.setAttribute('aria-label', ui('dayTabsLabel'));
   els.backToTop.setAttribute('aria-label', ui('backToTop'));
@@ -873,34 +881,38 @@ function closeLightbox() {
   els.lightbox.classList.remove('open');
 }
 
-function handleTimelineClick(event) {
-  var link = event.target.closest('a.tl-link');
-  if (link) {
-    var linkItem = link.closest('.tl-item');
-    selectItem(linkItem, link.href);
-    return;
-  }
-
-  if (event.target.closest('a')) return;
-
-  var item = event.target.closest('.tl-item');
-  if (!item) return;
-  var firstLink = item.querySelector('.tl-link');
-  selectItem(item, firstLink ? firstLink.href : null);
-}
-
-function selectItem(item, href) {
+function markSelected(item) {
   if (!item) return;
   els.sidebarBody.querySelectorAll('.tl-item').forEach(function(node) {
     node.classList.remove('selected');
   });
   item.classList.add('selected');
   setActiveChip(item.dataset.chip || null);
+}
 
+function previewOnMap(item, href) {
+  markSelected(item);
   var embedUrl = href ? convertToEmbed(href) : null;
   var iframe = els.mapPanel.querySelector('.map-wrap.active iframe');
   if (embedUrl && iframe) updateIframeSrc(iframe, embedUrl);
-  showMapToast();
+  if (window.innerWidth < 768) {
+    els.sidebar.classList.remove('expanded');
+    els.handleHint.textContent = ui('expand');
+  }
+}
+
+function handleTimelineClick(event) {
+  var mapBtn = event.target.closest('.tl-map-btn');
+  if (mapBtn) {
+    previewOnMap(mapBtn.closest('.tl-item'), mapBtn.dataset.href);
+    return;
+  }
+
+  var extLink = event.target.closest('.tl-external-link');
+  if (extLink) {
+    markSelected(extLink.closest('.tl-item'));
+    return;
+  }
 }
 
 function setupResize() {

@@ -597,7 +597,20 @@ a { color: inherit; text-decoration: none; }
   font-weight: 600;
   color: var(--text-s);
 }
-.tl-transit-link { font-size: var(--fs-2xs); padding: 2px 8px; }
+button.tl-transit-label {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 11px;
+  border-radius: 12px;
+  border: 1px solid transparent;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+button.tl-transit-label:hover { opacity: 0.75; }
+button.tl-transit-label.d1 { background: var(--blue-bg); color: var(--blue); border-color: var(--blue-l); }
+button.tl-transit-label.d2 { background: var(--green-bg); color: var(--green); border-color: var(--green-l); }
 .tl-transit-note {
   font-size: var(--fs-2xs);
   color: var(--text-s);
@@ -614,21 +627,47 @@ a { color: inherit; text-decoration: none; }
   align-items: center;
   gap: 5px;
 }
-.tl-links { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 4px; }
-.tl-link {
+.tl-links { display: flex; flex-direction: column; gap: 5px; margin-top: 4px; }
+.tl-loc {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.tl-loc-name {
   display: inline-flex;
   align-items: center;
-  gap: 3px;
+  flex-shrink: 0;
+  padding: 5px 11px;
+  border-radius: 12px;
+  border: 1px solid transparent;
+  font: inherit;
   font-size: var(--fs-sm);
   font-weight: 700;
-  padding: 4px 10px;
-  border-radius: 10px;
-  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
   transition: opacity 0.15s;
 }
-.tl-link:hover { opacity: 0.75; }
-.tl-link.d1 { background: var(--blue-bg); color: var(--blue); border: 1px solid var(--blue-l); }
-.tl-link.d2 { background: var(--green-bg); color: var(--green); border: 1px solid var(--green-l); }
+.tl-loc-name:hover { opacity: 0.75; }
+.tl-loc-name.d1 { background: var(--blue-bg); color: var(--blue); border-color: var(--blue-l); }
+.tl-loc-name.d2 { background: var(--green-bg); color: var(--green); border-color: var(--green-l); }
+.tl-external-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+  padding: 5px 11px;
+  border-radius: 12px;
+  border: 1px solid transparent;
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: opacity 0.15s;
+}
+.tl-external-link:hover { opacity: 0.75; }
+.tl-external-link.d1 { background: var(--blue-bg); color: var(--blue); border-color: var(--blue-l); }
+.tl-external-link.d2 { background: var(--green-bg); color: var(--green); border-color: var(--green-l); }
 .tl-note { font-size: var(--fs-base); color: var(--text-s); margin-top: 5px; line-height: 1.5; }
 .tl-note strong { color: var(--orange-d); font-weight: 700; }
 .place-intro {
@@ -726,25 +765,6 @@ a { color: inherit; text-decoration: none; }
 .chip.active.d2 { background: var(--green); color: var(--color-on-secondary); border-color: transparent; box-shadow: 0 1px 8px color-mix(in srgb, var(--green) 45%, transparent); }
 .chip-arrow { color: var(--gray); font-size: var(--fs-xs); flex-shrink: 0; }
 
-/* ── 10. MAP TOAST ── */
-.map-toast {
-  position: fixed;
-  bottom: 138px;
-  left: 50%;
-  transform: translateX(-50%) translateY(8px);
-  background: color-mix(in srgb, var(--color-text) 88%, transparent);
-  color: var(--color-surface);
-  padding: 8px 18px;
-  border-radius: 20px;
-  font-size: 13px;
-  font-weight: 600;
-  opacity: 0;
-  transition: opacity 0.25s, transform 0.25s;
-  pointer-events: none;
-  z-index: 500;
-  white-space: nowrap;
-}
-.map-toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 
 /* ── 11. TIMELINE PHOTOS & LIGHTBOX ── */
 .tl-photos {
@@ -998,11 +1018,11 @@ a { color: inherit; text-decoration: none; }
   .tl-body-transit { padding: 1px 0 5px; }
   .tl-transit-icon { font-size: 9px; }
   .tl-transit-label { font-size: 8.5px; }
-  .tl-transit-link { font-size: 7px; padding: 1px 4px; }
   .tl-transit-note { font-size: 7.5px; }
   .tl-main { font-size: 10px; gap: 3px; }
   .tl-links { gap: 3px; margin-top: 3px; }
-  .tl-link { font-size: 8px; padding: 1px 5px; }
+  .tl-loc-name { font-size: 8px; text-decoration: none !important; }
+  .tl-external-link { display: none !important; }
   .tl-note { font-size: 8.5px; margin-top: 3px; }
   .tl-tags { gap: 2px; margin-top: 3px; }
   .tag { font-size: 7.5px; padding: 1px 5px; }
