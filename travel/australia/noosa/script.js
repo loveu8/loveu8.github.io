@@ -84,14 +84,14 @@ var ITINERARY_DATA =
       ],
       "items": [
         {
+          "kind": "transit",
           "time": ["06:30", "07:40"],
           "chip": "carina",
-          "dot": "blue",
-          "title": { "zh-TW": "🚗 Carina 出發 → Mount Ngungun 步道口", "en": "🚗 Depart Carina → Mount Ngungun trailhead" },
-          "intro": { "zh-TW": "清晨出發避開人潮，抵達後有時間整裝和找車位。", "en": "An early start keeps parking easier and gives time to get ready." },
-          "links": [{ "label": { "zh-TW": "📍 導航", "en": "📍 Navigate" }, "url": "https://www.google.com/maps/dir/?api=1&origin=Carina%20QLD&destination=Mount%20Ngungun%20Glass%20House%20Mountains%20QLD&travelmode=driving", "theme": "d1" }],
-          "tags": [{ "type": "drive", "text": { "zh-TW": "開車 約 70 分鐘", "en": "Drive about 70 min" } }, { "type": "warn", "text": { "zh-TW": "⚡ 出發備品", "en": "⚡ Pack snacks" } }],
-          "note": { "zh-TW": "早出發，停車和準備更充裕。記得帶簡單麵包跟香蕉備用！", "en": "Leave early for easier parking and prep. Bring bread and bananas as backup snacks." }
+          "label": { "zh-TW": "Carina → Mount Ngungun 步道口", "en": "Carina → Mount Ngungun trailhead" },
+          "duration": { "zh-TW": "開車 約 70 分鐘", "en": "Drive about 70 min" },
+          "navUrl": "https://www.google.com/maps/dir/?api=1&origin=Carina%20QLD&destination=Mount%20Ngungun%20Glass%20House%20Mountains%20QLD&travelmode=driving",
+          "theme": "d1",
+          "note": { "zh-TW": "⚡ 早出發，停車和準備更充裕。記得帶簡單麵包跟香蕉備用！", "en": "⚡ Leave early for easier parking and prep. Bring bread and bananas as backup snacks." }
         },
         {
           "time": ["07:40", "09:40"],
@@ -120,12 +120,12 @@ var ITINERARY_DATA =
           ]
         },
         {
+          "kind": "transit",
           "time": ["09:40", "09:55"],
-          "dot": "gray",
-          "smallDot": true,
-          "title": { "zh-TW": "🚗 前往 Beerwah Village", "en": "🚗 Drive to Beerwah Village" },
-          "links": [{ "label": { "zh-TW": "📍 導航", "en": "📍 Navigate" }, "url": "https://www.google.com/maps/dir/?api=1&origin=Mount%20Ngungun%20Glass%20House%20Mountains&destination=The%20Coffee%20Club%20Cafe%20Beerwah%20QLD&travelmode=driving", "theme": "d1" }],
-          "tags": [{ "type": "drive", "text": { "zh-TW": "短程 約 10-15 分鐘", "en": "Short drive, 10-15 min" } }]
+          "label": { "zh-TW": "Mount Ngungun → Beerwah Village", "en": "Mount Ngungun → Beerwah Village" },
+          "duration": { "zh-TW": "短程 約 10-15 分鐘", "en": "Short drive, 10-15 min" },
+          "navUrl": "https://www.google.com/maps/dir/?api=1&origin=Mount%20Ngungun%20Glass%20House%20Mountains&destination=The%20Coffee%20Club%20Cafe%20Beerwah%20QLD&travelmode=driving",
+          "theme": "d1"
         },
         {
           "time": ["09:55", "11:25"],
@@ -266,12 +266,13 @@ var ITINERARY_DATA =
           "note": { "zh-TW": "越南河粉、春卷，有素食選項可詢問。爬完山後吃熱湯麵非常舒服。", "en": "Pho and rolls. Ask for vegetarian options. Hot soup lands well after the climb." }
         },
         {
+          "kind": "transit",
           "time": ["14:00", "16:00"],
           "chip": "home",
-          "dot": "blue",
-          "title": { "zh-TW": "🏠 Sunshine Plaza → Carina 返家", "en": "🏠 Sunshine Plaza → Carina home" },
-          "links": [{ "label": { "zh-TW": "📍 導航", "en": "📍 Navigate" }, "url": "https://www.google.com/maps/dir/?api=1&origin=Viet%20Haus%20Ocean%20St%20Maroochydore&destination=Carina%20QLD&travelmode=driving", "theme": "d2" }],
-          "tags": [{ "type": "drive", "text": { "zh-TW": "約 1.5-2 小時", "en": "About 1.5-2 hours" } }],
+          "label": { "zh-TW": "🏠 Sunshine Plaza → Carina 返家", "en": "🏠 Sunshine Plaza → Carina home" },
+          "duration": { "zh-TW": "約 1.5-2 小時", "en": "About 1.5-2 hours" },
+          "navUrl": "https://www.google.com/maps/dir/?api=1&origin=Viet%20Haus%20Ocean%20St%20Maroochydore&destination=Carina%20QLD&travelmode=driving",
+          "theme": "d2",
           "note": { "zh-TW": "週日下午回布里斯本車流較多，保守估計 2 小時。", "en": "Sunday afternoon traffic back to Brisbane can be heavier. Budget 2 hours." }
         }
       ],
@@ -592,7 +593,41 @@ function renderCard(card, day) {
   return node;
 }
 
+function renderTransitItem(item, isLast) {
+  var row = el('div', 'tl-item tl-item-transit');
+  if (item.chip) row.dataset.chip = item.chip;
+
+  var time = el('div', 'tl-time');
+  time.innerHTML = (item.time || []).join('<br>');
+  row.appendChild(time);
+
+  var axis = el('div', 'tl-axis');
+  axis.appendChild(el('div', 'tl-dot sm dot-gray'));
+  if (!isLast) axis.appendChild(el('div', 'tl-line tl-line-transit'));
+  row.appendChild(axis);
+
+  var body = el('div', 'tl-body tl-body-transit');
+  var line = el('div', 'tl-transit-row');
+  line.appendChild(el('span', 'tl-transit-icon', item.mode || '🚗'));
+  var labelText = t(item.label);
+  if (item.duration) labelText += ' · ' + t(item.duration);
+  line.appendChild(el('span', 'tl-transit-label', labelText));
+  if (item.navUrl) {
+    var navLink = el('a', 'tl-link tl-transit-link ' + (item.theme || 'd1'), ui('navigate'));
+    navLink.href = item.navUrl;
+    navLink.target = '_blank';
+    line.appendChild(navLink);
+  }
+  body.appendChild(line);
+  if (item.note) body.appendChild(el('div', 'tl-transit-note', t(item.note)));
+
+  row.appendChild(body);
+  return row;
+}
+
 function renderItem(item, day, isLast) {
+  if (item.kind === 'transit') return renderTransitItem(item, isLast);
+
   var row = el('div', 'tl-item');
   if (item.chip) row.dataset.chip = item.chip;
 

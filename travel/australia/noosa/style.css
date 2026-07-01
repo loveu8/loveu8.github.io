@@ -579,7 +579,31 @@ a { color: inherit; text-decoration: none; }
 .dot-purple { color: var(--purple); background: var(--purple); }
 .dot-gray   { color: var(--gray);   background: var(--gray); }
 .tl-line { flex: 1; width: 2px; background: var(--border); margin-top: 3px; min-height: 16px; }
+.tl-line-transit { width: 0; background: none; border-left: 2px dashed var(--border); min-height: 12px; }
 .tl-body { padding: 3px 0 14px; min-width: 0; }
+
+.tl-item-transit:hover { background: rgba(128,134,139,0.08); }
+.tl-item-transit .tl-time { font-size: var(--fs-xs); padding-top: 2px; }
+.tl-body-transit { padding: 1px 0 10px; }
+.tl-transit-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.tl-transit-icon { font-size: 14px; line-height: 1; flex-shrink: 0; }
+.tl-transit-label {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--text-s);
+}
+.tl-transit-link { font-size: var(--fs-2xs); padding: 2px 8px; }
+.tl-transit-note {
+  font-size: var(--fs-2xs);
+  color: var(--text-s);
+  margin-top: 2px;
+  line-height: 1.4;
+}
 .tl-main {
   font-size: var(--fs-md);
   font-weight: 700;
@@ -971,6 +995,11 @@ a { color: inherit; text-decoration: none; }
   .tl-dot { width: 9px; height: 9px; margin-top: 3px; }
   .tl-dot.sm { width: 7px; height: 7px; margin-top: 4px; }
   .tl-body { padding: 1px 0 7px; }
+  .tl-body-transit { padding: 1px 0 5px; }
+  .tl-transit-icon { font-size: 9px; }
+  .tl-transit-label { font-size: 8.5px; }
+  .tl-transit-link { font-size: 7px; padding: 1px 4px; }
+  .tl-transit-note { font-size: 7.5px; }
   .tl-main { font-size: 10px; gap: 3px; }
   .tl-links { gap: 3px; margin-top: 3px; }
   .tl-link { font-size: 8px; padding: 1px 5px; }
