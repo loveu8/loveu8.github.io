@@ -15,7 +15,8 @@ var ITINERARY_DATA =
         "map": "地圖",
         "mapLoading": "地圖更新中",
         "viewMap": "🗺️ 查看地圖",
-        "openInGoogleMaps": "↗ Google Maps",
+        "viewRoute": "📍 路線",
+        "openInGoogleMaps": "↗ Maps",
         "main": "✅ 主要",
         "mainPlan": "✅ 主要行程",
         "backup": "⚡ 備案",
@@ -41,7 +42,8 @@ var ITINERARY_DATA =
         "map": "Map",
         "mapLoading": "Updating map",
         "viewMap": "🗺️ View map",
-        "openInGoogleMaps": "↗ Google Maps",
+        "viewRoute": "📍 Route",
+        "openInGoogleMaps": "↗ Maps",
         "main": "✅ Main",
         "mainPlan": "✅ Main plan",
         "backup": "⚡ Backup",
@@ -91,7 +93,7 @@ var ITINERARY_DATA =
           "chip": "carina",
           "label": { "zh-TW": "Carina → Mount Ngungun 步道口", "en": "Carina → Mount Ngungun trailhead" },
           "duration": { "zh-TW": "開車 約 70 分鐘", "en": "Drive about 70 min" },
-          "navUrl": "https://www.google.com/maps/dir/?api=1&origin=Carina%20QLD&destination=Mount%20Ngungun%20Glass%20House%20Mountains%20QLD&travelmode=driving",
+          "navUrl": "https://www.google.com/maps/dir/?api=1&origin=Carina%20QLD&destination=125%20Fullertons%20Rd%2C%20Glass%20House%20Mountains%20QLD%204518&travelmode=driving",
           "theme": "d1",
           "note": { "zh-TW": "⚡ 早出發，停車和準備更充裕。記得帶簡單麵包跟香蕉備用！", "en": "⚡ Leave early for easier parking and prep. Bring bread and bananas as backup snacks." }
         },
@@ -126,7 +128,7 @@ var ITINERARY_DATA =
           "time": ["09:40", "09:55"],
           "label": { "zh-TW": "Mount Ngungun → Beerwah Village", "en": "Mount Ngungun → Beerwah Village" },
           "duration": { "zh-TW": "短程 約 10-15 分鐘", "en": "Short drive, 10-15 min" },
-          "navUrl": "https://www.google.com/maps/dir/?api=1&origin=Mount%20Ngungun%20Glass%20House%20Mountains&destination=The%20Coffee%20Club%20Cafe%20Beerwah%20QLD&travelmode=driving",
+          "navUrl": "https://www.google.com/maps/dir/?api=1&origin=125%20Fullertons%20Rd%2C%20Glass%20House%20Mountains%20QLD%204518&destination=The%20Coffee%20Club%20Cafe%20Beerwah%20QLD&travelmode=driving",
           "theme": "d1"
         },
         {
@@ -233,21 +235,21 @@ var ITINERARY_DATA =
       "foodSection": {
         "title": { "zh-TW": "🍽️ Day 1 餐廳與預算", "en": "🍽️ Day 1 food and budget" },
         "vegRows": [
-          { "type": { "zh-TW": "爬山後餐", "en": "Post-hike" }, "name": "The Coffee Club Cafe - Beerwah", "veg": { "zh-TW": "推薦：Tomato & Pesto Flat Grill", "en": "Pick: Tomato & Pesto Flat Grill" }, "budget": "AUD 20-30", "mapUrl": "https://www.google.com/maps/search/?api=1&query=The%20Coffee%20Club%20Cafe%20Beerwah" },
-          { "type": { "zh-TW": "市集午餐", "en": "Market lunch" }, "name": "Seko Food (Eumundi Markets)", "veg": { "zh-TW": "中東捲餅，素食/全素選擇多", "en": "Middle Eastern wraps, many vegan/veg picks" }, "budget": "AUD 12-18", "mapUrl": "https://www.google.com/maps/search/?api=1&query=Seko%20Food%20Eumundi%20Markets" },
-          { "type": { "zh-TW": "市集午餐", "en": "Market lunch" }, "name": "Samosa Cart (Eumundi Markets)", "veg": { "zh-TW": "印度咖哩餃，全素食", "en": "Indian samosas, fully vegetarian" }, "budget": "AUD 8-12", "mapUrl": "https://www.google.com/maps/search/?api=1&query=Samosa%20Cart%20Eumundi%20Markets" },
-          { "type": { "zh-TW": "市集午餐", "en": "Market lunch" }, "name": "Turkish Gozleme (Eumundi Markets)", "veg": { "zh-TW": "起司/菠菜素食口味", "en": "Cheese / spinach vegetarian fillings" }, "budget": "AUD 10-15", "mapUrl": "https://www.google.com/maps/search/?api=1&query=Turkish%20Gozleme%20Eumundi%20Markets" },
-          { "type": { "zh-TW": "晚餐首選", "en": "Dinner pick" }, "name": "Leela Noosa", "veg": { "zh-TW": "推薦：Saag Aloo / Chana Masala 等素食咖哩", "en": "Pick: Saag Aloo / Chana Masala veg curries" }, "budget": "AUD 20-30", "mapUrl": "https://www.google.com/maps/search/?api=1&query=Leela%20Noosa" },
-          { "type": { "zh-TW": "晚餐輕食", "en": "Light dinner" }, "name": "Raw + Rice Noosa", "veg": { "zh-TW": "推薦：豆腐 / 野菇碗（自選配料）", "en": "Pick: tofu / sticky mushroom bowl (build your own)" }, "budget": "AUD 17-25", "mapUrl": "https://www.google.com/maps/search/?api=1&query=Raw%20%2B%20Rice%20Noosa" },
-          { "type": { "zh-TW": "晚餐氣氛", "en": "Atmosphere" }, "name": "Somedays Pizza Noosa", "veg": { "zh-TW": "推薦：Margherita 蔬食披薩", "en": "Pick: Margherita veg pizza" }, "budget": "AUD 30-40", "mapUrl": "https://www.google.com/maps/search/?api=1&query=Somedays%20Pizza%20Noosa" }
+          { "type": { "zh-TW": "爬山後餐", "en": "Post-hike" }, "name": "The Coffee Club Cafe - Beerwah", "veg": { "zh-TW": "推薦 Tomato & Pesto Flat Grill：帕尼尼夾番茄、羅勒青醬與烤蔬菜，起司烤到微酥", "en": "Pick: Tomato & Pesto Flat Grill — grilled panini with tomato, basil pesto, roasted vegetables and melted cheese" }, "budget": "AUD 20-30", "mapUrl": "https://www.google.com/maps/search/?api=1&query=The%20Coffee%20Club%20Cafe%20Beerwah" },
+          { "type": { "zh-TW": "市集午餐", "en": "Market lunch" }, "name": "Seko Food (Eumundi Markets)", "veg": { "zh-TW": "中東烤餅捲鷹嘴豆泥、炸鷹嘴豆餅（falafel）與時蔬，多款素食/全素選擇", "en": "Lebanese-style wraps with hummus, falafel and fresh vegetables; many vegan/vegetarian options" }, "budget": "AUD 12-18", "mapUrl": "https://www.google.com/maps/search/?api=1&query=Seko%20Food%20Eumundi%20Markets" },
+          { "type": { "zh-TW": "市集午餐", "en": "Market lunch" }, "name": "Samosa Cart (Eumundi Markets)", "veg": { "zh-TW": "酥炸三角餃，內餡為馬鈴薯、豌豆與孜然辛香料，全素", "en": "Deep-fried pastry triangles filled with spiced potato, peas and cumin; fully vegetarian" }, "budget": "AUD 8-12", "mapUrl": "https://www.google.com/maps/search/?api=1&query=Samosa%20Cart%20Eumundi%20Markets" },
+          { "type": { "zh-TW": "市集午餐", "en": "Market lunch" }, "name": "Turkish Gozleme (Eumundi Markets)", "veg": { "zh-TW": "土耳其薄餅現煎，起司或菠菜起司內餡，外皮酥脆", "en": "Griddle-cooked Turkish flatbread with a cheese or spinach-and-cheese filling, crisp on the outside" }, "budget": "AUD 10-15", "mapUrl": "https://www.google.com/maps/search/?api=1&query=Turkish%20Gozleme%20Eumundi%20Markets" },
+          { "type": { "zh-TW": "晚餐首選", "en": "Dinner pick" }, "name": "Leela Noosa", "veg": { "zh-TW": "推薦 Saag Aloo（菠菜馬鈴薯咖哩）或 Chana Masala（鷹嘴豆咖哩），配印度香米飯", "en": "Pick: Saag Aloo (spinach & potato curry) or Chana Masala (spiced chickpea curry), served with basmati rice" }, "budget": "AUD 20-30", "mapUrl": "https://www.google.com/maps/search/?api=1&query=Leela%20Noosa" },
+          { "type": { "zh-TW": "晚餐輕食", "en": "Light dinner" }, "name": "Raw + Rice Noosa", "veg": { "zh-TW": "推薦豆腐或野菇碗：香煎豆腐或炒野菇配藜麥/糙米，自選醬料與時蔬配料", "en": "Pick: tofu or wild mushroom bowl — pan-seared tofu or sautéed mushrooms over quinoa or brown rice, build-your-own sauce and veg toppings" }, "budget": "AUD 17-25", "mapUrl": "https://www.google.com/maps/search/?api=1&query=Raw%20%2B%20Rice%20Noosa" },
+          { "type": { "zh-TW": "晚餐氣氛", "en": "Atmosphere" }, "name": "Somedays Pizza Noosa", "veg": { "zh-TW": "推薦 Margherita：經典瑪格麗特披薩，番茄、莫札瑞拉起司與羅勒，柴燒窯烤", "en": "Pick: classic wood-fired Margherita with tomato, mozzarella and fresh basil" }, "budget": "AUD 30-40", "mapUrl": "https://www.google.com/maps/search/?api=1&query=Somedays%20Pizza%20Noosa" }
         ],
         "generalRows": [
-          { "type": { "zh-TW": "爬山後餐", "en": "Post-hike" }, "name": "The Coffee Club Cafe - Beerwah", "veg": { "zh-TW": "推薦：雞肉三明治 / 牛排三明治", "en": "Pick: Chicken Schnitzel / Steak Sandwich" }, "budget": "AUD 20-30", "mapUrl": "https://www.google.com/maps/search/?api=1&query=The%20Coffee%20Club%20Cafe%20Beerwah" },
-          { "type": { "zh-TW": "市集午餐", "en": "Market lunch" }, "name": "Pops Dim Sims (Eumundi Markets)", "veg": { "zh-TW": "招牌雞肉/豬肉煎餃（也有素食口味）", "en": "Signature chicken / pork dim sims (veg version also available)" }, "budget": "AUD 6-10", "mapUrl": "https://www.google.com/maps/search/?api=1&query=Pops%20Dim%20Sims%20Eumundi%20Markets" },
-          { "type": { "zh-TW": "市集午餐", "en": "Market lunch" }, "name": "Traditional German Sausages (Eumundi Markets)", "veg": { "zh-TW": "德式香腸佐酸菜法棍", "en": "German sausage with sauerkraut in a baguette" }, "budget": "AUD 10-15", "mapUrl": "https://www.google.com/maps/search/?api=1&query=Traditional%20German%20Sausages%20Eumundi%20Markets" },
-          { "type": { "zh-TW": "晚餐首選", "en": "Dinner pick" }, "name": "Leela Noosa", "veg": { "zh-TW": "推薦：肉類咖哩任選", "en": "Pick: choice of meat curries" }, "budget": "AUD 22-32", "mapUrl": "https://www.google.com/maps/search/?api=1&query=Leela%20Noosa" },
-          { "type": { "zh-TW": "晚餐輕食", "en": "Light dinner" }, "name": "Raw + Rice Noosa", "veg": { "zh-TW": "推薦：鮭魚 / 雞肉碗（自選配料）", "en": "Pick: salmon / chicken bowl (build your own)" }, "budget": "AUD 19-27", "mapUrl": "https://www.google.com/maps/search/?api=1&query=Raw%20%2B%20Rice%20Noosa" },
-          { "type": { "zh-TW": "晚餐氣氛", "en": "Atmosphere" }, "name": "Somedays Pizza Noosa", "veg": { "zh-TW": "推薦：Prosciutto / 煙燻肉腸披薩", "en": "Pick: Prosciutto / smoked meat pizza" }, "budget": "AUD 30-40", "mapUrl": "https://www.google.com/maps/search/?api=1&query=Somedays%20Pizza%20Noosa" }
+          { "type": { "zh-TW": "爬山後餐", "en": "Post-hike" }, "name": "The Coffee Club Cafe - Beerwah", "veg": { "zh-TW": "推薦香煎雞排堡或牛排三明治，佐生菜番茄與薯條", "en": "Pick: crumbed chicken schnitzel or steak sandwich, served with salad and fries" }, "budget": "AUD 20-30", "mapUrl": "https://www.google.com/maps/search/?api=1&query=The%20Coffee%20Club%20Cafe%20Beerwah" },
+          { "type": { "zh-TW": "市集午餐", "en": "Market lunch" }, "name": "Pops Dim Sims (Eumundi Markets)", "veg": { "zh-TW": "招牌手工煎餃，雞肉或豬肉內餡，外皮煎至金黃酥脆（也有素食口味）", "en": "Handmade dim sims with chicken or pork filling, pan-fried until golden and crisp (vegetarian version also available)" }, "budget": "AUD 6-10", "mapUrl": "https://www.google.com/maps/search/?api=1&query=Pops%20Dim%20Sims%20Eumundi%20Markets" },
+          { "type": { "zh-TW": "市集午餐", "en": "Market lunch" }, "name": "Traditional German Sausages (Eumundi Markets)", "veg": { "zh-TW": "德式煙燻香腸夾法棍，佐酸菜與芥末醬", "en": "Smoked German sausage in a baguette with sauerkraut and mustard" }, "budget": "AUD 10-15", "mapUrl": "https://www.google.com/maps/search/?api=1&query=Traditional%20German%20Sausages%20Eumundi%20Markets" },
+          { "type": { "zh-TW": "晚餐首選", "en": "Dinner pick" }, "name": "Leela Noosa", "veg": { "zh-TW": "多款肉類咖哩任選，如奶油雞（Butter Chicken）或羊肉咖哩，配印度香米飯", "en": "Choice of meat curries such as Butter Chicken or lamb curry, served with basmati rice" }, "budget": "AUD 22-32", "mapUrl": "https://www.google.com/maps/search/?api=1&query=Leela%20Noosa" },
+          { "type": { "zh-TW": "晚餐輕食", "en": "Light dinner" }, "name": "Raw + Rice Noosa", "veg": { "zh-TW": "推薦鮭魚或雞肉碗：香煎鮭魚或雞肉配藜麥/糙米，自選醬料與時蔬配料", "en": "Pick: salmon or chicken bowl — pan-seared salmon or chicken over quinoa or brown rice, build-your-own sauce and veg toppings" }, "budget": "AUD 19-27", "mapUrl": "https://www.google.com/maps/search/?api=1&query=Raw%20%2B%20Rice%20Noosa" },
+          { "type": { "zh-TW": "晚餐氣氛", "en": "Atmosphere" }, "name": "Somedays Pizza Noosa", "veg": { "zh-TW": "推薦帕瑪火腿或煙燻香腸披薩，佐芝麻葉與帕瑪森起司", "en": "Pick: Prosciutto or smoked meat pizza topped with rocket and shaved parmesan" }, "budget": "AUD 30-40", "mapUrl": "https://www.google.com/maps/search/?api=1&query=Somedays%20Pizza%20Noosa" }
         ]
       }
     },
@@ -355,15 +357,15 @@ var ITINERARY_DATA =
       "foodSection": {
         "title": { "zh-TW": "🍽️ Day 2 餐廳與預算", "en": "🍽️ Day 2 food and budget" },
         "vegRows": [
-          { "type": { "zh-TW": "早餐市集", "en": "Breakfast" }, "name": "Noosa Farmers Market", "veg": { "zh-TW": "新鮮水果、果汁、烘焙、蔬食攤位多", "en": "Fresh fruit, juice, baked goods, many vegetarian stalls" }, "budget": "AUD 10-25", "mapUrl": "https://www.google.com/maps/search/?api=1&query=Noosa%20Farmers%20Market" },
-          { "type": { "zh-TW": "推薦咖啡", "en": "Coffee pick" }, "name": "Flying West Coffee (Noosa Farmers Market)", "veg": { "zh-TW": "在地口碑咖啡攤", "en": "Locally loved coffee stall" }, "budget": "AUD 5-8", "mapUrl": "https://www.google.com/maps/search/?api=1&query=Flying%20West%20Coffee%20Noosa%20Farmers%20Market" },
-          { "type": { "zh-TW": "推薦早餐", "en": "Breakfast pick" }, "name": "Roti & Rendang Curry stall (Noosa Farmers Market)", "veg": { "zh-TW": "推薦：素食仁當咖哩配 Roti（可詢問）", "en": "Pick: vegetarian rendang with roti (ask on site)" }, "budget": "AUD 10-15", "mapUrl": "https://www.google.com/maps/search/?api=1&query=Rendang%20Curry%20Roti%20Noosa%20Farmers%20Market" },
-          { "type": { "zh-TW": "午餐", "en": "Lunch" }, "name": "Viet Haus - Shop 9/12-20 Ocean St, Maroochydore", "veg": { "zh-TW": "推薦：蔬食河粉 / 鮮蔬春捲（可詢問）", "en": "Pick: vegetable pho / fresh veg spring rolls (ask on site)" }, "budget": "AUD 15-25", "mapUrl": "https://www.google.com/maps/search/?api=1&query=Viet%20Haus%20Ocean%20St%20Maroochydore" }
+          { "type": { "zh-TW": "早餐市集", "en": "Breakfast" }, "name": "Noosa Farmers Market", "veg": { "zh-TW": "新鮮當季水果、現榨果汁、手工烘焙點心，多個蔬食/全素攤位", "en": "Fresh seasonal fruit, cold-pressed juice, artisan baked goods, and several vegan/vegetarian stalls" }, "budget": "AUD 10-25", "mapUrl": "https://www.google.com/maps/search/?api=1&query=Noosa%20Farmers%20Market" },
+          { "type": { "zh-TW": "推薦咖啡", "en": "Coffee pick" }, "name": "Flying West Coffee (Noosa Farmers Market)", "veg": { "zh-TW": "在地小農烘焙咖啡豆現沖，口碑咖啡攤", "en": "Locally roasted single-origin coffee brewed on the spot; a market favorite" }, "budget": "AUD 5-8", "mapUrl": "https://www.google.com/maps/search/?api=1&query=Flying%20West%20Coffee%20Noosa%20Farmers%20Market" },
+          { "type": { "zh-TW": "推薦早餐", "en": "Breakfast pick" }, "name": "Roti & Rendang Curry stall (Noosa Farmers Market)", "veg": { "zh-TW": "印尼風味素食仁當咖哩：椰漿與香料燉煮蔬菜/豆腐，配印度烤餅 Roti（現場可詢問素食版本）", "en": "Indonesian-style vegetarian rendang — vegetables or tofu slow-simmered in coconut milk and spices — served with roti (ask staff for the veg version)" }, "budget": "AUD 10-15", "mapUrl": "https://www.google.com/maps/search/?api=1&query=Rendang%20Curry%20Roti%20Noosa%20Farmers%20Market" },
+          { "type": { "zh-TW": "午餐", "en": "Lunch" }, "name": "Viet Haus - Shop 9/12-20 Ocean St, Maroochydore", "veg": { "zh-TW": "蔬菜河粉湯頭清爽，或鮮蔬春捲佐甜辣醬/花生醬（可詢問素食版本）", "en": "Light vegetable pho, or fresh vegetable spring rolls with sweet chili or peanut dipping sauce (ask for the veg version)" }, "budget": "AUD 15-25", "mapUrl": "https://www.google.com/maps/search/?api=1&query=Viet%20Haus%20Ocean%20St%20Maroochydore" }
         ],
         "generalRows": [
-          { "type": { "zh-TW": "推薦早餐", "en": "Breakfast pick" }, "name": "培根蛋堡 / 德式香腸攤位 (Noosa Farmers Market)", "veg": { "zh-TW": "經典市集早餐，攤位每週略有不同", "en": "Classic market breakfast, exact stall rotates weekly" }, "budget": "AUD 10-18", "mapUrl": "https://www.google.com/maps/search/?api=1&query=Noosa%20Farmers%20Market" },
-          { "type": { "zh-TW": "推薦早餐", "en": "Breakfast pick" }, "name": "Roti & Rendang Curry stall (Noosa Farmers Market)", "veg": { "zh-TW": "推薦：經典牛肉仁當咖哩", "en": "Pick: classic beef rendang" }, "budget": "AUD 10-15", "mapUrl": "https://www.google.com/maps/search/?api=1&query=Rendang%20Curry%20Roti%20Noosa%20Farmers%20Market" },
-          { "type": { "zh-TW": "午餐", "en": "Lunch" }, "name": "Viet Haus - Shop 9/12-20 Ocean St, Maroochydore", "veg": { "zh-TW": "推薦：招牌牛肉河粉 Pho Bo", "en": "Pick: signature beef pho (Pho Bo)" }, "budget": "AUD 16-26", "mapUrl": "https://www.google.com/maps/search/?api=1&query=Viet%20Haus%20Ocean%20St%20Maroochydore" }
+          { "type": { "zh-TW": "推薦早餐", "en": "Breakfast pick" }, "name": "培根蛋堡 / 德式香腸攤位 (Noosa Farmers Market)", "veg": { "zh-TW": "培根蛋堡：酥脆培根、太陽蛋、起司夾軟法包；或德式香腸堡，市集經典早餐，攤位每週略有不同", "en": "Classic bacon-and-egg roll (crispy bacon, fried egg, cheese in a soft roll) or a German sausage roll — a market breakfast staple; exact stall rotates weekly" }, "budget": "AUD 10-18", "mapUrl": "https://www.google.com/maps/search/?api=1&query=Noosa%20Farmers%20Market" },
+          { "type": { "zh-TW": "推薦早餐", "en": "Breakfast pick" }, "name": "Roti & Rendang Curry stall (Noosa Farmers Market)", "veg": { "zh-TW": "經典印尼牛肉仁當咖哩，椰漿與香料慢燉入味，配印度烤餅 Roti", "en": "Classic Indonesian beef rendang, slow-simmered in coconut milk and spices, served with roti" }, "budget": "AUD 10-15", "mapUrl": "https://www.google.com/maps/search/?api=1&query=Rendang%20Curry%20Roti%20Noosa%20Farmers%20Market" },
+          { "type": { "zh-TW": "午餐", "en": "Lunch" }, "name": "Viet Haus - Shop 9/12-20 Ocean St, Maroochydore", "veg": { "zh-TW": "招牌牛肉河粉 Pho Bo：牛骨湯頭燉煮數小時，佐牛肉片、河粉與新鮮香草", "en": "Signature beef pho (Pho Bo) — beef bone broth simmered for hours, with sliced beef, rice noodles and fresh herbs" }, "budget": "AUD 16-26", "mapUrl": "https://www.google.com/maps/search/?api=1&query=Viet%20Haus%20Ocean%20St%20Maroochydore" }
         ]
       },
       "tips": {
@@ -706,17 +708,18 @@ function renderTransitItem(item, isLast) {
   line.appendChild(el('span', 'tl-transit-icon', item.mode || '🚗'));
   var labelText = t(item.label);
   if (item.duration) labelText += ' · ' + t(item.duration);
-  if (item.navUrl) {
-    var labelBtn = el('button', 'tl-transit-label tl-map-btn ' + (item.theme || 'd1'), labelText);
-    labelBtn.type = 'button';
-    labelBtn.dataset.href = item.navUrl;
-    labelBtn.setAttribute('aria-label', ui('viewMap') + ': ' + labelText);
-    line.appendChild(labelBtn);
-    line.appendChild(renderExternalLink(item.navUrl, item.theme || 'd1'));
-  } else {
-    line.appendChild(el('span', 'tl-transit-label', labelText));
-  }
+  line.appendChild(el('span', 'tl-transit-label', labelText));
   body.appendChild(line);
+  if (item.navUrl) {
+    var actions = el('div', 'tl-loc');
+    var routeBtn = el('button', 'tl-loc-name tl-map-btn tl-route-btn ' + (item.theme || 'd1'), ui('viewRoute'));
+    routeBtn.type = 'button';
+    routeBtn.dataset.href = item.navUrl;
+    routeBtn.setAttribute('aria-label', ui('viewRoute') + ': ' + labelText);
+    actions.appendChild(routeBtn);
+    actions.appendChild(renderExternalLink(item.navUrl, item.theme || 'd1'));
+    body.appendChild(actions);
+  }
   if (item.note) body.appendChild(el('div', 'tl-transit-note', t(item.note)));
 
   row.appendChild(body);
@@ -769,13 +772,21 @@ function renderFoodRows(rows, dietClass) {
     food.appendChild(info);
     food.appendChild(el('div', 'fr-budget', row.budget));
     if (row.mapUrl) {
-      var link = el('a', 'fr-link', '📍');
-      link.href = row.mapUrl;
-      link.target = '_blank';
-      link.rel = 'noopener';
-      link.setAttribute('aria-label', ui('map') + ': ' + row.name);
-      link.title = ui('map');
-      food.appendChild(link);
+      var actions = el('div', 'fr-actions');
+      var mapBtn = el('button', 'fr-link tl-map-btn', '📍');
+      mapBtn.type = 'button';
+      mapBtn.dataset.href = row.mapUrl;
+      mapBtn.setAttribute('aria-label', ui('viewMap') + ': ' + row.name);
+      mapBtn.title = ui('viewMap');
+      actions.appendChild(mapBtn);
+      var ext = el('a', 'fr-link fr-ext', '↗');
+      ext.href = row.mapUrl;
+      ext.target = '_blank';
+      ext.rel = 'noopener';
+      ext.setAttribute('aria-label', ui('openInGoogleMaps') + ': ' + row.name);
+      ext.title = ui('openInGoogleMaps');
+      actions.appendChild(ext);
+      food.appendChild(actions);
     }
     cards.appendChild(food);
   });
