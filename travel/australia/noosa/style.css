@@ -8,6 +8,15 @@
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+
+  /* Functional motion exception (see DESIGN.md Accessibility): the map-loading
+     spinner communicates state, not decoration, so it keeps spinning even
+     when reduced motion is requested. Higher specificity than the universal
+     reset above, so it wins despite both using !important. */
+  .map-loading-spinner {
+    animation-duration: 0.8s !important;
+    animation-iteration-count: infinite !important;
+  }
 }
 
 :root {
