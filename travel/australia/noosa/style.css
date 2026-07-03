@@ -470,6 +470,7 @@ a { color: inherit; text-decoration: none; }
   padding: 6px 12px;
   background: var(--color-accent);
   color: var(--color-on-accent);
+  font: inherit;
   font-size: var(--fs-xs);
   font-weight: 700;
   border-radius: 8px;
@@ -759,7 +760,7 @@ a { color: inherit; text-decoration: none; }
 button.fr-link { font: inherit; font-size: 14px; padding: 0; cursor: pointer; }
 
 /* ── 9. CHIPS ── */
-.chip { font-size: var(--fs-xs); padding: 3px 9px; border-radius: 10px; font-weight: 600; white-space: nowrap; cursor: pointer; transition: background 0.15s, color 0.15s, box-shadow 0.15s; }
+.chip { font: inherit; font-size: var(--fs-xs); padding: 3px 9px; border-radius: 10px; font-weight: 600; white-space: nowrap; cursor: pointer; transition: background 0.15s, color 0.15s, box-shadow 0.15s; }
 .chip.d1 { background: var(--blue-bg); color: var(--blue); border: 1px solid var(--blue-l); }
 .chip.d2 { background: var(--green-bg); color: var(--green); border: 1px solid var(--green-l); }
 .chip.active.d1 { background: var(--blue); color: var(--color-on-primary); border-color: transparent; box-shadow: 0 1px 8px color-mix(in srgb, var(--blue) 45%, transparent); }
@@ -784,6 +785,7 @@ button.fr-link { font: inherit; font-size: 14px; padding: 0; cursor: pointer; }
   height: 68px;
   padding: 0;
   border: 0;
+  font: inherit;
   border-radius: 8px;
   flex-shrink: 0;
   cursor: pointer;
