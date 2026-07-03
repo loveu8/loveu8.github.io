@@ -404,6 +404,7 @@ var els = {
   dayTabs: document.getElementById('dayTabs'),
   sidebar: document.getElementById('sidebar'),
   sidebarBody: document.getElementById('sidebarBody'),
+  printBody: document.getElementById('printBody'),
   sidebarHeader: document.getElementById('sidebarHeader'),
   sheetHandle: document.getElementById('sheetHandle'),
   handleHint: document.getElementById('handleHint'),
@@ -855,6 +856,41 @@ function renderDayContent(day) {
   if (tips) els.sidebarBody.appendChild(tips);
 }
 
+function renderPrintContent() {
+  var originalDay = state.day;
+  els.printBody.innerHTML = '';
+
+  state.data.days.forEach(function(day) {
+    state.day = day.id; // renderLinks/renderExternalLink fall back to currentDay().theme
+    var section = el('div', 'print-day-section');
+
+    var heading = el('div', 'print-day-heading ' + day.theme);
+    heading.appendChild(el('span', 'print-day-label', t(day.label)));
+    heading.appendChild(el('span', 'print-day-sub', t(day.tabSub)));
+    section.appendChild(heading);
+
+    var route = el('div', 'route-strip ' + day.theme);
+    route.appendChild(el('span', 'route-strip-label', t(day.route)));
+    section.appendChild(route);
+
+    var timeline = el('div', 'timeline');
+    day.items.forEach(function(item, index) {
+      timeline.appendChild(renderItem(item, day, index === day.items.length - 1));
+    });
+    section.appendChild(timeline);
+
+    var food = renderFoodSection(day.foodSection);
+    if (food) section.appendChild(food);
+
+    var tips = renderTips(day.tips);
+    if (tips) section.appendChild(tips);
+
+    els.printBody.appendChild(section);
+  });
+
+  state.day = originalDay;
+}
+
 function renderStaticText() {
   var langData = state.data.languages[state.lang];
   els.html.lang = state.lang;
@@ -1003,6 +1039,7 @@ function setupEvents() {
     event.stopPropagation();
     window.print();
   });
+  window.addEventListener('beforeprint', renderPrintContent);
   els.sidebarBody.addEventListener('click', handleTimelineClick);
   els.lightbox.addEventListener('click', closeLightbox);
   els.lightboxClose.addEventListener('click', closeLightbox);
