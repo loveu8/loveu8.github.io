@@ -24,7 +24,9 @@ var ITINERARY_DATA =
         "dayTabsLabel": "選擇天數",
         "backToTop": "回到頂部",
         "vegPicks": "🌱 素食推薦",
-        "generalPicks": "🍖 一般餐點推薦"
+        "generalPicks": "🍖 一般餐點推薦",
+        "closeLightbox": "關閉圖片",
+        "viewPhoto": "查看照片"
       },
       "tripTitle": "NOOSA 週末行程",
       "tripSubtitle": "2026/07/04-05 · 全程自駕 · 素食友善"
@@ -51,7 +53,9 @@ var ITINERARY_DATA =
         "dayTabsLabel": "Choose day",
         "backToTop": "Back to top",
         "vegPicks": "🌱 Vegetarian picks",
-        "generalPicks": "🍖 General / meat picks"
+        "generalPicks": "🍖 General / meat picks",
+        "closeLightbox": "Close photo",
+        "viewPhoto": "View photo"
       },
       "tripTitle": "NOOSA Weekend Itinerary",
       "tripSubtitle": "2026/07/04-05 · Self-drive · Vegetarian friendly"
@@ -494,6 +498,10 @@ var SUN_ICON_SVG = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" 
   '<line x1="17.66" y1="6.34" x2="19.07" y2="4.93"></line>' +
   '</svg>';
 
+var MOON_ICON_SVG = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">' +
+  '<path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z"></path>' +
+  '</svg>';
+
 function applyTheme(theme) {
   if (theme === 'system') {
     els.html.removeAttribute('data-theme');
@@ -504,7 +512,7 @@ function applyTheme(theme) {
   var isDark = els.html.getAttribute('data-theme') === 'dark' ||
     (!els.html.hasAttribute('data-theme') && window.matchMedia('(prefers-color-scheme: dark)').matches);
 
-  els.themeToggle.innerHTML = isDark ? SUN_ICON_SVG : '◐';
+  els.themeToggle.innerHTML = isDark ? SUN_ICON_SVG : MOON_ICON_SVG;
   els.themeToggle.setAttribute('aria-label', isDark ? ui('themeLight') : ui('themeDark'));
   els.themeToggle.setAttribute('title', isDark ? ui('themeLight') : ui('themeDark'));
 }
@@ -667,12 +675,15 @@ function renderPhotos(photos) {
   if (!photos || !photos.length) return null;
   var wrap = el('div', 'tl-photos');
   photos.forEach(function(photo) {
+    var btn = el('button', 'tl-photo');
+    btn.type = 'button';
+    btn.setAttribute('aria-label', ui('viewPhoto') + (photo.alt ? ': ' + photo.alt : ''));
     var img = document.createElement('img');
-    img.className = 'tl-photo';
     img.src = photo.src;
     img.alt = photo.alt || '';
-    img.addEventListener('click', function() { openLightbox(photo.src); });
-    wrap.appendChild(img);
+    btn.appendChild(img);
+    btn.addEventListener('click', function() { openLightbox(photo.src); });
+    wrap.appendChild(btn);
   });
   return wrap;
 }
@@ -858,6 +869,7 @@ function renderStaticText() {
   els.dayTabs.setAttribute('aria-label', ui('dayTabsLabel'));
   els.backToTop.setAttribute('aria-label', ui('backToTop'));
   els.backToTop.setAttribute('title', ui('backToTop'));
+  els.lightboxClose.setAttribute('aria-label', ui('closeLightbox'));
   applyTheme(localStorage.getItem('theme') || 'system');
 }
 

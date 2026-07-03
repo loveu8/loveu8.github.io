@@ -83,6 +83,7 @@
 
   --color-success: #34a853;
   --color-warning: #f29900;
+  --color-warning-text: #8a5a00;
   --color-error: #d93025;
   --color-info: #1a73e8;
 }
@@ -127,6 +128,7 @@
 
   --color-success: #81c995;
   --color-warning: #fdd663;
+  --color-warning-text: #fdd663;
   --color-error: #f28b82;
   --color-info: #8ab4f8;
 }
@@ -139,6 +141,7 @@
 - **Warm amber:** Warnings, time-sensitive notes, backup plans, market/food tags.
 - **Violet:** Hotel, rest, special stay moments. Use sparingly.
 - **Neutral surfaces:** Most containers, cards, sidebars, tabs, and print surfaces.
+- **`--color-warning` vs `--color-warning-text`:** `--color-warning` is a *status* color (badges, small dots, the bullet marker before a tip) — it is not dark enough to pass 4.5:1 as body/label text on light warm surfaces. `--color-warning-text` is the darkened text-safe variant (light mode: `#8a5a00`, verified 5.5:1 on `--color-warm-soft`; dark mode: same value as `--color-warning`, already verified 9-10:1 on dark surfaces). Any warning/shop tag or tips-list text must use `--color-warning-text`, never `--color-warning` directly.
 
 ## Dark Mode Rules
 - Use `prefers-color-scheme: dark` as the default detection, and allow an explicit `[data-theme]` override later if a toggle is added.
@@ -197,8 +200,8 @@
 - **Tags:** Small, dense, semantic. Use color families consistently.
 - **Timeline items:** Hover and selected states should use `--color-accent-soft` or the relevant route color soft token.
 - **Route strips:** May use a very subtle gradient between soft tokens, but text contrast must remain strong.
-- **Photos:** Rounded 8px, object-fit cover, no heavy filters. Photos should feel inspectable.
-- **Alerts / tips:** Amber or coral family, never gray-only. Important warnings must be visible in both themes.
+- **Photos:** Rounded 8px, object-fit cover, no heavy filters. Photos should feel inspectable. Each thumbnail is a `<button>` wrapping the `<img>` (not a bare clickable `<img>`), so it's reachable by keyboard/screen reader and carries its own `aria-label`; the lightbox close control is a real `<button>` for the same reason.
+- **Alerts / tips:** Use one color family per component, not a mix — e.g. `.tips-box` uses `--color-warm-soft`/`--color-warm-border` for background/border and `--color-warning-text` for all its text (title, list items, bullet marker uses `--color-warning`), never pairing accent(coral)-family surface tokens with warning(amber)-family text tokens in the same component. Never gray-only. Important warnings must be visible in both themes.
 - **Loading state:** A centered spinner over a translucent, blurred scrim (see `.map-loading`). Use for in-place loading inside a panel that already has visible structure (e.g. the map while an iframe swaps). Auto-hide after a timeout as a fallback in case the load event never fires.
 - **Error / empty state:** Reuse the `tips-box`-style alert card (icon + title + short message), never a bare unstyled text string. Must be legible in both themes and should suggest what the user can do next (e.g. reload) when practical.
 - **One map-interaction rule, everywhere:** every place or route reference — on an activity card, a transit connector, or a food-recommendation row — offers the same two explicit controls and nothing else: a **📍 pill button** that previews the location/route on the embedded map (and collapses the mobile sheet so the preview is visible), and an **↗ external pill/button** ("↗ Maps") that opens Google Maps in a new tab. Tapping anything that is not one of these two controls must never touch the map — no implicit "tap the card body" behavior. Concretely: activity cards render one `.tl-loc` row per location (the 📍-prefixed place name is itself the preview button, `.tl-loc-name.tl-map-btn`); transit connectors keep their description as plain text and put a「📍 路線」pill + "↗ Maps" pill beneath it; food rows use compact circular 📍 (preview) and ↗ (external) buttons. When a card references multiple locations (e.g. main vs backup trailhead), stack one `.tl-loc` row per location — the place name is what tells them apart.
@@ -213,7 +216,7 @@
 - **Current approach:** Emoji as lightweight icons (🚗 ⛰️ ☕ 🏨 🌿 🍦 🍽️ ⚠️). Chosen deliberately to avoid pulling in an icon font/SVG set for a personal single-page itinerary site.
 - **Known risk:** Emoji glyph style differs across OS/browser (Windows vs macOS vs Android render the same codepoint very differently), which works against the "Google clarity" consistency goal. Treat emoji as decoration/scannability aids, not as the sole carrier of meaning — pair with text labels (already the pattern here).
 - **When to revisit:** If the site grows more pages/components, or cross-platform visual consistency becomes a real complaint (not hypothetical), switch to a small inline SVG icon set instead of expanding emoji usage further.
-- **Pixel-precise icons:** prefer inline SVG over a Unicode glyph for any icon where exact centering matters (small circular buttons especially) — Unicode glyph boxes are not reliably centered across fonts/OSes (see DECISIONS.md, dark-mode sun icon).
+- **Pixel-precise icons:** prefer inline SVG over a Unicode glyph for any icon where exact centering matters (small circular buttons especially) — Unicode glyph boxes are not reliably centered across fonts/OSes (see DECISIONS.md, dark-mode sun icon; the light-mode counterpart was later given a matching inline SVG moon icon for the same reason — a toggle's two states should share one icon language, not mix an SVG state with a raw glyph state).
 
 ## Motion
 - **Approach:** Minimal functional.
@@ -228,7 +231,7 @@
 
 ## Accessibility
 - Maintain WCAG AA contrast for text and controls in both light and dark modes.
-- Touch targets should be at least 40px tall for primary controls when practical.
+- Touch targets should be at least 44×44px for tappable controls (Apple HIG / Material minimum), not just 40px tall. Currently met by `.theme-toggle`, `.lang-toggle`, `.back-to-top`, `.lightbox-close` (all 44×44). `.fr-link` (food-row map/external buttons) is 40×40 — a deliberate compromise against the compact food-row grid, not yet at 44 — flagged here rather than silently under-sized.
 - Do not communicate meaning by color alone. Keep labels, icons, or text.
 - Preserve print readability. Print mode should remain mostly light regardless of current theme.
 - **Keyboard focus:** Every interactive element (chips, tabs, buttons, links) must show a visible `:focus-visible` style — do not rely on the browser default outline blending into the surface, and never use `outline: none` without a replacement. Use `outline: 2px solid var(--color-primary); outline-offset: 2px;` as the default focus ring, swapping to a high-contrast token if the element's own background is already primary-colored.
