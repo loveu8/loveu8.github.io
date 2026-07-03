@@ -63,8 +63,8 @@ var ITINERARY_DATA =
   },
   "maps": {
     "day1": {
-      "query": "Mount Ngungun Glass House Mountains Queensland",
-      "routeUrl": "https://www.google.com/maps/dir/?api=1&origin=Carina%20QLD&destination=Noosa%20National%20Park%20Carpark&waypoints=Mount%20Ngungun%20Glass%20House%20Mountains%7CThe%20Coffee%20Club%20Beerwah%7CEumundi%20Markets%7CNoosa%20River%20Retreat%20Holiday%20Apartments%20Noosaville&travelmode=driving"
+      "query": "Mount Ngungun Summit Track Carpark, Glass House Mountains QLD",
+      "routeUrl": "https://www.google.com/maps/dir/?api=1&origin=Carina%20QLD&destination=Noosa%20National%20Park%20Carpark&waypoints=Mount%20Ngungun%20Summit%20Track%20Carpark%7CThe%20Coffee%20Club%20Beerwah%7CEumundi%20Markets%7CNoosa%20River%20Retreat%20Holiday%20Apartments%20Noosaville&travelmode=driving"
     },
     "day2": {
       "query": "Mount Coolum National Park Queensland",
@@ -112,7 +112,7 @@ var ITINERARY_DATA =
               "name": "Mount Ngungun Summit Walk",
               "intro": { "zh-TW": "玻璃屋山群經典短登山路線，山頂視野開闊。", "en": "A classic Glass House Mountains short summit walk with open views." },
               "tags": [{ "type": "hike", "text": { "zh-TW": "Grade 3", "en": "Grade 3" } }, { "type": "hike", "text": { "zh-TW": "2.4km 來回", "en": "2.4 km return" } }, { "type": "hike", "text": { "zh-TW": "2 小時", "en": "2 hours" } }, { "type": "hike", "text": { "zh-TW": "253m", "en": "253 m" } }],
-              "links": [{ "label": { "zh-TW": "📍 地圖", "en": "📍 Map" }, "url": "https://www.google.com/maps/search/?api=1&query=Mount%20Ngungun%20Glass%20House%20Mountains", "theme": "d1" }],
+              "links": [{ "label": { "zh-TW": "📍 地圖", "en": "📍 Map" }, "url": "https://www.google.com/maps/search/?api=1&query=Mount%20Ngungun%20Summit%20Track%20Carpark", "theme": "d1" }],
               "note": { "zh-TW": "登頂可遠眺玻璃屋山群全景，360° 全景視野。", "en": "The summit gives a wide 360-degree view across the Glass House Mountains." },
               "photos": [{ "src": "pics/Mount Ngungun Summit Track.JPG", "alt": "Mount Ngungun" }, { "src": "pics/Mount Ngungun Summit Track - 1.JPG", "alt": "Mount Ngungun Summit" }]
             },
