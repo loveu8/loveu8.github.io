@@ -64,11 +64,11 @@ var ITINERARY_DATA =
   "maps": {
     "day1": {
       "query": "Mount Ngungun Summit Track Carpark, Glass House Mountains QLD",
-      "routeUrl": "https://www.google.com/maps/dir/?api=1&origin=Carina%20QLD&destination=Noosa%20National%20Park%20Carpark&waypoints=Mount%20Ngungun%20Summit%20Track%20Carpark%7CThe%20Coffee%20Club%20Beerwah%7CEumundi%20Markets%7CNoosa%20River%20Retreat%20Holiday%20Apartments%20Noosaville&travelmode=driving"
+      "routeUrl": "https://www.google.com/maps/dir/?api=1&origin=Carina%20QLD&destination=Noosa%20National%20Park%20Carpark&waypoints=Mount%20Ngungun%20Summit%20Track%20Carpark%7CEumundi%20Markets%7CNoosa%20River%20Retreat%20Holiday%20Apartments%20Noosaville&travelmode=driving"
     },
     "day2": {
-      "query": "Mount Coolum National Park Queensland",
-      "routeUrl": "https://www.google.com/maps/dir/?api=1&origin=Noosa%20River%20Retreat%20Holiday%20Apartments%20Noosaville&destination=Carina%20QLD&waypoints=Noosa%20Farmers%20Market%7CMount%20Coolum%20Walking%20Trail%7CViet%20Haus%20Ocean%20St%20Maroochydore%7CSunshine%20Plaza%20Maroochydore&travelmode=driving"
+      "query": "Chocolate Country Montville",
+      "routeUrl": "https://www.google.com/maps/dir/?api=1&origin=Noosa%20River%20Retreat%20Holiday%20Apartments%20Noosaville&destination=Carina%20QLD&waypoints=Noosa%20Farmers%20Market%7CChocolate%20Country%20Montville%7CCostco%20Wholesale%20North%20Lakes&travelmode=driving"
     }
   },
   "days": [
@@ -79,13 +79,12 @@ var ITINERARY_DATA =
       "label": { "zh-TW": "Day 1", "en": "Day 1" },
       "tabSub": { "zh-TW": "07/04 (六) Ngungun→努沙", "en": "Jul 04 Sat · Ngungun to Noosa" },
       "route": {
-        "zh-TW": "🗺️ Mt Ngungun → Coffee Club → Eumundi → Noosa River Retreat → Noosa National Park",
-        "en": "🗺️ Mt Ngungun → Coffee Club → Eumundi → Noosa River Retreat → Noosa National Park"
+        "zh-TW": "🗺️ Mt Ngungun → Eumundi → Noosa River Retreat → Noosa National Park",
+        "en": "🗺️ Mt Ngungun → Eumundi → Noosa River Retreat → Noosa National Park"
       },
       "chips": [
         ["carina", "Carina"],
         ["ngungun", "Mt Ngungun"],
-        ["coffeeclub", "Coffee Club"],
         ["eumundi", "Eumundi Markets"],
         ["noosa", "Noosa River Retreat"],
         ["noosanp", "Noosa National Park"]
@@ -129,47 +128,14 @@ var ITINERARY_DATA =
         },
         {
           "kind": "transit",
-          "time": ["09:40", "09:55"],
-          "label": { "zh-TW": "Mount Ngungun → Beerwah Village", "en": "Mount Ngungun → Beerwah Village" },
-          "duration": { "zh-TW": "短程 約 10-15 分鐘", "en": "Short drive, 10-15 min" },
-          "navUrl": "https://www.google.com/maps/dir/?api=1&origin=125%20Fullertons%20Rd%2C%20Glass%20House%20Mountains%20QLD%204518&destination=The%20Coffee%20Club%20Cafe%20Beerwah%20QLD&travelmode=driving",
+          "time": ["09:40", "11:00"],
+          "label": { "zh-TW": "Mount Ngungun → Eumundi Markets", "en": "Mount Ngungun → Eumundi Markets" },
+          "duration": { "zh-TW": "開車 約 40 分鐘（含彈性時間）", "en": "Drive about 40 min (includes buffer)" },
+          "navUrl": "https://www.google.com/maps/dir/?api=1&origin=125%20Fullertons%20Rd%2C%20Glass%20House%20Mountains%20QLD%204518&destination=Eumundi%20Markets&travelmode=driving",
           "theme": "d1"
         },
         {
-          "time": ["09:55", "11:25"],
-          "chip": "coffeeclub",
-          "dot": "orange",
-          "title": { "zh-TW": "☕ 爬山後餐點", "en": "☕ Post-hike meal" },
-          "tags": [{ "type": "warn", "text": { "zh-TW": "含開車緩衝 1.5h", "en": "Includes 1.5h buffer" } }],
-          "cards": [
-            {
-              "kind": "main",
-              "name": "The Coffee Club Cafe - Beerwah",
-              "intro": { "zh-TW": "Beerwah Village 的穩定補給點，適合爬完山休息。", "en": "A reliable Beerwah Village stop for food and coffee after the hike." },
-              "tags": [{ "type": "food", "text": { "zh-TW": "AUD 20-30/人", "en": "AUD 20-30 pp" } }, { "type": "food", "text": { "zh-TW": "素食 OK", "en": "Vegetarian OK" } }],
-              "links": [{ "label": { "zh-TW": "📍 地圖", "en": "📍 Map" }, "url": "https://www.google.com/maps/search/?api=1&query=The%20Coffee%20Club%20Cafe%20Beerwah", "theme": "d1" }],
-              "note": { "zh-TW": "Beerwah Village，爬完山補充體力的好據點。", "en": "Good for a reset after the morning climb." }
-            },
-            {
-              "kind": "backup",
-              "name": "The Lookout Cafe",
-              "intro": { "zh-TW": "靠近 Glass House Mountains，備案時動線自然。", "en": "Near Glass House Mountains, useful if the backup route wins." },
-              "tags": [{ "type": "food", "text": { "zh-TW": "AUD 20-30/人", "en": "AUD 20-30 pp" } }, { "type": "food", "text": { "zh-TW": "Veg / Vegan OK", "en": "Veg / vegan OK" } }],
-              "links": [{ "label": { "zh-TW": "📍 地圖", "en": "📍 Map" }, "url": "https://www.google.com/maps/search/?api=1&query=The%20Lookout%20Cafe%20Glass%20House%20Mountains", "theme": "d1" }],
-              "note": { "zh-TW": "Glass House Mtns，08:30-14:30。", "en": "Glass House Mtns, 08:30-14:30." }
-            }
-          ]
-        },
-        {
-          "kind": "transit",
-          "time": ["11:25", "12:10"],
-          "label": { "zh-TW": "Beerwah Village → Eumundi Markets", "en": "Beerwah Village → Eumundi Markets" },
-          "duration": { "zh-TW": "開車 約 30-35 分鐘", "en": "Drive about 30-35 min" },
-          "navUrl": "https://www.google.com/maps/dir/?api=1&origin=The%20Coffee%20Club%20Cafe%20Beerwah%20QLD&destination=Eumundi%20Markets&travelmode=driving",
-          "theme": "d1"
-        },
-        {
-          "time": ["12:10", "13:30"],
+          "time": ["11:00", "13:30"],
           "chip": "eumundi",
           "dot": "orange",
           "title": { "zh-TW": "🛍️ Eumundi Markets · 市集午餐", "en": "🛍️ Eumundi Markets · market lunch" },
@@ -239,7 +205,6 @@ var ITINERARY_DATA =
       "foodSection": {
         "title": { "zh-TW": "🍽️ Day 1 餐廳與預算", "en": "🍽️ Day 1 food and budget" },
         "vegRows": [
-          { "type": { "zh-TW": "爬山後餐", "en": "Post-hike" }, "name": "The Coffee Club Cafe - Beerwah", "veg": { "zh-TW": "推薦 Tomato & Pesto Flat Grill：帕尼尼夾番茄、羅勒青醬與烤蔬菜，起司烤到微酥", "en": "Pick: Tomato & Pesto Flat Grill — grilled panini with tomato, basil pesto, roasted vegetables and melted cheese" }, "budget": "AUD 20-30", "mapUrl": "https://www.google.com/maps/search/?api=1&query=The%20Coffee%20Club%20Cafe%20Beerwah" },
           { "type": { "zh-TW": "市集午餐", "en": "Market lunch" }, "name": "Seko Food (Eumundi Markets)", "veg": { "zh-TW": "中東烤餅捲鷹嘴豆泥、炸鷹嘴豆餅（falafel）與時蔬，多款素食/全素選擇", "en": "Lebanese-style wraps with hummus, falafel and fresh vegetables; many vegan/vegetarian options" }, "budget": "AUD 12-18", "mapUrl": "https://www.google.com/maps/search/?api=1&query=Seko%20Food%20Eumundi%20Markets" },
           { "type": { "zh-TW": "市集午餐", "en": "Market lunch" }, "name": "Samosa Cart (Eumundi Markets)", "veg": { "zh-TW": "酥炸三角餃，內餡為馬鈴薯、豌豆與孜然辛香料，全素", "en": "Deep-fried pastry triangles filled with spiced potato, peas and cumin; fully vegetarian" }, "budget": "AUD 8-12", "mapUrl": "https://www.google.com/maps/search/?api=1&query=Samosa%20Cart%20Eumundi%20Markets" },
           { "type": { "zh-TW": "市集午餐", "en": "Market lunch" }, "name": "Turkish Gozleme (Eumundi Markets)", "veg": { "zh-TW": "土耳其薄餅現煎，起司或菠菜起司內餡，外皮酥脆", "en": "Griddle-cooked Turkish flatbread with a cheese or spinach-and-cheese filling, crisp on the outside" }, "budget": "AUD 10-15", "mapUrl": "https://www.google.com/maps/search/?api=1&query=Turkish%20Gozleme%20Eumundi%20Markets" },
@@ -248,7 +213,6 @@ var ITINERARY_DATA =
           { "type": { "zh-TW": "晚餐氣氛", "en": "Atmosphere" }, "name": "Somedays Pizza Noosa", "veg": { "zh-TW": "推薦 Margherita：經典瑪格麗特披薩，番茄、莫札瑞拉起司與羅勒，柴燒窯烤", "en": "Pick: classic wood-fired Margherita with tomato, mozzarella and fresh basil" }, "budget": "AUD 30-40", "mapUrl": "https://www.google.com/maps/search/?api=1&query=Somedays%20Pizza%20Noosa" }
         ],
         "generalRows": [
-          { "type": { "zh-TW": "爬山後餐", "en": "Post-hike" }, "name": "The Coffee Club Cafe - Beerwah", "veg": { "zh-TW": "推薦香煎雞排堡或牛排三明治，佐生菜番茄與薯條", "en": "Pick: crumbed chicken schnitzel or steak sandwich, served with salad and fries" }, "budget": "AUD 20-30", "mapUrl": "https://www.google.com/maps/search/?api=1&query=The%20Coffee%20Club%20Cafe%20Beerwah" },
           { "type": { "zh-TW": "市集午餐", "en": "Market lunch" }, "name": "Pops Dim Sims (Eumundi Markets)", "veg": { "zh-TW": "招牌手工煎餃，雞肉或豬肉內餡，外皮煎至金黃酥脆（也有素食口味）", "en": "Handmade dim sims with chicken or pork filling, pan-fried until golden and crisp (vegetarian version also available)" }, "budget": "AUD 6-10", "mapUrl": "https://www.google.com/maps/search/?api=1&query=Pops%20Dim%20Sims%20Eumundi%20Markets" },
           { "type": { "zh-TW": "市集午餐", "en": "Market lunch" }, "name": "Traditional German Sausages (Eumundi Markets)", "veg": { "zh-TW": "德式煙燻香腸夾法棍，佐酸菜與芥末醬", "en": "Smoked German sausage in a baguette with sauerkraut and mustard" }, "budget": "AUD 10-15", "mapUrl": "https://www.google.com/maps/search/?api=1&query=Traditional%20German%20Sausages%20Eumundi%20Markets" },
           { "type": { "zh-TW": "晚餐首選", "en": "Dinner pick" }, "name": "Leela Noosa", "veg": { "zh-TW": "多款肉類咖哩任選，如奶油雞（Butter Chicken）或羊肉咖哩，配印度香米飯", "en": "Choice of meat curries such as Butter Chicken or lamb curry, served with basmati rice" }, "budget": "AUD 22-32", "mapUrl": "https://www.google.com/maps/search/?api=1&query=Leela%20Noosa" },
@@ -262,9 +226,9 @@ var ITINERARY_DATA =
       "theme": "d2",
       "mapId": "day2",
       "label": { "zh-TW": "Day 2", "en": "Day 2" },
-      "tabSub": { "zh-TW": "07/05 (日) Coolum→返家", "en": "Jul 05 Sun · Coolum to home" },
-      "route": { "zh-TW": "🗺️ Farmers Mkt → Mt Coolum → Viet Haus → Sunshine Plaza → Carina", "en": "🗺️ Farmers Market → Mt Coolum → Viet Haus → Sunshine Plaza → Carina" },
-      "chips": [["hotel", "Noosa River Retreat"], ["farmersmarket", "Farmers Market"], ["coolum", "Mt Coolum"], ["viethaus", "Viet Haus"], ["sunshineplaza", "Sunshine Plaza"], ["home", "Carina"]],
+      "tabSub": { "zh-TW": "07/05 (日) Montville→返家", "en": "Jul 05 Sun · Montville to home" },
+      "route": { "zh-TW": "🗺️ Farmers Mkt → Montville → Costco → Carina", "en": "🗺️ Farmers Market → Montville → Costco → Carina" },
+      "chips": [["hotel", "Noosa River Retreat"], ["farmersmarket", "Farmers Market"], ["montville", "Montville"], ["costco", "Costco"], ["home", "Carina"]],
       "items": [
         {
           "time": ["07:00", "08:10"],
@@ -294,68 +258,48 @@ var ITINERARY_DATA =
         },
         {
           "kind": "transit",
-          "time": ["09:00", "10:00"],
-          "label": { "zh-TW": "飯店 → Mount Coolum Walking Trail", "en": "Hotel → Mount Coolum Walking Trail" },
-          "duration": { "zh-TW": "開車 約 20-25 分鐘（含緩衝）", "en": "Drive about 20-25 min (includes buffer)" },
-          "navUrl": "https://www.google.com/maps/dir/?api=1&origin=Noosa%20River%20Retreat%20Holiday%20Apartments%20Noosaville&destination=Mount%20Coolum%20Walking%20Trail&travelmode=driving",
+          "time": ["09:00", "11:00"],
+          "label": { "zh-TW": "飯店 → Chocolate Country Montville", "en": "Hotel → Chocolate Country Montville" },
+          "duration": { "zh-TW": "開車 約 45 分鐘（含彈性與停車時間）", "en": "Drive about 45 min (includes buffer and parking)" },
+          "navUrl": "https://www.google.com/maps/dir/?api=1&origin=Noosa%20River%20Retreat%20Holiday%20Apartments%20Noosaville&destination=Chocolate%20Country%20Montville&travelmode=driving",
           "theme": "d2"
         },
         {
-          "time": ["10:00", "12:00"],
-          "chip": "coolum",
-          "dot": "green",
-          "title": { "zh-TW": "⛰️ Mount Coolum Walking Trail（登頂）", "en": "⛰️ Mount Coolum Walking Trail summit" },
-          "intro": { "zh-TW": "短但偏陡的火山岩步道，登頂後能看海岸線。", "en": "A short but steep volcanic-rock climb with coastal views from the top." },
-          "links": [{ "label": { "zh-TW": "📍 地圖", "en": "📍 Map" }, "url": "https://www.google.com/maps/search/?api=1&query=Mount%20Coolum%20Walking%20Trail", "theme": "d2" }],
-          "tags": [{ "type": "hike", "text": { "zh-TW": "Grade 4", "en": "Grade 4" } }, { "type": "hike", "text": { "zh-TW": "Steep / Rocky", "en": "Steep / rocky" } }, { "type": "hike", "text": { "zh-TW": "1.9km 來回", "en": "1.9 km return" } }, { "type": "hike", "text": { "zh-TW": "約 2 小時", "en": "About 2 hours" } }],
-          "note": { "zh-TW": "官方 Grade 4，有陡峭岩石路段。攜帶充足水分，穿防滑登山鞋。", "en": "Official Grade 4 with steep rocky sections. Bring enough water and grippy shoes." },
-          "photos": [{ "src": "pics/Mount Coolum Track.JPG", "alt": "Mount Coolum" }, { "src": "pics/Mount Coolum Track - 1.JPG", "alt": "Mount Coolum Summit" }]
-        },
-        {
-          "kind": "transit",
-          "time": ["12:00", "12:50"],
-          "label": { "zh-TW": "Mount Coolum → Viet Haus (Maroochydore)", "en": "Mount Coolum → Viet Haus (Maroochydore)" },
-          "duration": { "zh-TW": "開車 約 15 分鐘（含停車）", "en": "Drive about 15 min (includes parking)" },
-          "navUrl": "https://www.google.com/maps/dir/?api=1&origin=Mount%20Coolum%20Walking%20Trail&destination=Viet%20Haus%20Ocean%20St%20Maroochydore&travelmode=driving",
-          "theme": "d2"
-        },
-        {
-          "time": ["12:50", "14:00"],
-          "chip": "viethaus",
+          "time": ["11:00", "13:00"],
+          "chip": "montville",
           "dot": "orange",
-          "title": { "zh-TW": "🍜 午餐：Viet Haus", "en": "🍜 Lunch: Viet Haus" },
-          "intro": { "zh-TW": "Maroochydore 的越南料理午餐點，爬完山後適合熱湯麵。", "en": "A Maroochydore Vietnamese lunch stop, good for hot soup after hiking." },
-          "links": [{ "label": { "zh-TW": "📍 Viet Haus 地圖", "en": "📍 Viet Haus map" }, "url": "https://www.google.com/maps/search/?api=1&query=Viet%20Haus%20Ocean%20St%20Maroochydore", "theme": "d2" }],
-          "tags": [{ "type": "food", "text": { "zh-TW": "越南料理", "en": "Vietnamese" } }, { "type": "food", "text": { "zh-TW": "Shop 9 / 12-20 Ocean St", "en": "Shop 9 / 12-20 Ocean St" } }],
-          "note": { "zh-TW": "越南河粉、春卷，有素食選項可詢問。爬完山後吃熱湯麵非常舒服。", "en": "Pho and rolls. Ask for vegetarian options. Hot soup lands well after the climb." }
+          "title": { "zh-TW": "🏘️ Montville · 瑞士小鎮風情", "en": "🏘️ Montville · Swiss-village charm" },
+          "intro": { "zh-TW": "陽光海岸腹地的山城小鎮，木造建築與歐風店面林立，適合散步、買手工果醬和牛奶軟糖，也能在這裡解決午餐。", "en": "A Sunshine Coast hinterland village with timber buildings and European-style shopfronts — good for a wander, fudge and jam shopping, and lunch." },
+          "links": [{ "label": { "zh-TW": "📍 停車：Chocolate Country", "en": "📍 Parking: Chocolate Country" }, "url": "https://www.google.com/maps/search/?api=1&query=Chocolate%20Country%20Montville", "theme": "d2" }],
+          "tags": [{ "type": "shop", "text": { "zh-TW": "手作商店 / 觀景", "en": "Craft shops / lookouts" } }, { "type": "food", "text": { "zh-TW": "可在地午餐", "en": "Lunch on site" } }],
+          "note": { "zh-TW": "停車在 Chocolate Country Montville，再步行逛 Main Street，沿途有多個觀景點。", "en": "Park at Chocolate Country Montville, then walk Main Street — several lookouts are along the way." }
         },
         {
           "kind": "transit",
-          "time": ["14:00", "14:10"],
-          "label": { "zh-TW": "Viet Haus → Sunshine Plaza", "en": "Viet Haus → Sunshine Plaza" },
-          "duration": { "zh-TW": "開車 約 5-10 分鐘", "en": "Drive about 5-10 min" },
-          "navUrl": "https://www.google.com/maps/dir/?api=1&origin=Viet%20Haus%20Ocean%20St%20Maroochydore&destination=Sunshine%20Plaza%20Maroochydore&travelmode=driving",
+          "time": ["13:00", "14:30"],
+          "label": { "zh-TW": "Chocolate Country Montville → Costco Wholesale North Lakes", "en": "Chocolate Country Montville → Costco Wholesale North Lakes" },
+          "duration": { "zh-TW": "開車 約 1.5 小時", "en": "Drive about 1.5 hours" },
+          "navUrl": "https://www.google.com/maps/dir/?api=1&origin=Chocolate%20Country%20Montville&destination=Costco%20Wholesale%20North%20Lakes&travelmode=driving",
           "theme": "d2"
         },
         {
-          "time": ["14:10", "15:00"],
-          "chip": "sunshineplaza",
+          "time": ["14:30", "16:00"],
+          "chip": "costco",
           "dot": "purple",
-          "title": { "zh-TW": "🛍️ Sunshine Plaza · 購物/休息", "en": "🛍️ Sunshine Plaza · shopping / rest" },
-          "intro": { "zh-TW": "Maroochydore 的大型購物中心，回程前補貨或找個地方坐下休息。", "en": "A large Maroochydore shopping centre — a good stop for last-minute shopping or a sit-down break before the drive home." },
-          "links": [{ "label": { "zh-TW": "📍 地圖", "en": "📍 Map" }, "url": "https://www.google.com/maps/search/?api=1&query=Sunshine%20Plaza%20Maroochydore", "theme": "d2" }],
-          "tags": [{ "type": "shop", "text": { "zh-TW": "大型購物中心", "en": "Major shopping centre" } }],
-          "note": { "zh-TW": "長途開車回布里斯本前，適合上廁所、買點心、稍作休息。", "en": "A good last chance for a restroom break and snacks before the long drive back to Brisbane." }
+          "title": { "zh-TW": "🛒 好市多 Costco Warehouse (North Lakes)", "en": "🛒 Costco Warehouse (North Lakes)" },
+          "intro": { "zh-TW": "回布里斯本路上順路採購，補貨後直接開車回家。", "en": "A stop on the way back to Brisbane for a last shop before driving home." },
+          "links": [{ "label": { "zh-TW": "📍 地圖", "en": "📍 Map" }, "url": "https://www.google.com/maps/search/?api=1&query=Costco%20Wholesale%20North%20Lakes", "theme": "d2" }],
+          "tags": [{ "type": "shop", "text": { "zh-TW": "需要會員卡", "en": "Membership required" } }],
+          "note": { "zh-TW": "北湖 (North Lakes) 分店，正好在回程的路上。", "en": "The North Lakes warehouse sits right on the route home." }
         },
         {
           "kind": "transit",
-          "time": ["15:00", "17:00"],
+          "time": ["16:00", "16:40"],
           "chip": "home",
-          "label": { "zh-TW": "🏠 Sunshine Plaza → Carina 返家", "en": "🏠 Sunshine Plaza → Carina home" },
-          "duration": { "zh-TW": "約 1.5-2 小時", "en": "About 1.5-2 hours" },
-          "navUrl": "https://www.google.com/maps/dir/?api=1&origin=Sunshine%20Plaza%20Maroochydore&destination=Carina%20QLD&travelmode=driving",
-          "theme": "d2",
-          "note": { "zh-TW": "週日下午回布里斯本車流較多，保守估計 2 小時。", "en": "Sunday afternoon traffic back to Brisbane can be heavier. Budget 2 hours." }
+          "label": { "zh-TW": "🏠 Costco North Lakes → Carina 返家", "en": "🏠 Costco North Lakes → Carina home" },
+          "duration": { "zh-TW": "約 30-40 分鐘", "en": "About 30-40 min" },
+          "navUrl": "https://www.google.com/maps/dir/?api=1&origin=Costco%20Wholesale%20North%20Lakes&destination=Carina%20QLD&travelmode=driving",
+          "theme": "d2"
         }
       ],
       "foodSection": {
@@ -364,20 +308,26 @@ var ITINERARY_DATA =
           { "type": { "zh-TW": "早餐市集", "en": "Breakfast" }, "name": "Noosa Farmers Market", "veg": { "zh-TW": "新鮮當季水果、現榨果汁、手工烘焙點心，多個蔬食/全素攤位", "en": "Fresh seasonal fruit, cold-pressed juice, artisan baked goods, and several vegan/vegetarian stalls" }, "budget": "AUD 10-25", "mapUrl": "https://www.google.com/maps/search/?api=1&query=Noosa%20Farmers%20Market" },
           { "type": { "zh-TW": "推薦咖啡", "en": "Coffee pick" }, "name": "Flying West Coffee (Noosa Farmers Market)", "veg": { "zh-TW": "在地小農烘焙咖啡豆現沖，口碑咖啡攤", "en": "Locally roasted single-origin coffee brewed on the spot; a market favorite" }, "budget": "AUD 5-8", "mapUrl": "https://www.google.com/maps/search/?api=1&query=Flying%20West%20Coffee%20Noosa%20Farmers%20Market" },
           { "type": { "zh-TW": "推薦早餐", "en": "Breakfast pick" }, "name": "Roti & Rendang Curry stall (Noosa Farmers Market)", "veg": { "zh-TW": "印尼風味素食仁當咖哩：椰漿與香料燉煮蔬菜/豆腐，配印度烤餅 Roti（現場可詢問素食版本）", "en": "Indonesian-style vegetarian rendang — vegetables or tofu slow-simmered in coconut milk and spices — served with roti (ask staff for the veg version)" }, "budget": "AUD 10-15", "mapUrl": "https://www.google.com/maps/search/?api=1&query=Rendang%20Curry%20Roti%20Noosa%20Farmers%20Market" },
-          { "type": { "zh-TW": "午餐", "en": "Lunch" }, "name": "Viet Haus - Shop 9/12-20 Ocean St, Maroochydore", "veg": { "zh-TW": "蔬菜河粉湯頭清爽，或鮮蔬春捲佐甜辣醬/花生醬（可詢問素食版本）", "en": "Light vegetable pho, or fresh vegetable spring rolls with sweet chili or peanut dipping sauce (ask for the veg version)" }, "budget": "AUD 15-25", "mapUrl": "https://www.google.com/maps/search/?api=1&query=Viet%20Haus%20Ocean%20St%20Maroochydore" }
+          { "type": { "zh-TW": "午餐", "en": "Lunch" }, "name": "Chocolate Country Montville", "veg": { "zh-TW": "推薦菠菜費達起司烤餅（quiche）或蔬食帕尼尼，佐沙拉，飯後可加點手工牛奶軟糖或熱巧克力", "en": "Pick: spinach and feta quiche or a vegetarian panini with side salad — follow up with handmade fudge or hot chocolate" }, "budget": "AUD 15-25", "mapUrl": "https://www.google.com/maps/search/?api=1&query=Chocolate%20Country%20Montville" },
+          { "type": { "zh-TW": "午餐・風景咖啡廳", "en": "Lunch · scenic-view cafe" }, "name": "The Edge Restaurant Montville", "veg": { "zh-TW": "Main Street 127 號，坐在懸崖邊露台俯瞰陽光海岸全景，推薦南瓜燉飯或烤時蔬沙拉，08:30-16:00 供應早午餐", "en": "127 Main Street — escarpment-edge deck overlooking the whole Sunshine Coast. Pick: pumpkin risotto or roasted vegetable salad. Breakfast/lunch served 8:30am-4pm" }, "budget": "AUD 20-32", "mapUrl": "https://www.google.com/maps/search/?api=1&query=The%20Edge%20Restaurant%20Montville" },
+          { "type": { "zh-TW": "午餐", "en": "Lunch" }, "name": "Poets Cafe Montville", "veg": { "zh-TW": "1995 年開業的歐風小酒館，戶外座位視野佳，推薦蔬食法式鹹派或田園沙拉", "en": "A European-style bistro since 1995 with scenic outdoor seating. Pick: vegetarian quiche or garden salad" }, "budget": "AUD 18-28", "mapUrl": "https://www.google.com/maps/search/?api=1&query=Poets%20Cafe%20Montville" },
+          { "type": { "zh-TW": "午餐", "en": "Lunch" }, "name": "Secrets on the Lake", "veg": { "zh-TW": "雨林湖畔庭園景觀餐廳，樹屋座位氛圍佳，推薦蔬食湯品或田園沙拉碗", "en": "A rainforest lakeside garden restaurant with treehouse seating. Pick: vegetarian soup or a garden salad bowl" }, "budget": "AUD 20-30", "mapUrl": "https://www.google.com/maps/search/?api=1&query=Secrets%20on%20the%20Lake%20Montville" }
         ],
         "generalRows": [
           { "type": { "zh-TW": "推薦早餐", "en": "Breakfast pick" }, "name": "培根蛋堡 / 德式香腸攤位 (Noosa Farmers Market)", "veg": { "zh-TW": "培根蛋堡：酥脆培根、太陽蛋、起司夾軟法包；或德式香腸堡，市集經典早餐，攤位每週略有不同", "en": "Classic bacon-and-egg roll (crispy bacon, fried egg, cheese in a soft roll) or a German sausage roll — a market breakfast staple; exact stall rotates weekly" }, "budget": "AUD 10-18", "mapUrl": "https://www.google.com/maps/search/?api=1&query=Noosa%20Farmers%20Market" },
           { "type": { "zh-TW": "推薦早餐", "en": "Breakfast pick" }, "name": "Roti & Rendang Curry stall (Noosa Farmers Market)", "veg": { "zh-TW": "經典印尼牛肉仁當咖哩，椰漿與香料慢燉入味，配印度烤餅 Roti", "en": "Classic Indonesian beef rendang, slow-simmered in coconut milk and spices, served with roti" }, "budget": "AUD 10-15", "mapUrl": "https://www.google.com/maps/search/?api=1&query=Rendang%20Curry%20Roti%20Noosa%20Farmers%20Market" },
-          { "type": { "zh-TW": "午餐", "en": "Lunch" }, "name": "Viet Haus - Shop 9/12-20 Ocean St, Maroochydore", "veg": { "zh-TW": "招牌牛肉河粉 Pho Bo：牛骨湯頭燉煮數小時，佐牛肉片、河粉與新鮮香草", "en": "Signature beef pho (Pho Bo) — beef bone broth simmered for hours, with sliced beef, rice noodles and fresh herbs" }, "budget": "AUD 16-26", "mapUrl": "https://www.google.com/maps/search/?api=1&query=Viet%20Haus%20Ocean%20St%20Maroochydore" }
+          { "type": { "zh-TW": "午餐", "en": "Lunch" }, "name": "Chocolate Country Montville", "veg": { "zh-TW": "推薦火腿起司帕尼尼或牧羊人派，飯後可加點巧克力沾草莓或牛奶軟糖", "en": "Pick: ham and cheese panini or shepherd's pie — follow up with chocolate-dipped strawberries or fudge" }, "budget": "AUD 15-25", "mapUrl": "https://www.google.com/maps/search/?api=1&query=Chocolate%20Country%20Montville" },
+          { "type": { "zh-TW": "午餐・風景咖啡廳", "en": "Lunch · scenic-view cafe" }, "name": "The Edge Restaurant Montville", "veg": { "zh-TW": "Main Street 127 號，坐在懸崖邊露台俯瞰陽光海岸全景，招牌菜為梭魚魚排與脆皮豬五花，08:30-16:00 供應早午餐", "en": "127 Main Street — escarpment-edge deck overlooking the whole Sunshine Coast. Signature dishes: barramundi and crispy pork belly. Breakfast/lunch served 8:30am-4pm" }, "budget": "AUD 25-38", "mapUrl": "https://www.google.com/maps/search/?api=1&query=The%20Edge%20Restaurant%20Montville" },
+          { "type": { "zh-TW": "午餐", "en": "Lunch" }, "name": "Poets Cafe Montville", "veg": { "zh-TW": "1995 年開業的歐風小酒館，戶外座位視野佳，推薦招牌牛肉漢堡或酒燒雞肉料理", "en": "A European-style bistro since 1995 with scenic outdoor seating. Pick: signature beef burger or braised chicken" }, "budget": "AUD 20-32", "mapUrl": "https://www.google.com/maps/search/?api=1&query=Poets%20Cafe%20Montville" },
+          { "type": { "zh-TW": "午餐", "en": "Lunch" }, "name": "Secrets on the Lake", "veg": { "zh-TW": "雨林湖畔庭園景觀餐廳，樹屋座位氛圍佳，推薦招牌牛排或烤雞料理", "en": "A rainforest lakeside garden restaurant with treehouse seating. Pick: signature steak or roast chicken" }, "budget": "AUD 25-38", "mapUrl": "https://www.google.com/maps/search/?api=1&query=Secrets%20on%20the%20Lake%20Montville" }
         ]
       },
       "tips": {
         "title": { "zh-TW": "⚠️ 重要提醒", "en": "⚠️ Key reminders" },
         "items": [
           { "zh-TW": "Noosa NP 停車場週末可能客滿，備案停 Hastings Street 附近", "en": "Noosa NP parking may fill on weekends. Use Hastings Street as backup." },
-          { "zh-TW": "Mount Coolum Grade 4，帶足夠水分和防滑登山鞋", "en": "Mount Coolum is Grade 4. Bring enough water and grippy shoes." },
-          { "zh-TW": "週日下午回布里斯本，抓 2 小時車程比較穩", "en": "Budget 2 hours for the Sunday afternoon drive back to Brisbane." }
+          { "zh-TW": "Montville 主街停車位有限，週末建議提早找車位", "en": "Parking on Montville's Main Street is limited — arrive early on weekends." },
+          { "zh-TW": "好市多需要會員卡才能入場採購", "en": "A Costco membership card is required to shop." }
         ]
       }
     }
