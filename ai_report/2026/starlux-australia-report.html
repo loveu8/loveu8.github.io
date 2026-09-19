@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>星宇航空為什麼要飛雪梨？</title>
+<meta name="description" content="星宇航空 2027 雪梨航線：十個重點，看懂這條航線背後的邏輯。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    color-scheme: light;
+    --color-bg: #f7f9fc;
+    --color-surface: #ffffff;
+    --color-surface-soft: #f1f5f9;
+    --color-surface-warm: #fff8f4;
+    --color-text: #202124;
+    --color-text-muted: #5f6368;
+    --color-text-soft: #80868b;
+    --color-border: #dadce0;
+    --color-border-soft: #e8eaed;
+    --color-primary: #1a73e8;
+    --color-primary-soft: #e8f0fe;
+    --color-primary-border: #aecbfa;
+    --color-secondary: #34a853;
+    --color-secondary-soft: #e6f4ea;
+    --color-secondary-border: #b7e1cd;
+    --color-accent: #e4405f;
+    --color-accent-soft: #fde7ed;
+    --color-accent-border: #f6b3c0;
+    --color-warm: #fbbc04;
+    --color-warm-soft: #fff7db;
+    --color-warm-border: #fde293;
+    --color-violet: #833ab4;
+    --color-violet-soft: #f3e8ff;
+    --color-violet-border: #d8b4fe;
+    --color-success: #34a853;
+    --color-warning: #f29900;
+    --color-warning-text: #8a5a00;
+    --color-error: #d93025;
+    --color-info: #1a73e8;
+    --radius-sm: 6px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --space-2xs: 2px;
+    --space-xs: 4px;
+    --space-sm: 8px;
+    --space-md: 16px;
+    --space-lg: 24px;
+    --space-xl: 32px;
+    --space-2xl: 48px;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      color-scheme: dark;
+      --color-bg: #111418;
+      --color-surface: #1b1f24;
+      --color-surface-soft: #242a31;
+      --color-surface-warm: #2a211f;
+      --color-text: #f1f3f4;
+      --color-text-muted: #bdc1c6;
+      --color-text-soft: #9aa0a6;
+      --color-border: #3c4043;
+      --color-border-soft: #2f343a;
+      --color-primary: #8ab4f8;
+      --color-primary-soft: #1c2f4f;
+      --color-primary-border: #315b9f;
+      --color-secondary: #81c995;
+      --color-secondary-soft: #193424;
+      --color-secondary-border: #2f6f45;
+      --color-accent: #ff7a90;
+      --color-accent-soft: #3b2028;
+      --color-accent-border: #8f3d4f;
+      --color-warm: #fdd663;
+      --color-warm-soft: #3a2f16;
+      --color-warm-border: #8a6d1d;
+      --color-violet: #c58af9;
+      --color-violet-soft: #30213f;
+      --color-violet-border: #70449a;
+      --color-success: #81c995;
+      --color-warning: #fdd663;
+      --color-warning-text: #fdd663;
+      --color-error: #f28b82;
+      --color-info: #8ab4f8;
+    }
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+  body {
+    margin: 0;
+    background: var(--color-bg);
+    color: var(--color-text);
+    font-family: "Open Sans", "Noto Sans TC", -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft JhengHei", "PingFang TC", sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    font-weight: 400;
+  }
+
+  a { color: var(--color-primary); }
+  svg { max-width: 100%; height: auto; display: block; }
+
+  .page {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: var(--space-lg) var(--space-md) var(--space-2xl);
+  }
+
+  /* ---------- Language toggle ----------
+     A sticky row *inside* .page (not position:fixed on the viewport) so the
+     button always shares the same column width as the report card below it.
+     A viewport-fixed button would sit flush with the true edge of the window
+     while .page is still centered with margins up to 720px wide, but below
+     that breakpoint .page runs edge-to-edge — a fixed button would then land
+     on top of the header card instead of beside it. Sticky-in-flow avoids
+     that entirely, at every viewport width. */
+  .lang-toggle-row {
+    position: sticky;
+    top: var(--space-md);
+    z-index: 50;
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: var(--space-sm);
+    pointer-events: none;
+  }
+  .lang-toggle {
+    pointer-events: auto;
+    min-width: 44px;
+    height: 44px;
+    padding: 0 16px;
+    border-radius: 999px;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    color: var(--color-text-muted);
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
+  }
+  @media (prefers-color-scheme: dark) {
+    .lang-toggle { box-shadow: 0 2px 10px rgba(0, 0, 0, 0.35); }
+  }
+  .lang-toggle:hover { border-color: var(--color-primary-border); color: var(--color-primary); }
+  .lang-toggle:focus-visible { outline: 2px solid var(--color-primary); outline-offset: 2px; }
+
+  /* ---------- Header ---------- */
+  .report-header {
+    padding: var(--space-xl) var(--space-lg);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border-soft);
+    border-radius: var(--radius-lg);
+    margin-bottom: var(--space-lg);
+  }
+  .flight-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 650;
+    color: var(--color-primary);
+    background: var(--color-primary-soft);
+    border: 1px solid var(--color-primary-border);
+    border-radius: 999px;
+    padding: 6px 14px;
+    margin-bottom: var(--space-md);
+  }
+  .report-title {
+    font-size: clamp(24px, 5vw, 32px);
+    font-weight: 800;
+    line-height: 1.35;
+    margin: 0 0 var(--space-md);
+  }
+  .core-question {
+    font-size: 17px;
+    color: var(--color-text-muted);
+    line-height: 1.7;
+    margin: 0 0 var(--space-sm);
+  }
+  .report-meta {
+    font-size: 13px;
+    color: var(--color-text-soft);
+    margin-top: var(--space-md);
+  }
+  .about-brief {
+    margin-top: var(--space-md);
+    padding-top: var(--space-md);
+    border-top: 1px solid var(--color-border-soft);
+    font-size: 13.5px;
+    color: var(--color-text-muted);
+    line-height: 1.7;
+  }
+  .about-brief .label {
+    display: block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-text-soft);
+    margin-bottom: 4px;
+  }
+
+  /* ---------- Section divider ---------- */
+  .divider {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    margin: var(--space-lg) 0;
+  }
+  .divider .line { flex: 1; border-top: 1px dashed var(--color-border); }
+  .divider .tag {
+    font-size: 12px;
+    font-weight: 650;
+    color: var(--color-text-soft);
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+
+  /* ---------- Story sections ---------- */
+  .story {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border-soft);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl) var(--space-lg);
+    scroll-margin-top: 56px;
+  }
+  .kicker {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-text-soft);
+    margin-bottom: 8px;
+  }
+  .kicker .k-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 6px;
+    background: var(--color-primary-soft);
+    color: var(--color-primary);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: normal;
+    text-transform: none;
+    flex: none;
+  }
+  .story h2 {
+    font-size: clamp(21px, 3.8vw, 26px);
+    font-weight: 800;
+    line-height: 1.4;
+    margin: 0 0 var(--space-md);
+    color: var(--color-text);
+  }
+  .story p.body-text {
+    margin: 0 0 var(--space-md);
+    color: var(--color-text);
+    font-size: 16px;
+  }
+  .story p.body-text:last-child { margin-bottom: 0; }
+  .story strong { color: var(--color-primary); font-weight: 700; }
+
+  .stat {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--color-primary-soft);
+    border: 1px solid var(--color-primary-border);
+    border-radius: var(--radius-md);
+    padding: var(--space-md);
+    margin-bottom: var(--space-md);
+  }
+  .stat .stat-value {
+    font-size: clamp(26px, 6vw, 34px);
+    font-weight: 800;
+    color: var(--color-primary);
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+  .stat .stat-label {
+    font-size: 13px;
+    color: var(--color-text-muted);
+    line-height: 1.5;
+  }
+
+  .stat-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--color-border-soft);
+    border: 1px solid var(--color-border-soft);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    margin-bottom: var(--space-md);
+  }
+  .stat-cell { background: var(--color-surface-soft); padding: var(--space-md); }
+  .stat-cell .n { font-size: 22px; font-weight: 800; color: var(--color-text); display: block; margin-bottom: 2px; font-variant-numeric: tabular-nums; }
+  .stat-cell .l { font-size: 12.5px; color: var(--color-text-muted); line-height: 1.5; }
+  @media (max-width: 480px) { .stat-grid { grid-template-columns: 1fr; } }
+
+  /* ---------- callout boxes ---------- */
+  .box {
+    background: var(--color-surface-soft);
+    border: 1px solid var(--color-border-soft);
+    border-left: 3px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: var(--space-md);
+    margin-bottom: var(--space-md);
+  }
+  .box h4 { margin: 0 0 6px; font-size: 14.5px; font-weight: 700; color: var(--color-text); }
+  .box p { margin: 0; font-size: 14px; color: var(--color-text-muted); }
+  .box.info { border-left-color: var(--color-primary); }
+  .box.info h4 { color: var(--color-primary); }
+  .box.caution { border-left-color: var(--color-accent); }
+  .box.caution h4 { color: var(--color-accent); }
+  .box.gold { border-left-color: var(--color-warm); }
+  .box.gold h4 { color: var(--color-warning-text); }
+  .box.gap { border-left-color: var(--color-error); }
+  .box.gap h4 { color: var(--color-error); }
+
+  /* ---------- chart card ---------- */
+  .chart-card {
+    background: var(--color-surface-soft);
+    border: 1px solid var(--color-border-soft);
+    border-radius: var(--radius-md);
+    padding: var(--space-md);
+    margin-bottom: var(--space-sm);
+  }
+  .chart-card .chart-title { font-size: 13px; font-weight: 700; margin-bottom: var(--space-sm); color: var(--color-text-muted); }
+  .chart-legend { display: flex; flex-wrap: wrap; gap: 10px 14px; margin-top: var(--space-sm); font-size: 12px; color: var(--color-text-muted); }
+  .chart-legend .sw { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 5px; vertical-align: -1px; }
+  .src-note { font-size: 12px; color: var(--color-text-soft); margin: 0 0 var(--space-md); }
+  .src-note a { color: var(--color-text-soft); }
+
+  /* ---------- pillars ---------- */
+  .pillars { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--color-border-soft); border: 1px solid var(--color-border-soft); border-radius: var(--radius-md); overflow: hidden; margin-bottom: var(--space-md); }
+  .pillar { background: var(--color-surface-soft); padding: var(--space-md); }
+  .pillar .p-num { font-size: 12px; font-weight: 700; color: var(--color-secondary); margin-bottom: 6px; }
+  .pillar h4 { margin: 0 0 6px; font-size: 14.5px; color: var(--color-text); }
+  .pillar p { margin: 0; font-size: 13px; color: var(--color-text-muted); }
+  @media (max-width: 480px) { .pillars { grid-template-columns: 1fr; } }
+
+  /* ---------- timeline ---------- */
+  .timeline { margin: var(--space-md) 0; position: relative; padding-left: 26px; }
+  .timeline::before { content: ""; position: absolute; left: 4px; top: 6px; bottom: 6px; width: 1px; background: var(--color-border); }
+  .tl-item { position: relative; padding-bottom: var(--space-lg); }
+  .tl-item:last-child { padding-bottom: 0; }
+  .tl-item::before { content: ""; position: absolute; left: -26px; top: 4px; width: 10px; height: 10px; border-radius: 50%; background: var(--color-surface); border: 2px solid var(--color-secondary); }
+  .tl-item.dim::before { border-color: var(--color-border); }
+  .tl-date { font-size: 12.5px; font-weight: 700; color: var(--color-secondary); margin-bottom: 3px; font-variant-numeric: tabular-nums; }
+  .tl-item.dim .tl-date { color: var(--color-text-soft); }
+  .tl-item h5 { margin: 0 0 4px; font-size: 14.5px; color: var(--color-text); font-weight: 700; }
+  .tl-item p { margin: 0; font-size: 13.5px; color: var(--color-text-muted); }
+
+  /* ---------- risk list ---------- */
+  .risk-list { border-top: 1px solid var(--color-border-soft); margin-bottom: var(--space-md); }
+  .risk-row { display: flex; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--color-border-soft); align-items: flex-start; }
+  .risk-row p { margin: 0; font-size: 14px; color: var(--color-text-muted); flex: 1; }
+  .pill { flex: none; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 999px; white-space: nowrap; margin-top: 1px; border: 1px solid transparent; }
+  .pill.evidenced { background: var(--color-secondary-soft); border-color: var(--color-secondary-border); color: var(--color-secondary); }
+  .pill.inference { background: var(--color-warm-soft); border-color: var(--color-warm-border); color: var(--color-warning-text); }
+  .pill.official { background: var(--color-primary-soft); border-color: var(--color-primary-border); color: var(--color-primary); }
+  .pill.gap { background: var(--color-accent-soft); border-color: var(--color-accent-border); color: var(--color-accent); }
+
+  /* ---------- conclusion steps ---------- */
+  .story.conclusion { background: var(--color-secondary-soft); border-color: var(--color-secondary-border); }
+  .story.conclusion h2 { color: var(--color-secondary); }
+  .conclusion-step { display: flex; gap: 14px; padding: var(--space-md) 0; border-bottom: 1px solid var(--color-secondary-border); }
+  .conclusion-step:last-child { border-bottom: none; padding-bottom: 0; }
+  .conclusion-step .cs-num { font-size: 20px; font-weight: 800; color: var(--color-secondary); opacity: 0.6; flex: none; width: 30px; }
+  .conclusion-step h5 { margin: 0 0 4px; font-size: 15px; color: var(--color-text); }
+  .conclusion-step p { margin: 0; font-size: 13.5px; color: var(--color-text-muted); }
+  .author-note { margin-top: var(--space-md); padding-top: var(--space-md); border-top: 1px dashed var(--color-secondary-border); }
+  .author-note-label { display: block; font-size: 11px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--color-text-muted); opacity: 0.75; margin-bottom: 6px; }
+  .author-note p { margin: 0; font-size: 14px; font-style: italic; color: var(--color-text); line-height: 1.7; }
+
+  /* ---------- footer / sources ---------- */
+  footer.report-footer {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border-soft);
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg);
+    font-size: 13px;
+    color: var(--color-text-soft);
+    margin-top: var(--space-lg);
+  }
+  footer.report-footer details { margin-bottom: var(--space-sm); }
+  footer.report-footer summary { cursor: pointer; font-weight: 700; color: var(--color-text-muted); font-size: 13.5px; padding: 4px 0; }
+  footer.report-footer summary:focus-visible { outline: 2px solid var(--color-primary); outline-offset: 2px; }
+  footer.report-footer .src-list { columns: 2; column-gap: var(--space-lg); margin: var(--space-sm) 0 0; padding-left: 1.1em; }
+  @media (max-width: 560px) { footer.report-footer .src-list { columns: 1; } }
+  footer.report-footer .src-list li { margin-bottom: 6px; break-inside: avoid; }
+  footer.report-footer .src-list a { color: var(--color-text-muted); }
+  footer.report-footer ul.plain { margin: var(--space-sm) 0 0; padding-left: 1.1em; }
+  footer.report-footer ul.plain li { margin-bottom: 5px; }
+  footer.report-footer .note { margin: var(--space-md) 0 0; }
+
+  @media print {
+    .lang-toggle-row { display: none; }
+    body { background: #fff; color: #000; }
+    .story, footer.report-footer, .report-header { border: 1px solid #ccc; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <div class="lang-toggle-row">
+    <button type="button" class="lang-toggle" id="langToggle">EN</button>
+  </div>
+
+  <header class="report-header">
+    <span class="flight-tag" id="flightTag"></span>
+    <h1 class="report-title" id="reportTitle"></h1>
+    <p class="core-question" id="coreQuestion"></p>
+    <div class="about-brief">
+      <span class="label" id="aboutLabel"></span>
+      <span id="aboutText"></span>
+    </div>
+    <p class="report-meta" id="reportMeta"></p>
+  </header>
+
+  <main id="chapters"></main>
+
+  <footer class="report-footer">
+    <details>
+      <summary id="fullSourceSummary"></summary>
+      <ul class="src-list" id="sourceList"></ul>
+    </details>
+    <details>
+      <summary id="pendingSummary"></summary>
+      <ul class="plain" id="pendingList"></ul>
+    </details>
+    <p class="note" id="footerNote"></p>
+  </footer>
+
+</div>
+
+<script src="starlux-australia-report.data.js"></script>
+<script>
+(function () {
+  "use strict";
+
+  var D = window.STARLUX_REPORT_DATA;
+  var UI = D.UI;
+
+  /* ============ LANGUAGE STATE ============ */
+
+  function detectInitialLang() {
+    // 1) explicit ?lang=zh|en in the URL always wins, and is remembered for next visit
+    try {
+      var params = new URLSearchParams(window.location.search);
+      var urlLang = params.get("lang");
+      if (urlLang === "zh" || urlLang === "en") {
+        try { localStorage.setItem("starlux-report-lang", urlLang); } catch (e2) { /* ignore */ }
+        return urlLang;
+      }
+    } catch (e) { /* URLSearchParams unavailable — skip */ }
+
+    // 2) a previously remembered choice (from the toggle button or a past ?lang= visit)
+    try {
+      var saved = localStorage.getItem("starlux-report-lang");
+      if (saved === "zh" || saved === "en") return saved;
+    } catch (e) { /* localStorage unavailable (private mode etc.) */ }
+
+    // 3) fall back to the browser's own display language
+    try {
+      var nav = (navigator.language || (navigator.languages && navigator.languages[0]) || "").toLowerCase();
+      if (nav.indexOf("zh") === 0) return "zh";
+      if (nav) return "en";
+    } catch (e) { /* navigator unavailable */ }
+
+    // 4) default
+    return "zh";
+  }
+
+  var currentLang = detectInitialLang();
+
+  function t(field) {
+    if (field == null) return "";
+    if (typeof field === "string") return field;
+    return field[currentLang] != null ? field[currentLang] : field.zh;
+  }
+
+  /* ============ DOM HELPERS ============ */
+
+  function el(tag, attrs, children) {
+    var node = document.createElement(tag);
+    if (attrs) {
+      Object.keys(attrs).forEach(function (k) {
+        if (k === "html") node.innerHTML = attrs[k];
+        else if (k === "class") node.className = attrs[k];
+        else node.setAttribute(k, attrs[k]);
+      });
+    }
+    (children || []).forEach(function (c) { if (c) node.appendChild(c); });
+    return node;
+  }
+
+  function svgEl(tag, attrs) {
+    var node = document.createElementNS("http://www.w3.org/2000/svg", tag);
+    if (attrs) {
+      Object.keys(attrs).forEach(function (k) { node.setAttribute(k, attrs[k]); });
+    }
+    return node;
+  }
+
+  function fmtNum(n) {
+    return n.toLocaleString("en-US");
+  }
+
+  /* ============ SVG CHART BUILDERS ============ */
+  /* Colors are set via style="fill/stroke:var(--token)" so they follow the
+     prefers-color-scheme media query automatically — no redraw needed. */
+
+  function buildBarChart(data, opts) {
+    opts = opts || {};
+    var w = 600, h = 220, padL = 6, padR = 6, padTop = 34, padBottom = 30;
+    var n = data.length;
+    var gap = 14;
+    var barW = (w - padL - padR - gap * (n - 1)) / n;
+    var max = Math.max.apply(null, data.map(function (d) { return d.value; })) * 1.2;
+    var svg = svgEl("svg", { viewBox: "0 0 " + w + " " + h, role: "img", "aria-label": t(opts.title) });
+    svg.appendChild(svgEl("line", { x1: padL, y1: h - padBottom, x2: w - padR, y2: h - padBottom, style: "stroke:var(--color-border-soft)", "stroke-width": 1 }));
+    data.forEach(function (d, i) {
+      var x = padL + i * (barW + gap);
+      var barH = max > 0 ? (d.value / max) * (h - padTop - padBottom) : 0;
+      var y = h - padBottom - barH;
+      svg.appendChild(svgEl("rect", { x: x, y: y, width: barW, height: barH, rx: 3, style: "fill:var(" + (opts.colorVar || "--color-primary") + ")" }));
+      var valText = svgEl("text", { x: x + barW / 2, y: y - 8, "text-anchor": "middle", "font-size": 13.5, "font-weight": 700, style: "fill:var(--color-text)" });
+      valText.textContent = fmtNum(d.value) + (opts.suffix || "");
+      svg.appendChild(valText);
+      var lbl = svgEl("text", { x: x + barW / 2, y: h - padBottom + 19, "text-anchor": "middle", "font-size": 13, style: "fill:var(--color-text-soft)" });
+      lbl.textContent = t(d.label);
+      svg.appendChild(lbl);
+    });
+    return svg;
+  }
+
+  function buildLineChart(chartData, opts) {
+    opts = opts || {};
+    var series = chartData.series || [{ label: opts.title, colorVar: opts.colorVar || "--color-primary", data: chartData.data }];
+    var categories = chartData.categories;
+    var w = 600, h = 220, padL = 30, padR = 30, padTop = 28, padBottom = 28;
+    var allVals = [];
+    series.forEach(function (s) { allVals = allVals.concat(s.data); });
+    var max = Math.max.apply(null, allVals) * 1.18;
+    var min = Math.min(0, Math.min.apply(null, allVals));
+    var n = categories.length;
+    var stepX = (w - padL - padR) / (n - 1);
+    function xFor(i) { return padL + i * stepX; }
+    function yFor(v) { return h - padBottom - ((v - min) / (max - min || 1)) * (h - padTop - padBottom); }
+    function anchorFor(i) { return i === 0 ? "start" : (i === n - 1 ? "end" : "middle"); }
+
+    var svg = svgEl("svg", { viewBox: "0 0 " + w + " " + h, role: "img", "aria-label": t(opts.title) });
+    svg.appendChild(svgEl("line", { x1: padL, y1: h - padBottom, x2: w - padR, y2: h - padBottom, style: "stroke:var(--color-border-soft)", "stroke-width": 1 }));
+
+    series.forEach(function (s) {
+      var pts = s.data.map(function (v, i) { return xFor(i) + "," + yFor(v); }).join(" ");
+      svg.appendChild(svgEl("polyline", { points: pts, fill: "none", style: "stroke:var(" + s.colorVar + ")", "stroke-width": 2.5, "stroke-linejoin": "round" }));
+      s.data.forEach(function (v, i) {
+        svg.appendChild(svgEl("circle", { cx: xFor(i), cy: yFor(v), r: 3, style: "fill:var(" + s.colorVar + ")" }));
+      });
+      // label first + last always; label the low point only for single-series charts (avoids overlapping labels when series share a near-zero minimum)
+      var labelIdxs = [0, s.data.length - 1];
+      if (series.length === 1) {
+        var minIdx = s.data.indexOf(Math.min.apply(null, s.data));
+        if (labelIdxs.indexOf(minIdx) === -1) labelIdxs.push(minIdx);
+      }
+      labelIdxs.forEach(function (i) {
+        var v = s.data[i];
+        var y = yFor(v);
+        var isLow = series.length === 1 && v === Math.min.apply(null, s.data) && s.data.length > 3;
+        var txt = svgEl("text", { x: xFor(i), y: isLow ? y + 18 : y - 9, "text-anchor": anchorFor(i), "font-size": 13, "font-weight": 700, style: "fill:var(" + s.colorVar + ")" });
+        txt.textContent = fmtNum(v) + (opts.suffix || "");
+        svg.appendChild(txt);
+      });
+    });
+
+    categories.forEach(function (c, i) {
+      var txt = svgEl("text", { x: xFor(i), y: h - padBottom + 18, "text-anchor": anchorFor(i), "font-size": 12, style: "fill:var(--color-text-soft)" });
+      txt.textContent = t(c);
+      svg.appendChild(txt);
+    });
+
+    return svg;
+  }
+
+  function buildStackedChart(chartData, opts) {
+    opts = opts || {};
+    var w = 600, h = 220, padL = 10, padR = 10, padTop = 36, padBottom = 30;
+    var groups = chartData.groups;
+    var n = groups.length;
+    var gap = 100;
+    var barW = (w - padL - padR - gap * (n - 1)) / n;
+    var max = Math.max.apply(null, groups.map(function (g) { return g.total; })) * 1.2;
+    var svg = svgEl("svg", { viewBox: "0 0 " + w + " " + h, role: "img", "aria-label": t(opts.title) });
+    svg.appendChild(svgEl("line", { x1: padL, y1: h - padBottom, x2: w - padR, y2: h - padBottom, style: "stroke:var(--color-border-soft)", "stroke-width": 1 }));
+    groups.forEach(function (g, i) {
+      var x = padL + i * (barW + gap);
+      var yCursor = h - padBottom;
+      g.segments.forEach(function (seg) {
+        var segH = (seg.value / max) * (h - padTop - padBottom);
+        yCursor -= segH;
+        if (segH > 0) svg.appendChild(svgEl("rect", { x: x, y: yCursor, width: barW, height: segH, style: "fill:var(" + seg.colorVar + ")" }));
+      });
+      var totalLabel = svgEl("text", { x: x + barW / 2, y: yCursor - 9, "text-anchor": "middle", "font-size": 15.5, "font-weight": 800, style: "fill:var(--color-text)" });
+      totalLabel.textContent = g.total + " " + t(UI.fleetUnit);
+      svg.appendChild(totalLabel);
+      var lbl = svgEl("text", { x: x + barW / 2, y: h - padBottom + 20, "text-anchor": "middle", "font-size": 13, style: "fill:var(--color-text-soft)" });
+      lbl.textContent = t(g.label);
+      svg.appendChild(lbl);
+    });
+    return svg;
+  }
+
+  function buildChartCard(chart) {
+    var card = el("div", { class: "chart-card" });
+    card.appendChild(el("div", { class: "chart-title", html: t(chart.title) }));
+    var svg;
+    if (chart.type === "bar") svg = buildBarChart(chart.data, chart);
+    else if (chart.type === "line") svg = buildLineChart(chart.data, chart);
+    else if (chart.type === "stacked") svg = buildStackedChart(chart.data, chart);
+    card.appendChild(svg);
+
+    if (chart.type === "line" && chart.data.series && chart.data.series.length > 1) {
+      var legend = el("div", { class: "chart-legend" });
+      chart.data.series.forEach(function (s) {
+        var item = el("span", {});
+        var sw = el("span", { class: "sw" });
+        sw.style.background = "var(" + s.colorVar + ")";
+        item.appendChild(sw);
+        item.appendChild(document.createTextNode(t(s.label)));
+        legend.appendChild(item);
+      });
+      card.appendChild(legend);
+    }
+    if (chart.type === "stacked") {
+      var legend2 = el("div", { class: "chart-legend" });
+      chart.data.legend.forEach(function (s) {
+        var item = el("span", {});
+        var sw = el("span", { class: "sw" });
+        sw.style.background = "var(" + s.colorVar + ")";
+        item.appendChild(sw);
+        item.appendChild(document.createTextNode(t(s.label)));
+        legend2.appendChild(item);
+      });
+      card.appendChild(legend2);
+    }
+    return card;
+  }
+
+  /* ============ SECTION RENDER ============ */
+
+  function renderBox(b) {
+    var box = el("div", { class: "box " + b.type });
+    box.appendChild(el("h4", { html: t(b.title) }));
+    box.appendChild(el("p", { html: t(b.body) }));
+    return box;
+  }
+
+  function renderTimeline(items) {
+    var tl = el("div", { class: "timeline" });
+    items.forEach(function (it) {
+      var item = el("div", { class: "tl-item" + (it.dim ? " dim" : "") });
+      item.appendChild(el("div", { class: "tl-date", html: t(it.date) }));
+      item.appendChild(el("h5", { html: t(it.title) }));
+      item.appendChild(el("p", { html: t(it.body) }));
+      tl.appendChild(item);
+    });
+    return tl;
+  }
+
+  function renderPillars(pillars) {
+    var wrap = el("div", { class: "pillars" });
+    pillars.forEach(function (p, i) {
+      var card = el("div", { class: "pillar" });
+      card.appendChild(el("div", { class: "p-num", html: "0" + (i + 1) }));
+      card.appendChild(el("h4", { html: t(p.title) }));
+      card.appendChild(el("p", { html: t(p.body) }));
+      wrap.appendChild(card);
+    });
+    return wrap;
+  }
+
+  function renderRiskList(risks) {
+    var wrap = el("div", { class: "risk-list" });
+    risks.forEach(function (r) {
+      var row = el("div", { class: "risk-row" });
+      row.appendChild(el("span", { class: "pill " + r.pill, html: t(D.PILL_LABEL[r.pill]) }));
+      row.appendChild(el("p", { html: t(r.text) }));
+      wrap.appendChild(row);
+    });
+    return wrap;
+  }
+
+  function renderStory(story, index) {
+    var section = el("section", { class: "story", id: story.id });
+    var numStr = String(index + 1);
+    section.appendChild(el("span", { class: "kicker" }, [
+      el("span", { class: "k-num", html: numStr.length < 2 ? "0" + numStr : numStr }),
+      el("span", { html: t(story.kicker) })
+    ]));
+    section.appendChild(el("h2", { html: t(story.headline) }));
+
+    if (story.stat) {
+      section.appendChild(el("div", { class: "stat" }, [
+        el("span", { class: "stat-value", html: t(story.stat.value) }),
+        el("span", { class: "stat-label", html: t(story.stat.label) })
+      ]));
+    }
+
+    if (story.statGrid) {
+      var grid = el("div", { class: "stat-grid" });
+      story.statGrid.forEach(function (s) {
+        grid.appendChild(el("div", { class: "stat-cell" }, [
+          el("span", { class: "n", html: t(s.n) }),
+          el("span", { class: "l", html: t(s.l) })
+        ]));
+      });
+      section.appendChild(grid);
+    }
+
+    (story.body || []).forEach(function (p) {
+      section.appendChild(el("p", { class: "body-text", html: t(p) }));
+    });
+
+    if (story.sourceNote) section.appendChild(el("p", { class: "src-note", html: t(story.sourceNote) }));
+
+    [story.chart, story.chart2].forEach(function (c) {
+      if (!c) return;
+      section.appendChild(buildChartCard(c));
+      if (c.sourceNote) section.appendChild(el("p", { class: "src-note", html: t(c.sourceNote) }));
+    });
+
+    if (story.timeline) section.appendChild(renderTimeline(story.timeline));
+    if (story.pillars) section.appendChild(renderPillars(story.pillars));
+
+    (story.boxes || []).forEach(function (b) { section.appendChild(renderBox(b)); });
+
+    if (story.riskList) section.appendChild(renderRiskList(story.riskList));
+
+    return section;
+  }
+
+  function renderConclusion() {
+    var section = el("section", { class: "story conclusion", id: "conclusion" });
+    section.appendChild(el("span", { class: "kicker", style: "color:var(--color-secondary)", html: t(UI.conclusionKicker) }));
+    section.appendChild(el("h2", { html: t(UI.conclusionHeadline) }));
+    D.CONCLUSION_STEPS.forEach(function (s, i) {
+      var step = el("div", { class: "conclusion-step" });
+      step.appendChild(el("div", { class: "cs-num", html: String(i + 1) }));
+      var body = el("div", {});
+      body.appendChild(el("h5", { html: t(s.title) }));
+      body.appendChild(el("p", { html: t(s.body) }));
+      step.appendChild(body);
+      section.appendChild(step);
+    });
+    var note = el("div", { class: "author-note" });
+    note.appendChild(el("span", { class: "author-note-label", html: t(UI.authorNoteLabel) }));
+    note.appendChild(el("p", { html: t(D.AUTHOR_NOTE) }));
+    section.appendChild(note);
+    var note2 = el("div", { class: "author-note" });
+    note2.appendChild(el("span", { class: "author-note-label", html: t(UI.authorNoteProcessLabel) }));
+    note2.appendChild(el("p", { html: t(D.AUTHOR_NOTE_PROCESS) }));
+    section.appendChild(note2);
+    return section;
+  }
+
+  function renderDivider(tag) {
+    return el("div", { class: "divider" }, [
+      el("span", { class: "line" }),
+      el("span", { class: "tag", html: tag }),
+      el("span", { class: "line" })
+    ]);
+  }
+
+  /* ============ TOP-LEVEL RENDER ============ */
+
+  function setText(id, value) {
+    var node = document.getElementById(id);
+    if (node) node.textContent = value;
+  }
+
+  function render() {
+    document.documentElement.lang = currentLang === "en" ? "en" : "zh-TW";
+    document.title = t(UI.docTitle);
+    var metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) metaDesc.setAttribute("content", t(UI.metaDescription));
+
+    setText("flightTag", t(UI.flightTag));
+    setText("reportTitle", t(UI.reportTitle));
+    setText("coreQuestion", t(UI.coreQuestion));
+    setText("aboutLabel", t(UI.aboutLabel));
+    setText("aboutText", t(UI.aboutText));
+    setText("reportMeta", t(UI.reportMeta));
+    setText("fullSourceSummary", t(UI.fullSourceSummary));
+    setText("pendingSummary", t(UI.pendingSummary));
+    setText("footerNote", t(UI.footerNote));
+
+    var chaptersEl = document.getElementById("chapters");
+    chaptersEl.innerHTML = "";
+    D.STORIES.forEach(function (s, i) {
+      if (i > 0) chaptersEl.appendChild(renderDivider("✈ " + (i + 1 < 10 ? "0" : "") + (i + 1)));
+      chaptersEl.appendChild(renderStory(s, i));
+    });
+    chaptersEl.appendChild(renderDivider(t(UI.dividerConclusion)));
+    chaptersEl.appendChild(renderConclusion());
+
+    var sourceList = document.getElementById("sourceList");
+    sourceList.innerHTML = "";
+    D.SOURCES.forEach(function (s) {
+      var li = document.createElement("li");
+      li.innerHTML = '<a href="' + s.url + '" target="_blank" rel="noopener">' + t(s.title) + "</a>";
+      sourceList.appendChild(li);
+    });
+
+    var pendingList = document.getElementById("pendingList");
+    pendingList.innerHTML = "";
+    D.PENDING.forEach(function (p) {
+      var li = document.createElement("li");
+      li.textContent = t(p);
+      pendingList.appendChild(li);
+    });
+
+    var toggle = document.getElementById("langToggle");
+    toggle.textContent = t(UI.langToggleLabel);
+    toggle.setAttribute("aria-label", t(UI.langToggleAria));
+  }
+
+  document.getElementById("langToggle").addEventListener("click", function () {
+    currentLang = currentLang === "zh" ? "en" : "zh";
+    try { localStorage.setItem("starlux-report-lang", currentLang); } catch (e) { /* ignore */ }
+    render();
+  });
+
+  render();
+})();
+</script>
+</body>
+</html>
