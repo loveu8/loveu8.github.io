@@ -9,10 +9,10 @@ var STARLUX_REPORT_DATA = (function () {
   "use strict";
 
   var UI = {
-    docTitle: { zh: "星宇航空為什麼要飛雪梨？", en: "Why Is STARLUX Flying to Sydney?" },
+    docTitle: { zh: "星宇飛雪梨，能不能站穩？旅客、經貿到競爭對手全部拆開看", en: "STARLUX to Sydney: Can It Stand Firm? Breaking Down Passengers, Trade, and Competitors" },
     metaDescription: { zh: "星宇航空 2027 雪梨航線：十個重點，看懂這條航線背後的邏輯。", en: "STARLUX's 2027 Sydney route: ten key points behind the business logic." },
     flightTag: { zh: "✈ TPE ⇄ SYD · 星宇航空 2027 計畫開航", en: "✈ TPE ⇄ SYD · STARLUX targets 2027 launch" },
-    reportTitle: { zh: "星宇航空為什麼要飛雪梨？", en: "Why Is STARLUX Flying to Sydney?" },
+    reportTitle: { zh: "星宇飛雪梨，能不能站穩？旅客、經貿到競爭對手全部拆開看", en: "STARLUX to Sydney: Can It Stand Firm? Breaking Down Passengers, Trade, and Competitors" },
     coreQuestion: {
       zh: "星宇航空預計 2027 年開航台北—雪梨。這是單純押注旅遊復甦，還是台灣和澳洲之間早就有足夠深的往來基礎，撐得起一條長程航線？以下十個重點，用公開數據拼出這條航線背後的邏輯，每一段都附資料來源，方便你自己核對。",
       en: "STARLUX plans to launch Taipei–Sydney service in 2027. Is this simply a bet on tourism recovery, or is there already a deep enough economic relationship between Taiwan and Australia to support a long-haul route? Here are ten key points, built from public data, laying out the logic behind this route — each one comes with its sources so you can check them yourself."
