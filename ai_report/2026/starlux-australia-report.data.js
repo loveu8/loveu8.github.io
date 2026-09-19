@@ -24,8 +24,8 @@ var STARLUX_REPORT_DATA = (function () {
     },
     methodLabel: { zh: "這份報告怎麼推理", en: "How this report reasons" },
     methodText: {
-      zh: "這份報告的推理方向，是從市場往回看星宇，不是從星宇的動作往前推理由。星宇自己的招募職缺、機隊擴充這類投入，代表的是星宇對市場的信心，不是市場本身的證據——信心可能判斷正確，也可能判斷錯誤。所以報告把旅客量、經貿基礎、法規空間、競爭對手、星宇自身財務體質這些市場條件當作主要證據，用來檢驗星宇的信心站不站得住腳，而不是反過來拿星宇的投入去證明市場一定夠大。",
-      en: "This report reasons from the market back to STARLUX, not from STARLUX's own actions forward to a rationale. Things like STARLUX's hiring or fleet expansion represent STARLUX's own confidence in the market — not evidence of the market itself, since that confidence could turn out to be right or wrong. So this report treats market conditions — passenger volume, economic ties, regulatory room, competitors, and STARLUX's own financial health — as the primary evidence, used to test whether STARLUX's confidence holds up, rather than using STARLUX's own investment as proof the market must be big enough."
+      zh: "這份報告是先看市場撐不撐得住，再回頭看星宇這波投入合不合理，不是反過來用星宇自己的動作證明市場夠大。星宇的招募、機隊擴充代表的是星宇自己的信心，信心可能對也可能錯，所以報告主要拿旅客量、經貿基礎、法規、競爭對手、星宇財務體質這些市場條件，來檢驗這份信心站不站得住腳。",
+      en: "This report starts from whether the market can support the route, then works back to whether STARLUX's own investment makes sense — not the other way around, using STARLUX's own moves to prove the market is big enough. STARLUX's hiring and fleet expansion reflect its own confidence, which could turn out right or wrong. So the report leans on market conditions — passenger volume, economic ties, regulation, competitors, and STARLUX's own financial health — to test whether that confidence actually holds up."
     },
     reportMeta: { zh: "更新日期：2026 年 9 月 18 日 · 個人研究整理，非投資建議", en: "Last updated: September 18, 2026 · Personal research notes, not investment advice" },
     fullSourceSummary: { zh: "完整資料來源列表", en: "Full source list" },
@@ -403,13 +403,13 @@ var STARLUX_REPORT_DATA = (function () {
   ];
 
   var AUTHOR_NOTE = {
-    zh: "綜合以上這些因素，星宇開這條新航線，對台灣旅客來說是一大福音——讓度假和返鄉多了一個新選擇；對澳洲旅客來說，也是多了一個選擇的機會。對星宇持續拓展新航點而言，這是一個正向的開始。當然，星宇也會面臨國泰航空、華航既有班次的競爭，新增的運量扛不扛得住，要等 2027 年 6 月底前後實際開航，看星宇怎麼經營、怎麼摸清當地市場，以及能不能真正刺激台灣旅客願意選擇星宇飛過去——這些都是接下來值得關注的重點。我個人期待星宇能在這條航線站穩腳步，未來拓展更多澳洲航點，讓台灣旅客有更多選擇的機會。",
-    en: "Taken together, STARLUX launching this new route is genuinely good news for Taiwanese travelers — it adds a new option for both holidays and visiting family back home, and it also gives Australian travelers another choice. For STARLUX itself, as it keeps expanding to new destinations, this is a positive start. Of course, it will also face competition from Cathay Pacific's and China Airlines' existing schedules — whether the added capacity can hold up will only become clear once the route is actually flying around the end of June 2027, and will depend on how STARLUX runs the route, how well it learns the local market, and whether it can actually persuade Taiwanese travelers to choose STARLUX for their trip. Those are the things worth watching next. Personally, I hope STARLUX can establish itself on this route and go on to add more Australian destinations, giving Taiwanese travelers even more choices."
+    zh: "星宇開這條新航線，對台灣旅客是一大福音——度假、回鄉多一個選擇，對澳洲旅客也是多一個選擇。對星宇來說，這是拓點的正向開始，但也要面對國泰、華航既有班次的競爭，撐不撐得住，得等 2027 年 6 月底前後實際開航，看星宇怎麼經營、怎麼摸清當地市場，能不能真的讓台灣旅客願意選它飛過去。我個人期待星宇能在這條線站穩，之後拓展更多澳洲航點，讓台灣旅客有更多選擇。",
+    en: "STARLUX launching this new route is good news for Taiwanese travelers — one more option for both holidays and visiting family, and one more option for Australian travelers too. For STARLUX, it's a positive step in its expansion, but it'll also face competition from Cathay Pacific's and China Airlines' existing schedules. Whether it can hold up won't be clear until the route actually launches around the end of June 2027 — it'll come down to how STARLUX runs the route, how well it learns the local market, and whether it can actually get Taiwanese travelers to choose it. Personally, I hope STARLUX gets a solid footing on this route and goes on to add more Australian destinations, giving Taiwanese travelers even more choices."
   };
 
   var AUTHOR_NOTE_PROCESS = {
-    zh: "做這份報告，對我來說也是找回好久沒用的資料分析技能的機會。透過 Codex 和 Claude 做這些數據調查，真的方便許多，能快速看到更多資訊；但相對地，也更需要自己判斷哪些才是真正值得關注的重點。這是我第一次這樣嘗試，得到很好的體驗，期待下一次還能找到有趣的議題，繼續研究、繼續分享 :D",
-    en: "Making this report was also a chance for me to dust off data-analysis skills I hadn't used in a long time. Doing this research with Codex and Claude made things a lot easier — I could pull in far more information, much faster — but that also meant I had to work harder at judging what actually deserved attention. This was my first time trying something like this, and it was a great experience. Looking forward to finding another interesting topic to dig into and share next time :D"
+    zh: "做這份報告，也是我找回好久沒用的資料分析技能的機會。用 Codex 跟 Claude 查資料真的方便很多，能快速看到更多資訊，但也更考驗自己判斷什麼才值得關注。第一次這樣嘗試，體驗很好，期待下次找到有趣的議題，繼續研究、繼續分享 :D",
+    en: "Making this report was also a chance for me to dust off data-analysis skills I hadn't used in a while. Using Codex and Claude to dig up data made things much easier and let me see far more information, fast — but it also meant working harder to judge what actually mattered. First time trying this, and it was a great experience. Looking forward to finding another interesting topic next time — more research, more sharing :D"
   };
 
   var SOURCES = [
