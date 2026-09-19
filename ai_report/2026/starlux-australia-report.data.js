@@ -22,6 +22,11 @@ var STARLUX_REPORT_DATA = (function () {
       zh: "星宇航空（STARLUX Airlines）2018 年成立、2020 年首航，是台灣近年新成立的航空公司，定位偏精品服務。目前機隊約 29 架，機型包含 A321neo、A330neo、A350-900 與 A350-1000，主要飛航亞洲、北美與部分歐洲航點；雪梨會是它在澳洲的第一個航點。",
       en: "STARLUX Airlines was founded in 2018 and took its first flight in 2020 — a newer Taiwanese carrier positioned as a boutique, premium airline. Its fleet is currently about 29 aircraft, including A321neo, A330neo, A350-900 and A350-1000 types, flying mainly to Asia, North America, and parts of Europe. Sydney will be its first destination in Australia."
     },
+    methodLabel: { zh: "這份報告怎麼推理", en: "How this report reasons" },
+    methodText: {
+      zh: "這份報告的推理方向，是從市場往回看星宇，不是從星宇的動作往前推理由。星宇自己的招募職缺、機隊擴充這類投入，代表的是星宇對市場的信心，不是市場本身的證據——信心可能判斷正確，也可能判斷錯誤。所以報告把旅客量、經貿基礎、法規空間、競爭對手、星宇自身財務體質這些市場條件當作主要證據，用來檢驗星宇的信心站不站得住腳，而不是反過來拿星宇的投入去證明市場一定夠大。",
+      en: "This report reasons from the market back to STARLUX, not from STARLUX's own actions forward to a rationale. Things like STARLUX's hiring or fleet expansion represent STARLUX's own confidence in the market — not evidence of the market itself, since that confidence could turn out to be right or wrong. So this report treats market conditions — passenger volume, economic ties, regulatory room, competitors, and STARLUX's own financial health — as the primary evidence, used to test whether STARLUX's confidence holds up, rather than using STARLUX's own investment as proof the market must be big enough."
+    },
     reportMeta: { zh: "更新日期：2026 年 9 月 18 日 · 個人研究整理，非投資建議", en: "Last updated: September 18, 2026 · Personal research notes, not investment advice" },
     fullSourceSummary: { zh: "完整資料來源列表", en: "Full source list" },
     pendingSummary: { zh: "還在查證中的項目", en: "Still being verified" },
