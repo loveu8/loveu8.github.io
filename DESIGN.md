@@ -56,20 +56,23 @@
 
   --color-text: #202124;
   --color-text-muted: #5f6368;
-  --color-text-soft: #80868b;
+  --color-text-soft: #6b7075;
 
   --color-border: #dadce0;
   --color-border-soft: #e8eaed;
 
   --color-primary: #1a73e8;
+  --color-primary-strong: #1967d2;
   --color-primary-soft: #e8f0fe;
   --color-primary-border: #aecbfa;
 
   --color-secondary: #34a853;
+  --color-secondary-strong: #24763a;
   --color-secondary-soft: #e6f4ea;
   --color-secondary-border: #b7e1cd;
 
   --color-accent: #e4405f;
+  --color-accent-strong: #b32643;
   --color-accent-soft: #fde7ed;
   --color-accent-border: #f6b3c0;
 
@@ -107,14 +110,17 @@
   --color-border-soft: #2f343a;
 
   --color-primary: #8ab4f8;
+  --color-primary-strong: #8ab4f8;
   --color-primary-soft: #1c2f4f;
   --color-primary-border: #315b9f;
 
   --color-secondary: #81c995;
+  --color-secondary-strong: #81c995;
   --color-secondary-soft: #193424;
   --color-secondary-border: #2f6f45;
 
   --color-accent: #ff7a90;
+  --color-accent-strong: #ff9bad;
   --color-accent-soft: #3b2028;
   --color-accent-border: #8f3d4f;
 
@@ -141,6 +147,8 @@
 - **Warm amber:** Warnings, time-sensitive notes, backup plans, market/food tags.
 - **Violet:** Hotel, rest, special stay moments. Use sparingly.
 - **Neutral surfaces:** Most containers, cards, sidebars, tabs, and print surfaces.
+- **`--color-*-strong` (primary / secondary / accent):** The base `--color-primary/secondary/accent` are brand/status colors and do not reach 4.5:1 as small text on `*-soft` chip/tag backgrounds in light mode (measured: primary on `--color-primary-soft` 3.93, secondary on `--color-secondary-soft` 2.69, accent on `--color-accent-soft` 3.43; white on accent 4.04). Use the `*-strong` variants for text placed on a `*-soft` background and for solid button backgrounds that carry white text; keep the base tokens for dots, borders, route strips, and icons where text contrast does not apply. Light-mode ratios: `--color-primary-strong` `#1967d2` 5.37 on white / 4.68 on `--color-primary-soft`; `--color-secondary-strong` `#24763a` 5.63 / 4.96; `--color-accent-strong` `#b32643` 6.41 / 5.44 (this is the value that was already shipped as `--orange-d` in the Noosa page and is now defined once as the token); white on each strong >= 5.37. Dark mode: primary and secondary strong intentionally equal their base tokens (already >= 5.9:1 on the soft surfaces); accent-strong is `#ff9bad` (lighter than `--color-accent`, for text on `--color-accent-soft`). Solid buttons keep using the existing per-family `--color-on-primary/secondary/accent` for label color — green buttons already use dark text (`--color-on-secondary`, 5.27:1 on `--color-secondary`), so they do not need `--color-secondary-strong`.
+- **`--color-text-soft`:** Darkened to `#6b7075` (light mode: 5.00 on white, 4.56 on `--color-surface-soft`) so it passes AA for text. It now sits close to `--color-text-muted` (`#5f6368`); distinguish the two by size/weight, not by relying on the small color difference.
 - **`--color-warning` vs `--color-warning-text`:** `--color-warning` is a *status* color (badges, small dots, the bullet marker before a tip) — it is not dark enough to pass 4.5:1 as body/label text on light warm surfaces. `--color-warning-text` is the darkened text-safe variant (light mode: `#8a5a00`, verified 5.5:1 on `--color-warm-soft`; dark mode: same value as `--color-warning`, already verified 9-10:1 on dark surfaces). Any warning/shop tag or tips-list text must use `--color-warning-text`, never `--color-warning` directly.
 
 ## Dark Mode Rules
@@ -230,7 +238,7 @@
 - **How to apply:** Give the shared row container `display: flex; align-items: center;`. Let the flexible/scrollable content (e.g. chip strip) take `flex: 1; min-width: 0;` and give fixed-size siblings (e.g. button groups) `flex-shrink: 0`. Avoid `position: absolute` for anything that should align with flow content on the same row.
 
 ## Accessibility
-- Maintain WCAG AA contrast for text and controls in both light and dark modes.
+- Maintain WCAG AA contrast for text and controls in both light and dark modes. Text on `*-soft` backgrounds and white text on solid colored buttons must use the `--color-*-strong` tokens (see Color Usage), not the base brand tokens.
 - Touch targets should be at least 44×44px for tappable controls (Apple HIG / Material minimum), not just 40px tall. Currently met by `.theme-toggle`, `.lang-toggle`, `.back-to-top`, `.lightbox-close` (all 44×44). `.fr-link` (food-row map/external buttons) is 40×40 — a deliberate compromise against the compact food-row grid, not yet at 44 — flagged here rather than silently under-sized.
 - Do not communicate meaning by color alone. Keep labels, icons, or text.
 - Preserve print readability. Print mode should remain mostly light regardless of current theme.
