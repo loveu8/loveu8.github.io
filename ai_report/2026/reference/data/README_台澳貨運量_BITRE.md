@@ -13,6 +13,21 @@
 | `bitre_taiwan_citypairs_2009-2026-06.csv` | 從城市對檔篩出 Country = Taiwan（555 列） |
 | `bitre_taiwan_by_airline_2009-2026-06.csv` | 從 Table 1 篩出 Country = Taiwan（512 列） |
 
+## 版本控制政策
+
+- Git 保留本 README 與整理後的 CSV，供報告重算與 review。
+- 原始 xlsx 檔案較大且可由官方來源重新下載，因此只留在本機並由 `.gitignore` 排除。
+- 下列 SHA-256 用來確認重新下載或本機保存的檔案是否與本輪分析使用的版本一致。
+
+| 原始檔 | SHA-256 |
+|---|---|
+| `abs_oad_jul2026_340102.xlsx` | `D69310D0CC706C53A6E50BC96362C71E07BC13F14C763172D2329B4E423900F1` |
+| `abs_oad_jul2026_340105.xlsx` | `31FD5E7D759574F5E7557281B99B66D4D06DF641E28B4F960B95BF7E7FDE2771` |
+| `international_airline_activity_citypairs_2009tocurrent_0626.xlsx` | `E60643F80938CB17BB6B9C3CBC4A2AE353151A4DF21ED5896C8E5064E01302D5` |
+| `international_airline_activity_flights_seats_0626.xlsx` | `244E9C9AFFB7A57C20DB19F2C53940B361C37113F1F16128DC2C4143E4D507B8` |
+| `international_airline_activity_opfltsseats_0626_tables.xlsx` | `53290AE011C62D36A3BB7CC760B2661D82B069636DCBAB8B328D981EF6A5811F` |
+| `international_airline_activity_table1_2009tocurrent_0626.xlsx` | `7A4E553EDF5C7F5A8AEED21CF5588A353DB755BF3189D30910CAE2D30D39D680` |
+
 ## 口徑（重要）
 
 - 單位：貨運為**公噸（tonnes）**。
