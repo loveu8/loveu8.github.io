@@ -612,7 +612,8 @@
     var w = 600, h = 220, padL = 10, padR = 10, padTop = 36, padBottom = 30;
     var groups = chartData.groups;
     var n = groups.length;
-    var gap = 100;
+    var gap = chartData.gap || 100;
+    var unit = chartData.unit ? t(chartData.unit) : t(UI.fleetUnit);
     var barW = (w - padL - padR - gap * (n - 1)) / n;
     var max = Math.max.apply(null, groups.map(function (g) { return g.total; })) * 1.2;
     var svg = svgEl("svg", { viewBox: "0 0 " + w + " " + h, role: "img", "aria-label": t(opts.title) });
@@ -626,7 +627,7 @@
         if (segH > 0) svg.appendChild(svgEl("rect", { x: x, y: yCursor, width: barW, height: segH, style: "fill:var(" + seg.colorVar + ")" }));
       });
       var totalLabel = svgEl("text", { x: x + barW / 2, y: yCursor - 9, "text-anchor": "middle", "font-size": 15.5, "font-weight": 800, style: "fill:var(--color-text)" });
-      totalLabel.textContent = g.total + " " + t(UI.fleetUnit);
+      totalLabel.textContent = fmtNum(g.total) + " " + unit;
       svg.appendChild(totalLabel);
       var lbl = svgEl("text", { x: x + barW / 2, y: h - padBottom + 20, "text-anchor": "middle", "font-size": 13, style: "fill:var(--color-text-soft)" });
       lbl.textContent = t(g.label);

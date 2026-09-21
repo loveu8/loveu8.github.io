@@ -83,11 +83,43 @@ var STARLUX_REPORT_DATA = (function () {
     data: [82, 80, 78, 78, 75, 14, 15, 65, 77, 82, 88]
   };
 
-  var CH6_CAPACITY = [
-    { label: { zh: "每週 4 班", en: "4x weekly" }, value: 61776 },
-    { label: { zh: "每週 5 班", en: "5x weekly" }, value: 77220 },
-    { label: { zh: "每日 1 班", en: "Daily" }, value: 108108 }
-  ];
+  var CH6_SCENARIO = {
+    unit: { zh: "席", en: "seats" },
+    gap: 40,
+    groups: [
+      { label: "2019", total: 146268, segments: [
+        { label: { zh: "既有航班", en: "Existing flights" }, value: 146268, colorVar: "--color-primary" },
+        { label: { zh: "華航每日（情境）", en: "China Airlines daily (scenario)" }, value: 0, colorVar: "--color-secondary" },
+        { label: { zh: "星宇（情境）", en: "STARLUX (scenario)" }, value: 0, colorVar: "--color-warm" }
+      ]},
+      { label: "2025", total: 78603, segments: [
+        { label: { zh: "既有航班", en: "Existing flights" }, value: 78603, colorVar: "--color-primary" },
+        { label: { zh: "華航每日（情境）", en: "China Airlines daily (scenario)" }, value: 0, colorVar: "--color-secondary" },
+        { label: { zh: "星宇（情境）", en: "STARLUX (scenario)" }, value: 0, colorVar: "--color-warm" }
+      ]},
+      { label: { zh: "情境：星宇 4 班", en: "Scenario: 4x/wk" }, total: 173976, segments: [
+        { label: { zh: "既有航班", en: "Existing flights" }, value: 0, colorVar: "--color-primary" },
+        { label: { zh: "華航每日（情境）", en: "China Airlines daily (scenario)" }, value: 112200, colorVar: "--color-secondary" },
+        { label: { zh: "星宇（情境）", en: "STARLUX (scenario)" }, value: 61776, colorVar: "--color-warm" }
+      ]},
+      { label: { zh: "情境：星宇 5 班", en: "Scenario: 5x/wk" }, total: 189420, segments: [
+        { label: { zh: "既有航班", en: "Existing flights" }, value: 0, colorVar: "--color-primary" },
+        { label: { zh: "華航每日（情境）", en: "China Airlines daily (scenario)" }, value: 112200, colorVar: "--color-secondary" },
+        { label: { zh: "星宇（情境）", en: "STARLUX (scenario)" }, value: 77220, colorVar: "--color-warm" }
+      ]},
+      { label: { zh: "情境：星宇每日", en: "Scenario: daily" }, total: 220308, segments: [
+        { label: { zh: "既有航班", en: "Existing flights" }, value: 0, colorVar: "--color-primary" },
+        { label: { zh: "華航每日（情境）", en: "China Airlines daily (scenario)" }, value: 112200, colorVar: "--color-secondary" },
+        { label: { zh: "星宇（情境）", en: "STARLUX (scenario)" }, value: 108108, colorVar: "--color-warm" }
+      ]}
+    ],
+    legend: [
+      { label: { zh: "既有航班", en: "Existing flights" }, colorVar: "--color-primary" },
+      { label: { zh: "華航每日（情境）", en: "China Airlines daily (scenario)" }, colorVar: "--color-secondary" },
+      { label: { zh: "星宇（情境）", en: "STARLUX (scenario)" }, colorVar: "--color-warm" }
+    ]
+  };
+
 
   var CH5_PORTS = [
     { label: { zh: "布里斯本", en: "Brisbane" }, value: 6841 },
@@ -314,10 +346,13 @@ var STARLUX_REPORT_DATA = (function () {
         sourceNote: { zh: "資料來源：澳洲 BITRE 航空統計（按航空公司與國家）；載客率＝旅客 ÷ 座位，財年為 7 月至次年 6 月。TRA《Taiwan Visitor Economy Profile 2025》圖中 FY24/25 的 79% 與這裡「入境方向」的載客率（79.4%）一致，雙向合計則為 82.3%。國家層級統計按同班號服務的起訖國家分類，含同班號延伸航段（如經澳洲過境）的旅客，不是純粹的台澳 O&D；雪梨單線載客率另由城市對資料計算。", en: "Source: Australia's BITRE aviation statistics (by airline and country); load factor = passengers ÷ seats, fiscal year runs July to June. The 79% for FY24/25 in TRA's Taiwan Visitor Economy Profile 2025 matches the inbound-direction load factor here (79.4%); both directions combined is 82.3%. Country-level statistics classify by the origin and destination countries of same-flight-number services and include passengers on extended sectors of the same flight (for example, transiting Australia), so they aren't a pure Taiwan–Australia O&D; the Sydney single-route load factor is calculated separately from city-pair data." }
       },
       chart2: {
-        type: "bar", id: "ch6-capacity",
-        title: { zh: "星宇雪梨航班，不同班次頻率一年能賣多少座位", en: "STARLUX Sydney route: annual sellable seats at different frequencies" },
-        data: CH6_CAPACITY, colorVar: "--color-secondary",
-        sourceNote: { zh: "單向（per direction）計算", en: "Calculated per direction (one-way)" }
+        type: "stacked", id: "ch6-scenario",
+        title: { zh: "雪梨—台北直飛單向年座位：2019、2025，與新增運力的情境", en: "Sydney–Taipei direct one-way annual seats: 2019, 2025, and new-capacity scenarios" },
+        data: CH6_SCENARIO,
+        sourceNote: {
+          zh: "2019、2025 為 BITRE 實際座位（單向）。情境為簡單算術，不是預測：華航自 2026 年 10 月起雪梨每日（7 班／週），假設每班座位等於 2025 年平均（約 308 席）、全年營運，約 112,200 席；星宇部分為 A330neo 297 席 × 每週班次 × 52 週（每週 4 班 61,776 席、5 班 77,220 席、每日 108,108 席）。實際班表與機型配置尚未公布。",
+          en: "2019 and 2025 are BITRE actual seats (one-way). The scenarios are simple arithmetic, not forecasts: China Airlines lifts Sydney to daily (7 flights a week) from October 2026, assuming seats per flight equal to the 2025 average (about 308) and a full year of operation, about 112,200 seats; the STARLUX portion is A330neo 297 seats × weekly frequency × 52 weeks (4x weekly 61,776, 5x weekly 77,220, daily 108,108). The actual schedule and aircraft configuration haven't been published."
+        }
       },
       boxes: [
         { type: "caution",
@@ -326,8 +361,8 @@ var STARLUX_REPORT_DATA = (function () {
             en: "EVA Air has discontinued its Sydney and Melbourne routes, leaving only Brisbane in Australia (3x weekly) — so the Sydney route is now effectively a China Airlines monopoly. China Airlines itself hasn't been sitting still either: its Northern Winter 2026 schedule lifts Taipei–Sydney from 5x weekly to daily, adds a 5th weekly Melbourne flight, and adds a new Taipei–Brisbane nonstop that doesn't route via Auckland — all switching to A350-900 aircraft, with every change taking effect after STARLUX announced its entry (June 2026). This could mean the market is growing fast enough that even the incumbent needs more capacity, or it could be defensive positioning — both are plausible, and it's too early to say which. (Sources: Wikipedia, List of EVA Air destinations; AeroRoutes; 2PAXfly)" } },
         { type: "info",
           title: { zh: "載客率 88% 是強的正向訊號，但新運力即將進來，還不能說「位子不夠」", en: "An 88% load factor is a strong positive signal — but new capacity is about to arrive, so it isn't yet proof there 'aren't enough seats'" },
-          body: { zh: "載客率高、座位比疫情前少，說明現有直飛供給確實被坐滿，但有三件事要小心。第一，這只算直飛；經香港（國泰航空）、新加坡（新加坡航空）轉機的間接選項分走多少人，BITRE 沒有資料——其中國泰的量級不小，雪梨—香港一條線就約每週 27 班，比星宇規劃的整條雪梨直飛還多好幾倍，詳細比較留給第八段。第二，高載客率不等於獲利，也沒有票價資料。第三，供給正在回來：華航 2026 年 10 月起雪梨加到每日，若每班座位與 2025 年平均（約 308 席）相近，單向每年約增加 3.4 萬席；星宇 4–5 班再加 6.2–7.7 萬席。兩者疊加後，雪梨直飛單向座位約 17–19 萬，超過 2019 年的 14.6 萬；要維持 80% 載客率，單向需要約 14–15 萬名旅客，是 2025 年（約 6.5–6.8 萬）的兩倍以上。這是簡單的情境算術，不是預測，但它說明真正的問題不是「現有座位夠不夠」，而是「新增座位能不能從轉機選項或成長中的需求裡吸收」。",
-            en: "A high load factor on fewer seats than before the pandemic shows existing direct supply is genuinely being filled, but three cautions apply. First, this counts direct flights only; how many passengers the indirect options via Hong Kong (Cathay Pacific) or Singapore (Singapore Airlines) are siphoning off isn't in BITRE's data — and Cathay is no small player, with Sydney–Hong Kong alone at about 27 flights a week, several times STARLUX's entire planned Sydney service (more in the next section). Second, a high load factor isn't profit, and there's no fare data. Third, supply is coming back: China Airlines lifts Sydney to daily from October 2026, and if seats per flight stay near the 2025 average (about 308), that adds roughly 34,000 one-way seats a year; STARLUX at 4–5 weekly adds another 62,000–77,000. Together, Sydney direct one-way seats would reach about 174,000–190,000, above 2019's 146,000. Holding an 80% load factor would need about 140,000–150,000 passengers each way, more than double 2025's roughly 65,000–68,000. This is simple scenario arithmetic, not a forecast, but it shows the real question isn't whether existing seats are enough — it's whether the added seats can be absorbed from connecting alternatives or growing demand." } }
+          body: { zh: "載客率高、座位比疫情前少，說明現有直飛供給確實被坐滿，但有三件事要小心。第一，這只算直飛；經香港（國泰航空）、新加坡（新加坡航空）轉機的間接選項分走多少人，BITRE 沒有資料——國泰雪梨—香港一條線就約每週 27 班，比星宇規劃的整條雪梨直飛還多好幾倍，詳細比較留給第八段。第二，高載客率不等於獲利，也沒有票價資料。第三，供給正在回來：上面的情境圖顯示，華航加到每日再加上星宇，雪梨直飛單向座位會超過 2019 年；要維持 80% 載客率，單向需要約 14–15 萬名旅客，是 2025 年（約 6.5–6.8 萬）的兩倍以上。這是簡單的情境算術，不是預測，但它說明真正的問題不是「現有座位夠不夠」，而是「新增座位能不能從轉機選項或成長中的需求裡吸收」。",
+            en: "A high load factor on fewer seats than before the pandemic shows existing direct supply is genuinely being filled, but three cautions apply. First, this counts direct flights only; how many passengers the indirect options via Hong Kong (Cathay Pacific) or Singapore (Singapore Airlines) are siphoning off isn't in BITRE's data — Cathay's Sydney–Hong Kong route alone runs about 27 flights a week, several times STARLUX's entire planned Sydney service (more in the next section). Second, a high load factor isn't profit, and there's no fare data. Third, supply is coming back: the scenario chart above shows that with China Airlines at daily plus STARLUX, Sydney direct one-way seats would exceed 2019 levels; holding an 80% load factor would need about 140,000–150,000 passengers each way, more than double 2025's roughly 65,000–68,000. This is simple scenario arithmetic, not a forecast, but it shows the real question isn't whether existing seats are enough — it's whether the added seats can be absorbed from connecting alternatives or growing demand." } }
       ]
     },
     {
@@ -502,7 +537,7 @@ var STARLUX_REPORT_DATA = (function () {
     CH6_LOADFACTOR: CH6_LOADFACTOR,
     CH5_PORTS: CH5_PORTS,
     CH5_SYDNEY: CH5_SYDNEY,
-    CH6_CAPACITY: CH6_CAPACITY,
+    CH6_SCENARIO: CH6_SCENARIO,
     CH9_FLEET: CH9_FLEET,
     STORIES: STORIES,
     CONCLUSION_STEPS: CONCLUSION_STEPS,
