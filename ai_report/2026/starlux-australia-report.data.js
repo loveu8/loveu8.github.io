@@ -79,8 +79,8 @@ var STARLUX_REPORT_DATA = (function () {
   ];
 
   var CH6_LOADFACTOR = {
-    categories: ["FY15/16", "FY16/17", "FY17/18", "FY18/19", "FY19/20", "FY20/21", "FY21/22", "FY22/23", "FY23/24", "FY24/25"],
-    data: [81, 79, 76, 76, 73, 7, 16, 66, 76, 79]
+    categories: ["FY15/16", "FY16/17", "FY17/18", "FY18/19", "FY19/20", "FY20/21", "FY21/22", "FY22/23", "FY23/24", "FY24/25", "FY25/26"],
+    data: [82, 80, 78, 78, 75, 14, 15, 65, 77, 82, 88]
   };
 
   var CH6_CAPACITY = [
@@ -88,6 +88,19 @@ var STARLUX_REPORT_DATA = (function () {
     { label: { zh: "每週 5 班", en: "5x weekly" }, value: 77220 },
     { label: { zh: "每日 1 班", en: "Daily" }, value: 108108 }
   ];
+
+  var CH5_PORTS = [
+    { label: { zh: "布里斯本", en: "Brisbane" }, value: 6841 },
+    { label: { zh: "墨爾本", en: "Melbourne" }, value: 5425 },
+    { label: { zh: "雪梨", en: "Sydney" }, value: 3621 }
+  ];
+
+  var CH5_SYDNEY = {
+    categories: [2019, 2023, 2024, 2025],
+    series: [
+      { label: { zh: "雪梨—台北貨運量", en: "Sydney–Taipei freight" }, colorVar: "--color-primary", data: [9313, 5803, 4599, 3621] }
+    ]
+  };
 
   var CH9_FLEET = {
     groups: [
@@ -120,8 +133,8 @@ var STARLUX_REPORT_DATA = (function () {
       body: [
         { zh: "2025 年有 <strong>19.3 萬名</strong>台灣人到澳洲旅遊，比前一年成長 <strong>18%</strong>，成長速度比澳洲整體國際旅客還快。反過來，住在澳洲、回台灣的旅客約 12.5 萬人，也成長了 11%。兩個方向都在成長，但台灣去澳洲的人數明顯更多，大約是 1.5 倍。",
           en: "In 2025, about <strong>193,000</strong> Taiwanese traveled to Australia — up <strong>18%</strong> from the year before, growing faster than Australia's international visitor market overall. In the other direction, about 125,000 Australia-resident travelers visited Taiwan, up 11%. Both directions are growing, but the Taiwan-to-Australia flow is clearly larger — roughly 1.5 times as many." },
-        { zh: "從下面這張圖也可以看出，澳洲居民來台已經超過 2019 疫情前高點約 12%，但紐西蘭居民還沒回到疫情前水準，落後約 8%——兩邊復甦的速度不一樣。",
-          en: "As the chart below shows, Australia-resident visitors to Taiwan have already surpassed the 2019 pre-pandemic peak by about 12%, while New Zealand residents still haven't recovered to pre-pandemic levels — about 8% behind. The two are recovering at very different speeds." }
+        { zh: "從下面這張圖也可以看出，澳洲居民來台已經超過 2019 疫情前高點約 12%，但紐西蘭居民還沒回到疫情前水準，落後約 8%——兩邊復甦的速度不一樣。台灣去澳洲的方向則大致回到 2019 年水準：澳洲 ABS 統計 2025 年 19.3 萬人、2019 年 19.5 萬人，差不到 1%。（台灣觀光署以「首站」口徑統計的赴澳人次，2025 年 16.0 萬仍低於 2019 年的 18.0 萬，但那個口徑只計第一個抵達的目的地，和 ABS 不能直接比較。）",
+          en: "As the chart below shows, Australia-resident visitors to Taiwan have already surpassed the 2019 pre-pandemic peak by about 12%, while New Zealand residents still haven't recovered to pre-pandemic levels — about 8% behind. The two are recovering at very different speeds. The Taiwan-to-Australia direction has roughly returned to its 2019 level: Australia's ABS counts 193,000 in 2025 against 195,000 in 2019, a gap of under 1%. (Taiwan's Tourism Administration counts Australia as a first stop at 160,000 in 2025, still below 180,000 in 2019, but that basis only counts the first destination reached and can't be compared directly with ABS.)" }
       ],
       chart: {
         type: "line", id: "ch1-history",
@@ -134,19 +147,19 @@ var STARLUX_REPORT_DATA = (function () {
         title: { zh: "澳洲居住旅客來台，2025 vs 2026 上半年逐月比較", en: "Australia-resident visitors to Taiwan, monthly Jan–Jun: 2025 vs 2026" },
         data: CH1_H1_COMPARE, suffix: "",
         sourceNote: {
-          zh: "資料來源：交通部觀光署《觀光統計資料庫》。這裡只能做「澳洲→台灣」方向的逐月比較，因為只有這個方向查得到完整月資料；反向「台灣→澳洲」（19.3 萬那個方向）目前只有 2026 年 7 月單月數字，沒有逐月資料可以比。",
-          en: "Source: Taiwan Tourism Administration, Tourism Statistics Database. This monthly comparison is only possible for the Australia→Taiwan direction, since that's the only one with a complete monthly series. The reverse direction (Taiwan→Australia — the 193,000 figure above) currently has only a single July 2026 data point, with no month-by-month data to compare."
+          zh: "資料來源：交通部觀光署《觀光統計資料庫》。這張圖只畫「澳洲→台灣」方向；反向「台灣→澳洲」（19.3 萬那個方向）的月資料來自澳洲 ABS，數字見下方說明。",
+          en: "Source: Taiwan Tourism Administration, Tourism Statistics Database. This chart shows only the Australia→Taiwan direction; monthly data for the reverse direction (Taiwan→Australia — the 193,000 figure above) comes from Australia's ABS, with figures in the note below."
         }
       },
       boxes: [
         { type: "info",
           title: { zh: "1.5 倍，是不是代表回程班機是空的？", en: "Does the 1.5x ratio mean return flights fly empty?" },
-          body: { zh: "不是。這個比例算的是「兩邊住在哪裡的人」各自出去玩了幾次，不是同一班飛機去程、回程各自賣了幾張票。大部分旅客自己買去程也買回程，兩個方向其實都各自貢獻了一張機票。真的要看哪個方向比較空，得查航空公司每個方向實際的載客率——這部分目前還查不到公開數據。",
-            en: "No. This ratio measures how many trips residents on each side take — not how many seats are sold on the outbound versus return leg of the same flight. Most travelers buy both an outbound and a return ticket, so each direction gets its own segment either way. To actually see which direction runs emptier you'd need each airline's real load factor by direction, and that data isn't public yet." } },
+          body: { zh: "不是。這個比例算的是「兩邊住在哪裡的人」各自出去玩了幾次，不是同一班飛機去程、回程各自賣了幾張票。大部分旅客自己買去程也買回程，兩個方向其實都各自貢獻了一張機票。真的要看哪個方向比較空，要看直飛班機每個方向實際的載客數。澳洲 BITRE 有這份資料：雪梨—台北直飛 2025 年，台北→雪梨載了 64,553 人、雪梨→台北載了 68,070 人，兩個方向幾乎相等（2019 年是 106,327 對 111,982，也接近 1:1）。這是該航段實際載客，包含在台北轉機到第三地的旅客，但不含經香港、新加坡等其他樞紐飛的旅客。（資料來源：BITRE《International airline activity》城市對資料，截至 2026 年 6 月）",
+            en: "No. This ratio measures how many trips residents on each side take — not how many seats are sold on the outbound versus return leg of the same flight. Most travelers buy both an outbound and a return ticket, so each direction gets its own segment either way. To see which direction runs emptier you need actual passengers carried per direction on direct flights, and Australia's BITRE publishes exactly that: on Sydney–Taipei direct flights in 2025, 64,553 passengers flew Taipei→Sydney and 68,070 flew Sydney→Taipei — nearly identical (2019 was 106,327 vs 111,982, also close to 1:1). This counts passengers actually carried on that sector, including those connecting onward at Taipei to a third destination, but excluding those who fly via other hubs such as Hong Kong or Singapore. (Source: BITRE, International airline activity, city-pair data, to June 2026)" } },
         { type: "gold",
-          title: { zh: "2026 上半年最新數字：成長似乎在放慢", en: "Latest H1 2026 numbers: growth looks like it's slowing" },
-          body: { zh: "我實際去查了 2026 年 1–6 月的官方數字：住在澳洲、回台灣的旅客有 64,563 人次，比 2025 同期（63,024）只成長約 2.4%——比 2025 全年 +11.32% 慢了不少。反過來（台灣人去澳洲）目前只查到澳洲官方 2026 年 7 月單月數字：23,910 人次，比去年同月成長約 1%，也是放緩。這只是半年的快照，還不能斷定是短期波動還是趨勢真的轉彎，要再看接下來幾季的數字。（資料來源：交通部觀光署《觀光統計資料庫》、ABS 2026 年 7 月號）",
-            en: "I actually pulled the official Jan–Jun 2026 figures: Australia-resident visitors to Taiwan came to 64,563 — only about 2.4% higher than the same period in 2025 (63,024), well below 2025's full-year +11.32%. In the other direction (Taiwan residents to Australia), the only figure available is Australia's official July 2026 monthly number — 23,910, up about 1% year-on-year, also a slowdown. This is only a half-year snapshot, so it's too early to tell whether it's a short-term wobble or a real trend change; it needs a few more quarters of data. (Sources: Taiwan Tourism Administration Tourism Statistics Database; ABS, July 2026 release)" } }
+          title: { zh: "2026 上半年最新數字：兩個方向的走勢不同", en: "Latest H1 2026 numbers: the two directions are moving differently" },
+          body: { zh: "我實際查了 2026 年 1–6 月的官方數字。住在澳洲、回台灣的旅客有 64,563 人次，比 2025 同期（63,024）只成長約 2.4%，比 2025 全年 +11.32% 慢了不少。但台灣人去澳洲的方向沒有放緩：ABS 統計 2026 年 1–6 月台灣居民短期入境 101,020 人次，比 2025 同期（87,600）成長約 15.3%；加上 7 月（23,910，約 +1%），1–7 月為 124,930，成長約 12.3%，和 2025 全年 +17.6% 相比仍是雙位數成長。單月波動很大（1 月 -19%、2 月 +85%），可能主要受春節落點不同影響（2025 年在 1 月底、2026 年在 2 月中），因此不宜只看單月。班機端也一致：台澳直飛（三個航點城市對合計）2026 上半年載客比去年同期多約 11%，雪梨—台北一線約多 13%。所以目前「放緩」只出現在澳洲→台灣方向；較大的台灣居民赴澳市場仍維持雙位數成長。這只是半年的快照，後續季度仍要追蹤。（資料來源：交通部觀光署《觀光統計資料庫》；ABS《Overseas Arrivals and Departures》2026 年 7 月號 Table 5；BITRE）",
+            en: "I pulled the official Jan–Jun 2026 figures. Australia-resident visitors to Taiwan came to 64,563 — only about 2.4% higher than the same period in 2025 (63,024), well below 2025's full-year +11.32%. But the Taiwan-to-Australia direction is not slowing: ABS counts 101,020 short-term arrivals from Taiwan residents in Jan–Jun 2026, up about 15.3% on the same period of 2025 (87,600). Adding July (23,910, about +1%), Jan–Jul totals 124,930, up about 12.3% — still double-digit growth, against 2025's full-year +17.6%. Single months swing widely (January -19%, February +85%), possibly driven mainly by Lunar New Year falling in different months (late January in 2025, mid-February in 2026), so single months shouldn't be over-read. Flights tell the same story: passengers carried on Taiwan–Australia direct flights (three gateways' city pairs combined) in H1 2026 were about 11% higher than a year earlier, and about 13% higher on Sydney–Taipei. So the slowdown appears only in the Australia→Taiwan direction; the larger market of Taiwan residents traveling to Australia is still growing at double digits. This is only a half-year snapshot and still needs tracking over coming quarters. (Sources: Taiwan Tourism Administration Tourism Statistics Database; ABS, Overseas Arrivals and Departures, July 2026 release, Table 5; BITRE)" } }
       ]
     },
     {
@@ -174,13 +187,9 @@ var STARLUX_REPORT_DATA = (function () {
           body: { zh: "「旅遊目的」不等於「艙等選擇」。商務艙的需求可能來自消費力高的度假客、探親旅客，或是經台北轉機的旅客——這些都還需要更細的票價資料才能確認。",
             en: "Purpose of visit isn't the same as cabin class. Business-class demand can still come from high-spending holidaymakers, VFR travelers, or passengers connecting through Taipei — confirming that still needs finer fare and booking-class data." } },
         { type: "caution",
-          title: { zh: "澳洲移民部長剛宣布兩項改革，都指向同一個方向：壓縮運量", en: "Australia's immigration minister just announced two changes pointing the same way: less traffic" },
-          body: { zh: "澳洲移民部長 Tony Burke 在 2026 年 9 月 17 日（就在最近）宣布移民改革，有兩項都跟這條航線的運量直接相關。第一，打工度假簽證（417/462）第二年名額從 57,000 砍到 45,000（約 -21%），第三年從 31,000 砍到 5,000（約 -84%），並改成抽籤制，還要先完成 88 天（第二年）或 6 個月（第三年）偏鄉工作才有抽籤資格——直接打在「近三成旅客待一個月以上」這個長天數族群上，續簽名額大砍會讓部分旅客把停留拉長到數月甚至一年以上的意願下降。第二，所有新發出的觀光簽證一律加註「不得境內續留」，正面打擊「visa hopping」——過去旅客可以先用觀光簽證入境，再就地申請轉成打工度假、學生簽證等其他類別，把停留無限期延長而不用真的離境再入境；這條路現在被封死，代表想繼續留在澳洲的人必須先出境再重新申請，等於少了一種不用額外訂機票也能拉長停留的途徑。這兩項改變的方向一致：都讓「留久一點」變難，都可能壓縮長天數、高消費力旅客的運量貢獻。公告沒有特別提到台灣，台灣申請人適用一般規則，沒有豁免；第一年（初次入境）打工度假簽證名額本身沒被砍。（資料來源：ABC News 2026-09-17）",
-            en: "Australia's immigration minister, Tony Burke, announced a migration overhaul on 17 September 2026 (just days ago), and two parts of it bear directly on this route's traffic. First, Working Holiday visa (417/462) second-year places were cut from 57,000 to 45,000 (about -21%) and third-year places from 31,000 to 5,000 (about -84%), moving to a ballot system that also requires 88 days (year 2) or 6 months (year 3) of regional work before you're even eligible to enter the ballot — a direct hit to this section's 'nearly 30% stay a month or more' long-stay segment, since a sharp cut to renewal places reasonably means fewer travelers extend their stay to several months or a year. Second, every newly issued visitor visa now carries a 'no further stay' condition, directly targeting 'visa hopping' — previously, a traveler could enter on a visitor visa and then apply onshore to convert to a working holiday or student visa, extending their stay indefinitely without ever actually leaving and re-entering. That path is now closed, meaning anyone wanting to stay longer must leave and re-apply from outside Australia — removing a way people used to extend their stay without booking another flight. Both changes point the same direction: staying longer just got harder, and both could dent the traffic contribution from long-stay, higher-spending travelers. The announcement made no specific mention of Taiwan, so Taiwanese applicants face the standard rules with no exemption, and first-year (initial) working holiday visa places weren't cut. (Source: ABC News, 2026-09-17)" } },
-        { type: "info",
-          title: { zh: "校準規模：67% 是純度假、來回機票早就買好，真正被打到的是一小部分", en: "Calibrating the scale: 67% are pure holidaymakers with round-trip tickets already booked — only a small slice is actually hit" },
-          body: { zh: "要老實校準規模，不要看到政策就直接推論成「需求大跌」。台灣旅客有 <strong>67%</strong> 是純度假、本來就買好來回機票，這群人不太會用到打工度假或境內轉簽這兩條路，不受這次改革直接影響；真正被打到的是長天數、打工度假、境內轉簽這幾種身分交疊的族群，佔整體的一小部分。所以方向是需求會降低沒錯，但影響力道應該不會很巨大——政策本身已證實，方向也合理，但對台澳這條航線的實際運量衝擊多大，目前沒有航線層級數據可以量化，只能標成推論，不宜誇大成「重大衝擊」。",
-            en: "To calibrate the scale honestly, a policy change shouldn't be read straight into 'demand will collapse.' <strong>67%</strong> of Taiwanese travelers are on a pure holiday trip and already fly on a round-trip ticket — they're unlikely to touch working holiday visas or onshore conversion, so this reform doesn't hit them directly. The people actually affected are the smaller slice at the intersection of long-stay, working holiday, and onshore-conversion status. So the direction is a real dip in demand, but the magnitude is unlikely to be large — the policy itself is confirmed and the logic holds, but there's no route-level data yet to quantify the actual impact on this route, so it stays an inference and shouldn't be overstated as a 'major shock.'" } }
+          title: { zh: "澳洲 9/17 移民改革：方向會壓縮長天數停留，但對這條航線的衝擊還量不出來", en: "Australia's 17 September migration changes: they push toward shorter stays, but the impact on this route can't yet be measured" },
+          body: { zh: "澳洲移民部長 Tony Burke 在 2026 年 9 月 17 日宣布兩項改革。第一，打工度假簽證（417/462）第二年名額從 57,000 降到 45,000（約 -21%），第三年從 31,000 降到 5,000（約 -84%），改為抽籤，且需先完成 88 天（第二年）或 6 個月（第三年）偏鄉工作才有資格；第一年名額沒有被砍。第二，新發出的觀光簽證一律加註「不得境內續留」，堵住先以觀光簽證入境、再就地轉簽打工度假或學生簽證的「visa hopping」。兩項都讓「留久一點」變難。<br><br>但影響要老實校準。台灣旅客有 <strong>67%</strong> 是純度假，多半買好來回機票，應該不受直接影響；「停留 31 晚以上占 29%」裡有多少是打工度假或境內轉簽，TRA 沒有拆分，目前無法得知。公告沒有提到台灣，台灣申請人適用一般規則。所以這是方向合理的推論，實際量級沒有航線層級數據可以驗證，不宜寫成重大衝擊。（資料來源：ABC News 2026-09-17）",
+            en: "Australia's immigration minister, Tony Burke, announced two changes on 17 September 2026. First, Working Holiday visa (417/462) second-year places were cut from 57,000 to 45,000 (about -21%) and third-year places from 31,000 to 5,000 (about -84%), moving to a ballot that also requires 88 days (year 2) or 6 months (year 3) of regional work to be eligible; first-year places weren't cut. Second, every newly issued visitor visa now carries a 'no further stay' condition, closing the 'visa hopping' path of entering on a visitor visa and then converting onshore to a working holiday or student visa. Both make staying longer harder.<br><br>But the impact needs honest calibration. <strong>67%</strong> of Taiwanese travelers are on a pure holiday trip, mostly on round-trip tickets already booked, so they should not be directly affected. How much of the 'stay 31 nights or more — 29%' group is working-holiday or onshore-conversion travel isn't broken out by TRA, so it's unknown. The announcement didn't mention Taiwan, so Taiwanese applicants face the standard rules. The direction is a reasonable inference, but there's no route-level data to verify the scale, so it shouldn't be written up as a major shock. (Source: ABC News, 2026-09-17)" } }
       ]
     },
     {
@@ -231,16 +240,34 @@ var STARLUX_REPORT_DATA = (function () {
     {
       id: "s5",
       kicker: { zh: "會不會載貨", en: "Will it carry cargo" },
-      headline: { zh: "星宇同時在雪梨招貨運經理，這本身就是訊號", en: "STARLUX is hiring a cargo manager in Sydney too — that's a signal in itself" },
+      headline: { zh: "貨運：台澳貨量不大、雪梨最少，星宇目前只有籌備跡象", en: "Cargo: Taiwan–Australia freight is modest and Sydney carries the least — STARLUX so far shows only preparation" },
       body: [
-        { zh: "星宇在雪梨機場的招募清單裡，除了分公司總經理、人資經理、機場站長，還有一個貨運經理，職務內容包含貨運銷售、倉儲與貨代關係——說明貨運從一開始就被規劃成航線收入的一部分。星宇 2025 年的貨運收入占公司總營收超過一成，且成長超過 <strong>50%</strong>，但這是公司整體數字，不是雪梨航線專屬的。",
-          en: "Among STARLUX's Sydney hiring list — branch general manager, HR manager, station manager — there's also a cargo manager, covering cargo sales, warehousing, and freight-forwarder relationships, which shows cargo was built into the route's revenue plan from the start. STARLUX's cargo revenue made up over a tenth of total company revenue in 2025 and grew more than <strong>50%</strong> — though that's a company-wide figure, not specific to the Sydney route." }
+        { zh: "星宇在雪梨機場的招募清單裡，除了分公司總經理、人資經理、機場站長，還有一個貨運經理，職務內容包含貨運銷售、倉儲與貨代關係，職缺文字也寫明澳洲分公司是為客運與貨運營運而設。這說明貨運在籌備範圍內，但不代表它會貢獻多少收入。星宇 2025 年的貨運收入占公司總營收超過一成，且成長超過 <strong>50%</strong>，但這是整個航網的數字，不是雪梨航線專屬的。",
+          en: "Among STARLUX's Sydney hiring list — branch general manager, HR manager, station manager — there's also a cargo manager, covering cargo sales, warehousing, and freight-forwarder relationships, and the listing states the Australian branch was set up to support both passenger and cargo operations. That shows cargo is within the launch planning, but it doesn't show how much revenue it will contribute. STARLUX's cargo revenue made up over a tenth of total company revenue in 2025 and grew more than <strong>50%</strong> — though that's a network-wide figure, not specific to the Sydney route." },
+        { zh: "那台澳之間實際有多少貨？澳洲官方 BITRE 的統計顯示：2025 年台澳之間定期航班載運的貨量，雙向合計約 <strong>1.59 萬噸</strong>，比 2019 年的約 1.96 萬噸少了約 19%。雪梨—台北這一條線 2025 年約 <strong>3,621 噸</strong>（台灣→澳洲 2,375 噸、澳洲→台灣 1,247 噸），只有 2019 年（9,313 噸）的約四成，其中澳洲→台灣方向降幅最大（5,766 噸降到 1,247 噸）。在台澳三個航點裡，雪梨的貨量也是最少的。2026 年上半年台澳合計 8,483 噸，比 2025 年同期成長約 19%，但雪梨只成長約 4%（1,919 噸），成長主要來自墨爾本與布里斯本。",
+          en: "So how much freight actually moves between Taiwan and Australia? Australia's official BITRE statistics show that scheduled flights carried about <strong>15,900 tonnes</strong> in both directions in 2025 — roughly 19% below 2019's ~19,600 tonnes. The Sydney–Taipei route alone carried about <strong>3,621 tonnes</strong> in 2025 (2,375 Taiwan→Australia, 1,247 Australia→Taiwan), only about 40% of 2019's 9,313 tonnes, with the Australia→Taiwan direction falling most (5,766 down to 1,247). Among the three Taiwan–Australia gateways, Sydney also carries the least. In H1 2026, Taiwan–Australia freight totalled 8,483 tonnes, up about 19% on the same period of 2025 — but Sydney grew only about 4% (1,919 tonnes), with the growth coming mainly from Melbourne and Brisbane." }
       ],
+      chart: {
+        type: "bar", id: "ch5-ports",
+        title: { zh: "2025 年台澳定期航班載運貨量，按澳洲航點（噸）", en: "Taiwan–Australia scheduled-flight freight in 2025, by Australian gateway (tonnes)" },
+        data: CH5_PORTS, colorVar: "--color-secondary",
+        sourceNote: { zh: "資料來源：澳洲 BITRE《International airline activity》城市對資料（截至 2026 年 6 月），雙向合計、單位為公噸", en: "Source: Australia's BITRE, International airline activity, city-pair data (to June 2026); both directions combined, in tonnes" }
+      },
+      chart2: {
+        type: "line", id: "ch5-sydney",
+        title: { zh: "雪梨—台北定期航班載運貨量（噸，雙向合計）", en: "Sydney–Taipei scheduled-flight freight (tonnes, both directions)" },
+        data: CH5_SYDNEY, suffix: "",
+        sourceNote: { zh: "資料來源：同上", en: "Source: same as above" }
+      },
       boxes: [
+        { type: "info",
+          title: { zh: "這些數字說明什麼、不說明什麼", en: "What these numbers do and don't show" },
+          body: { zh: "這是定期國際航班實際載運的貨量，按上下機點計，不是台澳貿易中「適合走空運的貨」有多少，也沒有貨物種類。雪梨貨量下降的原因（例如長榮退出雪梨、貨轉往其他航點）目前沒有拆分資料，不能直接歸因。就數字本身來看，目前看不出貨運能成為雪梨線的重要收入來源，但也不能就此排除——星宇帶來的是新增貨艙，價格與貨物結構可能不同，這部分沒有資料。",
+            en: "This is freight actually carried on scheduled international flights, counted by boarding and landing points — not how much of Taiwan–Australia trade is suited to air freight, and it has no commodity breakdown. The reasons behind Sydney's decline (for example EVA Air leaving Sydney, or freight shifting to other gateways) aren't broken out in the data and can't be attributed directly. On the numbers alone, cargo doesn't look like a major revenue source for the Sydney route — but it can't be ruled out either, since STARLUX adds new hold capacity whose pricing and cargo mix may differ, and there's no data on that." } },
         { type: "gap",
-          title: { zh: "老實說：這塊我們還沒有足夠數據", en: "Honestly: we don't have enough data here yet" },
-          body: { zh: "台澳之間實際的空運貨量、貨物種類、飛機貨艙實際能載多少，這些都需要澳洲官方貨運統計、海關資料才能確認。目前這是明確的資料缺口，先誠實標記。",
-            en: "How much air cargo actually moves between Taiwan and Australia, what kinds of goods, how much a hold can actually carry — all of this needs official Australian freight statistics and customs data to confirm. This is a clear data gap for now, flagged honestly rather than papered over." } }
+          title: { zh: "還缺什麼", en: "What's still missing" },
+          body: { zh: "貨物品項（BITRE 只有噸數，需另查澳洲 ABS 進出口按運輸模式，或台灣關務署資料）、2026 年 7–8 月（BITRE 最新資料到 6 月）、星宇 A330neo 實際可售貨艙。這幾項目前是明確的資料缺口。",
+            en: "Commodity mix (BITRE gives tonnes only; it needs Australia's ABS trade-by-transport-mode data or Taiwan customs data), July–August 2026 (BITRE's latest data is June), and the actual sellable hold capacity of STARLUX's A330neo. These remain clear data gaps." } }
       ]
     },
     {
@@ -269,16 +296,22 @@ var STARLUX_REPORT_DATA = (function () {
     {
       id: "s6",
       kicker: { zh: "現有位子夠不夠", en: "Is there enough capacity already" },
-      headline: { zh: "直飛座位供給收縮，載客率正在回升", en: "Direct-flight capacity has shrunk while load factor climbs back up" },
+      headline: { zh: "直飛座位比疫情前少、載客率創高——但新運力正要進場", en: "Direct seats are below pre-pandemic levels and load factor is at a high — but new capacity is about to arrive" },
       body: [
-        { zh: "這是整份報告的關鍵轉折。前面確認了需求存在、法規上也飛得成，這裡開始檢查「供給」接不接得住——如果現有的直飛班機已經很難再擠進更多人，新進者就有機會。台澳直飛航班的載客率，疫情前大約 76–81%，疫情期間幾乎掉到個位數，現在已經回升到 <strong>79%</strong>。星宇規劃用 A330neo（297 席）飛這條航線，每週先開 4 到 5 班，之後逐步加到每天一班。",
-          en: "This is the pivotal turn in the whole report. Up to here we've confirmed demand exists and the regulatory path is clear — this is where we check whether existing supply can absorb it. If current direct flights are already nearly full, there's room for a new entrant. Taiwan–Australia direct load factor ran around 76–81% before the pandemic, collapsed to single digits during it, and has now climbed back to <strong>79%</strong>. STARLUX plans to fly this route with an A330neo (297 seats), starting at 4–5 flights a week and building up to daily." }
+        { zh: "這是整份報告的關鍵轉折。前面確認了需求存在、法規上也飛得成，這裡開始檢查「供給」接不接得住——如果現有的直飛班機已經很難再擠進更多人，新進者就有機會。澳洲 BITRE 的實測資料顯示：台澳直飛（全澳洲、雙向合計）載客率在疫情前約 78–82%，FY24/25 為 82%，最近一個完整財年 FY25/26（2025 年 7 月到 2026 年 6 月）已到 <strong>88%</strong>；同期單向座位從 FY18/19 的 36.9 萬降到 FY24/25 的 27.8 萬（約 -25%），FY25/26 小幅回升到 29.2 萬。雪梨這條線更明顯：2025 年單向座位只有 2019 年的約 54%，載客率從 74.7% 升到 84.4%。星宇規劃用 A330neo（297 席）飛這條航線，每週先開 4 到 5 班，之後逐步加到每天一班。",
+          en: "This is the pivotal turn in the whole report. Up to here we've confirmed demand exists and the regulatory path is clear — this is where we check whether existing supply can absorb it. If current direct flights are already nearly full, there's room for a new entrant. Australia's BITRE data shows Taiwan–Australia direct load factor (all of Australia, both directions combined) ran around 78–82% before the pandemic, was 82% in FY24/25, and reached <strong>88%</strong> in the latest full fiscal year, FY25/26 (July 2025 to June 2026). Over the same span, one-way seats fell from 369,000 in FY18/19 to 278,000 in FY24/25 (about -25%), then edged back up to 292,000 in FY25/26. Sydney is starker: 2025 one-way seats were only about 54% of 2019, while load factor rose from 74.7% to 84.4%. STARLUX plans to fly this route with an A330neo (297 seats), starting at 4–5 flights a week and building up to daily." }
+      ],
+      statGrid: [
+        { n: { zh: "14.6 萬 → 7.9 萬", en: "146k → 79k" }, l: { zh: "雪梨—台北直飛單向年座位，2019 → 2025（約 -46%）", en: "Sydney–Taipei direct one-way annual seats, 2019 → 2025 (about -46%)" } },
+        { n: "74.7% → 84.4%", l: { zh: "同線雙向載客率，2019 → 2025；2026 上半年為 88.9%", en: "Same route, both directions combined, 2019 → 2025; H1 2026 was 88.9%" } },
+        { n: "≈ 1 : 1", l: { zh: "同線 2025 年兩方向旅客（64,553 對 68,070），直飛沒有方向失衡", en: "Same route, 2025 passengers by direction (64,553 vs 68,070) — no directional imbalance on direct flights" } },
+        { n: "92–100%", l: { zh: "2025–2026 年雪梨線多個月份的單向單月載客率", en: "Sydney route single-direction monthly load factor in several months of 2025–2026" } }
       ],
       chart: {
         type: "line", id: "ch6-loadfactor",
-        title: { zh: "台澳直飛航班的載客率，近十年變化", en: "Taiwan–Australia direct load factor, past decade" },
+        title: { zh: "台澳直飛航班的載客率（全澳洲、雙向合計），近十一個財年", en: "Taiwan–Australia direct load factor (all Australia, both directions), last eleven fiscal years" },
         data: CH6_LOADFACTOR, colorVar: "--color-primary", suffix: "%",
-        sourceNote: { zh: "資料來源：TRA《Taiwan Visitor Economy Profile 2025》，原始資料為澳洲 BITRE 航空統計", en: "Source: TRA, Taiwan Visitor Economy Profile 2025; underlying data from Australia's BITRE aviation statistics" }
+        sourceNote: { zh: "資料來源：澳洲 BITRE 航空統計（按航空公司與國家）；載客率＝旅客 ÷ 座位，財年為 7 月至次年 6 月。TRA《Taiwan Visitor Economy Profile 2025》圖中 FY24/25 的 79% 與這裡「入境方向」的載客率（79.4%）一致，雙向合計則為 82.3%。國家層級統計按同班號服務的起訖國家分類，含同班號延伸航段（如經澳洲過境）的旅客，不是純粹的台澳 O&D；雪梨單線載客率另由城市對資料計算。", en: "Source: Australia's BITRE aviation statistics (by airline and country); load factor = passengers ÷ seats, fiscal year runs July to June. The 79% for FY24/25 in TRA's Taiwan Visitor Economy Profile 2025 matches the inbound-direction load factor here (79.4%); both directions combined is 82.3%. Country-level statistics classify by the origin and destination countries of same-flight-number services and include passengers on extended sectors of the same flight (for example, transiting Australia), so they aren't a pure Taiwan–Australia O&D; the Sydney single-route load factor is calculated separately from city-pair data." }
       },
       chart2: {
         type: "bar", id: "ch6-capacity",
@@ -292,9 +325,9 @@ var STARLUX_REPORT_DATA = (function () {
           body: { zh: "長榮的雪梨、墨爾本航線已經停飛，目前在澳洲只剩布里斯本一個航點（每週 3 班）——雪梨這條線現在等於是華航一家獨飛。華航自己也沒閒著：2026 年冬季班表把台北—雪梨從每週 5 班加到每日、墨爾本加到 5 班，還新增一班不經奧克蘭、直飛布里斯本的班次，全數換用 A350-900，生效日都落在星宇宣布進場（2026 年 6 月）之後。這可能代表市場成長快到連在位者都要加碼，也可能是防禦性卡位——兩種都有可能，現在還看不出來是哪一種。（資料來源：Wikipedia《List of EVA Air destinations》、AeroRoutes、2PAXfly）",
             en: "EVA Air has discontinued its Sydney and Melbourne routes, leaving only Brisbane in Australia (3x weekly) — so the Sydney route is now effectively a China Airlines monopoly. China Airlines itself hasn't been sitting still either: its Northern Winter 2026 schedule lifts Taipei–Sydney from 5x weekly to daily, adds a 5th weekly Melbourne flight, and adds a new Taipei–Brisbane nonstop that doesn't route via Auckland — all switching to A350-900 aircraft, with every change taking effect after STARLUX announced its entry (June 2026). This could mean the market is growing fast enough that even the incumbent needs more capacity, or it could be defensive positioning — both are plausible, and it's too early to say which. (Sources: Wikipedia, List of EVA Air destinations; AeroRoutes; 2PAXfly)" } },
         { type: "info",
-          title: { zh: "79% 載客率，是正向訊號，還不足以說「位子不夠」", en: "79% load factor is a positive signal — not yet proof there 'aren't enough seats'" },
-          body: { zh: "這是一個值得繼續查證的訊號，還不是定論。華航實際賣出多少座位、經香港（國泰航空）、新加坡（新加坡航空）轉機的間接選項又分走多少人，需要更細的官方航班數據才能精算——其中國泰的量級不小，雪梨—香港一條線就約每週 27 班，比星宇規劃的整條雪梨直飛還多好幾倍，詳細比較留給第八段。",
-            en: "This is a signal worth watching, not a conclusion. How many seats China Airlines actually sells, and how many passengers the indirect options via Hong Kong (Cathay Pacific) or Singapore (Singapore Airlines) are siphoning off, both need finer official flight data to work out. Cathay in particular is no small player here — Sydney–Hong Kong alone runs about 27 flights a week, several times STARLUX's entire planned Sydney service; more on that comparison in the next section." } }
+          title: { zh: "載客率 88% 是強的正向訊號，但新運力即將進來，還不能說「位子不夠」", en: "An 88% load factor is a strong positive signal — but new capacity is about to arrive, so it isn't yet proof there 'aren't enough seats'" },
+          body: { zh: "載客率高、座位比疫情前少，說明現有直飛供給確實被坐滿，但有三件事要小心。第一，這只算直飛；經香港（國泰航空）、新加坡（新加坡航空）轉機的間接選項分走多少人，BITRE 沒有資料——其中國泰的量級不小，雪梨—香港一條線就約每週 27 班，比星宇規劃的整條雪梨直飛還多好幾倍，詳細比較留給第八段。第二，高載客率不等於獲利，也沒有票價資料。第三，供給正在回來：華航 2026 年 10 月起雪梨加到每日，若每班座位與 2025 年平均（約 308 席）相近，單向每年約增加 3.4 萬席；星宇 4–5 班再加 6.2–7.7 萬席。兩者疊加後，雪梨直飛單向座位約 17–19 萬，超過 2019 年的 14.6 萬；要維持 80% 載客率，單向需要約 14–15 萬名旅客，是 2025 年（約 6.5–6.8 萬）的兩倍以上。這是簡單的情境算術，不是預測，但它說明真正的問題不是「現有座位夠不夠」，而是「新增座位能不能從轉機選項或成長中的需求裡吸收」。",
+            en: "A high load factor on fewer seats than before the pandemic shows existing direct supply is genuinely being filled, but three cautions apply. First, this counts direct flights only; how many passengers the indirect options via Hong Kong (Cathay Pacific) or Singapore (Singapore Airlines) are siphoning off isn't in BITRE's data — and Cathay is no small player, with Sydney–Hong Kong alone at about 27 flights a week, several times STARLUX's entire planned Sydney service (more in the next section). Second, a high load factor isn't profit, and there's no fare data. Third, supply is coming back: China Airlines lifts Sydney to daily from October 2026, and if seats per flight stay near the 2025 average (about 308), that adds roughly 34,000 one-way seats a year; STARLUX at 4–5 weekly adds another 62,000–77,000. Together, Sydney direct one-way seats would reach about 174,000–190,000, above 2019's 146,000. Holding an 80% load factor would need about 140,000–150,000 passengers each way, more than double 2025's roughly 65,000–68,000. This is simple scenario arithmetic, not a forecast, but it shows the real question isn't whether existing seats are enough — it's whether the added seats can be absorbed from connecting alternatives or growing demand." } }
       ]
     },
     {
@@ -352,38 +385,32 @@ var STARLUX_REPORT_DATA = (function () {
     {
       id: "s10",
       kicker: { zh: "這筆生意划算嗎", en: "Does the math actually work" },
-      headline: { zh: "收入靠四塊，但成本完全是空白", en: "Revenue rests on four pillars, but costs are a total blank" },
+      headline: { zh: "收入可能來自四塊，但成本完全是空白", en: "Revenue could come from four pillars, but costs are a total blank" },
       body: [
-        { zh: "這條航線能不能成立，取決於下面四塊收入能不能一起撐起營收，加上成本與競爭條件——不是單靠「台灣觀光客多不多」就能回答的問題。",
-          en: "Whether this route works out depends on whether these four revenue streams can support it together, plus costs and competitive conditions — it isn't a question 'how many Taiwanese tourists are there' alone can answer." }
+        { zh: "這條航線的收入可能來自下面四塊，能不能成立要看它們能不能一起撐起營收，加上成本與競爭條件——不是單靠「台灣觀光客多不多」就能回答的問題。其中雪梨—奧克蘭尚無政府文件、貨運目前的數字偏小，只能算潛在來源。",
+          en: "Revenue for this route could come from the four streams below; whether it works out depends on whether they can support it together, plus costs and competitive conditions — it isn't a question 'how many Taiwanese tourists are there' alone can answer. Of these, Sydney–Auckland has no government document yet and cargo's current numbers are small, so both count only as potential sources." }
       ],
       pillars: [
         { title: { zh: "台北—雪梨直飛客", en: "Taipei–Sydney direct traffic" }, body: { zh: "台灣端度假需求是重要基本盤；商務出差占比僅 2%，實際商務艙需求仍需票價資料驗證。", en: "Taiwan-side holiday demand is the core base; business travel is only 2%, so real business-class demand still needs fare data to confirm." } },
         { title: { zh: "經台北轉亞洲", en: "Connecting via Taipei to Asia" }, body: { zh: "賣給澳洲出發、要去日本、韓國、東南亞的旅客，擴大可銷售市場。", en: "Selling to Australia-origin passengers headed to Japan, Korea, or Southeast Asia — expanding the sellable market." } },
-        { title: { zh: "雪梨—奧克蘭", en: "Sydney–Auckland" }, body: { zh: "跨塔斯曼段獨立販售，但第五航權是否核准仍待確認。", en: "Planned to be sold as a separate leg across the Tasman, but fifth-freedom approval is still unconfirmed." } },
-        { title: { zh: "貨運", en: "Cargo" }, body: { zh: "已設貨運經理職位，但實際貨量與貨艙運用尚無公開數據。", en: "A cargo manager role is already in place, but actual cargo volume and hold utilization have no public data yet." } }
+        { title: { zh: "雪梨—奧克蘭", en: "Sydney–Auckland" }, body: { zh: "公司規劃跨塔斯曼段獨立販售，但第五航權尚無政府文件確認，目前只算潛在來源。", en: "The company plans to sell the trans-Tasman leg separately, but fifth-freedom approval has no government document yet, so it counts only as a potential source." } },
+        { title: { zh: "貨運", en: "Cargo" }, body: { zh: "已設貨運經理職位，但這只是籌備跡象。BITRE 顯示台澳貨量不大、雪梨最少（2025 年 3,621 噸），目前只算可能的額外收入，尚待證明。", en: "A cargo manager role is already in place, but that is only a sign of preparation. BITRE shows Taiwan–Australia freight is modest and Sydney carries the least (3,621 tonnes in 2025), so cargo counts only as a possible extra revenue source, still to be proven." } }
       ],
       boxes: [
         { type: "caution",
           title: { zh: "星宇今年上半年由盈轉虧，華航同期仍賺錢", en: "STARLUX swung to a loss this H1, while China Airlines stayed profitable" },
           body: { zh: "星宇 2026 上半年營收 285.53 億元創同期新高，但稅後轉虧 3.46 億元（EPS -0.11 元）——主因第二季燃油價格受美伊地緣政治衝突影響大漲 124%，而星宇目前沒有專屬貨機、貨運仰賴客機腹艙，對油價波動相對敏感。同期華航營收、獲利都創同期新高（淨利 65.82 億元、EPS 1.08 元）。這不是雪梨航線本身的成本，但可以合理推論：星宇是在公司財務體質相對脆弱的階段，規劃這條長程新航線。（資料來源：經濟日報、工商時報、華航法人說明會）",
-            en: "STARLUX's H1 2026 revenue hit NT$28.55 billion, a record for the period, but it posted a net loss after tax of NT$346 million (EPS -NT$0.11) — mainly because Q2 fuel prices spiked 124% amid the US–Iran geopolitical conflict, and STARLUX has no dedicated freighter fleet, relying on belly cargo, which makes it more exposed to fuel-price swings. China Airlines, over the same period, posted record revenue and profit (net profit NT$6.58 billion, EPS NT$1.08). This isn't the Sydney route's own cost, but it reasonably supports one conclusion: STARLUX is planning this long-haul new route while its overall financial footing is relatively weaker than the incumbent's. (Sources: Economic Daily News, Commercial Times, China Airlines investor briefing)" } },
-        { type: "info",
-          title: { zh: "星宇有開航促銷的先例，雪梨線很可能比照辦理", en: "STARLUX has a track record of launch promotions — Sydney will likely see the same" },
-          body: { zh: "星宇開新航線時習慣用促銷衝早期載客率：台中—札幌線（2026-10-02 開航）來回含稅 NT$23,337 起、含 23kg 託運行李；布拉格線（2026-08-01 開航，星宇首條長程歐洲線）2/25 上午 10 點準時開賣早鳥票，來回約 NT$3.1 萬，促銷集中在淡季月份。一短程一長程都用同一套模式，可以合理推論雪梨線開航時也會有類似促銷。但要說清楚邊界：這兩個先例都是點對點票價，不是轉機票；「促銷會延伸到經台北轉機到第三國的票價，藉此衝轉機量」這一段目前沒有直接證據，是延續 hub 轉機邏輯的推論，星宇也尚未公布任何雪梨線的促銷或開賣消息。（資料來源：巡日旅行攝、星宇航空官方新聞稿）",
-            en: "STARLUX has a habit of using promotions to build early load factor on new routes: the Taichung–Sapporo route (launching 2026-10-02) offered round-trip fares from NT$23,337 including tax and 23kg checked baggage; the Prague route (launching 2026-08-01, STARLUX's first long-haul European route) opened early-bird sales at exactly 10:00 on Feb 25, with round-trip fares around NT$31,000, concentrated in shoulder-season months. One short-haul and one long-haul route both followed the same pattern, so it's reasonable to infer Sydney will see something similar at launch. But the boundary needs to be stated clearly: both precedents were point-to-point fares, not connecting fares — the idea that 'the promotion will extend to connecting fares via Taipei to boost transfer volume' has no direct evidence behind it; it's an inference that follows from the hub-connectivity logic elsewhere in this report, and STARLUX hasn't announced any Sydney-route promotion or sale date yet. (Sources: roundtripjp.com, STARLUX Airlines official press release)" } }
+            en: "STARLUX's H1 2026 revenue hit NT$28.55 billion, a record for the period, but it posted a net loss after tax of NT$346 million (EPS -NT$0.11) — mainly because Q2 fuel prices spiked 124% amid the US–Iran geopolitical conflict, and STARLUX has no dedicated freighter fleet, relying on belly cargo, which makes it more exposed to fuel-price swings. China Airlines, over the same period, posted record revenue and profit (net profit NT$6.58 billion, EPS NT$1.08). This isn't the Sydney route's own cost, but it reasonably supports one conclusion: STARLUX is planning this long-haul new route while its overall financial footing is relatively weaker than the incumbent's. (Sources: Economic Daily News, Commercial Times, China Airlines investor briefing)" } }
       ],
       riskList: [
-        { pill: "evidenced", text: { zh: "台灣端與澳洲端旅客流量不對稱，約 1.5 : 1（提醒：這不等於航班方向失衡）", en: "Traveler flow between Taiwan and Australia is asymmetric, roughly 1.5:1 (reminder: this doesn't mean flights are imbalanced by direction)" } },
         { pill: "evidenced", text: { zh: "台灣端商務出差旅客占比僅 2%", en: "Business travel makes up only 2% of Taiwan-side visitors" } },
         { pill: "evidenced", text: { zh: "華航已在星宇宣布進場後把雪梨加到每日、墨爾本加班——是市場成長還是防禦性卡位，尚無法判定", en: "China Airlines has already added Sydney to daily and boosted Melbourne frequency since STARLUX's announcement — whether that's market growth or defensive positioning can't yet be determined" } },
         { pill: "evidenced", text: { zh: "星宇 2026 上半年因燃油成本大漲由盈轉虧（EPS -0.11 元），同期華航仍獲利（EPS 1.08 元）——公司整體數字，非雪梨航線專屬", en: "STARLUX swung to a loss in H1 2026 on surging fuel costs (EPS -NT$0.11), while China Airlines stayed profitable over the same period (EPS NT$1.08) — company-wide figures, not specific to the Sydney route" } },
         { pill: "inference", text: { zh: "經台北轉飛東京的時間、票價，是否真的比直飛有競爭力，尚待驗證", en: "Whether connecting via Taipei to Tokyo is actually competitive on time and fare versus flying direct is still unverified" } },
         { pill: "official", text: { zh: "雪梨—奧克蘭段的第五航權，目前只有公司說法，沒有政府正式文件", en: "Fifth-freedom rights for the Sydney–Auckland leg currently rest only on company statements, with no formal government document" } },
         { pill: "official", text: { zh: "正式班表與開航日期尚未公布，4–5 班為高層受訪說法", en: "No official schedule or launch date has been published yet; 4–5 weekly flights is only an executive interview statement" } },
-        { pill: "gap", text: { zh: "台澳實際空運貨量與貨物種類，目前沒有公開數據", en: "Actual Taiwan–Australia air cargo volume and commodity mix have no public data yet" } },
+        { pill: "gap", text: { zh: "台澳空運貨物種類與星宇可售貨艙沒有公開數據；BITRE 噸數顯示貨量不大、雪梨最少，貨運目前只能算潛在來源", en: "Taiwan–Australia air cargo commodity mix and STARLUX's sellable hold capacity have no public data; BITRE tonnage shows freight is modest and Sydney carries the least, so cargo counts only as a potential source" } },
         { pill: "gap", text: { zh: "雪梨航線本身的逐航線成本（燃油分攤、機組、機場費等）完全沒有資料——這是最大的盲區", en: "The Sydney route's own per-route costs (fuel allocation, crew, airport fees, etc.) have no data at all — this is the biggest blind spot" } },
-        { pill: "inference", text: { zh: "星宇有開航促銷先例（台中—札幌、布拉格），雪梨線很可能比照辦理；但促銷會延伸到經台北轉機的票價，目前只是推論，不是已證實", en: "STARLUX has launch-promotion precedents (Taichung–Sapporo, Prague) and Sydney will likely see similar; but the idea that promotions extend to connecting fares via Taipei is still an unverified inference, not a confirmed fact" } },
         { pill: "inference", text: { zh: "新增運力能否扛住國泰、華航的競爭反應，這不是缺資料的問題，而是要等星宇實際開航、營運一段時間後才會知道", en: "Whether the added capacity can withstand Cathay Pacific's and China Airlines' competitive response isn't a data-gap problem — it's something only knowable once STARLUX is actually flying and has been operating for a while" } },
         { pill: "inference", text: { zh: "澳洲移民改革（2026-09-17 公告）：打工度假第二、三年名額大砍，加上所有新觀光簽證禁止境內轉簽（堵住 visa hopping），兩者都指向同一個方向——壓縮長天數旅客的停留意願與運量貢獻，但對這條航線需求的實際量化衝擊仍是推論，且政策不是針對台灣", en: "Australia's migration overhaul (announced 2026-09-17): sharp cuts to second- and third-year working holiday places, plus a ban on onshore visa conversion for all new visitor visas (closing the 'visa hopping' path) — both point the same way, toward less traffic from long-stay travelers, but the actual quantified impact on this route's demand is still an inference, and the policy isn't targeted at Taiwan" } }
       ]
@@ -395,8 +422,8 @@ var STARLUX_REPORT_DATA = (function () {
       body: { zh: "現有資料支持存在——不只是觀光客數字，旅客成長、消費金額、雙邊貿易、雙向投資與留學生同時存在、方向一致。但這不代表星宇這條航線的商業邏輯一定成立，這是整份報告最重要的分界線。",
         en: "The available evidence supports that it does — not just tourist numbers, but traveler growth, spending, bilateral trade, two-way investment, and student flows all point the same direction at once. But that doesn't mean STARLUX's route makes commercial sense — that's the most important dividing line in this whole report." } },
     { title: { zh: "新增運力有市場空間嗎？", en: "Is there market room for added capacity?" },
-      body: { zh: "部分證據支持——直飛供給收縮、載客率回升是正向訊號，但還缺實際航班座位與載客數的第一手數據來確認空間有多大。而「星宇能不能扛住國泰（經香港轉機亞洲）與華航（雪梨加班）的競爭反應」是另一個層次的問題：這不是補資料就能算出來的，要等星宇實際開航、營運一段時間後才會知道。",
-        en: "Partly supported — shrinking direct supply and a rebounding load factor are positive signals, but confirming how much room there really is still needs first-hand data on actual seat and passenger numbers. Separately, whether STARLUX can actually withstand competitive responses from Cathay Pacific (via its Hong Kong connecting hub) and China Airlines (added Sydney frequency) is a different kind of question — not one more data can answer, but one that will only be knowable once STARLUX is actually flying and has been operating for a while." } },
+      body: { zh: "部分證據支持——直飛座位比疫情前少、載客率回升到 88%（BITRE，FY25/26）是正向訊號，但這只算直飛，而且華航加班與星宇進場後，雪梨直飛座位會超過 2019 年水準，空間有多大要看能否吸收轉機客與新增需求。而「星宇能不能扛住國泰（經香港轉機亞洲）與華航（雪梨加班）的競爭反應」是另一個層次的問題：這不是補資料就能算出來的，要等星宇實際開航、營運一段時間後才會知道。",
+        en: "Partly supported — direct seats below pre-pandemic levels and a load factor back up to 88% (BITRE, FY25/26) are positive signals, but they count direct flights only, and once China Airlines adds frequencies and STARLUX enters, Sydney direct seats would exceed 2019 levels — so how much room there is depends on absorbing connecting passengers and new demand. Separately, whether STARLUX can actually withstand competitive responses from Cathay Pacific (via its Hong Kong connecting hub) and China Airlines (added Sydney frequency) is a different kind of question — not one more data can answer, but one that will only be knowable once STARLUX is actually flying and has been operating for a while." } },
     { title: { zh: "星宇的商業邏輯站得住腳嗎？", en: "Does STARLUX's business logic hold up?" },
       body: { zh: "目前證據還不足以下定論。最大的缺口是正式班表尚未公布，以及完全沒有航線成本資料——這兩塊補齊之前，只能說「訊號一致」，還不能說「一定會成功」。",
         en: "Not enough evidence yet to conclude either way. The biggest gaps are the still-unpublished official schedule and the complete absence of route cost data — until those are filled in, the most honest statement is 'the signals line up,' not 'this will succeed.'" } }
@@ -415,6 +442,7 @@ var STARLUX_REPORT_DATA = (function () {
   var SOURCES = [
     { title: "Tourism Research Australia — Taiwan Visitor Economy Profile 2025", url: "https://www.tra.gov.au/content/dam/austrade-assets/global/wip/tra/documents/market-profiles/tra-market-profiles-taiwan-2025.pdf" },
     { title: { zh: "交通部觀光署《觀光統計資料庫》", en: "Taiwan Tourism Administration — Tourism Statistics Database" }, url: "https://stat.taiwan.net.tw/inboundSearch" },
+    { title: { zh: "澳洲 BITRE — International airline activity 時間序列（貨運量、直飛旅客與座位，截至 2026 年 6 月）", en: "Australia's BITRE — International airline activity time series (freight, direct-flight passengers and seats, to June 2026)" }, url: "https://www.bitre.gov.au/publications/ongoing/international_airline_activity-time_series" },
     { title: { zh: "交通部觀光署《來臺旅客消費及動向調查》", en: "Taiwan Tourism Administration — Visitor Expenditure and Trends Survey" }, url: "https://admin.taiwan.net.tw/fapi/AttFile?id=41764&type=NewsAttFile" },
     { title: "DFAT — Australia-Taiwan relationship", url: "https://www.dfat.gov.au/geo/taiwan/australia-taiwan-relationship" },
     { title: "Destination NSW — Take-Off Fund", url: "https://www.destinationnsw.com.au/destination-nsw-business-support/grants-and-funding/take-off-fund-2025" },
@@ -447,15 +475,14 @@ var STARLUX_REPORT_DATA = (function () {
   var PENDING = [
     { zh: "華航雪梨、墨爾本、布里斯本各航班精確座位數與艙位配置（A350-900 兩種艙位版本各用在哪條線）", en: "Exact seat counts and cabin configuration for China Airlines' Sydney, Melbourne, and Brisbane flights (which A350-900 cabin variant flies which route)" },
     { zh: "華航現有「台北—布里斯本—奧克蘭」掛班服務是否實際販售 BNE–AKL 在地客，能否作為星宇 SYD–AKL 規劃的對照案例", en: "Whether China Airlines' existing Taipei–Brisbane–Auckland tag flight actually sells local BNE–AKL traffic, and whether it can serve as a precedent for STARLUX's SYD–AKL plan" },
-    { zh: "澳洲官方台澳直飛旅客數、按方向的城市對資料", en: "Official Australian Taiwan–Australia direct passenger numbers, by direction, city-pair data" },
-    { zh: "澳洲官方台澳空運貨量與貨物種類", en: "Official Australian data on Taiwan–Australia air cargo volume and commodity types" },
+    { zh: "BITRE 只計直飛班機實際載客；經香港、新加坡等第三地轉機的台澳旅客，仍沒有城市對城市或票價資料", en: "BITRE counts only passengers actually carried on direct flights; Taiwan–Australia travelers connecting via Hong Kong, Singapore or other third cities still have no city-to-city or fare data" },
+    { zh: "台澳空運貨物種類（BITRE 只有噸數）與 2026 年 7–8 月貨量（BITRE 最新到 6 月）", en: "Taiwan–Australia air cargo commodity mix (BITRE gives tonnes only) and July–August 2026 volumes (BITRE's latest data is June)" },
     { zh: "台紐之間對星宇雪梨—奧克蘭段的第五航權核准文件", en: "Taiwan–New Zealand fifth-freedom approval document for STARLUX's Sydney–Auckland leg" },
     { zh: "雪梨飛東京：直飛 vs 經台北 vs 經香港，同日期的時間與票價比較（需要抓即時訂票系統資料，非文獻查證）", en: "Sydney to Tokyo: direct vs. via Taipei vs. via Hong Kong — same-date time and fare comparison (needs live booking-system data, not a literature lookup)" },
     { zh: "星宇台北航網 34 航點、13 國家的數字目前只經搜尋引擎摘要確認，建議直接開星宇官網／Wikipedia 頁面交叉核對", en: "STARLUX's Taipei network figures (34 destinations, 13 countries) are currently confirmed only via a search-engine summary — worth cross-checking directly against STARLUX's own site or Wikipedia" },
     { zh: "星宇正式班表與開航日期公布後更新", en: "Update once STARLUX's official schedule and launch date are announced" },
     { zh: "雪梨航線本身的逐航線營運成本資料", en: "The Sydney route's own per-route operating cost data" },
     { zh: "《來臺旅客消費及動向調查》完整報告是否有澳洲、紐西蘭單獨的消費金額", en: "Whether the full Visitor Expenditure and Trends Survey report breaks out spending for Australia and New Zealand separately" },
-    { zh: "台灣居民赴澳 2026 上半年累計（1–6月）——目前只有 ABS 7 月單月數字，需下載 ABS Table 5 Excel 逐月加總", en: "Taiwan-resident visitors to Australia, cumulative H1 2026 (Jan–Jun) — only the ABS July single-month figure is available so far; needs downloading ABS Table 5 Excel and summing month by month" },
     { zh: "雪梨線目前尚未見任何開航促銷公告或早鳥票開賣消息，待星宇正式公布班表後追蹤是否比照台中—札幌、布拉格兩案辦理", en: "No launch promotion or early-bird sale has been announced for the Sydney route yet — worth tracking once STARLUX publishes its official schedule to see whether it follows the Taichung–Sapporo and Prague pattern" },
     { zh: "打工度假簽證改革的官方公告全文（內政部長官網目前擋爬蟲），以及台灣籍申請人在這個簽證類別中的實際規模，才能評估對台澳航線需求的量級", en: "The full official announcement of the working holiday visa reform (the minister's site currently blocks crawlers), plus the actual scale of Taiwanese applicants in this visa category, to properly assess the magnitude of impact on Taiwan–Australia route demand" }
   ];
@@ -473,6 +500,8 @@ var STARLUX_REPORT_DATA = (function () {
     CH2_PURPOSE: CH2_PURPOSE,
     CH2_LENGTH: CH2_LENGTH,
     CH6_LOADFACTOR: CH6_LOADFACTOR,
+    CH5_PORTS: CH5_PORTS,
+    CH5_SYDNEY: CH5_SYDNEY,
     CH6_CAPACITY: CH6_CAPACITY,
     CH9_FLEET: CH9_FLEET,
     STORIES: STORIES,

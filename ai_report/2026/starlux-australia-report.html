@@ -499,6 +499,7 @@
   function t(field) {
     if (field == null) return "";
     if (typeof field === "string") return field;
+    if (typeof field === "number") return String(field);
     return field[currentLang] != null ? field[currentLang] : field.zh;
   }
 
