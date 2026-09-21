@@ -97,17 +97,17 @@ var STARLUX_REPORT_DATA = (function () {
         { label: { zh: "華航每日（情境）", en: "China Airlines daily (scenario)" }, value: 0, colorVar: "--color-secondary" },
         { label: { zh: "星宇（情境）", en: "STARLUX (scenario)" }, value: 0, colorVar: "--color-warm" }
       ]},
-      { label: { zh: "情境：星宇 4 班", en: "Scenario: 4x/wk" }, total: 173976, segments: [
+      { label: { zh: "情境：星宇 4 班", en: "Scenario: 4x/wk" }, shortLabel: { zh: "4 班", en: "4x" }, total: 173976, segments: [
         { label: { zh: "既有航班", en: "Existing flights" }, value: 0, colorVar: "--color-primary" },
         { label: { zh: "華航每日（情境）", en: "China Airlines daily (scenario)" }, value: 112200, colorVar: "--color-secondary" },
         { label: { zh: "星宇（情境）", en: "STARLUX (scenario)" }, value: 61776, colorVar: "--color-warm" }
       ]},
-      { label: { zh: "情境：星宇 5 班", en: "Scenario: 5x/wk" }, total: 189420, segments: [
+      { label: { zh: "情境：星宇 5 班", en: "Scenario: 5x/wk" }, shortLabel: { zh: "5 班", en: "5x" }, total: 189420, segments: [
         { label: { zh: "既有航班", en: "Existing flights" }, value: 0, colorVar: "--color-primary" },
         { label: { zh: "華航每日（情境）", en: "China Airlines daily (scenario)" }, value: 112200, colorVar: "--color-secondary" },
         { label: { zh: "星宇（情境）", en: "STARLUX (scenario)" }, value: 77220, colorVar: "--color-warm" }
       ]},
-      { label: { zh: "情境：星宇每日", en: "Scenario: daily" }, total: 220308, segments: [
+      { label: { zh: "情境：星宇每日", en: "Scenario: daily" }, shortLabel: { zh: "每日", en: "Daily" }, total: 220308, segments: [
         { label: { zh: "既有航班", en: "Existing flights" }, value: 0, colorVar: "--color-primary" },
         { label: { zh: "華航每日（情境）", en: "China Airlines daily (scenario)" }, value: 112200, colorVar: "--color-secondary" },
         { label: { zh: "星宇（情境）", en: "STARLUX (scenario)" }, value: 108108, colorVar: "--color-warm" }

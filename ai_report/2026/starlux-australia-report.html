@@ -117,21 +117,34 @@
   }
 
   /* ---------- Language toggle ----------
-     A sticky row *inside* .page (not position:fixed on the viewport) so the
-     button always shares the same column width as the report card below it.
-     A viewport-fixed button would sit flush with the true edge of the window
-     while .page is still centered with margins up to 720px wide, but below
-     that breakpoint .page runs edge-to-edge — a fixed button would then land
-     on top of the header card instead of beside it. Sticky-in-flow avoids
-     that entirely, at every viewport width. */
+     Narrow viewports (< 900px): the button sits in normal flow at the top of
+     the page, so it never covers report content.
+     Wide viewports (>= 900px): the row is a zero-height sticky strip inside
+     .page and the button is positioned just outside the right edge of the
+     720px column, in the empty margin, so it stays reachable while scrolling
+     without overlapping any card. 900px leaves at least ~80px of margin
+     beside the column for the button. */
   .lang-toggle-row {
-    position: sticky;
-    top: var(--space-md);
-    z-index: 50;
     display: flex;
     justify-content: flex-end;
     margin-bottom: var(--space-sm);
     pointer-events: none;
+  }
+  @media (min-width: 900px) {
+    .lang-toggle-row {
+      position: sticky;
+      top: var(--space-md);
+      z-index: 50;
+      height: 0;
+      margin-bottom: 0;
+    }
+    .lang-toggle {
+      position: absolute;
+      top: 0;
+      left: 100%;
+      margin-left: var(--space-md);
+      white-space: nowrap;
+    }
   }
   .lang-toggle {
     pointer-events: auto;
@@ -376,6 +389,21 @@
   .pill.inference { background: var(--color-warm-soft); border-color: var(--color-warm-border); color: var(--color-warning-text); }
   .pill.official { background: var(--color-primary-soft); border-color: var(--color-primary-border); color: var(--color-primary-strong); }
   .pill.gap { background: var(--color-accent-soft); border-color: var(--color-accent-border); color: var(--color-accent-strong); }
+  /* ---------- chart labels on narrow screens ----------
+     Stacked charts may give groups a shortLabel; on phones the short label
+     replaces the long one at a larger size, and the unit after totals is
+     dropped (the chart title already names the unit). */
+  .chart-card svg .lbl-short { display: none; }
+  @media (max-width: 480px) {
+    .chart-card svg .lbl-full { display: none; }
+    .chart-card svg .lbl-short, .chart-card svg .lbl-plain { display: inline; font-size: 24px; }
+    .chart-card svg .lbl-total { font-size: 22px; }
+    .chart-card svg .lbl-unit { display: none; }
+  }
+  @media (max-width: 480px) {
+    .risk-row { flex-direction: column; gap: 6px; }
+    .pill { align-self: flex-start; margin-top: 0; }
+  }
 
   /* ---------- conclusion steps ---------- */
   .story.conclusion { background: var(--color-secondary-soft); border-color: var(--color-secondary-border); }
@@ -627,11 +655,27 @@
         if (segH > 0) svg.appendChild(svgEl("rect", { x: x, y: yCursor, width: barW, height: segH, style: "fill:var(" + seg.colorVar + ")" }));
       });
       var totalLabel = svgEl("text", { x: x + barW / 2, y: yCursor - 9, "text-anchor": "middle", "font-size": 15.5, "font-weight": 800, style: "fill:var(--color-text)" });
-      totalLabel.textContent = fmtNum(g.total) + " " + unit;
+      if (chartData.unit) {
+        // Charts with a unit (e.g. seats): the unit is a separate tspan so narrow screens can hide it.
+        totalLabel.setAttribute("class", "lbl-total");
+        totalLabel.appendChild(document.createTextNode(fmtNum(g.total)));
+        var unitSpan = svgEl("tspan", { class: "lbl-unit" });
+        unitSpan.textContent = " " + unit;
+        totalLabel.appendChild(unitSpan);
+      } else {
+        totalLabel.textContent = fmtNum(g.total) + " " + unit;
+      }
       svg.appendChild(totalLabel);
       var lbl = svgEl("text", { x: x + barW / 2, y: h - padBottom + 20, "text-anchor": "middle", "font-size": 13, style: "fill:var(--color-text-soft)" });
       lbl.textContent = t(g.label);
       svg.appendChild(lbl);
+      if (chartData.unit) lbl.setAttribute("class", g.shortLabel ? "lbl-full" : "lbl-plain");
+      if (g.shortLabel) {
+        // Optional short label, swapped in by CSS on narrow screens (see .lbl-full / .lbl-short).
+        var lblShort = svgEl("text", { x: x + barW / 2, y: h - padBottom + 20, "text-anchor": "middle", "font-size": 13, class: "lbl-short", style: "fill:var(--color-text-soft)" });
+        lblShort.textContent = t(g.shortLabel);
+        svg.appendChild(lblShort);
+      }
     });
     return svg;
   }
