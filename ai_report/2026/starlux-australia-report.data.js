@@ -17,6 +17,11 @@ var STARLUX_REPORT_DATA = (function () {
       zh: "星宇航空預計 2027 年開航台北—雪梨。這是單純押注旅遊復甦，還是台灣和澳洲之間早就有足夠深的往來基礎，撐得起一條長程航線？以下十個重點，用公開數據拼出這條航線背後的邏輯，每一段都附資料來源，方便你自己核對。",
       en: "STARLUX plans to launch Taipei–Sydney service in 2027. Is this simply a bet on tourism recovery, or is there already a deep enough economic relationship between Taiwan and Australia to support a long-haul route? Here are ten key points, built from public data, laying out the logic behind this route — each one comes with its sources so you can check them yourself."
     },
+    answerFirstLabel: { zh: "先講結論", en: "The short answer first" },
+    answerFirstText: {
+      zh: "台北—雪梨直飛座位比 2019 年少了約 46%，貨運量少了約六成；長榮已退出雪梨，這條線目前是華航一家獨飛。星宇加入，等於是把長榮讓出的一塊補回來——這是運力上的訊號，不是獲利保證。市場能不能撐得住這塊新增運力、星宇怎麼經營這條線，接下來值得觀察。",
+      en: "Direct seats on the Taipei–Sydney route are down about 46% from 2019, and cargo volume is down more than 60%. EVA Air has already pulled out of Sydney, leaving China Airlines as the only carrier flying it directly. STARLUX joining is, in effect, filling the gap EVA left behind — that's a capacity signal, not a profit guarantee. Whether the market can absorb this new capacity, and how STARLUX runs the route, is worth watching from here."
+    },
     aboutLabel: { zh: "星宇航空是誰", en: "Who is STARLUX?" },
     aboutText: {
       zh: "星宇航空（STARLUX Airlines）2018 年成立、2020 年首航，是台灣近年新成立的航空公司，定位偏精品服務。目前機隊約 29 架，機型包含 A321neo、A330neo、A350-900 與 A350-1000，主要飛航亞洲、北美與部分歐洲航點；雪梨會是它在澳洲的第一個航點。",
@@ -122,9 +127,9 @@ var STARLUX_REPORT_DATA = (function () {
 
 
   var CH5_PORTS = [
-    { label: { zh: "布里斯本", en: "Brisbane" }, value: 6841 },
+    { label: { zh: "雪梨", en: "Sydney" }, value: 3621 },
     { label: { zh: "墨爾本", en: "Melbourne" }, value: 5425 },
-    { label: { zh: "雪梨", en: "Sydney" }, value: 3621 }
+    { label: { zh: "布里斯本", en: "Brisbane" }, value: 6841 }
   ];
 
   var CH5_SYDNEY = {
@@ -133,6 +138,22 @@ var STARLUX_REPORT_DATA = (function () {
       { label: { zh: "雪梨—台北貨運量", en: "Sydney–Taipei freight" }, colorVar: "--color-primary", data: [9313, 5803, 4599, 3621] }
     ]
   };
+
+  var CH6B_CARGO_TWAU = [
+    { label: { zh: "材質類製成品", en: "Manufactured (material)" }, value: 55.20 },
+    { label: { zh: "其他", en: "Other" }, value: 56.29 },
+    { label: { zh: "未分類商品", en: "Unclassified" }, value: 66.52 },
+    { label: { zh: "雜項製品", en: "Misc. articles" }, value: 175.61 },
+    { label: { zh: "機械與運輸", en: "Machinery" }, value: 1440.00 }
+  ];
+
+  var CH6B_CARGO_NSWTW = [
+    { label: { zh: "未分類商品", en: "Unclassified" }, value: 7.96 },
+    { label: { zh: "其他", en: "Other" }, value: 8.91 },
+    { label: { zh: "化學品", en: "Chemicals" }, value: 11.06 },
+    { label: { zh: "雜項製品", en: "Misc. articles" }, value: 36.30 },
+    { label: { zh: "機械與運輸", en: "Machinery" }, value: 47.72 }
+  ];
 
   var CH9_FLEET = {
     groups: [
@@ -256,7 +277,9 @@ var STARLUX_REPORT_DATA = (function () {
       ],
       body: [
         { zh: "除了貿易，還有雙向投資往來——台灣在澳洲投資約 A$200 億（約合新台幣 4,540 億元，較 2024 年下降 15%），澳洲在台灣投資約 A$392 億（約合新台幣 8,900 億元，台灣為澳洲第 17 大對外投資目的地）。這些數字說明台灣和澳洲之間，本來就有比「觀光」更深一層的往來基礎。（新台幣金額以約 1 澳幣≈22.7 新台幣概算，僅供參考，實際匯率會浮動）",
-          en: "Beyond trade, there's two-way investment: Taiwan has invested about A$20b (roughly NT$454b) in Australia — down 15% from 2024 — while Australia has invested about A$39.2b (roughly NT$890b) in Taiwan, making Taiwan Australia's 17th-largest outward investment destination. These figures show Taiwan and Australia already have ties that run deeper than tourism alone. (NT dollar figures are rough conversions at about A$1 ≈ NT$22.7, for reference only — actual exchange rates fluctuate.)" }
+          en: "Beyond trade, there's two-way investment: Taiwan has invested about A$20b (roughly NT$454b) in Australia — down 15% from 2024 — while Australia has invested about A$39.2b (roughly NT$890b) in Taiwan, making Taiwan Australia's 17th-largest outward investment destination. These figures show Taiwan and Australia already have ties that run deeper than tourism alone. (NT dollar figures are rough conversions at about A$1 ≈ NT$22.7, for reference only — actual exchange rates fluctuate.)" },
+        { zh: "但這些是台澳整體經濟往來的基礎，不是雪梨航線本身的獲利依據——航線賺不賺錢要看票價、載客率與逐航線成本，這幾塊這裡的數字都回答不了。",
+          en: "But these are indicators of the overall Taiwan–Australia economic relationship, not evidence that the Sydney route itself will turn a profit — that depends on fares, load factor, and per-route costs, none of which these figures can answer." }
       ],
       sourceNote: {
         zh: "資料來源：澳洲外交貿易部（DFAT）<a href=\"https://www.dfat.gov.au/geo/taiwan/australia-taiwan-relationship\" target=\"_blank\" rel=\"noopener\">《Australia-Taiwan relationship》</a>官方頁面",
@@ -265,8 +288,8 @@ var STARLUX_REPORT_DATA = (function () {
       boxes: [
         { type: "caution",
           title: { zh: "貿易額大，不代表空運貨量大", en: "A large trade figure doesn't mean large air-cargo volume" },
-          body: { zh: "澳洲對台灣的出口大宗是煤炭、天然氣這類大宗商品，主要不是航空貨運的目標市場。真正能撐起貨艙的是高價、時效敏感的商品，例如生鮮、藥品、半導體零組件——這部分要留到下一段用真正的空運數據確認。",
-            en: "Australia's exports to Taiwan are dominated by bulk commodities like coal and natural gas, which mostly aren't targets for air freight. What actually fills a cargo hold is high-value, time-sensitive goods — fresh produce, pharmaceuticals, semiconductor components — and that needs real air-freight data to confirm, which comes in the next section." } }
+          body: { zh: "澳洲對台灣的出口大宗是煤炭、天然氣這類大宗商品，不太可能走空運，這 279 億裡也拆不出多少是空運。改查澳洲官方的空運貿易資料：台灣→澳洲方向，2025 年空運貨值約 18 億澳幣，2026 上半年已達 27 億——半年就超過去年全年——八到九成集中在「機械與運輸設備」（含電子零組件），跟台灣電子代工的強項一致。但這批貨遠遠超過台澳直飛航班腹艙能載的量，很可能大多不是靠雪梨這類直飛航線運送，細節見後面「貨到底運什麼」這章。",
+            en: "Australia's exports to Taiwan are dominated by bulk commodities like coal and natural gas, which are unlikely to move by air, and this A$27.9b figure doesn't break out how much goes by air anyway. Looking at Australia's official air-freight trade data instead: Taiwan-to-Australia air-freight value was about A$1.8b in 2025 and had already reached A$2.7b by mid-2026 — more than all of 2025 in six months — with 80–90% concentrated in \"machinery and transport equipment\" (including electronic components), matching Taiwan's strength in electronics manufacturing. But that volume far exceeds what direct Taiwan–Australia flights can carry in their holds, so most of it likely isn't moving on direct routes like Sydney's — more in the \"What's actually moving by air\" chapter later on." } }
       ]
     },
     {
@@ -298,8 +321,39 @@ var STARLUX_REPORT_DATA = (function () {
             en: "This is freight actually carried on scheduled international flights, counted by boarding and landing points — not how much of Taiwan–Australia trade is suited to air freight, and it has no commodity breakdown. The reasons behind Sydney's decline (for example EVA Air leaving Sydney, or freight shifting to other gateways) aren't broken out in the data and can't be attributed directly. On the numbers alone, cargo doesn't look like a major revenue source for the Sydney route — but it can't be ruled out either, since STARLUX adds new hold capacity whose pricing and cargo mix may differ, and there's no data on that." } },
         { type: "gap",
           title: { zh: "還缺什麼", en: "What's still missing" },
-          body: { zh: "貨物品項（BITRE 只有噸數，需另查澳洲 ABS 進出口按運輸模式，或台灣關務署資料）、2026 年 7–8 月（BITRE 最新資料到 6 月）、星宇 A330neo 實際可售貨艙。這幾項目前是明確的資料缺口。",
-            en: "Commodity mix (BITRE gives tonnes only; it needs Australia's ABS trade-by-transport-mode data or Taiwan customs data), July–August 2026 (BITRE's latest data is June), and the actual sellable hold capacity of STARLUX's A330neo. These remain clear data gaps." } }
+          body: { zh: "貨物品項（下一章用 ABS 資料補上）、2026 年 7–8 月 BITRE 直飛貨量（最新到 6 月）、星宇 A330neo 實際可售貨艙。這幾項目前是明確的資料缺口。",
+            en: "The commodity mix (filled in with ABS data in the next chapter), BITRE's direct-flight freight for July–August 2026 (latest data is June), and the actual sellable hold capacity of STARLUX's A330neo. These remain clear data gaps." } }
+      ]
+    },
+    {
+      id: "s5b",
+      kicker: { zh: "貨到底裝了什麼", en: "What's actually in the cargo" },
+      headline: { zh: "空運貨到底運什麼？兩個方向差很多", en: "What's actually shipped by air? The two directions look very different" },
+      body: [
+        { zh: "改查澳洲 ABS 的空運貿易資料（海關申報的空運進出口，不是上一章 BITRE 的城市對貨量），可以直接看品項結構。<strong>台灣→澳洲</strong>方向：2025 年空運貨值約 18 億澳幣，2026 上半年已達 27 億——半年就超過去年全年——其中「機械與運輸設備」（含電子零組件）就占了八成，跟台灣電子代工的強項一致，而且占比還在提高。",
+          en: "Switching to Australia's ABS air-freight trade data (customs-declared air imports and exports, not the BITRE city-pair freight from the previous chapter) shows the commodity mix directly. <strong>Taiwan→Australia</strong>: air-freight value was about A$1.8b in 2025, and had already reached A$2.7b by mid-2026 — more than all of 2025 in six months — with \"machinery and transport equipment\" (including electronic components) alone making up 80%, matching Taiwan's strength in electronics manufacturing, and that share is still rising." },
+        { zh: "<strong>雪梨（NSW）→台灣</strong>方向：規模小很多，2025 年約 1.12 億澳幣，只有台灣→澳洲方向的約 1/16。按金額算一樣是機械與運輸設備最大（43%），但按噸數算「食品與活體動物」反而最重（約占一半），較接近一般認知的生鮮、海鮮外銷——兩個方向不只量差很多，品項結構也不一樣。",
+          en: "<strong>Sydney (NSW)→Taiwan</strong>: much smaller — about A$112m in 2025, roughly 1/16th of the Taiwan→Australia figure. By value, machinery and transport equipment is still the largest category (43%), but by tonnage \"food and live animals\" is actually the heaviest (about half), closer to the usual picture of fresh produce and seafood exports. The two directions differ not just in scale, but in what's actually inside the cargo." },
+        { zh: "但台灣→澳洲這批快速成長的高價值貨，遠遠超過台澳直飛航班能載的量——上一章的 BITRE 資料顯示，2024–2026 年台澳直飛完全靠華航、長榮兩家客機腹艙在載，沒有任何專門貨機業者，兩家合計一年約 2–3 萬噸；歷史上出現過的兩家貨機業者（Polar Air Cargo、UPS）規模一直很小，也已停飛多年。換句話說，這批貨很可能大多不是靠雪梨這類台澳直飛航班運送，而是經第三地轉運。",
+          en: "But that fast-growing, high-value Taiwan→Australia cargo far exceeds what direct Taiwan–Australia flights can carry — the previous chapter's BITRE data shows that from 2024–2026, direct Taiwan–Australia freight relies entirely on China Airlines' and EVA Air's passenger-belly cargo, with no dedicated freighter operator, and the two combined carry roughly 20,000–30,000 tonnes a year. The two freighter operators that historically appeared (Polar Air Cargo, UPS) were always small and have been gone for years. In other words, most of this cargo likely isn't moving on direct Taiwan–Australia flights like Sydney's at all — it's probably going through third-country transshipment." }
+      ],
+      chart: {
+        type: "bar", id: "ch5b-twau",
+        title: { zh: "2025 年台灣→澳洲空運貨值，按商品分類（百萬澳幣）", en: "Taiwan→Australia air-freight value in 2025, by commodity category (A$m)" },
+        data: CH6B_CARGO_TWAU, colorVar: "--color-primary",
+        sourceNote: { zh: "資料來源：澳洲 National Freight Data Hub（ABS International Merchandise Trade），Origin=Taiwan、Mode=Air", en: "Source: Australia's National Freight Data Hub (ABS International Merchandise Trade), Origin=Taiwan, Mode=Air" }
+      },
+      chart2: {
+        type: "bar", id: "ch5b-nswtw",
+        title: { zh: "2025 年雪梨（NSW）→台灣空運貨值，按商品分類（百萬澳幣）", en: "Sydney (NSW)→Taiwan air-freight value in 2025, by commodity category (A$m)" },
+        data: CH6B_CARGO_NSWTW, colorVar: "--color-secondary",
+        sourceNote: { zh: "資料來源：同上，Origin=New South Wales、Destination=Taiwan、Mode=Air", en: "Source: same as above, Origin=New South Wales, Destination=Taiwan, Mode=Air" }
+      },
+      boxes: [
+        { type: "gap",
+          title: { zh: "還缺什麼", en: "What's still missing" },
+          body: { zh: "品項只到 SITC 1 位數大類（例如「機械與運輸設備」），還沒拆到半導體等細項；沒有按澳洲各州拆分金額；2026 上半年只查了總額，沒有逐品項拆分。",
+            en: "The commodity breakdown only goes to the 1-digit SITC level (e.g. \"machinery and transport equipment\"), not finer items like semiconductors; there's no state-by-state breakdown; and H1 2026 has only been checked as a total, not broken down by category." } }
       ]
     },
     {
@@ -452,6 +506,12 @@ var STARLUX_REPORT_DATA = (function () {
     }
   ];
 
+  var CONCLUSION_SUMMARY = [
+    { zh: "走廊有證據支持", en: "The corridor is backed by evidence" },
+    { zh: "新增運力有正向訊號，但空間未證明", en: "Added capacity shows a positive signal, but the room for it isn't proven" },
+    { zh: "星宇能否獲利，目前無法下定論", en: "Whether STARLUX can turn a profit is still an open question" }
+  ];
+
   var CONCLUSION_STEPS = [
     { title: { zh: "台灣和澳洲的「經濟走廊」存在嗎？", en: "Does a Taiwan–Australia 'economic corridor' actually exist?" },
       body: { zh: "現有資料支持存在——不只是觀光客數字，旅客成長、消費金額、雙邊貿易、雙向投資與留學生同時存在、方向一致。但這不代表星宇這條航線的商業邏輯一定成立，這是整份報告最重要的分界線。",
@@ -475,6 +535,7 @@ var STARLUX_REPORT_DATA = (function () {
   };
 
   var SOURCES = [
+    { title: { zh: "澳洲 National Freight Data Hub — Imports and Exports 互動工具（資料源 ABS International Merchandise Trade）", en: "Australia's National Freight Data Hub — Imports and Exports interactive (source: ABS International Merchandise Trade)" }, url: "https://datahub.freightaustralia.gov.au/explore/interactives/Imports%20and%20Exports" },
     { title: "Tourism Research Australia — Taiwan Visitor Economy Profile 2025", url: "https://www.tra.gov.au/content/dam/austrade-assets/global/wip/tra/documents/market-profiles/tra-market-profiles-taiwan-2025.pdf" },
     { title: { zh: "交通部觀光署《觀光統計資料庫》", en: "Taiwan Tourism Administration — Tourism Statistics Database" }, url: "https://stat.taiwan.net.tw/inboundSearch" },
     { title: { zh: "澳洲 BITRE — International airline activity 時間序列（貨運量、直飛旅客與座位，截至 2026 年 6 月）", en: "Australia's BITRE — International airline activity time series (freight, direct-flight passengers and seats, to June 2026)" }, url: "https://www.bitre.gov.au/publications/ongoing/international_airline_activity-time_series" },
@@ -537,9 +598,12 @@ var STARLUX_REPORT_DATA = (function () {
     CH6_LOADFACTOR: CH6_LOADFACTOR,
     CH5_PORTS: CH5_PORTS,
     CH5_SYDNEY: CH5_SYDNEY,
+    CH6B_CARGO_TWAU: CH6B_CARGO_TWAU,
+    CH6B_CARGO_NSWTW: CH6B_CARGO_NSWTW,
     CH6_SCENARIO: CH6_SCENARIO,
     CH9_FLEET: CH9_FLEET,
     STORIES: STORIES,
+    CONCLUSION_SUMMARY: CONCLUSION_SUMMARY,
     CONCLUSION_STEPS: CONCLUSION_STEPS,
     AUTHOR_NOTE: AUTHOR_NOTE,
     AUTHOR_NOTE_PROCESS: AUTHOR_NOTE_PROCESS,

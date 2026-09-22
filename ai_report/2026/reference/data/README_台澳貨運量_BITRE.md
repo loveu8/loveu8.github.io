@@ -141,3 +141,21 @@
 | 2026 1–7 月 | 124,930（+12.3%） |
 
 2026 vs 2025 單月：1 月 -19.0%、2 月 +84.9%、3 月 +16.6%、4 月 +17.9%、5 月 +5.4%、6 月 -6.7%、7 月 +1.1%。1、2 月的大幅反向波動可能主要受春節落點不同影響（2025 年 1 月底、2026 年 2 月中；推論，未驗證），不宜當作趨勢。
+
+---
+
+# 補充：台澳空運貿易品項（ABS，National Freight Data Hub 互動工具）
+
+**來源：** 澳洲 National Freight Data Hub「Imports and Exports」互動工具（`https://datahub.freightaustralia.gov.au/explore/interactives/Imports%20and%20Exports`），資料源為 ABS International Merchandise Trade（海關申報進出口資料，非 BITRE 航班資料）。Imports 頁面可直接篩 Origin=Taiwan（=台灣→澳洲方向），Exports 頁面篩 Origin=New South Wales、Destination=Taiwan（=雪梨/NSW→台灣方向）。兩個方向各自的 Power BI 報表連結：
+- Imports：`https://app.powerbi.com/view?r=eyJrIjoiZGExMDQ2NjItYTIxNi00NjhiLTlhZWItZmIyMmZmOGY0MmE3IiwidCI6ImFhMjFiNjQwLWJhYzItNDU2ZC04NTA1LWYyY2MwN2Y1MTc4NCJ9`
+- Exports：`https://app.powerbi.com/view?r=eyJrIjoiZDE3ZmRkMzUtMjk0ZS00NGY0LTllMmMtZjkxMTAyM2FiNmQxIiwidCI6ImFhMjFiNjQwLWJhYzItNDU2ZC04NTA1LWYyY2MwN2Y1MTc4NCJ9`
+
+**擷取日期：** 2026-09-22。**口徑：** 依商品分類（SITC 1 位數大類，0–9）逐一勾選讀出 Volume(tonnes)、Value(AUD)；Mode 篩「Air」；地區篩「Taiwan」。**這是清關申報的空運進出口資料，不是航班艙位資料**，不能直接對應到哪一家航空公司、哪一條航線運送。
+
+**資料檔案：**
+- `abs_taiwan_air_commodity_2025.csv` — 2025 全年，台灣→澳洲（全國）與雪梨(NSW)→台灣，各 10 個 SITC 大類的噸數與金額（逐類單獨勾選讀出，加總與工具顯示的年度總計核對一致）。
+- `abs_taiwan_air_totals_by_period.csv` — 台灣→澳洲全國空運總額的期間序列（2014、2024、2025、2026 上半年）與雪梨→台灣的 2025 全年、全期間（2005–2026）總額。
+
+**⚠️ 操作中的已知問題**：這個互動工具的核取方塊在本次查詢過程中多次點擊未生效或誤觸相鄰選項（尤其是展開國家清單、勾選州別時），第一次嘗試查各州空運金額時就因此算出明顯有誤的數字（誤報全國 360 億，超過 DFAT 雙邊貿易總額 279 億）。所有本檔收錄的數字都經過「單一年份、逐一勾選、與已知總計核對」的方式重新確認過，但**各州拆分的金額尚未重新驗證**，`starlux-australia-report` 頁面目前也沒有引用州別拆分數字。
+
+**尚未取得**：品項只到 SITC 1 位數大類，未拆到半導體等 3 位數子類目；2026 上半年的逐類目拆分（目前只查了年度加總）；各州拆分。

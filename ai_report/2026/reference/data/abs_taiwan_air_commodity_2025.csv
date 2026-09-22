@@ -1,0 +1,21 @@
+direction,sitc_code,sitc_label,volume_tonnes,value_aud
+Taiwan-to-Australia,0,Food and live animals,35.35,600090
+Taiwan-to-Australia,1,Beverages and tobacco,259.39,31450000
+Taiwan-to-Australia,2,"Crude materials, inedible, except fuels",419.47,10980000
+Taiwan-to-Australia,3,"Mineral fuels, lubricants and related materials",0.18,21550
+Taiwan-to-Australia,4,"Animal and vegetable oils, fats and waxes",0,0
+Taiwan-to-Australia,5,"Chemicals and related products, nes",126.82,13240000
+Taiwan-to-Australia,6,Manufactured goods classified chiefly by material,640.20,55200000
+Taiwan-to-Australia,7,Machinery and transport equipment,3420,1440000000
+Taiwan-to-Australia,8,Miscellaneous manufactured articles,787.02,175610000
+Taiwan-to-Australia,9,Commodities and transactions not classified elsewhere in the SITC,36.02,66520000
+Sydney(NSW)-to-Taiwan,0,Food and live animals,405.46,7470000
+Sydney(NSW)-to-Taiwan,1,Beverages and tobacco,1.49,60640
+Sydney(NSW)-to-Taiwan,2,"Crude materials, inedible, except fuels",1.08,369430
+Sydney(NSW)-to-Taiwan,3,"Mineral fuels, lubricants and related materials",0.08,3600
+Sydney(NSW)-to-Taiwan,4,"Animal and vegetable oils, fats and waxes",2.84,37200
+Sydney(NSW)-to-Taiwan,5,"Chemicals and related products, nes",100.54,11060000
+Sydney(NSW)-to-Taiwan,6,Manufactured goods classified chiefly by material,9.72,974160
+Sydney(NSW)-to-Taiwan,7,Machinery and transport equipment,161.94,47720000
+Sydney(NSW)-to-Taiwan,8,Miscellaneous manufactured articles,103.48,36300000
+Sydney(NSW)-to-Taiwan,9,Commodities and transactions not classified elsewhere in the SITC,8.21,7960000
