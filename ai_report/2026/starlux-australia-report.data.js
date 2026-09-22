@@ -19,7 +19,7 @@ var STARLUX_REPORT_DATA = (function () {
     },
     answerFirstLabel: { zh: "先講結論", en: "The short answer first" },
     answerFirstText: {
-      zh: "台北—雪梨直飛座位比 2019 年少了約 46%，貨運量少了約六成；長榮已退出雪梨，這條線目前是華航一家獨飛。星宇加入，等於是把長榮讓出的一塊補回來——這是運力上的訊號，不是獲利保證。星宇的貨運收入占公司總營收超過一成，雪梨—台北這條線會不會、能運什麼貨，也是接下來值得查核的一塊。市場能不能撐得住這塊新增運力、星宇怎麼經營這條線，接下來值得觀察。",
+      zh: "台北—雪梨直飛座位比 2019 年少了約 46%，貨運量少了約六成；長榮已退出雪梨，這條線目前是華航一家獨飛。星宇加入，等於是把長榮讓出的一塊補回來——這是運力上的訊號，不是獲利保證。星宇的貨運收入占公司總營收超過一成，雪梨—台北這條線能不能靠貨運貢獻營收、實際上會運什麼貨，也是接下來值得查核的一塊。市場能不能撐得住這塊新增運力、星宇怎麼經營這條線，接下來值得觀察。",
       en: "Direct seats on the Taipei–Sydney route are down about 46% from 2019, and cargo volume is down more than 60%. EVA Air has already pulled out of Sydney, leaving China Airlines as the only carrier flying it directly. STARLUX joining is, in effect, filling the gap EVA left behind — that's a capacity signal, not a profit guarantee. STARLUX's cargo revenue makes up over a tenth of total company revenue, so whether — and what — this Sydney–Taipei route can actually carry is also worth checking going forward. Whether the market can absorb this new capacity, and how STARLUX runs the route, is worth watching from here."
     },
     aboutLabel: { zh: "星宇航空是誰", en: "Who is STARLUX?" },
