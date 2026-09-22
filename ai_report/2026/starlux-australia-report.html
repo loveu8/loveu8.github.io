@@ -416,6 +416,10 @@
   /* ---------- conclusion steps ---------- */
   .story.conclusion { background: var(--color-secondary-soft); border-color: var(--color-secondary-border); }
   .story.conclusion h2 { color: var(--color-secondary-strong); }
+  .conclusion-tldr { display: flex; flex-direction: column; gap: 8px; margin-bottom: var(--space-md); padding-bottom: var(--space-md); border-bottom: 1px solid var(--color-secondary-border); }
+  .tldr-item { display: flex; align-items: baseline; gap: 10px; }
+  .tldr-item .tldr-num { flex: none; width: 20px; font-size: 14px; font-weight: 800; color: var(--color-secondary); }
+  .tldr-item .tldr-text { font-size: 15px; font-weight: 650; color: var(--color-text); }
   .conclusion-step { display: flex; gap: 14px; padding: var(--space-md) 0; border-bottom: 1px solid var(--color-secondary-border); }
   .conclusion-step:last-child { border-bottom: none; padding-bottom: 0; }
   .conclusion-step .cs-num { font-size: 20px; font-weight: 800; color: var(--color-secondary); opacity: 0.6; flex: none; width: 30px; }
@@ -465,6 +469,10 @@
     <span class="flight-tag" id="flightTag"></span>
     <h1 class="report-title" id="reportTitle"></h1>
     <p class="core-question" id="coreQuestion"></p>
+    <div class="box info answer-first">
+      <h4 id="answerFirstLabel"></h4>
+      <p id="answerFirstText"></p>
+    </div>
     <div class="about-brief">
       <span class="label" id="aboutLabel"></span>
       <span id="aboutText"></span>
@@ -839,6 +847,14 @@
     var section = el("section", { class: "story conclusion", id: "conclusion" });
     section.appendChild(el("span", { class: "kicker", style: "color:var(--color-secondary-strong)", html: t(UI.conclusionKicker) }));
     section.appendChild(el("h2", { html: t(UI.conclusionHeadline) }));
+    var tldr = el("div", { class: "conclusion-tldr" });
+    D.CONCLUSION_SUMMARY.forEach(function (s, i) {
+      var item = el("div", { class: "tldr-item" });
+      item.appendChild(el("span", { class: "tldr-num", html: String(i + 1) }));
+      item.appendChild(el("span", { class: "tldr-text", html: t(s) }));
+      tldr.appendChild(item);
+    });
+    section.appendChild(tldr);
     D.CONCLUSION_STEPS.forEach(function (s, i) {
       var step = el("div", { class: "conclusion-step" });
       step.appendChild(el("div", { class: "cs-num", html: String(i + 1) }));
@@ -883,6 +899,8 @@
     setText("flightTag", t(UI.flightTag));
     setText("reportTitle", t(UI.reportTitle));
     setText("coreQuestion", t(UI.coreQuestion));
+    setText("answerFirstLabel", t(UI.answerFirstLabel));
+    setText("answerFirstText", t(UI.answerFirstText));
     setText("aboutLabel", t(UI.aboutLabel));
     setText("aboutText", t(UI.aboutText));
     setText("methodLabel", t(UI.methodLabel));
