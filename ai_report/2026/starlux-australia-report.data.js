@@ -9,18 +9,18 @@ var STARLUX_REPORT_DATA = (function () {
   "use strict";
 
   var UI = {
-    docTitle: { zh: "星宇飛雪梨，能不能站穩？旅客、經貿到競爭對手全部拆開看", en: "STARLUX to Sydney: Can It Stand Firm? Breaking Down Passengers, Trade, and Competitors" },
+    docTitle: { zh: "星宇要飛雪梨，這個市場撐得住嗎？旅客、經貿到競爭對手全部拆開看", en: "STARLUX to Sydney: Can This Market Actually Support It? Breaking Down Passengers, Trade, and Competitors" },
     metaDescription: { zh: "星宇航空 2027 雪梨航線：十個重點，看懂這條航線背後的邏輯。", en: "STARLUX's 2027 Sydney route: ten key points behind the business logic." },
     flightTag: { zh: "✈ TPE ⇄ SYD · 星宇航空 2027 計畫開航", en: "✈ TPE ⇄ SYD · STARLUX targets 2027 launch" },
-    reportTitle: { zh: "星宇飛雪梨，能不能站穩？旅客、經貿到競爭對手全部拆開看", en: "STARLUX to Sydney: Can It Stand Firm? Breaking Down Passengers, Trade, and Competitors" },
+    reportTitle: { zh: "星宇要飛雪梨，這個市場撐得住嗎？旅客、經貿到競爭對手全部拆開看", en: "STARLUX to Sydney: Can This Market Actually Support It? Breaking Down Passengers, Trade, and Competitors" },
     coreQuestion: {
       zh: "星宇航空預計 2027 年開航台北—雪梨。這是單純押注旅遊復甦，還是台灣和澳洲之間早就有足夠深的往來基礎，撐得起一條長程航線？以下十個重點，用公開數據拼出這條航線背後的邏輯，每一段都附資料來源，方便你自己核對。",
       en: "STARLUX plans to launch Taipei–Sydney service in 2027. Is this simply a bet on tourism recovery, or is there already a deep enough economic relationship between Taiwan and Australia to support a long-haul route? Here are ten key points, built from public data, laying out the logic behind this route — each one comes with its sources so you can check them yourself."
     },
     answerFirstLabel: { zh: "先講結論", en: "The short answer first" },
     answerFirstText: {
-      zh: "台北—雪梨直飛座位比 2019 年少了約 46%，貨運量少了約六成；長榮已退出雪梨，這條線目前是華航一家獨飛。星宇加入，等於是把長榮讓出的一塊補回來——這是運力上的訊號，不是獲利保證。市場能不能撐得住這塊新增運力、星宇怎麼經營這條線，接下來值得觀察。",
-      en: "Direct seats on the Taipei–Sydney route are down about 46% from 2019, and cargo volume is down more than 60%. EVA Air has already pulled out of Sydney, leaving China Airlines as the only carrier flying it directly. STARLUX joining is, in effect, filling the gap EVA left behind — that's a capacity signal, not a profit guarantee. Whether the market can absorb this new capacity, and how STARLUX runs the route, is worth watching from here."
+      zh: "台北—雪梨直飛座位比 2019 年少了約 46%，貨運量少了約六成；長榮已退出雪梨，這條線目前是華航一家獨飛。星宇加入，等於是把長榮讓出的一塊補回來——這是運力上的訊號，不是獲利保證。星宇的貨運收入占公司總營收超過一成，雪梨—台北這條線會不會、能運什麼貨，也是接下來值得查核的一塊。市場能不能撐得住這塊新增運力、星宇怎麼經營這條線，接下來值得觀察。",
+      en: "Direct seats on the Taipei–Sydney route are down about 46% from 2019, and cargo volume is down more than 60%. EVA Air has already pulled out of Sydney, leaving China Airlines as the only carrier flying it directly. STARLUX joining is, in effect, filling the gap EVA left behind — that's a capacity signal, not a profit guarantee. STARLUX's cargo revenue makes up over a tenth of total company revenue, so whether — and what — this Sydney–Taipei route can actually carry is also worth checking going forward. Whether the market can absorb this new capacity, and how STARLUX runs the route, is worth watching from here."
     },
     aboutLabel: { zh: "星宇航空是誰", en: "Who is STARLUX?" },
     aboutText: {
@@ -520,8 +520,8 @@ var STARLUX_REPORT_DATA = (function () {
       body: { zh: "部分證據支持——直飛座位比疫情前少、載客率回升到 88%（BITRE，FY25/26）是正向訊號，但這只算直飛，而且華航加班與星宇進場後，雪梨直飛座位會超過 2019 年水準，空間有多大要看能否吸收轉機客與新增需求。而「星宇能不能扛住國泰（經香港轉機亞洲）與華航（雪梨加班）的競爭反應」是另一個層次的問題：這不是補資料就能算出來的，要等星宇實際開航、營運一段時間後才會知道。",
         en: "Partly supported — direct seats below pre-pandemic levels and a load factor back up to 88% (BITRE, FY25/26) are positive signals, but they count direct flights only, and once China Airlines adds frequencies and STARLUX enters, Sydney direct seats would exceed 2019 levels — so how much room there is depends on absorbing connecting passengers and new demand. Separately, whether STARLUX can actually withstand competitive responses from Cathay Pacific (via its Hong Kong connecting hub) and China Airlines (added Sydney frequency) is a different kind of question — not one more data can answer, but one that will only be knowable once STARLUX is actually flying and has been operating for a while." } },
     { title: { zh: "星宇的商業邏輯站得住腳嗎？", en: "Does STARLUX's business logic hold up?" },
-      body: { zh: "目前證據還不足以下定論。最大的缺口是正式班表尚未公布，以及完全沒有航線成本資料——這兩塊補齊之前，只能說「訊號一致」，還不能說「一定會成功」。",
-        en: "Not enough evidence yet to conclude either way. The biggest gaps are the still-unpublished official schedule and the complete absence of route cost data — until those are filled in, the most honest statement is 'the signals line up,' not 'this will succeed.'" } }
+      body: { zh: "目前證據還不足以下定論。貨運目前看起來不太可能是收入支柱：雪梨的貨量在三個航點裡最少，而且現在台澳之間沒有專門的貨機，貨都是客機順便載的，運量沒辦法像客運一樣獨立成長；成長最快的那批高價值貨，很可能根本不是靠這種直飛班機運送的。加上正式班表尚未公布、完全沒有航線成本資料——這幾塊補齊之前，只能說「訊號一致」，還不能說「一定會成功」。星宇的貨運經理能不能找到適合的高價值商品，會是接下來影響貨運收入的一個關鍵變數。",
+        en: "Not enough evidence yet to conclude either way. Cargo doesn't look likely to be a revenue pillar for now: Sydney carries the least freight of the three gateways, and there's currently no dedicated freighter between Taiwan and Australia — cargo just rides along in passenger planes' holds, so volume can't grow independently the way passenger traffic can, and the fastest-growing, highest-value cargo is likely not moving on flights like this one at all. Add to that the still-unpublished official schedule and the complete absence of route cost data — until those are filled in, the most honest statement is 'the signals line up,' not 'this will succeed.' Whether STARLUX's cargo manager can find the right high-value commodities will be a key variable shaping cargo revenue going forward." } }
   ];
 
   var AUTHOR_NOTE = {
