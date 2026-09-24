@@ -146,7 +146,7 @@
 
 # 補充：台澳空運貿易品項（ABS，National Freight Data Hub 互動工具）
 
-**來源：** 澳洲 National Freight Data Hub「Imports and Exports」互動工具（`https://datahub.freightaustralia.gov.au/explore/interactives/Imports%20and%20Exports`），資料源為 ABS International Merchandise Trade（海關申報進出口資料，非 BITRE 航班資料）。Imports 頁面可直接篩 Origin=Taiwan（=台灣→澳洲方向），Exports 頁面篩 Origin=New South Wales、Destination=Taiwan（=新南威爾斯州(NSW)→台灣方向；NSW 是貨物的州別來源，不是雪梨市或雪梨機場，也不代表貨物一定經雪梨機場出境）。兩個方向各自的 Power BI 報表連結：
+**來源：** 澳洲 National Freight Data Hub「Imports and Exports」互動工具（`https://datahub.freightaustralia.gov.au/explore/interactives/Imports%20and%20Exports`），資料源為 ABS International Merchandise Trade（海關申報進出口資料，非 BITRE 航班資料）。Imports 頁面可直接篩 Origin=Taiwan（=台灣→澳洲方向），Exports 頁面篩 Origin=New South Wales、Destination=Taiwan（=經 NSW 港埠出口→台灣方向）。**2026-09-24 更正**：報表的州別篩選欄位屬 `australian_port` 實體（Imports 為澳洲卸貨港、Exports 為澳洲裝貨港），不是貨物產地州；Mode=Air 時 NSW 只有「Sydney」一個港埠，因此 NSW 空運數字＝經雪梨機場進出的清關貨物。先前「NSW 是貨物州別來源、不代表經雪梨機場」的說法不正確。但仍不代表貨物搭台澳直飛航班（可能經第三地轉運）。兩個方向各自的 Power BI 報表連結：
 - Imports：`https://app.powerbi.com/view?r=eyJrIjoiZGExMDQ2NjItYTIxNi00NjhiLTlhZWItZmIyMmZmOGY0MmE3IiwidCI6ImFhMjFiNjQwLWJhYzItNDU2ZC04NTA1LWYyY2MwN2Y1MTc4NCJ9`
 - Exports：`https://app.powerbi.com/view?r=eyJrIjoiZDE3ZmRkMzUtMjk0ZS00NGY0LTllMmMtZjkxMTAyM2FiNmQxIiwidCI6ImFhMjFiNjQwLWJhYzItNDU2ZC04NTA1LWYyY2MwN2Y1MTc4NCJ9`
 
@@ -154,10 +154,17 @@
 
 **資料檔案：**
 - `abs_taiwan_air_commodity_2025.csv` — 2025 全年，台灣→澳洲（全國）與新南威爾斯州(NSW)→台灣，各 10 個 SITC 大類的噸數與金額（逐類單獨勾選讀出，加總與工具顯示的年度總計核對一致）。`direction` 欄位標籤已由 `Sydney(NSW)-to-Taiwan` 更正為 `New South Wales-to-Taiwan`，避免把州別誤讀為雪梨市。
-- `abs_taiwan_air_totals_by_period.csv` — 台灣→澳洲全國空運總額的期間序列（2014、2024、2025、2026 上半年）與新南威爾斯州(NSW)→台灣的 2025 全年、全期間（2005–2026）總額（`direction` 欄位同上更正）。
+- `abs_taiwan_air_totals_by_period.csv` — 台灣→澳洲全國空運總額的期間序列（2014、2024、2025、2026 年 1–4 月），台灣→NSW（港埠 Sydney）2025 全年，以及 NSW→台灣的 2025 全年、全期間（2005–2026）總額（`direction` 欄位同上更正；NSW 為澳洲港埠州別，見上方 2026-09-24 更正）。
 
 **⚠️ 操作中的已知問題**：這個互動工具的核取方塊在查詢過程中多次點擊未生效或誤觸相鄰選項（尤其是展開國家清單、勾選州別或年份時），第一次嘗試查各州空運金額時就因此算出明顯有誤的數字（誤報全國 360 億，超過 DFAT 雙邊貿易總額 279 億）。所有本檔收錄的數字都經過「單一年份、逐一勾選、與已知總計核對」的方式重新確認過。
 
 **2026-09-22 二次覆核紀錄**：為星宇報告 QA 優化輪次，重新開啟 Exports 報表，篩 Origin=New South Wales、Destination=Taiwan（用搜尋框定位 Taiwan，避免誤觸鄰近國家）、Mode=Air、Date Range=全選（不限年份），結果為 Volume 2,110 tonnes、Value A$388,680,000——與本檔既有的「all-years-2005-2026」紀錄完全一致，確認此組篩選條件與既有總額可重現。但同一輪嘗試把 Date Range 縮小到只勾 2025 年時，因核取方塊與畫面截圖工具本身出現多次逾時／狀態不同步，未能乾淨重現 2025 單一年度的分項數字；**2025 全年 794.83 噸／A$111,950,030 這組數字本輪未獨立重新複核，維持沿用先前紀錄，非本輪新驗證**，各州拆分的商品大類金額同樣尚未重新驗證。
 
-**尚未取得**：品項只到 SITC 1 位數大類，未拆到半導體等 3 位數子類目；2026 上半年的逐類目拆分（目前只查了年度加總）；各州拆分商品大類金額的獨立複核；2025 單一年度總額的本輪獨立複核（見上）。
+**2026-09-24 三次覆核與補查（取代上方「尚未複核」的標註）**：改在 Power BI 頁面內攔截報表自身的 `querydata` 請求，沿用其資源金鑰送出自訂語意查詢（不再手動勾選核取方塊，避開勾選不穩問題）。查詢欄位：`country_with_region.Country='Taiwan'`、`mode.description='Air'`、`australian_port.state`／`australian_port.australian_port`、`commodity.commodity1`／`sitc_full_merged`、`trade_period_start`；量值 `Sum(value_fob_aud)`、`Sum(gross_weight_tonnes)`。報表標示最新資料月份為 2026 年 4 月。
+- 核對通過：台灣→澳洲 2024 A$1,449.9m／5,056.5t、2025 A$1,795.7m／5,720.2t（2025 SITC 7 精確值 A$1,442,111,421／3,415.75t；CSV 內為工具顯示的捨入值）；**NSW→台灣 2025 A$111,950,000／794.83t 完全一致——第 2 題複核通過**。
+- **更正**：原 `2026-H1` 實為 **2026 年 1–4 月**（資料只到 4 月）：A$2,703.6m／2,448.3t，CSV 標籤已改為 `2026-Jan-Apr`。其中 3 月單月 A$2,235.7m／1,262.1t，主要為 SITC 75230「自動資料處理機」A$2,066.6m／683.9t；3 月到港：墨爾本 A$1,581.6m、雪梨 A$642.7m。扣除 3 月，1、2、4 月 A$467.9m／1,186.2t，較 2025 同月（A$368.2m／1,251.4t）金額約 +27%、重量約 -5%。2026 年 1–4 月 SITC 7 占金額 95.3%（扣除 3 月為 79.2%）。
+- **新增**：台灣→NSW（港埠 Sydney）2025 A$1,145.3m／3,002.9t，其中機械與運輸設備 A$974.9m（約 85%）／2,021.9t（CSV 已新增列）。
+- 2025 台灣→澳洲空運按港埠：Sydney A$1,145.3m／3,002.9t、Melbourne A$491.3m／1,783.7t、Brisbane A$80.8m／432.6t、Perth A$63.7m／416.1t、Adelaide A$13.2m／78.3t。
+- 2025 澳洲→台灣空運按港埠：Melbourne A$566.4m／2,311.7t、Brisbane A$25.6m／1,021.7t、Sydney A$111.95m／794.8t、Perth A$56.9m／478.1t、Adelaide A$7.1m／165.4t、Cairns A$1.1m／21.7t；合計 A$769.1m／4,794.3t。
+
+**尚未取得**：品項只到 SITC 1 位數大類（2026 年 3 月那批已確認為 5 位數 SITC 75230，其餘未拆）；雪梨以外港埠的商品大類拆分未寫入頁面；2026 年 5 月以後資料尚未公布。
