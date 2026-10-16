@@ -223,6 +223,36 @@
 
 （Pawpaw、Kin、Lola's 這類可以掛兩個分類的店，上表只算在主分類。CBD 指 Brisbane City：John Mills Himself、Edward、The Maillard Project、Coffee Anthology、Strauss、Wuta Brewers、Coffee Iconic。）
 
+## 最後名單草案（2026-10-17，待使用者確認）
+
+原則：每類 4～8 家、⭐ 優先、區域盡量平均；使用者指定列入的台灣風店家全部保留。共 **31 家**（⭐ 17、○ 14）。
+
+| 分類 | 家數 | 店家（區域） |
+|---|---|---|
+| 01 精品咖啡 | 8 | ⭐ John Mills Himself（CBD）、⭐ Coffee Mentality（市中心周邊）、⭐ Blackstar（市中心周邊）、⭐ Bunker（西）、⭐ Passport（北）、⭐ Neighbourhood（北）、○ Coffee Anthology（CBD）、○ Bellissimo Bulimba（東） |
+| 02 早午餐 | 8 | ⭐ Farmhouse（北）、⭐ Pawpaw（市中心周邊）、⭐ NAÏM（西）、⭐ Bear Boy（北）、⭐ Gramps（西）、○ Coffee Iconic（CBD，台灣茶）、○ Andonis（南）、○ SISTER（東） |
+| 03 抹茶 | 4 | ⭐ KIMINO（西）、⭐ Wuta Brewers（CBD）、⭐ Lola's Kelvin Grove（西）、○ Mountain River Patisserie（南） |
+| 04 亞洲風 | 7 | ⭐ Cafe O-Mai（南）、⭐ UGH Coffee（南）、⭐ Cafe Impero Central（南，台式早餐）、○ Michelle's Sweet Kitchen（南，台式早餐）、○ Jacaranda Coffee Lane（市中心周邊，台灣人開）、○ 靜思書軒（南，台灣慈濟）、○ Ugly Coffee（西，韓式） |
+| 05 甜點 | 4 | ○ 寶QQ（南，台式）、○ Dō Dessert（南，豆花）、○ Fluffy Soufflé（市中心周邊）、○ Sonder（南） |
+
+**區域**：CBD 4、市中心周邊 5、西 6、北 4、南 10、東 2。南區偏多，因為亞洲風和甜點幾乎都在 Sunnybank 一帶；東區本來就只有 3 家候選。
+
+**沒選的 ⭐（3 家）**：
+- Edward Espresso & Kitchen（CBD）：CBD 已經有 John Mills、Coffee Anthology，而且 Edward 只開平日、評論累積很慢
+- Coffee in the Woods（南）：只有 Reddit 佐證；換成北區的 Neighbourhood，讓北區不要太少
+- Death Before Decaf（市中心周邊）：只能外帶、沒有座位
+
+**Coffee Anthology 是 ○ 但選進來**：Time Out 說它是 2025 年世界咖啡店第 8 名，是布里斯本最有名的咖啡店之一。
+
+**候補**（想換人時用）：
+- 精品咖啡：Edward、Coffee in the Woods、Death Before Decaf、The Maillard Project
+- 早午餐：Hunter & Scout（西）、Florence（東）、Morning After（市中心周邊）
+- 抹茶：Kin（市中心周邊）、Supernice（市中心周邊）、Peach Cafe（西）
+- 亞洲風：WAHO Cafe、Ant Coffee、Eight Ounce Café（都在南區）
+- 甜點：Sugar Puff Cafe（南，港式，4.90）、Soufflé Japancakes（南）
+
+**卡片要提醒的營業時間**：John Mills Himself 只開平日；UGH Coffee 只開週二～五早上（週一 9:00 起）、到 12:30；Passport 週日休息；靜思書軒週日、週一休息；Bear Boy、KIMINO 13:00 就關；Sonder、Fluffy Soufflé、寶QQ、Dō Dessert 下午才開、開到晚上。
+
 ## 決定紀錄（2026-10-17）
 
 | # | 問題 | 決定 |
