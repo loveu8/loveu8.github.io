@@ -231,6 +231,7 @@
 | 2 | 市中心周邊要不要拆出 CBD | **拆**：新增「CBD」區域（Brisbane City），其他內城區維持「市中心周邊」 |
 | 3 | ODAYA TEA（茶葉店，不賣咖啡）收不收 | **不收** |
 | 4 | 主地圖分配規則 | **改用最新 100 則評論全文來數**（方法見「主地圖分配」）。Coffee Anthology、Peach Cafe 放咖啡廳；PiCK a CaKE 放烘焙 |
+| 5 | 第二輪補查的台灣風店家 | **除了 Meet Fresh，其他都列入**：Jacaranda Coffee Lane、Coffee Iconic、靜思書軒、Dō Dessert（Cafe Impero Central 升為 ⭐） |
 
 ## 結論與待決定
 
