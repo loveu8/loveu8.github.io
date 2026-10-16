@@ -4,7 +4,7 @@
 
 | 檔案 | 用途 |
 |---|---|
-| `make_data_js.py` | csv → `data.js`（`var BAKERY_DATA = {...}`，用 `<script>` 載入，`file://` 也能開） |
+| `make_data_js.py` | csv → `data.js`（`var PAGE_DATA = {...}`，用 `<script>` 載入，`file://` 也能開） |
 | `make_mymaps.py` | csv → My Maps 匯入 csv（每家一列，依主分類上色） |
 | `list_data.py` | 兩支共用的 csv 讀取函式、區域清單 |
 
@@ -28,19 +28,18 @@
 python travel/tools/make_data_js.py travel/australia/brisbane/bakery/bakery.csv `
   --data-as-of 2026-10 `
   --mymaps-url "https://www.google.com/maps/d/embed?mid=1gePZ9RkPv8lT2xZKCcWq_5G4sLdwrdY&ehbc=2E312F&noprof=1" `
-  --tasting "look=外觀 1-5;texture=口感 1-5;aroma=香氣 1-5;revisit=回購 1-5" `
-  --var BAKERY_DATA --title 布里斯本烘焙地圖
+  --tasting "look=外觀 1-5;texture=口感 1-5;aroma=香氣 1-5;revisit=回購 1-5"
 
 python travel/tools/make_mymaps.py travel/australia/brisbane/bakery/bakery.csv `
   "$env:USERPROFILE\Downloads\brisbane-bakery-mymaps.csv"
 ```
 
-- `--tasting`：試吃評分欄位，格式是 `網頁用的 key=csv 欄位名稱`，用 `;` 分隔。`試吃日期`、`花費 …`、`平均分數` 會自動加上。
-- `--var`、`--title`：之後抽出共用程式時會改成 `PAGE_DATA`、拿掉 title（見 PLAN.md 步驟 2）。
+- `--tasting`：試吃評分欄位，格式是 `網頁用的 key=csv 欄位名稱`，用 `;` 分隔。`試吃日期`、`花費 …`、`平均分數` 會自動加上。key 要和頁面 `page.js` 的 `tasting` 清單一致（中英標籤寫在 page.js）。
+- 頁面標題等文字不在 data.js，寫在頁面的 `page.js`。
 - My Maps 匯入檔放在 repo 外面（例如 Downloads），不要 commit。
 
 ## 改了 csv 之後
 
 1. 重新執行 `make_data_js.py`，用 `git diff` 看 `data.js` 的變動是否符合預期。
-2. 頁面的 `index.html` 把 `?v=` 版號改新，否則 GitHub Pages 會給舊的快取。
+2. 頁面的 `index.html` 把 `?v=` 版號改新，否則 GitHub Pages 會給舊的快取。改了 `travel/shared/` 的話，**每個用到它的頁面**都要改版號。
 3. 店家、座標、分類或前三名有變的話，重新產生 My Maps 匯入檔：在 My Maps **先匯入新圖層，確認沒問題後再刪掉舊圖層**。匯入時「瀏覽」選檔要使用者自己點。

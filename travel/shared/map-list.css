@@ -1,7 +1,8 @@
-/* 布里斯本烘焙地圖
+/* List-map pages (e.g. travel/australia/brisbane/bakery/), shared styles.
    Shell (tokens, top bar, map panel, bottom sheet / sidebar, divider, lightbox,
-   tips box, print) is copied from travel/australia/noosa/style.css so both
-   pages behave the same. Bakery-only components start at section 8. */
+   tips box, print) is copied from travel/australia/noosa/style.css so the
+   pages behave like Noosa. List-map components (shop cards, top 3) start at
+   section 8. Page-specific text lives in each page's page.js, not here. */
 
 /* ── 1. RESET & TOKENS ── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }

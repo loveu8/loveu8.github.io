@@ -1,6 +1,5 @@
 // 由 bakery.csv 產生，請勿手改；csv 更新後重新產生。C 級店不收錄。
-var BAKERY_DATA = {
-  "title": "布里斯本烘焙地圖",
+var PAGE_DATA = {
   "dataAsOf": "2026-10",
   "myMapsEmbedUrl": "https://www.google.com/maps/d/embed?mid=1gePZ9RkPv8lT2xZKCcWq_5G4sLdwrdY&ehbc=2E312F&noprof=1",
   "categories": [

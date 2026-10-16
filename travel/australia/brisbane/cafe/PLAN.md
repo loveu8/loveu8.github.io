@@ -11,9 +11,9 @@
 | 步驟 | 內容 | 狀態 | 完成日期 | Commit | 下一步／備註 |
 |---|---|---|---|---|---|
 | 0 | 討論、寫計畫、QA | ✅ 完成 | 2026-10-16 | `a82de6d` | — |
-| 1 | 工具進 repo（`travel/tools/`、`bakery/categories.csv`） | ✅ 完成 | 2026-10-16 | （本 commit） | 新工具產生的 `data.js` 和 repo 版本完全相同（`git diff` 0 行）；My Maps 匯入檔和 Downloads 的 `brisbane-bakery-mymaps-all-32.csv` 雜湊值相同。另外抽出 `list_data.py` 放兩支工具共用的 csv 讀取 |
-| 2 | 抽出共用程式（`travel/shared/`、`bakery/page.js`） | ⬜ 未開始 | | | **從這裡開始**：照第 3 節步驟 2。產生指令見 `travel/tools/README.md`，這步要把 `--var` 預設改成 `PAGE_DATA`、拿掉 `--title`。需要使用者手動檢查列印 |
-| 3 | 文件（DECISIONS.md、bakery/PLAN.md） | ⬜ 未開始 | | | |
+| 1 | 工具進 repo（`travel/tools/`、`bakery/categories.csv`） | ✅ 完成 | 2026-10-16 | `7f3288e` | 新工具產生的 `data.js` 和 repo 版本完全相同（`git diff` 0 行）；My Maps 匯入檔和 Downloads 的 `brisbane-bakery-mymaps-all-32.csv` 雜湊值相同。另外抽出 `list_data.py` 放兩支工具共用的 csv 讀取 |
+| 2 | 抽出共用程式（`travel/shared/`、`bakery/page.js`） | ✅ 完成 | 2026-10-16 | （本 commit） | 本機（127.0.0.1）和線上舊版比對：8 種篩選、語言、📍 組合的頁面內容雜湊值全部相同；試吃紀錄格式、無 My Maps 時的備用地圖、手機寬度（400px iframe）、console 都正常；data.js 只差 `PAGE_DATA` 和 title 兩處；CSS 只改檔頭註解。**未測**：`file://`（Chrome 擴充打不開本機檔案）和列印，交給使用者確認。另外 `page.js` 多了 `fallbackPlace`（原本寫死 `Brisbane QLD`） |
+| 3 | 文件（DECISIONS.md、bakery/PLAN.md） | ⬜ 未開始 | | | **從這裡開始**：照第 3 節步驟 3 |
 | 4 | 咖啡廳候選調查（`cafe/CANDIDATES.md`） | ⬜ 未開始 | | | 可以分幾次做；做到一半時把已查的店家寫在這一列 |
 | 5 | 使用者定案分類、區域、名單 | ⬜ 未開始 | | | 第 5 節「待決定」 |
 | 6 | 咖啡廳 csv、前三名查核 | ⬜ 未開始 | | | 第 4 節 |

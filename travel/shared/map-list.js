@@ -1,16 +1,20 @@
-// 布里斯本烘焙地圖 — renders BAKERY_DATA (data.js) into the Noosa-style
-// map + sidebar shell. Map: a Google My Maps embed showing every shop
-// (BAKERY_DATA.myMapsEmbedUrl); 📍 swaps in the free single-place Google embed.
+// List-map pages (e.g. travel/australia/brisbane/bakery/) — renders PAGE_DATA
+// (the page's generated data.js) into the Noosa-style map + sidebar shell, using
+// PAGE_CONFIG (the page's hand-written page.js) for page text, tasting fields,
+// currency and the fallback map place. Map: a Google My Maps embed showing every
+// shop (PAGE_DATA.myMapsEmbedUrl); 📍 swaps in the free single-place Google embed.
 // Bilingual (zh-TW / en); the language choice shares the `lang` key with Noosa.
 
 var MEDALS = ['🥇', '🥈', '🥉'];
 var ALL = 'all';
 var MOBILE_MAX = 768;
 
+// Shared UI strings. Each page's PAGE_CONFIG.ui[lang] must add `title` and
+// `mapTitle`, and may override any other key.
 var UI = {
   'zh-TW': {
     htmlLang: 'zh-TW', mapLang: 'zh-TW', langButton: 'EN', langAria: 'Switch to English',
-    title: '布里斯本烘焙地圖', subtitle: '{n} 家 · Google 資料 {d}',
+    subtitle: '{n} 家 · Google 資料 {d}',
     expand: '▲ 查看清單', collapse: '▼ 收起清單', print: '🖨️ 列印',
     category: '分類', region: '區域', all: '全部', allCats: '全部分類', allRegions: '全部區域',
     result: '{c} × {r} · {n} 家', chipStrip: '目前清單的店家',
@@ -18,11 +22,11 @@ var UI = {
     top3: '{c} 前三名', low: '資料少', rec: '推薦', media: '媒體推薦',
     mentions: '{n} 則提到', mediaOnly: '只有媒體資料', generic: '評論只寫泛稱',
     gap: '其餘款式的評論資料不足', target: '我想吃：', note: '訪前提醒：', tasted: '✅ 已試吃',
-    tasting: { date: '試吃', look: '外觀', texture: '口感', aroma: '香氣', revisit: '回購', average: '平均' },
+    tasting: { date: '試吃', average: '平均' },
     reviewsShort: '{n} 則', ratingAria: 'Google 評分 {r}，{n} 則評論', prioAria: '優先級 {p}',
     tagFilter: '只看{c}', mapAria: '在地圖上查看：{s}', mapsAria: '在 Google Maps 開啟：{s}',
     igAria: '{s} 的 Instagram', source: '資料來源', overview: '🗺️ 回到全部店家',
-    mapLoading: '地圖更新中', mapTitle: '烘焙店地圖', themeDark: '切換深色模式', themeLight: '切換淺色模式',
+    mapLoading: '地圖更新中', themeDark: '切換深色模式', themeLight: '切換淺色模式',
     backToTop: '回到頂部', closeLightbox: '關閉圖片', viewPhoto: '查看照片：{s}',
     divider: '拖曳調整地圖與清單寬度', scrollPrev: '往左捲動', scrollNext: '往右捲動',
     footnote: 'Google 評分與「N 則提到」為 {d} 的 Google Maps 評論資料，評論多的店為抽樣。' +
@@ -32,7 +36,7 @@ var UI = {
   },
   en: {
     htmlLang: 'en', mapLang: 'en', langButton: '中文', langAria: '切換為中文',
-    title: 'Brisbane Bakery Map', subtitle: '{n} shops · Google data {d}',
+    subtitle: '{n} shops · Google data {d}',
     expand: '▲ View list', collapse: '▼ Hide list', print: '🖨️ Print',
     category: 'Type', region: 'Area', all: 'All', allCats: 'All types', allRegions: 'All areas',
     result: '{c} × {r} · {n} shops', chipStrip: 'Shops in this list',
@@ -40,11 +44,11 @@ var UI = {
     top3: 'Top 3 · {c}', low: 'Limited data', rec: 'Recommended', media: 'Media pick',
     mentions: '{n} mentions', mediaOnly: 'Media only', generic: 'Generic mentions only',
     gap: 'Not enough reviews for more items', target: 'I want to try: ', note: 'Before you go: ', tasted: '✅ Tasted',
-    tasting: { date: 'Tasted', look: 'Look', texture: 'Texture', aroma: 'Aroma', revisit: 'Revisit', average: 'Average' },
+    tasting: { date: 'Tasted', average: 'Average' },
     reviewsShort: '{n} reviews', ratingAria: 'Google rating {r}, {n} reviews', prioAria: 'Priority {p}',
     tagFilter: 'Show only {c}', mapAria: 'Show on map: {s}', mapsAria: 'Open in Google Maps: {s}',
     igAria: '{s} on Instagram', source: 'Source', overview: '🗺️ Back to all shops',
-    mapLoading: 'Updating map', mapTitle: 'Bakery map', themeDark: 'Switch to dark mode', themeLight: 'Switch to light mode',
+    mapLoading: 'Updating map', themeDark: 'Switch to dark mode', themeLight: 'Switch to light mode',
     backToTop: 'Back to top', closeLightbox: 'Close photo', viewPhoto: 'View photo: {s}',
     divider: 'Drag to resize the map and list', scrollPrev: 'Scroll left', scrollNext: 'Scroll right',
     footnote: 'Google ratings and “N mentions” come from Google Maps reviews as of {d}; shops with many reviews were sampled. ' +
@@ -56,6 +60,7 @@ var UI = {
 
 var state = {
   data: null,
+  config: null,
   lang: 'zh-TW',
   category: ALL,
   region: ALL,
@@ -415,14 +420,16 @@ function renderTop3(shop) {
   return frag;
 }
 
+// Score fields and their labels come from PAGE_CONFIG.tasting, in display order.
 function renderTasting(tasting) {
   if (!tasting.date) return null;
   var L = UI[state.lang].tasting;
   var parts = [L.date + ' ' + tasting.date];
-  if (tasting.cost) parts.push('AUD ' + tasting.cost);
-  ['look', 'texture', 'aroma', 'revisit', 'average'].forEach(function(key) {
-    if (tasting[key]) parts.push(L[key] + ' ' + tasting[key]);
+  if (tasting.cost) parts.push(state.config.currency + ' ' + tasting.cost);
+  state.config.tasting.forEach(function(field) {
+    if (tasting[field.key]) parts.push((isEn() ? field.en : field.zh) + ' ' + tasting[field.key]);
   });
+  if (tasting.average) parts.push(L.average + ' ' + tasting.average);
   return el('div', 'tasting', '✅ ' + parts.join(' · '));
 }
 
@@ -575,8 +582,8 @@ function singlePlaceEmbedUrl(query, zoom) {
 }
 
 function overviewUrl() {
-  // Until the My Maps embed URL is filled in, fall back to a plain Brisbane view.
-  return state.data.myMapsEmbedUrl || singlePlaceEmbedUrl('Brisbane QLD', 11);
+  // Until the My Maps embed URL is filled in, fall back to a plain view of the page's city.
+  return state.data.myMapsEmbedUrl || singlePlaceEmbedUrl(state.config.fallbackPlace, 11);
 }
 
 function showMapLoading() {
@@ -759,8 +766,12 @@ function setupEvents() {
   setupFilterScroll();
 }
 
-function init(data) {
+function init(data, config) {
   state.data = data;
+  state.config = config;
+  Object.keys(UI).forEach(function(lang) {
+    Object.assign(UI[lang], config.ui[lang]);
+  });
   state.lang = storageGet('lang') === 'en' ? 'en' : 'zh-TW';
   renderStaticText();
   setupEvents();
@@ -768,4 +779,4 @@ function init(data) {
   showOverview();
 }
 
-init(BAKERY_DATA);
+init(PAGE_DATA, PAGE_CONFIG);

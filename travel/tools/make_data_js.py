@@ -1,7 +1,8 @@
 """Build a list-map page's data.js from its csv files (see README.md).
 
-data.js is a plain <script> (var NAME = {...}) so the page also works from
-file:// — browsers block fetch() of local JSON there (AGENTS.md).
+data.js is a plain <script> (var PAGE_DATA = {...}) so the page also works from
+file:// — browsers block fetch() of local JSON there (AGENTS.md). It is read by
+travel/shared/map-list.js together with the page's hand-written page.js.
 """
 import argparse
 import json
@@ -89,8 +90,6 @@ def main():
     p.add_argument("--mymaps-url", default="", help="Google My Maps embed URL for the overview map")
     p.add_argument("--tasting", required=True,
                    help='tasting score columns as key=csv column, ";"-separated, e.g. "look=外觀 1-5;texture=口感 1-5"')
-    p.add_argument("--var", default="BAKERY_DATA", help="JS variable name")
-    p.add_argument("--title", help="page title stored in data.js (omit to leave it out)")
     args = p.parse_args()
 
     folder = os.path.dirname(os.path.abspath(args.shops_csv))
@@ -102,21 +101,19 @@ def main():
     order = {"A": 0, "B": 1}
     shops.sort(key=lambda s: (order[s["priority"]], -(s["reviews"] or 0)))
 
-    data = {}
-    if args.title:
-        data["title"] = args.title
-    data.update({
+    # Page title and other page text live in the page's page.js, not here.
+    data = {
         "dataAsOf": args.data_as_of,
         "myMapsEmbedUrl": args.mymaps_url,
         "categories": [{"code": c, "label": zh, "labelEn": en} for c, zh, en in read_categories(folder)],
         "regions": REGIONS,
         "regionsEn": REGIONS_EN,
         "shops": shops,
-    })
+    }
 
     with open(out, "w", encoding="utf-8", newline="\n") as f:
         f.write("// 由 %s 產生，請勿手改；csv 更新後重新產生。C 級店不收錄。\n" % os.path.basename(args.shops_csv))
-        f.write("var %s = " % args.var)
+        f.write("var PAGE_DATA = ")
         json.dump(data, f, ensure_ascii=False, indent=2)
         f.write(";\n")
 
