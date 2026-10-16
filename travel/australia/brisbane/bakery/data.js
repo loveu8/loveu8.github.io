@@ -53,27 +53,78 @@ var BAKERY_DATA = {
       "priority": "A",
       "status": "待調查",
       "target": "Plain Butter Croissant / Almond / Bâtard",
-      "top3": [
-        {
-          "zh": "原味可頌",
-          "en": "Croissant",
-          "count": 271,
-          "source": "google"
-        },
-        {
-          "zh": "杏仁可頌",
-          "en": "Almond Croissant",
-          "count": 82,
-          "source": "google"
-        },
-        {
-          "zh": "卡士達可頌",
-          "en": "Custard Croissant",
-          "count": 55,
-          "source": "google"
-        }
-      ],
-      "confidence": "高",
+      "top3ByCategory": {
+        "01": [
+          {
+            "rank": 1,
+            "zh": "酸種法棍",
+            "en": "Sourdough Baguette",
+            "flavor": "",
+            "count": 26,
+            "rating": 4.8,
+            "verdict": "大家推薦",
+            "confidence": "高",
+            "note": "Google 關鍵字 baguettes 36 則"
+          },
+          {
+            "rank": 2,
+            "zh": "橄欖迷迭香麵包",
+            "en": "Olive & Rosemary Loaf",
+            "flavor": "橄欖、迷迭香",
+            "count": 8,
+            "rating": 5.0,
+            "verdict": "大家推薦",
+            "confidence": "中",
+            "note": ""
+          },
+          {
+            "rank": 3,
+            "zh": "酸種圓麵包",
+            "en": "Sourdough Bâtard",
+            "flavor": "白麵包款",
+            "count": 7,
+            "rating": 5.0,
+            "verdict": "大家推薦",
+            "confidence": "中",
+            "note": "搜尋 rye 0 則"
+          }
+        ],
+        "02": [
+          {
+            "rank": 1,
+            "zh": "卡士達可頌",
+            "en": "Custard Croissant",
+            "flavor": "卡士達內餡；也有杏仁卡士達、Nutella 卡士達組合",
+            "count": 98,
+            "rating": 4.8,
+            "verdict": "大家推薦",
+            "confidence": "高",
+            "note": "98 則含組合口味，與第 2、3 名有重疊"
+          },
+          {
+            "rank": 2,
+            "zh": "杏仁可頌",
+            "en": "Almond Croissant",
+            "flavor": "杏仁內餡",
+            "count": 67,
+            "rating": 4.6,
+            "verdict": "大家推薦",
+            "confidence": "高",
+            "note": "Google 關鍵字 almond croissant 82 則"
+          },
+          {
+            "rank": 3,
+            "zh": "Nutella 可頌",
+            "en": "Nutella Croissant",
+            "flavor": "榛果巧克力醬，常與卡士達一起",
+            "count": 66,
+            "rating": 4.7,
+            "verdict": "大家推薦",
+            "confidence": "高",
+            "note": "第 4 名火腿起司可頌 41 則（4.6 星）；原味可頌關鍵字 21 則"
+          }
+        ]
+      },
       "rating": 4.8,
       "reviews": 1530,
       "note": "以可頌為主要比較品項；易排隊；週一、二公休，週三至日 06:00–13:00；週末常於 9 點前售完",
@@ -105,27 +156,43 @@ var BAKERY_DATA = {
       "priority": "A",
       "status": "待調查",
       "target": "Traditional Croissant / Pain au Chocolat",
-      "top3": [
-        {
-          "zh": "原味可頌",
-          "en": "Croissant",
-          "count": 319,
-          "source": "google"
-        },
-        {
-          "zh": "杏仁可頌",
-          "en": "Almond Croissant",
-          "count": 66,
-          "source": "google"
-        },
-        {
-          "zh": "巧克力可頌",
-          "en": "Pain au Chocolat",
-          "count": 44,
-          "source": "google"
-        }
-      ],
-      "confidence": "高",
+      "top3ByCategory": {
+        "02": [
+          {
+            "rank": 1,
+            "zh": "杏仁可頌",
+            "en": "Almond Croissant",
+            "flavor": "杏仁內餡，二次烘烤",
+            "count": 66,
+            "rating": 4.2,
+            "verdict": "評論常提到",
+            "confidence": "高",
+            "note": "最常被點，但抽樣評價只有 4.2 星"
+          },
+          {
+            "rank": 2,
+            "zh": "巧克力可頌",
+            "en": "Pain au Chocolat",
+            "flavor": "巧克力",
+            "count": 44,
+            "rating": 4.5,
+            "verdict": "大家推薦",
+            "confidence": "高",
+            "note": ""
+          },
+          {
+            "rank": 3,
+            "zh": "可頌鬆餅",
+            "en": "Cruffin",
+            "flavor": "可頌麵團做成馬芬形，常見檸檬凝乳內餡",
+            "count": 27,
+            "rating": 4.8,
+            "verdict": "大家推薦",
+            "confidence": "中",
+            "note": "Google 關鍵字 lemon curd cruffin 17 則；評價樣本少"
+          }
+        ]
+      },
       "rating": 4.2,
       "reviews": 1159,
       "note": "高價；與法式店比較經典原味",
@@ -158,27 +225,78 @@ var BAKERY_DATA = {
       "priority": "A",
       "status": "待調查",
       "target": "Croissant / Petal Cake",
-      "top3": [
-        {
-          "zh": "可頌",
-          "en": "Croissant",
-          "count": 47,
-          "source": "google"
-        },
-        {
-          "zh": "杏仁可頌",
-          "en": "Almond Croissant",
-          "count": 32,
-          "source": "google"
-        },
-        {
-          "zh": "肉桂捲",
-          "en": "Cinnamon Bun",
-          "count": 21,
-          "source": "google"
-        }
-      ],
-      "confidence": "高",
+      "top3ByCategory": {
+        "02": [
+          {
+            "rank": 1,
+            "zh": "杏仁可頌",
+            "en": "Almond Croissant",
+            "flavor": "杏仁內餡",
+            "count": 16,
+            "rating": 4.4,
+            "verdict": "評論常提到",
+            "confidence": "中",
+            "note": "Google 關鍵字 almond croissant 32 則"
+          },
+          {
+            "rank": 2,
+            "zh": "可頌鬆餅",
+            "en": "Cruffin",
+            "flavor": "",
+            "count": 5,
+            "rating": 4.2,
+            "verdict": "評論常提到",
+            "confidence": "中",
+            "note": "Google 關鍵字 cruffin 18 則"
+          },
+          {
+            "rank": 3,
+            "zh": "開心果可頌",
+            "en": "Pistachio Croissant",
+            "flavor": "開心果",
+            "count": 4,
+            "rating": 4.5,
+            "verdict": "大家推薦",
+            "confidence": "低",
+            "note": ""
+          }
+        ],
+        "06": [
+          {
+            "rank": 1,
+            "zh": "客製多層生日蛋糕",
+            "en": "Custom Tiered Birthday Cake",
+            "flavor": "含花瓣造型蛋糕",
+            "count": 2,
+            "rating": 5.0,
+            "verdict": "大家推薦",
+            "confidence": "低",
+            "note": "評論多稱讚訂製蛋糕但少寫口味（cake 13 則，4.6 星）"
+          },
+          {
+            "rank": 2,
+            "zh": "巴斯克起司蛋糕",
+            "en": "Basque Cheesecake",
+            "flavor": "",
+            "count": 2,
+            "rating": 5.0,
+            "verdict": "大家推薦",
+            "confidence": "低",
+            "note": ""
+          },
+          {
+            "rank": 3,
+            "zh": "黑啤咖啡蛋糕",
+            "en": "Stout & Coffee Cake",
+            "flavor": "黑啤、咖啡",
+            "count": 1,
+            "rating": 4.0,
+            "verdict": "評論常提到",
+            "confidence": "低",
+            "note": ""
+          }
+        ]
+      },
       "rating": 4.4,
       "reviews": 883,
       "note": "Urban List、Time Out、Broadsheet、蛋糕榜皆有；可頌與整模蛋糕都可比較",
@@ -210,27 +328,43 @@ var BAKERY_DATA = {
       "priority": "A",
       "status": "待調查",
       "target": "Pistachio Cornetto / Vanilla Bomboloni",
-      "top3": [
-        {
-          "zh": "開心果可頌",
-          "en": "Pistachio Croissant",
-          "count": 51,
-          "source": "google"
-        },
-        {
-          "zh": "佛卡夏",
-          "en": "Focaccia",
-          "count": 36,
-          "source": "google"
-        },
-        {
-          "zh": "義式可頌",
-          "en": "Cornetto",
-          "count": 33,
-          "source": "google"
-        }
-      ],
-      "confidence": "高",
+      "top3ByCategory": {
+        "02": [
+          {
+            "rank": 1,
+            "zh": "開心果義式可頌",
+            "en": "Pistachio Cornetto",
+            "flavor": "開心果醬內餡",
+            "count": 15,
+            "rating": 4.7,
+            "verdict": "大家推薦",
+            "confidence": "高",
+            "note": "Google 關鍵字 pistachio croissant 51 則"
+          },
+          {
+            "rank": 2,
+            "zh": "香草卡士達義式可頌",
+            "en": "Vanilla Custard Cornetto",
+            "flavor": "香草卡士達",
+            "count": 15,
+            "rating": 4.2,
+            "verdict": "評論常提到",
+            "confidence": "中",
+            "note": ""
+          },
+          {
+            "rank": 3,
+            "zh": "巧克力義式可頌",
+            "en": "Chocolate / Nutella Cornetto",
+            "flavor": "巧克力、Nutella",
+            "count": 7,
+            "rating": 4.4,
+            "verdict": "評論常提到",
+            "confidence": "中",
+            "note": ""
+          }
+        ]
+      },
       "rating": 4.7,
       "reviews": 608,
       "note": "義式 cornetto，與法式可頌風格不同；Google 近期熱度最高",
@@ -263,27 +397,78 @@ var BAKERY_DATA = {
       "priority": "A",
       "status": "待調查",
       "target": "Flourless Chocolate & Hazelnut Cake / Red Velvet / Chocolate Almond Croissant",
-      "top3": [
-        {
-          "zh": "可頌",
-          "en": "Croissant",
-          "count": 71,
-          "source": "google"
-        },
-        {
-          "zh": "布朗尼",
-          "en": "Brownie",
-          "count": 20,
-          "source": "google"
-        },
-        {
-          "zh": "丹麥酥",
-          "en": "Danish",
-          "count": 19,
-          "source": "google"
-        }
-      ],
-      "confidence": "高",
+      "top3ByCategory": {
+        "02": [
+          {
+            "rank": 1,
+            "zh": "巧克力杏仁可頌",
+            "en": "Chocolate Almond Croissant",
+            "flavor": "巧克力、杏仁",
+            "count": 8,
+            "rating": 4.5,
+            "verdict": "大家推薦",
+            "confidence": "中",
+            "note": ""
+          },
+          {
+            "rank": 2,
+            "zh": "火腿起司可頌",
+            "en": "Ham & Cheese Croissant",
+            "flavor": "火腿、起司",
+            "count": 4,
+            "rating": 3.0,
+            "verdict": "評論常提到",
+            "confidence": "低",
+            "note": ""
+          },
+          {
+            "rank": 3,
+            "zh": "榛果可頌",
+            "en": "Hazelnut Croissant",
+            "flavor": "榛果",
+            "count": 2,
+            "rating": 4.5,
+            "verdict": "大家推薦",
+            "confidence": "低",
+            "note": ""
+          }
+        ],
+        "06": [
+          {
+            "rank": 1,
+            "zh": "無麵粉巧克力榛果蛋糕",
+            "en": "Flourless Chocolate & Hazelnut Cake",
+            "flavor": "無麩質",
+            "count": 4,
+            "rating": 4.5,
+            "verdict": "大家推薦",
+            "confidence": "低",
+            "note": "評論多只寫 cake（36 則，4.6 星）"
+          },
+          {
+            "rank": 2,
+            "zh": "起司蛋糕",
+            "en": "Cheesecake",
+            "flavor": "",
+            "count": 2,
+            "rating": 5.0,
+            "verdict": "大家推薦",
+            "confidence": "低",
+            "note": ""
+          },
+          {
+            "rank": 3,
+            "zh": "土耳其軟糖巧克力蛋糕",
+            "en": "Turkish Delight Chocolate Cake",
+            "flavor": "玫瑰軟糖、巧克力",
+            "count": 1,
+            "rating": 5.0,
+            "verdict": "大家推薦",
+            "confidence": "低",
+            "note": ""
+          }
+        ]
+      },
       "rating": 4.6,
       "reviews": 552,
       "note": "預訂整模蛋糕最好先聯絡",
@@ -316,27 +501,78 @@ var BAKERY_DATA = {
       "priority": "A",
       "status": "待調查",
       "target": "Classic Sourdough Loaf / Almond Croissant",
-      "top3": [
-        {
-          "zh": "香腸卷",
-          "en": "Sausage Roll",
-          "count": 55,
-          "source": "google"
-        },
-        {
-          "zh": "酸種麵包",
-          "en": "Sourdough",
-          "count": 24,
-          "source": "google"
-        },
-        {
-          "zh": "可頌",
-          "en": "Croissant",
-          "count": 22,
-          "source": "google"
-        }
-      ],
-      "confidence": "高",
+      "top3ByCategory": {
+        "01": [
+          {
+            "rank": 1,
+            "zh": "橄欖檸檬迷迭香酸種",
+            "en": "Olive, Lemon & Rosemary Sourdough",
+            "flavor": "橄欖、檸檬皮、迷迭香",
+            "count": 3,
+            "rating": 5.0,
+            "verdict": "大家推薦",
+            "confidence": "中",
+            "note": "評論寫法有 lemon olive sourdough、olive loaf、Olive；另 1 則 olive ciabatta 不計"
+          },
+          {
+            "rank": 2,
+            "zh": "黑麥葛縷子麵包",
+            "en": "Rye & Caraway Loaf",
+            "flavor": "黑麥加葛縷子籽，偏北歐風",
+            "count": 4,
+            "rating": 5.0,
+            "verdict": "大家推薦",
+            "confidence": "中",
+            "note": "評論提醒要早點去，常賣完"
+          },
+          {
+            "rank": 3,
+            "zh": "南瓜酸種",
+            "en": "Pumpkin Sourdough",
+            "flavor": "季節限定",
+            "count": 3,
+            "rating": 5.0,
+            "verdict": "大家推薦",
+            "confidence": "低",
+            "note": "評論提到春夏不在菜單上；另有 Table loaf 2 則、蜂蜜味噌酸種 1 則"
+          }
+        ],
+        "02": [
+          {
+            "rank": 1,
+            "zh": "杏仁可頌",
+            "en": "Almond Croissant",
+            "flavor": "杏仁內餡，有評論提到帶蜂蜜甜味",
+            "count": 9,
+            "rating": 4.6,
+            "verdict": "大家推薦",
+            "confidence": "中",
+            "note": "1 則 4 星評論說偏乾、不夠酥"
+          },
+          {
+            "rank": 2,
+            "zh": "原味可頌",
+            "en": "Croissant",
+            "flavor": "",
+            "count": null,
+            "rating": null,
+            "verdict": "評論常提到",
+            "confidence": "低",
+            "note": "Google 關鍵字 croissant 22 則，多為泛稱，無法區分口味，未計評價"
+          },
+          {
+            "rank": 3,
+            "zh": "鹹味熊掌酥",
+            "en": "Savoury Bear Claw",
+            "flavor": "可頌麵團，口味輪替（評論：煙燻鮭魚；Urban List：烤甜椒費達）",
+            "count": 1,
+            "rating": 5.0,
+            "verdict": "評論常提到",
+            "confidence": "低",
+            "note": "評論寫作「Bear Crawl」"
+          }
+        ]
+      },
       "rating": 4.8,
       "reviews": 476,
       "note": "熱門麵包易售完；早到",
@@ -368,27 +604,43 @@ var BAKERY_DATA = {
       "priority": "A",
       "status": "待調查",
       "target": "Original Shokupan Loaf",
-      "top3": [
-        {
-          "zh": "日式三明治",
-          "en": "Sando",
-          "count": 26,
-          "source": "google"
-        },
-        {
-          "zh": "日式吐司",
-          "en": "Shokupan",
-          "count": 15,
-          "source": "google"
-        },
-        {
-          "zh": "焙茶蛋糕",
-          "en": "Hojicha Cake",
-          "count": 12,
-          "source": "google"
-        }
-      ],
-      "confidence": "高",
+      "top3ByCategory": {
+        "03": [
+          {
+            "rank": 1,
+            "zh": "蝦肉海苔酥三明治",
+            "en": "Prawn & Seaweed Crunch Sando",
+            "flavor": "自家生吐司夾蝦排、海苔",
+            "count": 17,
+            "rating": 4.6,
+            "verdict": "大家推薦",
+            "confidence": "中",
+            "note": ""
+          },
+          {
+            "rank": 2,
+            "zh": "唐揚雞法式吐司",
+            "en": "Karaage French Toast",
+            "flavor": "生吐司做的法式吐司配炸雞",
+            "count": 8,
+            "rating": 4.8,
+            "verdict": "大家推薦",
+            "confidence": "中",
+            "note": ""
+          },
+          {
+            "rank": 3,
+            "zh": "原味生吐司（整條）",
+            "en": "Shokupan Loaf",
+            "flavor": "原味",
+            "count": 3,
+            "rating": 5.0,
+            "verdict": "大家推薦",
+            "confidence": "中",
+            "note": "Google 關鍵字 shokupan 15 則；雞蛋三明治關鍵字 10 則"
+          }
+        ]
+      },
       "rating": 4.6,
       "reviews": 462,
       "note": "買整條 Shokupan 需確認當天庫存",
@@ -420,27 +672,43 @@ var BAKERY_DATA = {
       "priority": "A",
       "status": "待調查",
       "target": "Strawberry Fresh Cream Chiffon / Taro Chiffon",
-      "top3": [
-        {
-          "zh": "西瓜蛋糕",
-          "en": "Watermelon Cake",
-          "count": 38,
-          "source": "google"
-        },
-        {
-          "zh": "千層蛋糕",
-          "en": "Crepe Cake",
-          "count": 18,
-          "source": "google"
-        },
-        {
-          "zh": "榴槤品項",
-          "en": "Durian",
-          "count": 18,
-          "source": "google"
-        }
-      ],
-      "confidence": "高",
+      "top3ByCategory": {
+        "06": [
+          {
+            "rank": 1,
+            "zh": "玫瑰西瓜蛋糕",
+            "en": "Rose Watermelon Cake",
+            "flavor": "西瓜、玫瑰、鮮奶油",
+            "count": 28,
+            "rating": 4.0,
+            "verdict": "評論常提到",
+            "confidence": "高",
+            "note": "最常被點，但評價分歧"
+          },
+          {
+            "rank": 2,
+            "zh": "千層蛋糕",
+            "en": "Crepe Cake",
+            "flavor": "",
+            "count": 17,
+            "rating": 4.3,
+            "verdict": "評論常提到",
+            "confidence": "中",
+            "note": ""
+          },
+          {
+            "rank": 3,
+            "zh": "抹茶系列",
+            "en": "Matcha",
+            "flavor": "抹茶蛋糕、抹茶千層等",
+            "count": 13,
+            "rating": 4.8,
+            "verdict": "大家推薦",
+            "confidence": "中",
+            "note": "巴斯克乳酪蛋糕 12 則（4.8）、榴槤 10 則（4.5）緊接在後；戚風 3 則"
+          }
+        ]
+      },
       "rating": 4.1,
       "reviews": 453,
       "note": "部分整模需預訂；適合亞洲式鮮奶油蛋糕",
@@ -473,27 +741,78 @@ var BAKERY_DATA = {
       "priority": "A",
       "status": "待調查",
       "target": "Country Sourdough / Pain au Chocolat / Kouign-Amann",
-      "top3": [
-        {
-          "zh": "英式鬆餅",
-          "en": "Crumpet",
-          "count": 8,
-          "source": "google"
-        },
-        {
-          "zh": "酸種麵包",
-          "en": "Sourdough",
-          "count": 8,
-          "source": "google"
-        },
-        {
-          "zh": "杏仁可頌",
-          "en": "Almond Croissant",
-          "count": 7,
-          "source": "google"
-        }
-      ],
-      "confidence": "中",
+      "top3ByCategory": {
+        "01": [
+          {
+            "rank": 1,
+            "zh": "酸種麵包",
+            "en": "Sourdough",
+            "flavor": "",
+            "count": 6,
+            "rating": 4.8,
+            "verdict": "大家推薦",
+            "confidence": "中",
+            "note": "多半只寫 sourdough"
+          },
+          {
+            "rank": 2,
+            "zh": "酸種英式鬆餅",
+            "en": "Sourdough Crumpet",
+            "flavor": "",
+            "count": 4,
+            "rating": 4.0,
+            "verdict": "評論常提到",
+            "confidence": "低",
+            "note": "Google 關鍵字 crumpets 8 則"
+          },
+          {
+            "rank": 3,
+            "zh": "馬鈴薯酸種",
+            "en": "Potato Sourdough",
+            "flavor": "馬鈴薯",
+            "count": 2,
+            "rating": 4.5,
+            "verdict": "大家推薦",
+            "confidence": "低",
+            "note": ""
+          }
+        ],
+        "02": [
+          {
+            "rank": 1,
+            "zh": "杏仁可頌",
+            "en": "Almond Croissant",
+            "flavor": "杏仁內餡",
+            "count": 8,
+            "rating": 4.6,
+            "verdict": "大家推薦",
+            "confidence": "中",
+            "note": ""
+          },
+          {
+            "rank": 2,
+            "zh": "巧克力可頌",
+            "en": "Pain au Chocolat",
+            "flavor": "巧克力",
+            "count": 5,
+            "rating": 3.8,
+            "verdict": "評論常提到",
+            "confidence": "中",
+            "note": ""
+          },
+          {
+            "rank": 3,
+            "zh": "火腿起司可頌",
+            "en": "Ham & Cheese Croissant",
+            "flavor": "火腿、起司",
+            "count": 4,
+            "rating": 4.5,
+            "verdict": "大家推薦",
+            "confidence": "低",
+            "note": ""
+          }
+        ]
+      },
       "rating": 4.0,
       "reviews": 435,
       "note": "Agnes Bakery 後繼新品牌；不是已關閉的舊店",
@@ -525,27 +844,43 @@ var BAKERY_DATA = {
       "priority": "A",
       "status": "待調查",
       "target": "Country White / Multigrain / Rye",
-      "top3": [
-        {
-          "zh": "酸種麵包",
-          "en": "Sourdough",
-          "count": 37,
-          "source": "google"
-        },
-        {
-          "zh": "貝果",
-          "en": "Bagel",
-          "count": 9,
-          "source": "google"
-        },
-        {
-          "zh": "杏仁可頌",
-          "en": "Almond Croissant",
-          "count": 6,
-          "source": "google"
-        }
-      ],
-      "confidence": "中",
+      "top3ByCategory": {
+        "01": [
+          {
+            "rank": 1,
+            "zh": "經典酸種",
+            "en": "Traditional Sourdough",
+            "flavor": "店家起家的招牌麵包",
+            "count": 41,
+            "rating": 4.8,
+            "verdict": "大家推薦",
+            "confidence": "高",
+            "note": "評論多半只寫 sourdough"
+          },
+          {
+            "rank": 2,
+            "zh": "貝果",
+            "en": "Bagel",
+            "flavor": "常做成三明治，例：雞肉辣椒貝果",
+            "count": 9,
+            "rating": 4.8,
+            "verdict": "大家推薦",
+            "confidence": "中",
+            "note": ""
+          },
+          {
+            "rank": 3,
+            "zh": "全麥多穀酸種",
+            "en": "Wholemeal Multigrain Sourdough",
+            "flavor": "全麥、多穀",
+            "count": 2,
+            "rating": 5.0,
+            "verdict": "大家推薦",
+            "confidence": "低",
+            "note": "另有杏仁種子麵包 1 則"
+          }
+        ]
+      },
       "rating": 4.6,
       "reviews": 222,
       "note": "確認當日麵包批次",
@@ -578,27 +913,78 @@ var BAKERY_DATA = {
       "priority": "A",
       "status": "待調查",
       "target": "Sour Cream Chocolate Cake / Flourless Chocolate Cake / Sourdough",
-      "top3": [
-        {
-          "zh": "派",
-          "en": "Pie",
-          "count": 14,
-          "source": "google"
-        },
-        {
-          "zh": "杯子蛋糕",
-          "en": "Cupcake",
-          "count": 9,
-          "source": "google"
-        },
-        {
-          "zh": "生日蛋糕",
-          "en": "Birthday Cake",
-          "count": 8,
-          "source": "google"
-        }
-      ],
-      "confidence": "中",
+      "top3ByCategory": {
+        "01": [
+          {
+            "rank": 1,
+            "zh": "酸種麵包",
+            "en": "Sourdough",
+            "flavor": "",
+            "count": 8,
+            "rating": 4.1,
+            "verdict": "評論常提到",
+            "confidence": "中",
+            "note": "多半只寫 sourdough；James St 店提到麵包的 7 則平均 3.0 星"
+          },
+          {
+            "rank": 2,
+            "zh": "多穀種子麵包",
+            "en": "Seeded Loaf",
+            "flavor": "多穀種子",
+            "count": 3,
+            "rating": 5.0,
+            "verdict": "大家推薦",
+            "confidence": "低",
+            "note": ""
+          },
+          {
+            "rank": 3,
+            "zh": "法棍",
+            "en": "Baguette",
+            "flavor": "",
+            "count": 3,
+            "rating": 4.3,
+            "verdict": "評論常提到",
+            "confidence": "低",
+            "note": ""
+          }
+        ],
+        "06": [
+          {
+            "rank": 1,
+            "zh": "巧克力酸奶油蛋糕",
+            "en": "Chocolate Sour Cream Cake",
+            "flavor": "巧克力、酸奶油",
+            "count": 29,
+            "rating": 4.7,
+            "verdict": "大家推薦",
+            "confidence": "高",
+            "note": ""
+          },
+          {
+            "rank": 2,
+            "zh": "紅蘿蔔蛋糕",
+            "en": "Carrot Cake",
+            "flavor": "紅蘿蔔",
+            "count": 9,
+            "rating": 4.4,
+            "verdict": "評論常提到",
+            "confidence": "中",
+            "note": ""
+          },
+          {
+            "rank": 3,
+            "zh": "杯子蛋糕",
+            "en": "Cupcakes",
+            "flavor": "",
+            "count": 6,
+            "rating": 3.8,
+            "verdict": "評論常提到",
+            "confidence": "中",
+            "note": ""
+          }
+        ]
+      },
       "rating": 4.3,
       "reviews": 220,
       "note": "四份榜單皆有；以蛋糕為主要比較品項，麵包選 Sourdough；有多家分店，以 James St 為調查點",
@@ -630,27 +1016,43 @@ var BAKERY_DATA = {
       "priority": "A",
       "status": "待調查",
       "target": "Milk Loaf / Pork Floss / Cube Croissant",
-      "top3": [
-        {
-          "zh": "方塊可頌",
-          "en": "Cube Croissant",
-          "count": 24,
-          "source": "google"
-        },
-        {
-          "zh": "吐司",
-          "en": "Toast",
-          "count": 9,
-          "source": "google"
-        },
-        {
-          "zh": "抹茶品項",
-          "en": "Matcha",
-          "count": 6,
-          "source": "google"
-        }
-      ],
-      "confidence": "中",
+      "top3ByCategory": {
+        "05": [
+          {
+            "rank": 1,
+            "zh": "包餡吐司",
+            "en": "Stuffed Toast",
+            "flavor": "蟹肉、火腿起司等；可加玉米濃湯成套餐",
+            "count": 14,
+            "rating": 4.7,
+            "verdict": "大家推薦",
+            "confidence": "中",
+            "note": ""
+          },
+          {
+            "rank": 2,
+            "zh": "巧克力方塊可頌",
+            "en": "Chocolate Cube Croissant",
+            "flavor": "巧克力爆漿",
+            "count": 9,
+            "rating": 4.8,
+            "verdict": "大家推薦",
+            "confidence": "中",
+            "note": ""
+          },
+          {
+            "rank": 3,
+            "zh": "芋頭方塊可頌",
+            "en": "Taro Cube Croissant",
+            "flavor": "芋頭",
+            "count": 8,
+            "rating": 4.1,
+            "verdict": "評論常提到",
+            "confidence": "中",
+            "note": "方塊可頌整體 28 則 4.1 星、3 則負評；抹茶 6 則（4.5）、黑芝麻 5 則（4.4）"
+          }
+        ]
+      },
       "rating": 4.6,
       "reviews": 143,
       "note": "實體店確認營業中（2026-10 Google 有新評論）；Uber Eats 2026/5/29 起停止接單；台灣社群推薦",
@@ -682,27 +1084,43 @@ var BAKERY_DATA = {
       "priority": "A",
       "status": "待調查",
       "target": "Plain Croissant / Pain au Chocolat / Cardamom Bun",
-      "top3": [
-        {
-          "zh": "小荳蔻麵包捲",
-          "en": "Cardamom Bun",
-          "count": 23,
-          "source": "google"
-        },
-        {
-          "zh": "可頌",
-          "en": "Croissant",
-          "count": 19,
-          "source": "google"
-        },
-        {
-          "zh": "巧克力可頌",
-          "en": "Pain au Chocolat",
-          "count": 6,
-          "source": "google"
-        }
-      ],
-      "confidence": "中",
+      "top3ByCategory": {
+        "02": [
+          {
+            "rank": 1,
+            "zh": "小荳蔻麵包捲",
+            "en": "Cardamom Bun",
+            "flavor": "北歐風小荳蔻",
+            "count": 17,
+            "rating": 4.9,
+            "verdict": "大家推薦",
+            "confidence": "中",
+            "note": "不是可頌，是店內最有名的起酥類"
+          },
+          {
+            "rank": 2,
+            "zh": "丹麥酥",
+            "en": "Danish",
+            "flavor": "例：大黃奶酥丹麥",
+            "count": 9,
+            "rating": 4.9,
+            "verdict": "大家推薦",
+            "confidence": "中",
+            "note": ""
+          },
+          {
+            "rank": 3,
+            "zh": "巧克力可頌",
+            "en": "Pain au Chocolat",
+            "flavor": "巧克力",
+            "count": 8,
+            "rating": 5.0,
+            "verdict": "大家推薦",
+            "confidence": "中",
+            "note": "原味可頌 4 則（5.0 星）"
+          }
+        ]
+      },
       "rating": 4.9,
       "reviews": 142,
       "note": "營業時段短、容易售完",
@@ -735,27 +1153,56 @@ var BAKERY_DATA = {
       "priority": "A",
       "status": "待調查",
       "target": "Classic Sourdough / Almond Croissant",
-      "top3": [
-        {
-          "zh": "可頌",
-          "en": "Croissant",
-          "count": 10,
-          "source": "google"
-        },
-        {
-          "zh": "卡士達塔",
-          "en": "Custard Tart",
-          "count": 3,
-          "source": "google"
-        },
-        {
-          "zh": "酸種麵包",
-          "en": "Sourdough",
-          "count": null,
-          "source": "media"
-        }
-      ],
-      "confidence": "低",
+      "top3ByCategory": {
+        "01": [
+          {
+            "rank": 1,
+            "zh": "72 小時發酵酸種",
+            "en": "72-hour Sourdough",
+            "flavor": "長時間發酵",
+            "count": 2,
+            "rating": 4.0,
+            "verdict": "評論常提到",
+            "confidence": "低",
+            "note": "評論幾乎沒提酸種，主要依媒體；第 2、3 名資料不足"
+          }
+        ],
+        "02": [
+          {
+            "rank": 1,
+            "zh": "杏仁可頌",
+            "en": "Almond Croissant",
+            "flavor": "杏仁內餡",
+            "count": 4,
+            "rating": 4.3,
+            "verdict": "評論常提到",
+            "confidence": "低",
+            "note": "有評論嫌價格高（一個 11 澳幣）"
+          },
+          {
+            "rank": 2,
+            "zh": "可頌三明治",
+            "en": "Croissant Toastie",
+            "flavor": "帕瑪火腿、莫札瑞拉",
+            "count": 4,
+            "rating": 4.0,
+            "verdict": "評論常提到",
+            "confidence": "低",
+            "note": ""
+          },
+          {
+            "rank": 3,
+            "zh": "雙層巧克力可頌麵包",
+            "en": "Double-chocolate Croissant Bun",
+            "flavor": "雙層巧克力",
+            "count": 0,
+            "rating": null,
+            "verdict": "媒體推薦",
+            "confidence": "低",
+            "note": "評論未提到，只有媒體資料"
+          }
+        ]
+      },
       "rating": 4.4,
       "reviews": 43,
       "note": "New Farm 店 2025 年已關；現存 Newstead、Albion，評論量少，以 Newstead 為調查點",
@@ -788,27 +1235,78 @@ var BAKERY_DATA = {
       "priority": "B",
       "status": "待調查",
       "target": "NY Deli Rye / Latvian Rye",
-      "top3": [
-        {
-          "zh": "酸種麵包",
-          "en": "Sourdough",
-          "count": 38,
-          "source": "google"
-        },
-        {
-          "zh": "可頌",
-          "en": "Croissant",
-          "count": 36,
-          "source": "google"
-        },
-        {
-          "zh": "香腸卷",
-          "en": "Sausage Roll",
-          "count": 13,
-          "source": "google"
-        }
-      ],
-      "confidence": "高",
+      "top3ByCategory": {
+        "01": [
+          {
+            "rank": 1,
+            "zh": "招牌酸種",
+            "en": "Sourdough",
+            "flavor": "",
+            "count": 26,
+            "rating": 4.5,
+            "verdict": "大家推薦",
+            "confidence": "高",
+            "note": "多半只寫 sourdough"
+          },
+          {
+            "rank": 2,
+            "zh": "多穀酸種",
+            "en": "Multigrain Sourdough",
+            "flavor": "多穀",
+            "count": 3,
+            "rating": 5.0,
+            "verdict": "大家推薦",
+            "confidence": "低",
+            "note": ""
+          },
+          {
+            "rank": 3,
+            "zh": "黑麥葵花籽酸種",
+            "en": "Rye & Sunflower Seed Sourdough",
+            "flavor": "黑麥、葵花籽",
+            "count": 1,
+            "rating": 4.0,
+            "verdict": "評論常提到",
+            "confidence": "低",
+            "note": "另有淡黑麥酸種 1 則；本店可頌 26 則平均 3.6 星（不在本分類）"
+          }
+        ],
+        "04": [
+          {
+            "rank": 1,
+            "zh": "椒鹽脆餅",
+            "en": "Pretzel",
+            "flavor": "德式",
+            "count": 10,
+            "rating": 4.5,
+            "verdict": "大家推薦",
+            "confidence": "中",
+            "note": "Google 關鍵字 delicious pretzel 12 則"
+          },
+          {
+            "rank": 2,
+            "zh": "紐約黑麥麵包",
+            "en": "NY Deli Rye",
+            "flavor": "黑麥",
+            "count": 2,
+            "rating": 5.0,
+            "verdict": "大家推薦",
+            "confidence": "低",
+            "note": ""
+          },
+          {
+            "rank": 3,
+            "zh": "拉脫維亞黑麥麵包",
+            "en": "Latvian Rye",
+            "flavor": "深色黑麥，只在週末供應",
+            "count": 2,
+            "rating": 3.0,
+            "verdict": "評論常提到",
+            "confidence": "低",
+            "note": "評價兩極：1 則喜歡、1 則說沒烤熟"
+          }
+        ]
+      },
       "rating": 4.4,
       "reviews": 459,
       "note": "特殊 Rye 可能僅特定日期出爐",
@@ -840,27 +1338,43 @@ var BAKERY_DATA = {
       "priority": "B",
       "status": "待調查",
       "target": "Plain Croissant / Almond Croissant",
-      "top3": [
-        {
-          "zh": "巧克力可頌",
-          "en": "Chocolate Croissant",
-          "count": 13,
-          "source": "google"
-        },
-        {
-          "zh": "杏仁可頌",
-          "en": "Almond Croissant",
-          "count": 11,
-          "source": "google"
-        },
-        {
-          "zh": "伯爵茶布丁塔",
-          "en": "Earl Grey Flan",
-          "count": 3,
-          "source": "google"
-        }
-      ],
-      "confidence": "低",
+      "top3ByCategory": {
+        "02": [
+          {
+            "rank": 1,
+            "zh": "杏仁可頌",
+            "en": "Almond Croissant",
+            "flavor": "杏仁內餡",
+            "count": 10,
+            "rating": 4.9,
+            "verdict": "大家推薦",
+            "confidence": "中",
+            "note": ""
+          },
+          {
+            "rank": 2,
+            "zh": "巧克力可頌",
+            "en": "Chocolate Croissant",
+            "flavor": "巧克力",
+            "count": 9,
+            "rating": 4.4,
+            "verdict": "評論常提到",
+            "confidence": "中",
+            "note": ""
+          },
+          {
+            "rank": 3,
+            "zh": "每月限定口味",
+            "en": "Monthly Special",
+            "flavor": "口味每月更換",
+            "count": 8,
+            "rating": 4.8,
+            "verdict": "大家推薦",
+            "confidence": "中",
+            "note": "另有提拉米蘇拿鐵 16 則（飲品）"
+          }
+        ]
+      },
       "rating": 4.4,
       "reviews": 247,
       "note": "創意款輪替；記得先吃原味",
@@ -892,27 +1406,43 @@ var BAKERY_DATA = {
       "priority": "B",
       "status": "待調查",
       "target": "Pork Floss Bun / Taro Pork Floss Bun / Pineapple Bun",
-      "top3": [
-        {
-          "zh": "芋頭系列",
-          "en": "Taro",
-          "count": 17,
-          "source": "google"
-        },
-        {
-          "zh": "肉鬆麵包",
-          "en": "Pork Floss",
-          "count": 8,
-          "source": "google"
-        },
-        {
-          "zh": "鮮奶油蛋糕",
-          "en": "Fresh Cream Cake",
-          "count": 3,
-          "source": "google"
-        }
-      ],
-      "confidence": "低",
+      "top3ByCategory": {
+        "05": [
+          {
+            "rank": 1,
+            "zh": "芋頭系列",
+            "en": "Taro",
+            "flavor": "芋頭麵包、芋頭蛋糕、芋頭三明治",
+            "count": 17,
+            "rating": 4.6,
+            "verdict": "大家推薦",
+            "confidence": "中",
+            "note": ""
+          },
+          {
+            "rank": 2,
+            "zh": "肉鬆麵包",
+            "en": "Pork Floss Bun",
+            "flavor": "肉鬆",
+            "count": 10,
+            "rating": 3.6,
+            "verdict": "評論常提到",
+            "confidence": "中",
+            "note": "評價分歧"
+          },
+          {
+            "rank": 3,
+            "zh": "麻糬麵包",
+            "en": "Mochi Bun",
+            "flavor": "麻糬",
+            "count": 5,
+            "rating": 5.0,
+            "verdict": "大家推薦",
+            "confidence": "中",
+            "note": "紅豆麵包 5 則（4.8 星）同樣熱門"
+          }
+        ]
+      },
       "rating": 4.2,
       "reviews": 121,
       "note": "台式及泛亞洲混合，建議確認蔥麵包品項；台灣社群認證台式；近期評價普通（Google 近 20 則平均 3.95）",
@@ -945,27 +1475,78 @@ var BAKERY_DATA = {
       "priority": "B",
       "status": "待調查",
       "target": "White Sourdough / Plain Croissant",
-      "top3": [
-        {
-          "zh": "法棍",
-          "en": "Baguette",
-          "count": 14,
-          "source": "google"
-        },
-        {
-          "zh": "酸種麵包",
-          "en": "Sourdough",
-          "count": 13,
-          "source": "google"
-        },
-        {
-          "zh": "可頌",
-          "en": "Croissant",
-          "count": 12,
-          "source": "google"
-        }
-      ],
-      "confidence": "高",
+      "top3ByCategory": {
+        "01": [
+          {
+            "rank": 1,
+            "zh": "長時間發酵酸種",
+            "en": "Long-ferment Sourdough",
+            "flavor": "長時間發酵，週四供應",
+            "count": 13,
+            "rating": 4.7,
+            "verdict": "大家推薦",
+            "confidence": "中",
+            "note": ""
+          },
+          {
+            "rank": 2,
+            "zh": "法棍",
+            "en": "Baguette",
+            "flavor": "外脆內軟",
+            "count": 11,
+            "rating": 4.9,
+            "verdict": "大家推薦",
+            "confidence": "中",
+            "note": ""
+          },
+          {
+            "rank": 3,
+            "zh": "芝麻法棍",
+            "en": "Sesame Baguette",
+            "flavor": "芝麻",
+            "count": 2,
+            "rating": 5.0,
+            "verdict": "大家推薦",
+            "confidence": "低",
+            "note": ""
+          }
+        ],
+        "02": [
+          {
+            "rank": 1,
+            "zh": "杏仁可頌",
+            "en": "Almond Croissant",
+            "flavor": "杏仁內餡",
+            "count": 7,
+            "rating": 5.0,
+            "verdict": "大家推薦",
+            "confidence": "中",
+            "note": ""
+          },
+          {
+            "rank": 2,
+            "zh": "巧克力可頌",
+            "en": "Pain au Chocolat",
+            "flavor": "巧克力",
+            "count": 4,
+            "rating": 4.8,
+            "verdict": "大家推薦",
+            "confidence": "低",
+            "note": ""
+          },
+          {
+            "rank": 3,
+            "zh": "櫻桃黑巧克力可頌",
+            "en": "Cherry & Dark Chocolate Croissant",
+            "flavor": "櫻桃、黑巧克力",
+            "count": 3,
+            "rating": 4.7,
+            "verdict": "大家推薦",
+            "confidence": "低",
+            "note": ""
+          }
+        ]
+      },
       "rating": 4.7,
       "reviews": 119,
       "note": "開店日較少；訪前查 IG",
@@ -997,27 +1578,43 @@ var BAKERY_DATA = {
       "priority": "B",
       "status": "待調查",
       "target": "White / Wholemeal Sandwich Loaf",
-      "top3": [
-        {
-          "zh": "越式法包",
-          "en": "Banh Mi",
-          "count": 29,
-          "source": "google"
-        },
-        {
-          "zh": "派",
-          "en": "Pie",
-          "count": 24,
-          "source": "google"
-        },
-        {
-          "zh": "香草千層",
-          "en": "Vanilla Slice",
-          "count": 13,
-          "source": "google"
-        }
-      ],
-      "confidence": "高",
+      "top3ByCategory": {
+        "04": [
+          {
+            "rank": 1,
+            "zh": "越式法包",
+            "en": "Banh Mi",
+            "flavor": "法式麵包捲，最常點脆皮豬肉",
+            "count": 27,
+            "rating": 5.0,
+            "verdict": "大家推薦",
+            "confidence": "高",
+            "note": "Google 關鍵字 crispy pork banh mi 5 則"
+          },
+          {
+            "rank": 2,
+            "zh": "酸種麵包",
+            "en": "Sourdough",
+            "flavor": "",
+            "count": 7,
+            "rating": 4.3,
+            "verdict": "評論常提到",
+            "confidence": "中",
+            "note": ""
+          },
+          {
+            "rank": 3,
+            "zh": "麵包捲",
+            "en": "Bread Rolls",
+            "flavor": "外脆",
+            "count": 3,
+            "rating": 5.0,
+            "verdict": "大家推薦",
+            "confidence": "低",
+            "note": "目標品項的吐司（Sandwich Loaf）評論 0 則"
+          }
+        ]
+      },
       "rating": 4.8,
       "reviews": 118,
       "note": "網站列出 Sandwich Loaf",

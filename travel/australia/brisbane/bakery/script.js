@@ -254,29 +254,56 @@ function setupScrollSpy() {
 }
 
 // ── shop cards ──
-function renderTop3(shop) {
-  var box = el('div', 'top3');
-  var title = el('div', 'top3-title', '大家推薦');
-  if (shop.confidence === '低') title.appendChild(el('span', 'tag tag-low', '資料少'));
+// Per-category top 3 (top3.csv). Only items whose mentioning reviews average
+// ≥ 4.5★ with ≤ 10% low scores carry the 推薦 tag; the rest are just "常提到".
+function itemMeta(item) {
+  var parts = [];
+  if (item.count) parts.push(item.count + ' 則提到');
+  if (item.rating != null) parts.push('★ ' + item.rating.toFixed(1));
+  if (parts.length) return parts.join(' · ');
+  return item.verdict === '媒體推薦' ? '只有媒體資料' : '評論只寫泛稱';
+}
+
+function verdictTag(item) {
+  if (item.verdict === '大家推薦') return el('span', 'tag tag-rec', '推薦');
+  if (item.verdict === '媒體推薦') return el('span', 'tag', '媒體推薦');
+  return null;
+}
+
+function renderTop3Block(shop, code) {
+  var items = shop.top3ByCategory[code] || [];
+  var box = el('section', 'top3');
+  var title = el('div', 'top3-title', categoryLabel(code) + ' 前三名');
+  var lowCount = items.filter(function(i) { return i.confidence === '低'; }).length;
+  if (!items.length || lowCount * 2 >= items.length) title.appendChild(el('span', 'tag tag-low', '資料少'));
   box.appendChild(title);
 
   var list = el('ol', 'top3-list');
-  shop.top3.forEach(function(item, index) {
+  items.forEach(function(item, index) {
     var li = el('li', 'top3-item');
     li.appendChild(el('span', 'top3-medal', MEDALS[index] || '·'));
-    var name = el('span', 'top3-name');
-    name.appendChild(el('span', 'top3-zh', item.zh));
-    if (item.en) name.appendChild(el('span', 'top3-en', item.en));
+    var name = el('div', 'top3-name');
+    var line = el('div', 'top3-line');
+    line.appendChild(el('span', 'top3-zh', item.zh));
+    var tag = verdictTag(item);
+    if (tag) line.appendChild(tag);
+    name.appendChild(line);
+    name.appendChild(el('div', 'top3-en', item.en + (item.flavor ? ' · ' + item.flavor : '')));
     li.appendChild(name);
-
-    var countText = '';
-    if (item.source === 'media') countText = '媒體推薦';
-    else if (item.count != null) countText = (item.tie ? '並列 ' : '') + item.count + ' 則提到';
-    li.appendChild(el('span', 'top3-count', countText));
+    li.appendChild(el('span', 'top3-count', itemMeta(item)));
     list.appendChild(li);
   });
+  if (items.length < 3) list.appendChild(el('li', 'top3-gap', '其餘款式的評論資料不足'));
   box.appendChild(list);
   return box;
+}
+
+function renderTop3(shop) {
+  // With a category filter on, show only that category; otherwise every category the shop belongs to.
+  var codes = state.category === ALL ? shop.categories : [state.category];
+  var frag = document.createDocumentFragment();
+  codes.forEach(function(code) { frag.appendChild(renderTop3Block(shop, code)); });
+  return frag;
 }
 
 function renderTasting(t) {
@@ -407,8 +434,9 @@ function renderList(shops) {
   els.sidebarBody.appendChild(list);
 
   els.sidebarBody.appendChild(el('p', 'data-footnote',
-    'Google 評分與「N 則提到」為 ' + state.data.dataAsOf + ' 的 Google Maps 評論資料。' +
-    '「大家推薦」依評論中最常被提到的品項排序；「資料少」代表評論提及次數偏低。' +
+    'Google 評分與「N 則提到」為 ' + state.data.dataAsOf + ' 的 Google Maps 評論資料，評論多的店為抽樣。' +
+    '前三名依各分類中被提到最多的款式排序；「推薦」代表提到它的評論平均 4.5 星以上、負評不到一成；' +
+    '「★」是提到該款評論的平均星等，不是對該款本身的評分；「資料少」代表提及次數偏低。' +
     '分類與區域篩選只作用在清單，地圖固定顯示全部店家。'));
 }
 

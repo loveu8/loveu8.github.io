@@ -613,22 +613,40 @@ a:focus-visible {
   color: var(--color-accent-strong);
   margin-bottom: 4px;
 }
-.top3-list { list-style: none; display: flex; flex-direction: column; gap: 3px; }
+.top3 + .top3 { margin-top: 8px; }
+.top3-list { list-style: none; display: flex; flex-direction: column; gap: 6px; }
 .top3-item {
   display: grid;
   grid-template-columns: 22px 1fr auto;
-  align-items: baseline;
+  align-items: start;
   gap: 6px;
 }
-.top3-medal { font-size: 15px; line-height: 1; }
+.top3-medal { font-size: 15px; line-height: 1.4; }
 .top3-name { min-width: 0; }
+.top3-line { display: flex; flex-wrap: wrap; align-items: center; gap: 4px; }
 .top3-zh { font-size: var(--fs-sm); font-weight: 700; color: var(--color-text); }
-.top3-en { font-size: var(--fs-2xs); color: var(--color-text-muted); margin-left: 4px; }
+.top3-en {
+  font-size: var(--fs-2xs);
+  color: var(--color-text-muted);
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
 .top3-count {
   font-size: var(--fs-2xs);
   color: var(--color-text-soft);
   font-variant-numeric: tabular-nums;
   white-space: nowrap;
+  line-height: 1.6;
+}
+.top3-gap {
+  font-size: var(--fs-2xs);
+  color: var(--color-text-soft);
+  padding-left: 28px;
+}
+.tag-rec {
+  background: var(--color-secondary-soft);
+  color: var(--color-secondary-strong);
+  border-color: var(--color-secondary-border);
 }
 
 .shop-target,
