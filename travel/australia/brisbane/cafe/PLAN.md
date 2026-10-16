@@ -4,6 +4,23 @@
 - 狀態：**方向已和使用者逐題確認（第 1 節），已做 QA（第 6 節），尚未開工**
 - 參考：`travel/australia/brisbane/bakery/`（PLAN.md、CANDIDATES.md、TOP3.md）、根目錄 `DESIGN.md`、`DECISIONS.md`、`AGENTS.md`
 
+## 進度表
+
+**接手時先看這裡**：找第一個不是 ✅ 的列，照「下一步」做。每完成一步就更新這張表（狀態、日期、commit、下一步），和那一步的程式放在同一個 commit。
+
+| 步驟 | 內容 | 狀態 | 完成日期 | Commit | 下一步／備註 |
+|---|---|---|---|---|---|
+| 0 | 討論、寫計畫、QA | ✅ 完成 | 2026-10-16 | `a82de6d` | — |
+| 1 | 工具進 repo（`travel/tools/`、`bakery/categories.csv`） | ✅ 完成 | 2026-10-16 | （本 commit） | 新工具產生的 `data.js` 和 repo 版本完全相同（`git diff` 0 行）；My Maps 匯入檔和 Downloads 的 `brisbane-bakery-mymaps-all-32.csv` 雜湊值相同。另外抽出 `list_data.py` 放兩支工具共用的 csv 讀取 |
+| 2 | 抽出共用程式（`travel/shared/`、`bakery/page.js`） | ⬜ 未開始 | | | **從這裡開始**：照第 3 節步驟 2。產生指令見 `travel/tools/README.md`，這步要把 `--var` 預設改成 `PAGE_DATA`、拿掉 `--title`。需要使用者手動檢查列印 |
+| 3 | 文件（DECISIONS.md、bakery/PLAN.md） | ⬜ 未開始 | | | |
+| 4 | 咖啡廳候選調查（`cafe/CANDIDATES.md`） | ⬜ 未開始 | | | 可以分幾次做；做到一半時把已查的店家寫在這一列 |
+| 5 | 使用者定案分類、區域、名單 | ⬜ 未開始 | | | 第 5 節「待決定」 |
+| 6 | 咖啡廳 csv、前三名查核 | ⬜ 未開始 | | | 第 4 節 |
+| 7 | 咖啡廳頁面、My Maps | ⬜ 未開始 | | | 第 4 節 |
+
+狀態符號：⬜ 未開始、🔄 進行中、⏸️ 等使用者決定、✅ 完成
+
 ## 0. 背景
 
 使用者想做「咖啡廳系列」，問是否開一個 `cafe/` 目錄照烘焙地圖做一次。討論後的結論是：

@@ -1,3 +1,4 @@
 .gstack/
 .claude/
 ai_report/2026/reference/data/*.xlsx
+__pycache__/
