@@ -63,6 +63,52 @@
    - 蛋糕店的目標款不是最熱門款：Flour & Chocolate、Icing Hill、Dello Mano、Chouette
 4. **低信心的 5 家**（Sprout、Beurre、Breadtop、Kangti、Dello Mano）資料不足，去之前建議再看 IG 或最新評論。
 
+## QA 紀錄（2026-10-16）
+
+使用者看網頁時提問：「很多只寫普通的餐點名稱，不知道是什麼口味，調查是真實的嗎？」
+
+### 結論
+
+- **資料是真的**：每個品項與次數都是 Google Maps 評論區「熱門關鍵字」實際顯示的值，原始資料見下一節，可在 Google Maps 重現（數字會隨新評論略變）。
+- **但有兩個限制，原本沒有說清楚**：
+
+| # | 問題 | 說明 | 影響 |
+|---|---|---|---|
+| 1 | **很多品項只有大類，沒有口味** | 關鍵字由 Google 自動抽取，常只抽到「croissant」「pies」「danish」這種大類。調查時**只讀了關鍵字，沒有讀評論內容**，所以沒有查口味。「抹茶品項」「榴槤品項」「芋頭系列」是我自己補的說法，因為不知道是哪一種產品。 | 卡片看不出該點哪一款 |
+| 2 | **「被提到」不等於「被推薦」** | 提及次數包含負評（例如「可頌太油」也算一次）。欄位叫「大家推薦」，說得比資料能證明的多。 | csv 欄位名「大家推薦前三名」、網頁標題「大家推薦」都需要修正或補證據 |
+
+### 只有大類的品項（網頁上 19 家）
+
+依「看不出具體款式或口味」判定；原味可頌、杏仁可頌這類已指明款式的不算。
+
+| ID | 店家 | 只有大類的品項 | Google 關鍵字裡已有的線索 |
+|---|---|---|---|
+| B01 | Riser | 香腸卷、酸種麵包、可頌 | almond croissant（8） |
+| B02 | Danny's Bread | 酸種麵包、貝果 | — |
+| B03 | Sprout | 可頌、酸種麵包（媒體） | — |
+| B04 | Oh My Bread! | 法棍、酸種麵包、可頌 | sesame baguette（2）、cherry croissant（2） |
+| B05 | Banneton | 酸種麵包、可頌、香腸卷 | pork and fennel sausage roll（3）、multigrain sourdough（3） |
+| B08 | Time & Temp | 可頌 | — |
+| B10 | NOS. Bakehouse | 日式三明治 | egg sando（10）、prawn sando（4） |
+| B14 | Jocelyn's | 派、杯子蛋糕、生日蛋糕 | — |
+| B15 | Le'Artisan | 越式法包、派 | crispy pork banh mi（5）、lamb rosemary pie（3） |
+| B16 | Kangti | 芋頭系列、鮮奶油蛋糕 | taro cake（4）、taro sandwich（3）、strawberry cake（2） |
+| B17 | The Wheat House | 方塊可頌、吐司、抹茶品項 | taro croissant（3）、chocolate cube（3）、black sesame croissant（2） |
+| B19 | Flour & Chocolate | 可頌、布朗尼、丹麥酥 | almond croissant（9）、chocolate croissant（6） |
+| B21 | Icing Hill | 千層蛋糕、榴槤品項 | — |
+| B23 | Idle | 酸種麵包 | — |
+| B24 | Darvella | 可頌 | — |
+| B25 | Cerin | 佛卡夏、義式可頌 | — |
+
+- 共 **16 家、34 個品項**只有大類。全部前三名都已指明款式的只有 3 家：B06 Christian Jacques、B07 Lune、B09 Beurre。
+- 先前回覆使用者時估計「12～15 個」，實際清點是 34 個，估計偏低。
+
+### 待決定的補強方式（尚未執行）
+
+1. **補查口味與評價方向**：在 Google Maps 評論區點選各關鍵字，只看提到該品項的評論，記錄最常被提到的具體口味，以及評價大多是好評還是負評。
+2. **修正名稱**：補查前，網頁標題與 csv 欄位改成「評論最常提到」；補查確認大多是好評後，再決定是否改回「大家推薦」。
+3. 媒體報導的招牌品項（QA.md 第一輪）可作為口味的第二來源，例如 Jocelyn's 在 Time Out 寫的是羊肉迷迭香派、豬肉蘋果香腸卷。
+
 ## 原始資料（Google 熱門關鍵字，前 10 個，含非食物）
 
 | ID | 關鍵字：提及次數 |

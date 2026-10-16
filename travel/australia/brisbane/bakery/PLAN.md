@@ -130,7 +130,8 @@ CSS 先**複製**而不是抽成全站共用檔：抽共用檔要動到 Noosa �
 | 1b | 區域劃分 | 市中心周邊、北、西、南、東 5 區（見下表） | csv 新增「大區域」 |
 | 2 | C 級店 | **網頁上不顯示**，csv 保留 | 網頁 19 家；分類 tab 依實際資料產生，所以「港式」tab 不出現 |
 | 3 | 語言 | **只做中文**，不放語言切換 | 前三名已附英文名，點餐用 |
-| 4 | 地圖 | **Leaflet ＋ OpenStreetMap**，19 家全部標在地圖上，跟篩選連動 | 不用 API key、可用 `file://` 打開；外觀和 Noosa 的 Google 地圖不同；卡片保留「↗ Maps」開 Google Maps 導航；考慮過 Google Maps JS API（要綁信用卡、key 公開、`file://` 可能失效），未採用 |
+| 4b | 地圖（2026-10-16 改） | **Google My Maps 嵌入**顯示全部店家；📍 切換成單店 Google 嵌入，「回到全部店家」按鈕回到全覽 | 使用者覺得 OpenStreetMap 看不習慣。My Maps 由使用者匯入 csv 建立，嵌入網址寫在 `data.js` 的 `myMapsEmbedUrl`；**分類 × 區域篩選只作用在清單，地圖不連動**；以後新增店家要重新匯入 My Maps。下面第 4 列的 Leaflet 方案已停用 |
+| 4 | 地圖（已停用） | ~~Leaflet ＋ OpenStreetMap~~，19 家全部標在地圖上，跟篩選連動 | 底圖用 OpenStreetMap 官方圖磚，深淺色模式都用同一套（實作時試過 CARTO，現在要 API key，會出現浮水印，未採用）；不用 API key、可用 `file://` 打開（已實測）；外觀和 Noosa 的 Google 地圖不同；卡片保留「↗ Maps」開 Google Maps 導航；考慮過 Google Maps JS API（要綁信用卡、key 公開、`file://` 可能失效），未採用 |
 | 5 | 試吃紀錄 | **只看 csv**，填好後重跑腳本 | 有資料的卡片顯示「✅ 已試吃」與評分；不做瀏覽器勾選 |
 | 6 | 照片 | **先放店家 IG 連結，去過後加自己拍的照片** | 照片放 `bakery/pics/`；不使用 Google、IG 或 AI 生成的照片 |
 | 7 | csv 新欄位 | 8 欄全部新增；提及次數寫進「大家推薦前三名」，格式如 `原味可頌 Croissant（271）` | 見下表 |
@@ -160,8 +161,8 @@ CSS 先**複製**而不是抽成全站共用檔：抽共用檔要動到 Noosa �
 ## 8. 建議的實作順序
 
 1. ~~確認第 7 節的決定~~（完成）
-2. 補 csv 欄位：大區域、Google 評分與評論數、信心度、提及次數（已有資料）；經緯度、IG（需查詢）
-3. 寫 `build_data.py`，產生 `data.js`（排除 C 級）
-4. 做 `index.html`、`style.css`、`script.js`，Leaflet 從 cdnjs 載入並固定版本
-5. 淺色／深色、手機／桌機、`file://` 直接打開都檢查一次
-6. 在 `DESIGN.md` 補 Leaflet 地圖標記的規範，在 `DECISIONS.md` 補一筆紀錄
+2. ~~補 csv 欄位~~（完成）
+3. ~~產生 `data.js`（排除 C 級）~~（完成；依使用者決定不在 repo 放轉換腳本，csv 更新後請 Claude 重新產生）
+4. ~~做 `index.html`、`style.css`、`script.js`，Leaflet 1.9.4 從 cdnjs 載入~~（完成）
+5. ~~淺色／深色、手機／桌機、`file://` 檢查~~（完成；列印版未目視檢查）
+6. ~~在 `DESIGN.md`、`DECISIONS.md` 補紀錄~~（完成）
