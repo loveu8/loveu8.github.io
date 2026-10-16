@@ -1,7 +1,7 @@
 # 布里斯本咖啡廳清單：候選調查
 
 - 調查日期：2026-10-17（Google Maps 為當天快照）
-- 狀態：**等使用者定案分類、區域、名單**（PLAN.md 步驟 5）。定案前不要建立 `cafe.csv`
+- 狀態：**步驟 5 定案中**：區域、ODAYA TEA、主地圖規則已決定（見「決定紀錄」）；亞洲風／甜點怎麼處理，等使用者看完台灣風調查再確認。定案前不要建立 `cafe.csv`
 - 範圍：約 65 家，依 PLAN.md 第 1 節「咖啡和早午餐並重」，咖啡或早午餐其中一項有證據就列入
 
 ## 方法
@@ -89,7 +89,7 @@
 | ⭐ | **KIMINO** | Ashgrove（西） | 4.8（262） | 4.75，0 則低分 | **抹茶 67**、可麗露 16、焙茶 8、味噌菇吐司 6 | Sitchu 抹茶榜（傳統派首選）。京都風，也有精品咖啡。**13:00 就關門** |
 | ⭐ | **Wuta Brewers** | CBD（市中心周邊） | 4.5（276） | 4.60，2 則低分 | **抹茶 164**、焙茶拿鐵 16、抹茶霜淇淋 10 | Sitchu；Reddit 抹茶討論串兩次最高讚回覆。營業到 16:00 |
 | ⭐ | **Lola's Coffee Bar**（Kelvin Grove 店） | Kelvin Grove（西） | 4.8（102） | 4.85，0 則低分 | 抹茶 53、紫山藥 12 | Broadsheet、Sitchu；Reddit 抹茶討論串最高讚。宇治抹茶加菲律賓口味（紫山藥、班蘭）。另一家 Tarragindi 店 4.6（294），近期 4.30 |
-| ⭐ | **ODAYA TEA** | Sunnybank（南） | 4.5（302） | 4.55，2 則低分 | **抹茶 154**、焙茶 24、抹茶冰淇淋 14、玄米茶 9 | Reddit 兩個討論串：「the best I've tried」「best in the business」。**是茶葉店兼飲料吧，不賣咖啡和餐點**；在 Sunnybank Plaza 商場內 |
+| ✗ | ~~ODAYA TEA~~ | Sunnybank（南） | 4.5（302） | 4.55，2 則低分 | **抹茶 154**、焙茶 24、抹茶冰淇淋 14、玄米茶 9 | Reddit 兩個討論串：「the best I've tried」「best in the business」。是茶葉店兼飲料吧，不賣咖啡和餐點。**使用者決定不收（2026-10-17）** |
 | ○ | Mountain River Patisserie | Runcorn（南） | 4.3（878） | 4.25，3 則低分 | **抹茶 188**、飯糰 114、可麗露 55、焙茶拿鐵 53 | Reddit：「for sure」。Google 分類是甜點店 |
 | ○ | Supernice | Bowen Hills（市中心周邊） | 4.8（325） | 4.35，2 則低分 | 抹茶 59、魯賓三明治 55、佛卡夏 19 | Sitchu（丸久小山園抹茶）。Google 分類是三明治店 |
 | ○ | Peach Cafe | Auchenflower（西） | 4.2（581） | 4.60，1 則低分 | 餅乾 37、抹茶 35、Nutella 餅乾 12 | Sitchu、Urban List |
@@ -119,6 +119,28 @@
 | ✗ | Bonsai Botanika | CBD | 3.8（1,273） | **2.10**，14 則低分 | 抹茶蛋糕 49、抹茶拿鐵 45 | 評價差，排除 |
 | ✗ | Crumble Cave | Sunnybank Hills | — | — | — | Google Maps 查不到 |
 
+### 台灣風（2026-10-17 使用者追加）
+
+**結論：布里斯本沒有找到「台灣風的咖啡廳」**。台灣元素主要在麵包店（烘焙地圖已經有「05 台式麵包」Kangti、The Wheat House）、手搖飲和台菜餐廳。85°C 在布里斯本沒有分店。
+
+| 判定 | 店家 | 區域 | Google | 最新 20 則 | 評論最常提到 | 佐證／備註 |
+|---|---|---|---|---|---|---|
+| ○ | Cafe Impero Central | Mount Gravatt（南） | 4.7（217） | **4.90**，0 則低分，4 天～8 個月 | 可頌 14、漢堡 12、仁當牛肉 10、台灣菜 8、大杯奶茶 5 | 唯一「咖啡廳＋台式餐點」的店，評論說是「有台灣風味的簡餐」。但也有馬來仁當可頌，比較像混合亞洲風。沒有媒體報導。週一休息，13:30 就關 |
+| ○ | 寶QQ 甜品專賣店（八寶食堂 8BOFU） | Sunnybank Hills（南） | 4.9（416） | **5.00**，0 則低分 | 鯛魚燒 42、剉冰 27、素食 19、關東煮 13、紫米 11、豆花 9 | 台式甜品店，**不賣咖啡**。評分是這次最高，但沒有媒體或 Reddit 佐證。11:00～21:00，週三休息 |
+| △ | Goodside | South Brisbane（市中心周邊） | 4.3（**59**） | 4.00，4 則低分 | 炸豬排三明治 8、咖啡麵包 5 | 港、台、東南亞風早午餐，招牌是台式滷肉飯和咖啡麵包；Sitchu、Must Do Brisbane、Urban List 都報導過。**2026 年中才開**，評論還少 |
+| △ | Hihi Desserts & drinks | West End（市中心周邊） | 4.3（428） | 4.20，3 則低分 | 珍奶 86、便當 39、台式炸雞便當 18、牛肉麵 15 | Google 分類是台菜餐廳，比較像手搖飲＋便當店 |
+| △ | Half Time Food | Sunnybank（南） | 3.8（372） | **3.55**，5 則低分 | 油條 20、飯糰 19、豆漿 19、糯米 12 | 台式早餐攤（Market Square 內）。Reddit 10 年前推薦過，近期評價差 |
+| ✗ | Jia Ba Way 呷飽沒 | CBD | 4.2（178） | **2.75**，9 則低分 | 台式炸雞 7、排骨 10 | 評價差 |
+| ✗ | Happy Hours Tea Bar | Sunnybank | — | — | — | Must Do Brisbane 的台式早餐店，Google Maps 查不到 |
+
+順便查到、但**不是台灣風**的店：
+
+| 判定 | 店家 | 區域 | Google | 最新 20 則 | 評論最常提到 | 備註 |
+|---|---|---|---|---|---|---|
+| ○ | WAHO Cafe | Stones Corner（南） | 4.8（284） | 4.55，1 則低分 | 鬆餅 57、無麩質鬆餅 16、班尼迪克蛋 16 | Must Do Brisbane 說是**韓式**咖啡廳。Auchenflower 另有一家分店，只有 29 則評論 |
+| ○ | Ant Coffee | Underwood（南） | 4.6（263） | 4.50，2 則低分 | 韓國菜 14、炙燒鮭魚蕎麥麵 10、韓式肉餅飯 10、焙茶拿鐵 9 | 韓式和日式。沒有媒體報導 |
+| — | Kith 'n' Chow | Mount Gravatt（南） | 4.6（663） | 4.90，0 則低分 | 咖啡 91、拼盤 76 | 一般早午餐店，搜尋時誤列為台灣風。早午餐分類已經夠多，沒有列入 |
+
 ### 沒有查到的
 
 - **Allpress Espresso（Fortitude Valley）**：InDaily 2026-06 報導的新店，Google Maps 只找到 East Brisbane 的烘豆廠（只開平日 6:30～11:00，評論沒有載入）
@@ -128,40 +150,54 @@
 
 規則（PLAN.md 第 1 節第 2 題）：評論裡麵包品項被提到的次數多於咖啡和餐點，就放烘焙地圖。
 
-| 店家 | 麵包品項 | 咖啡、餐點 | 結果 |
-|---|---|---|---|
-| Coffee Anthology | 酥皮點心 88＋可頌 22 = **110** | 班尼迪克蛋 48＋明蝦歐姆蛋 13＋酪梨吐司 13＋抹茶 10＋手沖 8 = 92 | **照規則應該放烘焙**，但它是有名的多家烘豆咖啡店，見下面「規則的問題」 |
-| PiCK a CaKE | 蛋糕類約 60 | 泰式奶茶 9＋抹茶 4 = 13 | 放烘焙（06 蛋糕店） |
-| Peach Cafe | 餅乾 37＋Nutella 餅乾 12＋可頌 8 = 57 | 抹茶 35＋哈魯米起司 13＋酪梨吐司 9 = 57 | 平手，待決定 |
-| KIMINO | 酥皮點心 20＋可麗露 16＋費南雪 3 = 39 | 抹茶 67＋焙茶 8＋吐司 12 = 87 | 咖啡廳 |
-| Mountain River Patisserie | 可麗露 55＋起司蛋糕 8＋蜂蜜蛋糕 7 = 70 | 抹茶 188＋飯糰 114＋焙茶 53 | 咖啡廳 |
+**規則修正（使用者 2026-10-17 同意）**：Google 評論關鍵字幾乎不會列出「coffee」這種通用詞（只有 Petrichor & Co、Kith 'n' Chow 出現過），所以咖啡會被低估。關鍵字看不出來或很接近時，改用**最新 100 則評論的全文**來數：
 
-**規則的問題**：Google 評論關鍵字幾乎不會列出「coffee」這種通用詞（只有 Petrichor & Co 出現過「coffee 104」），所以咖啡店的咖啡提及數常常被低估。建議改成：關鍵字看不出來時，**用 Google 評論搜尋「coffee」的則數**來比較。
+- 咖啡：提到 coffee、latte、flat white、espresso、long black、cappuccino、batch brew、pour over、filter、cold brew、piccolo、mocha、beans 其中之一
+- 麵包：提到 pastry、croissant、bread、sourdough、bun、danish、cake、canelé、cookie、brownie、muffin、scone、loaf、baked goods 其中之一
+- 餐點：提到 egg、benedict、toast、omelette、brunch、breakfast、pancake、waffle、matcha 其中之一
+- 一則評論同時提到兩類，兩類都算一次；只有星等、沒有文字的評論不算
+
+| 店家 | 關鍵字（舊方法） | 最新 100 則全文（新方法） | 結果 |
+|---|---|---|---|
+| Coffee Anthology | 麵包 110 vs. 咖啡、餐點 92 | 咖啡 **44**、餐點 17 vs. 麵包 8（24 則沒有文字） | **咖啡廳**。舊方法會誤判成烘焙 |
+| PiCK a CaKE | 蛋糕類約 60 vs. 13 | 麵包 **57** vs. 咖啡 22、餐點 11（21 則沒有文字） | **烘焙**（06 蛋糕店），從咖啡廳名單移出 |
+| Peach Cafe | 57 vs. 57（平手） | 咖啡 21、餐點 **25** vs. 麵包 8（18 則沒有文字） | **咖啡廳** |
+| KIMINO | 麵包 39 vs. 87 | 沒有重算（關鍵字差距夠大） | 咖啡廳 |
+| Mountain River Patisserie | 麵包 70 vs. 355 | 沒有重算 | 咖啡廳 |
 
 **跨頁標記候選**（另一邊提及 ≥ 20 次）：Coffee Anthology（酥皮點心 88）、Mountain River（可麗露 55）。規則還要求「提到它的評論平均 ≥ 4.5★」，這次沒有查，建 csv 時再查。烘焙清單中咖啡也有名的店（例如 Lune、Time & Temp）要不要加「☕ 咖啡也有名」，也等兩張地圖都上線再查。
 
 ## 分布（⭐ 和 ○，不含 △、✗）
 
-| 分類 | ⭐ | ○ | 市中心周邊 | 西 | 北 | 南 | 東 |
-|---|---|---|---|---|---|---|---|
-| 01 精品咖啡 | 9 | 9 | 9 | 2 | 4 | 2 | 1 |
-| 02 早午餐 | 5 | 10 | 5 | 4 | 2 | 2 | 2 |
-| 03 抹茶／茶飲 | 4 | 4 | 2 | 3 | 0 | 3 | 0 |
-| 04 亞洲風 | 2 | 1 | 0 | 1 | 0 | 2 | 0 |
-| 05 甜點 | 0（PiCK a CaKE 移到烘焙） | 3 | 1 | 0 | 0 | 2 | 0 |
-| 合計 | 20 | 27 | 17 | 10 | 6 | 11 | 3 |
+已套用 2026-10-17 的決定：CBD 從市中心周邊拆出來、ODAYA TEA 不收、PiCK a CaKE 移到烘焙。台灣風一節的店還沒算進來（等第 1 題決定）。
 
-（Pawpaw、Kin、Lola's 這類可以掛兩個分類的店，上表只算在主分類。）
+| 分類 | ⭐ | ○ | CBD | 市中心周邊 | 西 | 北 | 南 | 東 |
+|---|---|---|---|---|---|---|---|---|
+| 01 精品咖啡 | 9 | 9 | 5 | 4 | 2 | 4 | 2 | 1 |
+| 02 早午餐 | 5 | 10 | 0 | 5 | 4 | 2 | 2 | 2 |
+| 03 抹茶 | 3 | 4 | 1 | 1 | 3 | 0 | 2 | 0 |
+| 04 亞洲風 | 2 | 1 | 0 | 0 | 1 | 0 | 2 | 0 |
+| 05 甜點 | 0 | 3 | 0 | 1 | 0 | 0 | 2 | 0 |
+| 合計 | 19 | 27 | 6 | 11 | 10 | 6 | 10 | 3 |
+
+（Pawpaw、Kin、Lola's 這類可以掛兩個分類的店，上表只算在主分類。CBD 指 Brisbane City：John Mills Himself、Edward、The Maillard Project、Coffee Anthology、Strauss、Wuta Brewers。）
+
+## 決定紀錄（2026-10-17）
+
+| # | 問題 | 決定 |
+|---|---|---|
+| 1 | 亞洲風、甜點太少，怎麼處理 | **先調查台灣風再決定**（已調查，見上面「台灣風」一節）→ 待使用者確認 |
+| 2 | 市中心周邊要不要拆出 CBD | **拆**：新增「CBD」區域（Brisbane City），其他內城區維持「市中心周邊」 |
+| 3 | ODAYA TEA（茶葉店，不賣咖啡）收不收 | **不收** |
+| 4 | 主地圖分配規則 | **改用最新 100 則評論全文來數**（方法見「主地圖分配」）。Coffee Anthology、Peach Cafe 放咖啡廳；PiCK a CaKE 放烘焙 |
 
 ## 結論與待決定
 
 1. **精品咖啡和早午餐很夠**：⭐ 共 14 家，加上 ○ 已經超過 30 家。
-2. **抹茶有 4 家 ⭐**，可以獨立成一類；ODAYA TEA 是茶葉店、不賣咖啡，要不要收由你決定。
-3. **亞洲風和甜點都太少**：亞洲風只有 2 家 ⭐（越南、菲律賓），甜點沒有 ⭐。建議二選一：
-   - (a) 合併成「04 亞洲風／甜點」，或
-   - (b) 甜點拿掉，Sonder、Fluffy Soufflé 改用「⏰ 下午還開」標記放進其他分類
-4. **區域**：市中心周邊 17 家，東區只有 3 家（Bulimba、Hawthorne、Camp Hill）。精品咖啡集中在 CBD（John Mills、Edward、Maillard、Strauss、Coffee Anthology），**建議把市中心周邊拆成「CBD」和「市中心周邊」**。
-5. **⏰ 下午還開標記值得做**：大部分店 14:00～15:00 就關，下午還開的只有 Death Before Decaf（24 小時）、Fluffy Soufflé、Sonder、LA QUEEN（到晚上）、Bellissimo、Fonzie Abbott（到 17:00）。另外有 4 家只開平日（John Mills、Edward、Maillard、Strauss），卡片要提醒。
+2. **抹茶**：ODAYA TEA 拿掉後剩 3 家 ⭐（KIMINO、Wuta、Lola's），加上 4 家 ○，還是可以獨立成一類。
+3. **亞洲風和甜點（第 1 題，待確認）**：台灣風調查後，可以補進來的有 Cafe Impero Central（台式簡餐咖啡廳）、寶QQ（台式甜品）、WAHO、Ant Coffee（韓式）。建議**合併成「04 亞洲風／甜點」**，約 10 家（⭐ 2、○ 8），台灣風的店放在這一類，卡片註明「台式」。
+4. **⏰ 下午還開標記值得做**：大部分店 14:00～15:00 就關，下午還開的只有 Death Before Decaf（24 小時）、Fluffy Soufflé、Sonder、LA QUEEN、寶QQ（到晚上）、Bellissimo、Fonzie Abbott（到 17:00）。另外有 4 家只開平日（John Mills、Edward、Maillard、Strauss），卡片要提醒。
+5. **東區只有 3 家**（Bulimba、Hawthorne、Camp Hill），之後可以補查。
 6. **榜單很多舊資料**：Buttery Boy、She Bangs、Lady Marmalade、Black Sheep、Cafe S152 都已歇業，但 2025～2026 年的榜單還列著。Felix For Goodness 幾乎每個榜單都有，但近期評價只有 3.65。
 
 ## 來源
