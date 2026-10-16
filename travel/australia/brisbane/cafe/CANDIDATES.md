@@ -133,6 +133,21 @@
 | ✗ | Jia Ba Way 呷飽沒 | CBD | 4.2（178） | **2.75**，9 則低分 | 台式炸雞 7、排骨 10 | 評價差 |
 | ✗ | Happy Hours Tea Bar | Sunnybank | — | — | — | Must Do Brisbane 的台式早餐店，Google Maps 查不到 |
 
+#### 台式早餐店（使用者：台灣風比較是早餐店）
+
+另外用中文搜尋（「布里斯本 台式早餐 蛋餅 豆漿」），來源是痞客邦、背包客棧、Threads、IG 的摘要。台式早餐店幾乎都集中在 Sunnybank 一帶，**沒有一家達到 ⭐**：
+
+| 判定 | 店家 | 區域 | Google | 最新 20 則 | 評論最常提到 | 佐證／備註 |
+|---|---|---|---|---|---|---|
+| ○ | Michelle's Sweet Kitchen | Sunnybank Hills（南） | 3.8（233） | **4.40**，1 則低分，4 天～5 個月 | 飯糰 19、蛋餅 15、蚵仔煎 7、豆漿 6 | 最像台灣早餐店的一家：7:00 開，蛋餅、飯糰、豆漿都有，也賣台式便當、雞腿飯。在 Pinelands Plaza 商場內，Sunnybank Plaza 有另一家（3.6、69 則）。總分偏低，但近期好轉。沒有媒體報導 |
+| △ | Half Time Food 圓緣園 | Sunnybank（南） | 3.8（372） | **3.55**，5 則低分，1～8 個月 | 油條 20、飯糰 19、豆漿 19、糯米 12、餃子 13 | 台灣人部落格最常寫的老店（痞客邦多篇、lisbaby 2022）；Reddit 10 年前推薦過。Market Square 美食街內，7:00～13:00。近期評價差；Threads 有人說在 Sunnybank 吃台式早餐「第一間就踩雷」，但沒寫是哪家 |
+| ✗ | Jia Ba Way 呷飽沒 | CBD | 4.2（178） | **2.75**，9 則低分 | 排骨 10、台式炸雞 7、豆漿 5 | 唯一在市區的台式早餐（Facebook 有蛋餅、豆漿早餐套餐，平日 8:00 開，週末休息）。近期評價很差 |
+| ✗ | 百家千味 Glamorous Wok | Sunnybank（南） | 4.1（714） | 4.60 | 三杯雞 13、珍奶 13 | 背包客棧 2014 年說早上賣台式早餐，**現在 11:30 才開**，已經沒有早餐 |
+| ✗ | Kingsfood 台灣小調 | Sunnybank（南） | 4.0（977） | 3.20，7 則低分 | 台灣菜 27、珍奶 18 | 台菜餐廳，11:30 才開，不是早餐店。Threads 有人說早就不是台灣人經營 |
+| ✗ | OMMI DON | — | — | — | — | IG 說是「最接近台灣味的早餐」，但店在雪梨 Chatswood |
+
+台灣網友提到的「Half Time 隔壁、燒餅超好吃的店」（Threads，3 個月前）沒能確認是哪一家：Threads 頁面打不開，Google Maps 在 Market Square 也找不到賣燒餅的店。
+
 順便查到、但**不是台灣風**的店：
 
 | 判定 | 店家 | 區域 | Google | 最新 20 則 | 評論最常提到 | 備註 |
@@ -195,7 +210,7 @@
 
 1. **精品咖啡和早午餐很夠**：⭐ 共 14 家，加上 ○ 已經超過 30 家。
 2. **抹茶**：ODAYA TEA 拿掉後剩 3 家 ⭐（KIMINO、Wuta、Lola's），加上 4 家 ○，還是可以獨立成一類。
-3. **亞洲風和甜點（第 1 題，待確認）**：台灣風調查後，可以補進來的有 Cafe Impero Central（台式簡餐咖啡廳）、寶QQ（台式甜品）、WAHO、Ant Coffee（韓式）。建議**合併成「04 亞洲風／甜點」**，約 10 家（⭐ 2、○ 8），台灣風的店放在這一類，卡片註明「台式」。
+3. **亞洲風和甜點（第 1 題，待確認）**：台灣風調查後，可以補進來的有 Cafe Impero Central（台式簡餐咖啡廳）、寶QQ（台式甜品）、Michelle's Sweet Kitchen（台式早餐，○）、WAHO、Ant Coffee（韓式）。建議**合併成「04 亞洲風／甜點」**，約 11 家（⭐ 2、○ 9），台灣風的店放在這一類，卡片註明「台式」。台式早餐店整體評價偏弱，只建議收 Michelle's 一家。
 4. **⏰ 下午還開標記值得做**：大部分店 14:00～15:00 就關，下午還開的只有 Death Before Decaf（24 小時）、Fluffy Soufflé、Sonder、LA QUEEN、寶QQ（到晚上）、Bellissimo、Fonzie Abbott（到 17:00）。另外有 4 家只開平日（John Mills、Edward、Maillard、Strauss），卡片要提醒。
 5. **東區只有 3 家**（Bulimba、Hawthorne、Camp Hill），之後可以補查。
 6. **榜單很多舊資料**：Buttery Boy、She Bangs、Lady Marmalade、Black Sheep、Cafe S152 都已歇業，但 2025～2026 年的榜單還列著。Felix For Goodness 幾乎每個榜單都有，但近期評價只有 3.65。
@@ -211,4 +226,5 @@
 - [Style 雜誌：最佳早午餐（Halo Ground）](https://stylemagazines.com.au/food/best-brunch-brisbane)
 - Must Do Brisbane：甜點咖啡廳（2026-05 更新）、Fluffy Soufflé、Soufflé Japancakes、Sonder（網站擋 WebFetch，只讀搜尋摘要）
 - Reddit r/brisbane：只讀 Google 搜尋摘要（「Best Coffee Shop in Brisbane」「Where can I get the best coffee in Brisbane?」「Good coffee」「Best coffee north of Brisbane?」「Where do I get the best cup of coffee in Brisbane?」「Best Coffee」「Breakfast Cafe options」「Best Breakfast / Brunch spots in the Indooroopilly area??」「Cosy Cafe Recommendations」「Best Matcha in Brisbane recommendations?」「How do you find matcha spots?」「Any good matcha in Brisbane CBD?」「Best place for Matcha and Hōjicha Iced Lattes?」等）
+- 台式早餐：只讀 Google 搜尋摘要，來源包括痞客邦（gonancy、shana12418、jris、aristocrat 的圓緣園文章）、[lisbaby：圓緣園（2022-09-28）](https://www.lisbaby.com/oz-restaurant-recommendation)、背包客棧「百家千味早餐 in Sunnybank」（2014）、Threads（chchip_1004、ericyhchen1981）、IG／FB（澳嬌克萊兒、Jiabaway、OMMI DON）
 - Google Maps：各店頁面（2026-10-17 快照）
