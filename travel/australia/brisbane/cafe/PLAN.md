@@ -16,8 +16,8 @@
 | 3 | 文件（DECISIONS.md、bakery/PLAN.md） | ✅ 完成 | 2026-10-16 | （本 commit） | `DECISIONS.md` 新增共用架構一列（舊列提到 `script.js`、`BAKERY_DATA` 是歷史紀錄，保留不改）；`bakery/PLAN.md` 第 8 節加註；`DESIGN.md` 的 My Maps 段落改成「備用地圖用 `fallbackPlace`」並註明新頁面要用共用檔案 |
 | 4 | 咖啡廳候選調查（`cafe/CANDIDATES.md`） | ✅ 完成 | 2026-10-17 | （本 commit） | 約 65 家，⭐ 20、○ 27。精品咖啡、早午餐很夠；亞洲風只有 2 家 ⭐、甜點沒有 ⭐；5 家榜單上的店已歇業 |
 | 5 | 使用者定案分類、區域、名單 | ✅ 完成 | 2026-10-17 | `ada787a` | 使用者確認 31 家名單。2026-10-17 已決定：拆出「CBD」區域、ODAYA TEA 不收、主地圖改用最新 100 則評論全文來數（Coffee Anthology、Peach 放咖啡廳，PiCK a CaKE 放烘焙）。使用者追加台灣風調查，兩輪完成（Cafe Impero Central 是台式早餐咖啡廳，⭐）。亞洲風、甜點**分開**，台灣風收進來。使用者選「約 30 家」，31 家名單寫在 `CANDIDATES.md`「最後名單草案」 |
-| 6 | 咖啡廳 csv、前三名查核 | 🔄 進行中 | | | 已完成 `cafe.csv`（31 家，含地址、座標）、`top3.csv`（127 個品項）、`categories.csv`、`TOP3.md`。決定：前三名分「飲品／餐點」兩區塊（top3.csv 加「區塊」欄）、試吃欄位是飲品／餐點／環境／回購、ID 用 CF01。**還缺**：29 家的 Instagram（只有 KIMINO、Wuta 已填） |
-| 7 | 咖啡廳頁面、My Maps | ⬜ 未開始 | | | 第 4 節 |
+| 6 | 咖啡廳 csv、前三名查核 | ✅ 完成 | 2026-10-17 | `08fe8fc`＋（本 commit） | `cafe.csv`（31 家，含地址、座標、Instagram）、`top3.csv`（127 個品項）、`categories.csv`、`TOP3.md`。決定：前三名分「飲品／餐點」兩區塊（top3.csv 加「區塊」欄）、試吃欄位是飲品／餐點／環境／回購、ID 用 CF01。Michelle's Sweet Kitchen 查不到 Instagram |
+| 7 | 咖啡廳頁面、My Maps | ⬜ 未開始 | | | **從這裡開始**：第 4 節，以及第 5 節列出的共用程式改動（CBD 區域、前三名區塊、風格標籤、跨頁標記） |
 
 狀態符號：⬜ 未開始、🔄 進行中、⏸️ 等使用者決定、✅ 完成
 
