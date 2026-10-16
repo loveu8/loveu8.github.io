@@ -1,7 +1,7 @@
 # 布里斯本咖啡廳清單：候選調查
 
 - 調查日期：2026-10-17（Google Maps 為當天快照）
-- 狀態：**步驟 5 定案中**：區域、ODAYA TEA、主地圖規則已決定（見「決定紀錄」）；亞洲風／甜點怎麼處理，等使用者看完台灣風調查再確認。定案前不要建立 `cafe.csv`
+- 狀態：**步驟 5 定案中**：分類（5 類）、區域（加 CBD）、ODAYA TEA、主地圖規則都已決定（見「決定紀錄」）；**還差最後名單**（⭐ 20、○ 37，規模約 30 家）。定案前不要建立 `cafe.csv`
 - 範圍：約 65 家，依 PLAN.md 第 1 節「咖啡和早午餐並重」，咖啡或早午餐其中一項有證據就列入
 
 ## 方法
@@ -148,6 +148,24 @@
 
 台灣網友提到的「Half Time 隔壁、燒餅超好吃的店」（Threads，3 個月前）沒能確認是哪一家：Threads 頁面打不開，Google Maps 在 Market Square 也找不到賣燒餅的店。
 
+#### 第二輪補查（2026-10-17，使用者：「還有沒有其他間」）
+
+搜尋了 Google Maps 的「Taiwanese dessert」「Taiwanese restaurant」，以及中文「布里斯本 台灣人開 咖啡廳／早餐店／豆花」。找到兩種台灣風：**賣台式餐點、甜品的店**，和**台灣人開的西式咖啡廳**。
+
+| 判定 | 店家 | 區域 | Google | 最新 20 則 | 評論最常提到 | 佐證／備註 |
+|---|---|---|---|---|---|---|
+| ⭐ | **Cafe Impero Central**（從上面的 ○ 升級） | Mount Gravatt（南） | 4.7（217） | 4.90，0 則低分 | 可頌 14、台灣菜 8 | 臉書社團「Brisbane 小布村愛哈拉」：「台灣早餐店……味道蠻像在台灣吃到的」，有豬排菜脯蛋三明治、皮蛋肉鬆三明治。**這就是台式早餐咖啡廳** |
+| ○ | Jacaranda Coffee Lane | West End（市中心周邊） | 4.8（915） | 4.40，3 則低分 | 蟹肉歐姆蛋 37、班尼迪克蛋 26、麻婆豆腐 24、送水果沙拉 20、**芋頭拿鐵 13** | Threads：「布村幾家台灣人開的都很棒」（未證實）。亞洲風早午餐。週三休息 |
+| ○ | Coffee Iconic | CBD | 4.6（1,544） | 4.40，1 則低分 | 花園 169、戶外座位 45、炒蛋 34、烏龍麵 16 | Weekend Edition、Must Do Brisbane；**賣台灣進口的茶葉**。Threads 說是台灣人開（未證實）。主要賣點是祕密花園，比較適合放「02 早午餐」 |
+| ○ | 靜思書軒 Jing Si Books & Cafe | Salisbury（南） | 4.8（109） | 4.55，1 則低分 | 安靜 28、純素 18、拿鐵 11 | 台灣慈濟的書店咖啡，全素。週日、週一休息 |
+| ○ | Dō Dessert | Sunnybank Hills（南） | 4.8（330） | 4.55，1 則低分 | **豆花 56**、豆漿布丁 18、仙草 16、芋圓 8 | 豆花專賣店，和寶QQ 在同一個商場。有桃膠，**可能是中式豆花，不確定是台式**。12:30～21:30 |
+| ○ | Eight Ounce Café | Springwood（南） | 4.4（363） | 4.15，3 則低分 | 抹茶 35、鰻魚茶泡飯 18、炸豬排三明治 18、等候時間 30 | 日式。IG 有人推薦（南區早午餐）。不是台灣風，放亞洲風 |
+| ○ | Sugar Puff Cafe | Sunnybank（南） | 4.7（618） | 4.90，0 則低分 | 雞蛋仔 38、奶茶 29、蛋塔 22 | **港式**甜品，不是台灣風。營業到 21:30～22:30 |
+| △ | Meet Fresh 鮮芋仙 | Sunnybank（南） | **3.4**（190） | — | — | 台灣連鎖甜品，評價差 |
+| — | Coffee Anthology | CBD | — | — | — | 2021 年部落格（Reese Travel）說是「台灣人開的」，但媒體只寫老闆是 Adam Wang，**查不到台灣背景**。已在「01 精品咖啡」，不另外標 |
+| — | Small Cake Place | Runcorn（南） | 4.5（253） | 4.25 | 草莓蛋糕 11、可麗露 11、抹茶蛋糕 10 | Threads 推薦的南區蛋糕店。是甜點店，**屬於烘焙地圖**（06 蛋糕店），之後可以補進烘焙 |
+| ✗ | AH MA – Taste of Home | Sunnybank Hills | 4.5（43） | — | — | 美食街外帶店，評論太少 |
+
 順便查到、但**不是台灣風**的店：
 
 | 判定 | 店家 | 區域 | Google | 最新 20 則 | 評論最常提到 | 備註 |
@@ -186,22 +204,30 @@
 
 已套用 2026-10-17 的決定：CBD 從市中心周邊拆出來、ODAYA TEA 不收、PiCK a CaKE 移到烘焙。台灣風一節的店還沒算進來（等第 1 題決定）。
 
+已套用 2026-10-17 的決定：CBD 從市中心周邊拆出來、ODAYA TEA 不收、PiCK a CaKE 移到烘焙、亞洲風和甜點分開、台灣風收進來。
+
 | 分類 | ⭐ | ○ | CBD | 市中心周邊 | 西 | 北 | 南 | 東 |
 |---|---|---|---|---|---|---|---|---|
 | 01 精品咖啡 | 9 | 9 | 5 | 4 | 2 | 4 | 2 | 1 |
-| 02 早午餐 | 5 | 10 | 0 | 5 | 4 | 2 | 2 | 2 |
+| 02 早午餐 | 5 | 11 | 1 | 5 | 4 | 2 | 2 | 2 |
 | 03 抹茶 | 3 | 4 | 1 | 1 | 3 | 0 | 2 | 0 |
-| 04 亞洲風 | 2 | 1 | 0 | 0 | 1 | 0 | 2 | 0 |
-| 05 甜點 | 0 | 3 | 0 | 1 | 0 | 0 | 2 | 0 |
-| 合計 | 19 | 27 | 6 | 11 | 10 | 6 | 10 | 3 |
+| 04 亞洲風 | 3 | 7 | 0 | 1 | 1 | 0 | 8 | 0 |
+| 05 甜點 | 0 | 6 | 0 | 1 | 0 | 0 | 5 | 0 |
+| 合計 | 20 | 37 | 7 | 12 | 10 | 6 | 19 | 3 |
 
-（Pawpaw、Kin、Lola's 這類可以掛兩個分類的店，上表只算在主分類。CBD 指 Brisbane City：John Mills Himself、Edward、The Maillard Project、Coffee Anthology、Strauss、Wuta Brewers。）
+各分類的店：
+
+- **04 亞洲風**：⭐ Cafe O-Mai（越南）、UGH Coffee（菲律賓）、Cafe Impero Central（台式早餐）；○ Michelle's Sweet Kitchen（台式早餐）、Jacaranda Coffee Lane（台灣人開）、靜思書軒（台灣慈濟）、Ugly Coffee、WAHO Cafe、Ant Coffee（韓式）、Eight Ounce Café（日式）
+- **05 甜點**：○ 寶QQ（台式）、Dō Dessert（豆花）、Sugar Puff Cafe（港式）、Fluffy Soufflé、Soufflé Japancakes、Sonder
+- **02 早午餐**多了 Coffee Iconic（CBD，賣台灣茶）
+
+（Pawpaw、Kin、Lola's 這類可以掛兩個分類的店，上表只算在主分類。CBD 指 Brisbane City：John Mills Himself、Edward、The Maillard Project、Coffee Anthology、Strauss、Wuta Brewers、Coffee Iconic。）
 
 ## 決定紀錄（2026-10-17）
 
 | # | 問題 | 決定 |
 |---|---|---|
-| 1 | 亞洲風、甜點太少，怎麼處理 | **先調查台灣風再決定**（已調查，見上面「台灣風」一節）→ 待使用者確認 |
+| 1 | 亞洲風、甜點太少，怎麼處理 | **兩類分開，台灣風的店收進來**（卡片註明「台式」）。並補查其他台灣風的店（見「第二輪補查」） |
 | 2 | 市中心周邊要不要拆出 CBD | **拆**：新增「CBD」區域（Brisbane City），其他內城區維持「市中心周邊」 |
 | 3 | ODAYA TEA（茶葉店，不賣咖啡）收不收 | **不收** |
 | 4 | 主地圖分配規則 | **改用最新 100 則評論全文來數**（方法見「主地圖分配」）。Coffee Anthology、Peach Cafe 放咖啡廳；PiCK a CaKE 放烘焙 |
@@ -210,7 +236,7 @@
 
 1. **精品咖啡和早午餐很夠**：⭐ 共 14 家，加上 ○ 已經超過 30 家。
 2. **抹茶**：ODAYA TEA 拿掉後剩 3 家 ⭐（KIMINO、Wuta、Lola's），加上 4 家 ○，還是可以獨立成一類。
-3. **亞洲風和甜點（第 1 題，待確認）**：台灣風調查後，可以補進來的有 Cafe Impero Central（台式簡餐咖啡廳）、寶QQ（台式甜品）、Michelle's Sweet Kitchen（台式早餐，○）、WAHO、Ant Coffee（韓式）。建議**合併成「04 亞洲風／甜點」**，約 11 家（⭐ 2、○ 9），台灣風的店放在這一類，卡片註明「台式」。台式早餐店整體評價偏弱，只建議收 Michelle's 一家。
+3. **亞洲風和甜點已分開**：亞洲風 10 家（⭐ 3），甜點 6 家（沒有 ⭐）。兩類都**集中在南區**（Sunnybank 一帶，亞洲風 8 家、甜點 5 家），這是華人社區的分布，不是調查的偏差。甜點分類還是偏弱，6 家都是 ○。
 4. **⏰ 下午還開標記值得做**：大部分店 14:00～15:00 就關，下午還開的只有 Death Before Decaf（24 小時）、Fluffy Soufflé、Sonder、LA QUEEN、寶QQ（到晚上）、Bellissimo、Fonzie Abbott（到 17:00）。另外有 4 家只開平日（John Mills、Edward、Maillard、Strauss），卡片要提醒。
 5. **東區只有 3 家**（Bulimba、Hawthorne、Camp Hill），之後可以補查。
 6. **榜單很多舊資料**：Buttery Boy、She Bangs、Lady Marmalade、Black Sheep、Cafe S152 都已歇業，但 2025～2026 年的榜單還列著。Felix For Goodness 幾乎每個榜單都有，但近期評價只有 3.65。

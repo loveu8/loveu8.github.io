@@ -15,7 +15,7 @@
 | 2 | 抽出共用程式（`travel/shared/`、`bakery/page.js`） | ✅ 完成 | 2026-10-16 | `bc6df20` | 本機（127.0.0.1）和線上舊版比對：8 種篩選、語言、📍 組合的頁面內容雜湊值全部相同；試吃紀錄格式、無 My Maps 時的備用地圖、手機寬度（400px iframe）、console 都正常；data.js 只差 `PAGE_DATA` 和 title 兩處；CSS 只改檔頭註解。`file://` 直接開啟和列印（Chrome 擴充沒辦法測）由使用者在 2026-10-16 手動確認正常。另外 `page.js` 多了 `fallbackPlace`（原本寫死 `Brisbane QLD`） |
 | 3 | 文件（DECISIONS.md、bakery/PLAN.md） | ✅ 完成 | 2026-10-16 | （本 commit） | `DECISIONS.md` 新增共用架構一列（舊列提到 `script.js`、`BAKERY_DATA` 是歷史紀錄，保留不改）；`bakery/PLAN.md` 第 8 節加註；`DESIGN.md` 的 My Maps 段落改成「備用地圖用 `fallbackPlace`」並註明新頁面要用共用檔案 |
 | 4 | 咖啡廳候選調查（`cafe/CANDIDATES.md`） | ✅ 完成 | 2026-10-17 | （本 commit） | 約 65 家，⭐ 20、○ 27。精品咖啡、早午餐很夠；亞洲風只有 2 家 ⭐、甜點沒有 ⭐；5 家榜單上的店已歇業 |
-| 5 | 使用者定案分類、區域、名單 | ⏸️ 等使用者決定 | | | 2026-10-17 已決定：拆出「CBD」區域、ODAYA TEA 不收、主地圖改用最新 100 則評論全文來數（Coffee Anthology、Peach 放咖啡廳，PiCK a CaKE 放烘焙）。使用者追加台灣風調查（已完成：沒有真正的台灣風咖啡廳）。**從這裡開始**：等使用者確認亞洲風／甜點要不要合併（建議合併成「04 亞洲風／甜點」），見 `CANDIDATES.md`「結論與待決定」第 3 點 |
+| 5 | 使用者定案分類、區域、名單 | ⏸️ 等使用者決定 | | | 2026-10-17 已決定：拆出「CBD」區域、ODAYA TEA 不收、主地圖改用最新 100 則評論全文來數（Coffee Anthology、Peach 放咖啡廳，PiCK a CaKE 放烘焙）。使用者追加台灣風調查，兩輪完成（Cafe Impero Central 是台式早餐咖啡廳，⭐）。亞洲風、甜點**分開**，台灣風收進來。**從這裡開始**：從 ⭐ 20、○ 37 選出約 30 家最後名單，見 `CANDIDATES.md`「分布」 |
 | 6 | 咖啡廳 csv、前三名查核 | ⬜ 未開始 | | | 第 4 節 |
 | 7 | 咖啡廳頁面、My Maps | ⬜ 未開始 | | | 第 4 節 |
 
