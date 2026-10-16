@@ -163,6 +163,7 @@ CSS 先**複製**而不是抽成全站共用檔：抽共用檔要動到 Noosa �
 1. ~~確認第 7 節的決定~~（完成）
 2. ~~補 csv 欄位~~（完成）
 3. ~~產生 `data.js`（排除 C 級）~~（完成；依使用者決定不在 repo 放轉換腳本，csv 更新後請 Claude 重新產生）
+   - **2026-10-16 改變**：轉換腳本已放進 repo 的 `travel/tools/`（用法見其 README），頁面程式和樣式也移到 `travel/shared/`，本頁設定在 `page.js`。見 `../cafe/PLAN.md`。
 4. ~~做 `index.html`、`style.css`、`script.js`，Leaflet 1.9.4 從 cdnjs 載入~~（完成）
 5. ~~淺色／深色、手機／桌機、`file://` 檢查~~（完成；列印版未目視檢查）
 6. ~~在 `DESIGN.md`、`DECISIONS.md` 補紀錄~~（完成）
