@@ -1,16 +1,66 @@
 // 布里斯本烘焙地圖 — renders BAKERY_DATA (data.js) into the Noosa-style
 // map + sidebar shell. Map: a Google My Maps embed showing every shop
 // (BAKERY_DATA.myMapsEmbedUrl); 📍 swaps in the free single-place Google embed.
+// Bilingual (zh-TW / en); the language choice shares the `lang` key with Noosa.
 
 var MEDALS = ['🥇', '🥈', '🥉'];
 var ALL = 'all';
 var MOBILE_MAX = 768;
 
+var UI = {
+  'zh-TW': {
+    htmlLang: 'zh-TW', mapLang: 'zh-TW', langButton: 'EN', langAria: 'Switch to English',
+    title: '布里斯本烘焙地圖', subtitle: '{n} 家 · Google 資料 {d}',
+    expand: '▲ 查看清單', collapse: '▼ 收起清單', print: '🖨️ 列印',
+    category: '分類', region: '區域', all: '全部', allCats: '全部分類', allRegions: '全部區域',
+    result: '{c} × {r} · {n} 家', chipStrip: '目前清單的店家',
+    emptyTitle: '這個組合沒有店家', emptyText: '換一個區域或分類看看；區域按鈕上的數字是目前分類下的家數。',
+    top3: '{c} 前三名', low: '資料少', rec: '推薦', media: '媒體推薦',
+    mentions: '{n} 則提到', mediaOnly: '只有媒體資料', generic: '評論只寫泛稱',
+    gap: '其餘款式的評論資料不足', target: '我想吃：', note: '訪前提醒：', tasted: '✅ 已試吃',
+    tasting: { date: '試吃', look: '外觀', texture: '口感', aroma: '香氣', revisit: '回購', average: '平均' },
+    reviewsShort: '{n} 則', ratingAria: 'Google 評分 {r}，{n} 則評論', prioAria: '優先級 {p}',
+    tagFilter: '只看{c}', mapAria: '在地圖上查看：{s}', mapsAria: '在 Google Maps 開啟：{s}',
+    igAria: '{s} 的 Instagram', source: '資料來源', overview: '🗺️ 回到全部店家',
+    mapLoading: '地圖更新中', mapTitle: '烘焙店地圖', themeDark: '切換深色模式', themeLight: '切換淺色模式',
+    backToTop: '回到頂部', closeLightbox: '關閉圖片', viewPhoto: '查看照片：{s}',
+    divider: '拖曳調整地圖與清單寬度', scrollPrev: '往左捲動', scrollNext: '往右捲動',
+    footnote: 'Google 評分與「N 則提到」為 {d} 的 Google Maps 評論資料，評論多的店為抽樣。' +
+      '前三名依各分類中被提到最多的款式排序；「推薦」代表提到它的評論平均 4.5 星以上、負評不到一成；' +
+      '「★」是提到該款評論的平均星等，不是對該款本身的評分；「資料少」代表提及次數偏低。' +
+      '分類與區域篩選只作用在清單，地圖固定顯示全部店家。'
+  },
+  en: {
+    htmlLang: 'en', mapLang: 'en', langButton: '中文', langAria: '切換為中文',
+    title: 'Brisbane Bakery Map', subtitle: '{n} shops · Google data {d}',
+    expand: '▲ View list', collapse: '▼ Hide list', print: '🖨️ Print',
+    category: 'Type', region: 'Area', all: 'All', allCats: 'All types', allRegions: 'All areas',
+    result: '{c} × {r} · {n} shops', chipStrip: 'Shops in this list',
+    emptyTitle: 'No shops match', emptyText: 'Try another area or type; the numbers on the area buttons count shops for the current type.',
+    top3: 'Top 3 · {c}', low: 'Limited data', rec: 'Recommended', media: 'Media pick',
+    mentions: '{n} mentions', mediaOnly: 'Media only', generic: 'Generic mentions only',
+    gap: 'Not enough reviews for more items', target: 'I want to try: ', note: 'Before you go: ', tasted: '✅ Tasted',
+    tasting: { date: 'Tasted', look: 'Look', texture: 'Texture', aroma: 'Aroma', revisit: 'Revisit', average: 'Average' },
+    reviewsShort: '{n} reviews', ratingAria: 'Google rating {r}, {n} reviews', prioAria: 'Priority {p}',
+    tagFilter: 'Show only {c}', mapAria: 'Show on map: {s}', mapsAria: 'Open in Google Maps: {s}',
+    igAria: '{s} on Instagram', source: 'Source', overview: '🗺️ Back to all shops',
+    mapLoading: 'Updating map', mapTitle: 'Bakery map', themeDark: 'Switch to dark mode', themeLight: 'Switch to light mode',
+    backToTop: 'Back to top', closeLightbox: 'Close photo', viewPhoto: 'View photo: {s}',
+    divider: 'Drag to resize the map and list', scrollPrev: 'Scroll left', scrollNext: 'Scroll right',
+    footnote: 'Google ratings and “N mentions” come from Google Maps reviews as of {d}; shops with many reviews were sampled. ' +
+      'Each top 3 lists the most-mentioned items in that type. “Recommended” means the reviews mentioning it average 4.5★ or more with under 10% low scores; ' +
+      '★ is the average of those reviews, not a rating of the item itself. “Limited data” means few mentions. ' +
+      'Type and area filters apply to the list only; the map always shows every shop.'
+  }
+};
+
 var state = {
   data: null,
+  lang: 'zh-TW',
   category: ALL,
   region: ALL,
   selectedId: null,
+  selectedPlace: null,
   mapTimer: null,
   chipObserver: null,
   chipVisibility: {}
@@ -18,8 +68,10 @@ var state = {
 
 var els = {
   html: document.documentElement,
+  title: document.querySelector('title'),
   mapFrame: document.getElementById('mapFrame'),
   mapLoading: document.getElementById('mapLoading'),
+  mapLoadingText: document.getElementById('mapLoadingText'),
   overviewBtn: document.getElementById('overviewBtn'),
   chipStrip: document.getElementById('chipStrip'),
   sidebar: document.getElementById('sidebar'),
@@ -27,17 +79,22 @@ var els = {
   sidebarBody: document.getElementById('sidebarBody'),
   sheetHandle: document.getElementById('sheetHandle'),
   handleHint: document.getElementById('handleHint'),
+  pageTitle: document.getElementById('pageTitle'),
   pageSubtitle: document.getElementById('pageSubtitle'),
+  categoryLabel: document.getElementById('categoryLabel'),
+  regionLabel: document.getElementById('regionLabel'),
   categoryTabs: document.getElementById('categoryTabs'),
   regionChips: document.getElementById('regionChips'),
   resultLine: document.getElementById('resultLine'),
   printBtn: document.getElementById('printBtn'),
+  langToggle: document.getElementById('langToggle'),
   themeToggle: document.getElementById('themeToggle'),
   resizeDivider: document.getElementById('resizeDivider'),
   backToTop: document.getElementById('backToTop'),
   lightbox: document.getElementById('lightbox'),
   lightboxImg: document.getElementById('lightboxImg'),
-  lightboxClose: document.getElementById('lightboxClose')
+  lightboxClose: document.getElementById('lightboxClose'),
+  scrollBtns: Array.prototype.slice.call(document.querySelectorAll('.scroll-btn'))
 };
 
 // ── helpers ──
@@ -60,9 +117,25 @@ function isMobile() {
   return window.innerWidth < MOBILE_MAX;
 }
 
+function isEn() {
+  return state.lang === 'en';
+}
+
+// t('key', {n: 3}) — look up a UI string and fill {placeholders}.
+function t(key, vars) {
+  var text = UI[state.lang][key];
+  Object.keys(vars || {}).forEach(function(k) { text = text.split('{' + k + '}').join(vars[k]); });
+  return text;
+}
+
 function categoryLabel(code) {
   var found = state.data.categories.find(function(c) { return c.code === code; });
-  return found ? found.label : code;
+  if (!found) return code;
+  return isEn() ? found.labelEn : found.label;
+}
+
+function regionLabel(region) {
+  return isEn() ? state.data.regionsEn[region] : region;
 }
 
 function shopById(id) {
@@ -117,7 +190,7 @@ function applyTheme(theme) {
     els.html.setAttribute('data-theme', theme);
   }
   var dark = isDark();
-  var label = dark ? '切換淺色模式' : '切換深色模式';
+  var label = dark ? t('themeLight') : t('themeDark');
   els.themeToggle.innerHTML = dark ? SUN_ICON_SVG : MOON_ICON_SVG;
   els.themeToggle.setAttribute('aria-label', label);
   els.themeToggle.setAttribute('title', label);
@@ -127,7 +200,7 @@ function applyTheme(theme) {
 function setSheet(expanded) {
   if (!isMobile()) return;
   els.sidebar.classList.toggle('expanded', expanded);
-  els.handleHint.textContent = expanded ? '▼ 收起清單' : '▲ 查看清單';
+  els.handleHint.textContent = expanded ? t('collapse') : t('expand');
 }
 
 function toggleSheet() {
@@ -135,6 +208,11 @@ function toggleSheet() {
 }
 
 // ── filters (list only — the My Maps embed cannot be filtered from the page) ──
+function setCategory(code) {
+  state.category = code;
+  refresh(true);
+}
+
 function renderFilters() {
   els.categoryTabs.innerHTML = '';
   var codes = [];
@@ -149,12 +227,9 @@ function renderFilters() {
     btn.type = 'button';
     btn.setAttribute('role', 'tab');
     btn.setAttribute('aria-selected', active ? 'true' : 'false');
-    btn.appendChild(el('span', '', code === ALL ? '全部' : categoryLabel(code)));
+    btn.appendChild(el('span', '', code === ALL ? t('all') : categoryLabel(code)));
     btn.appendChild(el('span', 'count', String(countWhere(code, ALL))));
-    btn.addEventListener('click', function() {
-      state.category = code;
-      refresh(true);
-    });
+    btn.addEventListener('click', function() { setCategory(code); });
     els.categoryTabs.appendChild(btn);
   });
 
@@ -166,7 +241,7 @@ function renderFilters() {
     btn.type = 'button';
     btn.setAttribute('aria-pressed', active ? 'true' : 'false');
     btn.disabled = count === 0 && !active;
-    btn.appendChild(el('span', '', region === ALL ? '全部' : region));
+    btn.appendChild(el('span', '', region === ALL ? t('all') : regionLabel(region)));
     btn.appendChild(el('span', 'count', String(count)));
     btn.addEventListener('click', function() {
       state.region = region;
@@ -177,6 +252,7 @@ function renderFilters() {
 
   revealActive(els.categoryTabs);
   revealActive(els.regionChips);
+  updateScrollButtons();
 }
 
 // Keep the selected filter visible inside its horizontal scroller without
@@ -193,15 +269,47 @@ function revealActive(scroller) {
   }
 }
 
+// Desktop ‹ › buttons (hidden on mobile, where rows are swiped). Disabled at either end.
+function updateScrollButtons() {
+  els.scrollBtns.forEach(function(btn) {
+    var target = document.getElementById(btn.dataset.target);
+    var max = target.scrollWidth - target.clientWidth;
+    var atEdge = btn.dataset.dir === '-1' ? target.scrollLeft <= 1 : target.scrollLeft >= max - 1;
+    btn.disabled = max <= 1 || atEdge;
+  });
+}
+
+function setupFilterScroll() {
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  els.scrollBtns.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var target = document.getElementById(btn.dataset.target);
+      target.scrollBy({ left: Number(btn.dataset.dir) * target.clientWidth * 0.7, behavior: reduceMotion ? 'auto' : 'smooth' });
+    });
+  });
+  [els.categoryTabs, els.regionChips].forEach(function(scroller) {
+    scroller.addEventListener('scroll', updateScrollButtons, { passive: true });
+    // A vertical mouse wheel scrolls the row sideways, so desktop users without a trackpad can still reach the end.
+    scroller.addEventListener('wheel', function(event) {
+      if (Math.abs(event.deltaY) <= Math.abs(event.deltaX)) return;
+      if (scroller.scrollWidth <= scroller.clientWidth) return;
+      scroller.scrollLeft += event.deltaY;
+      event.preventDefault();
+    }, { passive: false });
+  });
+  window.addEventListener('resize', updateScrollButtons);
+}
+
 function renderResultLine(shops) {
-  var cat = state.category === ALL ? '全部分類' : categoryLabel(state.category);
-  var region = state.region === ALL ? '全部區域' : state.region;
-  els.resultLine.textContent = cat + ' × ' + region + ' · ' + shops.length + ' 家';
+  var cat = state.category === ALL ? t('allCats') : categoryLabel(state.category);
+  var region = state.region === ALL ? t('allRegions') : regionLabel(state.region);
+  els.resultLine.textContent = t('result', { c: cat, r: region, n: shops.length });
 }
 
 // ── top chip strip (scroll-spy, never touches the map) ──
 function renderChips(shops) {
   els.chipStrip.innerHTML = '';
+  els.chipStrip.setAttribute('aria-label', t('chipStrip'));
   shops.forEach(function(shop) {
     var chip = el('button', 'chip', shop.name);
     chip.type = 'button';
@@ -258,24 +366,24 @@ function setupScrollSpy() {
 // ≥ 4.5★ with ≤ 10% low scores carry the 推薦 tag; the rest are just "常提到".
 function itemMeta(item) {
   var parts = [];
-  if (item.count) parts.push(item.count + ' 則提到');
+  if (item.count) parts.push(t('mentions', { n: item.count }));
   if (item.rating != null) parts.push('★ ' + item.rating.toFixed(1));
   if (parts.length) return parts.join(' · ');
-  return item.verdict === '媒體推薦' ? '只有媒體資料' : '評論只寫泛稱';
+  return item.verdict === '媒體推薦' ? t('mediaOnly') : t('generic');
 }
 
 function verdictTag(item) {
-  if (item.verdict === '大家推薦') return el('span', 'tag tag-rec', '推薦');
-  if (item.verdict === '媒體推薦') return el('span', 'tag', '媒體推薦');
+  if (item.verdict === '大家推薦') return el('span', 'tag tag-rec', t('rec'));
+  if (item.verdict === '媒體推薦') return el('span', 'tag', t('media'));
   return null;
 }
 
 function renderTop3Block(shop, code) {
   var items = shop.top3ByCategory[code] || [];
   var box = el('section', 'top3');
-  var title = el('div', 'top3-title', categoryLabel(code) + ' 前三名');
+  var title = el('div', 'top3-title', t('top3', { c: categoryLabel(code) }));
   var lowCount = items.filter(function(i) { return i.confidence === '低'; }).length;
-  if (!items.length || lowCount * 2 >= items.length) title.appendChild(el('span', 'tag tag-low', '資料少'));
+  if (!items.length || lowCount * 2 >= items.length) title.appendChild(el('span', 'tag tag-low', t('low')));
   box.appendChild(title);
 
   var list = el('ol', 'top3-list');
@@ -284,16 +392,17 @@ function renderTop3Block(shop, code) {
     li.appendChild(el('span', 'top3-medal', MEDALS[index] || '·'));
     var name = el('div', 'top3-name');
     var line = el('div', 'top3-line');
-    line.appendChild(el('span', 'top3-zh', item.zh));
+    line.appendChild(el('span', 'top3-zh', isEn() ? item.en : item.zh));
     var tag = verdictTag(item);
     if (tag) line.appendChild(tag);
     name.appendChild(line);
-    name.appendChild(el('div', 'top3-en', item.en + (item.flavor ? ' · ' + item.flavor : '')));
+    var sub = isEn() ? item.flavorEn : item.en + (item.flavor ? ' · ' + item.flavor : '');
+    if (sub) name.appendChild(el('div', 'top3-en', sub));
     li.appendChild(name);
     li.appendChild(el('span', 'top3-count', itemMeta(item)));
     list.appendChild(li);
   });
-  if (items.length < 3) list.appendChild(el('li', 'top3-gap', '其餘款式的評論資料不足'));
+  if (items.length < 3) list.appendChild(el('li', 'top3-gap', t('gap')));
   box.appendChild(list);
   return box;
 }
@@ -306,15 +415,14 @@ function renderTop3(shop) {
   return frag;
 }
 
-function renderTasting(t) {
-  if (!t.date) return null;
-  var parts = ['試吃 ' + t.date];
-  if (t.cost) parts.push('AUD ' + t.cost);
-  if (t.look) parts.push('外觀 ' + t.look);
-  if (t.texture) parts.push('口感 ' + t.texture);
-  if (t.aroma) parts.push('香氣 ' + t.aroma);
-  if (t.revisit) parts.push('回購 ' + t.revisit);
-  if (t.average) parts.push('平均 ' + t.average);
+function renderTasting(tasting) {
+  if (!tasting.date) return null;
+  var L = UI[state.lang].tasting;
+  var parts = [L.date + ' ' + tasting.date];
+  if (tasting.cost) parts.push('AUD ' + tasting.cost);
+  ['look', 'texture', 'aroma', 'revisit', 'average'].forEach(function(key) {
+    if (tasting[key]) parts.push(L[key] + ' ' + tasting[key]);
+  });
   return el('div', 'tasting', '✅ ' + parts.join(' · '));
 }
 
@@ -325,7 +433,7 @@ function renderPhotos(shop) {
     var src = 'pics/' + file;
     var btn = el('button', 'shop-photo');
     btn.type = 'button';
-    btn.setAttribute('aria-label', '查看照片：' + shop.name);
+    btn.setAttribute('aria-label', t('viewPhoto', { s: shop.name }));
     var img = document.createElement('img');
     img.src = src;
     img.alt = shop.name;
@@ -353,45 +461,56 @@ function renderCard(shop) {
 
   var head = el('div', 'shop-head');
   var prio = el('span', 'prio prio-' + shop.priority, shop.priority);
-  prio.setAttribute('aria-label', '優先級 ' + shop.priority);
+  prio.setAttribute('aria-label', t('prioAria', { p: shop.priority }));
   head.appendChild(prio);
 
   var title = el('div', 'shop-title');
   title.appendChild(el('h2', 'shop-name', shop.name));
-  title.appendChild(el('div', 'shop-meta', shop.suburb + ' · ' + shop.region));
+  title.appendChild(el('div', 'shop-meta', shop.suburb + ' · ' + regionLabel(shop.region)));
   head.appendChild(title);
 
   if (shop.rating != null) {
     var rating = el('div', 'shop-rating');
-    rating.setAttribute('aria-label', 'Google 評分 ' + shop.rating + '，' + shop.reviews + ' 則評論');
+    rating.setAttribute('aria-label', t('ratingAria', { r: shop.rating, n: shop.reviews }));
     rating.appendChild(el('span', 'star', '★ '));
     rating.appendChild(document.createTextNode(shop.rating.toFixed(1)));
-    rating.appendChild(el('small', '', formatCount(shop.reviews) + ' 則'));
+    rating.appendChild(el('small', '', t('reviewsShort', { n: formatCount(shop.reviews) })));
     head.appendChild(rating);
   }
   card.appendChild(head);
 
+  // Category tags double as filter shortcuts.
   var tags = el('div', 'shop-tags');
   shop.categories.forEach(function(code) {
     var active = code === state.category;
-    tags.appendChild(el('span', 'tag' + (active ? ' tag-active' : ''), categoryLabel(code)));
+    var tagBtn = el('button', 'tag tag-btn' + (active ? ' tag-active' : ''), categoryLabel(code));
+    tagBtn.type = 'button';
+    tagBtn.setAttribute('aria-pressed', active ? 'true' : 'false');
+    tagBtn.setAttribute('title', t('tagFilter', { c: categoryLabel(code) }));
+    tagBtn.addEventListener('click', function() {
+      state.selectedId = shop.id;
+      setCategory(active ? ALL : code);
+      scrollToCard(shop.id);
+    });
+    tags.appendChild(tagBtn);
   });
-  if (shop.tasting.date) tags.appendChild(el('span', 'tag tag-done', '✅ 已試吃'));
+  if (shop.tasting.date) tags.appendChild(el('span', 'tag tag-done', t('tasted')));
   card.appendChild(tags);
 
   card.appendChild(renderTop3(shop));
 
   if (shop.target) {
     var target = el('div', 'shop-target');
-    target.appendChild(el('b', '', '我想吃：'));
+    target.appendChild(el('b', '', t('target')));
     target.appendChild(document.createTextNode(shop.target));
     card.appendChild(target);
   }
 
-  if (shop.note) {
+  var noteText = isEn() ? shop.noteEn : shop.note;
+  if (noteText) {
     var note = el('div', 'shop-note');
-    note.appendChild(el('b', '', '訪前提醒：'));
-    note.appendChild(document.createTextNode(shop.note));
+    note.appendChild(el('b', '', t('note')));
+    note.appendChild(document.createTextNode(noteText));
     card.appendChild(note);
   }
 
@@ -405,15 +524,15 @@ function renderCard(shop) {
   var mapBtn = el('button', 'pill pill-map', '📍 ' + shop.address);
   mapBtn.type = 'button';
   mapBtn.dataset.id = shop.id;
-  mapBtn.setAttribute('aria-label', '在地圖上查看：' + shop.name);
+  mapBtn.setAttribute('aria-label', t('mapAria', { s: shop.name }));
   actions.appendChild(mapBtn);
-  actions.appendChild(externalLink('pill pill-ext', '↗ Maps', shop.mapsUrl, '在 Google Maps 開啟：' + shop.name));
+  actions.appendChild(externalLink('pill pill-ext', '↗ Maps', shop.mapsUrl, t('mapsAria', { s: shop.name })));
   if (shop.instagram) {
-    actions.appendChild(externalLink('pill pill-social', '↗ Instagram', shop.instagram, shop.name + ' 的 Instagram'));
+    actions.appendChild(externalLink('pill pill-social', '↗ Instagram', shop.instagram, t('igAria', { s: shop.name })));
   }
   card.appendChild(actions);
 
-  if (shop.source) card.appendChild(externalLink('shop-source', '資料來源', shop.source));
+  if (shop.source) card.appendChild(externalLink('shop-source', t('source'), shop.source));
 
   return card;
 }
@@ -423,8 +542,8 @@ function renderList(shops) {
 
   if (!shops.length) {
     var empty = el('div', 'tips-box');
-    empty.appendChild(el('div', 'tips-title', '這個組合沒有店家'));
-    empty.appendChild(el('div', 'tips-text', '換一個區域或分類看看；區域按鈕上的數字是目前分類下的家數。'));
+    empty.appendChild(el('div', 'tips-title', t('emptyTitle')));
+    empty.appendChild(el('div', 'tips-text', t('emptyText')));
     els.sidebarBody.appendChild(empty);
     return;
   }
@@ -432,12 +551,7 @@ function renderList(shops) {
   var list = el('div', 'shop-list');
   shops.forEach(function(shop) { list.appendChild(renderCard(shop)); });
   els.sidebarBody.appendChild(list);
-
-  els.sidebarBody.appendChild(el('p', 'data-footnote',
-    'Google 評分與「N 則提到」為 ' + state.data.dataAsOf + ' 的 Google Maps 評論資料，評論多的店為抽樣。' +
-    '前三名依各分類中被提到最多的款式排序；「推薦」代表提到它的評論平均 4.5 星以上、負評不到一成；' +
-    '「★」是提到該款評論的平均星等，不是對該款本身的評分；「資料少」代表提及次數偏低。' +
-    '分類與區域篩選只作用在清單，地圖固定顯示全部店家。'));
+  els.sidebarBody.appendChild(el('p', 'data-footnote', t('footnote', { d: state.data.dataAsOf })));
 }
 
 function scrollToCard(id) {
@@ -457,7 +571,7 @@ function markSelected(id) {
 // ── map (Google embeds, no API key) ──
 function singlePlaceEmbedUrl(query, zoom) {
   return 'https://maps.google.com/maps?q=' + encodeURIComponent(query) +
-    '&output=embed&z=' + zoom + '&language=zh-TW';
+    '&output=embed&z=' + zoom + '&language=' + t('mapLang');
 }
 
 function overviewUrl() {
@@ -484,6 +598,7 @@ function setMapSrc(src) {
 
 function showOverview() {
   markSelected(null);
+  state.selectedPlace = null;
   els.overviewBtn.hidden = true;
   setMapSrc(overviewUrl());
 }
@@ -494,6 +609,7 @@ function previewOnMap(id) {
   if (!shop) return;
   markSelected(id);
   setActiveChip(id);
+  state.selectedPlace = id;
   setMapSrc(singlePlaceEmbedUrl(shop.name + ' ' + shop.address, 16));
   els.overviewBtn.hidden = false;
   setSheet(false);
@@ -512,6 +628,31 @@ function closeLightbox() {
 }
 
 // ── render ──
+function renderStaticText() {
+  els.html.lang = t('htmlLang');
+  els.title.textContent = t('title');
+  els.pageTitle.textContent = t('title');
+  els.pageSubtitle.textContent = t('subtitle', { n: state.data.shops.length, d: state.data.dataAsOf });
+  els.handleHint.textContent = els.sidebar.classList.contains('expanded') ? t('collapse') : t('expand');
+  els.printBtn.textContent = t('print');
+  els.categoryLabel.textContent = t('category');
+  els.regionLabel.textContent = t('region');
+  els.langToggle.textContent = t('langButton');
+  els.langToggle.setAttribute('aria-label', t('langAria'));
+  els.langToggle.setAttribute('title', t('langAria'));
+  els.overviewBtn.textContent = t('overview');
+  els.mapLoadingText.textContent = t('mapLoading');
+  els.mapFrame.title = t('mapTitle');
+  els.resizeDivider.title = t('divider');
+  els.backToTop.setAttribute('aria-label', t('backToTop'));
+  els.backToTop.setAttribute('title', t('backToTop'));
+  els.lightboxClose.setAttribute('aria-label', t('closeLightbox'));
+  els.scrollBtns.forEach(function(btn) {
+    btn.setAttribute('aria-label', btn.dataset.dir === '-1' ? t('scrollPrev') : t('scrollNext'));
+  });
+  applyTheme(storageGet('theme') || 'system');
+}
+
 function refresh(filtersChanged) {
   var shops = filteredShops();
   if (state.selectedId && !shops.some(function(s) { return s.id === state.selectedId; })) {
@@ -523,6 +664,20 @@ function refresh(filtersChanged) {
   renderList(shops);
   if (filtersChanged) els.sidebarBody.scrollTop = 0;
   setupScrollSpy();
+}
+
+function switchLanguage() {
+  state.lang = isEn() ? 'zh-TW' : 'en';
+  storageSet('lang', state.lang);
+  var scroll = els.sidebarBody.scrollTop;
+  renderStaticText();
+  refresh(false);
+  els.sidebarBody.scrollTop = scroll;
+  // Keep the single-place map in the new language; the My Maps overview has no language switch.
+  if (state.selectedPlace) {
+    var shop = shopById(state.selectedPlace);
+    if (shop) setMapSrc(singlePlaceEmbedUrl(shop.name + ' ' + shop.address, 16));
+  }
 }
 
 function setupResize() {
@@ -542,6 +697,7 @@ function setupResize() {
     var minW = Math.floor(window.innerWidth / 4);
     var maxW = Math.floor(window.innerWidth / 2);
     els.sidebar.style.width = Math.max(minW, Math.min(maxW, window.innerWidth - clientX)) + 'px';
+    updateScrollButtons();
   }
 
   function stop() {
@@ -566,6 +722,7 @@ function setupEvents() {
   window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function() {
     if (!storageGet('theme')) applyTheme('system');
   });
+  els.langToggle.addEventListener('click', switchLanguage);
 
   els.sheetHandle.addEventListener('click', toggleSheet);
   els.sidebarHeader.addEventListener('click', toggleSheet);
@@ -599,12 +756,13 @@ function setupEvents() {
   });
 
   setupResize();
+  setupFilterScroll();
 }
 
 function init(data) {
   state.data = data;
-  els.pageSubtitle.textContent = data.shops.length + ' 家 · Google 資料 ' + data.dataAsOf;
-  applyTheme(storageGet('theme') || 'system');
+  state.lang = storageGet('lang') === 'en' ? 'en' : 'zh-TW';
+  renderStaticText();
   setupEvents();
   refresh(true);
   showOverview();

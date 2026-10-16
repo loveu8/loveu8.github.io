@@ -1,83 +1,83 @@
-﻿ID,店家,分類,名次,品項中文,品項英文,口味說明,評論提及數,提及評論平均星等,低分則數,統計範圍,媒體或社群佐證,判定,信心度,查核日期,備註
-B01,Riser,01 酸種麵包,1,橄欖檸檬迷迭香酸種,"Olive, Lemon & Rosemary Sourdough",橄欖、檸檬皮、迷迭香,3,5.0,0,搜尋全部評論（476 則）,Weekend Edition：招牌款，有一群固定支持者,大家推薦,中,2026-10-16,評論寫法有 lemon olive sourdough、olive loaf、Olive；另 1 則 olive ciabatta 不計
-B01,Riser,01 酸種麵包,2,黑麥葛縷子麵包,Rye & Caraway Loaf,黑麥加葛縷子籽，偏北歐風,4,5.0,0,搜尋全部評論（476 則）,Weekend Edition：有 Scando 風格 100% 黑麥,大家推薦,中,2026-10-16,評論提醒要早點去，常賣完
-B01,Riser,01 酸種麵包,3,南瓜酸種,Pumpkin Sourdough,季節限定,3,5.0,0,搜尋全部評論（476 則）,—,大家推薦,低,2026-10-16,評論提到春夏不在菜單上；另有 Table loaf 2 則、蜂蜜味噌酸種 1 則
-B01,Riser,02 可頌,1,杏仁可頌,Almond Croissant,杏仁內餡，有評論提到帶蜂蜜甜味,9,4.6,0,搜尋全部評論（476 則）,Wanderlog 評論摘要列為必點,大家推薦,中,2026-10-16,1 則 4 星評論說偏乾、不夠酥
-B01,Riser,02 可頌,2,原味可頌,Croissant,—,,,,Google 關鍵字,—,評論常提到,低,2026-10-16,Google 關鍵字 croissant 22 則，多為泛稱，無法區分口味，未計評價
-B01,Riser,02 可頌,3,鹹味熊掌酥,Savoury Bear Claw,可頌麵團，口味輪替（評論：煙燻鮭魚；Urban List：烤甜椒費達）,1,5.0,0,搜尋全部評論（476 則）,Urban List：招牌之一為烤甜椒費達熊掌酥,評論常提到,低,2026-10-16,評論寫作「Bear Crawl」
-B02,Danny's Bread,01 酸種麵包,1,經典酸種,Traditional Sourdough,店家起家的招牌麵包,41,4.8,1,搜尋全部評論（222 則）,官網：傳統酸種是起家產品,大家推薦,高,2026-10-16,評論多半只寫 sourdough
-B02,Danny's Bread,01 酸種麵包,2,貝果,Bagel,常做成三明治，例：雞肉辣椒貝果,9,4.8,0,Google 關鍵字篩選,—,大家推薦,中,2026-10-16,
-B02,Danny's Bread,01 酸種麵包,3,全麥多穀酸種,Wholemeal Multigrain Sourdough,全麥、多穀,2,5.0,0,搜尋全部評論（222 則）,—,大家推薦,低,2026-10-16,另有杏仁種子麵包 1 則
-B03,Sprout,01 酸種麵包,1,72 小時發酵酸種,72-hour Sourdough,長時間發酵,2,4.0,0,兩家分店全部評論（Newstead 43 則、Albion 抽樣 20 則）,Broadsheet：72 小時酸種；Time Out 列為招牌,評論常提到,低,2026-10-16,評論幾乎沒提酸種，主要依媒體；第 2、3 名資料不足
-B03,Sprout,02 可頌,1,杏仁可頌,Almond Croissant,杏仁內餡,4,4.3,0,兩家分店全部評論（Newstead 43 則、Albion 抽樣 20 則）,—,評論常提到,低,2026-10-16,有評論嫌價格高（一個 11 澳幣）
-B03,Sprout,02 可頌,2,可頌三明治,Croissant Toastie,帕瑪火腿、莫札瑞拉,4,4.0,0,兩家分店全部評論（Newstead 43 則、Albion 抽樣 20 則）,Broadsheet：可頌三明治,評論常提到,低,2026-10-16,
-B03,Sprout,02 可頌,3,雙層巧克力可頌麵包,Double-chocolate Croissant Bun,雙層巧克力,0,,,—,Broadsheet 列為招牌,媒體推薦,低,2026-10-16,評論未提到，只有媒體資料
-B04,Oh My Bread!,01 酸種麵包,1,長時間發酵酸種,Long-ferment Sourdough,長時間發酵，週四供應,13,4.7,1,全部評論（119 則）,—,大家推薦,中,2026-10-16,
-B04,Oh My Bread!,01 酸種麵包,2,法棍,Baguette,外脆內軟,11,4.9,0,全部評論（119 則）,—,大家推薦,中,2026-10-16,
-B04,Oh My Bread!,01 酸種麵包,3,芝麻法棍,Sesame Baguette,芝麻,2,5.0,0,全部評論（119 則）,—,大家推薦,低,2026-10-16,
-B04,Oh My Bread!,02 可頌,1,杏仁可頌,Almond Croissant,杏仁內餡,7,5.0,0,全部評論（119 則）,—,大家推薦,中,2026-10-16,
-B04,Oh My Bread!,02 可頌,2,巧克力可頌,Pain au Chocolat,巧克力,4,4.8,0,全部評論（119 則）,—,大家推薦,低,2026-10-16,
-B04,Oh My Bread!,02 可頌,3,櫻桃黑巧克力可頌,Cherry & Dark Chocolate Croissant,櫻桃、黑巧克力,3,4.7,0,全部評論（119 則）,—,大家推薦,低,2026-10-16,
-B05,Banneton Bakery,01 酸種麵包,1,招牌酸種,Sourdough,—,26,4.5,1,抽樣 210 則（共 459 則）,—,大家推薦,高,2026-10-16,多半只寫 sourdough
-B05,Banneton Bakery,01 酸種麵包,2,多穀酸種,Multigrain Sourdough,多穀,3,5.0,0,Google 關鍵字＋抽樣,—,大家推薦,低,2026-10-16,
-B05,Banneton Bakery,01 酸種麵包,3,黑麥葵花籽酸種,Rye & Sunflower Seed Sourdough,黑麥、葵花籽,1,4.0,0,抽樣 210 則（共 459 則）,—,評論常提到,低,2026-10-16,另有淡黑麥酸種 1 則；本店可頌 26 則平均 3.6 星（不在本分類）
-B05,Banneton Bakery,04 歐式吐司,1,椒鹽脆餅,Pretzel,德式,10,4.5,1,抽樣 210 則（共 459 則）,—,大家推薦,中,2026-10-16,Google 關鍵字 delicious pretzel 12 則
-B05,Banneton Bakery,04 歐式吐司,2,紐約黑麥麵包,NY Deli Rye,黑麥,2,5.0,0,抽樣 210 則（共 459 則）,—,大家推薦,低,2026-10-16,
-B05,Banneton Bakery,04 歐式吐司,3,拉脫維亞黑麥麵包,Latvian Rye,深色黑麥，只在週末供應,2,3.0,1,抽樣 210 則（共 459 則）,—,評論常提到,低,2026-10-16,評價兩極：1 則喜歡、1 則說沒烤熟
-B06,Christian Jacques,01 酸種麵包,1,酸種法棍,Sourdough Baguette,—,26,4.8,1,搜尋全部評論（1530 則）,—,大家推薦,高,2026-10-16,Google 關鍵字 baguettes 36 則
-B06,Christian Jacques,01 酸種麵包,2,橄欖迷迭香麵包,Olive & Rosemary Loaf,橄欖、迷迭香,8,5.0,0,搜尋全部評論（1530 則）,—,大家推薦,中,2026-10-16,
-B06,Christian Jacques,01 酸種麵包,3,酸種圓麵包,Sourdough Bâtard,白麵包款,7,5.0,0,搜尋全部評論（1530 則）,—,大家推薦,中,2026-10-16,搜尋 rye 0 則
-B06,Christian Jacques,02 可頌,1,卡士達可頌,Custard Croissant,卡士達內餡；也有杏仁卡士達、Nutella 卡士達組合,98,4.8,1,搜尋全部評論（1530 則）,Time Out 招牌；Reddit：卡士達可頌「unreal」,大家推薦,高,2026-10-16,98 則含組合口味，與第 2、3 名有重疊
-B06,Christian Jacques,02 可頌,2,杏仁可頌,Almond Croissant,杏仁內餡,67,4.6,3,搜尋全部評論（1530 則）,Reddit 有人推薦,大家推薦,高,2026-10-16,Google 關鍵字 almond croissant 82 則
-B06,Christian Jacques,02 可頌,3,Nutella 可頌,Nutella Croissant,榛果巧克力醬，常與卡士達一起,66,4.7,3,搜尋全部評論（1530 則）,—,大家推薦,高,2026-10-16,第 4 名火腿起司可頌 41 則（4.6 星）；原味可頌關鍵字 21 則
-B07,Lune Croissanterie,02 可頌,1,杏仁可頌,Almond Croissant,杏仁內餡，二次烘烤,66,4.2,4,Google 關鍵字；評價抽樣 220 則中的 27 則,—,評論常提到,高,2026-10-16,最常被點，但抽樣評價只有 4.2 星
-B07,Lune Croissanterie,02 可頌,2,巧克力可頌,Pain au Chocolat,巧克力,44,4.5,0,Google 關鍵字；評價抽樣 220 則中的 14 則,—,大家推薦,高,2026-10-16,
-B07,Lune Croissanterie,02 可頌,3,可頌鬆餅,Cruffin,可頌麵團做成馬芬形，常見檸檬凝乳內餡,27,4.8,0,Google 關鍵字；評價抽樣 220 則中的 5 則,Time Out：檸檬凝乳 cruffin,大家推薦,中,2026-10-16,Google 關鍵字 lemon curd cruffin 17 則；評價樣本少
-B08,Time & Temp,02 可頌,1,小荳蔻麵包捲,Cardamom Bun,北歐風小荳蔻,17,4.9,0,全部評論（142 則）,Time Out、Broadsheet 都列為招牌,大家推薦,中,2026-10-16,不是可頌，是店內最有名的起酥類
-B08,Time & Temp,02 可頌,2,丹麥酥,Danish,例：大黃奶酥丹麥,9,4.9,0,全部評論（142 則）,Time Out：大黃奶酥丹麥,大家推薦,中,2026-10-16,
-B08,Time & Temp,02 可頌,3,巧克力可頌,Pain au Chocolat,巧克力,8,5.0,0,全部評論（142 則）,—,大家推薦,中,2026-10-16,原味可頌 4 則（5.0 星）
-B09,Beurre Pastries,02 可頌,1,杏仁可頌,Almond Croissant,杏仁內餡,10,4.9,0,抽樣 220 則（共 247 則）,—,大家推薦,中,2026-10-16,
-B09,Beurre Pastries,02 可頌,2,巧克力可頌,Chocolate Croissant,巧克力,9,4.4,0,抽樣 220 則（共 247 則）,—,評論常提到,中,2026-10-16,
-B09,Beurre Pastries,02 可頌,3,每月限定口味,Monthly Special,口味每月更換,8,4.8,0,抽樣 220 則（共 247 則）,Urban List：每月特別款,大家推薦,中,2026-10-16,另有提拉米蘇拿鐵 16 則（飲品）
-B10,NOS. Bakehouse,03 日式吐司,1,蝦肉海苔酥三明治,Prawn & Seaweed Crunch Sando,自家生吐司夾蝦排、海苔,17,4.6,0,抽樣 190 則（共 462 則）,—,大家推薦,中,2026-10-16,
-B10,NOS. Bakehouse,03 日式吐司,2,唐揚雞法式吐司,Karaage French Toast,生吐司做的法式吐司配炸雞,8,4.8,0,抽樣 190 則（共 462 則）,—,大家推薦,中,2026-10-16,
-B10,NOS. Bakehouse,03 日式吐司,3,原味生吐司（整條）,Shokupan Loaf,原味,3,5.0,0,抽樣 190 則（共 462 則）,Baking Business：每天現烤,大家推薦,中,2026-10-16,Google 關鍵字 shokupan 15 則；雞蛋三明治關鍵字 10 則
-B14,Jocelyn's Provisions,01 酸種麵包,1,酸種麵包,Sourdough,—,8,4.1,1,抽樣（Albion 200 則、James St 220 則）,Reddit 有人推薦 Jocelyn's 的酸種,評論常提到,中,2026-10-16,多半只寫 sourdough；James St 店提到麵包的 7 則平均 3.0 星
-B14,Jocelyn's Provisions,01 酸種麵包,2,多穀種子麵包,Seeded Loaf,多穀種子,3,5.0,0,抽樣（Albion 200 則、James St 220 則）,—,大家推薦,低,2026-10-16,
-B14,Jocelyn's Provisions,01 酸種麵包,3,法棍,Baguette,—,3,4.3,0,抽樣（Albion 200 則、James St 220 則）,—,評論常提到,低,2026-10-16,
-B14,Jocelyn's Provisions,06 蛋糕店,1,巧克力酸奶油蛋糕,Chocolate Sour Cream Cake,巧克力、酸奶油,29,4.7,2,抽樣（Albion 200 則、James St 220 則）,Urban List 蛋糕榜,大家推薦,高,2026-10-16,
-B14,Jocelyn's Provisions,06 蛋糕店,2,紅蘿蔔蛋糕,Carrot Cake,紅蘿蔔,9,4.4,1,抽樣（Albion 200 則、James St 220 則）,—,評論常提到,中,2026-10-16,
-B14,Jocelyn's Provisions,06 蛋糕店,3,杯子蛋糕,Cupcakes,—,6,3.8,1,抽樣 220 則（James St）,—,評論常提到,中,2026-10-16,
-B15,Le'Artisan Bakery & Cafe,04 歐式吐司,1,越式法包,Banh Mi,法式麵包捲，最常點脆皮豬肉,27,5.0,0,全部評論（118 則）,—,大家推薦,高,2026-10-16,Google 關鍵字 crispy pork banh mi 5 則
-B15,Le'Artisan Bakery & Cafe,04 歐式吐司,2,酸種麵包,Sourdough,—,7,4.3,1,全部評論（118 則）,—,評論常提到,中,2026-10-16,
-B15,Le'Artisan Bakery & Cafe,04 歐式吐司,3,麵包捲,Bread Rolls,外脆,3,5.0,0,全部評論（118 則）,—,大家推薦,低,2026-10-16,目標品項的吐司（Sandwich Loaf）評論 0 則
-B16,Kangti Bakery,05 台式麵包,1,芋頭系列,Taro,芋頭麵包、芋頭蛋糕、芋頭三明治,17,4.6,1,全部評論（121 則）,—,大家推薦,中,2026-10-16,
-B16,Kangti Bakery,05 台式麵包,2,肉鬆麵包,Pork Floss Bun,肉鬆,10,3.6,3,全部評論（121 則）,—,評論常提到,中,2026-10-16,評價分歧
-B16,Kangti Bakery,05 台式麵包,3,麻糬麵包,Mochi Bun,麻糬,5,5.0,0,全部評論（121 則）,—,大家推薦,中,2026-10-16,紅豆麵包 5 則（4.8 星）同樣熱門
-B17,The Wheat House,05 台式麵包,1,包餡吐司,Stuffed Toast,蟹肉、火腿起司等；可加玉米濃湯成套餐,14,4.7,0,全部評論（143 則）,—,大家推薦,中,2026-10-16,
-B17,The Wheat House,05 台式麵包,2,巧克力方塊可頌,Chocolate Cube Croissant,巧克力爆漿,9,4.8,0,全部評論（143 則）,—,大家推薦,中,2026-10-16,
-B17,The Wheat House,05 台式麵包,3,芋頭方塊可頌,Taro Cube Croissant,芋頭,8,4.1,1,全部評論（143 則）,—,評論常提到,中,2026-10-16,方塊可頌整體 28 則 4.1 星、3 則負評；抹茶 6 則（4.5）、黑芝麻 5 則（4.4）
-B19,Flour & Chocolate,02 可頌,1,巧克力杏仁可頌,Chocolate Almond Croissant,巧克力、杏仁,8,4.5,0,抽樣 180 則（共 552 則）,Time Out 招牌,大家推薦,中,2026-10-16,
-B19,Flour & Chocolate,02 可頌,2,火腿起司可頌,Ham & Cheese Croissant,火腿、起司,4,3.0,1,抽樣 180 則（共 552 則）,—,評論常提到,低,2026-10-16,
-B19,Flour & Chocolate,02 可頌,3,榛果可頌,Hazelnut Croissant,榛果,2,4.5,0,抽樣 180 則（共 552 則）,—,大家推薦,低,2026-10-16,
-B19,Flour & Chocolate,06 蛋糕店,1,無麵粉巧克力榛果蛋糕,Flourless Chocolate & Hazelnut Cake,無麩質,4,4.5,0,抽樣 180 則（共 552 則）,Urban List 蛋糕榜招牌,大家推薦,低,2026-10-16,評論多只寫 cake（36 則，4.6 星）
-B19,Flour & Chocolate,06 蛋糕店,2,起司蛋糕,Cheesecake,—,2,5.0,0,抽樣 180 則（共 552 則）,—,大家推薦,低,2026-10-16,
-B19,Flour & Chocolate,06 蛋糕店,3,土耳其軟糖巧克力蛋糕,Turkish Delight Chocolate Cake,玫瑰軟糖、巧克力,1,5.0,0,抽樣 180 則（共 552 則）,—,大家推薦,低,2026-10-16,
-B21,Icing Hill,06 蛋糕店,1,玫瑰西瓜蛋糕,Rose Watermelon Cake,西瓜、玫瑰、鮮奶油,28,4.0,6,抽樣 190 則（共 453 則）,Urban List 蛋糕榜,評論常提到,高,2026-10-16,最常被點，但評價分歧
-B21,Icing Hill,06 蛋糕店,2,千層蛋糕,Crepe Cake,—,17,4.3,2,抽樣 190 則（共 453 則）,—,評論常提到,中,2026-10-16,
-B21,Icing Hill,06 蛋糕店,3,抹茶系列,Matcha,抹茶蛋糕、抹茶千層等,13,4.8,0,抽樣 190 則（共 453 則）,—,大家推薦,中,2026-10-16,巴斯克乳酪蛋糕 12 則（4.8）、榴槤 10 則（4.5）緊接在後；戚風 3 則
-B23,Idle,01 酸種麵包,1,酸種麵包,Sourdough,—,6,4.8,0,抽樣 190 則（共 435 則）,—,大家推薦,中,2026-10-16,多半只寫 sourdough
-B23,Idle,01 酸種麵包,2,酸種英式鬆餅,Sourdough Crumpet,—,4,4.0,1,抽樣 190 則（共 435 則）,Urban List：酸種 crumpets,評論常提到,低,2026-10-16,Google 關鍵字 crumpets 8 則
-B23,Idle,01 酸種麵包,3,馬鈴薯酸種,Potato Sourdough,馬鈴薯,2,4.5,0,抽樣 190 則（共 435 則）,—,大家推薦,低,2026-10-16,
-B23,Idle,02 可頌,1,杏仁可頌,Almond Croissant,杏仁內餡,8,4.6,0,抽樣 190 則（共 435 則）,Time Out 列為必點,大家推薦,中,2026-10-16,
-B23,Idle,02 可頌,2,巧克力可頌,Pain au Chocolat,巧克力,5,3.8,0,抽樣 190 則（共 435 則）,—,評論常提到,中,2026-10-16,
-B23,Idle,02 可頌,3,火腿起司可頌,Ham & Cheese Croissant,火腿、起司,4,4.5,0,抽樣 190 則（共 435 則）,—,大家推薦,低,2026-10-16,
-B24,Darvella Patisserie,02 可頌,1,杏仁可頌,Almond Croissant,杏仁內餡,16,4.4,1,抽樣 190 則（共 883 則）,—,評論常提到,中,2026-10-16,Google 關鍵字 almond croissant 32 則
-B24,Darvella Patisserie,02 可頌,2,可頌鬆餅,Cruffin,—,5,4.2,1,抽樣 190 則（共 883 則）,Broadsheet、Urban List：cruffin,評論常提到,中,2026-10-16,Google 關鍵字 cruffin 18 則
-B24,Darvella Patisserie,02 可頌,3,開心果可頌,Pistachio Croissant,開心果,4,4.5,0,抽樣 190 則（共 883 則）,—,大家推薦,低,2026-10-16,
-B24,Darvella Patisserie,06 蛋糕店,1,客製多層生日蛋糕,Custom Tiered Birthday Cake,含花瓣造型蛋糕,2,5.0,0,抽樣 190 則（共 883 則）,Urban List 蛋糕榜：雙層花瓣蛋糕,大家推薦,低,2026-10-16,評論多稱讚訂製蛋糕但少寫口味（cake 13 則，4.6 星）
-B24,Darvella Patisserie,06 蛋糕店,2,巴斯克起司蛋糕,Basque Cheesecake,—,2,5.0,0,抽樣 190 則（共 883 則）,—,大家推薦,低,2026-10-16,
-B24,Darvella Patisserie,06 蛋糕店,3,黑啤咖啡蛋糕,Stout & Coffee Cake,黑啤、咖啡,1,4.0,0,抽樣 190 則（共 883 則）,—,評論常提到,低,2026-10-16,
-B25,Cerin Pasticceria,02 可頌,1,開心果義式可頌,Pistachio Cornetto,開心果醬內餡,15,4.7,1,抽樣 180 則（共 608 則）,Broadsheet：開心果 cornetti,大家推薦,高,2026-10-16,Google 關鍵字 pistachio croissant 51 則
-B25,Cerin Pasticceria,02 可頌,2,香草卡士達義式可頌,Vanilla Custard Cornetto,香草卡士達,15,4.2,1,抽樣 180 則（共 608 則）,Broadsheet：香草卡士達 cornetti,評論常提到,中,2026-10-16,
-B25,Cerin Pasticceria,02 可頌,3,巧克力義式可頌,Chocolate / Nutella Cornetto,巧克力、Nutella,7,4.4,0,抽樣 180 則（共 608 則）,—,評論常提到,中,2026-10-16,
+﻿ID,店家,分類,名次,品項中文,品項英文,口味說明,口味說明（英）,評論提及數,提及評論平均星等,低分則數,統計範圍,媒體或社群佐證,判定,信心度,查核日期,備註
+B01,Riser,01 酸種麵包,1,橄欖檸檬迷迭香酸種,"Olive, Lemon & Rosemary Sourdough",橄欖、檸檬皮、迷迭香,"olive, lemon zest, rosemary",3,5.0,0,搜尋全部評論（476 則）,Weekend Edition：招牌款，有一群固定支持者,大家推薦,中,2026-10-16,評論寫法有 lemon olive sourdough、olive loaf、Olive；另 1 則 olive ciabatta 不計
+B01,Riser,01 酸種麵包,2,黑麥葛縷子麵包,Rye & Caraway Loaf,黑麥加葛縷子籽，偏北歐風,"rye with caraway seeds, Nordic style",4,5.0,0,搜尋全部評論（476 則）,Weekend Edition：有 Scando 風格 100% 黑麥,大家推薦,中,2026-10-16,評論提醒要早點去，常賣完
+B01,Riser,01 酸種麵包,3,南瓜酸種,Pumpkin Sourdough,季節限定,seasonal only,3,5.0,0,搜尋全部評論（476 則）,—,大家推薦,低,2026-10-16,評論提到春夏不在菜單上；另有 Table loaf 2 則、蜂蜜味噌酸種 1 則
+B01,Riser,02 可頌,1,杏仁可頌,Almond Croissant,杏仁內餡，有評論提到帶蜂蜜甜味,almond filling; one review mentions a honey sweetness,9,4.6,0,搜尋全部評論（476 則）,Wanderlog 評論摘要列為必點,大家推薦,中,2026-10-16,1 則 4 星評論說偏乾、不夠酥
+B01,Riser,02 可頌,2,原味可頌,Croissant,—,,,,,Google 關鍵字,—,評論常提到,低,2026-10-16,Google 關鍵字 croissant 22 則，多為泛稱，無法區分口味，未計評價
+B01,Riser,02 可頌,3,鹹味熊掌酥,Savoury Bear Claw,可頌麵團，口味輪替（評論：煙燻鮭魚；Urban List：烤甜椒費達）,"croissant dough, rotating fillings (reviews: smoked salmon; Urban List: roast capsicum and feta)",1,5.0,0,搜尋全部評論（476 則）,Urban List：招牌之一為烤甜椒費達熊掌酥,評論常提到,低,2026-10-16,評論寫作「Bear Crawl」
+B02,Danny's Bread,01 酸種麵包,1,經典酸種,Traditional Sourdough,店家起家的招牌麵包,the loaf the bakery started with,41,4.8,1,搜尋全部評論（222 則）,官網：傳統酸種是起家產品,大家推薦,高,2026-10-16,評論多半只寫 sourdough
+B02,Danny's Bread,01 酸種麵包,2,貝果,Bagel,常做成三明治，例：雞肉辣椒貝果,"often made into sandwiches, e.g. chicken chilli bagel",9,4.8,0,Google 關鍵字篩選,—,大家推薦,中,2026-10-16,
+B02,Danny's Bread,01 酸種麵包,3,全麥多穀酸種,Wholemeal Multigrain Sourdough,全麥、多穀,,2,5.0,0,搜尋全部評論（222 則）,—,大家推薦,低,2026-10-16,另有杏仁種子麵包 1 則
+B03,Sprout,01 酸種麵包,1,72 小時發酵酸種,72-hour Sourdough,長時間發酵,long fermentation,2,4.0,0,兩家分店全部評論（Newstead 43 則、Albion 抽樣 20 則）,Broadsheet：72 小時酸種；Time Out 列為招牌,評論常提到,低,2026-10-16,評論幾乎沒提酸種，主要依媒體；第 2、3 名資料不足
+B03,Sprout,02 可頌,1,杏仁可頌,Almond Croissant,杏仁內餡,,4,4.3,0,兩家分店全部評論（Newstead 43 則、Albion 抽樣 20 則）,—,評論常提到,低,2026-10-16,有評論嫌價格高（一個 11 澳幣）
+B03,Sprout,02 可頌,2,可頌三明治,Croissant Toastie,帕瑪火腿、莫札瑞拉,"prosciutto, mozzarella",4,4.0,0,兩家分店全部評論（Newstead 43 則、Albion 抽樣 20 則）,Broadsheet：可頌三明治,評論常提到,低,2026-10-16,
+B03,Sprout,02 可頌,3,雙層巧克力可頌麵包,Double-chocolate Croissant Bun,雙層巧克力,,0,,,—,Broadsheet 列為招牌,媒體推薦,低,2026-10-16,評論未提到，只有媒體資料
+B04,Oh My Bread!,01 酸種麵包,1,長時間發酵酸種,Long-ferment Sourdough,長時間發酵，週四供應,"long fermentation, available on Thursdays",13,4.7,1,全部評論（119 則）,—,大家推薦,中,2026-10-16,
+B04,Oh My Bread!,01 酸種麵包,2,法棍,Baguette,外脆內軟,"crisp outside, soft inside",11,4.9,0,全部評論（119 則）,—,大家推薦,中,2026-10-16,
+B04,Oh My Bread!,01 酸種麵包,3,芝麻法棍,Sesame Baguette,芝麻,,2,5.0,0,全部評論（119 則）,—,大家推薦,低,2026-10-16,
+B04,Oh My Bread!,02 可頌,1,杏仁可頌,Almond Croissant,杏仁內餡,,7,5.0,0,全部評論（119 則）,—,大家推薦,中,2026-10-16,
+B04,Oh My Bread!,02 可頌,2,巧克力可頌,Pain au Chocolat,巧克力,,4,4.8,0,全部評論（119 則）,—,大家推薦,低,2026-10-16,
+B04,Oh My Bread!,02 可頌,3,櫻桃黑巧克力可頌,Cherry & Dark Chocolate Croissant,櫻桃、黑巧克力,,3,4.7,0,全部評論（119 則）,—,大家推薦,低,2026-10-16,
+B05,Banneton Bakery,01 酸種麵包,1,招牌酸種,Sourdough,—,,26,4.5,1,抽樣 210 則（共 459 則）,—,大家推薦,高,2026-10-16,多半只寫 sourdough
+B05,Banneton Bakery,01 酸種麵包,2,多穀酸種,Multigrain Sourdough,多穀,,3,5.0,0,Google 關鍵字＋抽樣,—,大家推薦,低,2026-10-16,
+B05,Banneton Bakery,01 酸種麵包,3,黑麥葵花籽酸種,Rye & Sunflower Seed Sourdough,黑麥、葵花籽,,1,4.0,0,抽樣 210 則（共 459 則）,—,評論常提到,低,2026-10-16,另有淡黑麥酸種 1 則；本店可頌 26 則平均 3.6 星（不在本分類）
+B05,Banneton Bakery,04 歐式吐司,1,椒鹽脆餅,Pretzel,德式,German style,10,4.5,1,抽樣 210 則（共 459 則）,—,大家推薦,中,2026-10-16,Google 關鍵字 delicious pretzel 12 則
+B05,Banneton Bakery,04 歐式吐司,2,紐約黑麥麵包,NY Deli Rye,黑麥,,2,5.0,0,抽樣 210 則（共 459 則）,—,大家推薦,低,2026-10-16,
+B05,Banneton Bakery,04 歐式吐司,3,拉脫維亞黑麥麵包,Latvian Rye,深色黑麥，只在週末供應,"dark rye, weekends only",2,3.0,1,抽樣 210 則（共 459 則）,—,評論常提到,低,2026-10-16,評價兩極：1 則喜歡、1 則說沒烤熟
+B06,Christian Jacques,01 酸種麵包,1,酸種法棍,Sourdough Baguette,—,,26,4.8,1,搜尋全部評論（1530 則）,—,大家推薦,高,2026-10-16,Google 關鍵字 baguettes 36 則
+B06,Christian Jacques,01 酸種麵包,2,橄欖迷迭香麵包,Olive & Rosemary Loaf,橄欖、迷迭香,,8,5.0,0,搜尋全部評論（1530 則）,—,大家推薦,中,2026-10-16,
+B06,Christian Jacques,01 酸種麵包,3,酸種圓麵包,Sourdough Bâtard,白麵包款,white loaf,7,5.0,0,搜尋全部評論（1530 則）,—,大家推薦,中,2026-10-16,搜尋 rye 0 則
+B06,Christian Jacques,02 可頌,1,卡士達可頌,Custard Croissant,卡士達內餡；也有杏仁卡士達、Nutella 卡士達組合,custard filling; also almond-custard and Nutella-custard combos,98,4.8,1,搜尋全部評論（1530 則）,Time Out 招牌；Reddit：卡士達可頌「unreal」,大家推薦,高,2026-10-16,98 則含組合口味，與第 2、3 名有重疊
+B06,Christian Jacques,02 可頌,2,杏仁可頌,Almond Croissant,杏仁內餡,,67,4.6,3,搜尋全部評論（1530 則）,Reddit 有人推薦,大家推薦,高,2026-10-16,Google 關鍵字 almond croissant 82 則
+B06,Christian Jacques,02 可頌,3,Nutella 可頌,Nutella Croissant,榛果巧克力醬，常與卡士達一起,often paired with custard,66,4.7,3,搜尋全部評論（1530 則）,—,大家推薦,高,2026-10-16,第 4 名火腿起司可頌 41 則（4.6 星）；原味可頌關鍵字 21 則
+B07,Lune Croissanterie,02 可頌,1,杏仁可頌,Almond Croissant,杏仁內餡，二次烘烤,"almond filling, twice baked",66,4.2,4,Google 關鍵字；評價抽樣 220 則中的 27 則,—,評論常提到,高,2026-10-16,最常被點，但抽樣評價只有 4.2 星
+B07,Lune Croissanterie,02 可頌,2,巧克力可頌,Pain au Chocolat,巧克力,,44,4.5,0,Google 關鍵字；評價抽樣 220 則中的 14 則,—,大家推薦,高,2026-10-16,
+B07,Lune Croissanterie,02 可頌,3,可頌鬆餅,Cruffin,可頌麵團做成馬芬形，常見檸檬凝乳內餡,"croissant dough baked in a muffin shape, often with lemon curd",27,4.8,0,Google 關鍵字；評價抽樣 220 則中的 5 則,Time Out：檸檬凝乳 cruffin,大家推薦,中,2026-10-16,Google 關鍵字 lemon curd cruffin 17 則；評價樣本少
+B08,Time & Temp,02 可頌,1,小荳蔻麵包捲,Cardamom Bun,北歐風小荳蔻,Nordic cardamom,17,4.9,0,全部評論（142 則）,Time Out、Broadsheet 都列為招牌,大家推薦,中,2026-10-16,不是可頌，是店內最有名的起酥類
+B08,Time & Temp,02 可頌,2,丹麥酥,Danish,例：大黃奶酥丹麥,e.g. rhubarb crumble danish,9,4.9,0,全部評論（142 則）,Time Out：大黃奶酥丹麥,大家推薦,中,2026-10-16,
+B08,Time & Temp,02 可頌,3,巧克力可頌,Pain au Chocolat,巧克力,,8,5.0,0,全部評論（142 則）,—,大家推薦,中,2026-10-16,原味可頌 4 則（5.0 星）
+B09,Beurre Pastries,02 可頌,1,杏仁可頌,Almond Croissant,杏仁內餡,,10,4.9,0,抽樣 220 則（共 247 則）,—,大家推薦,中,2026-10-16,
+B09,Beurre Pastries,02 可頌,2,巧克力可頌,Chocolate Croissant,巧克力,,9,4.4,0,抽樣 220 則（共 247 則）,—,評論常提到,中,2026-10-16,
+B09,Beurre Pastries,02 可頌,3,每月限定口味,Monthly Special,口味每月更換,flavour changes monthly,8,4.8,0,抽樣 220 則（共 247 則）,Urban List：每月特別款,大家推薦,中,2026-10-16,另有提拉米蘇拿鐵 16 則（飲品）
+B10,NOS. Bakehouse,03 日式吐司,1,蝦肉海苔酥三明治,Prawn & Seaweed Crunch Sando,自家生吐司夾蝦排、海苔,house shokupan with a prawn patty and seaweed,17,4.6,0,抽樣 190 則（共 462 則）,—,大家推薦,中,2026-10-16,
+B10,NOS. Bakehouse,03 日式吐司,2,唐揚雞法式吐司,Karaage French Toast,生吐司做的法式吐司配炸雞,shokupan French toast with karaage chicken,8,4.8,0,抽樣 190 則（共 462 則）,—,大家推薦,中,2026-10-16,
+B10,NOS. Bakehouse,03 日式吐司,3,原味生吐司（整條）,Shokupan Loaf,原味,plain,3,5.0,0,抽樣 190 則（共 462 則）,Baking Business：每天現烤,大家推薦,中,2026-10-16,Google 關鍵字 shokupan 15 則；雞蛋三明治關鍵字 10 則
+B14,Jocelyn's Provisions,01 酸種麵包,1,酸種麵包,Sourdough,—,,8,4.1,1,抽樣（Albion 200 則、James St 220 則）,Reddit 有人推薦 Jocelyn's 的酸種,評論常提到,中,2026-10-16,多半只寫 sourdough；James St 店提到麵包的 7 則平均 3.0 星
+B14,Jocelyn's Provisions,01 酸種麵包,2,多穀種子麵包,Seeded Loaf,多穀種子,,3,5.0,0,抽樣（Albion 200 則、James St 220 則）,—,大家推薦,低,2026-10-16,
+B14,Jocelyn's Provisions,01 酸種麵包,3,法棍,Baguette,—,,3,4.3,0,抽樣（Albion 200 則、James St 220 則）,—,評論常提到,低,2026-10-16,
+B14,Jocelyn's Provisions,06 蛋糕店,1,巧克力酸奶油蛋糕,Chocolate Sour Cream Cake,巧克力、酸奶油,,29,4.7,2,抽樣（Albion 200 則、James St 220 則）,Urban List 蛋糕榜,大家推薦,高,2026-10-16,
+B14,Jocelyn's Provisions,06 蛋糕店,2,紅蘿蔔蛋糕,Carrot Cake,紅蘿蔔,,9,4.4,1,抽樣（Albion 200 則、James St 220 則）,—,評論常提到,中,2026-10-16,
+B14,Jocelyn's Provisions,06 蛋糕店,3,杯子蛋糕,Cupcakes,—,,6,3.8,1,抽樣 220 則（James St）,—,評論常提到,中,2026-10-16,
+B15,Le'Artisan Bakery & Cafe,04 歐式吐司,1,越式法包,Banh Mi,法式麵包捲，最常點脆皮豬肉,baguette roll; crispy pork is the most ordered,27,5.0,0,全部評論（118 則）,—,大家推薦,高,2026-10-16,Google 關鍵字 crispy pork banh mi 5 則
+B15,Le'Artisan Bakery & Cafe,04 歐式吐司,2,酸種麵包,Sourdough,—,,7,4.3,1,全部評論（118 則）,—,評論常提到,中,2026-10-16,
+B15,Le'Artisan Bakery & Cafe,04 歐式吐司,3,麵包捲,Bread Rolls,外脆,crusty,3,5.0,0,全部評論（118 則）,—,大家推薦,低,2026-10-16,目標品項的吐司（Sandwich Loaf）評論 0 則
+B16,Kangti Bakery,05 台式麵包,1,芋頭系列,Taro,芋頭麵包、芋頭蛋糕、芋頭三明治,"taro bread, taro cake, taro sandwich",17,4.6,1,全部評論（121 則）,—,大家推薦,中,2026-10-16,
+B16,Kangti Bakery,05 台式麵包,2,肉鬆麵包,Pork Floss Bun,肉鬆,,10,3.6,3,全部評論（121 則）,—,評論常提到,中,2026-10-16,評價分歧
+B16,Kangti Bakery,05 台式麵包,3,麻糬麵包,Mochi Bun,麻糬,,5,5.0,0,全部評論（121 則）,—,大家推薦,中,2026-10-16,紅豆麵包 5 則（4.8 星）同樣熱門
+B17,The Wheat House,05 台式麵包,1,包餡吐司,Stuffed Toast,蟹肉、火腿起司等；可加玉米濃湯成套餐,"crab, ham and cheese and more; add corn soup for a set",14,4.7,0,全部評論（143 則）,—,大家推薦,中,2026-10-16,
+B17,The Wheat House,05 台式麵包,2,巧克力方塊可頌,Chocolate Cube Croissant,巧克力爆漿,molten chocolate,9,4.8,0,全部評論（143 則）,—,大家推薦,中,2026-10-16,
+B17,The Wheat House,05 台式麵包,3,芋頭方塊可頌,Taro Cube Croissant,芋頭,,8,4.1,1,全部評論（143 則）,—,評論常提到,中,2026-10-16,方塊可頌整體 28 則 4.1 星、3 則負評；抹茶 6 則（4.5）、黑芝麻 5 則（4.4）
+B19,Flour & Chocolate,02 可頌,1,巧克力杏仁可頌,Chocolate Almond Croissant,巧克力、杏仁,,8,4.5,0,抽樣 180 則（共 552 則）,Time Out 招牌,大家推薦,中,2026-10-16,
+B19,Flour & Chocolate,02 可頌,2,火腿起司可頌,Ham & Cheese Croissant,火腿、起司,,4,3.0,1,抽樣 180 則（共 552 則）,—,評論常提到,低,2026-10-16,
+B19,Flour & Chocolate,02 可頌,3,榛果可頌,Hazelnut Croissant,榛果,,2,4.5,0,抽樣 180 則（共 552 則）,—,大家推薦,低,2026-10-16,
+B19,Flour & Chocolate,06 蛋糕店,1,無麵粉巧克力榛果蛋糕,Flourless Chocolate & Hazelnut Cake,無麩質,gluten-free,4,4.5,0,抽樣 180 則（共 552 則）,Urban List 蛋糕榜招牌,大家推薦,低,2026-10-16,評論多只寫 cake（36 則，4.6 星）
+B19,Flour & Chocolate,06 蛋糕店,2,起司蛋糕,Cheesecake,—,,2,5.0,0,抽樣 180 則（共 552 則）,—,大家推薦,低,2026-10-16,
+B19,Flour & Chocolate,06 蛋糕店,3,土耳其軟糖巧克力蛋糕,Turkish Delight Chocolate Cake,玫瑰軟糖、巧克力,rose Turkish delight with chocolate,1,5.0,0,抽樣 180 則（共 552 則）,—,大家推薦,低,2026-10-16,
+B21,Icing Hill,06 蛋糕店,1,玫瑰西瓜蛋糕,Rose Watermelon Cake,西瓜、玫瑰、鮮奶油,"watermelon, rose, fresh cream",28,4.0,6,抽樣 190 則（共 453 則）,Urban List 蛋糕榜,評論常提到,高,2026-10-16,最常被點，但評價分歧
+B21,Icing Hill,06 蛋糕店,2,千層蛋糕,Crepe Cake,—,,17,4.3,2,抽樣 190 則（共 453 則）,—,評論常提到,中,2026-10-16,
+B21,Icing Hill,06 蛋糕店,3,抹茶系列,Matcha,抹茶蛋糕、抹茶千層等,"matcha cake, matcha crepe cake and more",13,4.8,0,抽樣 190 則（共 453 則）,—,大家推薦,中,2026-10-16,巴斯克乳酪蛋糕 12 則（4.8）、榴槤 10 則（4.5）緊接在後；戚風 3 則
+B23,Idle,01 酸種麵包,1,酸種麵包,Sourdough,—,,6,4.8,0,抽樣 190 則（共 435 則）,—,大家推薦,中,2026-10-16,多半只寫 sourdough
+B23,Idle,01 酸種麵包,2,酸種英式鬆餅,Sourdough Crumpet,—,,4,4.0,1,抽樣 190 則（共 435 則）,Urban List：酸種 crumpets,評論常提到,低,2026-10-16,Google 關鍵字 crumpets 8 則
+B23,Idle,01 酸種麵包,3,馬鈴薯酸種,Potato Sourdough,馬鈴薯,,2,4.5,0,抽樣 190 則（共 435 則）,—,大家推薦,低,2026-10-16,
+B23,Idle,02 可頌,1,杏仁可頌,Almond Croissant,杏仁內餡,,8,4.6,0,抽樣 190 則（共 435 則）,Time Out 列為必點,大家推薦,中,2026-10-16,
+B23,Idle,02 可頌,2,巧克力可頌,Pain au Chocolat,巧克力,,5,3.8,0,抽樣 190 則（共 435 則）,—,評論常提到,中,2026-10-16,
+B23,Idle,02 可頌,3,火腿起司可頌,Ham & Cheese Croissant,火腿、起司,,4,4.5,0,抽樣 190 則（共 435 則）,—,大家推薦,低,2026-10-16,
+B24,Darvella Patisserie,02 可頌,1,杏仁可頌,Almond Croissant,杏仁內餡,,16,4.4,1,抽樣 190 則（共 883 則）,—,評論常提到,中,2026-10-16,Google 關鍵字 almond croissant 32 則
+B24,Darvella Patisserie,02 可頌,2,可頌鬆餅,Cruffin,—,,5,4.2,1,抽樣 190 則（共 883 則）,Broadsheet、Urban List：cruffin,評論常提到,中,2026-10-16,Google 關鍵字 cruffin 18 則
+B24,Darvella Patisserie,02 可頌,3,開心果可頌,Pistachio Croissant,開心果,,4,4.5,0,抽樣 190 則（共 883 則）,—,大家推薦,低,2026-10-16,
+B24,Darvella Patisserie,06 蛋糕店,1,客製多層生日蛋糕,Custom Tiered Birthday Cake,含花瓣造型蛋糕,includes petal-style cakes,2,5.0,0,抽樣 190 則（共 883 則）,Urban List 蛋糕榜：雙層花瓣蛋糕,大家推薦,低,2026-10-16,評論多稱讚訂製蛋糕但少寫口味（cake 13 則，4.6 星）
+B24,Darvella Patisserie,06 蛋糕店,2,巴斯克起司蛋糕,Basque Cheesecake,—,,2,5.0,0,抽樣 190 則（共 883 則）,—,大家推薦,低,2026-10-16,
+B24,Darvella Patisserie,06 蛋糕店,3,黑啤咖啡蛋糕,Stout & Coffee Cake,黑啤、咖啡,,1,4.0,0,抽樣 190 則（共 883 則）,—,評論常提到,低,2026-10-16,
+B25,Cerin Pasticceria,02 可頌,1,開心果義式可頌,Pistachio Cornetto,開心果醬內餡,pistachio cream filling,15,4.7,1,抽樣 180 則（共 608 則）,Broadsheet：開心果 cornetti,大家推薦,高,2026-10-16,Google 關鍵字 pistachio croissant 51 則
+B25,Cerin Pasticceria,02 可頌,2,香草卡士達義式可頌,Vanilla Custard Cornetto,香草卡士達,,15,4.2,1,抽樣 180 則（共 608 則）,Broadsheet：香草卡士達 cornetti,評論常提到,中,2026-10-16,
+B25,Cerin Pasticceria,02 可頌,3,巧克力義式可頌,Chocolate / Nutella Cornetto,巧克力、Nutella,,7,4.4,0,抽樣 180 則（共 608 則）,—,評論常提到,中,2026-10-16,

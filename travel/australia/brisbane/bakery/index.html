@@ -4,18 +4,20 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>布里斯本烘焙地圖</title>
-<meta name="description" content="布里斯本 19 家烘焙店：依分類與區域篩選，看大家最推薦的前三名品項。">
+<meta name="description" content="布里斯本 19 家烘焙店：依分類與區域篩選，看各分類大家最推薦的前三名口味。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&family=Noto+Sans+TC:wght@400;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<!-- Bump ?v= whenever these files change, so browsers skip GitHub Pages' cached copy. -->
+<link rel="stylesheet" href="style.css?v=20261016c">
 </head>
 <body>
 
 <div class="map-chip-panel" id="mapChipPanel">
-  <div class="chip-strip" id="chipStrip" role="group" aria-label="目前清單的店家"></div>
+  <div class="chip-strip" id="chipStrip" role="group"></div>
   <div class="top-actions">
-    <button class="theme-toggle" type="button" id="themeToggle" aria-label="切換深色模式" title="切換深色模式"></button>
+    <button class="lang-toggle" type="button" id="langToggle">EN</button>
+    <button class="theme-toggle" type="button" id="themeToggle"></button>
   </div>
 </div>
 
@@ -23,13 +25,13 @@
   <div class="map-panel" id="mapPanel">
     <div class="map-loading" id="mapLoading" aria-live="polite">
       <span class="map-loading-spinner"></span>
-      <span>地圖更新中</span>
+      <span id="mapLoadingText">地圖更新中</span>
     </div>
     <iframe class="map-frame" id="mapFrame" title="烘焙店地圖" referrerpolicy="no-referrer-when-downgrade"></iframe>
     <button class="map-nav-float" id="overviewBtn" type="button" hidden>🗺️ 回到全部店家</button>
   </div>
 
-  <div class="resize-divider" id="resizeDivider" title="拖曳調整地圖與清單寬度"></div>
+  <div class="resize-divider" id="resizeDivider"></div>
 
   <aside class="sidebar" id="sidebar">
     <div class="sidebar-sticky">
@@ -52,11 +54,15 @@
       <div class="filters">
         <div class="filter-row">
           <span class="filter-label" id="categoryLabel">分類</span>
+          <button class="scroll-btn scroll-prev" type="button" data-target="categoryTabs" data-dir="-1">‹</button>
           <div class="filter-scroll" id="categoryTabs" role="tablist" aria-labelledby="categoryLabel"></div>
+          <button class="scroll-btn scroll-next" type="button" data-target="categoryTabs" data-dir="1">›</button>
         </div>
         <div class="filter-row">
           <span class="filter-label" id="regionLabel">區域</span>
+          <button class="scroll-btn scroll-prev" type="button" data-target="regionChips" data-dir="-1">‹</button>
           <div class="filter-scroll" id="regionChips" role="group" aria-labelledby="regionLabel"></div>
+          <button class="scroll-btn scroll-next" type="button" data-target="regionChips" data-dir="1">›</button>
         </div>
       </div>
       <div class="result-line" id="resultLine" aria-live="polite"></div>
@@ -64,16 +70,16 @@
 
     <div class="sidebar-body" id="sidebarBody"></div>
 
-    <button class="back-to-top" id="backToTop" type="button" aria-label="回到頂部" title="回到頂部">↑</button>
+    <button class="back-to-top" id="backToTop" type="button">↑</button>
   </aside>
 </div>
 
 <div class="lightbox" id="lightbox">
-  <button class="lightbox-close" id="lightboxClose" type="button" aria-label="關閉圖片">✕</button>
+  <button class="lightbox-close" id="lightboxClose" type="button">✕</button>
   <img id="lightboxImg" src="" alt="">
 </div>
 
-<script src="data.js"></script>
-<script src="script.js"></script>
+<script src="data.js?v=20261016c"></script>
+<script src="script.js?v=20261016c"></script>
 </body>
 </html>

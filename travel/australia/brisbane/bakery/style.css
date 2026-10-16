@@ -215,6 +215,7 @@ a:focus-visible {
   padding-right: 10px;
 }
 
+.lang-toggle,
 .theme-toggle {
   width: 44px;
   height: 44px;
@@ -231,11 +232,20 @@ a:focus-visible {
   cursor: pointer;
   transition: background 0.15s, border-color 0.15s, transform 0.15s;
 }
+.lang-toggle {
+  width: auto;
+  min-width: 44px;
+  padding: 0 10px;
+  font-size: var(--fs-xs);
+  font-weight: 800;
+}
+.lang-toggle:hover,
 .theme-toggle:hover {
   background: var(--color-surface-soft);
   border-color: var(--color-accent-border);
   transform: translateY(-1px);
 }
+.lang-toggle:active,
 .theme-toggle:active { transform: translateY(0); }
 .theme-toggle svg { display: block; }
 
@@ -489,6 +499,34 @@ a:focus-visible {
   border-style: dashed;
 }
 
+/* ‹ › scroll buttons: desktop only (mobile rows are swiped). */
+.scroll-btn { display: none; }
+@media (min-width: 768px) {
+  .filter-row { padding-right: 12px; gap: 4px; }
+  .filter-label { margin-right: 4px; }
+  .filter-scroll { padding-right: 8px; }
+  .scroll-btn {
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    border: 1px solid var(--color-border);
+    background: var(--color-surface);
+    color: var(--color-text);
+    font: inherit;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1;
+    cursor: pointer;
+    transition: background 0.15s, opacity 0.15s;
+  }
+  .scroll-btn:hover:not(:disabled) { background: var(--color-surface-soft); }
+  .scroll-btn:disabled { opacity: 0.35; cursor: default; }
+}
+
 .result-line {
   padding: 6px 16px;
   font-size: var(--fs-xs);
@@ -594,6 +632,16 @@ a:focus-visible {
   color: var(--color-text-muted);
   border: 1px solid var(--color-border);
 }
+/* Category tags on cards are filter shortcuts, so they are real buttons with a hover state. */
+.tag-btn {
+  font: inherit;
+  font-size: var(--fs-2xs);
+  font-weight: 650;
+  min-height: 26px;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+}
+.tag-btn:hover { border-color: var(--color-accent-border); background: var(--color-accent-soft); }
 .tag-done { background: var(--color-secondary-soft); color: var(--color-secondary-strong); border-color: var(--color-secondary-border); }
 .tag-low { background: var(--color-warm-soft); color: var(--color-warning-text); border-color: var(--color-warm-border); }
 
