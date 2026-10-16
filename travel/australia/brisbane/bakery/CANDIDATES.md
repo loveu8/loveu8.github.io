@@ -1,9 +1,9 @@
 # 布里斯本烘焙清單：在地人常去、但清單還沒有的類型（候選調查）
 
-- 調查日期：2026-10-17
-- 狀態：**已加入 `bakery.csv`（B26～B43，2026-10-17）**；A、B 級 13 家的前三名、座標、IG 已補齊（見 `TOP3.md`），網頁已更新為 32 家。My Maps 全覽地圖已於 2026-10-17 換成 32 家的新圖層「烘焙店 32 家（依主分類）」（舊的 19 家圖層已刪除，預設畫面改為 10 級縮放，涵蓋郊外兩家）
+- 調查日期：2026-10-16
+- 狀態：**已加入 `bakery.csv`（B26～B43，2026-10-16）**；A、B 級 13 家的前三名、座標、IG 已補齊（見 `TOP3.md`），網頁已更新為 32 家。My Maps 全覽地圖已於 2026-10-16 換成 32 家的新圖層「烘焙店 32 家（依主分類）」（舊的 19 家圖層已刪除，預設畫面改為 10 級縮放，涵蓋郊外兩家）
 
-## 加入 csv 的處理（2026-10-17）
+## 加入 csv 的處理（2026-10-16）
 
 - **新分類**：08 澳式派、09 義式／葡式點心、10 單品專門店、11 韓式麵包、12 德式麵包、13 中東甜點（Kabul Sweets）
 - **新區域**：「郊外」，給 Yatala（往黃金海岸）和 Strathpine（遠北）
@@ -93,4 +93,4 @@
 - [Broadsheet：Brisbane 最佳 Kouign-amann](https://www.broadsheet.com.au/brisbane/food-and-drink/article/five-try-brisbanes-best-kouign-amanns)
 - [King of Cakes 官網](https://www.kingofcakes.com.au/product-category/pies-savoury/)
 - Reddit r/brisbane：只讀 Google 搜尋摘要（「Best Pies in Brisbane?」「Brisbanes Best Pie / Sausage Roll Shop」「Bakery Treats!」「Asian and Middle Eastern Bakeries?」等）
-- Google Maps：各店頁面（2026-10-17 快照）
+- Google Maps：各店頁面（2026-10-16 快照）
