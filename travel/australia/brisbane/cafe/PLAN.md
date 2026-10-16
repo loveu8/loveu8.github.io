@@ -1,7 +1,7 @@
 # 布里斯本咖啡廳地圖＋清單地圖共用化：開發計畫
 
 - 日期：2026-10-16
-- 狀態：**共用架構（步驟 1～3）已完成；咖啡廳調查（步驟 4）尚未開始**。最新進度看下面的進度表
+- 狀態：**共用架構（步驟 1～3）、咖啡廳候選調查（步驟 4）已完成；等使用者定案（步驟 5）**。最新進度看下面的進度表
 - 參考：`travel/australia/brisbane/bakery/`（PLAN.md、CANDIDATES.md、TOP3.md）、根目錄 `DESIGN.md`、`DECISIONS.md`、`AGENTS.md`
 
 ## 進度表
@@ -14,8 +14,8 @@
 | 1 | 工具進 repo（`travel/tools/`、`bakery/categories.csv`） | ✅ 完成 | 2026-10-16 | `7f3288e` | 新工具產生的 `data.js` 和 repo 版本完全相同（`git diff` 0 行）；My Maps 匯入檔和 Downloads 的 `brisbane-bakery-mymaps-all-32.csv` 雜湊值相同。另外抽出 `list_data.py` 放兩支工具共用的 csv 讀取 |
 | 2 | 抽出共用程式（`travel/shared/`、`bakery/page.js`） | ✅ 完成 | 2026-10-16 | `bc6df20` | 本機（127.0.0.1）和線上舊版比對：8 種篩選、語言、📍 組合的頁面內容雜湊值全部相同；試吃紀錄格式、無 My Maps 時的備用地圖、手機寬度（400px iframe）、console 都正常；data.js 只差 `PAGE_DATA` 和 title 兩處；CSS 只改檔頭註解。`file://` 直接開啟和列印（Chrome 擴充沒辦法測）由使用者在 2026-10-16 手動確認正常。另外 `page.js` 多了 `fallbackPlace`（原本寫死 `Brisbane QLD`） |
 | 3 | 文件（DECISIONS.md、bakery/PLAN.md） | ✅ 完成 | 2026-10-16 | （本 commit） | `DECISIONS.md` 新增共用架構一列（舊列提到 `script.js`、`BAKERY_DATA` 是歷史紀錄，保留不改）；`bakery/PLAN.md` 第 8 節加註；`DESIGN.md` 的 My Maps 段落改成「備用地圖用 `fallbackPlace`」並註明新頁面要用共用檔案 |
-| 4 | 咖啡廳候選調查（`cafe/CANDIDATES.md`） | ⬜ 未開始 | | | **從這裡開始**：照第 3 節步驟 4。可以分幾次做；做到一半時把已查的店家寫在這一列 |
-| 5 | 使用者定案分類、區域、名單 | ⬜ 未開始 | | | 第 5 節「待決定」 |
+| 4 | 咖啡廳候選調查（`cafe/CANDIDATES.md`） | ✅ 完成 | 2026-10-17 | （本 commit） | 約 65 家，⭐ 20、○ 27。精品咖啡、早午餐很夠；亞洲風只有 2 家 ⭐、甜點沒有 ⭐；5 家榜單上的店已歇業 |
+| 5 | 使用者定案分類、區域、名單 | ⏸️ 等使用者決定 | | | **從這裡開始**：看 `CANDIDATES.md`「結論與待決定」：亞洲風／甜點怎麼併、CBD 要不要拆出來、ODAYA TEA 收不收、Peach Cafe 和 Coffee Anthology 放哪張地圖、主地圖分配規則要不要改用「coffee」評論數 |
 | 6 | 咖啡廳 csv、前三名查核 | ⬜ 未開始 | | | 第 4 節 |
 | 7 | 咖啡廳頁面、My Maps | ⬜ 未開始 | | | 第 4 節 |
 
