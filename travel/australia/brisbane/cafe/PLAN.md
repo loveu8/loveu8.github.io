@@ -19,7 +19,7 @@
 | 6 | 咖啡廳 csv、前三名查核 | ✅ 完成 | 2026-10-17 | `08fe8fc`＋（本 commit） | `cafe.csv`（31 家，含地址、座標、Instagram）、`top3.csv`（127 個品項）、`categories.csv`、`TOP3.md`。決定：前三名分「飲品／餐點」兩區塊（top3.csv 加「區塊」欄）、試吃欄位是飲品／餐點／環境／回購、ID 用 CF01。Michelle's Sweet Kitchen 查不到 Instagram |
 | 7 | 咖啡廳頁面、My Maps | ✅ 完成 | 2026-10-17 | `5246507`＋（本 commit） | **My Maps**（2026-10-17）：「布里斯本咖啡廳地圖」，使用者匯入檔案、打開「知道連結的人都可以查看」；依主分類上色（亞洲風改橘、甜點改粉紅，和咖啡色區分），預設畫面設成布里斯本；嵌入網址已用 `--mymaps-url` 寫進 data.js，`?v=20261017b`。還沒 push。手機寬度、`file://` 請使用者手動確認。**頁面**：共用程式支援 CBD 區域（每頁只列有店的區域）、固定區塊前三名（`page.js` 的 `top3Blocks`）、風格標籤和 🥐 跨頁標記（使用者決定都放在分類標籤列，🥐 用琥珀色、不連結，因為 KIMINO、Mountain River 不在烘焙頁）、咖啡豆一行小字（使用者決定）；`cafe/index.html`、`page.js`、`data.js`。烘焙頁 `data.js` 和 My Maps 匯入檔重新產生後完全相同，本機（127.0.0.1）頁面正常、console 無錯誤。（Chrome 擴充沒辦法縮視窗、開 file://） |
 
-| 7b | 台灣風改善 | ✅ 完成 | 2026-10-17 | （本 commit） | 使用者反映「台式的看不到」。決定：新增分類「06 台灣風」（Coffee Iconic、Cafe Impero Central、Michelle's、Jacaranda、靜思書軒、寶QQ、Dō Dessert，原分類保留，My Maps 顏色不變）；卡片上的風格標籤改成可以點的篩選（再點一次或按結果列的 ✕ 取消）。My Maps 匯入檔已重新產生，只差「分類」欄多了台灣風，不重新匯入也可以 |
+| 7b | 台灣風改善 | ✅ 完成 | 2026-10-17 | （本 commit） | 使用者反映「台式的看不到」。決定：新增分類「06 台灣風」（Coffee Iconic、Cafe Impero Central、Michelle's、Jacaranda、靜思書軒、寶QQ、Dō Dessert，原分類保留，My Maps 顏色不變）；卡片上的風格標籤改成可以點的篩選（再點一次或按結果列的 ✕ 取消）。My Maps 匯入檔已重新產生，2026-10-17 由使用者刪掉舊圖層後重新匯入（同一張地圖，嵌入網址不變），重新依主分類上色：早午餐黃綠、精品咖啡紫、亞洲風橘、抹茶深藍、甜點粉紅 |
 
 狀態符號：⬜ 未開始、🔄 進行中、⏸️ 等使用者決定、✅ 完成
 
