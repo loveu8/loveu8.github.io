@@ -27,6 +27,11 @@ var PAGE_DATA = {
       "code": "05",
       "label": "甜點",
       "labelEn": "Desserts"
+    },
+    {
+      "code": "06",
+      "label": "台灣風",
+      "labelEn": "Taiwanese"
     }
   ],
   "regions": [
@@ -1043,7 +1048,8 @@ var PAGE_DATA = {
       "suburb": "Mount Gravatt",
       "region": "南區",
       "categories": [
-        "04"
+        "04",
+        "06"
       ],
       "priority": "A",
       "status": "待調查",
@@ -1767,7 +1773,8 @@ var PAGE_DATA = {
       "suburb": "Brisbane City",
       "region": "CBD",
       "categories": [
-        "02"
+        "02",
+        "06"
       ],
       "priority": "B",
       "status": "待調查",
@@ -1970,7 +1977,8 @@ var PAGE_DATA = {
       "region": "市中心周邊",
       "categories": [
         "04",
-        "02"
+        "02",
+        "06"
       ],
       "priority": "B",
       "status": "待調查",
@@ -2250,7 +2258,8 @@ var PAGE_DATA = {
       "suburb": "Sunnybank Hills",
       "region": "南區",
       "categories": [
-        "05"
+        "05",
+        "06"
       ],
       "priority": "B",
       "status": "待調查",
@@ -2515,7 +2524,8 @@ var PAGE_DATA = {
       "suburb": "Sunnybank Hills",
       "region": "南區",
       "categories": [
-        "05"
+        "05",
+        "06"
       ],
       "priority": "B",
       "status": "待調查",
@@ -2590,7 +2600,8 @@ var PAGE_DATA = {
       "suburb": "Sunnybank Hills",
       "region": "南區",
       "categories": [
-        "04"
+        "04",
+        "06"
       ],
       "priority": "B",
       "status": "待調查",
@@ -2679,7 +2690,8 @@ var PAGE_DATA = {
       "suburb": "Salisbury",
       "region": "南區",
       "categories": [
-        "04"
+        "04",
+        "06"
       ],
       "priority": "B",
       "status": "待調查",

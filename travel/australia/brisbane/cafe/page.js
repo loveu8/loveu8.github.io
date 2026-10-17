@@ -30,7 +30,7 @@ var PAGE_CONFIG = {
   // English for the csv's free-text 風格標籤 and 咖啡豆 values.
   termsEn: {
     '東南亞': 'Southeast Asian', '中東': 'Middle Eastern', '台灣茶': 'Taiwanese tea', '日式': 'Japanese',
-    '菲律賓': 'Filipino', '越南': 'Vietnamese', '台式': 'Taiwanese', '台灣人開': 'Taiwanese-owned',
+    '菲律賓': 'Filipino', '越南': 'Vietnamese', '台式': 'Taiwan-style', '台灣人開': 'Taiwanese-owned',
     '台灣慈濟': 'Tzu Chi (Taiwan)', '韓式': 'Korean', '豆花': 'Douhua',
     '自家烘焙': 'roasted in house', '多家烘豆商輪換': 'rotating roasters'
   },

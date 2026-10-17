@@ -24,7 +24,7 @@ var UI = {
     gap: '其餘款式的評論資料不足', target: '我想吃：', note: '訪前提醒：', tasted: '✅ 已試吃', beans: '☕ 豆子：',
     tasting: { date: '試吃', average: '平均' },
     reviewsShort: '{n} 則', ratingAria: 'Google 評分 {r}，{n} 則評論', prioAria: '優先級 {p}',
-    tagFilter: '只看{c}', mapAria: '在地圖上查看：{s}', mapsAria: '在 Google Maps 開啟：{s}',
+    tagFilter: '只看{c}', styleClear: '取消風格篩選', mapAria: '在地圖上查看：{s}', mapsAria: '在 Google Maps 開啟：{s}',
     igAria: '{s} 的 Instagram', source: '資料來源', overview: '🗺️ 回到全部店家',
     mapLoading: '地圖更新中', themeDark: '切換深色模式', themeLight: '切換淺色模式',
     backToTop: '回到頂部', closeLightbox: '關閉圖片', viewPhoto: '查看照片：{s}',
@@ -46,7 +46,7 @@ var UI = {
     gap: 'Not enough reviews for more items', target: 'I want to try: ', note: 'Before you go: ', tasted: '✅ Tasted', beans: '☕ Beans: ',
     tasting: { date: 'Tasted', average: 'Average' },
     reviewsShort: '{n} reviews', ratingAria: 'Google rating {r}, {n} reviews', prioAria: 'Priority {p}',
-    tagFilter: 'Show only {c}', mapAria: 'Show on map: {s}', mapsAria: 'Open in Google Maps: {s}',
+    tagFilter: 'Show only {c}', styleClear: 'Clear style filter', mapAria: 'Show on map: {s}', mapsAria: 'Open in Google Maps: {s}',
     igAria: '{s} on Instagram', source: 'Source', overview: '🗺️ Back to all shops',
     mapLoading: 'Updating map', themeDark: 'Switch to dark mode', themeLight: 'Switch to light mode',
     backToTop: 'Back to top', closeLightbox: 'Close photo', viewPhoto: 'View photo: {s}',
@@ -64,6 +64,7 @@ var state = {
   lang: 'zh-TW',
   category: ALL,
   region: ALL,
+  style: null,  // a card's style tag (風格標籤) clicked as a filter; null = off
   selectedId: null,
   selectedPlace: null,
   mapTimer: null,
@@ -156,7 +157,8 @@ function shopById(id) {
 function matches(shop, category, region) {
   var catOk = category === ALL || shop.categories.indexOf(category) !== -1;
   var regionOk = region === ALL || shop.region === region;
-  return catOk && regionOk;
+  var styleOk = !state.style || shop.style === state.style;
+  return catOk && regionOk && styleOk;
 }
 
 function filteredShops() {
@@ -315,6 +317,19 @@ function renderResultLine(shops) {
   var cat = state.category === ALL ? t('allCats') : categoryLabel(state.category);
   var region = state.region === ALL ? t('allRegions') : regionLabel(state.region);
   els.resultLine.textContent = t('result', { c: cat, r: region, n: shops.length });
+  if (state.style) {
+    var clear = el('button', 'tag tag-btn tag-active result-style', '✕ ' + term(state.style));
+    clear.type = 'button';
+    clear.setAttribute('title', t('styleClear'));
+    clear.setAttribute('aria-label', t('styleClear') + '：' + term(state.style));
+    clear.addEventListener('click', function() { setStyle(null); });
+    els.resultLine.appendChild(clear);
+  }
+}
+
+function setStyle(style) {
+  state.style = style;
+  refresh(true);
 }
 
 // ── top chip strip (scroll-spy, never touches the map) ──
@@ -517,7 +532,20 @@ function renderCard(shop) {
     });
     tags.appendChild(tagBtn);
   });
-  if (shop.style) tags.appendChild(el('span', 'tag', term(shop.style)));
+  // Style tags filter too (toggle); the result line shows a ✕ to clear it.
+  if (shop.style) {
+    var styleActive = state.style === shop.style;
+    var styleBtn = el('button', 'tag tag-btn' + (styleActive ? ' tag-active' : ''), term(shop.style));
+    styleBtn.type = 'button';
+    styleBtn.setAttribute('aria-pressed', styleActive ? 'true' : 'false');
+    styleBtn.setAttribute('title', t('tagFilter', { c: term(shop.style) }));
+    styleBtn.addEventListener('click', function() {
+      state.selectedId = shop.id;
+      setStyle(styleActive ? null : shop.style);
+      scrollToCard(shop.id);
+    });
+    tags.appendChild(styleBtn);
+  }
   // Cross-page mark (e.g. 🥐 on the cafe page = also known for pastries); labels in PAGE_CONFIG.crossMarks.
   var cross = shop.crossMark && state.config.crossMarks && state.config.crossMarks[shop.crossMark];
   if (cross) tags.appendChild(el('span', 'tag tag-cross', isEn() ? cross.en : cross.zh));

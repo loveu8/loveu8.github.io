@@ -822,6 +822,8 @@ a:focus-visible {
   color: var(--color-accent-strong);
   border-color: var(--color-accent-border);
 }
+/* Clear-style-filter pill at the end of the result line. */
+.result-style { margin-left: 8px; vertical-align: middle; }
 
 /* ── 9. MAP (Google embeds) ── */
 .map-frame {
