@@ -1,7 +1,7 @@
 // 由 cafe.csv 產生，請勿手改；csv 更新後重新產生。C 級店不收錄。
 var PAGE_DATA = {
   "dataAsOf": "2026-10",
-  "myMapsEmbedUrl": "",
+  "myMapsEmbedUrl": "https://www.google.com/maps/d/embed?mid=1xEUC-e_cK8UF07UYMHLVjNKhm0XtAg4&ehbc=2E312F&noprof=1",
   "categories": [
     {
       "code": "01",

@@ -40,7 +40,7 @@ python travel/tools/make_mymaps.py travel/australia/brisbane/bakery/bakery.csv `
 ```powershell
 python travel/tools/make_data_js.py travel/australia/brisbane/cafe/cafe.csv `
   --data-as-of 2026-10 `
-  --mymaps-url "<My Maps 嵌入網址>" `
+  --mymaps-url "https://www.google.com/maps/d/embed?mid=1xEUC-e_cK8UF07UYMHLVjNKhm0XtAg4&ehbc=2E312F&noprof=1" `
   --tasting "drink=飲品 1-5;food=餐點 1-5;vibe=環境 1-5;revisit=回購 1-5"
 
 python travel/tools/make_mymaps.py travel/australia/brisbane/cafe/cafe.csv `
