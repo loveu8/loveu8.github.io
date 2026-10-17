@@ -645,6 +645,8 @@ a:focus-visible {
 .tag-btn:hover { border-color: var(--color-accent-border); background: var(--color-accent-soft); }
 .tag-done { background: var(--color-secondary-soft); color: var(--color-secondary-strong); border-color: var(--color-secondary-border); }
 .tag-low { background: var(--color-warm-soft); color: var(--color-warning-text); border-color: var(--color-warm-border); }
+/* Cross-page mark (🥐 麵包也有名): amber is the food-tag family in DESIGN.md. */
+.tag-cross { background: var(--color-warm-soft); color: var(--color-warning-text); border-color: var(--color-warm-border); }
 
 .top3 {
   margin-top: 10px;

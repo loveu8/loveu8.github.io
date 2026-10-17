@@ -16,6 +16,10 @@ from list_data import (REGIONS, REGIONS_EN, category_codes, published_shops,
                        read_categories, read_top3)
 
 
+# data.js key -> csv column; added only when the csv has the column.
+OPTIONAL_COLUMNS = [("style", "風格標籤"), ("beans", "咖啡豆"), ("crossMark", "跨頁標記")]
+
+
 def num_or_none(value, kind=float):
     value = value.strip()
     return kind(value) if value else None
@@ -55,9 +59,10 @@ def tasting(r, score_columns):
     return out
 
 
-def shop_entry(r, top3, score_columns):
+def shop_entry(r, top3, uses_blocks, score_columns):
     query = urllib.parse.quote(r["店家"] + " " + r["地址"])
-    return {
+    top3_key = "top3ByBlock" if uses_blocks else "top3ByCategory"
+    entry = {
         "id": r["ID"],
         "name": r["店家"],
         "suburb": r["區域"],
@@ -66,7 +71,7 @@ def shop_entry(r, top3, score_columns):
         "priority": r["優先級"],
         "status": r["進度"],
         "target": r["目標品項"],
-        "top3ByCategory": {code: [top3_item(t) for t in items] for code, items in top3[r["ID"]].items()},
+        top3_key: {group: [top3_item(t) for t in items] for group, items in top3.get(r["ID"], {}).items()},
         "rating": num_or_none(r["Google 評分"]),
         "reviews": num_or_none(r["Google 評論數"], int),
         "note": r["試吃備註及訪前提醒"],
@@ -80,6 +85,11 @@ def shop_entry(r, top3, score_columns):
         "photos": [p.strip() for p in r["照片"].split("；") if p.strip()],
         "tasting": tasting(r, score_columns),
     }
+    # Optional columns (the cafe csv has them, the bakery csv does not).
+    for key, column in OPTIONAL_COLUMNS:
+        if column in r:
+            entry[key] = r[column].strip()
+    return entry
 
 
 def main():
@@ -94,10 +104,10 @@ def main():
 
     folder = os.path.dirname(os.path.abspath(args.shops_csv))
     out = args.out or os.path.join(folder, "data.js")
-    top3 = read_top3(folder)
+    top3, uses_blocks = read_top3(folder)
     score_columns = parse_tasting(args.tasting)
 
-    shops = [shop_entry(r, top3, score_columns) for r in published_shops(args.shops_csv)]
+    shops = [shop_entry(r, top3, uses_blocks, score_columns) for r in published_shops(args.shops_csv)]
     order = {"A": 0, "B": 1}
     shops.sort(key=lambda s: (order[s["priority"]], -(s["reviews"] or 0)))
 
@@ -106,8 +116,8 @@ def main():
         "dataAsOf": args.data_as_of,
         "myMapsEmbedUrl": args.mymaps_url,
         "categories": [{"code": c, "label": zh, "labelEn": en} for c, zh, en in read_categories(folder)],
-        "regions": REGIONS,
-        "regionsEn": REGIONS_EN,
+        "regions": [g for g in REGIONS if any(s["region"] == g for s in shops)],
+        "regionsEn": {g: REGIONS_EN[g] for g in REGIONS if any(s["region"] == g for s in shops)},
         "shops": shops,
     }
 
@@ -118,8 +128,15 @@ def main():
         f.write(";\n")
 
     print(len(shops), "shops ->", out)
+    unknown = sorted({s["region"] for s in shops} - set(REGIONS))
+    if unknown:
+        print("UNKNOWN region (add it to list_data.REGIONS):", unknown)
     for s in shops:
-        missing = [c for c in s["categories"] if c not in s["top3ByCategory"]]
+        # Block pages may leave out a block (e.g. no drinks reviewed); category pages need every category.
+        if uses_blocks:
+            missing = [] if s["top3ByBlock"] else ["any block"]
+        else:
+            missing = [c for c in s["categories"] if c not in s["top3ByCategory"]]
         if missing:
             print("MISSING top3:", s["id"], s["name"], missing)
 

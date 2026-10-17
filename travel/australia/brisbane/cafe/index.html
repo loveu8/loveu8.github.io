@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>布里斯本咖啡廳地圖</title>
+<meta name="description" content="布里斯本 31 家咖啡廳：依分類與區域篩選，看每家大家最推薦的飲品和餐點前三名。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&family=Noto+Sans+TC:wght@400;600;700;800&display=swap" rel="stylesheet">
+<!-- Bump ?v= whenever these files change, so browsers skip GitHub Pages' cached copy. -->
+<link rel="stylesheet" href="../../../shared/map-list.css?v=20261017a">
+</head>
+<body>
+
+<div class="map-chip-panel" id="mapChipPanel">
+  <div class="chip-strip" id="chipStrip" role="group"></div>
+  <div class="top-actions">
+    <button class="lang-toggle" type="button" id="langToggle">EN</button>
+    <button class="theme-toggle" type="button" id="themeToggle"></button>
+  </div>
+</div>
+
+<div class="app">
+  <div class="map-panel" id="mapPanel">
+    <div class="map-loading" id="mapLoading" aria-live="polite">
+      <span class="map-loading-spinner"></span>
+      <span id="mapLoadingText">地圖更新中</span>
+    </div>
+    <iframe class="map-frame" id="mapFrame" title="咖啡廳地圖" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <button class="map-nav-float" id="overviewBtn" type="button" hidden>🗺️ 回到全部店家</button>
+  </div>
+
+  <div class="resize-divider" id="resizeDivider"></div>
+
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-sticky">
+      <div class="sheet-handle" id="sheetHandle">
+        <div class="handle-bar"></div>
+        <span class="handle-hint" id="handleHint">▲ 查看清單</span>
+      </div>
+
+      <div class="sidebar-header" id="sidebarHeader">
+        <div class="sidebar-title-wrap">
+          <span class="s-emoji" aria-hidden="true">☕</span>
+          <div>
+            <h1 class="sidebar-name" id="pageTitle">布里斯本咖啡廳地圖</h1>
+            <div class="sidebar-sub" id="pageSubtitle"></div>
+          </div>
+        </div>
+        <button class="print-btn" id="printBtn" type="button">🖨️ 列印</button>
+      </div>
+
+      <div class="filters">
+        <div class="filter-row">
+          <span class="filter-label" id="categoryLabel">分類</span>
+          <button class="scroll-btn scroll-prev" type="button" data-target="categoryTabs" data-dir="-1">‹</button>
+          <div class="filter-scroll" id="categoryTabs" role="tablist" aria-labelledby="categoryLabel"></div>
+          <button class="scroll-btn scroll-next" type="button" data-target="categoryTabs" data-dir="1">›</button>
+        </div>
+        <div class="filter-row">
+          <span class="filter-label" id="regionLabel">區域</span>
+          <button class="scroll-btn scroll-prev" type="button" data-target="regionChips" data-dir="-1">‹</button>
+          <div class="filter-scroll" id="regionChips" role="group" aria-labelledby="regionLabel"></div>
+          <button class="scroll-btn scroll-next" type="button" data-target="regionChips" data-dir="1">›</button>
+        </div>
+      </div>
+      <div class="result-line" id="resultLine" aria-live="polite"></div>
+    </div>
+
+    <div class="sidebar-body" id="sidebarBody"></div>
+
+    <button class="back-to-top" id="backToTop" type="button">↑</button>
+  </aside>
+</div>
+
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightboxClose" type="button">✕</button>
+  <img id="lightboxImg" src="" alt="">
+</div>
+
+<script src="page.js?v=20261017a"></script>
+<script src="data.js?v=20261017a"></script>
+<script src="../../../shared/map-list.js?v=20261017a"></script>
+</body>
+</html>

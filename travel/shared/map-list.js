@@ -21,7 +21,7 @@ var UI = {
     emptyTitle: '這個組合沒有店家', emptyText: '換一個區域或分類看看；區域按鈕上的數字是目前分類下的家數。',
     top3: '{c} 前三名', low: '資料少', rec: '推薦', media: '媒體推薦',
     mentions: '{n} 則提到', mediaOnly: '只有媒體資料', generic: '評論只寫泛稱',
-    gap: '其餘款式的評論資料不足', target: '我想吃：', note: '訪前提醒：', tasted: '✅ 已試吃',
+    gap: '其餘款式的評論資料不足', target: '我想吃：', note: '訪前提醒：', tasted: '✅ 已試吃', beans: '☕ 豆子：',
     tasting: { date: '試吃', average: '平均' },
     reviewsShort: '{n} 則', ratingAria: 'Google 評分 {r}，{n} 則評論', prioAria: '優先級 {p}',
     tagFilter: '只看{c}', mapAria: '在地圖上查看：{s}', mapsAria: '在 Google Maps 開啟：{s}',
@@ -43,7 +43,7 @@ var UI = {
     emptyTitle: 'No shops match', emptyText: 'Try another area or type; the numbers on the area buttons count shops for the current type.',
     top3: 'Top 3 · {c}', low: 'Limited data', rec: 'Recommended', media: 'Media pick',
     mentions: '{n} mentions', mediaOnly: 'Media only', generic: 'Generic mentions only',
-    gap: 'Not enough reviews for more items', target: 'I want to try: ', note: 'Before you go: ', tasted: '✅ Tasted',
+    gap: 'Not enough reviews for more items', target: 'I want to try: ', note: 'Before you go: ', tasted: '✅ Tasted', beans: '☕ Beans: ',
     tasting: { date: 'Tasted', average: 'Average' },
     reviewsShort: '{n} reviews', ratingAria: 'Google rating {r}, {n} reviews', prioAria: 'Priority {p}',
     tagFilter: 'Show only {c}', mapAria: 'Show on map: {s}', mapsAria: 'Open in Google Maps: {s}',
@@ -137,6 +137,12 @@ function categoryLabel(code) {
   var found = state.data.categories.find(function(c) { return c.code === code; });
   if (!found) return code;
   return isEn() ? found.labelEn : found.label;
+}
+
+// Free-text csv values (style tags, beans) are Chinese; PAGE_CONFIG.termsEn translates them.
+function term(text) {
+  var terms = state.config.termsEn || {};
+  return isEn() && terms[text] ? terms[text] : text;
 }
 
 function regionLabel(region) {
@@ -383,10 +389,9 @@ function verdictTag(item) {
   return null;
 }
 
-function renderTop3Block(shop, code) {
-  var items = shop.top3ByCategory[code] || [];
+function renderTop3Block(items, label) {
   var box = el('section', 'top3');
-  var title = el('div', 'top3-title', t('top3', { c: categoryLabel(code) }));
+  var title = el('div', 'top3-title', t('top3', { c: label }));
   var lowCount = items.filter(function(i) { return i.confidence === '低'; }).length;
   if (!items.length || lowCount * 2 >= items.length) title.appendChild(el('span', 'tag tag-low', t('low')));
   box.appendChild(title);
@@ -413,10 +418,21 @@ function renderTop3Block(shop, code) {
 }
 
 function renderTop3(shop) {
+  var frag = document.createDocumentFragment();
+  // Fixed-block pages (PAGE_CONFIG.top3Blocks, e.g. drinks / food): every block that has items,
+  // whatever the category filter.
+  if (state.config.top3Blocks) {
+    state.config.top3Blocks.forEach(function(block) {
+      var items = shop.top3ByBlock[block.key] || [];
+      if (items.length) frag.appendChild(renderTop3Block(items, isEn() ? block.en : block.zh));
+    });
+    return frag;
+  }
   // With a category filter on, show only that category; otherwise every category the shop belongs to.
   var codes = state.category === ALL ? shop.categories : [state.category];
-  var frag = document.createDocumentFragment();
-  codes.forEach(function(code) { frag.appendChild(renderTop3Block(shop, code)); });
+  codes.forEach(function(code) {
+    frag.appendChild(renderTop3Block(shop.top3ByCategory[code] || [], categoryLabel(code)));
+  });
   return frag;
 }
 
@@ -501,10 +517,21 @@ function renderCard(shop) {
     });
     tags.appendChild(tagBtn);
   });
+  if (shop.style) tags.appendChild(el('span', 'tag', term(shop.style)));
+  // Cross-page mark (e.g. 🥐 on the cafe page = also known for pastries); labels in PAGE_CONFIG.crossMarks.
+  var cross = shop.crossMark && state.config.crossMarks && state.config.crossMarks[shop.crossMark];
+  if (cross) tags.appendChild(el('span', 'tag tag-cross', isEn() ? cross.en : cross.zh));
   if (shop.tasting.date) tags.appendChild(el('span', 'tag tag-done', t('tasted')));
   card.appendChild(tags);
 
   card.appendChild(renderTop3(shop));
+
+  if (shop.beans) {
+    var beans = el('div', 'shop-target');
+    beans.appendChild(el('b', '', t('beans')));
+    beans.appendChild(document.createTextNode(term(shop.beans)));
+    card.appendChild(beans);
+  }
 
   if (shop.target) {
     var target = el('div', 'shop-target');
