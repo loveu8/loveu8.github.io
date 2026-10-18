@@ -176,8 +176,52 @@
 
 ### 沒有查到的
 
-- **Allpress Espresso（Fortitude Valley）**：InDaily 2026-06 報導的新店，Google Maps 只找到 East Brisbane 的烘豆廠（只開平日 6:30～11:00，評論沒有載入）
-- **Riffe For Goodness**（Teneriffe，2026 年 1 月開）、**Mesa Haus**（Paddington）：新店，沒有查
+- ~~Allpress Espresso（Fortitude Valley）、Riffe For Goodness、Mesa Haus~~：2026-10-18 已補查，見下一節
+
+### 東區補查與 3 家新店（2026-10-18，使用者追加）
+
+方法和上面相同（Google Maps 2026-10-18 快照，最新 20 則用「最新」排序）。候選店來自網路搜尋的摘要：Must Do Brisbane 東區咖啡／咖啡廳列表、WeekendNotes、Weekend Edition（Camp Hill 咖啡廳整理）、Urban List、Concrete Playground、Style 雜誌（2016）。只讀了摘要，有些店的佐證**看不出是哪個網站**，表格裡有註明。**這一輪沒有找到 Reddit 討論串**，東區的佐證都比前面的 ⭐ 弱（沒有 Time Out、Broadsheet），判 ⭐ 時要知道這一點。
+
+**區域**：Coorparoo、Carina、Camp Hill、Norman Park、Hawthorne、Morningside、Wynnum、Manly 算「東」。Coorparoo 介於東、南之間（隔壁 Stones Corner 的 Smug Fig 算南），這裡跟著相鄰的 Camp Hill 算東，**需要使用者確認**。
+
+#### 東區
+
+| 判定 | 店家 | 區域 | Google | 最新 20 則 | 評論最常提到 | 佐證／備註 |
+|---|---|---|---|---|---|---|
+| ⭐ | **Little Genovese** | Coorparoo（東） | 4.9（611） | **5.00**，0 則低分，2 天～3 個月 | 店員親切 22、捲餅 15、班尼迪克蛋 7、寵物友善 16 | Must Do Brisbane 東區咖啡列表；Coorparoo 咖啡廳整理（搜尋摘要，來源網站沒有確認）。這輪評分最高。Genovese 咖啡豆 |
+| ⭐ | **BackStreet Espresso** | Carina（東） | 4.8（383） | 4.80，0 則低分，1～9 個月 | **布朗尼 31**、店員親切 11、瑪芬 6、熱可可 4 | WeekendNotes（2016）、搜尋摘要稱「南區最好的祕密之一」。5:30 開門。評論累積慢 |
+| ⭐ | **Microlot Coffee House** | Hawthorne（東） | 4.6（249） | 4.85，1 則低分，1 週～8 個月 | 店員親切 35、flat white 5、單品豆 4、英式鬆餅 4 | Must Do Brisbane 東區咖啡列表。精品咖啡，有單品、濾泡 |
+| ⭐ | **Dovetail on Overend** | Norman Park（東） | 4.6（447） | 4.65，1 則低分，2 小時～9 個月 | **無麩質 54、甜甜圈 53**、烤蛋 15、**菲律賓阿多波 13**、紫山藥甜甜圈 3 | Must Do Brisbane；Style 雜誌（2016）：Beanhunter 連兩年全澳前 10。座位少。有菲律賓口味，也可以掛「亞洲風」 |
+| ⭐ | **Rabbit Hole Cafe**（Wynnum 店） | Wynnum（東） | 4.6（1,190） | 4.70，1 則低分，4 天～2 個月 | 份量 49、**炸雞鬆餅 24**、班尼迪克蛋 15、麵疙瘩 11、兒童遊戲區 7 | Wynnum／Manly 咖啡廳整理（搜尋摘要，來源網站沒有確認）。早午餐，適合帶小孩 |
+| ⭐ | **Bellissimo Coffee（Coorparoo 烘豆廠）** | Coorparoo（東） | 4.5（518） | 4.65，1 則低分，4 小時～2 個月 | 烘豆機 9、QR 點餐 9、烤吐司 8、現烘豆 4 | Coorparoo 咖啡廳整理（搜尋摘要，來源網站沒有確認）。**比名單上的 Bulimba 店好**（Bulimba 4.3、近期 4.40），可以考慮替換 |
+| ○ | Rising Sun Rituals | Morningside（東） | 4.6（301） | 4.60，0 則低分，1 週～4 個月 | **酥皮點心 24**、可頌 7、杏仁可頌 5、招牌薯餅 3 | 沒有媒體佐證。搜尋 Must Do Brisbane 提到的「Monocle Coffee（Morningside）」時，Google Maps 導到這家（188 Thynne Rd），**可能是改名，沒有證實** |
+| ○ | Clancy's Espresso | Norman Park（東） | 4.8（281） | 4.20，4 則低分 | **貝果 43**、店員親切 101 | Must Do Brisbane（老木屋咖啡）。近期評價下滑 |
+| ○ | Picnic on Martha | Camp Hill（東） | 4.5（778） | 4.10，3 則低分 | 班尼迪克蛋 24、份量 16、鬆餅 13、擺盤 14、吵 11 | Camp Hill 咖啡廳整理（Weekend Edition 或 Urban List 的搜尋摘要） |
+| ○ | Cambridge Lane Espresso + Kitchen | Manly（東） | 4.4（481） | 4.45，2 則低分 | 戶外座位 8、培根 8、班尼迪克蛋 7、香蕉麵包 5 | Manly 咖啡廳整理（搜尋摘要）。靠海的巷弄咖啡 |
+| △ | Nodo Camp Hill | Camp Hill（東） | 4.2（550） | 4.05，4 則低分 | **甜甜圈 99、無麩質 40** | Camp Hill 咖啡廳整理（搜尋摘要）；Newstead 本店的分店 |
+| △ | Ralph & Co | Camp Hill（東） | 4.3（318） | 3.85，5 則低分 | 熟食 12、份量 10 | Must Do Brisbane。咖啡廳兼蔬果、熟食店 |
+| △ | Banter Coffee House | Manly West（東） | 4.3（508） | 4.00，4 則低分 | 培根 14、鬆餅 9、純素 8 | Manly 咖啡廳整理（搜尋摘要） |
+| △ | Hello Garry | Norman Park（東） | 4.6（119） | 4.80，0 則低分，但 20 則跨 **3 年** | 烤三明治 7 | Must Do Brisbane。評論很少更新 |
+| △ | Talanees Coffee | Manly West（東） | 5.0（**43**） | 5.00，20 則跨 **2 年** | 布朗尼 3 | 海邊咖啡車型小店；評論太少 |
+| △ | Jimbo's & Co | Manly（東） | 4.4（146） | 最新評論是 11 個月前 | — | 近期不活躍 |
+| △ | Allpress Coffee Roasters East Brisbane | East Brisbane | 4.5（136） | **3.50**，6 則低分，2 週～1 年 | 設計 6、氛圍 21 | 烘豆廠附設，近期評價差 |
+| ✗ | L'Arte | Balmoral | — | — | — | **已永久歇業**（WeekendNotes 還列著） |
+| ✗ | Maude | Coorparoo | — | — | — | Google Maps 查不到 |
+
+#### 3 家新店
+
+| 判定 | 店家 | 區域 | Google | 最新 20 則 | 評論最常提到 | 佐證／備註 |
+|---|---|---|---|---|---|---|
+| ○ | Riffe for Goodness | Teneriffe（市中心周邊） | 4.7（113） | 4.45，2 則低分，2 天～2 個月 | 抹茶 3、泡菜 3、適合乳糜瀉 3、自製辣椒醬 2、薯餅 2 | Weekend Edition（2026-01-22）。Felix For Goodness 團隊的新店（Felix 近期只有 3.65，見 02 早午餐）。Toby's Estate 咖啡豆。差一點到 ⭐ |
+| ○ | Allpress Coffee Roasters Fortitude Valley | Fortitude Valley（市中心周邊） | 4.4（**54**） | 4.35，3 則低分，1 週～3 個月 | 起司泡菜烤吐司 3、氛圍 12、店員親切 11 | Weekend Edition 2026 上半年最佳新咖啡廳；Allpress 官網（2026-01-29 開幕）。161 Robertson St，營業到 14:00。評論還少 |
+| △ | Mesa Haus | Paddington（西） | 4.4（**26**） | 4.20，2 則低分，1 天～1 個月 | 抹茶 7、冷萃 3、開心果 2 | Broadsheet、Urban List（2026-09 開幕）。手刷抹茶、焙茶；Sprout 的麵包；兼賣家飾。**太新，評論太少，之後再查**。週日營業到 13:00 |
+
+#### 這一輪的結論
+
+1. **東區有 6 家 ⭐**：Little Genovese、BackStreet Espresso、Microlot、Dovetail、Rabbit Hole、Bellissimo Coorparoo。加進名單的話，東區可以從 2 家變成 4～8 家。但佐證都是在地列表，沒有 Time Out、Broadsheet、Reddit。
+2. **Bellissimo 可以換店**：Coorparoo 烘豆廠（近期 4.65）比名單上的 Bulimba 店（近期 4.40）好。
+3. **3 家新店都還沒到 ⭐**：Riffe for Goodness 最接近（4.7、近期 4.45）；Allpress Valley 和 Mesa Haus 評論太少（54、26 則），建議過幾個月再查。
+4. **分類**：BackStreet、Microlot、Bellissimo 屬「01 精品咖啡」；Little Genovese、Rabbit Hole、Dovetail 屬「02 早午餐」（Dovetail 也可以掛「04 亞洲風」）。
 
 ## 主地圖分配（烘焙 vs. 咖啡廳）
 
