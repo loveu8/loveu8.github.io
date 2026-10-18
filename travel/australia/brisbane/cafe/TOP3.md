@@ -1,7 +1,7 @@
 # 布里斯本咖啡廳清單：前三名品項
 
 - 調查日期：2026-10-17（Google Maps 為當天快照）
-- 對象：`cafe.csv` 的 31 家店（名單見 `CANDIDATES.md`「最後名單草案」）
+- 對象：`cafe.csv` 的 31 家店（名單見 `CANDIDATES.md`「最後名單草案」）；2026-10-18 東區補查後變 36 家，見「東區補查加入的店」
 - 資料：`top3.csv`
 
 ## 方法
@@ -58,6 +58,25 @@
 | CF29 | Dō Dessert | — | ✅ 豆花（56）、✅ 豆漿布丁（18）、✅ 仙草（16） |
 | CF30 | Fluffy Soufflé | 珍珠奶茶（41）、抹茶（12） | 舒芙蕾鬆餅（24）、銅鑼燒（8）、提拉米蘇舒芙蕾（6） |
 | CF31 | Sonder | 綠茶（19） | 芭菲（34）、✅ 蕨餅（12）、✅ 糰子（7） |
+
+## 東區補查加入的店（2026-10-18）
+
+使用者決定：東區 ⭐ 6 家都加、Coorparoo 算東區、Bellissimo 從 Bulimba 換成 Coorparoo 烘豆廠（沿用 CF08）。方法同上，Google Maps 為 2026-10-18 快照。
+
+| ID | 店家 | ☕ 飲品 | 🍽️ 餐點 |
+|---|---|---|---|
+| CF08 | Bellissimo Coorparoo | Long black（5） | 烤三明治（8）、玉米煎餅（5）、✅ 香蕉麵包（2） |
+| CF32 | Little Genovese | — | ✅ 捲餅（15）、✅ 班尼迪克蛋（7）、✅ 辣味炒蛋（3） |
+| CF33 | BackStreet Espresso | ✅ 熱可可（4） | ✅ 布朗尼（31）、✅ 瑪芬（6）、✅ 可頌（3） |
+| CF34 | Microlot | Flat white（5）、✅ 單品咖啡（4） | ✅ 烤三明治（4）、✅ Reuben 三明治（2） |
+| CF35 | Dovetail on Overend | — | ✅ 甜甜圈（53）、✅ 烤蛋（15）、✅ 菲律賓阿多波（13） |
+| CF36 | Rabbit Hole Wynnum | — | ✅ 炸雞鬆餅（24）、班尼迪克蛋（15）、✅ 麵疙瘩（11） |
+
+- **排除的關鍵字**：「gluten free options」（Dovetail 54）、「smooth coffee」「takeaway coffee」「freshly roasted beans」「speciality coffee」太籠統；「macadamia milk」是植物奶。
+- **Microlot 的「english muffin」**：Google 關鍵字這樣標，但提到的 4 則評論寫的都是 toastie，所以記成烤三明治。
+- **主地圖分配**：BackStreet（布朗尼）和 Dovetail（甜甜圈）的麵包類關鍵字多，用最新 100 則評論全文重算。BackStreet 咖啡 50 vs. 麵包 10（37 則沒有文字），Dovetail 咖啡 35 vs. 麵包 9、甜甜圈 18（24 則沒有文字），都放咖啡廳。
+- **🥐 跨頁標記**：BackStreet 的布朗尼（31 則、4.80 星）、Dovetail 的甜甜圈（53 則、4.80 星）達到門檻。
+- **Bellissimo Coorparoo 的品項評價普通**（Long black、烤三明治、玉米煎餅都在 4.25 以下），店本身近期 4.65 星，主要是烘豆廠的環境和咖啡豆。
 
 ## 觀察
 

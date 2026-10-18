@@ -409,6 +409,81 @@ var PAGE_DATA = {
       "crossMark": ""
     },
     {
+      "id": "CF36",
+      "name": "Rabbit Hole Cafe Wynnum",
+      "suburb": "Wynnum",
+      "region": "東區",
+      "categories": [
+        "02"
+      ],
+      "priority": "A",
+      "status": "待調查",
+      "target": "Chicken & Waffles / Gnocchi",
+      "top3ByBlock": {
+        "餐點": [
+          {
+            "rank": 1,
+            "zh": "炸雞鬆餅",
+            "en": "Chicken and Waffles",
+            "flavor": "",
+            "flavorEn": "",
+            "count": 24,
+            "rating": 4.63,
+            "verdict": "大家推薦",
+            "confidence": "高",
+            "note": ""
+          },
+          {
+            "rank": 2,
+            "zh": "班尼迪克蛋",
+            "en": "Eggs Benedict",
+            "flavor": "",
+            "flavorEn": "",
+            "count": 15,
+            "rating": 3.87,
+            "verdict": "評論常提到",
+            "confidence": "中",
+            "note": ""
+          },
+          {
+            "rank": 3,
+            "zh": "麵疙瘩",
+            "en": "Gnocchi",
+            "flavor": "",
+            "flavorEn": "",
+            "count": 11,
+            "rating": 4.91,
+            "verdict": "大家推薦",
+            "confidence": "中",
+            "note": "法式吐司 8 則、5.0 星排第四"
+          }
+        ]
+      },
+      "rating": 4.6,
+      "reviews": 1190,
+      "note": "份量大；有兒童遊戲區；平日 5:30、週末 6:30 開門，14:00 關",
+      "noteEn": "Generous portions and a kids' play area. Opens 5:30am on weekdays and 6:30am on weekends; closes at 2pm.",
+      "address": "399 Tingal Rd, Wynnum QLD 4178",
+      "lat": -27.43372,
+      "lng": 153.166249,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Rabbit%20Hole%20Cafe%20Wynnum%20399%20Tingal%20Rd%2C%20Wynnum%20QLD%204178",
+      "instagram": "https://www.instagram.com/therabbitgroup_brisbane/",
+      "source": "https://www.mustdobrisbane.com/wynnum-cafes-cafes/rabbit-hole-cafe-bar-wynnum",
+      "photos": [],
+      "tasting": {
+        "date": "",
+        "cost": "",
+        "drink": "",
+        "food": "",
+        "vibe": "",
+        "revisit": "",
+        "average": ""
+      },
+      "style": "",
+      "beans": "",
+      "crossMark": ""
+    },
+    {
       "id": "CF01",
       "name": "John Mills Himself",
       "suburb": "Brisbane City",
@@ -764,6 +839,170 @@ var PAGE_DATA = {
       "crossMark": ""
     },
     {
+      "id": "CF32",
+      "name": "Little Genovese",
+      "suburb": "Coorparoo",
+      "region": "東區",
+      "categories": [
+        "02"
+      ],
+      "priority": "A",
+      "status": "待調查",
+      "target": "Wrap / Eggs Benny",
+      "top3ByBlock": {
+        "餐點": [
+          {
+            "rank": 1,
+            "zh": "捲餅",
+            "en": "Wrap",
+            "flavor": "",
+            "flavorEn": "",
+            "count": 15,
+            "rating": 5.0,
+            "verdict": "大家推薦",
+            "confidence": "中",
+            "note": "另有「breaky wrap」3 則"
+          },
+          {
+            "rank": 2,
+            "zh": "班尼迪克蛋",
+            "en": "Eggs Benny",
+            "flavor": "",
+            "flavorEn": "",
+            "count": 7,
+            "rating": 4.86,
+            "verdict": "大家推薦",
+            "confidence": "中",
+            "note": ""
+          },
+          {
+            "rank": 3,
+            "zh": "辣味炒蛋",
+            "en": "Chilli Scrambled Eggs",
+            "flavor": "",
+            "flavorEn": "",
+            "count": 3,
+            "rating": 5.0,
+            "verdict": "大家推薦",
+            "confidence": "低",
+            "note": "同為 3 則的還有哈羅米起司（5.0 星）"
+          }
+        ]
+      },
+      "rating": 4.9,
+      "reviews": 611,
+      "note": "只開平日 6:00～13:00，週末休息；寵物友善",
+      "noteEn": "Weekdays only, 6am–1pm; closed on weekends. Dog friendly.",
+      "address": "17 Clarence St, Coorparoo QLD 4151",
+      "lat": -27.4892725,
+      "lng": 153.0547391,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Little%20Genovese%2017%20Clarence%20St%2C%20Coorparoo%20QLD%204151",
+      "instagram": "https://www.instagram.com/littlegenovese/",
+      "source": "https://www.mustdobrisbane.com/eat-drink/coffee/east",
+      "photos": [],
+      "tasting": {
+        "date": "",
+        "cost": "",
+        "drink": "",
+        "food": "",
+        "vibe": "",
+        "revisit": "",
+        "average": ""
+      },
+      "style": "",
+      "beans": "Genovese",
+      "crossMark": ""
+    },
+    {
+      "id": "CF08",
+      "name": "Bellissimo Coffee Coorparoo",
+      "suburb": "Coorparoo",
+      "region": "東區",
+      "categories": [
+        "01"
+      ],
+      "priority": "A",
+      "status": "待調查",
+      "target": "Long Black / Toastie",
+      "top3ByBlock": {
+        "飲品": [
+          {
+            "rank": 1,
+            "zh": "Long black",
+            "en": "Long Black",
+            "flavor": "",
+            "flavorEn": "",
+            "count": 5,
+            "rating": 4.0,
+            "verdict": "評論常提到",
+            "confidence": "中",
+            "note": ""
+          }
+        ],
+        "餐點": [
+          {
+            "rank": 1,
+            "zh": "烤三明治",
+            "en": "Toastie",
+            "flavor": "",
+            "flavorEn": "",
+            "count": 8,
+            "rating": 4.25,
+            "verdict": "評論常提到",
+            "confidence": "中",
+            "note": ""
+          },
+          {
+            "rank": 2,
+            "zh": "玉米煎餅",
+            "en": "Corn Fritters",
+            "flavor": "",
+            "flavorEn": "",
+            "count": 5,
+            "rating": 4.0,
+            "verdict": "評論常提到",
+            "confidence": "中",
+            "note": ""
+          },
+          {
+            "rank": 3,
+            "zh": "香蕉麵包",
+            "en": "Banana Bread",
+            "flavor": "",
+            "flavorEn": "",
+            "count": 2,
+            "rating": 5.0,
+            "verdict": "大家推薦",
+            "confidence": "低",
+            "note": "同為 2 則的還有早餐漢堡、佛卡夏（都是 5.0 星）"
+          }
+        ]
+      },
+      "rating": 4.5,
+      "reviews": 518,
+      "note": "自家烘豆的烘豆廠咖啡廳，看得到烘豆機；QR code 點餐；每天 6:00～16:00，下午也開",
+      "noteEn": "The roaster's own roastery café, with the roasting machines on view. Order by QR code. Open 6am–4pm every day.",
+      "address": "12 Cavendish Rd, Coorparoo QLD 4151",
+      "lat": -27.4863472,
+      "lng": 153.0541138,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Bellissimo%20Coffee%20Coorparoo%2012%20Cavendish%20Rd%2C%20Coorparoo%20QLD%204151",
+      "instagram": "https://www.instagram.com/bellissimocoffeeau/",
+      "source": "https://www.google.com/maps/search/?api=1&query=Bellissimo%20Coffee%2012%20Cavendish%20Rd%20Coorparoo",
+      "photos": [],
+      "tasting": {
+        "date": "",
+        "cost": "",
+        "drink": "",
+        "food": "",
+        "vibe": "",
+        "revisit": "",
+        "average": ""
+      },
+      "style": "",
+      "beans": "自家烘焙",
+      "crossMark": ""
+    },
+    {
       "id": "CF12",
       "name": "Bear Boy Espresso",
       "suburb": "Windsor",
@@ -851,6 +1090,171 @@ var PAGE_DATA = {
       "style": "",
       "beans": "",
       "crossMark": ""
+    },
+    {
+      "id": "CF35",
+      "name": "Dovetail on Overend",
+      "suburb": "Norman Park",
+      "region": "東區",
+      "categories": [
+        "02",
+        "04"
+      ],
+      "priority": "A",
+      "status": "待調查",
+      "target": "Donuts / Adobo",
+      "top3ByBlock": {
+        "餐點": [
+          {
+            "rank": 1,
+            "zh": "甜甜圈",
+            "en": "Donuts",
+            "flavor": "",
+            "flavorEn": "",
+            "count": 53,
+            "rating": 4.8,
+            "verdict": "大家推薦",
+            "confidence": "高",
+            "note": "跨頁標記：麵包也有名；另有紫山藥甜甜圈 3 則"
+          },
+          {
+            "rank": 2,
+            "zh": "烤蛋",
+            "en": "Baked Eggs",
+            "flavor": "",
+            "flavorEn": "",
+            "count": 15,
+            "rating": 4.8,
+            "verdict": "大家推薦",
+            "confidence": "中",
+            "note": ""
+          },
+          {
+            "rank": 3,
+            "zh": "菲律賓阿多波",
+            "en": "Adobo",
+            "flavor": "",
+            "flavorEn": "",
+            "count": 13,
+            "rating": 4.92,
+            "verdict": "大家推薦",
+            "confidence": "中",
+            "note": ""
+          }
+        ]
+      },
+      "rating": 4.6,
+      "reviews": 447,
+      "note": "週一休息，其他天 7:00～13:00；無麩質選擇很多（評論提到 54 次）；座位少",
+      "noteEn": "Closed Mondays; 7am–1pm other days. Lots of gluten-free options (mentioned in 54 reviews). Limited seating.",
+      "address": "85 Overend St, Norman Park QLD 4170",
+      "lat": -27.4760039,
+      "lng": 153.0607358,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Dovetail%20on%20Overend%2085%20Overend%20St%2C%20Norman%20Park%20QLD%204170",
+      "instagram": "https://www.instagram.com/dovetailsocial/",
+      "source": "https://www.mustdobrisbane.com/eat-drink/coffee/east",
+      "photos": [],
+      "tasting": {
+        "date": "",
+        "cost": "",
+        "drink": "",
+        "food": "",
+        "vibe": "",
+        "revisit": "",
+        "average": ""
+      },
+      "style": "菲律賓",
+      "beans": "",
+      "crossMark": "🥐"
+    },
+    {
+      "id": "CF33",
+      "name": "BackStreet Espresso",
+      "suburb": "Carina",
+      "region": "東區",
+      "categories": [
+        "01"
+      ],
+      "priority": "A",
+      "status": "待調查",
+      "target": "Brownie / Hot Chocolate",
+      "top3ByBlock": {
+        "飲品": [
+          {
+            "rank": 1,
+            "zh": "熱可可",
+            "en": "Hot Chocolate",
+            "flavor": "",
+            "flavorEn": "",
+            "count": 4,
+            "rating": 4.75,
+            "verdict": "大家推薦",
+            "confidence": "低",
+            "note": ""
+          }
+        ],
+        "餐點": [
+          {
+            "rank": 1,
+            "zh": "布朗尼",
+            "en": "Brownie",
+            "flavor": "",
+            "flavorEn": "",
+            "count": 31,
+            "rating": 4.8,
+            "verdict": "大家推薦",
+            "confidence": "高",
+            "note": "跨頁標記：麵包也有名"
+          },
+          {
+            "rank": 2,
+            "zh": "瑪芬",
+            "en": "Muffin",
+            "flavor": "",
+            "flavorEn": "",
+            "count": 6,
+            "rating": 4.5,
+            "verdict": "大家推薦",
+            "confidence": "中",
+            "note": ""
+          },
+          {
+            "rank": 3,
+            "zh": "可頌",
+            "en": "Croissant",
+            "flavor": "",
+            "flavorEn": "",
+            "count": 3,
+            "rating": 5.0,
+            "verdict": "大家推薦",
+            "confidence": "低",
+            "note": ""
+          }
+        ]
+      },
+      "rating": 4.8,
+      "reviews": 383,
+      "note": "每天 5:30 開門（週日 6:00），12:30 就關；巷子裡的社區小咖啡店",
+      "noteEn": "Opens at 5:30am (6am on Sundays) and closes at 12:30pm. A small neighbourhood café down a back street.",
+      "address": "12 Kenrose St, Carina QLD 4152",
+      "lat": -27.4861802,
+      "lng": 153.0979103,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=BackStreet%20Espresso%2012%20Kenrose%20St%2C%20Carina%20QLD%204152",
+      "instagram": "https://www.instagram.com/backstreetespresso_/",
+      "source": "https://www.weekendnotes.com/backstreet-espresso/",
+      "photos": [],
+      "tasting": {
+        "date": "",
+        "cost": "",
+        "drink": "",
+        "food": "",
+        "vibe": "",
+        "revisit": "",
+        "average": ""
+      },
+      "style": "",
+      "beans": "",
+      "crossMark": "🥐"
     },
     {
       "id": "CF18",
@@ -1041,6 +1445,95 @@ var PAGE_DATA = {
       "style": "日式",
       "beans": "",
       "crossMark": "🥐"
+    },
+    {
+      "id": "CF34",
+      "name": "Microlot Coffee House",
+      "suburb": "Hawthorne",
+      "region": "東區",
+      "categories": [
+        "01"
+      ],
+      "priority": "A",
+      "status": "待調查",
+      "target": "Single Origin / Toastie",
+      "top3ByBlock": {
+        "飲品": [
+          {
+            "rank": 1,
+            "zh": "Flat white",
+            "en": "Flat White",
+            "flavor": "",
+            "flavorEn": "",
+            "count": 5,
+            "rating": 3.8,
+            "verdict": "評論常提到",
+            "confidence": "中",
+            "note": ""
+          },
+          {
+            "rank": 2,
+            "zh": "單品咖啡",
+            "en": "Single Origin",
+            "flavor": "",
+            "flavorEn": "",
+            "count": 4,
+            "rating": 4.75,
+            "verdict": "大家推薦",
+            "confidence": "低",
+            "note": ""
+          }
+        ],
+        "餐點": [
+          {
+            "rank": 1,
+            "zh": "烤三明治",
+            "en": "Toastie",
+            "flavor": "",
+            "flavorEn": "",
+            "count": 4,
+            "rating": 4.75,
+            "verdict": "大家推薦",
+            "confidence": "低",
+            "note": "Google 關鍵字標成「english muffin」，但這 4 則評論寫的都是 toastie"
+          },
+          {
+            "rank": 2,
+            "zh": "Reuben 三明治",
+            "en": "Reuben",
+            "flavor": "",
+            "flavorEn": "",
+            "count": 2,
+            "rating": 5.0,
+            "verdict": "大家推薦",
+            "confidence": "低",
+            "note": ""
+          }
+        ]
+      },
+      "rating": 4.6,
+      "reviews": 249,
+      "note": "每天 6:00～12:30；有單品豆、批次滴濾",
+      "noteEn": "Open 6am–12:30pm daily. Single origins and batch brew on offer.",
+      "address": "5/135 Riding Rd, Hawthorne QLD 4170",
+      "lat": -27.4638889,
+      "lng": 153.0641667,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Microlot%20Coffee%20House%205/135%20Riding%20Rd%2C%20Hawthorne%20QLD%204170",
+      "instagram": "https://www.instagram.com/microlotcoffeehouse/",
+      "source": "https://www.mustdobrisbane.com/eat-drink/coffee/east",
+      "photos": [],
+      "tasting": {
+        "date": "",
+        "cost": "",
+        "drink": "",
+        "food": "",
+        "vibe": "",
+        "revisit": "",
+        "average": ""
+      },
+      "style": "",
+      "beans": "",
+      "crossMark": ""
     },
     {
       "id": "CF23",
@@ -2162,95 +2655,6 @@ var PAGE_DATA = {
       "style": "日式",
       "beans": "",
       "crossMark": "🥐"
-    },
-    {
-      "id": "CF08",
-      "name": "Bellissimo Coffee Bulimba",
-      "suburb": "Bulimba",
-      "region": "東區",
-      "categories": [
-        "01"
-      ],
-      "priority": "B",
-      "status": "待調查",
-      "target": "Flat White / Eggs Benny",
-      "top3ByBlock": {
-        "飲品": [
-          {
-            "rank": 1,
-            "zh": "Flat white",
-            "en": "Flat White",
-            "flavor": "",
-            "flavorEn": "",
-            "count": 10,
-            "rating": 3.8,
-            "verdict": "評論常提到",
-            "confidence": "中",
-            "note": ""
-          }
-        ],
-        "餐點": [
-          {
-            "rank": 1,
-            "zh": "班尼迪克蛋",
-            "en": "Eggs Benny",
-            "flavor": "",
-            "flavorEn": "",
-            "count": 5,
-            "rating": 4.6,
-            "verdict": "大家推薦",
-            "confidence": "中",
-            "note": ""
-          },
-          {
-            "rank": 2,
-            "zh": "辣味炒蛋",
-            "en": "Chilli Scrambled Eggs",
-            "flavor": "",
-            "flavorEn": "",
-            "count": 2,
-            "rating": 5.0,
-            "verdict": "大家推薦",
-            "confidence": "低",
-            "note": ""
-          },
-          {
-            "rank": 3,
-            "zh": "香蕉麵包",
-            "en": "Banana Bread",
-            "flavor": "",
-            "flavorEn": "",
-            "count": 2,
-            "rating": 5.0,
-            "verdict": "大家推薦",
-            "confidence": "低",
-            "note": ""
-          }
-        ]
-      },
-      "rating": 4.3,
-      "reviews": 470,
-      "note": "自家烘豆的總店；QR code 點餐，假日常要等",
-      "noteEn": "The roaster's flagship café. Order by QR code; expect a wait on weekends.",
-      "address": "35 Oxford St, Bulimba QLD 4171",
-      "lat": -27.450878,
-      "lng": 153.0539,
-      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Bellissimo%20Coffee%20Bulimba%2035%20Oxford%20St%2C%20Bulimba%20QLD%204171",
-      "instagram": "https://www.instagram.com/bellissimocoffeeau/",
-      "source": "https://www.timeout.com/brisbane/restaurants/the-best-coffee-in-brisbane",
-      "photos": [],
-      "tasting": {
-        "date": "",
-        "cost": "",
-        "drink": "",
-        "food": "",
-        "vibe": "",
-        "revisit": "",
-        "average": ""
-      },
-      "style": "",
-      "beans": "自家烘焙",
-      "crossMark": ""
     },
     {
       "id": "CF28",

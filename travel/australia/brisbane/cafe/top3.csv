@@ -27,10 +27,10 @@ CF07,Coffee Anthology,01 精品咖啡,飲品,2,手沖,Pour Over,多家烘豆商�
 CF07,Coffee Anthology,01 精品咖啡,餐點,1,酥皮點心,Pastries,—,,88,3.90,4,Google 關鍵字（全部 2004 則評論）；星等取提及評論最新 30 則,—,評論常提到,高,2026-10-17,提及多但評價普通
 CF07,Coffee Anthology,01 精品咖啡,餐點,2,班尼迪克蛋,Eggs Benedict,—,,48,4.63,1,Google 關鍵字（全部 2004 則評論）；星等取提及評論最新 30 則,—,大家推薦,高,2026-10-17,
 CF07,Coffee Anthology,01 精品咖啡,餐點,3,可頌,Croissants,—,,22,4.18,4,Google 關鍵字（全部 2004 則評論）；星等取提及評論最新 22 則,—,評論常提到,高,2026-10-17,酪梨吐司 13 則、4.92 星
-CF08,Bellissimo Coffee Bulimba,01 精品咖啡,飲品,1,Flat white,Flat White,—,,10,3.80,2,Google 關鍵字（全部 470 則評論）；星等取提及評論最新 10 則,Time Out：自家烘豆、單品,評論常提到,中,2026-10-17,
-CF08,Bellissimo Coffee Bulimba,01 精品咖啡,餐點,1,班尼迪克蛋,Eggs Benny,—,,5,4.60,0,Google 關鍵字（全部 470 則評論）；星等取提及評論最新 5 則,—,大家推薦,中,2026-10-17,
-CF08,Bellissimo Coffee Bulimba,01 精品咖啡,餐點,2,辣味炒蛋,Chilli Scrambled Eggs,—,,2,5.00,0,Google 關鍵字（全部 470 則評論）；星等取提及評論最新 2 則,—,大家推薦,低,2026-10-17,
-CF08,Bellissimo Coffee Bulimba,01 精品咖啡,餐點,3,香蕉麵包,Banana Bread,—,,2,5.00,0,Google 關鍵字（全部 470 則評論）；星等取提及評論最新 2 則,—,大家推薦,低,2026-10-17,
+CF08,Bellissimo Coffee Coorparoo,01 精品咖啡,飲品,1,Long black,Long Black,—,,5,4.00,1,Google 關鍵字（全部 518 則評論）；星等取提及評論最新 5 則,—,評論常提到,中,2026-10-18,
+CF08,Bellissimo Coffee Coorparoo,01 精品咖啡,餐點,1,烤三明治,Toastie,—,,8,4.25,0,Google 關鍵字（全部 518 則評論）；星等取提及評論最新 8 則,—,評論常提到,中,2026-10-18,
+CF08,Bellissimo Coffee Coorparoo,01 精品咖啡,餐點,2,玉米煎餅,Corn Fritters,—,,5,4.00,1,Google 關鍵字（全部 518 則評論）；星等取提及評論最新 5 則,—,評論常提到,中,2026-10-18,
+CF08,Bellissimo Coffee Coorparoo,01 精品咖啡,餐點,3,香蕉麵包,Banana Bread,—,,2,5.00,0,Google 關鍵字（全部 518 則評論）；星等取提及評論最新 2 則,—,大家推薦,低,2026-10-18,同為 2 則的還有早餐漢堡、佛卡夏（都是 5.0 星）
 CF09,Farmhouse,02 早午餐,餐點,1,馬鈴薯餅,Potato Cake,配水波蛋,with poached eggs,149,4.87,0,Google 關鍵字（全部 3043 則評論）；星等取提及評論最新 30 則,Urban List,大家推薦,高,2026-10-17,
 CF09,Farmhouse,02 早午餐,餐點,2,義式麵疙瘩,Gnocchi,—,,97,4.90,1,Google 關鍵字（全部 3043 則評論）；星等取提及評論最新 30 則,Urban List,大家推薦,高,2026-10-17,
 CF09,Farmhouse,02 早午餐,餐點,3,水波蛋,Poached Eggs,—,,37,3.73,7,Google 關鍵字（全部 3043 則評論）；星等取提及評論最新 30 則,—,評論常提到,高,2026-10-17,評價兩極
@@ -126,3 +126,20 @@ CF31,Sonder,05 甜點,餐點,1,芭菲,Parfait,—,,34,3.93,6,Google 關鍵字（
 CF31,Sonder,05 甜點,餐點,2,蕨餅,Warabi Mochi,—,,12,4.83,0,Google 關鍵字（全部 1148 則評論）；星等取提及評論最新 12 則,Sitchu：抹茶蕨餅,大家推薦,中,2026-10-17,
 CF31,Sonder,05 甜點,餐點,3,糰子,Dango,—,,7,4.71,0,Google 關鍵字（全部 1148 則評論）；星等取提及評論最新 7 則,—,大家推薦,中,2026-10-17,布丁起司蛋糕也是 7 則
 CF31,Sonder,05 甜點,飲品,1,綠茶,Green Tea,—,,19,4.21,1,Google 關鍵字（全部 1148 則評論）；星等取提及評論最新 19 則,—,評論常提到,中,2026-10-17,
+CF32,Little Genovese,02 早午餐,餐點,1,捲餅,Wrap,—,,15,5.00,0,Google 關鍵字（全部 611 則評論）；星等取提及評論最新 15 則,—,大家推薦,中,2026-10-18,另有「breaky wrap」3 則
+CF32,Little Genovese,02 早午餐,餐點,2,班尼迪克蛋,Eggs Benny,—,,7,4.86,0,Google 關鍵字（全部 611 則評論）；星等取提及評論最新 7 則,—,大家推薦,中,2026-10-18,
+CF32,Little Genovese,02 早午餐,餐點,3,辣味炒蛋,Chilli Scrambled Eggs,—,,3,5.00,0,Google 關鍵字（全部 611 則評論）；星等取提及評論最新 3 則,—,大家推薦,低,2026-10-18,同為 3 則的還有哈羅米起司（5.0 星）
+CF33,BackStreet Espresso,01 精品咖啡,飲品,1,熱可可,Hot Chocolate,—,,4,4.75,0,Google 關鍵字（全部 383 則評論）；星等取提及評論最新 4 則,—,大家推薦,低,2026-10-18,
+CF33,BackStreet Espresso,01 精品咖啡,餐點,1,布朗尼,Brownie,—,,31,4.80,1,Google 關鍵字（全部 383 則評論）；星等取提及評論最新 30 則,—,大家推薦,高,2026-10-18,跨頁標記：麵包也有名
+CF33,BackStreet Espresso,01 精品咖啡,餐點,2,瑪芬,Muffin,—,,6,4.50,0,Google 關鍵字（全部 383 則評論）；星等取提及評論最新 6 則,—,大家推薦,中,2026-10-18,
+CF33,BackStreet Espresso,01 精品咖啡,餐點,3,可頌,Croissant,—,,3,5.00,0,Google 關鍵字（全部 383 則評論）；星等取提及評論最新 3 則,—,大家推薦,低,2026-10-18,
+CF34,Microlot Coffee House,01 精品咖啡,飲品,1,Flat white,Flat White,—,,5,3.80,1,Google 關鍵字（全部 249 則評論）；星等取提及評論最新 5 則,—,評論常提到,中,2026-10-18,
+CF34,Microlot Coffee House,01 精品咖啡,飲品,2,單品咖啡,Single Origin,—,,4,4.75,0,Google 關鍵字（全部 249 則評論）；星等取提及評論最新 4 則,—,大家推薦,低,2026-10-18,
+CF34,Microlot Coffee House,01 精品咖啡,餐點,1,烤三明治,Toastie,—,,4,4.75,0,Google 關鍵字（全部 249 則評論）；星等取提及評論最新 4 則,—,大家推薦,低,2026-10-18,Google 關鍵字標成「english muffin」，但這 4 則評論寫的都是 toastie
+CF34,Microlot Coffee House,01 精品咖啡,餐點,2,Reuben 三明治,Reuben,—,,2,5.00,0,Google 關鍵字（全部 249 則評論）；星等取提及評論最新 2 則,—,大家推薦,低,2026-10-18,
+CF35,Dovetail on Overend,02 早午餐,餐點,1,甜甜圈,Donuts,—,,53,4.80,0,Google 關鍵字（全部 447 則評論）；星等取提及評論最新 30 則,—,大家推薦,高,2026-10-18,跨頁標記：麵包也有名；另有紫山藥甜甜圈 3 則
+CF35,Dovetail on Overend,02 早午餐,餐點,2,烤蛋,Baked Eggs,—,,15,4.80,0,Google 關鍵字（全部 447 則評論）；星等取提及評論最新 15 則,—,大家推薦,中,2026-10-18,
+CF35,Dovetail on Overend,02 早午餐,餐點,3,菲律賓阿多波,Adobo,—,,13,4.92,0,Google 關鍵字（全部 447 則評論）；星等取提及評論最新 13 則,—,大家推薦,中,2026-10-18,
+CF36,Rabbit Hole Cafe Wynnum,02 早午餐,餐點,1,炸雞鬆餅,Chicken and Waffles,—,,24,4.63,1,Google 關鍵字（全部 1190 則評論）；星等取提及評論最新 24 則,—,大家推薦,高,2026-10-18,
+CF36,Rabbit Hole Cafe Wynnum,02 早午餐,餐點,2,班尼迪克蛋,Eggs Benedict,—,,15,3.87,4,Google 關鍵字（全部 1190 則評論）；星等取提及評論最新 15 則,—,評論常提到,中,2026-10-18,
+CF36,Rabbit Hole Cafe Wynnum,02 早午餐,餐點,3,麵疙瘩,Gnocchi,—,,11,4.91,0,Google 關鍵字（全部 1190 則評論）；星等取提及評論最新 11 則,—,大家推薦,中,2026-10-18,法式吐司 8 則、5.0 星排第四
