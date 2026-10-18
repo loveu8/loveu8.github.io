@@ -223,7 +223,7 @@
 3. **3 家新店都還沒到 ⭐**：Riffe for Goodness 最接近（4.7、近期 4.45）；Allpress Valley 和 Mesa Haus 評論太少（54、26 則），建議過幾個月再查。
 4. **分類**：BackStreet、Microlot、Bellissimo 屬「01 精品咖啡」；Little Genovese、Rabbit Hole、Dovetail 屬「02 早午餐」（Dovetail 也可以掛「04 亞洲風」）。
 
-**使用者決定（2026-10-18）**：6 家 ⭐ 都加、Coorparoo 算東區、Bellissimo 從 Bulimba 換成 Coorparoo 烘豆廠（沿用 CF08）。已加入 `cafe.csv`（CF32～CF36），名單變 36 家，東區從 2 家變 8 家。Dovetail 掛「02 早午餐；04 亞洲風」，風格標籤「菲律賓」。
+**使用者決定（2026-10-18）**：6 家 ⭐ 都加、Coorparoo 算東區、Bellissimo 從 Bulimba 換成 Coorparoo 烘豆廠（沿用 CF08）。已加入 `cafe.csv`（CF32～CF36），名單變 36 家，東區從 2 家變 7 家（Bellissimo 是換店，不是新增）。Dovetail 掛「02 早午餐；04 亞洲風」，風格標籤「菲律賓」。
 
 ## 主地圖分配（烘焙 vs. 咖啡廳）
 
