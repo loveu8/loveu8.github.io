@@ -115,7 +115,7 @@
 | ○ | Fluffy Soufflé | South Brisbane（市中心周邊） | 4.0（356） | **4.85**，1 則低分 | 珍奶 41、舒芙蕾鬆餅 24、抹茶 12 | Must Do Brisbane。**12:00～21:00**，適合下午、晚上 |
 | ○ | Soufflé Japancakes | Greenslopes（南） | 4.2（381） | 4.10，4 則低分 | 舒芙蕾鬆餅 55、抹茶 30、可麗餅 17 | Must Do Brisbane。營業到 16:00 |
 | ○ | Sonder | Sunnybank Hills（南） | 4.3（1,148） | 4.25，3 則低分 | 芭菲 34、綠茶 19、蕨餅 12、糰子 7 | Sitchu 抹茶榜、Must Do Brisbane。日式甜點。**13:00～21:00**，週一休息 |
-| ⭐ | PiCK a CaKE | Hamilton（北） | 4.8（217） | 4.65，1 則低分 | 椰子班蘭蛋糕 20、班蘭蛋糕 14、紫山藥 12、泰式奶茶 9 | Must Do Brisbane。**評論幾乎都在講蛋糕，照規則應該放烘焙地圖的「06 蛋糕店」** |
+| ⭐ | PiCK a CaKE | Hamilton（北） | 4.8（217） | 4.65，1 則低分 | 椰子班蘭蛋糕 20、班蘭蛋糕 14、紫山藥 12、泰式奶茶 9 | Must Do Brisbane。**評論幾乎都在講蛋糕，照規則應該放烘焙地圖的「06 蛋糕店」**。2026-10-18 已加入烘焙（B44） |
 | ✗ | Bonsai Botanika | CBD | 3.8（1,273） | **2.10**，14 則低分 | 抹茶蛋糕 49、抹茶拿鐵 45 | 評價差，排除 |
 | ✗ | Crumble Cave | Sunnybank Hills | — | — | — | Google Maps 查不到 |
 
@@ -163,7 +163,7 @@
 | ○ | Sugar Puff Cafe | Sunnybank（南） | 4.7（618） | 4.90，0 則低分 | 雞蛋仔 38、奶茶 29、蛋塔 22 | **港式**甜品，不是台灣風。營業到 21:30～22:30 |
 | △ | Meet Fresh 鮮芋仙 | Sunnybank（南） | **3.4**（190） | — | — | 台灣連鎖甜品，評價差 |
 | — | Coffee Anthology | CBD | — | — | — | 2021 年部落格（Reese Travel）說是「台灣人開的」，但媒體只寫老闆是 Adam Wang，**查不到台灣背景**。已在「01 精品咖啡」，不另外標 |
-| — | Small Cake Place | Runcorn（南） | 4.5（253） | 4.25 | 草莓蛋糕 11、可麗露 11、抹茶蛋糕 10 | Threads 推薦的南區蛋糕店。是甜點店，**屬於烘焙地圖**（06 蛋糕店），之後可以補進烘焙 |
+| — | Small Cake Place | Runcorn（南） | 4.5（253） | 4.25 | 草莓蛋糕 11、可麗露 11、抹茶蛋糕 10 | Threads 推薦的南區蛋糕店。是甜點店，**屬於烘焙地圖**（06 蛋糕店）。2026-10-18 已加入烘焙（B45） |
 | ✗ | AH MA – Taste of Home | Sunnybank Hills | 4.5（43） | — | — | 美食街外帶店，評論太少 |
 
 順便查到、但**不是台灣風**的店：

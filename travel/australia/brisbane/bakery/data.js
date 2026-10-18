@@ -1518,6 +1518,78 @@ var PAGE_DATA = {
       }
     },
     {
+      "id": "B44",
+      "name": "PiCK a CaKE",
+      "suburb": "Hamilton",
+      "region": "北區",
+      "categories": [
+        "06"
+      ],
+      "priority": "A",
+      "status": "待調查",
+      "target": "Coconut Pandan Cake / Ube Chiffon",
+      "top3ByCategory": {
+        "06": [
+          {
+            "rank": 1,
+            "zh": "椰子班蘭蛋糕",
+            "en": "Coconut Pandan Cake",
+            "flavor": "班蘭戚風、椰子",
+            "flavorEn": "pandan chiffon with coconut",
+            "count": 27,
+            "rating": 4.96,
+            "verdict": "大家推薦",
+            "confidence": "高",
+            "note": "計算提到 pandan 或 coconut 的評論；Google 關鍵字 coconut pandan 20、pandan cake 14"
+          },
+          {
+            "rank": 2,
+            "zh": "紫山藥蛋糕",
+            "en": "Ube Cake",
+            "flavor": "多為紫山藥戚風",
+            "flavorEn": "mostly ube chiffon",
+            "count": 13,
+            "rating": 4.92,
+            "verdict": "大家推薦",
+            "confidence": "中",
+            "note": "Google 關鍵字 ube 12；芋頭 7 則（5.0 星）"
+          },
+          {
+            "rank": 3,
+            "zh": "草莓蛋糕",
+            "en": "Strawberry Shortcake",
+            "flavor": "",
+            "flavorEn": "",
+            "count": 12,
+            "rating": 5.0,
+            "verdict": "大家推薦",
+            "confidence": "中",
+            "note": "提到 strawberry 的評論，其中寫明 shortcake 5 則；起司蛋糕同為 12 則（4.92 星）；泰式奶茶 7 則是飲料，不列入"
+          }
+        ]
+      },
+      "rating": 4.8,
+      "reviews": 217,
+      "note": "泰式風味蛋糕店（班蘭、紫山藥、泰式奶茶）；週日 16:00 關門，其他日子去之前先確認",
+      "noteEn": "Thai-inspired cake shop (pandan, ube, Thai milk tea). Closes at 4pm on Sundays; check other days before going.",
+      "address": "3/33 Racecourse Rd, Hamilton QLD 4007",
+      "lat": -27.4384096,
+      "lng": 153.06458,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=PiCK%20a%20CaKE%203/33%20Racecourse%20Rd%2C%20Hamilton%20QLD%204007",
+      "instagram": "https://www.instagram.com/pickacakebrisbane/",
+      "source": "https://www.google.com/maps/search/?api=1&query=PiCK%20a%20CaKE%203%2F33%20Racecourse%20Rd%2C%20Hamilton%20QLD%204007",
+      "photos": [],
+      "tasting": {
+        "date": "",
+        "cost": "",
+        "look": "",
+        "texture": "",
+        "aroma": "",
+        "revisit": "",
+        "average": ""
+      }
+    },
+    {
       "id": "B29",
       "name": "Lisboa Caffe",
       "suburb": "South Brisbane",
@@ -2391,6 +2463,78 @@ var PAGE_DATA = {
       "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Torrisi%27s%20Delights%20Shop%203/8%20Lincoln%20St%2C%20Strathpine%20QLD%204500",
       "instagram": "https://www.instagram.com/torrisisdelights_2022/",
       "source": "https://www.mustdobrisbane.com/bakeries-cake-patisserie/torrisis-delights-strathpine",
+      "photos": [],
+      "tasting": {
+        "date": "",
+        "cost": "",
+        "look": "",
+        "texture": "",
+        "aroma": "",
+        "revisit": "",
+        "average": ""
+      }
+    },
+    {
+      "id": "B45",
+      "name": "Small Cake Place",
+      "suburb": "Runcorn",
+      "region": "南區",
+      "categories": [
+        "06"
+      ],
+      "priority": "B",
+      "status": "待調查",
+      "target": "Matcha Cake / Canelé",
+      "top3ByCategory": {
+        "06": [
+          {
+            "rank": 1,
+            "zh": "抹茶系列",
+            "en": "Matcha",
+            "flavor": "抹茶蛋糕、抹茶捲等",
+            "flavorEn": "matcha cake, matcha roll and more",
+            "count": 23,
+            "rating": 4.74,
+            "verdict": "大家推薦",
+            "confidence": "高",
+            "note": "含抹茶飲料；寫明抹茶蛋糕或抹茶捲的 10 則平均 4.4 星"
+          },
+          {
+            "rank": 2,
+            "zh": "各式塔",
+            "en": "Tarts",
+            "flavor": "檸檬塔、巧克力塔、蛋塔",
+            "flavorEn": "lemon, chocolate and egg tarts",
+            "count": 13,
+            "rating": 4.69,
+            "verdict": "大家推薦",
+            "confidence": "中",
+            "note": "Google 關鍵字 lemon tart 7"
+          },
+          {
+            "rank": 3,
+            "zh": "起司蛋糕",
+            "en": "Cheesecake",
+            "flavor": "有焦糖烤布蕾口味",
+            "flavorEn": "includes a crème brûlée cheesecake",
+            "count": 10,
+            "rating": 4.9,
+            "verdict": "大家推薦",
+            "confidence": "中",
+            "note": "可麗露 8 則（4.63 星，伯爵茶口味 5 則都是 5 星）；草莓蛋糕 9 則只有 4.11 星，沒有列入"
+          }
+        ]
+      },
+      "rating": 4.5,
+      "reviews": 253,
+      "note": "日式戚風與亞洲風甜點；週一、二只開放預訂取貨；和咖啡廳頁的 Mountain River Patisserie 同一條街",
+      "noteEn": "Japanese-style chiffon and Asian-inspired pastries. Monday and Tuesday are pre-order pickup only. Same street as Mountain River Patisserie on the cafe page.",
+      "address": "Shop 3-5/83 Mango St, Runcorn QLD 4113",
+      "lat": -27.5979061,
+      "lng": 153.0800964,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Small%20Cake%20Place%20Shop%203-5/83%20Mango%20St%2C%20Runcorn%20QLD%204113",
+      "instagram": "https://www.instagram.com/smallcakeplace/",
+      "source": "https://www.smallcakeplace.com.au",
       "photos": [],
       "tasting": {
         "date": "",

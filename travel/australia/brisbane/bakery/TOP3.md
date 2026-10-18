@@ -232,6 +232,19 @@
 
 Gerbino's（09）與 King of Cakes（12）的結果在上一節。
 
+## 從咖啡廳調查移過來的蛋糕店（2026-10-18）
+
+方法同前：載入評論後全文比對，兩家都抽樣 200 則（Google 預設「最相關」排序）。
+
+| 店家 | 優先級 | 🥇 | 🥈 | 🥉 |
+|---|---|---|---|---|
+| PiCK a CaKE | A | ✅ 椰子班蘭蛋糕（27，4.96） | ✅ 紫山藥蛋糕（13，4.92） | ✅ 草莓蛋糕（12，5.0） |
+| Small Cake Place | B | ✅ 抹茶系列（23，4.74） | ✅ 各式塔（13，4.69） | ✅ 起司蛋糕（10，4.90） |
+
+1. **PiCK a CaKE 的評價非常一致**：200 則抽樣中，提到前三名的評論都沒有 1～2 星。第 3 名草莓蛋糕和起司蛋糕同為 12 則，取 Google 地圖菜單標為「熱門」的草莓蛋糕。
+2. **Small Cake Place 的熱門款不一定最好評**：Google 關鍵字裡 strawberry shortcake 有 11 則，但抽樣中提到草莓蛋糕的 9 則只有 4.11 星，所以沒有列入；抹茶系列含飲料，寫明是抹茶蛋糕或抹茶捲的 10 則是 4.4 星。
+3. Google 關鍵字（2026-10-18）：PiCK a CaKE：coconut pandan 20、pandan cake 14、ube 12、thai milk tea 9、strawberry shortcake 4、chiffon cake 4、iced matcha latte 4、custom cake 4、caramel cornflake brownie 2、mango chiffon cake 2。Small Cake Place：strawberry shortcake 11、caneles 11、matcha cake 10、lemon tart 7、earl grey canelé 6、chocolate tart 4、crème brûlée cheesecake 3、egg tart 3、matcha roll 3、mango cake 3。
+
 ### 觀察
 
 1. **Torrisi's Delights 評價最一致**：前三名都是 4.9～5.0 星，但在遠北的 Strathpine。
