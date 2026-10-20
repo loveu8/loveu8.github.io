@@ -13,8 +13,9 @@
 |---|---|---|---|---|---|
 | 0 | 盤點、寫計畫 | ✅ 完成 | 2026-10-21 | `70451f9` | — |
 | 1 | 使用者逐題決定（第 3 節 D1～D8） | ✅ 完成 | 2026-10-21 | | D1～D8 全部定案，見第 3.1 節 |
-| 1b | 刪除 `testLab/`（D8） | ✅ 完成 | 2026-10-21 | （本 commit） | 使用者在對話中確認 9 個檔案後刪除 |
-| 2 | 建立全站共用檔（`shared/`） | ⬜ 未開始 | | | 依第 4 節步驟 2 |
+| 1b | 刪除 `testLab/`（D8） | ✅ 完成 | 2026-10-21 | `a020959` | 使用者在對話中確認 9 個檔案後刪除 |
+| 1c | 搬家：CSS、JS 移到根目錄 `styles/`、`scripts/`（D2 改版） | ⬜ 未開始 | | | 只搬檔案和改引用路徑，內容不改；每頁跟搬之前比對要完全相同 |
+| 2 | 建立全站共用檔（`styles/tokens.css`、`base.css`、`scripts/site.js`） | ⬜ 未開始 | | | 依第 4 節步驟 2 |
 | 3 | 首頁改用共用檔 | ⬜ 未開始 | | | |
 | 4 | 咖啡、烘焙頁改用共用檔 | ⬜ 未開始 | | | |
 | 5 | Noosa 行程頁改用共用檔 | ⬜ 未開始 | | | |
@@ -78,20 +79,35 @@
 
 ## 2. 建議的目標結構
 
+2026-10-21 改版（D2 改版，見第 3.1 節）：**全站依檔案類型分資料夾**，所有 CSS 放根目錄 `styles/`、所有 JS 放 `scripts/`，同一層、用檔名區分。內容資料留在頁面旁邊。
+
 ```
-shared/                        ← 新增：全站共用（根目錄，所有頁都能用相對路徑引用）
-  tokens.css                   ← 唯一的色票、字級、間距、圓角、陰影（淺色、深色各寫一次）
-  base.css                     ← 字體、body、focus 外框、圓形切換按鈕、pill、減少動態
-  site.js                      ← 深淺色切換、SVG 圖示、語言記憶（key 統一用 lang）
-index.html  + home.css / home.js         ← 只留首頁自己的版面與翻譯
-travel/shared/app-shell.css              ← 新增（D4）：兩種旅遊頁共用的外框（地圖區、側欄、抽屜、chip、標籤、燈箱、回到頂端、提示框、「← 阿星」pill）
-travel/shared/map-list.css / .js         ← 只留店家清單元件；切換按鈕改用 shared/site.js
-travel/australia/noosa/style.css / .js   ← 只留時間軸；舊別名 --blue… 改成正式 token 名稱
-ai_report/2026/starlux-australia-report.css  ← 內嵌樣式搬出來，token 改用 shared/；加首頁同款 header（D5、D6）
+index.html                     ← 首頁（GitHub Pages 規定要在根目錄）
+styles/
+  tokens.css                   ← 新增，全站：唯一的色票、字級、間距、圓角、陰影
+  base.css                     ← 新增，全站：字體、body、focus 外框、圓形切換按鈕、pill、減少動態
+  app-shell.css                ← 新增（D4），兩種旅遊頁：地圖區、側欄、抽屜、chip、標籤、燈箱、回到頂端、提示框、「← 阿星」pill
+  home.css                     ← 原 home.css：只留首頁版面
+  map-list.css                 ← 原 travel/shared/map-list.css：只留店家清單元件
+  noosa.css                    ← 原 travel/australia/noosa/style.css：只留時間軸
+  report-starlux.css           ← 原報告頁內嵌 <style>
+scripts/
+  site.js                      ← 新增，全站：深淺色切換、SVG 圖示、語言記憶（key 統一 lang）
+  home.js                      ← 原 home.js：首頁翻譯
+  map-list.js                  ← 原 travel/shared/map-list.js
+  noosa.js                     ← 原 travel/australia/noosa/script.js
+  report-starlux.js            ← 原報告頁內嵌 <script>
+travel/australia/brisbane/cafe/    index.html、page.js、data.js（資料留在原地）
+travel/australia/brisbane/bakery/  index.html、page.js、data.js
+travel/australia/noosa/            itinerary.html、pics/
+ai_report/2026/                    starlux-australia-report.html、.data.js
 ```
 
 原則：
-- 每頁按順序載入 `shared/tokens.css` → `shared/base.css` →（旅遊頁）`travel/shared/app-shell.css` → 該頁自己的 CSS。用一般的 `<link>` 和 `<script>` 標籤，`file://` 直接開也能用（`AGENTS.md` 的規定）。
+- 每頁按順序載入 `styles/tokens.css` → `styles/base.css` →（旅遊頁）`styles/app-shell.css` → 該頁自己的 CSS。用一般的 `<link>` 和 `<script>` 標籤，`file://` 直接開也能用（`AGENTS.md` 的規定）。
+- **一律用相對路徑**（例：咖啡頁 `../../../../styles/tokens.css`、報告頁 `../../styles/tokens.css`）。不能寫 `/styles/…`，`file://` 開啟時會指到磁碟根目錄而找不到。
+- **只搬樣式和程式，不搬資料**：`page.js`、`data.js`、`starlux-australia-report.data.js` 由 `travel/tools/` 或手動維護、是頁面內容，留在頁面旁邊。
+- 新頁面的單頁檔案用「頁面類型-名稱」命名（例：`report-starlux.css`），避免以後同名。
 - 頁面自己的 CSS 只能用 token，不能自己定義顏色。
 - 首頁 head 裡那行「先讀 localStorage 設定主題」的小 script 每頁都要保留，避免載入時閃一下錯的顏色。
 
@@ -114,9 +130,10 @@ ai_report/2026/starlux-australia-report.css  ← 內嵌樣式搬出來，token �
 |---|---|---|---|
 | D1 | **(c)**：底色、文字、邊框全站用首頁的暖灰；綠、珊瑚紅、琥珀、紫保留 `DESIGN.md` 的分工，標籤淡色底重新調成偏暖 | 2026-10-21 | 已量過 `DESIGN.md` 五種顏色在暖灰底上的對比度，淺色最低 4.75（藍）、深色最低 5.36（紫），都過 4.5:1。淡色底調色後要再量一次 |
 | D1-2 | **全站只用一種藍：首頁的石板藍**（淺色 `#365a6b`、深色 `#bbced4`），旅遊頁的地圖按鈕也改用它 | 2026-10-21 | 取代 `DESIGN.md` 的 Google 藍 `#1a73e8`／`#1967d2`。地圖按鈕維持 pill（有底色和邊框），靠形狀看出能點；對比度 6.56／9.17。`DESIGN.md`「Blue means navigation or map movement」的分工不變，只是換了色值 |
-| D2 | **根目錄 `shared/`** 放全站共用檔；`travel/shared/` 繼續只放清單地圖元件 | 2026-10-21 | 引用路徑：首頁 `shared/…`、報告頁 `../../shared/…`、咖啡／烘焙／Noosa `../../../../shared/…` |
+| D2 | ~~根目錄 `shared/` 放全站共用檔；`travel/shared/` 繼續只放清單地圖元件~~（同日改版，見下一列） | 2026-10-21 | — |
+| D2 改版 | **全站依檔案類型分資料夾：所有 CSS 放根目錄 `styles/`、所有 JS 放 `scripts/`**（含首頁、清單地圖、Noosa、報告頁），`travel/shared/` 和 `shared/` 都不用 | 2026-10-21 | 使用者看到首頁 CSS／JS 和 `index.html` 一起放在根目錄覺得怪，選擇全站依類型集中，而不是只移首頁。預設細節（使用者可再改）：同一層不分子資料夾、單頁檔以頁面命名；資料檔（`page.js`、`data.js`、報告 `.data.js`）留在頁面旁邊；一律相對路徑。搬家當成獨立的步驟 1c 先做，內容不改。**要同步改**（已查過）：`travel/tools/make_data_js.py` 第 5 行註解、`travel/tools/README.md` 第 59 行（改了共用檔要更新版號的說明）都提到 `travel/shared/`，只是文字不影響執行；`DESIGN.md` 提到 `travel/shared/map-list.js`／`map-list.css` 的段落；`DECISIONS.md` 舊列是歷史紀錄，不改 |
 | D3 | **(a) 全站一套固定字級**：`--fs-2xs` 12、`xs` 13、`sm` 14、`base` 16、`md` 18、`lg` 20、`xl` 26px（旅遊頁現有 clamp 的最大值），旅遊頁拿掉依螢幕寬度縮放 | 2026-10-21 | 390px 以上的手機和桌機幾乎沒變；320～375px 小手機的字會大 1～2px，**要逐頁檢查按鈕列、標籤列、chip 列不會擠爆或換行錯亂**。報告頁的 12.5／13.5／14.5／15／17／21／22／24px 收斂到最接近的級距；首頁品牌字 17px 改用 `md` 18px。列印樣式的小字不受影響。`DESIGN.md` 的字級表（11/12/13/15/17/20/26）要在步驟 7 改成新表 |
-| D4 | **共用外框＋保留時間軸**：兩種旅遊頁共同的外框元件抽成 `travel/shared/app-shell.css`；`map-list.css` 只留店家清單元件、`noosa/style.css` 只留時間軸；JS 只共用深淺色和語言切換（`shared/site.js`），底部抽屜、拖曳分隔線等互動程式這次不合併 | 2026-10-21 | 量過：Noosa 165 條規則、`map-list.css` 125 條，同一個 selector 有 50 條，其中 22 條完全相同、28 條已經各改各的（`.chip`、`.tag`、`.sidebar-header`、`.sidebar-name`、`.lightbox`、`.tips-box`、`.back-to-top`、`.resize-divider`…）。不同的 28 條**預設採用咖啡／烘焙頁的版本**（較新），動手前先把 Noosa 會看得到的差異截圖列給使用者確認 |
+| D4 | **共用外框＋保留時間軸**：兩種旅遊頁共同的外框元件抽成 `app-shell.css`；`map-list.css` 只留店家清單元件、Noosa 的 CSS 只留時間軸；JS 只共用深淺色和語言切換（`site.js`）。路徑依 D2 改版放在 `styles/`、`scripts/`，底部抽屜、拖曳分隔線等互動程式這次不合併 | 2026-10-21 | 量過：Noosa 165 條規則、`map-list.css` 125 條，同一個 selector 有 50 條，其中 22 條完全相同、28 條已經各改各的（`.chip`、`.tag`、`.sidebar-header`、`.sidebar-name`、`.lightbox`、`.tips-box`、`.back-to-top`、`.resize-divider`…）。不同的 28 條**預設採用咖啡／烘焙頁的版本**（較新），動手前先把 Noosa 會看得到的差異截圖列給使用者確認 |
 | D5 | **報告頁加深淺色切換按鈕，語言記憶改用全站的 `lang`** | 2026-10-21 | 按鈕同全站（44px 圓形、SVG 圖示）；head 加上先讀 `theme` 的小 script，token 要補 `[data-theme]` 區。網址 `?lang=en` 保留，優先於記住的設定，並照現在的做法寫回記憶（改寫到 `lang`）。舊 key `starlux-report-lang` 不再讀取 |
 | D6 | **旅遊頁：側欄標題上方加 pill「← 阿星」**（英文「← 阿星 (Lorn)」）；**報告頁：加一條跟首頁相同的 header**（左「阿星」連回首頁、右 EN 和深淺色按鈕，取代現在的 `.lang-toggle-row`） | 2026-10-21 | 旅遊頁的 `.sidebar-header` 在手機上點了會展開／收合抽屜，pill 的點擊要 `stopPropagation`，不能順便觸發抽屜。連結用相對路徑（`../../../../index.html`、`../../index.html`），`file://` 也能用。列印時隱藏 |
 | D7 | **全站同一條 Google Fonts 網址**：Open Sans 和 Noto Sans TC 都載入 400/500/600/700/800；CSS 的 650 改寫成 700、750 改寫成 800（就是現在實際顯示的值），600 保留 | 2026-10-21 | 更正第 3 節原本的理由：瀏覽器只下載頁面實際用到的字重，網址多列不會多下載字型檔。畫面不變：已查過旅遊頁、報告頁、首頁都沒有用到 500，所以補載 500 不會讓任何文字變粗。用法：400 內文、500 次要強調、600 小標籤／chip／時間、700 h2／h3／按鈕、800 h1／品牌 |
@@ -126,12 +143,13 @@ ai_report/2026/starlux-australia-report.css  ← 內嵌樣式搬出來，token �
 
 （編號對應進度表的步驟）
 
-2. **建立 `shared/`**：`tokens.css` 寫入 D1 色票（暖灰中性色＋石板藍＋重新調暖的分類色淡色底）和 D3 字級，每一組文字／背景都量對比度；`base.css` 放 D7 的字重用法、首頁的圓形切換按鈕、pill、focus 外框、減少動態；`site.js` 合併三份重複的深淺色／語言切換和 SVG 圖示（語言 key 統一 `lang`）。
+1c. **搬家**：用 `git mv` 把第 2 節列的 CSS／JS 搬進 `styles/`、`scripts/`，報告頁的內嵌 `<style>`、`<script>` 原樣搬成檔案；每頁改引用路徑和 `?v=`。內容一個字都不改。檢查：每頁用本機伺服器載入，和搬之前比對頁面內容與截圖完全相同、console 沒有 404；`file://` 由使用者手動確認。
+2. **建立共用檔**（`styles/tokens.css`、`styles/base.css`、`scripts/site.js`）：`tokens.css` 寫入 D1 色票（暖灰中性色＋石板藍＋重新調暖的分類色淡色底）和 D3 字級，每一組文字／背景都量對比度；`base.css` 放 D7 的字重用法、首頁的圓形切換按鈕、pill、focus 外框、減少動態；`site.js` 合併三份重複的深淺色／語言切換和 SVG 圖示（語言 key 統一 `lang`）。
 3. **首頁**改用共用檔。除了品牌字 17→18px（D3），畫面應該跟現在一樣（截圖比對）。
-4. **咖啡、烘焙頁**：先建立 `travel/shared/app-shell.css`（D4，以這兩頁的版本為準），`map-list.css` 刪掉 token 區和外框元件；切換按鈕改用 `site.js`；拿掉字級 clamp（D3）；加「← 阿星」pill（D6）。在 320／375／390px 和桌機檢查 chip 列、標籤列、按鈕列。
+4. **咖啡、烘焙頁**：先建立 `styles/app-shell.css`（D4，以這兩頁的版本為準），`map-list.css` 刪掉 token 區和外框元件；切換按鈕改用 `site.js`；拿掉字級 clamp（D3）；加「← 阿星」pill（D6）。在 320／375／390px 和桌機檢查 chip 列、標籤列、按鈕列。
 5. **Noosa 頁**：**先截圖列出改用 `app-shell.css` 後看得到的差異，給使用者確認**，再改；舊別名換成正式 token 名稱；其餘同步驟 4。
-6. **報告頁**：內嵌樣式搬到 `starlux-australia-report.css`，改用共用 token 和字級；加首頁同款 header、深淺色切換、語言 key 改 `lang`（D5、D6）；列印用的 `#fff`／`#000`／`#ccc` 改成 token。
-7. **文件**：`DESIGN.md` 的色票、字級改成指向 `shared/tokens.css`（避免文件和程式又變兩份），石板藍取代 Google 藍的說明一起改；`DECISIONS.md` 記下這次整理。
+6. **報告頁**：`styles/report-starlux.css`（步驟 1c 已從內嵌搬出）改用共用 token 和字級；加首頁同款 header、深淺色切換、語言 key 改 `lang`（D5、D6）；列印用的 `#fff`／`#000`／`#ccc` 改成 token。
+7. **文件**：`DESIGN.md` 的色票、字級改成指向 `styles/tokens.css`（避免文件和程式又變兩份），石板藍取代 Google 藍的說明、提到 `travel/shared/` 路徑的段落一起改；`DECISIONS.md` 記下這次整理。
 8. **刪除 `home-demo.*`**：先列出 3 個檔案，使用者確認後才刪。
 
 每一步一個 commit，做完就更新進度表。
