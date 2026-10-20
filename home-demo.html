@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>阿星 · 生活裡的目的地 · 首頁 Demo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;800&family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<script>
+try { var theme = localStorage.getItem('theme'); if (theme === 'light' || theme === 'dark') document.documentElement.dataset.theme = theme; } catch(e) {}
+</script>
+<style>
+/* Design tokens: DESIGN.md */
+:root{color-scheme:light;--color-bg:#f7f9fc;--color-surface:#ffffff;--color-surface-soft:#f1f5f9;--color-text:#202124;--color-text-muted:#5f6368;--color-border:#dadce0;--color-primary:#1a73e8;--color-primary-strong:#1967d2;--color-primary-soft:#e8f0fe;--color-primary-border:#aecbfa;--color-secondary-strong:#24763a;--color-secondary-soft:#e6f4ea;--color-accent-strong:#b32643;--color-accent-soft:#fde7ed;--color-warm-soft:#fff7db;--color-warning-text:#8a5a00}
+:root[data-theme="dark"]{color-scheme:dark;--color-bg:#111418;--color-surface:#1b1f24;--color-surface-soft:#242a31;--color-text:#f1f3f4;--color-text-muted:#bdc1c6;--color-border:#3c4043;--color-primary:#8ab4f8;--color-primary-strong:#8ab4f8;--color-primary-soft:#1c2f4f;--color-primary-border:#315b9f;--color-secondary-strong:#81c995;--color-secondary-soft:#193424;--color-accent-strong:#ff9bad;--color-accent-soft:#3b2028;--color-warm-soft:#3a2f16;--color-warning-text:#fdd663}
+@media(prefers-color-scheme:dark){:root:not([data-theme]){color-scheme:dark;--color-bg:#111418;--color-surface:#1b1f24;--color-surface-soft:#242a31;--color-text:#f1f3f4;--color-text-muted:#bdc1c6;--color-border:#3c4043;--color-primary:#8ab4f8;--color-primary-strong:#8ab4f8;--color-primary-soft:#1c2f4f;--color-primary-border:#315b9f;--color-secondary-strong:#81c995;--color-secondary-soft:#193424;--color-accent-strong:#ff9bad;--color-accent-soft:#3b2028;--color-warm-soft:#3a2f16;--color-warning-text:#fdd663}}
+*{box-sizing:border-box}body{margin:0;background:var(--color-bg);color:var(--color-text);font:15px/1.65 "Open Sans","Noto Sans TC",-apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft JhengHei","PingFang TC",sans-serif}a{color:inherit;text-decoration:none}button{font:inherit}a:focus-visible,button:focus-visible{outline:2px solid var(--color-primary);outline-offset:4px}header{border-bottom:1px solid var(--color-border);background:var(--color-surface)}.bar,main,footer{width:min(1040px,100%);margin:auto;padding-inline:24px}.bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:16px;padding-top:max(16px,env(safe-area-inset-top))}.brand{font-weight:800;font-size:17px}.brand small{font-size:12px;font-weight:500;color:var(--color-text-muted);margin-left:12px}.theme{min-height:44px;padding:8px 16px;border:1px solid var(--color-border);border-radius:8px;background:var(--color-surface-soft);color:var(--color-text);cursor:pointer}.intro{padding-block:48px 32px}.eyebrow{margin:0 0 8px;font-size:12px;font-weight:700;color:var(--color-secondary-strong);letter-spacing:2px}h1{font-size:26px;line-height:1.4;letter-spacing:-.5px;margin:0 0 12px;font-weight:800}.intro p:last-child{margin:0;color:var(--color-text-muted)}.section-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin-bottom:16px}h2{font-size:17px;margin:0;font-weight:750}.section-head span{font-size:12px;color:var(--color-text-muted)}.destinations{display:grid;grid-template-columns:1.15fr 1fr;gap:24px}.feature,.compact{border:1px solid var(--color-border);border-radius:12px;overflow:hidden;background:var(--color-surface)}.feature img{display:block;width:100%;height:224px;object-fit:cover;object-position:center}.content{padding:24px}.tag{display:inline-block;font-size:11px;font-weight:700;border-radius:6px;padding:4px 8px;color:var(--color-secondary-strong);background:var(--color-secondary-soft)}h3{font-size:20px;line-height:1.4;margin:12px 0 8px;font-weight:800}.description{color:var(--color-text-muted);font-size:13px;margin:0 0 16px}.pill{display:inline-flex;align-items:center;justify-content:center;gap:16px;min-height:44px;padding:8px 16px;border-radius:8px;background:var(--color-primary-soft);border:1px solid var(--color-primary-border);color:var(--color-primary-strong);font-size:13px;font-weight:700}.pill:hover{border-color:var(--color-primary)}.side{display:grid;gap:24px}.compact{display:flex;align-items:flex-start;gap:16px;padding:24px}.icon{width:48px;height:48px;flex-shrink:0;display:grid;place-items:center;border-radius:12px;background:var(--color-warm-soft);font-size:24px}.compact h3{margin:0 0 8px}.compact .description{margin-bottom:12px}.compact.bakery .icon{background:var(--color-accent-soft)}.notes{margin-top:32px}.report{display:flex;align-items:center;justify-content:space-between;gap:24px;border-top:1px solid var(--color-border);border-bottom:1px solid var(--color-border);padding-block:24px}.report h3{font-size:17px;margin:0 0 4px}.report p{font-size:13px;color:var(--color-text-muted);margin:0}.report .pill{flex-shrink:0}footer{display:flex;justify-content:space-between;gap:16px;padding-top:32px;padding-bottom:max(24px,env(safe-area-inset-bottom));color:var(--color-text-muted);font-size:11px}.demo{color:var(--color-warning-text);background:var(--color-warm-soft);border-radius:6px;padding:2px 8px}
+@media(max-width:767px){.bar,main,footer{padding-inline:16px}.brand small{display:none}.intro{padding-block:32px 24px}.destinations{grid-template-columns:1fr;gap:16px}.side{gap:16px}.feature img{height:200px}.content,.compact{padding:16px}.report{align-items:flex-start;flex-direction:column;gap:16px}.notes{margin-top:24px}footer{flex-wrap:wrap}.section-head span{font-size:11px}}
+.controls{display:flex;gap:8px;flex-shrink:0}.compact>div:last-child{min-width:0}.pill{overflow-wrap:anywhere}
+</style>
+</head>
+<body>
+<header><div class="bar"><div class="brand">阿星<small>旅行與日常筆記</small></div><div class="controls"><button class="theme" id="language" type="button" aria-label="Switch to English">EN</button><button class="theme" id="theme" type="button">切換深色模式</button></div></header>
+<main>
+<section class="intro" aria-labelledby="title"><p class="eyebrow">PLACES &amp; EVERYDAY FINDS</p><h1 id="title">生活裡的目的地</h1><p>一次旅行、一杯咖啡，還有值得記下來的小發現。</p></section>
+<section aria-labelledby="travel-heading">
+<div class="section-head"><h2 id="travel-heading">旅行與探店</h2><span>澳洲 · Queensland</span></div>
+<div class="destinations">
+<article class="feature"><img src="travel/australia/noosa/pics/Noosa%20Coastal%20Walk.JPG" alt="Noosa 海岸步道景色"><div class="content"><span class="tag">海岸・步道・市集</span><h3>Noosa 小旅行</h3><p class="description">把山景、海岸與市集排進旅程。行程時間、路線與地圖，出發時一起帶著走。</p><a class="pill" href="travel/australia/noosa/itinerary.html">查看行程 <span aria-hidden="true">→</span></a></div></article>
+<div class="side">
+<article class="compact"><div class="icon" aria-hidden="true">☕</div><div><h3>布里斯本咖啡地圖</h3><p class="description">找下一間想去的咖啡館。依類型、區域探索，看看大家常點什麼。</p><a class="pill" href="travel/australia/brisbane/cafe/index.html">探索咖啡館 <span aria-hidden="true">→</span></a></div></article>
+<article class="compact bakery"><div class="icon" aria-hidden="true">🥐</div><div><h3>布里斯本烘焙地圖</h3><p class="description">從酸種麵包到可頌與蛋糕，收集值得繞路的一口，搭配地圖慢慢找。</p><a class="pill" href="travel/australia/brisbane/bakery/index.html">探索烘焙店 <span aria-hidden="true">→</span></a></div></article>
+</div></div></section>
+<section class="notes" aria-labelledby="notes-heading"><div class="section-head"><h2 id="notes-heading">專題筆記</h2><span>觀察與整理</span></div><article class="report"><div><h3>星宇航空進入澳洲市場</h3><p>市場、航線與機會的資料整理與分析。</p></div><a class="pill" href="ai_report/2026/starlux-australia-report.html">閱讀報告 <span aria-hidden="true">→</span></a></article></section>
+</main>
+<footer><span>阿星 · 旅行與日常筆記</span><span class="demo">首頁 Demo · 版面討論用</span></footer>
+<script>
+var button=document.getElementById('theme');
+function isDark(){return document.documentElement.dataset.theme ? document.documentElement.dataset.theme==='dark' : matchMedia('(prefers-color-scheme: dark)').matches;}
+function updateLabel(){button.textContent=isDark()?'切換淺色模式':'切換深色模式';}
+button.addEventListener('click',function(){var next=isDark()?'light':'dark';document.documentElement.dataset.theme=next;try{localStorage.setItem('theme',next);}catch(e){}updateLabel();});
+matchMedia('(prefers-color-scheme: dark)').addEventListener('change',updateLabel);
+var language='zh-TW';
+try { if(localStorage.getItem('lang')==='en') language='en'; } catch(e) {}
+var translations=[[".brand small", "???????", "Travel & everyday notes"], ["#title", "???????", "Places in everyday life"], [".intro p:last-child", "??????????????????????", "Trips, coffee, and little discoveries worth keeping."], ["#travel-heading", "?????", "Travel & local finds"], ["section[aria-labelledby=\"travel-heading\"] .section-head span", "?? ? Queensland", "Queensland, Australia"], [".tag", "????????", "Coast ? Walks ? Markets"], [".feature h3", "Noosa ???", "A Noosa getaway"], [".feature .description", "??????????????????????????????????", "Mountains, coastal walks, and markets, with a handy itinerary and maps for the journey."], [".feature .pill", "????", "View itinerary"], [".compact:not(.bakery) h3", "????????", "Brisbane cafe map"], [".compact:not(.bakery) .description", "?????????????????????????????", "Find your next cafe by type and area, and see what people like to order."], [".compact:not(.bakery) .pill", "?????", "Explore cafes"], [".bakery h3", "????????", "Brisbane bakery map"], [".bakery .description", "??????????????????????????????", "Sourdough, croissants, and cakes worth a detour. Find your next stop on the map."], [".bakery .pill", "?????", "Explore bakeries"], ["#notes-heading", "????", "Research notes"], [".notes .section-head span", "?????", "Observations & analysis"], [".report h3", "??????????", "STARLUX entering Australia"], [".report p", "?????????????????", "Research on the market, routes, and opportunities."], [".report .pill", "????", "Read report"], ["footer>span:first-child", "?? ? ???????", "?? ? Travel & everyday notes"], [".demo", "?? Demo ? ?????", "Homepage demo ? Design preview"]];
+function applyLanguage(){
+  var en=language==='en';
+  document.documentElement.lang=en?'en':'zh-Hant';
+  document.title=en?'?? ? Places in everyday life ? Demo':'?? ? ??????? ? ?? Demo';
+  translations.forEach(function(row){
+    var element=document.querySelector(row[0]);
+    // Update the text node only, preserving the decorative link arrow.
+    element.firstChild.nodeValue=row[en?2:1]+(element.classList.contains('pill')?' ':'');
+  });
+  document.querySelector('.feature img').alt=en?'View along the Noosa coastal walk':'Noosa ??????';
+  var toggle=document.getElementById('language');
+  toggle.textContent=en?'??':'EN';
+  toggle.setAttribute('aria-label',en?'???????':'Switch to English');
+  toggle.lang=en?'zh-Hant':'en';
+  updateLabel();
+}
+document.getElementById('language').addEventListener('click',function(){language=language==='en'?'zh-TW':'en';try{localStorage.setItem('lang',language);}catch(e){}applyLanguage();});
+applyLanguage();
+
+</script>
+</body>
+</html>
