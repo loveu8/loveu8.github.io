@@ -89,6 +89,9 @@
   --color-warning-text: #8a5a00;
   --color-error: #d93025;
   --color-info: #1a73e8;
+  --color-on-primary: #ffffff;
+  --color-on-secondary: #202124;
+  --color-on-accent: #ffffff;
 }
 ```
 
@@ -137,6 +140,9 @@
   --color-warning-text: #fdd663;
   --color-error: #f28b82;
   --color-info: #8ab4f8;
+  --color-on-primary: #111418;
+  --color-on-secondary: #111418;
+  --color-on-accent: #111418;
 }
 ```
 
@@ -152,7 +158,7 @@
 - **`--color-warning` vs `--color-warning-text`:** `--color-warning` is a *status* color (badges, small dots, the bullet marker before a tip) — it is not dark enough to pass 4.5:1 as body/label text on light warm surfaces. `--color-warning-text` is the darkened text-safe variant (light mode: `#8a5a00`, verified 5.5:1 on `--color-warm-soft`; dark mode: same value as `--color-warning`, already verified 9-10:1 on dark surfaces). Any warning/shop tag or tips-list text must use `--color-warning-text`, never `--color-warning` directly.
 
 ## Dark Mode Rules
-- Use `prefers-color-scheme: dark` as the default detection, and allow an explicit `[data-theme]` override later if a toggle is added.
+- Use `prefers-color-scheme: dark` when no explicit `[data-theme]` is set. The existing theme toggle sets the override and persists the user's choice in `localStorage` under `theme`; preserve this behavior.
 - Keep maps and photos natural. Do not apply global filters to map iframes or images unless a specific embed is too bright.
 - Shadows in dark mode should be subtle and darker: `0 8px 24px rgba(0, 0, 0, 0.35)`.
 - Borders become more important in dark mode. Use borders to separate panels instead of strong shadows.
@@ -240,7 +246,7 @@
 - **How to apply:** Give the shared row container `display: flex; align-items: center;`. Let the flexible/scrollable content (e.g. chip strip) take `flex: 1; min-width: 0;` and give fixed-size siblings (e.g. button groups) `flex-shrink: 0`. Avoid `position: absolute` for anything that should align with flow content on the same row.
 
 ## Accessibility
-- Maintain WCAG AA contrast for text and controls in both light and dark modes. Text on `*-soft` backgrounds and white text on solid colored buttons must use the `--color-*-strong` tokens (see Color Usage), not the base brand tokens.
+- Maintain WCAG AA contrast for text and controls in both light and dark modes. Use `--color-*-strong` for text on `*-soft` backgrounds and for solid button backgrounds carrying white text. Button labels use the matching `--color-on-*` token; green buttons with dark labels may keep the base secondary background (see Color Usage).
 - Touch targets should be at least 44×44px for tappable controls (Apple HIG / Material minimum), not just 40px tall. Currently met by `.theme-toggle`, `.lang-toggle`, `.back-to-top`, `.lightbox-close` (all 44×44). `.fr-link` (food-row map/external buttons) is 40×40 — a deliberate compromise against the compact food-row grid, not yet at 44 — flagged here rather than silently under-sized.
 - Do not communicate meaning by color alone. Keep labels, icons, or text.
 - Preserve print readability. Print mode should remain mostly light regardless of current theme.
