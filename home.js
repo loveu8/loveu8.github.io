@@ -2,46 +2,48 @@ var button = document.getElementById('theme');
 var language = 'zh-TW';
 try { if (localStorage.getItem('lang') === 'en') language = 'en'; } catch (e) {}
 var translations = [
-  ['.brand small', 'Travel, technology & everyday notes'],
   ['#title', 'Places in everyday life'],
-  ['.intro p:last-child', 'Trips, coffee, and little discoveries worth keeping.'],
-  ['#about-heading', 'About me'],
-  ['#about-role', 'Java backend engineer · Project manager · Technology & career writer'],
-  ['#about-summary', 'I am 阿星, based in Brisbane, with over eight years of experience in Java backend development and project collaboration. I write about technology and careers as 阿星學長. This is a collection of work reflections, travel, coffee, and everyday discoveries.'],
-  ['#about-more', 'More about me'],
-  ['#about-experience', 'My work focuses on payments, membership, and authentication for travel e-commerce, spanning architecture, performance, and observability. I have also led cross-functional teams from requirements through delivery.'],
-  ['#about-writing', 'Drawing on hands-on experience, I write about SQL, data analysis, project communication, career transitions into engineering, and interview preparation. I aim to explain both the technology and the trade-offs, helping readers decide what fits their circumstances. Beyond work, this site collects travel routes, cafes, and everyday discoveries.'],
-  ['#about-skills', 'Java / Spring · API design · PostgreSQL / Oracle / Redis · CI/CD · Team leadership'],
+  ['#intro', 'I am 阿星, a Java backend engineer living in Brisbane. This is where I keep notes on technology, travel, and little coffee discoveries.'],
   ['#about-link', 'Browse my articles'],
   ['#travel-heading', 'Travel & local finds'],
-  ['section[aria-labelledby="travel-heading"] .section-head span', 'Queensland, Australia'],
-  ['.tag', 'Coast · Walks · Markets'],
-  ['.feature h3', 'A Noosa getaway'],
-  ['.feature .description', 'Mountains, coastal walks, and markets, with a handy itinerary and maps for the journey.'],
-  ['.feature .pill', 'View itinerary'],
-  ['.compact:not(.bakery) h3', 'Brisbane cafe map'],
-  ['.compact:not(.bakery) .description', 'Find your next cafe by type and area, and see what people like to order.'],
-  ['.compact:not(.bakery) .pill', 'Explore cafes'],
-  ['.bakery h3', 'Brisbane bakery map'],
-  ['.bakery .description', 'Sourdough, croissants, and cakes worth a detour. Find your next stop on the map.'],
-  ['.bakery .pill', 'Explore bakeries'],
+  ['#noosa-link', 'A Noosa getaway'],
+  ['#noosa-desc', 'Mountains, coast, and markets in one trip, with routes and maps to take along.'],
+  ['#cafe-link', 'Brisbane cafe map'],
+  ['#cafe-desc', 'Find your next cafe by type and area, and see what people like to order.'],
+  ['#bakery-link', 'Brisbane bakery map'],
+  ['#bakery-desc', 'Sourdough, croissants, and cakes worth a detour. Find your next stop on the map.'],
   ['#notes-heading', 'Research notes'],
-  ['.notes .section-head span', 'Observations & analysis'],
-  ['.report h3', 'STARLUX entering Australia'],
-  ['.report p', 'Research on the market, routes, and opportunities.'],
-  ['.report .pill', 'Read report'],
-  ['footer>span:first-child', '阿星 · Travel, technology & everyday notes'],
-  ['.demo', 'Homepage demo · Design preview']
+  ['#report-link', 'STARLUX entering Australia'],
+  ['#report-desc', 'Research on the market, routes, and opportunities.']
 ].map(function (row) {
   var element = document.querySelector(row[0]);
   if (!element) return null;
   return { element: element, zh: element.firstChild.nodeValue, en: row[1] };
 }).filter(Boolean);
+// Icons copied from travel/shared/map-list.js so the toggle matches the travel pages.
+var SUN_ICON_SVG = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">' +
+  '<circle cx="12" cy="12" r="4"></circle>' +
+  '<line x1="12" y1="2" x2="12" y2="4"></line>' +
+  '<line x1="12" y1="20" x2="12" y2="22"></line>' +
+  '<line x1="4.93" y1="4.93" x2="6.34" y2="6.34"></line>' +
+  '<line x1="17.66" y1="17.66" x2="19.07" y2="19.07"></line>' +
+  '<line x1="2" y1="12" x2="4" y2="12"></line>' +
+  '<line x1="20" y1="12" x2="22" y2="12"></line>' +
+  '<line x1="4.93" y1="19.07" x2="6.34" y2="17.66"></line>' +
+  '<line x1="17.66" y1="6.34" x2="19.07" y2="4.93"></line>' +
+  '</svg>';
+var MOON_ICON_SVG = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">' +
+  '<path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z"></path>' +
+  '</svg>';
 function isDark() {
   return document.documentElement.dataset.theme ? document.documentElement.dataset.theme === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
 }
 function updateLabel() {
-  button.textContent = language === 'en' ? (isDark() ? 'Light mode' : 'Dark mode') : (isDark() ? '切換淺色模式' : '切換深色模式');
+  var dark = isDark();
+  var label = language === 'en' ? (dark ? 'Switch to light mode' : 'Switch to dark mode') : (dark ? '切換淺色模式' : '切換深色模式');
+  button.innerHTML = dark ? SUN_ICON_SVG : MOON_ICON_SVG;
+  button.setAttribute('aria-label', label);
+  button.setAttribute('title', label);
 }
 function applyLanguage() {
   var en = language === 'en';
@@ -52,7 +54,7 @@ function applyLanguage() {
   translations.forEach(function (item) {
     item.element.firstChild.nodeValue = en ? item.en + (item.element.classList.contains('pill') ? ' ' : '') : item.zh;
   });
-  document.querySelector('.feature img').alt = en ? 'View along the Noosa coastal walk' : 'Noosa 海岸步道景色';
+  document.querySelector('.item img').alt = en ? 'View along the Noosa coastal walk' : 'Noosa 海岸步道景色';
   var toggle = document.getElementById('language');
   toggle.textContent = en ? '中文' : 'EN';
   toggle.setAttribute('aria-label', en ? '切換為繁體中文' : 'Switch to English');
@@ -69,11 +71,6 @@ document.getElementById('language').addEventListener('click', function () {
   language = language === 'en' ? 'zh-TW' : 'en';
   try { localStorage.setItem('lang', language); } catch (e) {}
   applyLanguage();
-});
-document.getElementById('about-more').addEventListener('click', function () {
-  var expanded = this.getAttribute('aria-expanded') === 'true';
-  this.setAttribute('aria-expanded', String(!expanded));
-  document.getElementById('about-details').hidden = expanded;
 });
 matchMedia('(prefers-color-scheme: dark)').addEventListener('change', updateLabel);
 applyLanguage();
