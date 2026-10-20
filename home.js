@@ -2,8 +2,9 @@ var button = document.getElementById('theme');
 var language = 'zh-TW';
 try { if (localStorage.getItem('lang') === 'en') language = 'en'; } catch (e) {}
 var translations = [
+  ['.brand', '阿星 (Lorn)'],
   ['#title', 'Places in everyday life'],
-  ['#intro', 'I am 阿星, a Java backend engineer living in Brisbane. This is where I keep notes on technology, travel, and little coffee discoveries.'],
+  ['#intro', 'I am 阿星 (Lorn), a Java backend engineer living in Brisbane. This is where I keep notes on technology, travel, and little coffee discoveries.'],
   ['#about-link', 'Browse my articles'],
   ['#travel-heading', 'Travel & local finds'],
   ['#noosa-link', 'A Noosa getaway'],
@@ -14,7 +15,8 @@ var translations = [
   ['#bakery-desc', 'Sourdough, croissants, and cakes worth a detour. Find your next stop on the map.'],
   ['#notes-heading', 'Research notes'],
   ['#report-link', 'STARLUX entering Australia'],
-  ['#report-desc', 'Research on the market, routes, and opportunities.']
+  ['#report-desc', 'Research on the market, routes, and opportunities.'],
+  ['footer', '© 2026 阿星 (Lorn)']
 ].map(function (row) {
   var element = document.querySelector(row[0]);
   if (!element) return null;
@@ -48,9 +50,9 @@ function updateLabel() {
 function applyLanguage() {
   var en = language === 'en';
   document.documentElement.lang = en ? 'en' : 'zh-Hant';
-  document.title = en ? '阿星 · Places in everyday life' : '阿星 · 生活裡的目的地';
+  document.title = en ? '阿星 (Lorn) · Places in everyday life' : '阿星 · 生活裡的目的地';
   var description = document.querySelector('meta[name="description"]');
-  if (description) description.content = en ? 'Travel, technology, and everyday notes by 阿星. Java backend development and career reflections, Australian itineraries, and Brisbane cafe and bakery maps.' : '阿星的旅行、技術與日常筆記。分享 Java 後端開發與職涯經驗，收集澳洲旅行路線、布里斯本咖啡與烘焙地圖。';
+  if (description) description.content = en ? 'Travel, technology, and everyday notes by 阿星 (Lorn). Java backend development and career reflections, Australian itineraries, and Brisbane cafe and bakery maps.' : '阿星的旅行、技術與日常筆記。分享 Java 後端開發與職涯經驗，收集澳洲旅行路線、布里斯本咖啡與烘焙地圖。';
   translations.forEach(function (item) {
     item.element.firstChild.nodeValue = en ? item.en + (item.element.classList.contains('pill') ? ' ' : '') : item.zh;
   });
