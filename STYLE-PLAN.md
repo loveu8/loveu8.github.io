@@ -17,7 +17,7 @@
 | 1b | 刪除 `testLab/`（D8） | ✅ 完成 | 2026-10-21 | `a020959` | 使用者在對話中確認 9 個檔案後刪除 |
 | 1b-2 | Codex 審查、複查與修正計畫 | ✅ 完成 | 2026-10-21 | （本 commit） | 第一次審查見第 3.2 節、複查見第 3.4 節；P1～P3 由使用者決定（第 3.3 節）；最後 QA（`STYLE-PLAN-REVIEW-3.md`）沒有重大問題 |
 | 1c | 搬家：CSS、JS 移到根目錄 `styles/`、`scripts/`（D2 改版） | ✅ 完成 | 2026-10-21 | `3b83c20` | manifest 見附錄 A。**內容**：5 個搬移檔和基準 `49be6ce` 相同（`home.js` 只差第 25 行註解）；Noosa `data.js`＋`noosa.js` 接起來和原 `script.js` 逐字相同；報告的 CSS／JS 和原內嵌內容相同。**瀏覽器**（127.0.0.1，6 頁 × 中／英 × 淺／深＝24 組）：CSS 指紋 24／24 相同；畫面結果指紋 20／24 相同，Noosa 4 組各多 1 字元，是兩個 `<script>` 之間的換行，去掉標籤間空白後和基準版（另開 port 4174 載入 `49be6ce`）完全相同；同源資源全部 200；Noosa 換天和語言、咖啡篩選（36→7 家）、報告語言切換和 11 張圖表正常，console 沒有錯誤。使用者 2026-10-21 同意 push；搬家後留下的空資料夾 `travel/shared/` 和比對用的暫時 worktree 經使用者確認後移除 |
-| 2 | 建立全站共用檔（`styles/tokens.css`、`base.css`、`scripts/site.js`） | 🔄 進行中 | | | `tokens.css` 和檢查腳本 `tools/check_tokens.py` 已寫好，對比度結果見附錄 C，**等使用者看過**。接著：附錄 C.4 的元件→間距／圓角／陰影對照表，然後 `base.css`、`site.js`。這一步只建立新檔、還不接到任何頁面，所以畫面不會變 |
+| 2 | 建立全站共用檔（`styles/tokens.css`、`base.css`、`scripts/site.js`） | 🔄 進行中 | | | `tokens.css` 和檢查腳本 `tools/check_tokens.py` 已寫好，對比度結果見附錄 C，使用者已看過（圖表顏色延到步驟 6、列印底色印純白）。接著：附錄 C.4 的元件→間距／圓角／陰影對照表，然後 `base.css`、`site.js`。這一步只建立新檔、還不接到任何頁面，所以畫面不會變 |
 | 3 | 首頁改用共用檔 | ⬜ 未開始 | | | |
 | 4 | 咖啡、烘焙頁改用共用檔 | ⬜ 未開始 | | | |
 | 5 | Noosa 行程頁改用共用檔 | ⬜ 未開始 | | | |
@@ -374,7 +374,7 @@ await (async () => {
 
 ### C.2 列印（P3）
 
-列印區塊重設全部色彩 token，selector 涵蓋 `:root`、`[data-theme="light"]`、`[data-theme="dark"]`、`:not([data-theme])`，寫在所有螢幕主題規則之後。**唯一和淺色不同的地方**：`--color-bg`、`--color-surface` 印成白色（紙是白的，不印暖灰底）。這是推論出來的預設，使用者可以改。
+列印區塊重設全部色彩 token，selector 涵蓋 `:root`、`[data-theme="light"]`、`[data-theme="dark"]`、`:not([data-theme])`，寫在所有螢幕主題規則之後。**唯一和淺色不同的地方**：`--color-bg`、`--color-surface` 印成白色（紙是白的，不印暖灰底）。**使用者 2026-10-21 確認（選 a）**：紙是白的，印白最乾淨、省墨，也和舊的旅遊頁列印結果一樣；其他色彩 token 和淺色相同。
 
 ### C.3 檢查腳本與結果
 
