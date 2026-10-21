@@ -1,7 +1,7 @@
 # 全站樣式整理：盤點與調整計畫
 
 - 日期：2026-10-21
-- 狀態（2026-10-21）：**決定全部定案、三輪審查完成；步驟 1c 搬家已完成並 push（`3b83c20`）。下一步是步驟 2：建立共用檔**。最新進度看下面的進度表；換裝置接手請先看附錄 B
+- 狀態（2026-10-21）：**步驟 2a 完成**：`styles/tokens.css`、`styles/base.css`、`tools/check_tokens.py` 已建立，相關決定見附錄 C（C.5、C.6）；還沒接到任何頁面，畫面不變。**下一步是步驟 2b：`scripts/site.js`**。最新進度看下面的進度表；換裝置接手請先看附錄 B
 - 審查紀錄：`STYLE-PLAN-REVIEW.md`（第一次）、`STYLE-PLAN-REVIEW-2.md`（複查）、`STYLE-PLAN-REVIEW-3.md`（最後 QA，沒有重大問題）
 - 目標：首頁、旅遊頁、報告頁看起來是同一個網站——同一套顏色、字體、按鈕、間距，深淺色和語言切換的行為也一致
 - 參考：`DESIGN.md`、`DECISIONS.md`、`AGENTS.md`、`travel/australia/brisbane/cafe/PLAN.md`（共用化的前例）
@@ -17,7 +17,8 @@
 | 1b | 刪除 `testLab/`（D8） | ✅ 完成 | 2026-10-21 | `a020959` | 使用者在對話中確認 9 個檔案後刪除 |
 | 1b-2 | Codex 審查、複查與修正計畫 | ✅ 完成 | 2026-10-21 | （本 commit） | 第一次審查見第 3.2 節、複查見第 3.4 節；P1～P3 由使用者決定（第 3.3 節）；最後 QA（`STYLE-PLAN-REVIEW-3.md`）沒有重大問題 |
 | 1c | 搬家：CSS、JS 移到根目錄 `styles/`、`scripts/`（D2 改版） | ✅ 完成 | 2026-10-21 | `3b83c20` | manifest 見附錄 A。**內容**：5 個搬移檔和基準 `49be6ce` 相同（`home.js` 只差第 25 行註解）；Noosa `data.js`＋`noosa.js` 接起來和原 `script.js` 逐字相同；報告的 CSS／JS 和原內嵌內容相同。**瀏覽器**（127.0.0.1，6 頁 × 中／英 × 淺／深＝24 組）：CSS 指紋 24／24 相同；畫面結果指紋 20／24 相同，Noosa 4 組各多 1 字元，是兩個 `<script>` 之間的換行，去掉標籤間空白後和基準版（另開 port 4174 載入 `49be6ce`）完全相同；同源資源全部 200；Noosa 換天和語言、咖啡篩選（36→7 家）、報告語言切換和 11 張圖表正常，console 沒有錯誤。使用者 2026-10-21 同意 push；搬家後留下的空資料夾 `travel/shared/` 和比對用的暫時 worktree 經使用者確認後移除 |
-| 2 | 建立全站共用檔（`styles/tokens.css`、`base.css`、`scripts/site.js`） | ⬜ 未開始 | | | **從這裡接手**。照第 4 節步驟 2：先寫 `tokens.css`（D1 色票＋D3 字級＋P3 列印區塊），用腳本量完對比度清單、**把結果給使用者看過再往下**；再寫 `base.css`、`site.js`。這一步只建立新檔、還不接到任何頁面，所以畫面不會變 |
+| 2a | 建立 `styles/tokens.css`、`styles/base.css`、檢查腳本 `tools/check_tokens.py` | ✅ 完成 | 2026-10-21 | `e0c0c90`、`24abbd3` | 對比度結果見附錄 C.3（使用者已看過：圖表顏色延到步驟 6、列印底色印純白）；圓角／陰影／間距對照見 C.4、決定見 C.5；`base.css` 決定見 C.6。還沒接到任何頁面，畫面不變 |
+| 2b | 建立 `scripts/site.js` | ⬜ 未開始 | | | **從這裡接手**。照第 4 節步驟 2 的 `site.js` 契約：先比對 `home.js`、`map-list.js`、`noosa.js`、`report-starlux.js` 現有的主題、語言、SVG 圖示寫法，有要選的一題一題問使用者，決定記在附錄 C.7；同樣只建立新檔、不接到頁面 |
 | 3 | 首頁改用共用檔 | ⬜ 未開始 | | | |
 | 4 | 咖啡、烘焙頁改用共用檔 | ⬜ 未開始 | | | |
 | 5 | Noosa 行程頁改用共用檔 | ⬜ 未開始 | | | |
@@ -222,8 +223,8 @@ ai_report/2026/                    starlux-australia-report.html、.data.js
 3. **首頁**改用共用檔、統一字體網址（D7）。預期差異：品牌字 17→18px（D3）、`.pill`→`.btn-pill` 改名（看起來不變）、P1（沒有語言記憶時跟瀏覽器語言）。截圖比對時固定語言（先用切換按鈕設好），其他畫面要跟基準相同。字重：用瀏覽器 Network 記錄實際下載了哪些字型檔、用 rendered fonts 看實際顯示的字重，兩項分開記；「多列字重不一定會多下載」以實測結果為準，步驟 4～6 每頁都看一次。
 4. **咖啡、烘焙頁**：先用腳本產生 Noosa／map-list 的**差異表**（D4），建立 `styles/app-shell.css`；`map-list.css` 刪掉 token 區和外框元件；切換按鈕改用 `site.js`；拿掉字級 clamp（D3）；650／750 改寫成 700／800、換字體網址（D7）；加「← 阿星」pill（D6）。
 5. **Noosa 頁**：依差異表，**先截圖列出看得到的差異給使用者確認**，再改；舊別名換成正式 token 名稱；語言讀取改經 `site.js`；其餘同步驟 4。特別測 767／768px 切換、拖曳上下限、抽屜展開收合、active chip、燈箱和 toast 的疊層。
-6. **報告頁**：`styles/report-starlux.css` 改用共用 token 和字級；三處 650 改成 700（報告 `:183`、`:236`、`:422`，D7）；大標題的 `clamp()`（`:192`、`:277`、`:302`）和圖表字級（JS `:595`、`:690` 的 13.5／15.5、CSS `:407` 的 21px）先列成精確清單，跟使用者確認哪些收斂、哪些當例外；加首頁同款 header、深淺色切換、語言 key 和值改成全站契約（D5、D6）；列印用的 `#fff`／`#000`／`#ccc` 改成 token；系統深色的元件規則（例如報告 `:164` 的按鈕陰影）也要移到 `[data-theme]` 架構；圖表 JS 裡的 13.5／15.5px 和 CSS 的 21px 圖表字級列為例外或改成 token（動手時再列給使用者看）。
-7. **文件**：`DESIGN.md` 的色票、字級改成指向 `styles/tokens.css`，石板藍取代 Google 藍的說明、`travel/shared/` 路徑、單一斷點只適用旅遊 app 版面（報告頁另有 480／560／900px）一起改；`DECISIONS.md` 記下這次整理。
+6. **報告頁**：`styles/report-starlux.css` 改用共用 token 和字級；三處 650 改成 700（報告 `:183`、`:236`、`:422`，D7）；大標題的 `clamp()`（`:192`、`:277`、`:302`）和圖表字級（JS `:595`、`:690` 的 13.5／15.5、CSS `:407` 的 21px）先列成精確清單，跟使用者確認哪些收斂、哪些當例外；加首頁同款 header、深淺色切換、語言 key 和值改成全站契約（D5、D6）；列印用的 `#fff`／`#000`／`#ccc` 改成 token；系統深色的元件規則（例如報告 `:164` 的按鈕陰影）也要移到 `[data-theme]` 架構；圖表 JS 裡的 13.5／15.5px 和 CSS 的 21px 圖表字級列為例外或改成 token（動手時再列給使用者看）。**圖表顏色**（附錄 C.3：淺色模式下綠、琥珀長條不到 3:1，綠、琥珀、珊瑚紅的折線數值文字不到 4.5:1）也在這一步列出選項給使用者決定。
+7. **文件**：`DESIGN.md` 的色票、字級改成指向 `styles/tokens.css`，石板藍取代 Google 藍的說明、`travel/shared/` 路徑、單一斷點只適用旅遊 app 版面（報告頁另有 480／560／900px）一起改；圓角改成 6／8／12／20＋pill，間距段補上附錄 C.5 第 4 題的例外說明；`DECISIONS.md` 記下這次整理。
 8. **刪除 `home-demo.*`**：先列出 3 個檔案，使用者確認後才刪；刪完確認沒有任何檔案還引用它們。
 9. **收尾檢查**：全站搜尋 `font-weight: 650`／`750`、舊的字體網址、`travel/shared`、沒有對應到字級表的 px 值，應該都只剩列出的例外。
 
@@ -351,8 +352,188 @@ await (async () => {
 
 ## 附錄 B：換裝置接手（例如平板）
 
-- **起點**：進度表第一個不是 ✅ 的列（目前是步驟 2），照「下一步」做；每完成一步就更新進度表，和程式放同一個 commit。
+- **起點**：進度表第一個不是 ✅ 的列（目前是步驟 2b），照「下一步」做；每完成一步就更新進度表，和程式放同一個 commit。
 - **一律先讀**：`AGENTS.md`、`DESIGN.md`、本計畫第 3.1、3.3 節（所有決定）、第 4 節（執行步驟）。
 - **工作方式**（使用者偏好）：設計決定一次問一題、術語先白話解釋；動手前先討論；刪除任何檔案或資料夾前，先列出確切清單等使用者確認；commit、push 前先問。
-- **需要電腦的部分**：步驟 2 的 `tokens.css`、`base.css`、`site.js` 和對比度腳本，在平板上可以先寫和審。**步驟 3 起要接到頁面**，需要瀏覽器實測（附錄 A.7 的指紋比對、截圖、列印預覽、320～768px 寬度），這些要在能開本機伺服器的環境做，或 push 後在 GitHub Pages 上看。`file://` 檢查只能在電腦上做。
+- **需要電腦的部分**：步驟 2b 的 `site.js` 在平板上可以先寫和審（2a 的 `tokens.css`、`base.css`、對比度腳本已完成）。**步驟 3 起要接到頁面**，需要瀏覽器實測（附錄 A.7 的指紋比對、截圖、列印預覽、320～768px 寬度），這些要在能開本機伺服器的環境做，或 push 後在 GitHub Pages 上看。`file://` 檢查只能在電腦上做。
 - **注意**：GitHub Pages 會快取舊檔，改了共用檔要照「版號規則」更新所有引用頁的 `?v=`。
+
+## 附錄 C：步驟 2 `tokens.css`（2026-10-21）
+
+### C.1 色值怎麼來的
+
+- **中性色和藍**：直接用首頁現有的值（D1、D1-2），首頁接上後不會變色。
+- **首頁沒有、要補的中性色**（推出來的，不是首頁原有）：
+  - `--color-text-soft`：從 `text-muted` 往背景調淡，停在 `surface-soft` 上還有 4.5 以上的地方。淺色 `#626862`（4.65）、深色 `#acb4a9`（5.41，舊的旅遊頁是 5.48）。
+  - `--color-border-soft`：用舊值在 `border` 和白底之間的位置，套到新的 `border`／`surface`。淺色 `#e3e4dd`、深色 `#3e453e`。
+- **綠、珊瑚紅、琥珀、紫的淡色底和邊框（「調暖」）**：本色不變（`DESIGN.md` 的值），淡色底和邊框整組平移，平移量等於「舊卡片底→新卡片底」的差（淺色 `#ffffff→#f9f8f5`，每個色版 −6／−7／−10；深色 `#1b1f24→#2b302c`，+16／+17／+8）。意思是：跟卡片底的距離不變，只是一起變暖。`--color-surface-warm` 也用同一種方法。
+- **為了暖底修掉的兩個退步**：
+  - `--color-error` 淺色 `#d93025→#c5221f`：報告 `.box.gap h4` 放在 `surface-soft` 上，舊值只有 3.89。
+  - `--color-on-secondary` 淺色改成 `#242825`（就是深色模式的頁面底）：Noosa 綠色按鈕的文字，換成新的 `text` 色只有 4.09。
+- `--color-info` 跟著改成石板藍（D1-2）。深色的 `--color-on-*` 從 `#111418` 改成新的深色頁面底 `#242825`，對比度都還有 6 以上。
+- 陰影的顏色從 `rgba(32,33,36,…)` 改成新文字色 `rgba(48,53,50,…)`，透明度不變。
+
+### C.2 列印（P3）
+
+列印區塊重設全部色彩 token，selector 涵蓋 `:root`、`[data-theme="light"]`、`[data-theme="dark"]`、`:not([data-theme])`，寫在所有螢幕主題規則之後。**唯一和淺色不同的地方**：`--color-bg`、`--color-surface` 印成白色（紙是白的，不印暖灰底）。**使用者 2026-10-21 確認（選 a）**：紙是白的，印白最乾淨、省墨，也和舊的旅遊頁列印結果一樣；其他色彩 token 和淺色相同。
+
+### C.3 檢查腳本與結果
+
+`python3 tools/check_tokens.py`（repo 根目錄執行）檢查：
+1. `[data-theme="dark"]` 和系統深色兩區完全相同；列印區和淺色區除了 C.2 的兩個值以外相同；每個淺色的顏色 token 都有深色值和列印值。
+2. token 之間的 `var()` 沒有未定義、沒有循環。
+3. 全站 `styles/`、`scripts/`、各頁 HTML／JS（含報告資料檔的 `colorVar`）用到的 70 個 `var(--…)` 都在 `tokens.css` 定義，或是列在腳本 `LOCAL_OK` 的頁面自有變數（Noosa 18 個舊別名，步驟 5 移除）。
+4. 印出下面的對比度表（WCAG 2，半透明色先合成在底色上再量）。
+
+結果：結構檢查全部通過。對比度未達門檻 19 格，**全部是改色前就有的問題**（第 4、5、7 組），第 1、2、3、6、8、9 組全部通過：
+- **報告圖表（第 4、5 組）**：淺色模式的綠、琥珀、珊瑚紅當折線的數值文字不到 4.5，綠和琥珀當長條色不到 3。改色前在白底就已經不到（綠 3.06、琥珀 1.71、珊瑚紅 4.04），暖底讓它們再低一點（2.88、1.61、3.80）。**使用者 2026-10-21 決定延到步驟 6**，跟圖表字級一起看；`tokens.css` 這次不加圖表專用色。
+- **元件邊界（第 7 組）**：`--color-border` 這類分隔線本來就是低對比的裝飾線（改色前 `#dadce0` 在白底 1.37），按鈕、chip 靠底色和文字辨識，不靠邊框。只列出來參考，不改。
+
+| 組別 | 配對 | 門檻 | 淺色 | 深色 |
+|---|---|---|---|---|
+| 1 文字／頁面與卡片底 | `--color-text` on `--color-bg` | 4.5 | 11.05 | 11.73 |
+| 1 文字／頁面與卡片底 | `--color-text-muted` on `--color-bg` | 4.5 | 5.30 | 8.09 |
+| 1 文字／頁面與卡片底 | `--color-text-soft` on `--color-bg` | 4.5 | 5.05 | 7.01 |
+| 1 文字／頁面與卡片底 | `--color-primary-strong` on `--color-bg` | 4.5 | 6.56 | 9.17 |
+| 1 文字／頁面與卡片底 | `--color-secondary-strong` on `--color-bg` | 4.5 | 4.98 | 7.63 |
+| 1 文字／頁面與卡片底 | `--color-accent-strong` on `--color-bg` | 4.5 | 5.67 | 7.50 |
+| 1 文字／頁面與卡片底 | `--color-warning-text` on `--color-bg` | 4.5 | 5.24 | 10.66 |
+| 1 文字／頁面與卡片底 | `--color-violet` on `--color-bg` | 4.5 | 5.75 | 5.96 |
+| 1 文字／頁面與卡片底 | `--color-error` on `--color-bg` | 4.5 | 5.13 | 6.26 |
+| 1 文字／頁面與卡片底 | `--color-text` on `--color-surface` | 4.5 | 11.76 | 10.56 |
+| 1 文字／頁面與卡片底 | `--color-text-muted` on `--color-surface` | 4.5 | 5.65 | 7.28 |
+| 1 文字／頁面與卡片底 | `--color-text-soft` on `--color-surface` | 4.5 | 5.38 | 6.31 |
+| 1 文字／頁面與卡片底 | `--color-primary-strong` on `--color-surface` | 4.5 | 6.98 | 8.25 |
+| 1 文字／頁面與卡片底 | `--color-secondary-strong` on `--color-surface` | 4.5 | 5.30 | 6.86 |
+| 1 文字／頁面與卡片底 | `--color-accent-strong` on `--color-surface` | 4.5 | 6.04 | 6.75 |
+| 1 文字／頁面與卡片底 | `--color-warning-text` on `--color-surface` | 4.5 | 5.58 | 9.59 |
+| 1 文字／頁面與卡片底 | `--color-violet` on `--color-surface` | 4.5 | 6.12 | 5.36 |
+| 1 文字／頁面與卡片底 | `--color-error` on `--color-surface` | 4.5 | 5.46 | 5.63 |
+| 1 文字／頁面與卡片底 | `--color-text` on `--color-surface-soft` | 4.5 | 10.18 | 9.04 |
+| 1 文字／頁面與卡片底 | `--color-text-muted` on `--color-surface-soft` | 4.5 | 4.88 | 6.23 |
+| 1 文字／頁面與卡片底 | `--color-text-soft` on `--color-surface-soft` | 4.5 | 4.65 | 5.41 |
+| 1 文字／頁面與卡片底 | `--color-primary-strong` on `--color-surface-soft` | 4.5 | 6.04 | 7.07 |
+| 1 文字／頁面與卡片底 | `--color-secondary-strong` on `--color-surface-soft` | 4.5 | 4.59 | 5.88 |
+| 1 文字／頁面與卡片底 | `--color-accent-strong` on `--color-surface-soft` | 4.5 | 5.22 | 5.78 |
+| 1 文字／頁面與卡片底 | `--color-warning-text` on `--color-surface-soft` | 4.5 | 4.83 | 8.21 |
+| 1 文字／頁面與卡片底 | `--color-violet` on `--color-surface-soft` | 4.5 | 5.30 | 4.60 |
+| 1 文字／頁面與卡片底 | `--color-error` on `--color-surface-soft` | 4.5 | 4.72 | 4.82 |
+| 1 文字／頁面與卡片底 | `--color-text` on `--color-surface-warm` | 4.5 | 11.18 | 9.90 |
+| 1 文字／頁面與卡片底 | `--color-text-muted` on `--color-surface-warm` | 4.5 | 5.37 | 6.82 |
+| 1 文字／頁面與卡片底 | `--color-text-soft` on `--color-surface-warm` | 4.5 | 5.11 | 5.92 |
+| 1 文字／頁面與卡片底 | `--color-primary-strong` on `--color-surface-warm` | 4.5 | 6.64 | 7.74 |
+| 1 文字／頁面與卡片底 | `--color-secondary-strong` on `--color-surface-warm` | 4.5 | 5.04 | 6.44 |
+| 1 文字／頁面與卡片底 | `--color-accent-strong` on `--color-surface-warm` | 4.5 | 5.74 | 6.33 |
+| 1 文字／頁面與卡片底 | `--color-warning-text` on `--color-surface-warm` | 4.5 | 5.31 | 8.99 |
+| 1 文字／頁面與卡片底 | `--color-violet` on `--color-surface-warm` | 4.5 | 5.82 | 5.03 |
+| 1 文字／頁面與卡片底 | `--color-error` on `--color-surface-warm` | 4.5 | 5.19 | 5.28 |
+| 2 文字／淡色底（tag、chip、提示框） | `--color-primary-strong` on `--color-primary-soft` | 4.5 | 6.09 | 6.68 |
+| 2 文字／淡色底（tag、chip、提示框） | `--color-text` on `--color-primary-soft` | 4.5 | 10.25 | 8.54 |
+| 2 文字／淡色底（tag、chip、提示框） | `--color-text-muted` on `--color-primary-soft` | 4.5 | 4.92 | 5.89 |
+| 2 文字／淡色底（tag、chip、提示框） | `--color-secondary-strong` on `--color-secondary-soft` | 4.5 | 4.66 | 5.41 |
+| 2 文字／淡色底（tag、chip、提示框） | `--color-text` on `--color-secondary-soft` | 4.5 | 10.33 | 8.32 |
+| 2 文字／淡色底（tag、chip、提示框） | `--color-text-muted` on `--color-secondary-soft` | 4.5 | 4.96 | 5.74 |
+| 2 文字／淡色底（tag、chip、提示框） | `--color-accent-strong` on `--color-accent-soft` | 4.5 | 5.11 | 5.92 |
+| 2 文字／淡色底（tag、chip、提示框） | `--color-text` on `--color-accent-soft` | 4.5 | 9.95 | 9.26 |
+| 2 文字／淡色底（tag、chip、提示框） | `--color-text-muted` on `--color-accent-soft` | 4.5 | 4.78 | 6.38 |
+| 2 文字／淡色底（tag、chip、提示框） | `--color-warning-text` on `--color-warm-soft` | 4.5 | 5.20 | 7.33 |
+| 2 文字／淡色底（tag、chip、提示框） | `--color-text` on `--color-warm-soft` | 4.5 | 10.95 | 8.07 |
+| 2 文字／淡色底（tag、chip、提示框） | `--color-text-muted` on `--color-warm-soft` | 4.5 | 5.26 | 5.56 |
+| 2 文字／淡色底（tag、chip、提示框） | `--color-violet` on `--color-violet-soft` | 4.5 | 5.17 | 4.75 |
+| 2 文字／淡色底（tag、chip、提示框） | `--color-text` on `--color-violet-soft` | 4.5 | 9.93 | 9.34 |
+| 2 文字／淡色底（tag、chip、提示框） | `--color-text-muted` on `--color-violet-soft` | 4.5 | 4.76 | 6.44 |
+| 3 實心按鈕、active chip | `--color-on-primary` on `--color-primary` | 4.5 | 5.72 | 7.63 |
+| 3 實心按鈕、active chip | `--color-on-primary` on `--color-primary-strong` | 4.5 | 7.42 | 9.17 |
+| 3 實心按鈕、active chip | `--color-on-secondary` on `--color-secondary` | 4.5 | 4.89 | 7.63 |
+| 3 實心按鈕、active chip | `--color-on-accent` on `--color-accent-strong` | 4.5 | 6.41 | 7.50 |
+| 4 報告圖表：折線數值文字（colorVar，13px 粗體） | `--color-primary` on `--color-surface` | 4.5 | 5.38 | 6.87 |
+| 5 報告圖表：長條、折線、圖例色塊（非文字） | `--color-primary` on `--color-surface` | 3 | 5.38 | 6.87 |
+| 4 報告圖表：折線數值文字（colorVar，13px 粗體） | `--color-primary` on `--color-bg` | 4.5 | 5.06 | 7.63 |
+| 5 報告圖表：長條、折線、圖例色塊（非文字） | `--color-primary` on `--color-bg` | 3 | 5.06 | 7.63 |
+| 4 報告圖表：折線數值文字（colorVar，13px 粗體） | `--color-secondary` on `--color-surface` | 4.5 | 2.88 ❌ | 6.86 |
+| 5 報告圖表：長條、折線、圖例色塊（非文字） | `--color-secondary` on `--color-surface` | 3 | 2.88 ❌ | 6.86 |
+| 4 報告圖表：折線數值文字（colorVar，13px 粗體） | `--color-secondary` on `--color-bg` | 4.5 | 2.70 ❌ | 7.63 |
+| 5 報告圖表：長條、折線、圖例色塊（非文字） | `--color-secondary` on `--color-bg` | 3 | 2.70 ❌ | 7.63 |
+| 4 報告圖表：折線數值文字（colorVar，13px 粗體） | `--color-accent` on `--color-surface` | 4.5 | 3.80 ❌ | 5.40 |
+| 5 報告圖表：長條、折線、圖例色塊（非文字） | `--color-accent` on `--color-surface` | 3 | 3.80 | 5.40 |
+| 4 報告圖表：折線數值文字（colorVar，13px 粗體） | `--color-accent` on `--color-bg` | 4.5 | 3.57 ❌ | 6.01 |
+| 5 報告圖表：長條、折線、圖例色塊（非文字） | `--color-accent` on `--color-bg` | 3 | 3.57 | 6.01 |
+| 4 報告圖表：折線數值文字（colorVar，13px 粗體） | `--color-warm` on `--color-surface` | 4.5 | 1.61 ❌ | 9.59 |
+| 5 報告圖表：長條、折線、圖例色塊（非文字） | `--color-warm` on `--color-surface` | 3 | 1.61 ❌ | 9.59 |
+| 4 報告圖表：折線數值文字（colorVar，13px 粗體） | `--color-warm` on `--color-bg` | 4.5 | 1.51 ❌ | 10.66 |
+| 5 報告圖表：長條、折線、圖例色塊（非文字） | `--color-warm` on `--color-bg` | 3 | 1.51 ❌ | 10.66 |
+| 6 focus 外框（非文字） | `--color-primary` on `--color-bg` | 3 | 5.06 | 7.63 |
+| 6 focus 外框（非文字） | `--color-primary` on `--color-surface` | 3 | 5.38 | 6.87 |
+| 6 focus 外框（非文字） | `--color-primary` on `--color-surface-soft` | 3 | 4.66 | 5.88 |
+| 6 focus 外框（非文字） | `--color-primary` on `--color-surface-warm` | 3 | 5.12 | 6.44 |
+| 7 元件邊界（非文字，參考用） | `--color-border` on `--color-bg` | 3 | 1.29 ❌ | 1.81 ❌ |
+| 7 元件邊界（非文字，參考用） | `--color-border` on `--color-surface` | 3 | 1.37 ❌ | 1.63 ❌ |
+| 7 元件邊界（非文字，參考用） | `--color-primary-border` on `--color-surface` | 3 | 2.06 ❌ | 3.70 |
+| 7 元件邊界（非文字，參考用） | `--color-accent-border` on `--color-surface` | 3 | 1.75 ❌ | 2.37 ❌ |
+| 7 元件邊界（非文字，參考用） | `--color-secondary-border` on `--color-surface` | 3 | 1.44 ❌ | 2.82 ❌ |
+| 8 半透明 hover（先合成在 surface 上） | `--color-text` on `.tl-item:hover` rgba(237,137,54,.06) | 4.5 | 11.16 | 9.64 |
+| 8 半透明 hover（先合成在 surface 上） | `--color-text-muted` on `.tl-item:hover` rgba(237,137,54,.06) | 4.5 | 5.36 | 6.65 |
+| 8 半透明 hover（先合成在 surface 上） | `--color-text-soft` on `.tl-item:hover` rgba(237,137,54,.06) | 4.5 | 5.10 | 5.76 |
+| 8 半透明 hover（先合成在 surface 上） | `--color-text` on `.tl-item-transit:hover` rgba(128,134,139,.08) | 4.5 | 10.85 | 9.52 |
+| 8 半透明 hover（先合成在 surface 上） | `--color-text-muted` on `.tl-item-transit:hover` rgba(128,134,139,.08) | 4.5 | 5.21 | 6.56 |
+| 8 半透明 hover（先合成在 surface 上） | `--color-text-soft` on `.tl-item-transit:hover` rgba(128,134,139,.08) | 4.5 | 4.96 | 5.69 |
+| 9 燈箱 | `--color-on-scrim` on `--scrim`（合成在 bg 上） | 4.5 | 16.87 | 20.42 |
+
+未達門檻：19 格
+
+### C.4 元件→圓角／陰影／間距對照（盤點 2026-10-21，決定中）
+
+範圍：`styles/home.css`、`map-list.css`、`noosa.css`、`report-starlux.css`，不含 `home-demo.*`。行號是 2026-10-21 的位置。
+
+**圓角**
+
+| 現值 | 用在哪裡 | 對應 token | 畫面會變嗎 |
+|---|---|---|---|
+| 6px | 清單 `.prio`、`.tag`；Noosa `.badge-backup`、`.badge-main`；報告 `.kicker .k-num` | `--radius-sm` | 不變 |
+| 8px | 首頁 `.pill`、`.item img`；清單 `.print-btn`、`.filter-btn`、`.top3`、`.shop-note`、`.tasting`、`.shop-photo`；Noosa `.print-btn`、`.tl-item`、`.tag`、`.fr-veg`、`.tl-photo`；報告 `--radius-md` 5 處 | `--radius-md` | 不變 |
+| 12px | 首頁 `.item`、`.item h3 a::after`；清單 `.tips-box`、`.shop-card`、`.pill`；Noosa `.tl-loc-name`、`.tl-external-link`、`.tips-box`；報告 `--radius-lg` 3 處 | `--radius-lg` | 不變 |
+| 20px 20px 0 0 | 兩頁手機抽屜 `.sidebar` | `--radius-sheet` | 不變 |
+| 999px | 圓形切換鈕、回到頂端、捲動鈕、載入轉圈、燈箱關閉、Noosa `.fr-link`、報告 `.lang-toggle`、`.flight-tag`、`.pill`（共 14 處） | `--radius-pill` | 不變 |
+| 24px | 兩頁 `.map-nav-float`（`min-height: 44px`） | `--radius-pill` | 不變：圓角已經大於高度的一半，看起來就是 pill |
+| 20px | Noosa `.nav-btn`（高約 33px） | `--radius-pill` | 不變：同上 |
+| 10px | 清單 `.chip`；Noosa `.chip`、`.food-row`、`.tl-card`；兩頁 `.lightbox img` | `--radius-md`（8px，C.5 第 1 題） | **會變**：角小 2px，步驟 4、5 截圖時列為預期差異 |
+| 2px、3px | 兩頁拖曳分隔線、捲軸、抽屜把手（2px）；報告圖例色塊（3px） | 例外，保留原值（C.5 第 2 題） | 不變 |
+| 50% | Noosa `.tl-dot`、報告 `.tl-item::before`（圓點） | 例外，不用 token | 不變 |
+| 6px、7px、0 [print] | 列印樣式 | 例外（列印的小尺寸不改） | 不變 |
+
+**陰影**
+
+| 現值 | 用在哪裡 | 對應 | 備註 |
+|---|---|---|---|
+| `var(--shadow-panel)`／`soft`／`photo` | 抽屜、回到頂端、地圖按鈕、chip 面板、切換鈕、照片（15 處） | 已是 token | 不變 |
+| `0 0 0 2px var(--color-accent-border)`、`0 0 0 2px currentColor` | 清單 `.shop-card.selected`、Noosa `.tl-dot` | 外框描邊，不是陰影層次 | 例外，保留 |
+| `0 1px 8px color-mix(… 45%, transparent)` | active chip 的光暈（清單 1、Noosa 2） | 跟著 chip 顏色變，不能是固定 token | 例外，保留 |
+| `0 -8px 0 …, 0 8px 0 …` | 拖曳分隔線畫三條點 | 不是陰影，是畫圖案 | 例外，保留 |
+| `0 8px 32px rgba(0,0,0,0.5)` | Noosa `.lightbox img` | 拿掉（C.5 第 3 題），跟咖啡、烘焙頁一致 | 步驟 4 抽燈箱到 `app-shell.css` 時移除；步驟 5 截圖確認黑色遮罩上看不出差異 |
+| `0 2px 10px rgba(0,0,0,.12)`／`.35` | 報告 `.lang-toggle`（淺／系統深色） | 步驟 6 改成全站切換鈕，跟著 `base.css` | 不另訂 |
+
+**間距**（螢幕樣式的 padding／margin／gap，px 值和出現次數）
+
+- 在 4px 級距上：8（39）、4（25）、16（17）、12（16）、2（15）、24（3）、48（2）、32（2）、64、40、72、28（各 1）
+- 不在級距上：6（31）、10（27）、14（24）、5（15）、3（11）、1（11）、9（7）、11（4）、7（4）、26（1）
+- **決定（C.5 第 4 題）**：現有的值不動。步驟 4 抽到 `app-shell.css` 的共用元件照原值搬（兩頁值不同時照 D4 差異表逐條決定）；新寫的 CSS（「← 阿星」pill、報告頁 header 等）一律用 `--space-*`
+
+### C.5 對照表的決定（逐題與使用者確認）
+
+| # | 問題 | 決定 | 日期 |
+|---|---|---|---|
+| 1 | 圓角 10px（chip、食物列、行程卡、燈箱照片）怎麼對應 | **(a) 全部改成 8px（`--radius-md`）**，照 `DESIGN.md`「chips、timeline rows 用 8px」 | 2026-10-21 |
+| 2 | 圓角 2px／3px（分隔線、捲軸、把手、圖例色塊） | **(a) 列為例外、保留原值**：跟 50%、999px 一樣當成形狀，不另訂 token | 2026-10-21 |
+| 3 | 燈箱照片的陰影 | **(a) 拿掉**：照片下面是 88% 黑色遮罩，陰影幾乎看不到（推論，步驟 5 截圖確認）；和咖啡、烘焙頁一致 | 2026-10-21 |
+| 4 | 不在 4px 級距上的間距 | **(a) 現有的值不動**，只有新寫的 CSS 用 `--space-*`；步驟 7 在 `DESIGN.md` 間距段補一句「既有緊湊元件可用 1～3px 微調和 6／10／14px 等非級距值，新元件用 token」 | 2026-10-21 |
+
+### C.6 `base.css` 的決定（逐題與使用者確認）
+
+不用決定、畫面不變的：字體備援清單統一成首頁和報告頁那份（多 `BlinkMacSystemFont`，只影響 Google Fonts 載入失敗時）；旅遊頁的「減少動態」整套搬進 `base.css`，`.map-loading-spinner` 的例外留給 `app-shell.css`；旅遊頁切換鈕的陰影（浮在地圖上）留給 `app-shell.css`，`base.css` 不放；首頁的 `.toggle` 在步驟 3 改成 `.lang-toggle`／`.theme-toggle`。
+
+| # | 問題 | 決定 | 日期 |
+|---|---|---|---|
+| 1 | 圓形切換鈕的外觀以哪頁為準 | **(a) 首頁**：hover 只有邊框變 `--color-primary`（不變底色、不浮起），EN 字級 `--fs-2xs` 12px，動畫 120ms。旅遊頁的 hover 會變安靜（步驟 4、5 列為預期差異）；報告頁的 EN 按鈕在步驟 6 改用這套 | 2026-10-21 |
+| 2 | focus 外框的 `outline-offset` | **(a) 全站 2px**（照 `DESIGN.md`）：首頁的連結和切換鈕從 4px 變 2px（步驟 3 列為預期差異） | 2026-10-21 |
+
+`base.css` 已寫好（2026-10-21）。`box-sizing` 只套 `*`、不套偽元素：報告 `.tl-item::before` 的圓點是 `width: 10px` 加 2px 邊框，改成 border-box 會從 14px 縮成 10px。
