@@ -2,7 +2,7 @@
 
 data.js is a plain <script> (var PAGE_DATA = {...}) so the page also works from
 file:// — browsers block fetch() of local JSON there (AGENTS.md). It is read by
-travel/shared/map-list.js together with the page's hand-written page.js.
+scripts/map-list.js together with the page's hand-written page.js.
 """
 import argparse
 import json

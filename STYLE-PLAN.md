@@ -15,7 +15,7 @@
 | 1 | 使用者逐題決定（第 3 節 D1～D8） | ✅ 完成 | 2026-10-21 | | D1～D8 全部定案，見第 3.1 節 |
 | 1b | 刪除 `testLab/`（D8） | ✅ 完成 | 2026-10-21 | `a020959` | 使用者在對話中確認 9 個檔案後刪除 |
 | 1b-2 | Codex 審查、複查與修正計畫 | ✅ 完成 | 2026-10-21 | （本 commit） | 第一次審查見第 3.2 節、複查見第 3.4 節；P1～P3 由使用者決定（第 3.3 節）；最後 QA（`STYLE-PLAN-REVIEW-3.md`）沒有重大問題 |
-| 1c | 搬家：CSS、JS 移到根目錄 `styles/`、`scripts/`（D2 改版） | ⬜ 未開始 | | | 先建 manifest 和基準；只搬檔案和改引用路徑，內容不改；每頁跟搬之前比對要完全相同 |
+| 1c | 搬家：CSS、JS 移到根目錄 `styles/`、`scripts/`（D2 改版） | ✅ 完成（`file://` 待使用者確認） | 2026-10-21 | （本 commit） | manifest 見附錄 A。**內容**：5 個搬移檔和基準 `49be6ce` 相同（`home.js` 只差第 25 行註解）；Noosa `data.js`＋`noosa.js` 接起來和原 `script.js` 逐字相同；報告的 CSS／JS 和原內嵌內容相同。**瀏覽器**（127.0.0.1，6 頁 × 中／英 × 淺／深＝24 組）：CSS 指紋 24／24 相同；畫面結果指紋 20／24 相同，Noosa 4 組各多 1 字元，是兩個 `<script>` 之間的換行，去掉標籤間空白後和基準版（另開 port 4174 載入 `49be6ce`）完全相同；同源資源全部 200；Noosa 換天和語言、咖啡篩選（36→7 家）、報告語言切換和 11 張圖表正常，console 沒有錯誤。下一步：使用者用 `file://` 開五頁確認，再 push |
 | 2 | 建立全站共用檔（`styles/tokens.css`、`base.css`、`scripts/site.js`） | ⬜ 未開始 | | | 依第 4 節步驟 2 |
 | 3 | 首頁改用共用檔 | ⬜ 未開始 | | | |
 | 4 | 咖啡、烘焙頁改用共用檔 | ⬜ 未開始 | | | |
@@ -251,3 +251,54 @@ ai_report/2026/                    starlux-australia-report.html、.data.js
 - 各頁的內容、文案、版面結構（例如 Noosa 時間軸的排法）。
 - 地圖和照片本身。
 - 列印版的小字級。
+
+## 附錄 A：步驟 1c 搬家 manifest（2026-10-21）
+
+基準 commit：`49be6ce`（開始搬家前工作樹乾淨，沒有未 commit 的檔案）。新搬出或新建的檔案一律 `?v=20261021c`；內容沒動的資料檔維持原版號。
+
+### A.1 搬移與拆檔
+
+| 原本 | 搬到 | 做法 |
+|---|---|---|
+| `home.css` | `styles/home.css` | `git mv` |
+| `home.js` | `scripts/home.js` | `git mv`；第 25 行註解 `travel/shared/map-list.js` → `scripts/map-list.js` |
+| `travel/shared/map-list.css` | `styles/map-list.css` | `git mv` |
+| `travel/shared/map-list.js` | `scripts/map-list.js` | `git mv` |
+| `travel/australia/noosa/style.css` | `styles/noosa.css` | `git mv` |
+| `travel/australia/noosa/script.js` 第 1～336 行 | `travel/australia/noosa/data.js` | 原樣剪出（P2） |
+| `travel/australia/noosa/script.js` 第 337 行起 | `scripts/noosa.js` | `git mv` 後刪掉前 336 行 |
+| 報告頁第 12～457 行（`<style>` 和 `</style>` 中間） | `styles/report-starlux.css` | 原樣搬出 |
+| 報告頁第 505～950 行（`<script>` 和 `</script>` 中間） | `scripts/report-starlux.js` | 原樣搬出 |
+
+### A.2 各頁引用（搬家後，順序和位置不變）
+
+| 頁面 | `<head>` 樣式 | `</body>` 前的程式 |
+|---|---|---|
+| `index.html` | `styles/home.css?v=20261021c` | `scripts/home.js?v=20261021c` |
+| `travel/australia/brisbane/cafe/index.html` | `../../../../styles/map-list.css?v=20261021c` | `page.js?v=20261017c` → `data.js?v=20261018a` → `../../../../scripts/map-list.js?v=20261021c` |
+| `travel/australia/brisbane/bakery/index.html` | 同上 | 同上 |
+| `travel/australia/noosa/itinerary.html` | `../../../styles/noosa.css?v=20261021c` | `data.js?v=20261021c`（defer）→ `../../../scripts/noosa.js?v=20261021c`（defer） |
+| `ai_report/2026/starlux-australia-report.html` | `../../styles/report-starlux.css?v=20261021c`（取代內嵌 `<style>`，位置相同） | `starlux-australia-report.data.js`（不變）→ `../../scripts/report-starlux.js?v=20261021c`（取代內嵌 `<script>`，位置相同、不加 defer） |
+| `home-demo.html` | `home-demo.css`（不動） | `home-demo.js`（不動） |
+
+### A.3 不搬、不改
+
+- 資料檔：`cafe/page.js`、`cafe/data.js`、`bakery/page.js`、`bakery/data.js`、`starlux-australia-report.data.js`（只改 `page.js` 第 1 行的路徑註解）。
+- 凍結副本：`home-demo.html`、`home-demo.css`、`home-demo.js`。
+- 歷史紀錄：`DECISIONS.md`、`travel/australia/brisbane/cafe/PLAN.md`、`bakery/PLAN.md` 裡的 `travel/shared/` 不改。
+
+### A.4 只改文字的地方
+
+- `home.js:25`、`cafe/page.js:1`、`bakery/page.js:1`、`travel/tools/make_data_js.py:5` 的註解：`travel/shared/map-list.js` → `scripts/map-list.js`。
+- `travel/tools/README.md:59`：「改了 `travel/shared/`」→「改了 `styles/`、`scripts/` 的共用檔」。
+- `DESIGN.md:222`：`travel/shared/map-list.js` 和 `map-list.css` → `scripts/map-list.js`、`styles/map-list.css`。
+
+### A.5 基準與比對方法
+
+用本機 HTTP 伺服器（`127.0.0.1`）載入五個正式入口和 `home-demo.html`，每頁在「中文／英文 × 淺色／深色」4 種狀態（用 localStorage 的 `lang`、`theme` 設定後重新載入；報告頁沒有 `theme`，只取系統色彩模式），等字型載入和初始化完成後記錄：
+
+1. **CSS 指紋**：所有同源樣式表的 `cssRules` 文字串起來的 SHA-256（內嵌和外部檔案，只要規則相同指紋就相同）。
+2. **畫面結果指紋**：初始化後 `document.body` 的 HTML 的 SHA-256（JS 執行結果相同就相同）。
+3. **網路與錯誤**：每個資源的狀態碼，以及 console 錯誤。
+
+搬家前記一次、搬家後記一次，兩次的 1 和 2 都要相同。另外每頁存一張截圖給人看。

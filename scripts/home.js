@@ -22,7 +22,7 @@ var translations = [
   if (!element) return null;
   return { element: element, zh: element.firstChild.nodeValue, en: row[1] };
 }).filter(Boolean);
-// Icons copied from travel/shared/map-list.js so the toggle matches the travel pages.
+// Icons copied from scripts/map-list.js so the toggle matches the travel pages.
 var SUN_ICON_SVG = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">' +
   '<circle cx="12" cy="12" r="4"></circle>' +
   '<line x1="12" y1="2" x2="12" y2="4"></line>' +

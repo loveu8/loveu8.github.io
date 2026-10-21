@@ -56,5 +56,5 @@ python travel/tools/make_mymaps.py travel/australia/brisbane/cafe/cafe.csv `
 ## 改了 csv 之後
 
 1. 重新執行 `make_data_js.py`，用 `git diff` 看 `data.js` 的變動是否符合預期。
-2. 頁面的 `index.html` 把 `?v=` 版號改新，否則 GitHub Pages 會給舊的快取。改了 `travel/shared/` 的話，**每個用到它的頁面**都要改版號。
+2. 頁面的 `index.html` 把 `?v=` 版號改新，否則 GitHub Pages 會給舊的快取。改了 `styles/`、`scripts/` 裡的共用檔（例如 `map-list.css`、`map-list.js`）的話，**每個用到它的頁面**都要改版號。
 3. 店家、座標、分類或前三名有變的話，重新產生 My Maps 匯入檔：在 My Maps **先匯入新圖層，確認沒問題後再刪掉舊圖層**。匯入時「瀏覽」選檔要使用者自己點。
