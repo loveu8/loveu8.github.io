@@ -479,3 +479,49 @@ await (async () => {
 | 9 燈箱 | `--color-on-scrim` on `--scrim`（合成在 bg 上） | 4.5 | 16.87 | 20.42 |
 
 未達門檻：19 格
+
+### C.4 元件→圓角／陰影／間距對照（盤點 2026-10-21，決定中）
+
+範圍：`styles/home.css`、`map-list.css`、`noosa.css`、`report-starlux.css`，不含 `home-demo.*`。行號是 2026-10-21 的位置。
+
+**圓角**
+
+| 現值 | 用在哪裡 | 對應 token | 畫面會變嗎 |
+|---|---|---|---|
+| 6px | 清單 `.prio`、`.tag`；Noosa `.badge-backup`、`.badge-main`；報告 `.kicker .k-num` | `--radius-sm` | 不變 |
+| 8px | 首頁 `.pill`、`.item img`；清單 `.print-btn`、`.filter-btn`、`.top3`、`.shop-note`、`.tasting`、`.shop-photo`；Noosa `.print-btn`、`.tl-item`、`.tag`、`.fr-veg`、`.tl-photo`；報告 `--radius-md` 5 處 | `--radius-md` | 不變 |
+| 12px | 首頁 `.item`、`.item h3 a::after`；清單 `.tips-box`、`.shop-card`、`.pill`；Noosa `.tl-loc-name`、`.tl-external-link`、`.tips-box`；報告 `--radius-lg` 3 處 | `--radius-lg` | 不變 |
+| 20px 20px 0 0 | 兩頁手機抽屜 `.sidebar` | `--radius-sheet` | 不變 |
+| 999px | 圓形切換鈕、回到頂端、捲動鈕、載入轉圈、燈箱關閉、Noosa `.fr-link`、報告 `.lang-toggle`、`.flight-tag`、`.pill`（共 14 處） | `--radius-pill` | 不變 |
+| 24px | 兩頁 `.map-nav-float`（`min-height: 44px`） | `--radius-pill` | 不變：圓角已經大於高度的一半，看起來就是 pill |
+| 20px | Noosa `.nav-btn`（高約 33px） | `--radius-pill` | 不變：同上 |
+| 10px | 清單 `.chip`；Noosa `.chip`、`.food-row`、`.tl-card`；兩頁 `.lightbox img` | **待決定（C.5 第 1 題）** | |
+| 2px、3px | 兩頁拖曳分隔線、捲軸、抽屜把手（2px）；報告圖例色塊（3px） | **待決定（C.5 第 2 題）** | |
+| 50% | Noosa `.tl-dot`、報告 `.tl-item::before`（圓點） | 例外，不用 token | 不變 |
+| 6px、7px、0 [print] | 列印樣式 | 例外（列印的小尺寸不改） | 不變 |
+
+**陰影**
+
+| 現值 | 用在哪裡 | 對應 | 備註 |
+|---|---|---|---|
+| `var(--shadow-panel)`／`soft`／`photo` | 抽屜、回到頂端、地圖按鈕、chip 面板、切換鈕、照片（15 處） | 已是 token | 不變 |
+| `0 0 0 2px var(--color-accent-border)`、`0 0 0 2px currentColor` | 清單 `.shop-card.selected`、Noosa `.tl-dot` | 外框描邊，不是陰影層次 | 例外，保留 |
+| `0 1px 8px color-mix(… 45%, transparent)` | active chip 的光暈（清單 1、Noosa 2） | 跟著 chip 顏色變，不能是固定 token | 例外，保留 |
+| `0 -8px 0 …, 0 8px 0 …` | 拖曳分隔線畫三條點 | 不是陰影，是畫圖案 | 例外，保留 |
+| `0 8px 32px rgba(0,0,0,0.5)` | Noosa `.lightbox img` | **待決定（C.5 第 3 題）** | |
+| `0 2px 10px rgba(0,0,0,.12)`／`.35` | 報告 `.lang-toggle`（淺／系統深色） | 步驟 6 改成全站切換鈕，跟著 `base.css` | 不另訂 |
+
+**間距**（螢幕樣式的 padding／margin／gap，px 值和出現次數）
+
+- 在 4px 級距上：8（39）、4（25）、16（17）、12（16）、2（15）、24（3）、48（2）、32（2）、64、40、72、28（各 1）
+- 不在級距上：6（31）、10（27）、14（24）、5（15）、3（11）、1（11）、9（7）、11（4）、7（4）、26（1）
+- **待決定（C.5 第 4 題）**
+
+### C.5 對照表的決定（逐題與使用者確認）
+
+| # | 問題 | 決定 | 日期 |
+|---|---|---|---|
+| 1 | 圓角 10px（chip、食物列、行程卡、燈箱照片）怎麼對應 | ⏸️ 等使用者 | |
+| 2 | 圓角 2px／3px（分隔線、捲軸、把手、圖例色塊） | ⏸️ | |
+| 3 | 燈箱照片的陰影 | ⏸️ | |
+| 4 | 不在 4px 級距上的間距 | ⏸️ | |
