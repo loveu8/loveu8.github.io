@@ -508,7 +508,7 @@ await (async () => {
 | `0 0 0 2px var(--color-accent-border)`、`0 0 0 2px currentColor` | 清單 `.shop-card.selected`、Noosa `.tl-dot` | 外框描邊，不是陰影層次 | 例外，保留 |
 | `0 1px 8px color-mix(… 45%, transparent)` | active chip 的光暈（清單 1、Noosa 2） | 跟著 chip 顏色變，不能是固定 token | 例外，保留 |
 | `0 -8px 0 …, 0 8px 0 …` | 拖曳分隔線畫三條點 | 不是陰影，是畫圖案 | 例外，保留 |
-| `0 8px 32px rgba(0,0,0,0.5)` | Noosa `.lightbox img` | **待決定（C.5 第 3 題）** | |
+| `0 8px 32px rgba(0,0,0,0.5)` | Noosa `.lightbox img` | 拿掉（C.5 第 3 題），跟咖啡、烘焙頁一致 | 步驟 4 抽燈箱到 `app-shell.css` 時移除；步驟 5 截圖確認黑色遮罩上看不出差異 |
 | `0 2px 10px rgba(0,0,0,.12)`／`.35` | 報告 `.lang-toggle`（淺／系統深色） | 步驟 6 改成全站切換鈕，跟著 `base.css` | 不另訂 |
 
 **間距**（螢幕樣式的 padding／margin／gap，px 值和出現次數）
@@ -523,5 +523,5 @@ await (async () => {
 |---|---|---|---|
 | 1 | 圓角 10px（chip、食物列、行程卡、燈箱照片）怎麼對應 | **(a) 全部改成 8px（`--radius-md`）**，照 `DESIGN.md`「chips、timeline rows 用 8px」 | 2026-10-21 |
 | 2 | 圓角 2px／3px（分隔線、捲軸、把手、圖例色塊） | **(a) 列為例外、保留原值**：跟 50%、999px 一樣當成形狀，不另訂 token | 2026-10-21 |
-| 3 | 燈箱照片的陰影 | ⏸️ | |
+| 3 | 燈箱照片的陰影 | **(a) 拿掉**：照片下面是 88% 黑色遮罩，陰影幾乎看不到（推論，步驟 5 截圖確認）；和咖啡、烘焙頁一致 | 2026-10-21 |
 | 4 | 不在 4px 級距上的間距 | ⏸️ | |
