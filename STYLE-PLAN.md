@@ -495,7 +495,7 @@ await (async () => {
 | 999px | 圓形切換鈕、回到頂端、捲動鈕、載入轉圈、燈箱關閉、Noosa `.fr-link`、報告 `.lang-toggle`、`.flight-tag`、`.pill`（共 14 處） | `--radius-pill` | 不變 |
 | 24px | 兩頁 `.map-nav-float`（`min-height: 44px`） | `--radius-pill` | 不變：圓角已經大於高度的一半，看起來就是 pill |
 | 20px | Noosa `.nav-btn`（高約 33px） | `--radius-pill` | 不變：同上 |
-| 10px | 清單 `.chip`；Noosa `.chip`、`.food-row`、`.tl-card`；兩頁 `.lightbox img` | **待決定（C.5 第 1 題）** | |
+| 10px | 清單 `.chip`；Noosa `.chip`、`.food-row`、`.tl-card`；兩頁 `.lightbox img` | `--radius-md`（8px，C.5 第 1 題） | **會變**：角小 2px，步驟 4、5 截圖時列為預期差異 |
 | 2px、3px | 兩頁拖曳分隔線、捲軸、抽屜把手（2px）；報告圖例色塊（3px） | **待決定（C.5 第 2 題）** | |
 | 50% | Noosa `.tl-dot`、報告 `.tl-item::before`（圓點） | 例外，不用 token | 不變 |
 | 6px、7px、0 [print] | 列印樣式 | 例外（列印的小尺寸不改） | 不變 |
@@ -521,7 +521,7 @@ await (async () => {
 
 | # | 問題 | 決定 | 日期 |
 |---|---|---|---|
-| 1 | 圓角 10px（chip、食物列、行程卡、燈箱照片）怎麼對應 | ⏸️ 等使用者 | |
+| 1 | 圓角 10px（chip、食物列、行程卡、燈箱照片）怎麼對應 | **(a) 全部改成 8px（`--radius-md`）**，照 `DESIGN.md`「chips、timeline rows 用 8px」 | 2026-10-21 |
 | 2 | 圓角 2px／3px（分隔線、捲軸、把手、圖例色塊） | ⏸️ | |
 | 3 | 燈箱照片的陰影 | ⏸️ | |
 | 4 | 不在 4px 級距上的間距 | ⏸️ | |
