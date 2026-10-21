@@ -1,7 +1,8 @@
 # 全站樣式整理：盤點與調整計畫
 
 - 日期：2026-10-21
-- 狀態：**D1～D8 已定案；Codex 審查（`STYLE-PLAN-REVIEW.md`）已核對並修進本計畫（第 3.2 節）**。最新進度看下面的進度表
+- 狀態（2026-10-21）：**決定全部定案、三輪審查完成；步驟 1c 搬家已完成並 push（`3b83c20`）。下一步是步驟 2：建立共用檔**。最新進度看下面的進度表；換裝置接手請先看附錄 B
+- 審查紀錄：`STYLE-PLAN-REVIEW.md`（第一次）、`STYLE-PLAN-REVIEW-2.md`（複查）、`STYLE-PLAN-REVIEW-3.md`（最後 QA，沒有重大問題）
 - 目標：首頁、旅遊頁、報告頁看起來是同一個網站——同一套顏色、字體、按鈕、間距，深淺色和語言切換的行為也一致
 - 參考：`DESIGN.md`、`DECISIONS.md`、`AGENTS.md`、`travel/australia/brisbane/cafe/PLAN.md`（共用化的前例）
 
@@ -16,7 +17,7 @@
 | 1b | 刪除 `testLab/`（D8） | ✅ 完成 | 2026-10-21 | `a020959` | 使用者在對話中確認 9 個檔案後刪除 |
 | 1b-2 | Codex 審查、複查與修正計畫 | ✅ 完成 | 2026-10-21 | （本 commit） | 第一次審查見第 3.2 節、複查見第 3.4 節；P1～P3 由使用者決定（第 3.3 節）；最後 QA（`STYLE-PLAN-REVIEW-3.md`）沒有重大問題 |
 | 1c | 搬家：CSS、JS 移到根目錄 `styles/`、`scripts/`（D2 改版） | ✅ 完成 | 2026-10-21 | `3b83c20` | manifest 見附錄 A。**內容**：5 個搬移檔和基準 `49be6ce` 相同（`home.js` 只差第 25 行註解）；Noosa `data.js`＋`noosa.js` 接起來和原 `script.js` 逐字相同；報告的 CSS／JS 和原內嵌內容相同。**瀏覽器**（127.0.0.1，6 頁 × 中／英 × 淺／深＝24 組）：CSS 指紋 24／24 相同；畫面結果指紋 20／24 相同，Noosa 4 組各多 1 字元，是兩個 `<script>` 之間的換行，去掉標籤間空白後和基準版（另開 port 4174 載入 `49be6ce`）完全相同；同源資源全部 200；Noosa 換天和語言、咖啡篩選（36→7 家）、報告語言切換和 11 張圖表正常，console 沒有錯誤。使用者 2026-10-21 同意 push；搬家後留下的空資料夾 `travel/shared/` 和比對用的暫時 worktree 經使用者確認後移除 |
-| 2 | 建立全站共用檔（`styles/tokens.css`、`base.css`、`scripts/site.js`） | ⬜ 未開始 | | | 依第 4 節步驟 2 |
+| 2 | 建立全站共用檔（`styles/tokens.css`、`base.css`、`scripts/site.js`） | ⬜ 未開始 | | | **從這裡接手**。照第 4 節步驟 2：先寫 `tokens.css`（D1 色票＋D3 字級＋P3 列印區塊），用腳本量完對比度清單、**把結果給使用者看過再往下**；再寫 `base.css`、`site.js`。這一步只建立新檔、還不接到任何頁面，所以畫面不會變 |
 | 3 | 首頁改用共用檔 | ⬜ 未開始 | | | |
 | 4 | 咖啡、烘焙頁改用共用檔 | ⬜ 未開始 | | | |
 | 5 | Noosa 行程頁改用共用檔 | ⬜ 未開始 | | | |
@@ -302,3 +303,56 @@ ai_report/2026/                    starlux-australia-report.html、.data.js
 3. **網路與錯誤**：每個資源的狀態碼，以及 console 錯誤。
 
 搬家前記一次、搬家後記一次，兩次的 1 和 2 都要相同。另外每頁存一張截圖給人看。
+
+### A.6 1c 的實際結果（基準 `49be6ce`，Chrome，系統色彩模式＝深色）
+
+| 頁面 | CSS 指紋 | 中／淺 | 中／深 | 英／淺 | 英／深 |
+|---|---|---|---|---|---|
+| 首頁 | `3dc0e5ef3f0dccd8` | `f455fa5376c79eed` | `f33e5b91aa6f0d09` | `9f3a498f06c463fe` | `eb482bb89c76b843` |
+| 咖啡 | `8560775e8a4cdafc` | `52e74ec391d7c2e8` | `53a11496e2ad8f7c` | `b9a5d62d674e839d` | `5471c2d32fd991c0` |
+| 烘焙 | `8560775e8a4cdafc` | `6bd078c7508e1993` | `fefafa9ee43f6ef3` | `8e4f6d80a749aa88` | `19f20cb1ba17f102` |
+| Noosa | `7b30b892a76f2f5d` | `aa56b39daba2aff8` | `d6537399907965d4` | `b3bfb96dcb6b22fd` | `ad644c1b66aa9100` |
+| 報告 | `a1f5b73f2651994b` | `940a65b96f52dea3` | 同左（只跟系統） | `b3655cdb59cef9cb` | 同左 |
+| home-demo | `8ad9daff84cf1e80` | `5263ccda552ea56e` | `cdb0d24878b95c46` | `7458cab51e76ba73` | `8910cdf40db0a4ca` |
+
+搬家後 CSS 24／24 相同；畫面 20／24 相同，Noosa 4 組因兩個 `<script>` 之間多一個換行而不同，用 A.7 的「去掉標籤間空白」版本比對後完全相同。**這些值是搬家當下的基準；步驟 2 之後的頁面會依計畫改變，比對時以每一步開始前重新記的基準為準。**
+
+### A.7 指紋比對程式（在瀏覽器 console 或自動化工具執行）
+
+頁面載入後執行，回傳「頁面、語言、主題、CSS 指紋、畫面結果指紋、非 200 的同源資源」：
+
+```js
+await (async () => {
+  await document.fonts.ready;
+  await new Promise(r => setTimeout(r, 2000));
+  async function sha(s) {
+    const b = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(s));
+    return Array.from(new Uint8Array(b)).map(x => x.toString(16).padStart(2, '0')).join('').slice(0, 16);
+  }
+  let css = '';
+  for (const sh of document.styleSheets) {
+    try { for (const r of sh.cssRules) css += r.cssText + '\n'; } catch (e) { /* 跨網域的字型樣式表 */ }
+  }
+  const body = document.body.cloneNode(true);
+  body.querySelectorAll('script, style, #acorn-notes-root').forEach(n => n.remove()); // acorn-notes-root 是瀏覽器擴充插入的
+  const html = body.innerHTML;                            // 嚴格版
+  const loose = html.replace(/>\s+</g, '><').trim();      // 去掉標籤間空白的版本
+  const bad = performance.getEntriesByType('resource')
+    .filter(e => e.name.startsWith(location.origin) && ![200, 304].includes(e.responseStatus))
+    .map(e => e.name);
+  return [location.pathname, document.documentElement.lang, document.documentElement.dataset.theme || 'system',
+          'css', await sha(css), 'body', await sha(html), 'loose', await sha(loose), 'bad', bad.join(';')].join(' ');
+})()
+```
+
+- 狀態用 localStorage 設定後重新載入：`lang`（`zh-TW`／`en`）、`theme`（`light`／`dark`）；報告頁在步驟 6 之前還是讀 `starlux-report-lang`（`zh`／`en`）。
+- 要 HTTP 伺服器（`file://` 下不同頁面不一定共用 localStorage，跨頁的語言、主題狀態沒辦法照設定重現；Chrome 擴充也打不開 `file://`）：在 repo 根目錄執行 `python -m http.server 4173 --bind 127.0.0.1`，開 `http://127.0.0.1:4173/…`。
+- 要比對「改之前」的版本：`git worktree add --detach <暫存資料夾> <基準 commit>`，在那個資料夾開另一個 port 的伺服器，兩邊各跑一次；用完 `git worktree remove <暫存資料夾>`。
+
+## 附錄 B：換裝置接手（例如平板）
+
+- **起點**：進度表第一個不是 ✅ 的列（目前是步驟 2），照「下一步」做；每完成一步就更新進度表，和程式放同一個 commit。
+- **一律先讀**：`AGENTS.md`、`DESIGN.md`、本計畫第 3.1、3.3 節（所有決定）、第 4 節（執行步驟）。
+- **工作方式**（使用者偏好）：設計決定一次問一題、術語先白話解釋；動手前先討論；刪除任何檔案或資料夾前，先列出確切清單等使用者確認；commit、push 前先問。
+- **需要電腦的部分**：步驟 2 的 `tokens.css`、`base.css`、`site.js` 和對比度腳本，在平板上可以先寫和審。**步驟 3 起要接到頁面**，需要瀏覽器實測（附錄 A.7 的指紋比對、截圖、列印預覽、320～768px 寬度），這些要在能開本機伺服器的環境做，或 push 後在 GitHub Pages 上看。`file://` 檢查只能在電腦上做。
+- **注意**：GitHub Pages 會快取舊檔，改了共用檔要照「版號規則」更新所有引用頁的 `?v=`。
