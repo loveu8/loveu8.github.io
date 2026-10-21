@@ -17,7 +17,7 @@
 | 1b | 刪除 `testLab/`（D8） | ✅ 完成 | 2026-10-21 | `a020959` | 使用者在對話中確認 9 個檔案後刪除 |
 | 1b-2 | Codex 審查、複查與修正計畫 | ✅ 完成 | 2026-10-21 | （本 commit） | 第一次審查見第 3.2 節、複查見第 3.4 節；P1～P3 由使用者決定（第 3.3 節）；最後 QA（`STYLE-PLAN-REVIEW-3.md`）沒有重大問題 |
 | 1c | 搬家：CSS、JS 移到根目錄 `styles/`、`scripts/`（D2 改版） | ✅ 完成 | 2026-10-21 | `3b83c20` | manifest 見附錄 A。**內容**：5 個搬移檔和基準 `49be6ce` 相同（`home.js` 只差第 25 行註解）；Noosa `data.js`＋`noosa.js` 接起來和原 `script.js` 逐字相同；報告的 CSS／JS 和原內嵌內容相同。**瀏覽器**（127.0.0.1，6 頁 × 中／英 × 淺／深＝24 組）：CSS 指紋 24／24 相同；畫面結果指紋 20／24 相同，Noosa 4 組各多 1 字元，是兩個 `<script>` 之間的換行，去掉標籤間空白後和基準版（另開 port 4174 載入 `49be6ce`）完全相同；同源資源全部 200；Noosa 換天和語言、咖啡篩選（36→7 家）、報告語言切換和 11 張圖表正常，console 沒有錯誤。使用者 2026-10-21 同意 push；搬家後留下的空資料夾 `travel/shared/` 和比對用的暫時 worktree 經使用者確認後移除 |
-| 2 | 建立全站共用檔（`styles/tokens.css`、`base.css`、`scripts/site.js`） | ⬜ 未開始 | | | **從這裡接手**。照第 4 節步驟 2：先寫 `tokens.css`（D1 色票＋D3 字級＋P3 列印區塊），用腳本量完對比度清單、**把結果給使用者看過再往下**；再寫 `base.css`、`site.js`。這一步只建立新檔、還不接到任何頁面，所以畫面不會變 |
+| 2 | 建立全站共用檔（`styles/tokens.css`、`base.css`、`scripts/site.js`） | 🔄 進行中 | | | `tokens.css` 和檢查腳本 `tools/check_tokens.py` 已寫好，對比度結果見附錄 C，**等使用者看過**。接著：附錄 C.4 的元件→間距／圓角／陰影對照表，然後 `base.css`、`site.js`。這一步只建立新檔、還不接到任何頁面，所以畫面不會變 |
 | 3 | 首頁改用共用檔 | ⬜ 未開始 | | | |
 | 4 | 咖啡、烘焙頁改用共用檔 | ⬜ 未開始 | | | |
 | 5 | Noosa 行程頁改用共用檔 | ⬜ 未開始 | | | |
@@ -356,3 +356,126 @@ await (async () => {
 - **工作方式**（使用者偏好）：設計決定一次問一題、術語先白話解釋；動手前先討論；刪除任何檔案或資料夾前，先列出確切清單等使用者確認；commit、push 前先問。
 - **需要電腦的部分**：步驟 2 的 `tokens.css`、`base.css`、`site.js` 和對比度腳本，在平板上可以先寫和審。**步驟 3 起要接到頁面**，需要瀏覽器實測（附錄 A.7 的指紋比對、截圖、列印預覽、320～768px 寬度），這些要在能開本機伺服器的環境做，或 push 後在 GitHub Pages 上看。`file://` 檢查只能在電腦上做。
 - **注意**：GitHub Pages 會快取舊檔，改了共用檔要照「版號規則」更新所有引用頁的 `?v=`。
+
+## 附錄 C：步驟 2 `tokens.css`（2026-10-21）
+
+### C.1 色值怎麼來的
+
+- **中性色和藍**：直接用首頁現有的值（D1、D1-2），首頁接上後不會變色。
+- **首頁沒有、要補的中性色**（推出來的，不是首頁原有）：
+  - `--color-text-soft`：從 `text-muted` 往背景調淡，停在 `surface-soft` 上還有 4.5 以上的地方。淺色 `#626862`（4.65）、深色 `#acb4a9`（5.41，舊的旅遊頁是 5.48）。
+  - `--color-border-soft`：用舊值在 `border` 和白底之間的位置，套到新的 `border`／`surface`。淺色 `#e3e4dd`、深色 `#3e453e`。
+- **綠、珊瑚紅、琥珀、紫的淡色底和邊框（「調暖」）**：本色不變（`DESIGN.md` 的值），淡色底和邊框整組平移，平移量等於「舊卡片底→新卡片底」的差（淺色 `#ffffff→#f9f8f5`，每個色版 −6／−7／−10；深色 `#1b1f24→#2b302c`，+16／+17／+8）。意思是：跟卡片底的距離不變，只是一起變暖。`--color-surface-warm` 也用同一種方法。
+- **為了暖底修掉的兩個退步**：
+  - `--color-error` 淺色 `#d93025→#c5221f`：報告 `.box.gap h4` 放在 `surface-soft` 上，舊值只有 3.89。
+  - `--color-on-secondary` 淺色改成 `#242825`（就是深色模式的頁面底）：Noosa 綠色按鈕的文字，換成新的 `text` 色只有 4.09。
+- `--color-info` 跟著改成石板藍（D1-2）。深色的 `--color-on-*` 從 `#111418` 改成新的深色頁面底 `#242825`，對比度都還有 6 以上。
+- 陰影的顏色從 `rgba(32,33,36,…)` 改成新文字色 `rgba(48,53,50,…)`，透明度不變。
+
+### C.2 列印（P3）
+
+列印區塊重設全部色彩 token，selector 涵蓋 `:root`、`[data-theme="light"]`、`[data-theme="dark"]`、`:not([data-theme])`，寫在所有螢幕主題規則之後。**唯一和淺色不同的地方**：`--color-bg`、`--color-surface` 印成白色（紙是白的，不印暖灰底）。這是推論出來的預設，使用者可以改。
+
+### C.3 檢查腳本與結果
+
+`python3 tools/check_tokens.py`（repo 根目錄執行）檢查：
+1. `[data-theme="dark"]` 和系統深色兩區完全相同；列印區和淺色區除了 C.2 的兩個值以外相同；每個淺色的顏色 token 都有深色值和列印值。
+2. token 之間的 `var()` 沒有未定義、沒有循環。
+3. 全站 `styles/`、`scripts/`、各頁 HTML／JS（含報告資料檔的 `colorVar`）用到的 70 個 `var(--…)` 都在 `tokens.css` 定義，或是列在腳本 `LOCAL_OK` 的頁面自有變數（Noosa 18 個舊別名，步驟 5 移除）。
+4. 印出下面的對比度表（WCAG 2，半透明色先合成在底色上再量）。
+
+結果：結構檢查全部通過。對比度未達門檻 19 格，**全部是改色前就有的問題**（第 4、5、7 組），第 1、2、3、6、8、9 組全部通過：
+- **報告圖表（第 4、5 組）**：淺色模式的綠、琥珀、珊瑚紅當折線的數值文字不到 4.5，綠和琥珀當長條色不到 3。改色前在白底就已經不到（綠 3.06、琥珀 1.71、珊瑚紅 4.04），暖底讓它們再低一點（2.88、1.61、3.80）。圖表顏色是步驟 6 的範圍，到時候列給使用者決定（例如圖表改用 `*-strong` 或另外訂圖表用色）。
+- **元件邊界（第 7 組）**：`--color-border` 這類分隔線本來就是低對比的裝飾線（改色前 `#dadce0` 在白底 1.37），按鈕、chip 靠底色和文字辨識，不靠邊框。只列出來參考，不改。
+
+| 組別 | 配對 | 門檻 | 淺色 | 深色 |
+|---|---|---|---|---|
+| 1 文字／頁面與卡片底 | `--color-text` on `--color-bg` | 4.5 | 11.05 | 11.73 |
+| 1 文字／頁面與卡片底 | `--color-text-muted` on `--color-bg` | 4.5 | 5.30 | 8.09 |
+| 1 文字／頁面與卡片底 | `--color-text-soft` on `--color-bg` | 4.5 | 5.05 | 7.01 |
+| 1 文字／頁面與卡片底 | `--color-primary-strong` on `--color-bg` | 4.5 | 6.56 | 9.17 |
+| 1 文字／頁面與卡片底 | `--color-secondary-strong` on `--color-bg` | 4.5 | 4.98 | 7.63 |
+| 1 文字／頁面與卡片底 | `--color-accent-strong` on `--color-bg` | 4.5 | 5.67 | 7.50 |
+| 1 文字／頁面與卡片底 | `--color-warning-text` on `--color-bg` | 4.5 | 5.24 | 10.66 |
+| 1 文字／頁面與卡片底 | `--color-violet` on `--color-bg` | 4.5 | 5.75 | 5.96 |
+| 1 文字／頁面與卡片底 | `--color-error` on `--color-bg` | 4.5 | 5.13 | 6.26 |
+| 1 文字／頁面與卡片底 | `--color-text` on `--color-surface` | 4.5 | 11.76 | 10.56 |
+| 1 文字／頁面與卡片底 | `--color-text-muted` on `--color-surface` | 4.5 | 5.65 | 7.28 |
+| 1 文字／頁面與卡片底 | `--color-text-soft` on `--color-surface` | 4.5 | 5.38 | 6.31 |
+| 1 文字／頁面與卡片底 | `--color-primary-strong` on `--color-surface` | 4.5 | 6.98 | 8.25 |
+| 1 文字／頁面與卡片底 | `--color-secondary-strong` on `--color-surface` | 4.5 | 5.30 | 6.86 |
+| 1 文字／頁面與卡片底 | `--color-accent-strong` on `--color-surface` | 4.5 | 6.04 | 6.75 |
+| 1 文字／頁面與卡片底 | `--color-warning-text` on `--color-surface` | 4.5 | 5.58 | 9.59 |
+| 1 文字／頁面與卡片底 | `--color-violet` on `--color-surface` | 4.5 | 6.12 | 5.36 |
+| 1 文字／頁面與卡片底 | `--color-error` on `--color-surface` | 4.5 | 5.46 | 5.63 |
+| 1 文字／頁面與卡片底 | `--color-text` on `--color-surface-soft` | 4.5 | 10.18 | 9.04 |
+| 1 文字／頁面與卡片底 | `--color-text-muted` on `--color-surface-soft` | 4.5 | 4.88 | 6.23 |
+| 1 文字／頁面與卡片底 | `--color-text-soft` on `--color-surface-soft` | 4.5 | 4.65 | 5.41 |
+| 1 文字／頁面與卡片底 | `--color-primary-strong` on `--color-surface-soft` | 4.5 | 6.04 | 7.07 |
+| 1 文字／頁面與卡片底 | `--color-secondary-strong` on `--color-surface-soft` | 4.5 | 4.59 | 5.88 |
+| 1 文字／頁面與卡片底 | `--color-accent-strong` on `--color-surface-soft` | 4.5 | 5.22 | 5.78 |
+| 1 文字／頁面與卡片底 | `--color-warning-text` on `--color-surface-soft` | 4.5 | 4.83 | 8.21 |
+| 1 文字／頁面與卡片底 | `--color-violet` on `--color-surface-soft` | 4.5 | 5.30 | 4.60 |
+| 1 文字／頁面與卡片底 | `--color-error` on `--color-surface-soft` | 4.5 | 4.72 | 4.82 |
+| 1 文字／頁面與卡片底 | `--color-text` on `--color-surface-warm` | 4.5 | 11.18 | 9.90 |
+| 1 文字／頁面與卡片底 | `--color-text-muted` on `--color-surface-warm` | 4.5 | 5.37 | 6.82 |
+| 1 文字／頁面與卡片底 | `--color-text-soft` on `--color-surface-warm` | 4.5 | 5.11 | 5.92 |
+| 1 文字／頁面與卡片底 | `--color-primary-strong` on `--color-surface-warm` | 4.5 | 6.64 | 7.74 |
+| 1 文字／頁面與卡片底 | `--color-secondary-strong` on `--color-surface-warm` | 4.5 | 5.04 | 6.44 |
+| 1 文字／頁面與卡片底 | `--color-accent-strong` on `--color-surface-warm` | 4.5 | 5.74 | 6.33 |
+| 1 文字／頁面與卡片底 | `--color-warning-text` on `--color-surface-warm` | 4.5 | 5.31 | 8.99 |
+| 1 文字／頁面與卡片底 | `--color-violet` on `--color-surface-warm` | 4.5 | 5.82 | 5.03 |
+| 1 文字／頁面與卡片底 | `--color-error` on `--color-surface-warm` | 4.5 | 5.19 | 5.28 |
+| 2 文字／淡色底（tag、chip、提示框） | `--color-primary-strong` on `--color-primary-soft` | 4.5 | 6.09 | 6.68 |
+| 2 文字／淡色底（tag、chip、提示框） | `--color-text` on `--color-primary-soft` | 4.5 | 10.25 | 8.54 |
+| 2 文字／淡色底（tag、chip、提示框） | `--color-text-muted` on `--color-primary-soft` | 4.5 | 4.92 | 5.89 |
+| 2 文字／淡色底（tag、chip、提示框） | `--color-secondary-strong` on `--color-secondary-soft` | 4.5 | 4.66 | 5.41 |
+| 2 文字／淡色底（tag、chip、提示框） | `--color-text` on `--color-secondary-soft` | 4.5 | 10.33 | 8.32 |
+| 2 文字／淡色底（tag、chip、提示框） | `--color-text-muted` on `--color-secondary-soft` | 4.5 | 4.96 | 5.74 |
+| 2 文字／淡色底（tag、chip、提示框） | `--color-accent-strong` on `--color-accent-soft` | 4.5 | 5.11 | 5.92 |
+| 2 文字／淡色底（tag、chip、提示框） | `--color-text` on `--color-accent-soft` | 4.5 | 9.95 | 9.26 |
+| 2 文字／淡色底（tag、chip、提示框） | `--color-text-muted` on `--color-accent-soft` | 4.5 | 4.78 | 6.38 |
+| 2 文字／淡色底（tag、chip、提示框） | `--color-warning-text` on `--color-warm-soft` | 4.5 | 5.20 | 7.33 |
+| 2 文字／淡色底（tag、chip、提示框） | `--color-text` on `--color-warm-soft` | 4.5 | 10.95 | 8.07 |
+| 2 文字／淡色底（tag、chip、提示框） | `--color-text-muted` on `--color-warm-soft` | 4.5 | 5.26 | 5.56 |
+| 2 文字／淡色底（tag、chip、提示框） | `--color-violet` on `--color-violet-soft` | 4.5 | 5.17 | 4.75 |
+| 2 文字／淡色底（tag、chip、提示框） | `--color-text` on `--color-violet-soft` | 4.5 | 9.93 | 9.34 |
+| 2 文字／淡色底（tag、chip、提示框） | `--color-text-muted` on `--color-violet-soft` | 4.5 | 4.76 | 6.44 |
+| 3 實心按鈕、active chip | `--color-on-primary` on `--color-primary` | 4.5 | 5.72 | 7.63 |
+| 3 實心按鈕、active chip | `--color-on-primary` on `--color-primary-strong` | 4.5 | 7.42 | 9.17 |
+| 3 實心按鈕、active chip | `--color-on-secondary` on `--color-secondary` | 4.5 | 4.89 | 7.63 |
+| 3 實心按鈕、active chip | `--color-on-accent` on `--color-accent-strong` | 4.5 | 6.41 | 7.50 |
+| 4 報告圖表：折線數值文字（colorVar，13px 粗體） | `--color-primary` on `--color-surface` | 4.5 | 5.38 | 6.87 |
+| 5 報告圖表：長條、折線、圖例色塊（非文字） | `--color-primary` on `--color-surface` | 3 | 5.38 | 6.87 |
+| 4 報告圖表：折線數值文字（colorVar，13px 粗體） | `--color-primary` on `--color-bg` | 4.5 | 5.06 | 7.63 |
+| 5 報告圖表：長條、折線、圖例色塊（非文字） | `--color-primary` on `--color-bg` | 3 | 5.06 | 7.63 |
+| 4 報告圖表：折線數值文字（colorVar，13px 粗體） | `--color-secondary` on `--color-surface` | 4.5 | 2.88 ❌ | 6.86 |
+| 5 報告圖表：長條、折線、圖例色塊（非文字） | `--color-secondary` on `--color-surface` | 3 | 2.88 ❌ | 6.86 |
+| 4 報告圖表：折線數值文字（colorVar，13px 粗體） | `--color-secondary` on `--color-bg` | 4.5 | 2.70 ❌ | 7.63 |
+| 5 報告圖表：長條、折線、圖例色塊（非文字） | `--color-secondary` on `--color-bg` | 3 | 2.70 ❌ | 7.63 |
+| 4 報告圖表：折線數值文字（colorVar，13px 粗體） | `--color-accent` on `--color-surface` | 4.5 | 3.80 ❌ | 5.40 |
+| 5 報告圖表：長條、折線、圖例色塊（非文字） | `--color-accent` on `--color-surface` | 3 | 3.80 | 5.40 |
+| 4 報告圖表：折線數值文字（colorVar，13px 粗體） | `--color-accent` on `--color-bg` | 4.5 | 3.57 ❌ | 6.01 |
+| 5 報告圖表：長條、折線、圖例色塊（非文字） | `--color-accent` on `--color-bg` | 3 | 3.57 | 6.01 |
+| 4 報告圖表：折線數值文字（colorVar，13px 粗體） | `--color-warm` on `--color-surface` | 4.5 | 1.61 ❌ | 9.59 |
+| 5 報告圖表：長條、折線、圖例色塊（非文字） | `--color-warm` on `--color-surface` | 3 | 1.61 ❌ | 9.59 |
+| 4 報告圖表：折線數值文字（colorVar，13px 粗體） | `--color-warm` on `--color-bg` | 4.5 | 1.51 ❌ | 10.66 |
+| 5 報告圖表：長條、折線、圖例色塊（非文字） | `--color-warm` on `--color-bg` | 3 | 1.51 ❌ | 10.66 |
+| 6 focus 外框（非文字） | `--color-primary` on `--color-bg` | 3 | 5.06 | 7.63 |
+| 6 focus 外框（非文字） | `--color-primary` on `--color-surface` | 3 | 5.38 | 6.87 |
+| 6 focus 外框（非文字） | `--color-primary` on `--color-surface-soft` | 3 | 4.66 | 5.88 |
+| 6 focus 外框（非文字） | `--color-primary` on `--color-surface-warm` | 3 | 5.12 | 6.44 |
+| 7 元件邊界（非文字，參考用） | `--color-border` on `--color-bg` | 3 | 1.29 ❌ | 1.81 ❌ |
+| 7 元件邊界（非文字，參考用） | `--color-border` on `--color-surface` | 3 | 1.37 ❌ | 1.63 ❌ |
+| 7 元件邊界（非文字，參考用） | `--color-primary-border` on `--color-surface` | 3 | 2.06 ❌ | 3.70 |
+| 7 元件邊界（非文字，參考用） | `--color-accent-border` on `--color-surface` | 3 | 1.75 ❌ | 2.37 ❌ |
+| 7 元件邊界（非文字，參考用） | `--color-secondary-border` on `--color-surface` | 3 | 1.44 ❌ | 2.82 ❌ |
+| 8 半透明 hover（先合成在 surface 上） | `--color-text` on `.tl-item:hover` rgba(237,137,54,.06) | 4.5 | 11.16 | 9.64 |
+| 8 半透明 hover（先合成在 surface 上） | `--color-text-muted` on `.tl-item:hover` rgba(237,137,54,.06) | 4.5 | 5.36 | 6.65 |
+| 8 半透明 hover（先合成在 surface 上） | `--color-text-soft` on `.tl-item:hover` rgba(237,137,54,.06) | 4.5 | 5.10 | 5.76 |
+| 8 半透明 hover（先合成在 surface 上） | `--color-text` on `.tl-item-transit:hover` rgba(128,134,139,.08) | 4.5 | 10.85 | 9.52 |
+| 8 半透明 hover（先合成在 surface 上） | `--color-text-muted` on `.tl-item-transit:hover` rgba(128,134,139,.08) | 4.5 | 5.21 | 6.56 |
+| 8 半透明 hover（先合成在 surface 上） | `--color-text-soft` on `.tl-item-transit:hover` rgba(128,134,139,.08) | 4.5 | 4.96 | 5.69 |
+| 9 燈箱 | `--color-on-scrim` on `--scrim`（合成在 bg 上） | 4.5 | 16.87 | 20.42 |
+
+未達門檻：19 格
