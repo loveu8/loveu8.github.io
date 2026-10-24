@@ -1,7 +1,7 @@
 # 全站樣式整理：盤點與調整計畫
 
 - 日期：2026-10-21
-- 狀態（2026-10-24）：**步驟 2 完成**：`styles/tokens.css`、`styles/base.css`、`tools/check_tokens.py`、`scripts/site.js` 已建立，相關決定見附錄 C（C.5～C.7）；還沒接到任何頁面，畫面不變。**下一步是步驟 3：首頁改用共用檔**。最新進度看下面的進度表；換裝置接手請先看附錄 B
+- 狀態（2026-10-24）：**步驟 3 完成**：首頁已改用 `tokens.css`、`base.css`、`site.js`，畫面只有預期差異（品牌字 17→18px）。**下一步是步驟 4：咖啡、烘焙頁**。最新進度看下面的進度表；換裝置接手請先看附錄 B
 - 審查紀錄：`STYLE-PLAN-REVIEW.md`（第一次）、`STYLE-PLAN-REVIEW-2.md`（複查）、`STYLE-PLAN-REVIEW-3.md`（最後 QA，沒有重大問題）
 - 目標：首頁、旅遊頁、報告頁看起來是同一個網站——同一套顏色、字體、按鈕、間距，深淺色和語言切換的行為也一致
 - 參考：`DESIGN.md`、`DECISIONS.md`、`AGENTS.md`、`travel/australia/brisbane/cafe/PLAN.md`（共用化的前例）
@@ -19,8 +19,8 @@
 | 1c | 搬家：CSS、JS 移到根目錄 `styles/`、`scripts/`（D2 改版） | ✅ 完成 | 2026-10-21 | `3b83c20` | manifest 見附錄 A。**內容**：5 個搬移檔和基準 `49be6ce` 相同（`home.js` 只差第 25 行註解）；Noosa `data.js`＋`noosa.js` 接起來和原 `script.js` 逐字相同；報告的 CSS／JS 和原內嵌內容相同。**瀏覽器**（127.0.0.1，6 頁 × 中／英 × 淺／深＝24 組）：CSS 指紋 24／24 相同；畫面結果指紋 20／24 相同，Noosa 4 組各多 1 字元，是兩個 `<script>` 之間的換行，去掉標籤間空白後和基準版（另開 port 4174 載入 `49be6ce`）完全相同；同源資源全部 200；Noosa 換天和語言、咖啡篩選（36→7 家）、報告語言切換和 11 張圖表正常，console 沒有錯誤。使用者 2026-10-21 同意 push；搬家後留下的空資料夾 `travel/shared/` 和比對用的暫時 worktree 經使用者確認後移除 |
 | 2a | 建立 `styles/tokens.css`、`styles/base.css`、檢查腳本 `tools/check_tokens.py` | ✅ 完成 | 2026-10-21 | `e0c0c90`、`24abbd3` | 對比度結果見附錄 C.3（使用者已看過：圖表顏色延到步驟 6、列印底色印純白）；圓角／陰影／間距對照見 C.4、決定見 C.5；`base.css` 決定見 C.6。還沒接到任何頁面，畫面不變 |
 | 2b | 建立 `scripts/site.js` | ✅ 完成 | 2026-10-24 | （本 commit） | 決定見附錄 C.7（3 題）。API：`window.Site` 的 `getLang`／`setLang`／`onLangChange`／`getTheme`／`setTheme`／`isDark`／`icon`；按鈕用 `data-toggle="theme"`／`data-toggle="lang"`。用 Node 模擬 DOM 跑 38 項檢查（語言優先序、`?lang=fr` 略過、舊值 `zh`、瀏覽器語言不寫入、localStorage 被擋、主題值驗證、系統深色時第一下就切、按一次只通知一次）全部通過；瀏覽器實測留到步驟 3 接頁面時做。還沒接到任何頁面，畫面不變 |
-| 3 | 首頁改用共用檔 | ⬜ 未開始 | | | **從這裡接手**。照第 4 節步驟 3；按鈕加 `data-toggle`，刪掉 `home.js` 的按鈕 listener、主題重套和 SVG 常數，改訂閱 `Site.onLangChange`；預期差異含 C.6、C.7 列的項目和 P1 的瀏覽器語言 |
-| 4 | 咖啡、烘焙頁改用共用檔 | ⬜ 未開始 | | | |
+| 3 | 首頁改用共用檔 | ✅ 完成 | 2026-10-24 | （本 commit） | `home.css` 刪掉 token 區、`*`、body 字體、focus、`.toggle`（改由 `tokens.css`、`base.css`），字級改用 `--fs-*`；`.pill`→`.btn-pill`；按鈕改 `.lang-toggle`／`.theme-toggle`＋`data-toggle`；`home.js` 只留翻譯、改用 `Site`；字體網址換成 D7。**比對**（127.0.0.1，改前改後各記一次，桌機 1280 和 375px × 中英 × 淺深＝8 組，每個元素 50 多項計算後樣式和位置）：樣式差異**只有**品牌字 17→18px（含行高、高度，不影響其他元素位置）；屬性差異只有 `<html lang>` `zh-Hant`→`zh-TW`、按鈕類別和 `data-toggle`、語言鈕多了 `title`、英文模式提示「切換為繁體中文」→「切換為中文」、`.pill`→`.btn-pill`。focus 外框 4→2px（C.6 #2，靜態比對量不到，看 CSS 規則確認）。**實測**：沒有記憶時跟瀏覽器語言（zh-TW→中文、不寫入）；語言鈕切英文再切回，各通知 1 次、都寫入記憶；系統深色時第一下切成淺色；`?lang=en` 寫入、`?lang=fr`＋舊值 `zh` 顯示中文；滑鼠實際點擊正常；320／375／390／767／768px 中英文都沒有橫向捲動；同源資源全 200、console 沒有錯誤。**字型**：Google 回傳可變字型，新舊網址是同一批 118 個檔案，網址多列字重不會多下載；實際用到 400／700／800 |
+| 4 | 咖啡、烘焙頁改用共用檔 | ⬜ 未開始 | | | **從這裡接手**。照第 4 節步驟 4：先用腳本產生 Noosa／map-list 差異表（D4），再建 `styles/app-shell.css` |
 | 5 | Noosa 行程頁改用共用檔 | ⬜ 未開始 | | | |
 | 6 | 星宇報告頁改用共用檔 | ⬜ 未開始 | | | |
 | 7 | 文件（`DESIGN.md`、`DECISIONS.md`） | ⬜ 未開始 | | | |
@@ -283,6 +283,10 @@ ai_report/2026/                    starlux-australia-report.html、.data.js
 | `ai_report/2026/starlux-australia-report.html` | `../../styles/report-starlux.css?v=20261021c`（取代內嵌 `<style>`，位置相同） | `starlux-australia-report.data.js`（不變）→ `../../scripts/report-starlux.js?v=20261021c`（取代內嵌 `<script>`，位置相同、不加 defer） |
 | `home-demo.html` | `home-demo.css`（不動） | `home-demo.js`（不動） |
 
+上表是 1c 搬家當下的樣子。之後各步驟改過的頁面（依賴表，改共用檔時照這裡改版號）：
+
+- **步驟 3 起 `index.html`**：防閃色 script → Google Fonts → `styles/tokens.css?v=20261024` → `styles/base.css?v=20261024` → `styles/home.css?v=20261024`；`</body>` 前 `scripts/site.js?v=20261024` → `scripts/home.js?v=20261024`
+
 ### A.3 不搬、不改
 
 - 資料檔：`cafe/page.js`、`cafe/data.js`、`bakery/page.js`、`bakery/data.js`、`starlux-australia-report.data.js`（只改 `page.js` 第 1 行的路徑註解）。
@@ -352,7 +356,7 @@ await (async () => {
 
 ## 附錄 B：換裝置接手（例如平板）
 
-- **起點**：進度表第一個不是 ✅ 的列（目前是步驟 2b），照「下一步」做；每完成一步就更新進度表，和程式放同一個 commit。
+- **起點**：進度表第一個不是 ✅ 的列（目前是步驟 4），照「下一步」做；每完成一步就更新進度表，和程式放同一個 commit。
 - **一律先讀**：`AGENTS.md`、`DESIGN.md`、本計畫第 3.1、3.3 節（所有決定）、第 4 節（執行步驟）。
 - **工作方式**（使用者偏好）：設計決定一次問一題、術語先白話解釋；動手前先討論；刪除任何檔案或資料夾前，先列出確切清單等使用者確認；commit、push 前先問。
 - **需要電腦的部分**：步驟 2b 的 `site.js` 在平板上可以先寫和審（2a 的 `tokens.css`、`base.css`、對比度腳本已完成）。**步驟 3 起要接到頁面**，需要瀏覽器實測（附錄 A.7 的指紋比對、截圖、列印預覽、320～768px 寬度），這些要在能開本機伺服器的環境做，或 push 後在 GitHub Pages 上看。`file://` 檢查只能在電腦上做。

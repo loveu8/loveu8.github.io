@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh-Hant">
+<html lang="zh-TW">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
@@ -7,19 +7,21 @@
 <meta name="description" content="阿星的旅行、技術與日常筆記。分享 Java 後端開發與職涯經驗，收集澳洲旅行路線、布里斯本咖啡與烘焙地圖。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;800&family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
 <script>
 try { var theme = localStorage.getItem('theme'); if (theme === 'light' || theme === 'dark') document.documentElement.dataset.theme = theme; } catch(e) {}
 </script>
-<link rel="stylesheet" href="styles/home.css?v=20261021c">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles/tokens.css?v=20261024">
+<link rel="stylesheet" href="styles/base.css?v=20261024">
+<link rel="stylesheet" href="styles/home.css?v=20261024">
 </head>
 <body>
-<header><div class="bar"><div class="brand">阿星</div><div class="controls"><button class="toggle" id="language" type="button" aria-label="Switch to English">EN</button><button class="toggle" id="theme" type="button"></button></div></div></header>
+<header><div class="bar"><div class="brand">阿星</div><div class="controls"><button class="lang-toggle" data-toggle="lang" type="button" aria-label="Switch to English">EN</button><button class="theme-toggle" data-toggle="theme" type="button"></button></div></div></header>
 <main>
 <section class="hero" aria-labelledby="title">
 <h1 id="title">生活裡的目的地</h1>
 <p id="intro">我是阿星，住在布里斯本的 Java 後端工程師。這裡記錄技術、旅行與咖啡的小發現。</p>
-<a id="about-link" class="pill" href="https://portaly.cc/jhustar" target="_blank" rel="noopener noreferrer">閱讀我的文章 <span aria-hidden="true">↗</span></a>
+<a id="about-link" class="btn-pill"href="https://portaly.cc/jhustar" target="_blank" rel="noopener noreferrer">閱讀我的文章 <span aria-hidden="true">↗</span></a>
 </section>
 <section aria-labelledby="travel-heading">
 <h2 id="travel-heading">旅行與探店</h2>
@@ -51,6 +53,7 @@ try { var theme = localStorage.getItem('theme'); if (theme === 'light' || theme 
 </section>
 </main>
 <footer>© 2026 阿星</footer>
-<script src="scripts/home.js?v=20261021c"></script>
+<script src="scripts/site.js?v=20261024"></script>
+<script src="scripts/home.js?v=20261024"></script>
 </body>
 </html>
