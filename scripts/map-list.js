@@ -3,7 +3,8 @@
 // PAGE_CONFIG (the page's hand-written page.js) for page text, tasting fields,
 // currency and the fallback map place. Map: a Google My Maps embed showing every
 // shop (PAGE_DATA.myMapsEmbedUrl); 📍 swaps in the free single-place Google embed.
-// Bilingual (zh-TW / en); the language choice shares the `lang` key with Noosa.
+// Bilingual (zh-TW / en). Theme, language choice and the two toggles live in
+// scripts/site.js; this file re-renders its text when Site.onLangChange fires.
 
 var MEDALS = ['🥇', '🥈', '🥉'];
 var ALL = 'all';
@@ -13,7 +14,7 @@ var MOBILE_MAX = 768;
 // `mapTitle`, and may override any other key.
 var UI = {
   'zh-TW': {
-    htmlLang: 'zh-TW', mapLang: 'zh-TW', langButton: 'EN', langAria: 'Switch to English',
+    mapLang: 'zh-TW', brandEn: '', homeTitle: '回到首頁',
     subtitle: '{n} 家 · Google 資料 {d}',
     expand: '▲ 查看清單', collapse: '▼ 收起清單', print: '🖨️ 列印',
     category: '分類', region: '區域', all: '全部', allCats: '全部分類', allRegions: '全部區域',
@@ -26,7 +27,7 @@ var UI = {
     reviewsShort: '{n} 則', ratingAria: 'Google 評分 {r}，{n} 則評論', prioAria: '優先級 {p}',
     tagFilter: '只看{c}', styleClear: '取消風格篩選', mapAria: '在地圖上查看：{s}', mapsAria: '在 Google Maps 開啟：{s}',
     igAria: '{s} 的 Instagram', source: '資料來源', overview: '🗺️ 回到全部店家',
-    mapLoading: '地圖更新中', themeDark: '切換深色模式', themeLight: '切換淺色模式',
+    mapLoading: '地圖更新中',
     backToTop: '回到頂部', closeLightbox: '關閉圖片', viewPhoto: '查看照片：{s}',
     divider: '拖曳調整地圖與清單寬度', scrollPrev: '往左捲動', scrollNext: '往右捲動',
     footnote: 'Google 評分與「N 則提到」為 {d} 的 Google Maps 評論資料，評論多的店為抽樣。' +
@@ -35,7 +36,7 @@ var UI = {
       '分類與區域篩選只作用在清單，地圖固定顯示全部店家。'
   },
   en: {
-    htmlLang: 'en', mapLang: 'en', langButton: '中文', langAria: '切換為中文',
+    mapLang: 'en', brandEn: ' (Lorn)', homeTitle: 'Back to home',
     subtitle: '{n} shops · Google data {d}',
     expand: '▲ View list', collapse: '▼ Hide list', print: '🖨️ Print',
     category: 'Type', region: 'Area', all: 'All', allCats: 'All types', allRegions: 'All areas',
@@ -48,7 +49,7 @@ var UI = {
     reviewsShort: '{n} reviews', ratingAria: 'Google rating {r}, {n} reviews', prioAria: 'Priority {p}',
     tagFilter: 'Show only {c}', styleClear: 'Clear style filter', mapAria: 'Show on map: {s}', mapsAria: 'Open in Google Maps: {s}',
     igAria: '{s} on Instagram', source: 'Source', overview: '🗺️ Back to all shops',
-    mapLoading: 'Updating map', themeDark: 'Switch to dark mode', themeLight: 'Switch to light mode',
+    mapLoading: 'Updating map',
     backToTop: 'Back to top', closeLightbox: 'Close photo', viewPhoto: 'View photo: {s}',
     divider: 'Drag to resize the map and list', scrollPrev: 'Scroll left', scrollNext: 'Scroll right',
     footnote: 'Google ratings and “N mentions” come from Google Maps reviews as of {d}; shops with many reviews were sampled. ' +
@@ -93,8 +94,8 @@ var els = {
   regionChips: document.getElementById('regionChips'),
   resultLine: document.getElementById('resultLine'),
   printBtn: document.getElementById('printBtn'),
-  langToggle: document.getElementById('langToggle'),
-  themeToggle: document.getElementById('themeToggle'),
+  homeLink: document.getElementById('homeLink'),
+  brandEn: document.getElementById('brandEn'),
   resizeDivider: document.getElementById('resizeDivider'),
   backToTop: document.getElementById('backToTop'),
   lightbox: document.getElementById('lightbox'),
@@ -109,14 +110,6 @@ function el(tag, className, text) {
   if (className) node.className = className;
   if (text != null) node.textContent = text;
   return node;
-}
-
-function storageGet(key) {
-  try { return window.localStorage.getItem(key); } catch (err) { return null; }
-}
-
-function storageSet(key, value) {
-  try { window.localStorage.setItem(key, value); } catch (err) { /* private mode */ }
 }
 
 function isMobile() {
@@ -171,42 +164,6 @@ function countWhere(category, region) {
 
 function formatCount(n) {
   return n.toLocaleString('en-US');
-}
-
-// ── theme ──
-var SUN_ICON_SVG = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">' +
-  '<circle cx="12" cy="12" r="4"></circle>' +
-  '<line x1="12" y1="2" x2="12" y2="4"></line>' +
-  '<line x1="12" y1="20" x2="12" y2="22"></line>' +
-  '<line x1="4.93" y1="4.93" x2="6.34" y2="6.34"></line>' +
-  '<line x1="17.66" y1="17.66" x2="19.07" y2="19.07"></line>' +
-  '<line x1="2" y1="12" x2="4" y2="12"></line>' +
-  '<line x1="20" y1="12" x2="22" y2="12"></line>' +
-  '<line x1="4.93" y1="19.07" x2="6.34" y2="17.66"></line>' +
-  '<line x1="17.66" y1="6.34" x2="19.07" y2="4.93"></line>' +
-  '</svg>';
-
-var MOON_ICON_SVG = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">' +
-  '<path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z"></path>' +
-  '</svg>';
-
-function isDark() {
-  var theme = els.html.getAttribute('data-theme');
-  if (theme) return theme === 'dark';
-  return window.matchMedia('(prefers-color-scheme: dark)').matches;
-}
-
-function applyTheme(theme) {
-  if (theme === 'system') {
-    els.html.removeAttribute('data-theme');
-  } else {
-    els.html.setAttribute('data-theme', theme);
-  }
-  var dark = isDark();
-  var label = dark ? t('themeLight') : t('themeDark');
-  els.themeToggle.innerHTML = dark ? SUN_ICON_SVG : MOON_ICON_SVG;
-  els.themeToggle.setAttribute('aria-label', label);
-  els.themeToggle.setAttribute('title', label);
 }
 
 // ── sheet ──
@@ -691,17 +648,15 @@ function closeLightbox() {
 
 // ── render ──
 function renderStaticText() {
-  els.html.lang = t('htmlLang');
   els.title.textContent = t('title');
+  els.brandEn.textContent = t('brandEn');
+  els.homeLink.setAttribute('title', t('homeTitle'));
   els.pageTitle.textContent = t('title');
   els.pageSubtitle.textContent = t('subtitle', { n: state.data.shops.length, d: state.data.dataAsOf });
   els.handleHint.textContent = els.sidebar.classList.contains('expanded') ? t('collapse') : t('expand');
   els.printBtn.textContent = t('print');
   els.categoryLabel.textContent = t('category');
   els.regionLabel.textContent = t('region');
-  els.langToggle.textContent = t('langButton');
-  els.langToggle.setAttribute('aria-label', t('langAria'));
-  els.langToggle.setAttribute('title', t('langAria'));
   els.overviewBtn.textContent = t('overview');
   els.mapLoadingText.textContent = t('mapLoading');
   els.mapFrame.title = t('mapTitle');
@@ -712,7 +667,6 @@ function renderStaticText() {
   els.scrollBtns.forEach(function(btn) {
     btn.setAttribute('aria-label', btn.dataset.dir === '-1' ? t('scrollPrev') : t('scrollNext'));
   });
-  applyTheme(storageGet('theme') || 'system');
 }
 
 function refresh(filtersChanged) {
@@ -728,9 +682,8 @@ function refresh(filtersChanged) {
   setupScrollSpy();
 }
 
-function switchLanguage() {
-  state.lang = isEn() ? 'zh-TW' : 'en';
-  storageSet('lang', state.lang);
+function switchLanguage(lang) {
+  state.lang = lang;
   var scroll = els.sidebarBody.scrollTop;
   renderStaticText();
   refresh(false);
@@ -776,15 +729,7 @@ function setupResize() {
 }
 
 function setupEvents() {
-  els.themeToggle.addEventListener('click', function() {
-    var next = isDark() ? 'light' : 'dark';
-    storageSet('theme', next);
-    applyTheme(next);
-  });
-  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function() {
-    if (!storageGet('theme')) applyTheme('system');
-  });
-  els.langToggle.addEventListener('click', switchLanguage);
+  Site.onLangChange(switchLanguage);
 
   els.sheetHandle.addEventListener('click', toggleSheet);
   els.sidebarHeader.addEventListener('click', toggleSheet);
@@ -827,7 +772,7 @@ function init(data, config) {
   Object.keys(UI).forEach(function(lang) {
     Object.assign(UI[lang], config.ui[lang]);
   });
-  state.lang = storageGet('lang') === 'en' ? 'en' : 'zh-TW';
+  state.lang = Site.getLang();
   renderStaticText();
   setupEvents();
   refresh(true);

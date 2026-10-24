@@ -1,7 +1,7 @@
 # 全站樣式整理：盤點與調整計畫
 
 - 日期：2026-10-21
-- 狀態（2026-10-24）：**步驟 3 完成**：首頁已改用 `tokens.css`、`base.css`、`site.js`，畫面只有預期差異（品牌字 17→18px）。**下一步是步驟 4：咖啡、烘焙頁**。最新進度看下面的進度表；換裝置接手請先看附錄 B
+- 狀態（2026-10-24）：**步驟 4 完成**：首頁、咖啡、烘焙頁已改用共用檔（`tokens.css`、`base.css`、`app-shell.css`、`site.js`）；旅遊頁回首頁連結改放頂部最左邊（D6 修訂，附錄 C.8）。**下一步是步驟 5：Noosa 頁**。最新進度看下面的進度表；換裝置接手請先看附錄 B
 - 審查紀錄：`STYLE-PLAN-REVIEW.md`（第一次）、`STYLE-PLAN-REVIEW-2.md`（複查）、`STYLE-PLAN-REVIEW-3.md`（最後 QA，沒有重大問題）
 - 目標：首頁、旅遊頁、報告頁看起來是同一個網站——同一套顏色、字體、按鈕、間距，深淺色和語言切換的行為也一致
 - 參考：`DESIGN.md`、`DECISIONS.md`、`AGENTS.md`、`travel/australia/brisbane/cafe/PLAN.md`（共用化的前例）
@@ -20,8 +20,8 @@
 | 2a | 建立 `styles/tokens.css`、`styles/base.css`、檢查腳本 `tools/check_tokens.py` | ✅ 完成 | 2026-10-21 | `e0c0c90`、`24abbd3` | 對比度結果見附錄 C.3（使用者已看過：圖表顏色延到步驟 6、列印底色印純白）；圓角／陰影／間距對照見 C.4、決定見 C.5；`base.css` 決定見 C.6。還沒接到任何頁面，畫面不變 |
 | 2b | 建立 `scripts/site.js` | ✅ 完成 | 2026-10-24 | （本 commit） | 決定見附錄 C.7（3 題）。API：`window.Site` 的 `getLang`／`setLang`／`onLangChange`／`getTheme`／`setTheme`／`isDark`／`icon`；按鈕用 `data-toggle="theme"`／`data-toggle="lang"`。用 Node 模擬 DOM 跑 38 項檢查（語言優先序、`?lang=fr` 略過、舊值 `zh`、瀏覽器語言不寫入、localStorage 被擋、主題值驗證、系統深色時第一下就切、按一次只通知一次）全部通過；瀏覽器實測留到步驟 3 接頁面時做。還沒接到任何頁面，畫面不變 |
 | 3 | 首頁改用共用檔 | ✅ 完成 | 2026-10-24 | （本 commit） | `home.css` 刪掉 token 區、`*`、body 字體、focus、`.toggle`（改由 `tokens.css`、`base.css`），字級改用 `--fs-*`；`.pill`→`.btn-pill`；按鈕改 `.lang-toggle`／`.theme-toggle`＋`data-toggle`；`home.js` 只留翻譯、改用 `Site`；字體網址換成 D7。**比對**（127.0.0.1，改前改後各記一次，桌機 1280 和 375px × 中英 × 淺深＝8 組，每個元素 50 多項計算後樣式和位置）：樣式差異**只有**品牌字 17→18px（含行高、高度，不影響其他元素位置）；屬性差異只有 `<html lang>` `zh-Hant`→`zh-TW`、按鈕類別和 `data-toggle`、語言鈕多了 `title`、英文模式提示「切換為繁體中文」→「切換為中文」、`.pill`→`.btn-pill`。focus 外框 4→2px（C.6 #2，靜態比對量不到，看 CSS 規則確認）。**實測**：沒有記憶時跟瀏覽器語言（zh-TW→中文、不寫入）；語言鈕切英文再切回，各通知 1 次、都寫入記憶；系統深色時第一下切成淺色；`?lang=en` 寫入、`?lang=fr`＋舊值 `zh` 顯示中文；滑鼠實際點擊正常；320／375／390／767／768px 中英文都沒有橫向捲動；同源資源全 200、console 沒有錯誤。**字型**：Google 回傳可變字型，新舊網址是同一批 118 個檔案，網址多列字重不會多下載；實際用到 400／700／800 |
-| 4 | 咖啡、烘焙頁改用共用檔 | ⬜ 未開始 | | | **從這裡接手**。照第 4 節步驟 4：先用腳本產生 Noosa／map-list 差異表（D4），再建 `styles/app-shell.css` |
-| 5 | Noosa 行程頁改用共用檔 | ⬜ 未開始 | | | |
+| 4 | 咖啡、烘焙頁改用共用檔 | ✅ 完成 | 2026-10-24 | （本 commit） | 差異表腳本 `tools/diff_shell_css.py`，分類見附錄 C.8；新增 `styles/app-shell.css`；`map-list.css` 刪掉 token、reset、外框元件（1027→462 行），650／750→700／800；`map-list.js` 改用 `Site`；頂部最左邊加「阿星」（D6 修訂，C.8）。**比對**（127.0.0.1，改前改後各記一次，兩頁 × 1280／375 × 中英 × 淺深＝16 組，每元素約 60 項計算後樣式）：桌機版面只有 chip 列讓位給「阿星」、EN 鈕字級 13→12px 窄 2px（C.6 #1）；375px 另有 D3 字級（15→16、10→12、12→13、13→14、17→18px）；字重 650→700、750→800（D7，畫面同）；chip、燈箱圓角 10→8px（C.5 #1）；地圖按鈕 24px→pill（看起來一樣）；字型備援清單（C.6）；配色換 D1。**實測**：篩選 36→13、中英切換重繪、深淺色、地圖預覽、點「阿星」回首頁且語言和主題跟著過去；320～1280px 都沒有橫向捲動；同源資源全 200、console 沒有錯誤；`check_tokens.py` 通過。**沒驗到**：列印預覽（擴充開不了，請使用者手動看）、手機實機截圖（只用 iframe 量測） |
+| 5 | Noosa 行程頁改用共用檔 | ⬜ 未開始 | | | **從這裡接手**。照第 4 節步驟 5：先截圖列出 C.8「Noosa 看得出差異」5 條和 D3、D1 造成的差異給使用者確認，再改；頂部最左邊加「阿星」（D6 修訂），路徑 `../../../index.html` |
 | 6 | 星宇報告頁改用共用檔 | ⬜ 未開始 | | | |
 | 7 | 文件（`DESIGN.md`、`DECISIONS.md`） | ⬜ 未開始 | | | |
 | 8 | 刪除 `home-demo.*`（D8） | ⬜ 未開始 | | | 先列出 3 個檔案，等使用者確認 |
@@ -146,7 +146,7 @@ ai_report/2026/                    starlux-australia-report.html、.data.js
 | D3 | **(a) 全站一套固定字級**：`--fs-2xs` 12、`xs` 13、`sm` 14、`base` 16、`md` 18、`lg` 20、`xl` 26px（旅遊頁現有 clamp 的最大值），旅遊頁拿掉依螢幕寬度縮放 | 2026-10-21 | 390px 以上的手機和桌機幾乎沒變；320～375px 小手機的字會大 1～2px，**要逐頁檢查按鈕列、標籤列、chip 列不會擠爆或換行錯亂**。報告頁的 12.5／13.5／14.5／15／17／21／22／24px 收斂到最接近的級距；首頁品牌字 17px 改用 `md` 18px。列印樣式的小字不受影響。`DESIGN.md` 的字級表（11/12/13/15/17/20/26）要在步驟 7 改成新表 |
 | D4 | **共用外框＋保留時間軸**：兩種旅遊頁共同的外框元件抽成 `app-shell.css`；`map-list.css` 只留店家清單元件、Noosa 的 CSS 只留時間軸；JS 只共用深淺色和語言切換（`site.js`）。路徑依 D2 改版放在 `styles/`、`scripts/`，底部抽屜、拖曳分隔線等互動程式這次不合併 | 2026-10-21 | 盤點時估計兩份有約 50 個同名 selector、其中約一半已各改各的（`.chip`、`.tag`、`.sidebar-header`、`.sidebar-name`、`.lightbox`、`.tips-box`、`.back-to-top`、`.resize-divider`…）。**審查後更正**：當時沒有留下統計方法，數字不可重現（Codex 用兩種口徑算出 49／53 個），不能當成抽取清單。改成：步驟 4 動手前先用寫進 repo 的腳本產生**可重現的差異表**（selector＋所在 media query＋來源行號＋宣告差異），逐條標「共用／共用加變體 modifier／各頁保留」。原本「不同就採咖啡頁版本」改為**每條依差異表決定**，Noosa 看得到的差異截圖給使用者確認後才刪原規則 |
 | D5 | **報告頁加深淺色切換按鈕，語言記憶改用全站的 `lang`** | 2026-10-21 | 按鈕同全站（44px 圓形、SVG 圖示）；head 加上先讀 `theme` 的小 script，token 要補 `[data-theme]` 區。網址 `?lang=en` 保留，優先於記住的設定，並照現在的做法寫回記憶（改寫到 `lang`）。舊 key `starlux-report-lang` 不再讀取。**審查後補充（語言值契約）**：全站 `lang` 只存 `zh-TW` 或 `en`。報告頁內部仍可用 `zh`／`en` 查資料，但寫入時轉成 `zh-TW`；網址 `?lang=zh` 也存成 `zh-TW`。讀取時只接受這兩個值，其他值（含舊版存的 `zh`）一律當成 `zh-TW`；`site.js` 負責驗證，Noosa `script.js:340` 現在直接拿值用、沒驗證，要改成經過 `site.js`。沒有記憶時的預設語言依 P1：全站跟瀏覽器語言 |
-| D6 | **旅遊頁：側欄標題上方加 pill「← 阿星」**（英文「← 阿星 (Lorn)」）；**報告頁：加一條跟首頁相同的 header**（左「阿星」連回首頁、右 EN 和深淺色按鈕，取代現在的 `.lang-toggle-row`） | 2026-10-21 | 旅遊頁的 `.sidebar-header` 在手機上點了會展開／收合抽屜，pill 的點擊要 `stopPropagation`，不能順便觸發抽屜。連結用相對路徑：咖啡、烘焙 `../../../../index.html`，**Noosa `../../../index.html`**（審查後更正，原本少算一層），報告 `../../index.html`；`file://` 也能用。用原生 `<a>`，只 `stopPropagation`、不 `preventDefault`，滑鼠和鍵盤 Enter 都要能導航，語言切換重繪後連結和文字要還在。列印時隱藏 |
+| D6 | **（2026-10-24 修訂，見下方「D6 修訂」）**~~旅遊頁：側欄標題上方加 pill「← 阿星」~~（英文「← 阿星 (Lorn)」）；**報告頁：加一條跟首頁相同的 header**（左「阿星」連回首頁、右 EN 和深淺色按鈕，取代現在的 `.lang-toggle-row`） | 2026-10-21 | 旅遊頁的 `.sidebar-header` 在手機上點了會展開／收合抽屜，pill 的點擊要 `stopPropagation`，不能順便觸發抽屜。連結用相對路徑：咖啡、烘焙 `../../../../index.html`，**Noosa `../../../index.html`**（審查後更正，原本少算一層），報告 `../../index.html`；`file://` 也能用。用原生 `<a>`，只 `stopPropagation`、不 `preventDefault`，滑鼠和鍵盤 Enter 都要能導航，語言切換重繪後連結和文字要還在。列印時隱藏 |
 | D7 | **全站同一條 Google Fonts 網址**：Open Sans 和 Noto Sans TC 都載入 400/500/600/700/800；CSS 的 650 改寫成 700、750 改寫成 800（就是現在實際顯示的值），600 保留 | 2026-10-21 | 更正第 3 節原本的理由：瀏覽器只下載頁面實際用到的字重，網址多列不會多下載字型檔。畫面不變：已查過旅遊頁、報告頁、首頁都沒有用到 500，所以補載 500 不會讓任何文字變粗。用法：400 內文、500 次要強調、600 小標籤／chip／時間、700 h2／h3／按鈕、800 h1／品牌 |
 | D8 | **刪除 `testLab/`**（9 個檔案，網站沒有任何頁面連到它）；**`home-demo.*` 在整理完成後刪除**（`home-demo.html`、`home-demo.css`、`home-demo.js`），整理期間維持凍結、不套用新樣式 | 2026-10-21 | 兩次刪除都要先列出確切檔案、等使用者在對話中確認才執行（使用者的全域規則）。git 歷史仍可找回 |
 
@@ -286,6 +286,7 @@ ai_report/2026/                    starlux-australia-report.html、.data.js
 上表是 1c 搬家當下的樣子。之後各步驟改過的頁面（依賴表，改共用檔時照這裡改版號）：
 
 - **步驟 3 起 `index.html`**：防閃色 script → Google Fonts → `styles/tokens.css?v=20261024` → `styles/base.css?v=20261024` → `styles/home.css?v=20261024`；`</body>` 前 `scripts/site.js?v=20261024` → `scripts/home.js?v=20261024`
+- **步驟 4 起咖啡、烘焙 `index.html`**：防閃色 script → Google Fonts → `../../../../styles/tokens.css?v=20261024` → `base.css?v=20261024` → `app-shell.css?v=20261024` → `map-list.css?v=20261024`；`</body>` 前 `page.js?v=20261017c` → `data.js?v=20261018a` → `../../../../scripts/site.js?v=20261024` → `map-list.js?v=20261024`
 
 ### A.3 不搬、不改
 
@@ -356,7 +357,7 @@ await (async () => {
 
 ## 附錄 B：換裝置接手（例如平板）
 
-- **起點**：進度表第一個不是 ✅ 的列（目前是步驟 4），照「下一步」做；每完成一步就更新進度表，和程式放同一個 commit。
+- **起點**：進度表第一個不是 ✅ 的列（目前是步驟 5），照「下一步」做；每完成一步就更新進度表，和程式放同一個 commit。
 - **一律先讀**：`AGENTS.md`、`DESIGN.md`、本計畫第 3.1、3.3 節（所有決定）、第 4 節（執行步驟）。
 - **工作方式**（使用者偏好）：設計決定一次問一題、術語先白話解釋；動手前先討論；刪除任何檔案或資料夾前，先列出確切清單等使用者確認；commit、push 前先問。
 - **需要電腦的部分**：步驟 2b 的 `site.js` 在平板上可以先寫和審（2a 的 `tokens.css`、`base.css`、對比度腳本已完成）。**步驟 3 起要接到頁面**，需要瀏覽器實測（附錄 A.7 的指紋比對、截圖、列印預覽、320～768px 寬度），這些要在能開本機伺服器的環境做，或 push 後在 GitHub Pages 上看。`file://` 檢查只能在電腦上做。
@@ -551,3 +552,19 @@ await (async () => {
 | 1 | 切換鈕由誰負責 | **(a) `site.js` 全包**：找到兩顆按鈕、處理點擊、換圖示、設定中英提示文字；各頁只訂閱「語言變了」重新翻譯自己的內容。按鈕要用統一的標記讓 `site.js` 找到（首頁現在是 `theme`／`language`，其他頁是 `themeToggle`／`langToggle`），在步驟 3～6 接頁面時改 | 2026-10-24 |
 | 2 | `<html lang>` 的中文值 | **(a) `zh-TW`**：由 `site.js` 隨語言設定（英文為 `en`）；6 頁中 5 頁已是 `zh-TW`、和記憶值一致，只有首頁從 `zh-Hant` 改（步驟 3 列為預期差異）。讀屏軟體選台灣華語發音，字型兩者都是繁體 | 2026-10-24 |
 | 3 | 語言按鈕的提示文字（`aria-label`、`title`） | **(a) 用要切過去的語言寫**：中文頁「Switch to English」、英文頁「切換為中文」；按鈕加 `lang` 屬性讓讀屏軟體用對的發音。首頁（「切換為繁體中文」）、報告頁（「切換語言」）改寫，Noosa 從沒有提示變成有（步驟 3、5、6 列為預期差異） | 2026-10-24 |
+
+## 附錄 C.8：步驟 4 外框差異表與分類（D4，2026-10-24 使用者同意）
+
+差異表用 `python3 tools/diff_shell_css.py` 產生（以 media 條件＋單一選擇器為單位比對 `styles/map-list.css` 和 `styles/noosa.css`；Noosa 舊別名先換成正式 token 名稱；`:root` token 區不比）。基準：步驟 4 動手前的 `faeacfc`。結果：map-list 170 條、Noosa 245 條；**相同 55 條**，全部搬進 `styles/app-shell.css`；**不同 22 條**，分類如下：
+
+| 分類 | 條數 | 規則 | 處理 |
+|---|---|---|---|
+| 看起來沒差別 | 9 | `.theme-toggle` 的 `font-size`（按鈕裡只有 SVG）；桌機 `.resize-divider` 高度 `100%`／`100vh`、`::before` 用 `currentColor`；`.lightbox` 底色和 `.lightbox-close` 顏色（變數和寫死同值）；`.sidebar-title-wrap` 的 `min-width: 0`；桌機 `.map-panel` 的 `z-index: 1`（基本規則已有）；列印 `html`、`body` 白底 | 統一用 map-list 版本，`.lightbox-close` 加上 Noosa 的 `user-select: none` |
+| 共用骨架＋各頁顏色 | 3 | `.chip`、`.map-nav-float`、列印 `.sidebar-body` | 外形放 `app-shell.css`；chip 顏色、地圖按鈕底色和 `<button>` 重設、列印清單區留在各頁 CSS |
+| 各頁保留 | 4 | `.tag`、`.tips-box`、`.tips-title`、列印 `.tag` | 不進 `app-shell.css`，兩頁設計不同 |
+| Noosa 看得出差異 | 5 | `.back-to-top` 的 `font: inherit`、`.sidebar-header` 的 `gap: 8px`、`.sidebar-name` 的 `line-height: 1.4`、桌機 `.chip-strip` 的 `font-size: 13px`（Noosa 有）、桌機 `.sidebar-header` 的 `padding-top: 12px` | `app-shell.css` 採 map-list 版本（咖啡、烘焙頁不變）；**步驟 5 截圖給使用者確認後才刪 Noosa 原規則** |
+| 已決定 | 1 | Noosa `.lightbox img` 陰影 | 拿掉（C.5 第 3 題） |
+
+另外搬進 `app-shell.css` 時照 C.4／C.5 改成 token：`.chip`、`.lightbox img` 圓角 10→8px（`--radius-md`）、`.map-nav-float` 24px→`--radius-pill`、抽屜 `--radius-sheet`、其他 999px→`--radius-pill`、8px→`--radius-md`。旅遊頁的 reset（含偽元素 `border-box`）放在 `app-shell.css`，不影響首頁和報告頁。
+
+**D6 修訂（2026-10-24，使用者決定）**：旅遊頁的回首頁連結改放**頂部那排最左邊**，寫「阿星」（品牌字，`--fs-md` 800，44px 高），右邊照舊是 EN 和深淺色，跟首頁 header 同一個排法。英文的「(Lorn)」只在 768px 以上顯示，手機一律「阿星」（chip 列在 320px 只剩約 160px）。`title`「回到首頁」／「Back to home」。原因：先做了側欄標題上方的 24px pill，發現 (1) 低於 `DESIGN.md` 44px 點擊範圍，(2) 手機抽屜收起時只露出 124px，pill 越高越把標題擠出去；使用者提議移到右上角後查證 NN/g：回首頁連結使用者習慣在**左上角**找（[Homepage Links](https://www.nngroup.com/articles/homepage-links/)；標誌置中時一次點回首頁的失敗率是靠左的 6 倍，放右邊會找錯或找不到，[Centered Logos](https://www.nngroup.com/articles/centered-logos/)），且最好有文字、寫出主站名稱。限制：這兩篇是桌機網站研究，沒有直接測全螢幕地圖頁或手機。報告頁的 D6（加首頁同款 header）不變。

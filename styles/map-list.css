@@ -1,267 +1,15 @@
-/* List-map pages (e.g. travel/australia/brisbane/bakery/), shared styles.
-   Shell (tokens, top bar, map panel, bottom sheet / sidebar, divider, lightbox,
-   tips box, print) is copied from travel/australia/noosa/style.css so the
-   pages behave like Noosa. List-map components (shop cards, top 3) start at
-   section 8. Page-specific text lives in each page's page.js, not here. */
+/* List-map pages (e.g. travel/australia/brisbane/bakery/): list components only.
+   Load order: tokens.css -> base.css -> app-shell.css -> this file.
+   The shell (top bar, map panel, bottom sheet / sidebar, divider, lightbox,
+   print layout) is in app-shell.css; this file adds the list-map colors and
+   components (filters, shop cards, top 3). Page-specific text lives in each
+   page's page.js, not here. */
 
-/* ── 1. RESET & TOKENS ── */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-
-  /* Functional motion: the map-loading spinner communicates state. */
-  .map-loading-spinner {
-    animation-duration: 0.8s !important;
-    animation-iteration-count: infinite !important;
-  }
-}
-
-:root {
-  color-scheme: light;
-
-  --color-bg: #f7f9fc;
-  --color-surface: #ffffff;
-  --color-surface-soft: #f1f5f9;
-  --color-surface-warm: #fff8f4;
-  --color-text: #202124;
-  --color-text-muted: #5f6368;
-  --color-text-soft: #6b7075;
-  --color-border: #dadce0;
-  --color-border-soft: #e8eaed;
-  --color-primary: #1a73e8;
-  --color-primary-strong: #1967d2;
-  --color-primary-soft: #e8f0fe;
-  --color-primary-border: #aecbfa;
-  --color-secondary: #34a853;
-  --color-secondary-strong: #24763a;
-  --color-secondary-soft: #e6f4ea;
-  --color-secondary-border: #b7e1cd;
-  --color-accent: #e4405f;
-  --color-accent-strong: #b32643;
-  --color-accent-soft: #fde7ed;
-  --color-accent-border: #f6b3c0;
-  --color-warm: #fbbc04;
-  --color-warm-soft: #fff7db;
-  --color-warm-border: #fde293;
-  --color-warning: #f29900;
-  --color-warning-text: #8a5a00;
-  --color-on-primary: #ffffff;
-  --color-on-accent: #ffffff;
-
-  --shadow-panel: 0 8px 26px rgba(32,33,36,0.16);
-  --shadow-soft: 0 2px 10px rgba(32,33,36,0.12);
-  --shadow-photo: 0 2px 8px rgba(32,33,36,0.18);
-  --scrim: rgba(0,0,0,0.88);
-  --color-on-scrim: #ffffff;
-  --color-print-bg: #ffffff;
-
-  --fs-2xs: clamp(10px, 2.8vw, 12px);
-  --fs-xs:  clamp(11px, 3.2vw, 13px);
-  --fs-sm:  clamp(12px, 3.6vw, 14px);
-  --fs-base:clamp(14px, 4.2vw, 16px);
-  --fs-md:  clamp(15px, 4.6vw, 18px);
-}
-
-:root[data-theme="dark"] {
-  color-scheme: dark;
-
-  --color-bg: #111418;
-  --color-surface: #1b1f24;
-  --color-surface-soft: #242a31;
-  --color-surface-warm: #2a211f;
-  --color-text: #f1f3f4;
-  --color-text-muted: #bdc1c6;
-  --color-text-soft: #9aa0a6;
-  --color-border: #3c4043;
-  --color-border-soft: #2f343a;
-  --color-primary: #8ab4f8;
-  --color-primary-strong: #8ab4f8;
-  --color-primary-soft: #1c2f4f;
-  --color-primary-border: #315b9f;
-  --color-secondary: #81c995;
-  --color-secondary-strong: #81c995;
-  --color-secondary-soft: #193424;
-  --color-secondary-border: #2f6f45;
-  --color-accent: #ff7a90;
-  --color-accent-strong: #ff9bad;
-  --color-accent-soft: #3b2028;
-  --color-accent-border: #8f3d4f;
-  --color-warm: #fdd663;
-  --color-warm-soft: #3a2f16;
-  --color-warm-border: #8a6d1d;
-  --color-warning: #fdd663;
-  --color-warning-text: #fdd663;
-  --color-on-primary: #111418;
-  --color-on-accent: #111418;
-  --shadow-panel: 0 8px 26px rgba(0,0,0,0.38);
-  --shadow-soft: 0 2px 12px rgba(0,0,0,0.3);
-  --shadow-photo: 0 3px 12px rgba(0,0,0,0.4);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme]) {
-    color-scheme: dark;
-
-    --color-bg: #111418;
-    --color-surface: #1b1f24;
-    --color-surface-soft: #242a31;
-    --color-surface-warm: #2a211f;
-    --color-text: #f1f3f4;
-    --color-text-muted: #bdc1c6;
-    --color-text-soft: #9aa0a6;
-    --color-border: #3c4043;
-    --color-border-soft: #2f343a;
-    --color-primary: #8ab4f8;
-    --color-primary-strong: #8ab4f8;
-    --color-primary-soft: #1c2f4f;
-    --color-primary-border: #315b9f;
-    --color-secondary: #81c995;
-    --color-secondary-strong: #81c995;
-    --color-secondary-soft: #193424;
-    --color-secondary-border: #2f6f45;
-    --color-accent: #ff7a90;
-    --color-accent-strong: #ff9bad;
-    --color-accent-soft: #3b2028;
-    --color-accent-border: #8f3d4f;
-    --color-warm: #fdd663;
-    --color-warm-soft: #3a2f16;
-    --color-warm-border: #8a6d1d;
-    --color-warning: #fdd663;
-    --color-warning-text: #fdd663;
-    --color-on-primary: #111418;
-    --color-on-accent: #111418;
-    --shadow-panel: 0 8px 26px rgba(0,0,0,0.38);
-    --shadow-soft: 0 2px 12px rgba(0,0,0,0.3);
-    --shadow-photo: 0 3px 12px rgba(0,0,0,0.4);
-  }
-}
-
-html, body {
-  height: 100%;
-  overflow: hidden;
-}
-
-body {
-  display: flex;
-  flex-direction: column;
-  font-family: 'Open Sans', 'Noto Sans TC', -apple-system, 'Segoe UI', 'Microsoft JhengHei', 'PingFang TC', sans-serif;
-  color: var(--color-text);
-  font-size: var(--fs-base);
-  line-height: 1.65;
-  -webkit-font-smoothing: antialiased;
-  background: var(--color-bg);
-}
-
-a { color: inherit; text-decoration: none; }
-
-button:focus-visible,
-a:focus-visible {
-  outline: 2px solid var(--color-primary);
-  outline-offset: 2px;
-}
-
-/* ── 2. APP SHELL & MAP PANEL ── */
-.app {
-  display: flex;
-  flex: 1;
-  min-height: 0;
-  position: relative;
-}
-
-.map-panel {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  background: var(--color-border-soft);
-}
-
-/* ── 3. TOP BAR ── */
-.map-chip-panel {
-  position: relative;
-  z-index: 50;
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  background: color-mix(in srgb, var(--color-surface) 94%, transparent);
-  border-bottom: 1px solid var(--color-border);
-  box-shadow: var(--shadow-soft);
-  backdrop-filter: blur(12px);
-}
-.chip-strip {
-  display: flex;
-  flex: 1;
-  min-width: 0;
-  flex-wrap: nowrap;
-  gap: 4px;
-  align-items: center;
-  padding: 8px 14px;
-  overflow-x: auto;
-  scrollbar-width: none;
-  -webkit-mask-image: linear-gradient(to right, transparent, black 14px, black calc(100% - 20px), transparent);
-  mask-image: linear-gradient(to right, transparent, black 14px, black calc(100% - 20px), transparent);
-}
-.chip-strip::-webkit-scrollbar { display: none; }
-
-.top-actions {
-  flex-shrink: 0;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding-right: 10px;
-}
-
-.lang-toggle,
-.theme-toggle {
-  width: 44px;
-  height: 44px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid var(--color-border);
-  border-radius: 999px;
-  background: var(--color-surface);
-  color: var(--color-text);
-  box-shadow: var(--shadow-soft);
-  font: inherit;
-  line-height: 1;
-  cursor: pointer;
-  transition: background 0.15s, border-color 0.15s, transform 0.15s;
-}
-.lang-toggle {
-  width: auto;
-  min-width: 44px;
-  padding: 0 10px;
-  font-size: var(--fs-xs);
-  font-weight: 800;
-}
-.lang-toggle:hover,
-.theme-toggle:hover {
-  background: var(--color-surface-soft);
-  border-color: var(--color-accent-border);
-  transform: translateY(-1px);
-}
-.lang-toggle:active,
-.theme-toggle:active { transform: translateY(0); }
-.theme-toggle svg { display: block; }
-
+/* ── 1. CHIPS (shape in app-shell.css) ── */
 .chip {
-  font: inherit;
-  font-size: var(--fs-xs);
-  padding: 3px 9px;
-  border-radius: 10px;
-  font-weight: 600;
-  white-space: nowrap;
-  cursor: pointer;
   background: var(--color-accent-soft);
   color: var(--color-accent-strong);
   border: 1px solid var(--color-accent-border);
-  transition: background 0.15s, color 0.15s, box-shadow 0.15s;
 }
 .chip.active {
   background: var(--color-accent-strong);
@@ -270,166 +18,7 @@ a:focus-visible {
   box-shadow: 0 1px 8px color-mix(in srgb, var(--color-accent) 45%, transparent);
 }
 
-/* ── 4. RESIZE DIVIDER ── */
-.resize-divider { display: none; }
-@media (min-width: 768px) {
-  .resize-divider {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 8px;
-    flex-shrink: 0;
-    height: 100%;
-    background: var(--color-border-soft);
-    cursor: col-resize;
-    z-index: 20;
-    transition: background 0.15s, width 0.15s;
-    user-select: none;
-  }
-  .resize-divider:hover,
-  .resize-divider.dragging {
-    background: var(--color-accent-border);
-    width: 10px;
-  }
-  .resize-divider::before {
-    content: '';
-    display: block;
-    width: 3px;
-    height: 32px;
-    border-radius: 2px;
-    background: var(--color-text-soft);
-    box-shadow: 0 -8px 0 var(--color-text-soft), 0 8px 0 var(--color-text-soft);
-  }
-}
-
-/* ── 5. SIDEBAR / BOTTOM SHEET ── */
-.sidebar {
-  position: fixed;
-  bottom: 0; left: 0; right: 0;
-  z-index: 200;
-  background: var(--color-surface);
-  border-radius: 20px 20px 0 0;
-  box-shadow: var(--shadow-panel);
-  display: flex;
-  flex-direction: column;
-  max-height: 88vh;
-  transform: translateY(calc(100% - 124px));
-  transition: transform 0.35s cubic-bezier(0.32, 0.72, 0, 1);
-  will-change: transform;
-}
-.sidebar.expanded { transform: translateY(0); }
-
-.sidebar-sticky { flex-shrink: 0; }
-
-.sidebar-body {
-  flex: 1;
-  overflow-x: hidden;
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
-  min-height: 0;
-  scrollbar-width: thin;
-  scrollbar-color: var(--color-accent-border) transparent;
-}
-.sidebar-body::-webkit-scrollbar { width: 4px; }
-.sidebar-body::-webkit-scrollbar-track { background: transparent; }
-.sidebar-body::-webkit-scrollbar-thumb { background: var(--color-accent-border); border-radius: 2px; }
-
-.back-to-top {
-  position: absolute;
-  right: 14px;
-  bottom: 14px;
-  z-index: 10;
-  width: 44px;
-  height: 44px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid var(--color-border);
-  border-radius: 999px;
-  background: var(--color-surface);
-  color: var(--color-text);
-  font: inherit;
-  font-size: 17px;
-  line-height: 1;
-  box-shadow: var(--shadow-panel);
-  cursor: pointer;
-  opacity: 0;
-  transform: translateY(8px);
-  pointer-events: none;
-  transition: opacity 0.2s, transform 0.2s;
-}
-.back-to-top.show {
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto;
-}
-.back-to-top:hover {
-  background: var(--color-surface-soft);
-  border-color: var(--color-accent-border);
-}
-
-.sheet-handle {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 10px 0 6px;
-  cursor: pointer;
-  gap: 8px;
-}
-.handle-bar {
-  width: 36px;
-  height: 4px;
-  border-radius: 2px;
-  background: var(--color-border);
-}
-.handle-hint {
-  font-size: var(--fs-xs);
-  color: var(--color-text-soft);
-  font-weight: 600;
-}
-
-.sidebar-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 8px;
-  padding: 2px 16px 10px;
-  cursor: pointer;
-}
-.sidebar-title-wrap {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  min-width: 0;
-}
-.s-emoji { font-size: 22px; }
-.sidebar-name {
-  font-size: var(--fs-base);
-  font-weight: 800;
-  color: var(--color-text);
-  letter-spacing: 0.5px;
-  line-height: 1.4;
-}
-.sidebar-sub {
-  font-size: var(--fs-2xs);
-  color: var(--color-text-muted);
-  margin-top: 1px;
-}
-.print-btn {
-  padding: 6px 12px;
-  background: var(--color-accent-strong);
-  color: var(--color-on-accent);
-  font: inherit;
-  font-size: var(--fs-xs);
-  font-weight: 700;
-  border-radius: 8px;
-  border: none;
-  cursor: pointer;
-  flex-shrink: 0;
-}
-
-/* ── 6. FILTERS ── */
+/* ── 2. FILTERS ── */
 .filters {
   display: flex;
   flex-direction: column;
@@ -476,7 +65,7 @@ a:focus-visible {
   color: var(--color-text);
   font: inherit;
   font-size: var(--fs-xs);
-  font-weight: 650;
+  font-weight: 700;
   white-space: nowrap;
   cursor: pointer;
   transition: background 0.2s, color 0.2s, border-color 0.2s;
@@ -538,7 +127,7 @@ a:focus-visible {
   border-bottom: 1px solid var(--color-border);
 }
 
-/* ── 7. TIPS BOX (shared alert / empty state) ── */
+/* ── 3. TIPS BOX (shared alert / empty state) ── */
 .tips-box {
   margin: 14px;
   background: var(--color-warm-soft);
@@ -554,7 +143,7 @@ a:focus-visible {
 }
 .tips-text { font-size: var(--fs-sm); line-height: 1.5; }
 
-/* ── 8. SHOP CARDS ── */
+/* ── 4. SHOP CARDS ── */
 .shop-list {
   display: flex;
   flex-direction: column;
@@ -595,7 +184,7 @@ a:focus-visible {
 .shop-title { flex: 1; min-width: 0; }
 .shop-name {
   font-size: var(--fs-md);
-  font-weight: 750;
+  font-weight: 800;
   line-height: 1.35;
   color: var(--color-text);
   overflow-wrap: anywhere;
@@ -628,7 +217,7 @@ a:focus-visible {
   font-size: var(--fs-2xs);
   padding: 1px 8px;
   border-radius: 6px;
-  font-weight: 650;
+  font-weight: 700;
   background: var(--color-surface-soft);
   color: var(--color-text-muted);
   border: 1px solid var(--color-border);
@@ -637,7 +226,7 @@ a:focus-visible {
 .tag-btn {
   font: inherit;
   font-size: var(--fs-2xs);
-  font-weight: 650;
+  font-weight: 700;
   min-height: 26px;
   cursor: pointer;
   transition: background 0.15s, border-color 0.15s;
@@ -825,7 +414,7 @@ a:focus-visible {
 /* Clear-style-filter pill at the end of the result line. */
 .result-style { margin-left: 8px; vertical-align: middle; }
 
-/* ── 9. MAP (Google embeds) ── */
+/* ── 5. MAP (Google embeds) ── */
 .map-frame {
   position: absolute;
   inset: 0;
@@ -835,178 +424,25 @@ a:focus-visible {
   display: block;
 }
 
-.map-loading {
-  position: absolute;
-  inset: 0;
-  z-index: 30;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  background: color-mix(in srgb, var(--color-bg) 42%, transparent);
-  color: var(--color-text);
-  font-size: var(--fs-sm);
-  font-weight: 700;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.18s ease-out;
-  backdrop-filter: blur(2px);
-}
-.map-loading.show { opacity: 1; }
-.map-loading-spinner {
-  width: 18px;
-  height: 18px;
-  border-radius: 999px;
-  border: 2px solid var(--color-border);
-  border-top-color: var(--color-primary);
-  animation: map-spin 0.8s linear infinite;
-}
-@keyframes map-spin {
-  to { transform: rotate(360deg); }
-}
-
+/* Overview button: a real <button>, filled with primary. */
 .map-nav-float {
-  position: absolute;
-  top: 12px;
-  right: 14px;
-  z-index: 10;
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
   min-height: 44px;
-  padding: 8px 14px;
   border: 0;
-  border-radius: 24px;
   background: var(--color-primary-strong);
-  color: var(--color-on-primary);
   font: inherit;
   font-size: var(--fs-sm);
   font-weight: 700;
-  white-space: nowrap;
-  box-shadow: var(--shadow-panel);
   cursor: pointer;
 }
 .map-nav-float[hidden] { display: none; }
 
-/* ── 10. LIGHTBOX ── */
-.lightbox {
-  display: none;
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-  background: var(--scrim);
-  justify-content: center;
-  align-items: center;
-}
-.lightbox.open { display: flex; }
-.lightbox img {
-  max-width: 92vw;
-  max-height: 88vh;
-  border-radius: 10px;
-}
-.lightbox-close {
-  position: absolute;
-  top: 8px; right: 10px;
-  width: 44px;
-  height: 44px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 26px;
-  font-family: inherit;
-  color: var(--color-on-scrim);
-  background: none;
-  border: 0;
-  border-radius: 999px;
-  cursor: pointer;
-  line-height: 1;
-}
-
-/* ── 11. DESKTOP ≥ 768px ── */
-@media (min-width: 768px) {
-  .app { flex-direction: row; }
-
-  .map-panel {
-    position: relative;
-    inset: auto;
-    flex: 1;
-    height: 100%;
-  }
-
-  .chip-strip { padding: 9px 16px; }
-
-  .sidebar {
-    position: relative;
-    bottom: auto; left: auto; right: auto;
-    transform: none !important;
-    transition: none;
-    width: 420px;
-    flex-shrink: 0;
-    height: 100%;
-    max-height: 100%;
-    border-radius: 0;
-    box-shadow: var(--shadow-soft);
-    z-index: 10;
-  }
-
-  .sheet-handle { display: none; }
-  .sidebar-header { cursor: default; padding-top: 12px; }
-}
-
-/* ── 12. PRINT — A4, current filtered list ── */
+/* ── 6. PRINT — A4, current filtered list (shell print rules in app-shell.css) ── */
 @media print {
-  @page { size: A4; margin: 10mm 12mm; }
-
-  /* DESIGN.md: print stays light regardless of the current theme. */
-  :root,
-  :root[data-theme="dark"],
-  :root:not([data-theme]) {
-    color-scheme: light;
-    --color-surface: #ffffff;
-    --color-surface-soft: #f1f5f9;
-    --color-surface-warm: #fff8f4;
-    --color-text: #202124;
-    --color-text-muted: #5f6368;
-    --color-text-soft: #6b7075;
-    --color-border: #dadce0;
-    --color-border-soft: #e8eaed;
-    --color-accent-strong: #b32643;
-    --color-accent-soft: #fde7ed;
-    --color-on-accent: #ffffff;
-    --color-warning: #f29900;
-  }
-
-  html, body {
-    height: auto !important;
-    overflow: visible !important;
-    background: var(--color-print-bg) !important;
-    font-size: 10px;
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
-  }
-
-  .app { display: block !important; height: auto !important; }
-  .map-panel,
-  .resize-divider,
-  .map-chip-panel,
-  .sheet-handle,
-  .print-btn,
   .filters,
   .back-to-top,
   .shop-actions,
   .shop-photos { display: none !important; }
 
-  .sidebar {
-    position: static !important;
-    transform: none !important;
-    width: 100% !important;
-    max-height: none !important;
-    height: auto !important;
-    overflow: visible !important;
-    box-shadow: none !important;
-    border-radius: 0 !important;
-    display: block !important;
-  }
   .sidebar-body { overflow: visible !important; }
   .shop-list {
     display: grid;
