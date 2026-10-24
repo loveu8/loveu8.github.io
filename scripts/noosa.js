@@ -1,7 +1,15 @@
+// Noosa itinerary page. Theme, language and the two header toggles come from
+// scripts/site.js; this file re-renders its text when Site.onLangChange fires.
+
+// "阿星 (Lorn)" back to the homepage (STYLE-PLAN.md D6, revised).
+var BRAND = {
+  'zh-TW': { brandEn: '', homeTitle: '回到首頁' },
+  en: { brandEn: ' (Lorn)', homeTitle: 'Back to home' }
+};
 
 var state = {
   data: null,
-  lang: localStorage.getItem('lang') || 'zh-TW',
+  lang: 'zh-TW',
   day: 1,
   mapTimer: null,
   chipObserver: null,
@@ -9,7 +17,6 @@ var state = {
 };
 
 var els = {
-  html: document.documentElement,
   title: document.querySelector('title'),
   mapPanel: document.getElementById('mapPanel'),
   mapLoading: document.getElementById('mapLoading'),
@@ -25,8 +32,8 @@ var els = {
   tripTitle: document.getElementById('tripTitle'),
   tripSubtitle: document.getElementById('tripSubtitle'),
   printBtn: document.getElementById('printBtn'),
-  themeToggle: document.getElementById('themeToggle'),
-  langToggle: document.getElementById('langToggle'),
+  homeLink: document.getElementById('homeLink'),
+  brandEn: document.getElementById('brandEn'),
   resizeDivider: document.getElementById('resizeDivider'),
   lightbox: document.getElementById('lightbox'),
   lightboxImg: document.getElementById('lightbox-img'),
@@ -99,37 +106,6 @@ function updateIframeSrc(iframe, src) {
   if (!iframe || iframe.src === src) return;
   showMapLoading();
   iframe.src = src;
-}
-
-var SUN_ICON_SVG = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">' +
-  '<circle cx="12" cy="12" r="4"></circle>' +
-  '<line x1="12" y1="2" x2="12" y2="4"></line>' +
-  '<line x1="12" y1="20" x2="12" y2="22"></line>' +
-  '<line x1="4.93" y1="4.93" x2="6.34" y2="6.34"></line>' +
-  '<line x1="17.66" y1="17.66" x2="19.07" y2="19.07"></line>' +
-  '<line x1="2" y1="12" x2="4" y2="12"></line>' +
-  '<line x1="20" y1="12" x2="22" y2="12"></line>' +
-  '<line x1="4.93" y1="19.07" x2="6.34" y2="17.66"></line>' +
-  '<line x1="17.66" y1="6.34" x2="19.07" y2="4.93"></line>' +
-  '</svg>';
-
-var MOON_ICON_SVG = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">' +
-  '<path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z"></path>' +
-  '</svg>';
-
-function applyTheme(theme) {
-  if (theme === 'system') {
-    els.html.removeAttribute('data-theme');
-  } else {
-    els.html.setAttribute('data-theme', theme);
-  }
-
-  var isDark = els.html.getAttribute('data-theme') === 'dark' ||
-    (!els.html.hasAttribute('data-theme') && window.matchMedia('(prefers-color-scheme: dark)').matches);
-
-  els.themeToggle.innerHTML = isDark ? SUN_ICON_SVG : MOON_ICON_SVG;
-  els.themeToggle.setAttribute('aria-label', isDark ? ui('themeLight') : ui('themeDark'));
-  els.themeToggle.setAttribute('title', isDark ? ui('themeLight') : ui('themeDark'));
 }
 
 function toggleSidebar() {
@@ -507,20 +483,19 @@ function renderPrintContent() {
 
 function renderStaticText() {
   var langData = state.data.languages[state.lang];
-  els.html.lang = state.lang;
   els.title.textContent = langData.tripTitle;
   els.tripTitle.textContent = langData.tripTitle;
   els.tripSubtitle.textContent = langData.tripSubtitle;
   els.printBtn.textContent = ui('print');
   els.handleHint.textContent = els.sidebar.classList.contains('expanded') ? ui('collapse') : ui('expand');
-  els.langToggle.textContent = ui('languageButton');
+  els.brandEn.textContent = BRAND[state.lang].brandEn;
+  els.homeLink.setAttribute('title', BRAND[state.lang].homeTitle);
   els.mapLoadingText.textContent = ui('mapLoading');
   els.chipStrip.setAttribute('aria-label', ui('routeStops'));
   els.dayTabs.setAttribute('aria-label', ui('dayTabsLabel'));
   els.backToTop.setAttribute('aria-label', ui('backToTop'));
   els.backToTop.setAttribute('title', ui('backToTop'));
   els.lightboxClose.setAttribute('aria-label', ui('closeLightbox'));
-  applyTheme(localStorage.getItem('theme') || 'system');
 }
 
 function render() {
@@ -630,21 +605,9 @@ function setupResize() {
 }
 
 function setupEvents() {
-  els.themeToggle.addEventListener('click', function() {
-    var current = els.html.getAttribute('data-theme');
-    var next = current === 'dark' ? 'light' : 'dark';
-    localStorage.setItem('theme', next);
-    applyTheme(next);
-  });
-
-  els.langToggle.addEventListener('click', function() {
-    state.lang = state.lang === 'zh-TW' ? 'en' : 'zh-TW';
-    localStorage.setItem('lang', state.lang);
+  Site.onLangChange(function(lang) {
+    state.lang = lang;
     render();
-  });
-
-  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function() {
-    if (!localStorage.getItem('theme')) applyTheme('system');
   });
 
   els.sheetHandle.addEventListener('click', toggleSidebar);
@@ -674,6 +637,7 @@ function setupEvents() {
 
 function init(data) {
   state.data = data;
+  state.lang = Site.getLang();
   if (!state.data.languages[state.lang]) state.lang = state.data.defaultLanguage;
   setupEvents();
   render();

@@ -6,16 +6,24 @@
 <title>Noosa 行程 2026/07/04-05</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&family=Noto+Sans+TC:wght@400;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../../../styles/noosa.css?v=20261021c">
+<script>
+try { var theme = localStorage.getItem('theme'); if (theme === 'light' || theme === 'dark') document.documentElement.dataset.theme = theme; } catch(e) {}
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<!-- Bump ?v= whenever these files change, so browsers skip GitHub Pages' cached copy. -->
+<link rel="stylesheet" href="../../../styles/tokens.css?v=20261024">
+<link rel="stylesheet" href="../../../styles/base.css?v=20261024">
+<link rel="stylesheet" href="../../../styles/app-shell.css?v=20261024">
+<link rel="stylesheet" href="../../../styles/noosa.css?v=20261024">
 </head>
 <body>
 
 <div class="map-chip-panel" id="mapChipPanel">
+  <a class="brand-link" id="homeLink" href="../../../index.html"><span>阿星<span class="brand-en" id="brandEn"></span></span></a>
   <div class="chip-strip" id="chipStrip" role="group"></div>
   <div class="top-actions">
-    <button class="lang-toggle" type="button" id="langToggle" aria-label="Switch language">EN</button>
-    <button class="theme-toggle" type="button" id="themeToggle" aria-label="切換深色模式" title="切換深色模式">◐</button>
+    <button class="lang-toggle" type="button" data-toggle="lang">EN</button>
+    <button class="theme-toggle" type="button" data-toggle="theme"></button>
   </div>
 </div>
 
@@ -63,6 +71,7 @@
 </div>
 
 <script src="data.js?v=20261021c" defer></script>
-<script src="../../../scripts/noosa.js?v=20261021c" defer></script>
+<script src="../../../scripts/site.js?v=20261024" defer></script>
+<script src="../../../scripts/noosa.js?v=20261024" defer></script>
 </body>
 </html>

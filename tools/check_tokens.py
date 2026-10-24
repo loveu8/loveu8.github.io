@@ -21,10 +21,6 @@ USE_GLOBS = ["styles/*.css", "scripts/*.js", "index.html",
              "travel/**/*.html", "travel/**/*.js", "ai_report/**/*.html", "ai_report/**/*.js"]
 # Page-local custom properties that are defined outside tokens.css on purpose.
 LOCAL_OK = {
-    # Noosa aliases (styles/noosa.css), replaced by real tokens in step 5.
-    "--orange", "--orange-d", "--orange-l", "--orange-bg", "--blue", "--blue-d", "--blue-l",
-    "--blue-bg", "--green", "--green-d", "--green-l", "--green-bg", "--purple", "--gray",
-    "--text", "--text-s", "--border", "--bg",
     "--token",  # placeholder in a comment in scripts/report-starlux.js
 }
 # The print block may differ from light only here (paper is white).
