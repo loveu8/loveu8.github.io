@@ -1,7 +1,7 @@
 # 全站樣式整理：盤點與調整計畫
 
 - 日期：2026-10-21
-- 狀態（2026-10-21）：**步驟 2a 完成**：`styles/tokens.css`、`styles/base.css`、`tools/check_tokens.py` 已建立，相關決定見附錄 C（C.5、C.6）；還沒接到任何頁面，畫面不變。**下一步是步驟 2b：`scripts/site.js`**。最新進度看下面的進度表；換裝置接手請先看附錄 B
+- 狀態（2026-10-24）：**步驟 2 完成**：`styles/tokens.css`、`styles/base.css`、`tools/check_tokens.py`、`scripts/site.js` 已建立，相關決定見附錄 C（C.5～C.7）；還沒接到任何頁面，畫面不變。**下一步是步驟 3：首頁改用共用檔**。最新進度看下面的進度表；換裝置接手請先看附錄 B
 - 審查紀錄：`STYLE-PLAN-REVIEW.md`（第一次）、`STYLE-PLAN-REVIEW-2.md`（複查）、`STYLE-PLAN-REVIEW-3.md`（最後 QA，沒有重大問題）
 - 目標：首頁、旅遊頁、報告頁看起來是同一個網站——同一套顏色、字體、按鈕、間距，深淺色和語言切換的行為也一致
 - 參考：`DESIGN.md`、`DECISIONS.md`、`AGENTS.md`、`travel/australia/brisbane/cafe/PLAN.md`（共用化的前例）
@@ -18,8 +18,8 @@
 | 1b-2 | Codex 審查、複查與修正計畫 | ✅ 完成 | 2026-10-21 | （本 commit） | 第一次審查見第 3.2 節、複查見第 3.4 節；P1～P3 由使用者決定（第 3.3 節）；最後 QA（`STYLE-PLAN-REVIEW-3.md`）沒有重大問題 |
 | 1c | 搬家：CSS、JS 移到根目錄 `styles/`、`scripts/`（D2 改版） | ✅ 完成 | 2026-10-21 | `3b83c20` | manifest 見附錄 A。**內容**：5 個搬移檔和基準 `49be6ce` 相同（`home.js` 只差第 25 行註解）；Noosa `data.js`＋`noosa.js` 接起來和原 `script.js` 逐字相同；報告的 CSS／JS 和原內嵌內容相同。**瀏覽器**（127.0.0.1，6 頁 × 中／英 × 淺／深＝24 組）：CSS 指紋 24／24 相同；畫面結果指紋 20／24 相同，Noosa 4 組各多 1 字元，是兩個 `<script>` 之間的換行，去掉標籤間空白後和基準版（另開 port 4174 載入 `49be6ce`）完全相同；同源資源全部 200；Noosa 換天和語言、咖啡篩選（36→7 家）、報告語言切換和 11 張圖表正常，console 沒有錯誤。使用者 2026-10-21 同意 push；搬家後留下的空資料夾 `travel/shared/` 和比對用的暫時 worktree 經使用者確認後移除 |
 | 2a | 建立 `styles/tokens.css`、`styles/base.css`、檢查腳本 `tools/check_tokens.py` | ✅ 完成 | 2026-10-21 | `e0c0c90`、`24abbd3` | 對比度結果見附錄 C.3（使用者已看過：圖表顏色延到步驟 6、列印底色印純白）；圓角／陰影／間距對照見 C.4、決定見 C.5；`base.css` 決定見 C.6。還沒接到任何頁面，畫面不變 |
-| 2b | 建立 `scripts/site.js` | ⬜ 未開始 | | | **從這裡接手**。照第 4 節步驟 2 的 `site.js` 契約：先比對 `home.js`、`map-list.js`、`noosa.js`、`report-starlux.js` 現有的主題、語言、SVG 圖示寫法，有要選的一題一題問使用者，決定記在附錄 C.7；同樣只建立新檔、不接到頁面 |
-| 3 | 首頁改用共用檔 | ⬜ 未開始 | | | |
+| 2b | 建立 `scripts/site.js` | ✅ 完成 | 2026-10-24 | （本 commit） | 決定見附錄 C.7（3 題）。API：`window.Site` 的 `getLang`／`setLang`／`onLangChange`／`getTheme`／`setTheme`／`isDark`／`icon`；按鈕用 `data-toggle="theme"`／`data-toggle="lang"`。用 Node 模擬 DOM 跑 38 項檢查（語言優先序、`?lang=fr` 略過、舊值 `zh`、瀏覽器語言不寫入、localStorage 被擋、主題值驗證、系統深色時第一下就切、按一次只通知一次）全部通過；瀏覽器實測留到步驟 3 接頁面時做。還沒接到任何頁面，畫面不變 |
+| 3 | 首頁改用共用檔 | ⬜ 未開始 | | | **從這裡接手**。照第 4 節步驟 3；按鈕加 `data-toggle`，刪掉 `home.js` 的按鈕 listener、主題重套和 SVG 常數，改訂閱 `Site.onLangChange`；預期差異含 C.6、C.7 列的項目和 P1 的瀏覽器語言 |
 | 4 | 咖啡、烘焙頁改用共用檔 | ⬜ 未開始 | | | |
 | 5 | Noosa 行程頁改用共用檔 | ⬜ 未開始 | | | |
 | 6 | 星宇報告頁改用共用檔 | ⬜ 未開始 | | | |
@@ -537,3 +537,13 @@ await (async () => {
 | 2 | focus 外框的 `outline-offset` | **(a) 全站 2px**（照 `DESIGN.md`）：首頁的連結和切換鈕從 4px 變 2px（步驟 3 列為預期差異） | 2026-10-21 |
 
 `base.css` 已寫好（2026-10-21）。`box-sizing` 只套 `*`、不套偽元素：報告 `.tl-item::before` 的圓點是 `width: 10px` 加 2px 邊框，改成 border-box 會從 14px 縮成 10px。
+
+## 附錄 C.7：步驟 2b `site.js` 的決定（逐題與使用者確認）
+
+比對（2026-10-24）：太陽／月亮 SVG 在 `home.js`、`map-list.js`、`noosa.js` 三份逐字相同，合成一份；報告頁沒有主題切換鈕（D5 會加）。頁面出現前先套主題的 head script 只有首頁有。主題值：首頁只接受 `light`／`dark`，`map-list.js`、`noosa.js` 直接使用存的值。`noosa.js` 讀寫 localStorage 沒有 try/catch，被擋時程式會中斷。`noosa.js:634` 用 `data-theme` 屬性決定下一個主題、沒看系統，所以系統深色又沒有記憶時第一下會設成 `dark`、畫面不變（步驟 5 列為預期差異：改用 `site.js` 後修好）。語言：首頁、`map-list.js` 只看記憶；`noosa.js` 直接拿記憶值、不驗證；報告頁是網址 → 記憶 → 瀏覽器語言（P1、D5 已定全站規則）。實作補充：網址的 `?lang=zh-TW` 也接受（等同 `?lang=zh`），因為它就是記憶裡存的值。
+
+| # | 問題 | 決定 | 日期 |
+|---|---|---|---|
+| 1 | 切換鈕由誰負責 | **(a) `site.js` 全包**：找到兩顆按鈕、處理點擊、換圖示、設定中英提示文字；各頁只訂閱「語言變了」重新翻譯自己的內容。按鈕要用統一的標記讓 `site.js` 找到（首頁現在是 `theme`／`language`，其他頁是 `themeToggle`／`langToggle`），在步驟 3～6 接頁面時改 | 2026-10-24 |
+| 2 | `<html lang>` 的中文值 | **(a) `zh-TW`**：由 `site.js` 隨語言設定（英文為 `en`）；6 頁中 5 頁已是 `zh-TW`、和記憶值一致，只有首頁從 `zh-Hant` 改（步驟 3 列為預期差異）。讀屏軟體選台灣華語發音，字型兩者都是繁體 | 2026-10-24 |
+| 3 | 語言按鈕的提示文字（`aria-label`、`title`） | **(a) 用要切過去的語言寫**：中文頁「Switch to English」、英文頁「切換為中文」；按鈕加 `lang` 屬性讓讀屏軟體用對的發音。首頁（「切換為繁體中文」）、報告頁（「切換語言」）改寫，Noosa 從沒有提示變成有（步驟 3、5、6 列為預期差異） | 2026-10-24 |
