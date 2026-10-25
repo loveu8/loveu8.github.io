@@ -5,6 +5,8 @@
 - **Who it is for:** The site owner and invited readers who need quick, clear trip information on mobile and desktop.
 - **Project type:** Static travel utility site, closer to a compact planning app than a marketing page.
 - **Design priority:** Information must stay readable and scannable first. Color adds warmth and memory, but should never compete with maps, photos, times, or navigation links.
+- **Pages:** the homepage (`index.html`), the travel app pages (Noosa itinerary, Brisbane cafe and bakery maps) and the STARLUX research report. They look like one site: same tokens, fonts, toggles and header behaviour (`STYLE-PLAN.md`, 2026-10).
+- **Shared files:** every page loads `styles/tokens.css` → `styles/base.css` → (travel pages) `styles/app-shell.css` → its own page CSS, and `scripts/site.js` before its own script. `site.js` owns the theme (`theme`: `light`/`dark`, absent = follow the system), the language (`lang`: `zh-TW`/`en`; URL `?lang=` → remembered value → browser language) and the two header toggles (`data-toggle="theme"` / `data-toggle="lang"`). Every page header has「阿星」top left linking to the homepage.
 
 ## Aesthetic Direction
 - **Direction:** Google clarity with Instagram warmth.
@@ -22,152 +24,57 @@
 - **Primary font stack:** `"Open Sans", "Noto Sans TC", -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft JhengHei", "PingFang TC", sans-serif`, loaded from Google Fonts (`Open Sans` for Latin/numerals, `Noto Sans TC` for Traditional Chinese — Open Sans has no CJK glyphs, so pairing with Noto Sans TC is required for the Chinese majority of this site's content to actually render consistently, not just the English/numbers).
 - **Why a web font instead of the system stack:** The old system-font stack (`-apple-system`/`Segoe UI`/`PingFang TC`/...) intentionally rendered differently per OS. That's fine for an app chrome, but this site wanted the same typeface on every device for a consistent presentation, so the tradeoff flipped to "download one web font, look identical everywhere."
 - **Fallback:** The old system-font stack remains after the two web fonts, so the page still renders reasonably if Google Fonts fails to load (e.g. offline).
-- **Display / page titles:** Same stack, weight 750-800, tight but readable line height.
-- **Body:** Same stack, weight 400-500, line height 1.55-1.7.
-- **UI labels:** Same stack, weight 650-750.
+- **Font URL:** one Google Fonts URL on every page, both families at weights 400/500/600/700/800. Browsers only download the weights a page actually uses, so listing more weights costs nothing.
+- **Weights:** 400 body · 500 secondary emphasis · 600 small labels, chips, times · 700 h2/h3, buttons, UI labels · 800 h1, brand, big numbers. Do not use 650 or 750: they are not loaded and render as 700 / 800 anyway.
+- **Body:** line height 1.55-1.7.
 - **Numbers / times:** Same stack with `font-variant-numeric: tabular-nums`.
 - **Rule:** Do not add decorative fonts. This is a utility-first travel page, and Chinese text must render cleanly across devices.
 
 ## Type Scale
-- **2xs:** 11px
-- **xs:** 12px
-- **sm:** 13px
-- **base:** 15px
-- **md:** 17px
-- **lg:** 20px
-- **xl:** 26px
-- **Rule:** Use `clamp()` only within a tight range. Do not scale text aggressively by viewport width.
+- **Tokens:** `--fs-2xs` 12 · `--fs-xs` 13 · `--fs-sm` 14 · `--fs-base` 16 · `--fs-md` 18 · `--fs-lg` 20 · `--fs-xl` 26px, defined in `styles/tokens.css`. Use the tokens, not px values.
+- **Fixed, not fluid:** sizes do not scale with the viewport. 12px is the smallest text on screen.
+- **Typical use:** h1 `xl` · h2 `lg` · h3 and the brand `md` · body `base` · secondary text `sm` · meta, captions, toggle labels `xs`/`2xs`.
+- **Exceptions (STARLUX report only):** the cover title (`clamp(24px, 5vw, 32px)`) and the big stat number (`clamp(26px, 6vw, 34px)`) are larger than the scale and keep their viewport scaling; chapter headings scale between two tokens (`clamp(var(--fs-lg), 3.8vw, var(--fs-xl))`). Chart text is written in SVG viewBox units and scales with the chart, so it is not on the scale.
+- **Print:** print-only CSS may keep its own smaller sizes.
 
 ## Color Strategy
-- **Approach:** Balanced. Google-like semantic clarity plus a restrained Instagram-inspired accent set.
-- **Light mode base:** Soft warm white surfaces with cool Google-style blues and greens.
-- **Dark mode base:** Near-charcoal surfaces with softened accents and strong contrast.
+- **Approach:** Balanced. Calm warm neutrals with one muted slate blue for structure and actions, plus a restrained Instagram-inspired accent set.
+- **Light mode base:** Warm off-white page and card surfaces, warm charcoal text.
+- **Dark mode base:** Warm soft charcoal surfaces (not near-black) with softened accents and strong contrast.
+- **Why slate blue, not Google blue:** in 2026-10 the homepage's warm neutrals (2026-10-20) became the site-wide background, text and border colors, and the site kept one blue — the homepage's slate blue — so pages read as one site (`STYLE-PLAN.md` D1, D1-2). Its job is unchanged: blue still means navigation and map movement. Green, coral, amber and violet keep their jobs below; only their soft tints were warmed to sit on the warm surfaces.
 - **Gradient rule:** Gradients are allowed only for subtle route strips or image overlays. Never use gradient buttons as the default CTA style.
 
-## Light Mode Tokens
-```css
-:root {
-  color-scheme: light;
-
-  --color-bg: #f7f9fc;
-  --color-surface: #ffffff;
-  --color-surface-soft: #f1f5f9;
-  --color-surface-warm: #fff8f4;
-
-  --color-text: #202124;
-  --color-text-muted: #5f6368;
-  --color-text-soft: #6b7075;
-
-  --color-border: #dadce0;
-  --color-border-soft: #e8eaed;
-
-  --color-primary: #1a73e8;
-  --color-primary-strong: #1967d2;
-  --color-primary-soft: #e8f0fe;
-  --color-primary-border: #aecbfa;
-
-  --color-secondary: #34a853;
-  --color-secondary-strong: #24763a;
-  --color-secondary-soft: #e6f4ea;
-  --color-secondary-border: #b7e1cd;
-
-  --color-accent: #e4405f;
-  --color-accent-strong: #b32643;
-  --color-accent-soft: #fde7ed;
-  --color-accent-border: #f6b3c0;
-
-  --color-warm: #fbbc04;
-  --color-warm-soft: #fff7db;
-  --color-warm-border: #fde293;
-
-  --color-violet: #833ab4;
-  --color-violet-soft: #f3e8ff;
-  --color-violet-border: #d8b4fe;
-
-  --color-success: #34a853;
-  --color-warning: #f29900;
-  --color-warning-text: #8a5a00;
-  --color-error: #d93025;
-  --color-info: #1a73e8;
-  --color-on-primary: #ffffff;
-  --color-on-secondary: #202124;
-  --color-on-accent: #ffffff;
-}
-```
-
-## Dark Mode Tokens
-```css
-:root[data-theme="dark"] {
-  color-scheme: dark;
-
-  --color-bg: #111418;
-  --color-surface: #1b1f24;
-  --color-surface-soft: #242a31;
-  --color-surface-warm: #2a211f;
-
-  --color-text: #f1f3f4;
-  --color-text-muted: #bdc1c6;
-  --color-text-soft: #9aa0a6;
-
-  --color-border: #3c4043;
-  --color-border-soft: #2f343a;
-
-  --color-primary: #8ab4f8;
-  --color-primary-strong: #8ab4f8;
-  --color-primary-soft: #1c2f4f;
-  --color-primary-border: #315b9f;
-
-  --color-secondary: #81c995;
-  --color-secondary-strong: #81c995;
-  --color-secondary-soft: #193424;
-  --color-secondary-border: #2f6f45;
-
-  --color-accent: #ff7a90;
-  --color-accent-strong: #ff9bad;
-  --color-accent-soft: #3b2028;
-  --color-accent-border: #8f3d4f;
-
-  --color-warm: #fdd663;
-  --color-warm-soft: #3a2f16;
-  --color-warm-border: #8a6d1d;
-
-  --color-violet: #c58af9;
-  --color-violet-soft: #30213f;
-  --color-violet-border: #70449a;
-
-  --color-success: #81c995;
-  --color-warning: #fdd663;
-  --color-warning-text: #fdd663;
-  --color-error: #f28b82;
-  --color-info: #8ab4f8;
-  --color-on-primary: #111418;
-  --color-on-secondary: #111418;
-  --color-on-accent: #111418;
-}
-```
+## Color Tokens
+- **Source of truth:** `styles/tokens.css`. It is the only file with raw color values; this document names tokens, not hex values, so it cannot go stale.
+- **Four copies in that file:** light (`:root`), dark chosen with the toggle (`:root[data-theme="dark"]`), dark following the system (`@media (prefers-color-scheme: dark) :root:not([data-theme])`) and print (always light, except page and card surfaces print white). The two dark copies must stay identical.
+- **Families:** `bg` / `surface` / `surface-soft` / `surface-warm`; `text` / `text-muted` / `text-soft`; `border` / `border-soft`; `primary`, `secondary`, `accent` each with `-strong`, `-soft`, `-border`; `warm` and `violet` with `-soft`, `-border`; status `success` / `warning` / `warning-text` / `error` / `info`; labels on solid fills `on-primary` / `on-secondary` / `on-accent`; lightbox `scrim` / `on-scrim`; shadows `shadow-panel` / `shadow-soft` / `shadow-photo`.
+- **Check after any token change:** run `python3 tools/check_tokens.py` from the repo root. It checks that the copies match, that every `var(--…)` used on the site is defined, and prints the WCAG contrast table for every text, chip, button, focus and chart pairing in both themes.
 
 ## Color Usage
-- **Primary blue:** Map actions, route links, navigation buttons, selected map chips, informational states.
+- **Primary slate blue:** Map actions, route links, navigation buttons, selected map chips, informational states, links and emphasis in the report.
 - **Secondary green:** Hikes, nature, success states, main itinerary options.
 - **Accent coral:** Primary action, food, selected/highlighted itinerary items, important warm emphasis.
 - **Warm amber:** Warnings, time-sensitive notes, backup plans, market/food tags.
 - **Violet:** Hotel, rest, special stay moments. Use sparingly.
 - **Neutral surfaces:** Most containers, cards, sidebars, tabs, and print surfaces.
-- **`--color-*-strong` (primary / secondary / accent):** The base `--color-primary/secondary/accent` are brand/status colors and do not reach 4.5:1 as small text on `*-soft` chip/tag backgrounds in light mode (measured: primary on `--color-primary-soft` 3.93, secondary on `--color-secondary-soft` 2.69, accent on `--color-accent-soft` 3.43; white on accent 4.04). Use the `*-strong` variants for text placed on a `*-soft` background and for solid button backgrounds that carry white text; keep the base tokens for dots, borders, route strips, and icons where text contrast does not apply. Light-mode ratios: `--color-primary-strong` `#1967d2` 5.37 on white / 4.68 on `--color-primary-soft`; `--color-secondary-strong` `#24763a` 5.63 / 4.96; `--color-accent-strong` `#b32643` 6.41 / 5.44 (this is the value that was already shipped as `--orange-d` in the Noosa page and is now defined once as the token); white on each strong >= 5.37. Dark mode: primary and secondary strong intentionally equal their base tokens (already >= 5.9:1 on the soft surfaces); accent-strong is `#ff9bad` (lighter than `--color-accent`, for text on `--color-accent-soft`). Solid buttons keep using the existing per-family `--color-on-primary/secondary/accent` for label color — green buttons already use dark text (`--color-on-secondary`, 5.27:1 on `--color-secondary`), so they do not need `--color-secondary-strong`.
-- **`--color-text-soft`:** Darkened to `#6b7075` (light mode: 5.00 on white, 4.56 on `--color-surface-soft`) so it passes AA for text. It now sits close to `--color-text-muted` (`#5f6368`); distinguish the two by size/weight, not by relying on the small color difference.
-- **`--color-warning` vs `--color-warning-text`:** `--color-warning` is a *status* color (badges, small dots, the bullet marker before a tip) — it is not dark enough to pass 4.5:1 as body/label text on light warm surfaces. `--color-warning-text` is the darkened text-safe variant (light mode: `#8a5a00`, verified 5.5:1 on `--color-warm-soft`; dark mode: same value as `--color-warning`, already verified 9-10:1 on dark surfaces). Any warning/shop tag or tips-list text must use `--color-warning-text`, never `--color-warning` directly.
+- **`--color-*-strong` (primary / secondary / accent):** The base `--color-primary/secondary/accent` are brand/status colors; in light mode secondary and accent do not reach 4.5:1 as small text. Use the `*-strong` variants for text on a `*-soft` background, for colored text on cards, and for solid button backgrounds that carry white text; keep the base tokens for dots, borders, route strips and icons where text contrast does not apply. In dark mode secondary-strong equals its base token and accent-strong is lighter than the base, for text on `--color-accent-soft`. Solid buttons use the per-family `--color-on-primary/secondary/accent` for label color — green buttons use dark labels on the base green, so they do not need `--color-secondary-strong`.
+- **`--color-text-soft` vs `--color-text-muted`:** both pass AA as text and sit close together; distinguish them by size/weight, not by relying on the small color difference.
+- **`--color-warning` vs `--color-warning-text`:** `--color-warning` is a *status* color (badges, small dots, the bullet marker before a tip) — it is not dark enough to pass 4.5:1 as body/label text on light warm surfaces. `--color-warning-text` is the text-safe variant (in dark mode it equals `--color-warning`). Any warning/shop tag or tips-list text must use `--color-warning-text`, never `--color-warning` directly.
+- **Charts (STARLUX report):** bars, lines and legend swatches use the base color tokens; value labels and axis labels use text tokens (`--color-text`, `--color-text-soft`), never the series color. Stacked segments are separated by a 2px gap in the card color. **Known gap:** on the chart card, light-mode green and amber marks are under 3:1, and red vs green is hard to tell apart for red-green colour-blind readers; a chart-specific palette is left for a later chart redesign (`STYLE-PLAN.md` section 6).
 
 ## Dark Mode Rules
-- Use `prefers-color-scheme: dark` when no explicit `[data-theme]` is set. The existing theme toggle sets the override and persists the user's choice in `localStorage` under `theme`; preserve this behavior.
+- Follow `prefers-color-scheme: dark` when no explicit `[data-theme]` is set. The theme toggle (`scripts/site.js`) sets the override and persists the choice in `localStorage` under `theme`; its first click always flips what is on screen, even when the page is following a dark system theme. A small script in each page's `<head>` applies the saved theme before first paint.
+- Component rules that differ by theme go through the tokens, never through a page-level `@media (prefers-color-scheme: dark)` block — that would ignore the toggle.
 - Keep maps and photos natural. Do not apply global filters to map iframes or images unless a specific embed is too bright.
-- Shadows in dark mode should be subtle and darker: `0 8px 24px rgba(0, 0, 0, 0.35)`.
+- Shadows use the `--shadow-*` tokens, which are darker and subtler in dark mode.
 - Borders become more important in dark mode. Use borders to separate panels instead of strong shadows.
-- Avoid pure black backgrounds. Use `#111418` for the app background and `#1b1f24` for panels.
+- Avoid pure black backgrounds. Use `--color-bg` for the page and `--color-surface` for panels.
 
 ## Spacing
 - **Base unit:** 4px.
 - **Density:** Comfortable compact. This site has real itinerary data, so it should stay dense enough for scanning.
-- **Scale:** 2xs 2px, xs 4px, sm 8px, md 16px, lg 24px, xl 32px, 2xl 48px.
+- **Scale:** `--space-2xs` 2px, `xs` 4px, `sm` 8px, `md` 16px, `lg` 24px, `xl` 32px, `2xl` 48px.
+- **Existing compact components:** may keep 1-3px nudges and off-scale values such as 6/10/14px that they already use; these were left as they were in the 2026-10 cleanup. **New CSS uses the `--space-*` tokens.**
 - **Mobile:** Prioritize thumb reach and avoid horizontal overflow.
 - **Desktop:** Sidebar can be dense. Map area should stay visually calm.
 
@@ -179,18 +86,21 @@
 - **No nested cards:** Cards can contain content, but avoid card-inside-card styling unless showing true alternatives such as main vs backup route choices.
 
 ## Breakpoints
-- **Single breakpoint: `768px`.** This is a deliberate choice, not an oversight — the app only has two layout modes (mobile bottom-sheet, desktop split-view), so there is no intermediate tablet-specific design.
+- **Single layout breakpoint: `768px`** for the travel app pages and the homepage. This is a deliberate choice, not an oversight — the travel app only has two layout modes (mobile bottom-sheet, desktop split-view), so there is no intermediate tablet-specific design.
+- **Component reflow below that is allowed** where one component would break on small phones, without changing the page layout: Noosa food rows (`479px`, `380px`), the report's two-column grids and risk rows (`480px`) and its source list columns (`560px`). The STARLUX report is a single reading column, so the 768px split does not apply to it.
 - **Rule:** Before adding a second breakpoint, confirm there is an actual layout that breaks between 768px and the next natural size (e.g. 1024px). Do not add breakpoints speculatively.
 - **Below 768px:** Map fills the screen, itinerary lives in a draggable bottom sheet.
 - **At/above 768px:** Side-by-side map + sidebar, fixed 420px sidebar width (resizable between 1/4 and 1/2 of viewport width).
 
 ## Shape, Borders, and Shadows
-- **Small radius:** 6px for badges and dense tags.
-- **Default radius:** 8px for buttons, chips, timeline rows, and thumbnails.
-- **Large radius:** 12px for major panels or important grouped sections.
-- **Sheet radius:** 20px only for the mobile bottom sheet top corners.
+- **Small radius `--radius-sm` (6px):** badges and dense tags.
+- **Default radius `--radius-md` (8px):** buttons, chips, timeline rows, food rows, thumbnails and lightbox photos.
+- **Large radius `--radius-lg` (12px):** major panels, cards or important grouped sections.
+- **Sheet radius `--radius-sheet` (20px):** only the mobile bottom sheet top corners.
+- **Pill `--radius-pill` (999px):** round toggles, pills, floating buttons.
+- **Exceptions:** 50% for dots; 2-3px for drag handles, scrollbars and chart legend swatches; print-only sizes.
 - **Borders:** Use 1px solid token borders for structure.
-- **Shadows:** Keep functional. Use shadows to show panel elevation over maps, not as decoration.
+- **Shadows:** Keep functional — `--shadow-panel` for panels over the map, `--shadow-soft` for floating controls, `--shadow-photo` for thumbnails. Use shadows to show elevation, not as decoration. Outline rings (`0 0 0 2px …`) and the active-chip glow that follows the chip color are not elevation and stay as they are.
 
 ## Elevation / Z-Index Scale
 - **Rule:** Every new `z-index` must map to one of these named layers — never invent an arbitrary in-between number.
@@ -232,7 +142,7 @@
 - **Current approach:** Emoji as lightweight icons (🚗 ⛰️ ☕ 🏨 🌿 🍦 🍽️ ⚠️). Chosen deliberately to avoid pulling in an icon font/SVG set for a personal single-page itinerary site.
 - **Known risk:** Emoji glyph style differs across OS/browser (Windows vs macOS vs Android render the same codepoint very differently), which works against the "Google clarity" consistency goal. Treat emoji as decoration/scannability aids, not as the sole carrier of meaning — pair with text labels (already the pattern here).
 - **When to revisit:** If the site grows more pages/components, or cross-platform visual consistency becomes a real complaint (not hypothetical), switch to a small inline SVG icon set instead of expanding emoji usage further.
-- **Pixel-precise icons:** prefer inline SVG over a Unicode glyph for any icon where exact centering matters (small circular buttons especially) — Unicode glyph boxes are not reliably centered across fonts/OSes (see DECISIONS.md, dark-mode sun icon; the light-mode counterpart was later given a matching inline SVG moon icon for the same reason — a toggle's two states should share one icon language, not mix an SVG state with a raw glyph state).
+- **Pixel-precise icons:** prefer inline SVG over a Unicode glyph for any icon where exact centering matters (small circular buttons especially) — Unicode glyph boxes are not reliably centered across fonts/OSes (see DECISIONS.md, dark-mode sun icon; the light-mode counterpart was later given a matching inline SVG moon icon for the same reason — a toggle's two states should share one icon language, not mix an SVG state with a raw glyph state). The sun and moon SVGs live once in `scripts/site.js` (`Site.icon('sun' | 'moon')`).
 
 ## Motion
 - **Approach:** Minimal functional.
@@ -250,14 +160,15 @@
 - Touch targets should be at least 44×44px for tappable controls (Apple HIG / Material minimum), not just 40px tall. Currently met by `.theme-toggle`, `.lang-toggle`, `.back-to-top`, `.lightbox-close` (all 44×44). `.fr-link` (food-row map/external buttons) is 40×40 — a deliberate compromise against the compact food-row grid, not yet at 44 — flagged here rather than silently under-sized.
 - Do not communicate meaning by color alone. Keep labels, icons, or text.
 - Preserve print readability. Print mode should remain mostly light regardless of current theme.
-- **Keyboard focus:** Every interactive element (chips, tabs, buttons, links) must show a visible `:focus-visible` style — do not rely on the browser default outline blending into the surface, and never use `outline: none` without a replacement. Use `outline: 2px solid var(--color-primary); outline-offset: 2px;` as the default focus ring, swapping to a high-contrast token if the element's own background is already primary-colored.
-- **Reduced motion:** Wrap non-essential motion (bottom sheet slide, hover transforms, theme/lang toggle transitions) in `@media (prefers-reduced-motion: reduce)` and shorten or remove it. Functional motion that communicates state (e.g. the loading spinner) can stay, since removing it would hide that something is happening.
-- **Safe area insets:** Not yet implemented. The fixed top bar and mobile bottom sheet should eventually add `env(safe-area-inset-top)` / `env(safe-area-inset-bottom)` padding so they don't sit under a phone's notch or home-indicator gesture bar. Flagged here as a known gap, not yet hit in practice.
+- **Keyboard focus:** Every interactive element (chips, tabs, buttons, links) must show a visible `:focus-visible` style — do not rely on the browser default outline blending into the surface, and never use `outline: none` without a replacement. The default ring, `outline: 2px solid var(--color-primary); outline-offset: 2px;`, lives in `styles/base.css` for links, buttons, `summary` and `[tabindex]`; a page swaps to a high-contrast token only where the element's own background is already primary-colored or dark.
+- **Reduced motion:** `styles/base.css` shortens all animation, transition and smooth scrolling under `@media (prefers-reduced-motion: reduce)`. Functional motion that communicates state (the map loading spinner) is re-enabled where it is defined, since removing it would hide that something is happening.
+- **Safe area insets:** The homepage and report headers pad with `env(safe-area-inset-*)`. **Known gap:** the travel pages' fixed top bar and mobile bottom sheet do not yet, so they can sit under a phone's notch or home-indicator gesture bar. Not yet hit in practice.
 
 ## Implementation Rules
-- Define colors as semantic CSS custom properties first, then map existing component tokens to them.
-- Prefer names like `--color-primary`, `--color-surface`, `--color-text-muted` over raw color names in component CSS.
-- Raw hex values should live near the token definition only.
+- Define colors as semantic CSS custom properties first, then use them in component CSS.
+- Prefer names like `--color-primary`, `--color-surface`, `--color-text-muted` over raw color names in component CSS. Pages do not define their own aliases for site tokens.
+- Raw hex / rgba color values live only in `styles/tokens.css`. Pages must not redefine color tokens after it, or they would override the print reset. **Known exceptions:** three translucent hover tints in `styles/noosa.css` (`.tl-item:hover`, `.tl-item-transit:hover`, `.lightbox-close:hover`), older than the 2026-10 cleanup; their contrast is checked in `tools/check_tokens.py` group 8.
+- Shared rules go in the shared files, not copied into pages: `base.css` (font stack, focus ring, round toggles, reduced motion), `app-shell.css` (travel pages' top bar, map + sidebar / bottom sheet, lightbox, back-to-top), `site.js` (theme, language, toggles). When a shared file changes, bump its `?v=` on every page that loads it (dependency list: `STYLE-PLAN.md` appendix A).
 - Before changing UI, read this file and check whether the change preserves the Google clarity / Instagram warmth balance.
 
 ## Decision History
