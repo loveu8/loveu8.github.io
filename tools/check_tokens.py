@@ -160,10 +160,11 @@ def contrast(b):
                    ("--color-on-secondary", "--color-secondary"),
                    ("--color-on-accent", "--color-accent-strong")]:  # solid coral always uses -strong
         add("3 實心按鈕、active chip", fg, bg, 4.5)
+    # Chart value labels use --color-text since step 6 (C.9 #4), covered by group 1.
+    # Chart marks sit on the chart card (--color-surface-soft); the misses are a
+    # known issue left for the chart redesign (STYLE-PLAN section 6).
     for fg in ["--color-primary", "--color-secondary", "--color-accent", "--color-warm"]:
-        for bg in ["--color-surface", "--color-bg"]:
-            add("4 報告圖表：折線數值文字（colorVar，13px 粗體）", fg, bg, 4.5)
-            add("5 報告圖表：長條、折線、圖例色塊（非文字）", fg, bg, 3.0)
+        add("5 報告圖表：長條、折線、圖例色塊（非文字，已知問題）", fg, "--color-surface-soft", 3.0)
     for bg in surfaces:
         add("6 focus 外框（非文字）", "--color-primary", bg, 3.0)
     for fg, bg in [("--color-border", "--color-bg"), ("--color-border", "--color-surface"),

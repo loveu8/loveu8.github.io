@@ -5,36 +5,20 @@
   var UI = D.UI;
 
   /* ============ LANGUAGE STATE ============ */
+  /* site.js owns the language (URL, memory, browser; STYLE-PLAN D5) and the
+     toggle buttons. The report data is keyed zh / en, so map zh-TW to zh. */
 
-  function detectInitialLang() {
-    // 1) explicit ?lang=zh|en in the URL always wins, and is remembered for next visit
-    try {
-      var params = new URLSearchParams(window.location.search);
-      var urlLang = params.get("lang");
-      if (urlLang === "zh" || urlLang === "en") {
-        try { localStorage.setItem("starlux-report-lang", urlLang); } catch (e2) { /* ignore */ }
-        return urlLang;
-      }
-    } catch (e) { /* URLSearchParams unavailable — skip */ }
-
-    // 2) a previously remembered choice (from the toggle button or a past ?lang= visit)
-    try {
-      var saved = localStorage.getItem("starlux-report-lang");
-      if (saved === "zh" || saved === "en") return saved;
-    } catch (e) { /* localStorage unavailable (private mode etc.) */ }
-
-    // 3) fall back to the browser's own display language
-    try {
-      var nav = (navigator.language || (navigator.languages && navigator.languages[0]) || "").toLowerCase();
-      if (nav.indexOf("zh") === 0) return "zh";
-      if (nav) return "en";
-    } catch (e) { /* navigator unavailable */ }
-
-    // 4) default
-    return "zh";
+  function dataLang(lang) {
+    return lang === "en" ? "en" : "zh";
   }
 
-  var currentLang = detectInitialLang();
+  var currentLang = dataLang(Site.getLang());
+
+  // "阿星 (Lorn)" back to the homepage (STYLE-PLAN.md D6).
+  var BRAND = {
+    zh: { brandEn: "", homeTitle: "回到首頁" },
+    en: { brandEn: " (Lorn)", homeTitle: "Back to home" }
+  };
 
   function t(field) {
     if (field == null) return "";
@@ -72,7 +56,8 @@
 
   /* ============ SVG CHART BUILDERS ============ */
   /* Colors are set via style="fill/stroke:var(--token)" so they follow the
-     prefers-color-scheme media query automatically — no redraw needed. */
+     theme tokens automatically — no redraw needed. Value labels use text ink,
+     never the series color (STYLE-PLAN C.9 #4). */
 
   function buildBarChart(data, opts) {
     opts = opts || {};
@@ -88,7 +73,7 @@
       var barH = max > 0 ? (d.value / max) * (h - padTop - padBottom) : 0;
       var y = h - padBottom - barH;
       svg.appendChild(svgEl("rect", { x: x, y: y, width: barW, height: barH, rx: 3, style: "fill:var(" + (opts.colorVar || "--color-primary") + ")" }));
-      var valText = svgEl("text", { class: "c-val", x: x + barW / 2, y: y - 8, "text-anchor": "middle", "font-size": 13.5, "font-weight": 700, style: "fill:var(--color-text)" });
+      var valText = svgEl("text", { class: "c-val", x: x + barW / 2, y: y - 8, "text-anchor": "middle", "font-size": 14, "font-weight": 700, style: "fill:var(--color-text)" });
       valText.textContent = fmtNum(d.value) + (opts.suffix || "");
       svg.appendChild(valText);
       var lbl = svgEl("text", { class: "c-cat", x: x + barW / 2, y: h - padBottom + 19, "text-anchor": "middle", "font-size": 13, style: "fill:var(--color-text-soft)" });
@@ -147,7 +132,7 @@
             return Math.abs(yFor(ov) - y) < 30 && (ov > v || (ov === v && oi < self));
           });
         }
-        var txt = svgEl("text", { class: isBelow ? "c-val c-val-below" : "c-val", x: xFor(i), y: isBelow ? y + 18 : y - 9, "text-anchor": anchorFor(i), "font-size": 13, "font-weight": 700, style: "fill:var(" + s.colorVar + ")" });
+        var txt = svgEl("text", { class: isBelow ? "c-val c-val-below" : "c-val", x: xFor(i), y: isBelow ? y + 18 : y - 9, "text-anchor": anchorFor(i), "font-size": 13, "font-weight": 700, style: "fill:var(--color-text)" });
         txt.textContent = fmtNum(v) + (opts.suffix || "");
         svg.appendChild(txt);
       });
@@ -181,9 +166,10 @@
       g.segments.forEach(function (seg) {
         var segH = (seg.value / max) * (h - padTop - padBottom);
         yCursor -= segH;
-        if (segH > 0) svg.appendChild(svgEl("rect", { x: x, y: yCursor, width: barW, height: segH, style: "fill:var(" + seg.colorVar + ")" }));
+        // A 2px stroke in the card colour leaves a gap between stacked segments (C.9 #4).
+        if (segH > 0) svg.appendChild(svgEl("rect", { x: x, y: yCursor, width: barW, height: segH, style: "fill:var(" + seg.colorVar + ");stroke:var(--color-surface-soft)", "stroke-width": 2, "vector-effect": "non-scaling-stroke" }));
       });
-      var totalLabel = svgEl("text", { x: x + barW / 2, y: yCursor - 9, "text-anchor": "middle", "font-size": 15.5, "font-weight": 800, style: "fill:var(--color-text)" });
+      var totalLabel = svgEl("text", { x: x + barW / 2, y: yCursor - 9, "text-anchor": "middle", "font-size": 16, "font-weight": 800, style: "fill:var(--color-text)" });
       if (chartData.unit) {
         // Charts with a unit (e.g. seats): the unit is a separate tspan so narrow screens can hide it.
         totalLabel.setAttribute("class", "lbl-total");
@@ -387,7 +373,6 @@
   }
 
   function render() {
-    document.documentElement.lang = currentLang === "en" ? "en" : "zh-TW";
     document.title = t(UI.docTitle);
     var metaDesc = document.querySelector('meta[name="description"]');
     if (metaDesc) metaDesc.setAttribute("content", t(UI.metaDescription));
@@ -431,14 +416,12 @@
       pendingList.appendChild(li);
     });
 
-    var toggle = document.getElementById("langToggle");
-    toggle.textContent = t(UI.langToggleLabel);
-    toggle.setAttribute("aria-label", t(UI.langToggleAria));
+    setText("brandEn", BRAND[currentLang].brandEn);
+    document.getElementById("homeLink").setAttribute("title", BRAND[currentLang].homeTitle);
   }
 
-  document.getElementById("langToggle").addEventListener("click", function () {
-    currentLang = currentLang === "zh" ? "en" : "zh";
-    try { localStorage.setItem("starlux-report-lang", currentLang); } catch (e) { /* ignore */ }
+  Site.onLangChange(function (lang) {
+    currentLang = dataLang(lang);
     render();
   });
 

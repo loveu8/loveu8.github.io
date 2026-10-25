@@ -44,9 +44,7 @@ var STARLUX_REPORT_DATA = (function () {
     authorNoteLabel: { zh: "個人觀點，非本報告的數據結論", en: "Personal take — not a data-driven conclusion of this report" },
     authorNoteProcessLabel: { zh: "寫在最後：這份報告是怎麼來的", en: "One more thing: how this report came about" },
     dividerConclusion: { zh: "✈ 結論", en: "✈ Conclusion" },
-    fleetUnit: { zh: "架", en: "aircraft" },
-    langToggleLabel: { zh: "EN", en: "中文" },
-    langToggleAria: { zh: "切換語言", en: "Switch language" }
+    fleetUnit: { zh: "架", en: "aircraft" }
   };
 
   var CH1_HISTORY = {

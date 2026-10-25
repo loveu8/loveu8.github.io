@@ -2,21 +2,24 @@
 <html lang="zh-TW">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>星宇航空為什麼要飛雪梨？</title>
 <meta name="description" content="星宇航空 2027 雪梨航線：十一個重點，看懂這條航線背後的邏輯。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../../styles/report-starlux.css?v=20261021c">
+<script>
+try { var theme = localStorage.getItem('theme'); if (theme === 'light' || theme === 'dark') document.documentElement.dataset.theme = theme; } catch(e) {}
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../styles/tokens.css?v=20261024">
+<link rel="stylesheet" href="../../styles/base.css?v=20261024">
+<link rel="stylesheet" href="../../styles/report-starlux.css?v=20261025">
 </head>
 <body>
 
-<div class="page">
+<header class="site-header"><div class="bar"><a class="brand-link" id="homeLink" href="../../index.html"><span>阿星<span id="brandEn"></span></span></a><div class="controls"><button class="lang-toggle" data-toggle="lang" type="button" aria-label="Switch to English">EN</button><button class="theme-toggle" data-toggle="theme" type="button"></button></div></div></header>
 
-  <div class="lang-toggle-row">
-    <button type="button" class="lang-toggle" id="langToggle">EN</button>
-  </div>
+<div class="page">
 
   <header class="report-header">
     <span class="flight-tag" id="flightTag"></span>
@@ -54,6 +57,7 @@
 </div>
 
 <script src="starlux-australia-report.data.js"></script>
-<script src="../../scripts/report-starlux.js?v=20261021c"></script>
+<script src="../../scripts/site.js?v=20261024"></script>
+<script src="../../scripts/report-starlux.js?v=20261025"></script>
 </body>
 </html>
