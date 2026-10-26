@@ -35,6 +35,8 @@
 - **Fixed, not fluid:** sizes do not scale with the viewport. 12px is the smallest text on screen.
 - **Typical use:** h1 `xl` · h2 `lg` · h3 and the brand `md` · body `base` · secondary text `sm` · meta, captions, toggle labels `xs`/`2xs`.
 - **Exceptions (STARLUX report only):** the cover title (`clamp(24px, 5vw, 32px)`) and the big stat number (`clamp(26px, 6vw, 34px)`) are larger than the scale and keep their viewport scaling; chapter headings scale between two tokens (`clamp(var(--fs-lg), 3.8vw, var(--fs-xl))`). Chart text is written in SVG viewBox units and scales with the chart, so it is not on the scale.
+- **Icon glyphs are not text** (decided 2026-10-26): emoji and symbol glyphs inside buttons are sized in px to balance the button, the way icon sets keep their own sizes apart from the type scale, and do not follow `--fs-*`. Current sizes: lightbox ✕ 26px and back-to-top ↑ 17px (`app-shell.css`), drawer emoji `.s-emoji` 22px (`app-shell.css`), scroll ‹ › 18px and `.top3-medal` 15px (`map-list.css`), `.tl-transit-icon` and `.fr-link` 14px (`noosa.css`). A new icon size is fine; a new px size on text is not.
+- **Print:** print-only small sizes (7.5–13px in `@media print`) are deliberate, to fit A4, and are not on the scale.
 - **Print:** print-only CSS may keep its own smaller sizes.
 
 ## Color Strategy
