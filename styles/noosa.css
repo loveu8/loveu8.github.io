@@ -191,11 +191,10 @@
   text-align: left;
   line-height: 1.4;
   cursor: pointer;
-  transition: opacity 0.15s;
 }
-.tl-loc-name:hover { opacity: 0.75; }
-.tl-loc-name.d1 { background: var(--color-primary-soft); color: var(--color-primary-strong); border-color: var(--color-primary-border); }
-.tl-loc-name.d2 { background: var(--color-secondary-soft); color: var(--color-secondary-strong); border-color: var(--color-secondary-border); }
+.tl-loc-name:hover { background-image: var(--state-layer-hover); }
+.tl-loc-name.d1 { background-color: var(--color-primary-soft); color: var(--color-primary-strong); border-color: var(--color-primary-border); }
+.tl-loc-name.d2 { background-color: var(--color-secondary-soft); color: var(--color-secondary-strong); border-color: var(--color-secondary-border); }
 .tl-external-link {
   display: inline-flex;
   align-items: center;
@@ -208,11 +207,10 @@
   font-weight: 700;
   text-decoration: none;
   white-space: nowrap;
-  transition: opacity 0.15s;
 }
-.tl-external-link:hover { opacity: 0.75; }
-.tl-external-link.d1 { background: var(--color-primary-soft); color: var(--color-primary-strong); border-color: var(--color-primary-border); }
-.tl-external-link.d2 { background: var(--color-secondary-soft); color: var(--color-secondary-strong); border-color: var(--color-secondary-border); }
+.tl-external-link:hover { background-image: var(--state-layer-hover); }
+.tl-external-link.d1 { background-color: var(--color-primary-soft); color: var(--color-primary-strong); border-color: var(--color-primary-border); }
+.tl-external-link.d2 { background-color: var(--color-secondary-soft); color: var(--color-secondary-strong); border-color: var(--color-secondary-border); }
 .tl-note { font-size: var(--fs-base); color: var(--color-text-muted); margin-top: 5px; line-height: 1.5; }
 .tl-note strong { color: var(--color-accent-strong); font-weight: 700; }
 .place-intro {
@@ -300,9 +298,8 @@
   border: 1px solid var(--color-primary-border);
   font-size: 14px;
   text-decoration: none;
-  transition: opacity 0.15s;
 }
-.fr-link:hover { opacity: 0.75; }
+.fr-link:hover { background-image: var(--state-layer-hover); }
 .fr-actions { display: flex; align-items: center; gap: 5px; }
 button.fr-link { font: inherit; font-size: 14px; padding: 0; cursor: pointer; }
 

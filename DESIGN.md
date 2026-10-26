@@ -168,7 +168,17 @@
 - Define colors as semantic CSS custom properties first, then use them in component CSS.
 - Prefer names like `--color-primary`, `--color-surface`, `--color-text-muted` over raw color names in component CSS. Pages do not define their own aliases for site tokens.
 - Raw hex / rgba color values live only in `styles/tokens.css`. Pages must not redefine color tokens after it, or they would override the print reset. Enforced by `tools/check_tokens.py`, which the pre-commit hook in `.githooks/` runs (enable once per clone: `git config core.hooksPath .githooks`). `black`/`white` inside `mask-image` are allowed: masks read only alpha, so they are not visible colors.
-- **Hover tints use a state layer** (Material 3): a translucent wash of the element's own content color at `--state-hover` (8%), written `color-mix(in srgb, <content color token> var(--state-hover), transparent)`. Examples: Noosa timeline items (`--color-accent`, matching their selected state), transit items (`--color-text-muted`), the lightbox close button (`--color-on-scrim`, in `app-shell.css`). Contrast on these tints is checked in `tools/check_tokens.py` groups 8 and 9. Other hover styles on the site (opacity, border color, solid `--color-surface-soft`) predate this rule.
+- **Hover states** (decided 2026-10-26). Pick by element type; do not invent a new hover style:
+
+  | Element | Hover | Examples |
+  |---|---|---|
+  | Button, pill, card or list row | **State layer** (Material 3): the element's own content color at `--state-hover` (8%). On a button with its own background: `background-image: var(--state-layer-hover)` (uses `currentColor`; set variant colors with `background-color`, not the `background` shorthand, or the layer is reset). On a transparent row or a tint that is not the text color: `background: color-mix(in srgb, <token> var(--state-hover), transparent)` | filter, scroll and back-to-top buttons, map / social pills, Noosa place and link buttons, timeline items (`--color-accent`, matching the selected state), lightbox close (`--color-on-scrim`) |
+  | Outlined round toggle or outlined link button | Border becomes `--color-primary` (back-to-top also takes `--color-accent-border` on top of its state layer) | EN and theme toggles (`base.css`), homepage `.btn-pill` |
+  | Text link | Color or underline change | "阿星" brand link, homepage item titles (+ arrow nudge) |
+  | Tag that filters | Previews its selected look (`--color-accent-soft` + border) | cafe / bakery `.tag-btn` |
+  | Photo, drag handle | Element-specific feedback (zoom + shadow; wider, colored bar) | `.tl-photo`, `.resize-divider` |
+
+  **Never fade a control with `opacity` on hover**: it drops text contrast (measured 6.09 → 3.47 on a blue pill) and reads as disabled, which is what reduced opacity means elsewhere on the site. The background-image layer switches instantly (gradients do not transition); that is accepted. Contrast on every state layer is checked in `tools/check_tokens.py` groups 8 and 9.
 - Shared rules go in the shared files, not copied into pages: `base.css` (font stack, focus ring, round toggles, reduced motion), `app-shell.css` (travel pages' top bar, map + sidebar / bottom sheet, lightbox, back-to-top), `site.js` (theme, language, toggles). When a shared file changes, bump its `?v=` on every page that loads it (dependency list: `STYLE-PLAN.md` appendix A).
 - Before changing UI, read this file and check whether the change preserves the Google clarity / Instagram warmth balance.
 

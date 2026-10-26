@@ -234,6 +234,15 @@ def contrast(b):
             add("8 hover 狀態層（先合成在 surface 上）", fg, None, 4.5,
                 label=f"`{fg}` on {where}（`{tint}` {alpha:.0%}）",
                 bgf=lambda t, tint=tint: over((*col(t, tint), alpha), col(t, "--color-surface")))
+    # Buttons with --state-layer-hover: their own text color at --state-hover over their own background.
+    for fg, bg, where in [("--color-primary-strong", "--color-primary-soft", "Noosa 地點／連結、清單 `.pill-map`"),
+                          ("--color-secondary-strong", "--color-secondary-soft", "Noosa 第 2 天地點／連結"),
+                          ("--color-text", "--color-surface", "篩選、捲動、回到頂端"),
+                          ("--color-text", "--color-surface-soft", "清單 `.pill-social`"),
+                          ("--color-on-accent", "--color-accent-strong", "選中的篩選按鈕")]:
+        add("8 hover 狀態層（先合成在 surface 上）", fg, None, 4.5,
+            label=f"`{fg}` on `{bg}` + 自身文字色 {alpha:.0%}（{where}）",
+            bgf=lambda t, fg=fg, bg=bg: over((*col(t, fg), alpha), col(t, bg)))
     scrim = lambda t: over((0, 0, 0, 0.88), col(t, "--color-bg"))
     add("9 燈箱", "--color-on-scrim", None, 4.5, label="`--color-on-scrim` on `--scrim`（合成在 bg 上）", bgf=scrim)
     add("9 燈箱", "--color-on-scrim", None, 4.5, label=f"`--color-on-scrim` on `.lightbox-close:hover`（{alpha:.0%}）",

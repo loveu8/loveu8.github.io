@@ -213,7 +213,7 @@ a { color: inherit; text-decoration: none; }
   pointer-events: auto;
 }
 .back-to-top:hover {
-  background: var(--color-surface-soft);
+  background-image: var(--state-layer-hover);
   border-color: var(--color-accent-border);
 }
 

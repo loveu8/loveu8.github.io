@@ -70,7 +70,7 @@
   cursor: pointer;
   transition: background 0.2s, color 0.2s, border-color 0.2s;
 }
-.filter-btn:hover { background: var(--color-surface-soft); }
+.filter-btn:hover:not(:disabled) { background-image: var(--state-layer-hover); }
 .filter-btn .count {
   font-size: var(--fs-2xs);
   color: var(--color-text-soft);
@@ -111,9 +111,9 @@
     font-weight: 700;
     line-height: 1;
     cursor: pointer;
-    transition: background 0.15s, opacity 0.15s;
+    transition: opacity 0.15s;
   }
-  .scroll-btn:hover:not(:disabled) { background: var(--color-surface-soft); }
+  .scroll-btn:hover:not(:disabled) { background-image: var(--state-layer-hover); }
   .scroll-btn:disabled { opacity: 0.35; cursor: default; }
 }
 
@@ -367,9 +367,8 @@
   text-align: left;
   line-height: 1.4;
   cursor: pointer;
-  transition: opacity 0.15s;
 }
-.pill:hover { opacity: 0.75; }
+.pill:hover { background-image: var(--state-layer-hover); }
 .pill-map {
   background: var(--color-primary-soft);
   color: var(--color-primary-strong);

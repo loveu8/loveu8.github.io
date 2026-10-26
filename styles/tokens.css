@@ -27,7 +27,7 @@
   --color-primary-border: #a2b2b8;
 
   --color-secondary: #34a853;
-  --color-secondary-strong: #24763a;
+  --color-secondary-strong: #227037;
   --color-secondary-soft: #e0ede0;
   --color-secondary-border: #b1dac3;
 
@@ -88,8 +88,11 @@
   --radius-pill: 999px;
 
   /* State layer (Material 3): hover tints an element with its own content color.
-     Use as color-mix(in srgb, <content color> var(--state-hover), transparent). */
+     Use as color-mix(in srgb, <content color> var(--state-hover), transparent),
+     or, on a button that already has a background, background-image: var(--state-layer-hover)
+     (currentColor resolves on the element that uses it). */
   --state-hover: 8%;
+  --state-layer-hover: linear-gradient(color-mix(in srgb, currentColor var(--state-hover), transparent) 0 0);
 }
 
 /* ── Dark, chosen with the theme toggle ── */
@@ -232,7 +235,7 @@
     --color-primary-border: #a2b2b8;
 
     --color-secondary: #34a853;
-    --color-secondary-strong: #24763a;
+    --color-secondary-strong: #227037;
     --color-secondary-soft: #e0ede0;
     --color-secondary-border: #b1dac3;
 
