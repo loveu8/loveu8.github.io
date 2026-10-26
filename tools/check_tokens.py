@@ -171,15 +171,18 @@ def contrast(b):
                    ("--color-primary-border", "--color-surface"), ("--color-accent-border", "--color-surface"),
                    ("--color-secondary-border", "--color-surface")]:
         add("7 元件邊界（非文字，參考用）", fg, bg, 3.0)
-    # Noosa hover backgrounds (styles/noosa.css), composited over the card surface.
-    for rgba, where in [((237, 137, 54, 0.06), "`.tl-item:hover` rgba(237,137,54,.06)"),
-                        ((128, 134, 139, 0.08), "`.tl-item-transit:hover` rgba(128,134,139,.08)")]:
+    # Hover state layers: the content color at --state-hover, composited over the card surface.
+    alpha = float(b["light"]["--state-hover"].rstrip("%")) / 100
+    for tint, where in [("--color-accent", "`.tl-item:hover`"),
+                        ("--color-text-muted", "`.tl-item-transit:hover`")]:
         for fg in ["--color-text", "--color-text-muted", "--color-text-soft"]:
-            add("8 半透明 hover（先合成在 surface 上）", fg, None, 4.5,
-                label=f"`{fg}` on {where}",
-                bgf=lambda t, rgba=rgba: over(rgba, col(t, "--color-surface")))
-    add("9 燈箱", "--color-on-scrim", None, 4.5, label="`--color-on-scrim` on `--scrim`（合成在 bg 上）",
-        bgf=lambda t: over((0, 0, 0, 0.88), col(t, "--color-bg")))
+            add("8 hover 狀態層（先合成在 surface 上）", fg, None, 4.5,
+                label=f"`{fg}` on {where}（`{tint}` {alpha:.0%}）",
+                bgf=lambda t, tint=tint: over((*col(t, tint), alpha), col(t, "--color-surface")))
+    scrim = lambda t: over((0, 0, 0, 0.88), col(t, "--color-bg"))
+    add("9 燈箱", "--color-on-scrim", None, 4.5, label="`--color-on-scrim` on `--scrim`（合成在 bg 上）", bgf=scrim)
+    add("9 燈箱", "--color-on-scrim", None, 4.5, label=f"`--color-on-scrim` on `.lightbox-close:hover`（{alpha:.0%}）",
+        bgf=lambda t: over((*col(t, "--color-on-scrim"), alpha), scrim(t)))
     return rows
 
 

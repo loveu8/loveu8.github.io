@@ -110,7 +110,7 @@
   cursor: pointer;
   transition: background 0.15s;
 }
-.tl-item:hover { background: rgba(237,137,54,0.06); }
+.tl-item:hover { background: color-mix(in srgb, var(--color-accent) var(--state-hover), transparent); }
 .tl-item.selected { background: var(--color-accent-soft); outline: 2px solid var(--color-accent-border); }
 .tl-time {
   font-size: var(--fs-sm);
@@ -140,7 +140,7 @@
 .tl-line-transit { width: 0; background: none; border-left: 2px dashed var(--color-border); min-height: 12px; }
 .tl-body { padding: 3px 0 14px; min-width: 0; }
 
-.tl-item-transit:hover { background: rgba(128,134,139,0.08); }
+.tl-item-transit:hover { background: color-mix(in srgb, var(--color-text-muted) var(--state-hover), transparent); }
 .tl-item-transit .tl-time { font-size: var(--fs-xs); padding-top: 2px; }
 .tl-body-transit { padding: 1px 0 10px; }
 .tl-transit-row {
@@ -350,10 +350,6 @@ button.fr-link { font: inherit; font-size: 14px; padding: 0; cursor: pointer; }
   object-fit: cover;
 }
 .tl-photo:hover { transform: scale(1.04); box-shadow: var(--shadow-panel); }
-
-/* The close button sits on the dark scrim, so hover and focus use the scrim's text color. */
-.lightbox-close:hover { background: rgba(255,255,255,0.15); }
-.lightbox-close:focus-visible { outline-color: var(--color-on-scrim); }
 
 /* ── 8. PARALLEL CARDS ── */
 .tl-parallel {

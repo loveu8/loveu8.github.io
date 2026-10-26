@@ -167,7 +167,8 @@
 ## Implementation Rules
 - Define colors as semantic CSS custom properties first, then use them in component CSS.
 - Prefer names like `--color-primary`, `--color-surface`, `--color-text-muted` over raw color names in component CSS. Pages do not define their own aliases for site tokens.
-- Raw hex / rgba color values live only in `styles/tokens.css`. Pages must not redefine color tokens after it, or they would override the print reset. **Known exceptions:** three translucent hover tints in `styles/noosa.css` (`.tl-item:hover`, `.tl-item-transit:hover`, `.lightbox-close:hover`), older than the 2026-10 cleanup; their contrast is checked in `tools/check_tokens.py` group 8.
+- Raw hex / rgba color values live only in `styles/tokens.css`. Pages must not redefine color tokens after it, or they would override the print reset.
+- **Hover tints use a state layer** (Material 3): a translucent wash of the element's own content color at `--state-hover` (8%), written `color-mix(in srgb, <content color token> var(--state-hover), transparent)`. Examples: Noosa timeline items (`--color-accent`, matching their selected state), transit items (`--color-text-muted`), the lightbox close button (`--color-on-scrim`, in `app-shell.css`). Contrast on these tints is checked in `tools/check_tokens.py` groups 8 and 9. Other hover styles on the site (opacity, border color, solid `--color-surface-soft`) predate this rule.
 - Shared rules go in the shared files, not copied into pages: `base.css` (font stack, focus ring, round toggles, reduced motion), `app-shell.css` (travel pages' top bar, map + sidebar / bottom sheet, lightbox, back-to-top), `site.js` (theme, language, toggles). When a shared file changes, bump its `?v=` on every page that loads it (dependency list: `STYLE-PLAN.md` appendix A).
 - Before changing UI, read this file and check whether the change preserves the Google clarity / Instagram warmth balance.
 

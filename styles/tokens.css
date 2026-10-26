@@ -86,6 +86,10 @@
   --radius-lg: 12px;
   --radius-sheet: 20px;
   --radius-pill: 999px;
+
+  /* State layer (Material 3): hover tints an element with its own content color.
+     Use as color-mix(in srgb, <content color> var(--state-hover), transparent). */
+  --state-hover: 8%;
 }
 
 /* ── Dark, chosen with the theme toggle ── */
