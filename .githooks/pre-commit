@@ -1,0 +1,14 @@
+#!/bin/sh
+# Blocks a commit when tools/check_tokens.py fails (raw colors outside
+# styles/tokens.css, undefined tokens, theme blocks out of sync).
+# Enable once per clone:  git config core.hooksPath .githooks
+# It checks the working tree, not only the staged files.
+
+if git diff --cached --name-only | grep -qE '\.(css|html|js)$|^tools/check_tokens\.py$'; then
+  if command -v python >/dev/null 2>&1; then PY=python; else PY=python3; fi
+  if ! "$PY" tools/check_tokens.py --quiet; then
+    echo ""
+    echo "pre-commit: tools/check_tokens.py failed. Fix the errors above, or see DESIGN.md \"Implementation Rules\"."
+    exit 1
+  fi
+fi

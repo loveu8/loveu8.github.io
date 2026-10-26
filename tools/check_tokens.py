@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 """Check styles/tokens.css and print its contrast list (STYLE-PLAN.md step 2).
 
-Run from the repo root:  python3 tools/check_tokens.py
-Exit code 1 if a structural check fails. Contrast results are printed as a
-Markdown table; failures are marked but do not change the exit code, because
-some pairs are reported for review rather than required to pass.
+Run from the repo root:  python3 tools/check_tokens.py [--quiet]
+Exit code 1 if a structural check fails, including a raw color value outside
+tokens.css. Contrast results are printed as a Markdown table; failures are
+marked but do not change the exit code, because some pairs are reported for
+review rather than required to pass. --quiet prints only errors (pre-commit hook).
 
 Contrast is WCAG 2 (sRGB relative luminance). Translucent colors are
 composited over the surface they sit on before measuring.
@@ -26,9 +27,56 @@ LOCAL_OK = {
 # The print block may differ from light only here (paper is white).
 PRINT_ONLY = {"--color-bg", "--color-surface"}
 
+# Raw colors outside tokens.css (DESIGN.md "Implementation Rules").
+RAW_COLOR = re.compile(r"#[0-9a-fA-F]{3,8}\b|(?<![\w-])(?:rgba?|hsla?|hwb|lab|lch|oklab|oklch|color)\(")
+NAMED_COLOR = re.compile(r"(?<![\w-])(?:black|white|red|green|blue|yellow|orange|purple|pink|gray|grey|silver|"
+                         r"maroon|navy|teal|olive|lime|aqua|cyan|fuchsia|magenta|brown|gold|beige|ivory|"
+                         r"tomato|coral|salmon|crimson|indigo|violet)(?![\w-])", re.I)
+# Masks read only alpha, so black/white there mean "show" / "hide", not a visible color.
+MASK_PROPS = {"mask-image", "-webkit-mask-image", "mask", "-webkit-mask"}
+# A JS string that is nothing but a color, e.g. '#fff' or "rgba(0,0,0,.5)".
+JS_COLOR = re.compile(r"""(['"])\s*(?:#[0-9a-fA-F]{3,8}|(?:rgba?|hsla?)\([^'"]*\))\s*\1""")
+
 
 def strip_comments(css):
     return re.sub(r"/\*.*?\*/", "", css, flags=re.S)
+
+
+def blank_comments(text):
+    """Remove /* */ comments but keep line numbers."""
+    return re.sub(r"/\*.*?\*/", lambda m: re.sub(r"[^\n]", " ", m.group()), text, flags=re.S)
+
+
+def color_in_value(prop, value):
+    value = re.sub(r"""(['"]).*?\1|url\([^)]*\)""", "", value)  # quoted text and URLs are not colors
+    if RAW_COLOR.search(value):
+        return True
+    return prop.lower() not in MASK_PROPS and bool(NAMED_COLOR.search(value))
+
+
+def raw_colors_in_css(css, offset_line=0):
+    """Yield (line, declaration) for each declaration whose value is a raw color."""
+    css = blank_comments(css)
+    for m in re.finditer(r"([\w-]+)\s*:\s*([^;{}]+)(?=[;}])", css):
+        if color_in_value(m.group(1), m.group(2)):
+            yield offset_line + css.count("\n", 0, m.start()) + 1, m.group().strip()
+
+
+def raw_colors(path):
+    text = path.read_text(encoding="utf-8")
+    if path.suffix == ".css":
+        yield from raw_colors_in_css(text)
+    elif path.suffix == ".html":
+        for m in re.finditer(r"<style[^>]*>(.*?)</style>", text, flags=re.S | re.I):
+            yield from raw_colors_in_css(m.group(1), text.count("\n", 0, m.start(1)))
+        for m in re.finditer(r"""\s(style|fill|stroke|color|bgcolor)=(['"])(.*?)\2""", text, flags=re.I):
+            value = m.group(3) + ";" if m.group(1).lower() == "style" else f"{m.group(1)}:{m.group(3)};"
+            for _, decl in raw_colors_in_css(value):
+                yield text.count("\n", 0, m.start()) + 1, decl
+    elif path.suffix == ".js":
+        text = blank_comments(text)
+        for m in JS_COLOR.finditer(text):
+            yield text.count("\n", 0, m.start()) + 1, m.group()
 
 
 def blocks(css):
@@ -123,6 +171,13 @@ def structural(b):
     for name, where in sorted(used.items()):
         if name not in defined:
             errors.append(f"{where} uses {name}, not defined in tokens.css")
+    # No raw color values outside tokens.css.
+    for g in USE_GLOBS:
+        for p in sorted(ROOT.glob(g)):
+            if p == TOKENS:
+                continue
+            for line, decl in raw_colors(p):
+                errors.append(f"{p.relative_to(ROOT).as_posix()}:{line} raw color, use a token: {decl}")
     return errors, len(used)
 
 
@@ -189,6 +244,10 @@ def contrast(b):
 def main():
     b = blocks(TOKENS.read_text(encoding="utf-8"))
     errors, n_used = structural(b)
+    if "--quiet" in sys.argv:
+        for e in errors:
+            print("ERROR", e)
+        sys.exit(1 if errors else 0)
     print(f"tokens: light {len(b['light'])}, dark {len(b['dark'])}, system {len(b['system'])}, print {len(b['print'])}; "
           f"site var() names checked: {n_used}")
     for e in errors:
