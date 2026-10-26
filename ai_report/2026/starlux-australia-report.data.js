@@ -50,8 +50,8 @@ var STARLUX_REPORT_DATA = (function () {
   var CH1_HISTORY = {
     categories: [2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025],
     series: [
-      { label: { zh: "澳洲居住旅客來臺", en: "Australia residents" }, colorVar: "--color-primary", data: [102541, 111788, 18906, 568, 11509, 87288, 112547, 125288] },
-      { label: { zh: "紐西蘭居住旅客來臺", en: "New Zealand residents" }, colorVar: "--color-accent", data: [16362, 19831, 3093, 159, 2792, 15040, 17053, 18242] }
+      { label: { zh: "澳洲居住旅客來臺", en: "Australia residents" }, colorVar: "--chart-1", data: [102541, 111788, 18906, 568, 11509, 87288, 112547, 125288] },
+      { label: { zh: "紐西蘭居住旅客來臺", en: "New Zealand residents" }, colorVar: "--chart-2", data: [16362, 19831, 3093, 159, 2792, 15040, 17053, 18242] }
     ]
   };
 
@@ -61,18 +61,20 @@ var STARLUX_REPORT_DATA = (function () {
       { zh: "4月", en: "Apr" }, { zh: "5月", en: "May" }, { zh: "6月", en: "Jun" }
     ],
     series: [
-      { label: { zh: "2025 年", en: "2025" }, colorVar: "--color-secondary", data: [13381, 7306, 12294, 14090, 8658, 7295] },
-      { label: { zh: "2026 年", en: "2026" }, colorVar: "--color-warm", data: [14626, 8013, 12384, 13767, 7901, 7872] }
+      { label: { zh: "2025 年", en: "2025" }, colorVar: "--chart-1", data: [13381, 7306, 12294, 14090, 8658, 7295] },
+      { label: { zh: "2026 年", en: "2026" }, colorVar: "--chart-2", data: [14626, 8013, 12384, 13767, 7901, 7872] }
     ]
   };
 
+  // Bar charts are horizontal and drawn top to bottom in this order: largest first,
+  // "Other" last; ordered categories (length of stay) keep their natural order.
   var CH2_PURPOSE = [
-    { label: { zh: "商務", en: "Business" }, value: 2 },
-    { label: { zh: "其他", en: "Other" }, value: 3 },
+    { label: { zh: "度假", en: "Holiday" }, value: 67 },
+    { label: { zh: "探親訪友", en: "VFR" }, value: 18 },
     { label: { zh: "留學", en: "Study" }, value: 5 },
     { label: { zh: "工作", en: "Work" }, value: 5 },
-    { label: { zh: "探親訪友", en: "VFR" }, value: 18 },
-    { label: { zh: "度假", en: "Holiday" }, value: 67 }
+    { label: { zh: "商務", en: "Business" }, value: 2 },
+    { label: { zh: "其他", en: "Other" }, value: 3 }
   ];
 
   var CH2_LENGTH = [
@@ -92,88 +94,88 @@ var STARLUX_REPORT_DATA = (function () {
     gap: 40,
     groups: [
       { label: "2019", total: 146268, segments: [
-        { label: { zh: "既有航班", en: "Existing flights" }, value: 146268, colorVar: "--color-primary" },
-        { label: { zh: "華航每日（情境）", en: "China Airlines daily (scenario)" }, value: 0, colorVar: "--color-secondary" },
-        { label: { zh: "星宇（情境）", en: "STARLUX (scenario)" }, value: 0, colorVar: "--color-warm" }
+        { label: { zh: "既有航班", en: "Existing flights" }, value: 146268, colorVar: "--chart-1" },
+        { label: { zh: "華航每日（情境）", en: "China Airlines daily (scenario)" }, value: 0, colorVar: "--chart-2" },
+        { label: { zh: "星宇（情境）", en: "STARLUX (scenario)" }, value: 0, colorVar: "--chart-3" }
       ]},
       { label: "2025", total: 78603, segments: [
-        { label: { zh: "既有航班", en: "Existing flights" }, value: 78603, colorVar: "--color-primary" },
-        { label: { zh: "華航每日（情境）", en: "China Airlines daily (scenario)" }, value: 0, colorVar: "--color-secondary" },
-        { label: { zh: "星宇（情境）", en: "STARLUX (scenario)" }, value: 0, colorVar: "--color-warm" }
+        { label: { zh: "既有航班", en: "Existing flights" }, value: 78603, colorVar: "--chart-1" },
+        { label: { zh: "華航每日（情境）", en: "China Airlines daily (scenario)" }, value: 0, colorVar: "--chart-2" },
+        { label: { zh: "星宇（情境）", en: "STARLUX (scenario)" }, value: 0, colorVar: "--chart-3" }
       ]},
       { label: { zh: "情境：星宇 4 班", en: "Scenario: 4x/wk" }, shortLabel: { zh: "4 班", en: "4x" }, total: 173976, segments: [
-        { label: { zh: "既有航班", en: "Existing flights" }, value: 0, colorVar: "--color-primary" },
-        { label: { zh: "華航每日（情境）", en: "China Airlines daily (scenario)" }, value: 112200, colorVar: "--color-secondary" },
-        { label: { zh: "星宇（情境）", en: "STARLUX (scenario)" }, value: 61776, colorVar: "--color-warm" }
+        { label: { zh: "既有航班", en: "Existing flights" }, value: 0, colorVar: "--chart-1" },
+        { label: { zh: "華航每日（情境）", en: "China Airlines daily (scenario)" }, value: 112200, colorVar: "--chart-2" },
+        { label: { zh: "星宇（情境）", en: "STARLUX (scenario)" }, value: 61776, colorVar: "--chart-3" }
       ]},
       { label: { zh: "情境：星宇 5 班", en: "Scenario: 5x/wk" }, shortLabel: { zh: "5 班", en: "5x" }, total: 189420, segments: [
-        { label: { zh: "既有航班", en: "Existing flights" }, value: 0, colorVar: "--color-primary" },
-        { label: { zh: "華航每日（情境）", en: "China Airlines daily (scenario)" }, value: 112200, colorVar: "--color-secondary" },
-        { label: { zh: "星宇（情境）", en: "STARLUX (scenario)" }, value: 77220, colorVar: "--color-warm" }
+        { label: { zh: "既有航班", en: "Existing flights" }, value: 0, colorVar: "--chart-1" },
+        { label: { zh: "華航每日（情境）", en: "China Airlines daily (scenario)" }, value: 112200, colorVar: "--chart-2" },
+        { label: { zh: "星宇（情境）", en: "STARLUX (scenario)" }, value: 77220, colorVar: "--chart-3" }
       ]},
       { label: { zh: "情境：星宇每日", en: "Scenario: daily" }, shortLabel: { zh: "每日", en: "Daily" }, total: 220308, segments: [
-        { label: { zh: "既有航班", en: "Existing flights" }, value: 0, colorVar: "--color-primary" },
-        { label: { zh: "華航每日（情境）", en: "China Airlines daily (scenario)" }, value: 112200, colorVar: "--color-secondary" },
-        { label: { zh: "星宇（情境）", en: "STARLUX (scenario)" }, value: 108108, colorVar: "--color-warm" }
+        { label: { zh: "既有航班", en: "Existing flights" }, value: 0, colorVar: "--chart-1" },
+        { label: { zh: "華航每日（情境）", en: "China Airlines daily (scenario)" }, value: 112200, colorVar: "--chart-2" },
+        { label: { zh: "星宇（情境）", en: "STARLUX (scenario)" }, value: 108108, colorVar: "--chart-3" }
       ]}
     ],
     legend: [
-      { label: { zh: "既有航班", en: "Existing flights" }, colorVar: "--color-primary" },
-      { label: { zh: "華航每日（情境）", en: "China Airlines daily (scenario)" }, colorVar: "--color-secondary" },
-      { label: { zh: "星宇（情境）", en: "STARLUX (scenario)" }, colorVar: "--color-warm" }
+      { label: { zh: "既有航班", en: "Existing flights" }, colorVar: "--chart-1" },
+      { label: { zh: "華航每日（情境）", en: "China Airlines daily (scenario)" }, colorVar: "--chart-2" },
+      { label: { zh: "星宇（情境）", en: "STARLUX (scenario)" }, colorVar: "--chart-3" }
     ]
   };
 
 
   var CH5_PORTS = [
-    { label: { zh: "雪梨", en: "Sydney" }, value: 3621 },
+    { label: { zh: "布里斯本", en: "Brisbane" }, value: 6841 },
     { label: { zh: "墨爾本", en: "Melbourne" }, value: 5425 },
-    { label: { zh: "布里斯本", en: "Brisbane" }, value: 6841 }
+    { label: { zh: "雪梨", en: "Sydney" }, value: 3621 }
   ];
 
   var CH5_SYDNEY = {
     categories: [2019, 2023, 2024, 2025],
     series: [
-      { label: { zh: "雪梨—台北貨運量", en: "Sydney–Taipei freight" }, colorVar: "--color-primary", data: [9313, 5803, 4599, 3621] }
+      { label: { zh: "雪梨—台北貨運量", en: "Sydney–Taipei freight" }, colorVar: "--chart-1", data: [9313, 5803, 4599, 3621] }
     ]
   };
 
   var CH6B_CARGO_TWAU = [
-    { label: { zh: "材質類製成品", en: "Manufactured (material)" }, value: 55.20 },
-    { label: { zh: "其他", en: "Other" }, value: 56.29 },
-    { label: { zh: "未分類商品", en: "Unclassified" }, value: 66.52 },
+    { label: { zh: "機械與運輸", en: "Machinery" }, value: 1440.00 },
     { label: { zh: "雜項製品", en: "Misc. articles" }, value: 175.61 },
-    { label: { zh: "機械與運輸", en: "Machinery" }, value: 1440.00 }
+    { label: { zh: "未分類商品", en: "Unclassified" }, value: 66.52 },
+    { label: { zh: "材質類製成品", en: "Manufactured (material)" }, value: 55.20 },
+    { label: { zh: "其他", en: "Other" }, value: 56.29 }
   ];
 
   var CH6B_CARGO_NSWTW = [
-    { label: { zh: "未分類商品", en: "Unclassified" }, value: 7.96 },
-    { label: { zh: "其他", en: "Other" }, value: 8.91 },
-    { label: { zh: "化學品", en: "Chemicals" }, value: 11.06 },
+    { label: { zh: "機械與運輸", en: "Machinery" }, value: 47.72 },
     { label: { zh: "雜項製品", en: "Misc. articles" }, value: 36.30 },
-    { label: { zh: "機械與運輸", en: "Machinery" }, value: 47.72 }
+    { label: { zh: "化學品", en: "Chemicals" }, value: 11.06 },
+    { label: { zh: "未分類商品", en: "Unclassified" }, value: 7.96 },
+    { label: { zh: "其他", en: "Other" }, value: 8.91 }
   ];
 
   var CH9_FLEET = {
     groups: [
       { label: { zh: "2025 年底", en: "End of 2025" }, total: 29, segments: [
-        { label: "A321neo", value: 13, colorVar: "--color-primary" },
-        { label: "A330neo", value: 6, colorVar: "--color-secondary" },
-        { label: "A350-900", value: 10, colorVar: "--color-accent" },
-        { label: "A350-1000", value: 0, colorVar: "--color-warm" }
+        { label: "A321neo", value: 13, colorVar: "--chart-1" },
+        { label: "A330neo", value: 6, colorVar: "--chart-2" },
+        { label: "A350-900", value: 10, colorVar: "--chart-3" },
+        { label: "A350-1000", value: 0, colorVar: "--chart-4" }
       ]},
       { label: { zh: "2026 年底目標", en: "End-2026 target" }, total: 43, segments: [
-        { label: "A321neo", value: 16, colorVar: "--color-primary" },
-        { label: "A330neo", value: 11, colorVar: "--color-secondary" },
-        { label: "A350-900", value: 10, colorVar: "--color-accent" },
-        { label: "A350-1000", value: 6, colorVar: "--color-warm" }
+        { label: "A321neo", value: 16, colorVar: "--chart-1" },
+        { label: "A330neo", value: 11, colorVar: "--chart-2" },
+        { label: "A350-900", value: 10, colorVar: "--chart-3" },
+        { label: "A350-1000", value: 6, colorVar: "--chart-4" }
       ]}
     ],
     legend: [
-      { label: "A321neo", colorVar: "--color-primary" },
-      { label: "A330neo", colorVar: "--color-secondary" },
-      { label: "A350-900", colorVar: "--color-accent" },
-      { label: "A350-1000", colorVar: "--color-warm" }
+      { label: "A321neo", colorVar: "--chart-1" },
+      { label: "A330neo", colorVar: "--chart-2" },
+      { label: "A350-900", colorVar: "--chart-3" },
+      { label: "A350-1000", colorVar: "--chart-4" }
     ]
   };
 
@@ -225,13 +227,13 @@ var STARLUX_REPORT_DATA = (function () {
       chart: {
         type: "bar", id: "ch2-purpose",
         title: { zh: "台灣旅客去澳洲的目的", en: "Purpose of visit: Taiwanese travelers to Australia" },
-        data: CH2_PURPOSE, colorVar: "--color-secondary", suffix: "%",
+        data: CH2_PURPOSE, suffix: "%",
         sourceNote: { zh: "資料來源：Tourism Research Australia《Taiwan Visitor Economy Profile 2025》", en: "Source: Tourism Research Australia, Taiwan Visitor Economy Profile 2025" }
       },
       chart2: {
         type: "bar", id: "ch2-length",
         title: { zh: "在澳洲待多久", en: "Length of stay in Australia" },
-        data: CH2_LENGTH, colorVar: "--color-warm", suffix: "%"
+        data: CH2_LENGTH, suffix: "%"
       },
       boxes: [
         { type: "info",
@@ -304,7 +306,7 @@ var STARLUX_REPORT_DATA = (function () {
       chart: {
         type: "bar", id: "ch5-ports",
         title: { zh: "2025 年台澳定期航班載運貨量，按澳洲航點（噸）", en: "Taiwan–Australia scheduled-flight freight in 2025, by Australian gateway (tonnes)" },
-        data: CH5_PORTS, colorVar: "--color-secondary",
+        data: CH5_PORTS,
         sourceNote: { zh: "資料來源：澳洲 BITRE《International airline activity》城市對資料（截至 2026 年 6 月），雙向合計、單位為公噸", en: "Source: Australia's BITRE, International airline activity, city-pair data (to June 2026); both directions combined, in tonnes" }
       },
       chart2: {
@@ -339,13 +341,13 @@ var STARLUX_REPORT_DATA = (function () {
       chart: {
         type: "bar", id: "ch5b-twau",
         title: { zh: "2025 年台灣→澳洲空運貨值，按商品分類（百萬澳幣）", en: "Taiwan→Australia air-freight value in 2025, by commodity category (A$m)" },
-        data: CH6B_CARGO_TWAU, colorVar: "--color-primary",
+        data: CH6B_CARGO_TWAU,
         sourceNote: { zh: "資料來源：澳洲 National Freight Data Hub（ABS International Merchandise Trade），Origin=Taiwan、Mode=Air", en: "Source: Australia's National Freight Data Hub (ABS International Merchandise Trade), Origin=Taiwan, Mode=Air" }
       },
       chart2: {
         type: "bar", id: "ch5b-nswtw",
         title: { zh: "2025 年經雪梨出口→台灣空運貨值，按商品分類（百萬澳幣）", en: "Air-freight exports via Sydney to Taiwan in 2025, by commodity category (A$m)" },
-        data: CH6B_CARGO_NSWTW, colorVar: "--color-secondary",
+        data: CH6B_CARGO_NSWTW,
         sourceNote: { zh: "資料來源：同上，Origin=New South Wales、Destination=Taiwan、Mode=Air（報表的州別欄位是澳洲裝貨港，NSW 的空運港只有 Sydney）", en: "Source: same as above, Origin=New South Wales, Destination=Taiwan, Mode=Air (the report's state field is the Australian port of loading; NSW's only air port is Sydney)" }
       },
       boxes: [
@@ -395,7 +397,7 @@ var STARLUX_REPORT_DATA = (function () {
       chart: {
         type: "line", id: "ch6-loadfactor",
         title: { zh: "台澳直飛航班的載客率（全澳洲、雙向合計），近十一個財年", en: "Taiwan–Australia direct load factor (all Australia, both directions), last eleven fiscal years" },
-        data: CH6_LOADFACTOR, colorVar: "--color-primary", suffix: "%",
+        data: CH6_LOADFACTOR, suffix: "%",
         sourceNote: { zh: "資料來源：澳洲 BITRE 航空統計（按航空公司與國家）；載客率＝旅客 ÷ 座位，財年為 7 月至次年 6 月。TRA《Taiwan Visitor Economy Profile 2025》圖中 FY24/25 的 79% 與這裡「入境方向」的載客率（79.4%）一致，雙向合計則為 82.3%。國家層級統計按同班號服務的起訖國家分類，含同班號延伸航段（如經澳洲過境）的旅客，不是純粹的台澳 O&D；雪梨單線載客率另由城市對資料計算。", en: "Source: Australia's BITRE aviation statistics (by airline and country); load factor = passengers ÷ seats, fiscal year runs July to June. The 79% for FY24/25 in TRA's Taiwan Visitor Economy Profile 2025 matches the inbound-direction load factor here (79.4%); both directions combined is 82.3%. Country-level statistics classify by the origin and destination countries of same-flight-number services and include passengers on extended sectors of the same flight (for example, transiting Australia), so they aren't a pure Taiwan–Australia O&D; the Sydney single-route load factor is calculated separately from city-pair data." }
       },
       chart2: {

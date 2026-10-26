@@ -54,6 +54,14 @@
   --color-on-secondary: #242825;
   --color-on-accent: #ffffff;
 
+  /* Chart series (report charts only), in this fixed order: blue, green, amber, coral.
+     Checked against --color-surface-soft with the dataviz palette validator
+     (3:1 contrast, colorblind separation for neighbors in this order); see DESIGN.md. */
+  --chart-1: #2867a8;
+  --chart-2: #2a8650;
+  --chart-3: #a06c00;
+  --chart-4: #dc4a62;
+
   --scrim: rgba(0, 0, 0, 0.88);
   --color-on-scrim: #ffffff;
   --color-print-bg: #ffffff;
@@ -144,6 +152,11 @@
   --color-on-secondary: #242825;
   --color-on-accent: #242825;
 
+  --chart-1: #4a8fd0;
+  --chart-2: #3f9a63;
+  --chart-3: #c08a10;
+  --chart-4: #e0566f;
+
   --shadow-panel: 0 8px 26px rgba(0, 0, 0, 0.38);
   --shadow-soft: 0 2px 12px rgba(0, 0, 0, 0.3);
   --shadow-photo: 0 3px 12px rgba(0, 0, 0, 0.4);
@@ -198,6 +211,11 @@
     --color-on-primary: #242825;
     --color-on-secondary: #242825;
     --color-on-accent: #242825;
+
+    --chart-1: #4a8fd0;
+    --chart-2: #3f9a63;
+    --chart-3: #c08a10;
+    --chart-4: #e0566f;
 
     --shadow-panel: 0 8px 26px rgba(0, 0, 0, 0.38);
     --shadow-soft: 0 2px 12px rgba(0, 0, 0, 0.3);
@@ -261,6 +279,11 @@
     --color-on-primary: #ffffff;
     --color-on-secondary: #242825;
     --color-on-accent: #ffffff;
+
+    --chart-1: #2867a8;
+    --chart-2: #2a8650;
+    --chart-3: #a06c00;
+    --chart-4: #dc4a62;
 
     --shadow-panel: 0 8px 26px rgba(48, 53, 50, 0.16);
     --shadow-soft: 0 2px 10px rgba(48, 53, 50, 0.12);

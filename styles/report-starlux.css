@@ -1,8 +1,8 @@
   /* STARLUX report layout. Colors, type scale, focus ring and the round
      toggles come from tokens.css and base.css (archive/2026-10-style-plan/STYLE-PLAN.md step 6, C.9).
      Exceptions to the type scale: the cover title and the big stat number keep
-     their viewport scaling (C.9 #1); chart text is in SVG viewBox units and
-     scales with the chart (C.9 #3). */
+     their viewport scaling (C.9 #1). Chart text is drawn at real px on the
+     type scale (12-14px); see DESIGN.md, Charts. */
   html { scroll-behavior: smooth; }
 
   body { line-height: 1.7; }
@@ -265,25 +265,36 @@
   .pill.inference { background: var(--color-warm-soft); border-color: var(--color-warm-border); color: var(--color-warning-text); }
   .pill.official { background: var(--color-primary-soft); border-color: var(--color-primary-border); color: var(--color-primary-strong); }
   .pill.gap { background: var(--color-accent-soft); border-color: var(--color-accent-border); color: var(--color-accent-strong); }
-  /* ---------- chart labels on narrow screens ----------
-     Stacked charts may give groups a shortLabel; on phones the short label
-     replaces the long one at a larger size, and the unit after totals is
-     dropped (the chart title already names the unit). */
+  /* ---------- chart plot ----------
+     scripts/report-starlux.js draws each SVG at the plot's real width, so chart
+     text is type-scale px; label fitting on narrow screens is done there too. */
+  .chart-plot { position: relative; }
   /* Halo in the card colour keeps value labels readable where a line passes behind them. */
   .chart-card svg .c-val { paint-order: stroke; stroke: var(--color-surface-soft); stroke-width: 4px; stroke-linejoin: round; }
-  .chart-card svg .lbl-short { display: none; }
-  @media (max-width: 480px) {
-    .chart-card svg .lbl-full { display: none; }
-    .chart-card svg .lbl-short, .chart-card svg .lbl-plain { display: inline; font-size: 24px; }
-    .chart-card svg .lbl-total { font-size: 22px; }
-    .chart-card svg .lbl-unit { display: none; }
-    /* Shared phone sizing for the other charts (bar / line / fleet). The SVG
-       viewBox is 600 wide, so on a ~245px chart these come out near 9-10px
-       (below the 12px floor; left for the chart redesign, archive/2026-10-style-plan/STYLE-PLAN.md section 6). */
-    .chart-card svg .c-val { font-size: 22px; }
-    .chart-card svg .c-cat { font-size: 21px; }
-    .chart-card svg .c-cat-alt { display: none; }
-    .chart-card svg .c-val-below { transform: translateY(6px); }
+  /* The line-chart hit area keeps vertical page scrolling on touch screens. */
+  .chart-card svg .c-hit { touch-action: pan-y; cursor: crosshair; }
+  .chart-tip {
+    position: absolute;
+    top: 0;
+    z-index: 2;
+    pointer-events: none;
+    padding: 6px 10px;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-soft);
+    color: var(--color-text-muted);
+    font-size: var(--fs-2xs);
+    line-height: 1.5;
+    white-space: nowrap;
+  }
+  .chart-tip .tip-cat { color: var(--color-text); font-weight: 700; }
+  .chart-tip b { color: var(--color-text); font-variant-numeric: tabular-nums; }
+  .chart-tip .sw { display: inline-block; width: 8px; height: 8px; border-radius: 2px; margin-right: 5px; }
+  @media print {
+    .chart-tip { display: none; }
+    /* Charts are redrawn at a fixed print width before printing; fill the page with them. */
+    .chart-plot svg { width: 100%; height: auto; }
   }
   @media (max-width: 480px) {
     .risk-row { flex-direction: column; gap: 6px; }

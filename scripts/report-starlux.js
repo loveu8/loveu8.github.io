@@ -55,51 +55,133 @@
   }
 
   /* ============ SVG CHART BUILDERS ============ */
-  /* Colors are set via style="fill/stroke:var(--token)" so they follow the
-     theme tokens automatically — no redraw needed. Value labels use text ink,
-     never the series color (archive/2026-10-style-plan/STYLE-PLAN.md C.9 #4). */
+  /* Charts are drawn at the plot's real width in CSS px, not on a fixed canvas
+     scaled down, so chart text is true type-scale px on every screen; they are
+     redrawn when that width changes (DESIGN.md, Charts). Colors are set via
+     style="fill/stroke:var(--token)" so they follow the theme without a redraw.
+     Value labels use text ink, never the series color (archive/2026-10-style-plan/STYLE-PLAN.md C.9 #4). */
 
-  function buildBarChart(data, opts) {
-    opts = opts || {};
-    var w = 600, h = 220, padL = 6, padR = 6, padTop = 34, padBottom = 30;
-    var n = data.length;
-    var gap = 14;
-    var barW = (w - padL - padR - gap * (n - 1)) / n;
-    var max = Math.max.apply(null, data.map(function (d) { return d.value; })) * 1.2;
-    var svg = svgEl("svg", { viewBox: "0 0 " + w + " " + h, role: "img", "aria-label": t(opts.title) });
-    svg.appendChild(svgEl("line", { x1: padL, y1: h - padBottom, x2: w - padR, y2: h - padBottom, style: "stroke:var(--color-border-soft)", "stroke-width": 1 }));
-    data.forEach(function (d, i) {
-      var x = padL + i * (barW + gap);
-      var barH = max > 0 ? (d.value / max) * (h - padTop - padBottom) : 0;
-      var y = h - padBottom - barH;
-      svg.appendChild(svgEl("rect", { x: x, y: y, width: barW, height: barH, rx: 3, style: "fill:var(" + (opts.colorVar || "--color-primary") + ")" }));
-      var valText = svgEl("text", { class: "c-val", x: x + barW / 2, y: y - 8, "text-anchor": "middle", "font-size": 14, "font-weight": 700, style: "fill:var(--color-text)" });
-      valText.textContent = fmtNum(d.value) + (opts.suffix || "");
-      svg.appendChild(valText);
-      var lbl = svgEl("text", { class: "c-cat", x: x + barW / 2, y: h - padBottom + 19, "text-anchor": "middle", "font-size": 13, style: "fill:var(--color-text-soft)" });
-      lbl.textContent = t(d.label);
-      svg.appendChild(lbl);
-    });
-    return svg;
+  var FS_VAL = 13, FS_CAT = 12, FS_TOTAL = 14; // --fs-xs, --fs-2xs, --fs-sm
+  var NARROW = 480; // below this the plots are shorter
+  var LABEL_GAP = 10; // minimum space between two labels
+
+  var measureCtx = document.createElement("canvas").getContext("2d");
+  var fontFamily = "sans-serif";
+
+  function textW(str, size, weight) {
+    measureCtx.font = (weight || 400) + " " + size + "px " + fontFamily;
+    return measureCtx.measureText(str).width;
   }
 
-  function buildLineChart(chartData, opts) {
-    opts = opts || {};
-    var series = chartData.series || [{ label: opts.title, colorVar: opts.colorVar || "--color-primary", data: chartData.data }];
-    var categories = chartData.categories;
-    var w = 600, h = 220, padL = 30, padR = 30, padTop = 28, padBottom = 28;
+  function addText(svg, str, attrs) {
+    var node = svgEl("text", attrs);
+    node.textContent = str;
+    svg.appendChild(node);
+    return node;
+  }
+
+  function newSvg(w, h, chart) {
+    return svgEl("svg", { viewBox: "0 0 " + w + " " + h, width: w, height: h, role: "img", "aria-label": chartSummary(chart) });
+  }
+
+  // Greedy word wrap for horizontal-bar labels (English names can be long; Chinese ones fit on one line).
+  function wrapLabel(str, maxW, size) {
+    var words = str.split(" ");
+    var lines = [];
+    var line = "";
+    words.forEach(function (word) {
+      var next = line ? line + " " + word : word;
+      if (line && textW(next, size) > maxW) {
+        lines.push(line);
+        line = word;
+      } else {
+        line = next;
+      }
+    });
+    lines.push(line);
+    return lines;
+  }
+
+  // Horizontal bars, one series, drawn in data order (the data lists them top to bottom).
+  function drawBarChart(chart, w, plot) {
+    var data = chart.data;
+    var suffix = chart.suffix || "";
+    var labels = data.map(function (d) { return t(d.label); });
+    var values = data.map(function (d) { return fmtNum(d.value) + suffix; });
+    var labelMax = Math.max.apply(null, labels.map(function (l) { return textW(l, FS_VAL); }));
+    var labelW = Math.min(w * 0.42, labelMax) + 10;
+    var wrapped = labels.map(function (l) { return wrapLabel(l, labelW - 10, FS_VAL); });
+    var lineH = FS_VAL + 3;
+    var rowH = Math.max.apply(null, wrapped.map(function (ls) { return ls.length; })) > 1 ? 40 : 30;
+    var barH = 16;
+    var valueW = Math.max.apply(null, values.map(function (v) { return textW(v, FS_VAL, 700); })) + 8;
+    var barMax = w - labelW - valueW;
+    var max = Math.max.apply(null, data.map(function (d) { return d.value; }));
+    var h = data.length * rowH;
+    var svg = newSvg(w, h, chart);
+
+    data.forEach(function (d, i) {
+      var mid = i * rowH + rowH / 2;
+      var barW = Math.max(2, max > 0 ? (d.value / max) * barMax : 0);
+      svg.appendChild(svgEl("rect", { x: labelW, y: mid - barH / 2, width: barW, height: barH, rx: 3, style: "fill:var(--chart-1)" }));
+      var lbl = addText(svg, "", { class: "c-cat", x: labelW - 8, y: mid, "text-anchor": "end", "font-size": FS_VAL, style: "fill:var(--color-text-soft)" });
+      var lines = wrapped[i];
+      lines.forEach(function (line, li) {
+        var span = svgEl("tspan", { x: labelW - 8, y: mid + (li - (lines.length - 1) / 2) * lineH, dy: "0.35em" });
+        span.textContent = line;
+        lbl.appendChild(span);
+      });
+      addText(svg, values[i], { class: "c-val", x: labelW + barW + 6, y: mid, dy: "0.35em", "font-size": FS_VAL, "font-weight": 700, style: "fill:var(--color-text)" });
+    });
+    svg.appendChild(svgEl("line", { x1: labelW, y1: 0, x2: labelW, y2: h, style: "stroke:var(--color-border)", "stroke-width": 1 }));
+    plot.appendChild(svg);
+  }
+
+  // Which category labels to show: the fewest skipped that still leaves LABEL_GAP between neighbors.
+  // The first and last are always shown.
+  function visibleCategories(names, xFor, anchorFor) {
+    var n = names.length;
+    function extent(i) {
+      var cw = textW(names[i], FS_CAT);
+      var x = xFor(i);
+      var a = anchorFor(i);
+      return a === "start" ? [x, x + cw] : a === "end" ? [x - cw, x] : [x - cw / 2, x + cw / 2];
+    }
+    for (var step = 1; step < n; step++) {
+      var shown = [];
+      for (var i = 0; i < n - 1; i += step) shown.push(i);
+      while (shown.length > 1 && extent(shown[shown.length - 1])[1] + LABEL_GAP > extent(n - 1)[0]) shown.pop();
+      shown.push(n - 1);
+      var ok = shown.every(function (idx, k) {
+        return k === 0 || extent(shown[k - 1])[1] + LABEL_GAP <= extent(idx)[0];
+      });
+      if (ok) return shown;
+    }
+    return [0, n - 1];
+  }
+
+  function drawLineChart(chart, w, plot) {
+    var chartData = chart.data;
+    var series = chartData.series || [{ label: chart.title, colorVar: "--chart-1", data: chartData.data }];
+    var names = chartData.categories.map(t);
+    var suffix = chart.suffix || "";
+    var n = names.length;
+    var h = w < NARROW ? 200 : 220;
+    var padX = 6, padTop = 26, padBottom = 28;
     var allVals = [];
     series.forEach(function (s) { allVals = allVals.concat(s.data); });
     var max = Math.max.apply(null, allVals) * 1.18;
     var min = Math.min(0, Math.min.apply(null, allVals));
-    var n = categories.length;
-    var stepX = (w - padL - padR) / (n - 1);
-    function xFor(i) { return padL + i * stepX; }
-    function yFor(v) { return h - padBottom - ((v - min) / (max - min || 1)) * (h - padTop - padBottom); }
+    var stepX = (w - padX * 2) / (n - 1);
+    var baseY = h - padBottom;
+    function xFor(i) { return padX + i * stepX; }
+    function yFor(v) { return baseY - ((v - min) / (max - min || 1)) * (baseY - padTop); }
     function anchorFor(i) { return i === 0 ? "start" : (i === n - 1 ? "end" : "middle"); }
 
-    var svg = svgEl("svg", { viewBox: "0 0 " + w + " " + h, role: "img", "aria-label": t(opts.title) });
-    svg.appendChild(svgEl("line", { x1: padL, y1: h - padBottom, x2: w - padR, y2: h - padBottom, style: "stroke:var(--color-border-soft)", "stroke-width": 1 }));
+    var svg = newSvg(w, h, chart);
+    svg.appendChild(svgEl("line", { x1: padX, y1: baseY, x2: w - padX, y2: baseY, style: "stroke:var(--color-border-soft)", "stroke-width": 1 }));
+    var cross = svgEl("line", { class: "c-cross", x1: 0, y1: padTop - 8, x2: 0, y2: baseY, style: "stroke:var(--color-text-soft)", "stroke-width": 1, "stroke-dasharray": "3 3", visibility: "hidden" });
+    svg.appendChild(cross);
 
     series.forEach(function (s) {
       var pts = s.data.map(function (v, i) { return xFor(i) + "," + yFor(v); }).join(" ");
@@ -110,104 +192,218 @@
     });
 
     // Value labels are drawn after every line and dot so no line runs through a number.
-    series.forEach(function (s) {
-      // label first + last always; label the low point only for single-series charts (avoids overlapping labels when series share a near-zero minimum)
-      var labelIdxs = [0, s.data.length - 1];
-      if (series.length === 1) {
-        var minIdx = s.data.indexOf(Math.min.apply(null, s.data));
-        if (labelIdxs.indexOf(minIdx) === -1) labelIdxs.push(minIdx);
-      }
+    series.forEach(function (s, si) {
+      // Label first + last always; label the low point only for single-series charts
+      // (avoids overlapping labels when series share a near-zero minimum).
+      var minIdx = s.data.indexOf(Math.min.apply(null, s.data));
+      var labelIdxs = [0, n - 1];
+      if (series.length === 1 && labelIdxs.indexOf(minIdx) === -1) labelIdxs.push(minIdx);
       labelIdxs.forEach(function (i) {
         var v = s.data[i];
         var y = yFor(v);
-        var isLow = series.length === 1 && v === Math.min.apply(null, s.data) && s.data.length > 3;
-        // With several series, when another series' point at this position is very close (within 30 units) and
-        // higher, this label goes below its point so the two labels don't sit on top of each other.
-        var isBelow = isLow;
+        var isBelow = series.length === 1 && i === minIdx && n > 3;
+        // With several series, when another series' point here is close (within two label heights)
+        // and higher, this label goes below its point so the two labels don't overlap.
         if (series.length > 1) {
-          var self = series.indexOf(s);
           isBelow = series.some(function (o, oi) {
-            if (oi === self) return false;
+            if (oi === si) return false;
             var ov = o.data[i];
-            return Math.abs(yFor(ov) - y) < 30 && (ov > v || (ov === v && oi < self));
+            return Math.abs(yFor(ov) - y) < FS_VAL * 2 && (ov > v || (ov === v && oi < si));
           });
         }
-        var txt = svgEl("text", { class: isBelow ? "c-val c-val-below" : "c-val", x: xFor(i), y: isBelow ? y + 18 : y - 9, "text-anchor": anchorFor(i), "font-size": 13, "font-weight": 700, style: "fill:var(--color-text)" });
-        txt.textContent = fmtNum(v) + (opts.suffix || "");
-        svg.appendChild(txt);
+        addText(svg, fmtNum(v) + suffix, { class: "c-val", x: xFor(i), y: isBelow ? y + FS_VAL + 6 : y - 9, "text-anchor": anchorFor(i), "font-size": FS_VAL, "font-weight": 700, style: "fill:var(--color-text)" });
       });
     });
 
-    categories.forEach(function (c, i) {
-      // With many categories, every other middle label is hidden on phones (.c-cat-alt) so they don't collide at the larger phone font size.
-      var isAlt = n > 8 && i > 0 && i < n - 1 && i % 2 === 1;
-      var txt = svgEl("text", { class: isAlt ? "c-cat c-cat-alt" : "c-cat", x: xFor(i), y: h - padBottom + 18, "text-anchor": anchorFor(i), "font-size": 12, style: "fill:var(--color-text-soft)" });
-      txt.textContent = t(c);
-      svg.appendChild(txt);
+    visibleCategories(names, xFor, anchorFor).forEach(function (i) {
+      addText(svg, names[i], { class: "c-cat", x: xFor(i), y: baseY + 18, "text-anchor": anchorFor(i), "font-size": FS_CAT, style: "fill:var(--color-text-soft)" });
     });
 
-    return svg;
+    plot.appendChild(svg);
+    addLineTooltip(plot, svg, cross, series, names, suffix, xFor, stepX, w, h);
   }
 
-  function buildStackedChart(chartData, opts) {
-    opts = opts || {};
-    var w = 600, h = 220, padL = 10, padR = 10, padTop = 36, padBottom = 30;
+  // Hover (mouse) or tap (touch) shows a crosshair and every series' value at the nearest category.
+  // Keyboard and screen-reader users get the same numbers from the chart's aria-label.
+  function addLineTooltip(plot, svg, cross, series, names, suffix, xFor, stepX, w, h) {
+    var tip = el("div", { class: "chart-tip", "aria-hidden": "true" });
+    tip.hidden = true;
+    plot.appendChild(tip);
+    var hit = svgEl("rect", { class: "c-hit", x: 0, y: 0, width: w, height: h, fill: "transparent" });
+    svg.appendChild(hit);
+
+    function show(evt) {
+      var box = svg.getBoundingClientRect();
+      var x = (evt.clientX - box.left) * (w / box.width);
+      var i = Math.max(0, Math.min(names.length - 1, Math.round((x - xFor(0)) / stepX)));
+      var cx = xFor(i);
+      cross.setAttribute("x1", cx);
+      cross.setAttribute("x2", cx);
+      cross.setAttribute("visibility", "visible");
+      tip.innerHTML = "";
+      tip.appendChild(el("div", { class: "tip-cat" }, [document.createTextNode(names[i])]));
+      series.forEach(function (s) {
+        var row = el("div", { class: "tip-row" });
+        if (series.length > 1) {
+          var sw = el("span", { class: "sw" });
+          sw.style.background = "var(" + s.colorVar + ")";
+          row.appendChild(sw);
+          row.appendChild(document.createTextNode(t(s.label) + " "));
+        }
+        row.appendChild(el("b", {}, [document.createTextNode(fmtNum(s.data[i]) + suffix)]));
+        tip.appendChild(row);
+      });
+      tip.hidden = false;
+      var px = cx * (box.width / w);
+      var tw = tip.offsetWidth;
+      var left = px + 10 + tw <= box.width ? px + 10 : px - 10 - tw;
+      tip.style.left = Math.max(0, left) + "px";
+      if (openTip && openTip.plot !== plot) openTip.hide();
+      openTip = { plot: plot, hide: hide };
+    }
+    function hide() {
+      tip.hidden = true;
+      cross.setAttribute("visibility", "hidden");
+    }
+    hit.addEventListener("pointermove", show);
+    hit.addEventListener("pointerdown", show);
+    hit.addEventListener("pointerleave", function (evt) { if (evt.pointerType === "mouse") hide(); });
+  }
+
+  // A tapped tooltip stays until the reader taps somewhere else.
+  var openTip = null;
+  document.addEventListener("pointerdown", function (evt) {
+    if (openTip && !openTip.plot.contains(evt.target)) {
+      openTip.hide();
+      openTip = null;
+    }
+  });
+
+  // Short form for totals that don't fit a narrow column: 22.0萬 / 220k, then 22萬.
+  function compactNum(n, digits) {
+    return currentLang === "zh" ? (n / 10000).toFixed(digits) + "萬" : Math.round(n / 1000) + "k";
+  }
+
+  // Vertical stacked columns, each centered in an equal slot so its labels never pass the
+  // chart edge. Totals and category names shrink to fit the slot: the unit after totals
+  // goes first, then the font steps down, then the number is shortened; long group names
+  // switch to their shortLabel.
+  function drawStackedChart(chart, w, plot) {
+    var chartData = chart.data;
     var groups = chartData.groups;
     var n = groups.length;
-    var gap = chartData.gap || 100;
     var unit = chartData.unit ? t(chartData.unit) : t(UI.fleetUnit);
-    var barW = (w - padL - padR - gap * (n - 1)) / n;
-    var max = Math.max.apply(null, groups.map(function (g) { return g.total; })) * 1.2;
-    var svg = svgEl("svg", { viewBox: "0 0 " + w + " " + h, role: "img", "aria-label": t(opts.title) });
-    svg.appendChild(svgEl("line", { x1: padL, y1: h - padBottom, x2: w - padR, y2: h - padBottom, style: "stroke:var(--color-border-soft)", "stroke-width": 1 }));
+    var h = w < NARROW ? 200 : 220;
+    var padTop = 28, padBottom = 28;
+    var baseY = h - padBottom;
+    var slot = w / n;
+    var barW = Math.min(110, slot * 0.7);
+    var room = slot - 4; // labels are centered in their slots, so the slots keep them apart
+    var max = Math.max.apply(null, groups.map(function (g) { return g.total; })) * 1.15;
+
+    function fitsAll(texts, size, weight) {
+      return texts.every(function (s) { return textW(s, size, weight) <= room; });
+    }
+    var withUnit = groups.map(function (g) { return fmtNum(g.total) + " " + unit; });
+    var bare = groups.map(function (g) { return fmtNum(g.total); });
+    var short1 = groups.map(function (g) { return g.total >= 10000 ? compactNum(g.total, 1) : fmtNum(g.total); });
+    var short0 = groups.map(function (g) { return g.total >= 10000 ? compactNum(g.total, 0) : fmtNum(g.total); });
+    var totals = withUnit;
+    var totalSize = FS_TOTAL;
+    [[withUnit, FS_TOTAL], [bare, FS_TOTAL], [bare, FS_VAL], [bare, FS_CAT], [short1, FS_CAT], [short0, FS_CAT]].some(function (opt) {
+      totals = opt[0];
+      totalSize = opt[1];
+      return fitsAll(opt[0], opt[1], 800);
+    });
+    var names = groups.map(function (g) { return t(g.label); });
+    if (!fitsAll(names, FS_CAT)) names = groups.map(function (g) { return t(g.shortLabel || g.label); });
+
+    var svg = newSvg(w, h, chart);
+    svg.appendChild(svgEl("line", { x1: 0, y1: baseY, x2: w, y2: baseY, style: "stroke:var(--color-border-soft)", "stroke-width": 1 }));
     groups.forEach(function (g, i) {
-      var x = padL + i * (barW + gap);
-      var yCursor = h - padBottom;
+      var x = i * slot + (slot - barW) / 2;
+      var yCursor = baseY;
       g.segments.forEach(function (seg) {
-        var segH = (seg.value / max) * (h - padTop - padBottom);
+        var segH = (seg.value / max) * (baseY - padTop);
         yCursor -= segH;
         // A 2px stroke in the card colour leaves a gap between stacked segments (C.9 #4).
-        if (segH > 0) svg.appendChild(svgEl("rect", { x: x, y: yCursor, width: barW, height: segH, style: "fill:var(" + seg.colorVar + ");stroke:var(--color-surface-soft)", "stroke-width": 2, "vector-effect": "non-scaling-stroke" }));
+        if (segH > 0) svg.appendChild(svgEl("rect", { x: x, y: yCursor, width: barW, height: segH, style: "fill:var(" + seg.colorVar + ");stroke:var(--color-surface-soft)", "stroke-width": 2 }));
       });
-      var totalLabel = svgEl("text", { x: x + barW / 2, y: yCursor - 9, "text-anchor": "middle", "font-size": 16, "font-weight": 800, style: "fill:var(--color-text)" });
-      if (chartData.unit) {
-        // Charts with a unit (e.g. seats): the unit is a separate tspan so narrow screens can hide it.
-        totalLabel.setAttribute("class", "lbl-total");
-        totalLabel.appendChild(document.createTextNode(fmtNum(g.total)));
-        var unitSpan = svgEl("tspan", { class: "lbl-unit" });
-        unitSpan.textContent = " " + unit;
-        totalLabel.appendChild(unitSpan);
-      } else {
-        totalLabel.setAttribute("class", "c-val");
-        totalLabel.textContent = fmtNum(g.total) + " " + unit;
-      }
-      svg.appendChild(totalLabel);
-      var lbl = svgEl("text", { x: x + barW / 2, y: h - padBottom + 20, "text-anchor": "middle", "font-size": 13, style: "fill:var(--color-text-soft)" });
-      lbl.textContent = t(g.label);
-      svg.appendChild(lbl);
-      lbl.setAttribute("class", chartData.unit ? (g.shortLabel ? "lbl-full" : "lbl-plain") : "c-cat");
-      if (g.shortLabel) {
-        // Optional short label, swapped in by CSS on narrow screens (see .lbl-full / .lbl-short).
-        var lblShort = svgEl("text", { x: x + barW / 2, y: h - padBottom + 20, "text-anchor": "middle", "font-size": 13, class: "lbl-short", style: "fill:var(--color-text-soft)" });
-        lblShort.textContent = t(g.shortLabel);
-        svg.appendChild(lblShort);
-      }
+      addText(svg, totals[i], { class: "c-val", x: x + barW / 2, y: yCursor - 9, "text-anchor": "middle", "font-size": totalSize, "font-weight": 800, style: "fill:var(--color-text)" });
+      addText(svg, names[i], { class: "c-cat", x: x + barW / 2, y: baseY + 18, "text-anchor": "middle", "font-size": FS_CAT, style: "fill:var(--color-text-soft)" });
     });
-    return svg;
+    plot.appendChild(svg);
   }
+
+  // The chart's accessible name: its title, then every number it shows.
+  function chartSummary(chart) {
+    var zh = currentLang === "zh";
+    var sep = zh ? "、" : ", ";
+    var title = t(chart.title).replace(/<[^>]+>/g, "");
+    var suffix = chart.suffix || "";
+    var parts;
+    if (chart.type === "bar") {
+      parts = [chart.data.map(function (d) { return t(d.label) + " " + fmtNum(d.value) + suffix; }).join(sep)];
+    } else if (chart.type === "line") {
+      var series = chart.data.series || [{ data: chart.data.data }];
+      parts = series.map(function (s) {
+        var pts = s.data.map(function (v, i) { return t(chart.data.categories[i]) + " " + fmtNum(v) + suffix; }).join(sep);
+        return s.label ? t(s.label) + (zh ? "：" : ": ") + pts : pts;
+      });
+    } else {
+      var unit = chart.data.unit ? t(chart.data.unit) : t(UI.fleetUnit);
+      parts = chart.data.groups.map(function (g) {
+        var segs = g.segments.filter(function (s) { return s.value > 0; })
+          .map(function (s) { return t(s.label) + " " + fmtNum(s.value); }).join(sep);
+        return t(g.label) + " " + fmtNum(g.total) + " " + unit + (zh ? "（" + segs + "）" : " (" + segs + ")");
+      });
+    }
+    return title + (zh ? "。" : ". ") + parts.join(zh ? "；" : "; ");
+  }
+
+  /* Every chart on the page, redrawn when its plot changes width. */
+  var plots = [];
+  var resizeTimer = null;
+  var observer = window.ResizeObserver ? new ResizeObserver(function () {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(function () { drawCharts(false); }, 150);
+  }) : null;
+
+  function drawCharts(force, fixedWidth) {
+    fontFamily = getComputedStyle(document.body).fontFamily;
+    plots.forEach(function (p) {
+      var w = fixedWidth || Math.floor(p.node.clientWidth);
+      if (!w || (w === p.width && !force)) return;
+      p.width = w;
+      p.node.innerHTML = "";
+      if (p.chart.type === "bar") drawBarChart(p.chart, w, p.node);
+      else if (p.chart.type === "line") drawLineChart(p.chart, w, p.node);
+      else if (p.chart.type === "stacked") drawStackedChart(p.chart, w, p.node);
+    });
+  }
+
+  if (!observer) window.addEventListener("resize", function () { drawCharts(false); });
+  // The print layout can't be measured before printing, so print draws every chart at about
+  // the A4 plot width and CSS stretches it to the page; the screen size comes back afterwards.
+  var PRINT_WIDTH = 620;
+  window.addEventListener("beforeprint", function () { drawCharts(true, PRINT_WIDTH); });
+  window.addEventListener("afterprint", function () { drawCharts(true); });
+  // Text is measured to place labels; measure again once the web fonts are in.
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { drawCharts(true); });
 
   function buildChartCard(chart) {
     var card = el("div", { class: "chart-card" });
     card.appendChild(el("div", { class: "chart-title", html: t(chart.title) }));
-    var svg;
-    if (chart.type === "bar") svg = buildBarChart(chart.data, chart);
-    else if (chart.type === "line") svg = buildLineChart(chart.data, chart);
-    else if (chart.type === "stacked") svg = buildStackedChart(chart.data, chart);
-    card.appendChild(svg);
+    var plot = el("div", { class: "chart-plot" });
+    card.appendChild(plot);
+    plots.push({ node: plot, chart: chart, width: 0 });
+    if (observer) observer.observe(plot);
 
-    if (chart.type === "line" && chart.data.series && chart.data.series.length > 1) {
+    var legendItems = chart.type === "stacked" ? chart.data.legend
+      : (chart.type === "line" && chart.data.series && chart.data.series.length > 1 ? chart.data.series : null);
+    if (legendItems) {
       var legend = el("div", { class: "chart-legend" });
-      chart.data.series.forEach(function (s) {
+      legendItems.forEach(function (s) {
         var item = el("span", {});
         var sw = el("span", { class: "sw" });
         sw.style.background = "var(" + s.colorVar + ")";
@@ -216,18 +412,6 @@
         legend.appendChild(item);
       });
       card.appendChild(legend);
-    }
-    if (chart.type === "stacked") {
-      var legend2 = el("div", { class: "chart-legend" });
-      chart.data.legend.forEach(function (s) {
-        var item = el("span", {});
-        var sw = el("span", { class: "sw" });
-        sw.style.background = "var(" + s.colorVar + ")";
-        item.appendChild(sw);
-        item.appendChild(document.createTextNode(t(s.label)));
-        legend2.appendChild(item);
-      });
-      card.appendChild(legend2);
     }
     return card;
   }
@@ -391,6 +575,10 @@
     setText("pendingSummary", t(UI.pendingSummary));
     setText("footerNote", t(UI.footerNote));
 
+    // The old plots are about to be removed; stop watching them.
+    plots.forEach(function (p) { if (observer) observer.unobserve(p.node); });
+    plots = [];
+
     var chaptersEl = document.getElementById("chapters");
     chaptersEl.innerHTML = "";
     D.STORIES.forEach(function (s, i) {
@@ -399,6 +587,8 @@
     });
     chaptersEl.appendChild(renderDivider(t(UI.dividerConclusion)));
     chaptersEl.appendChild(renderConclusion());
+    // Plots have a width only once they are in the page.
+    drawCharts(true);
 
     var sourceList = document.getElementById("sourceList");
     sourceList.innerHTML = "";
