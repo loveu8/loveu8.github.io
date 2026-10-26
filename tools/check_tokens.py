@@ -115,7 +115,7 @@ def structural(b):
     used = {}
     for g in USE_GLOBS:
         for p in ROOT.glob(g):
-            if p.name.startswith("home-demo") or p == TOKENS:
+            if p == TOKENS:
                 continue
             text = p.read_text(encoding="utf-8")
             for name in re.findall(r"var\(\s*(--[\w-]+)", text) + re.findall(r"colorVar:\s*\"(--[\w-]+)\"", text):
