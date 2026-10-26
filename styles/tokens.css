@@ -1,6 +1,6 @@
 /* Site-wide design tokens. The only place raw color values live.
    Load first on every page: tokens.css -> base.css -> (travel) app-shell.css -> page CSS.
-   Palette: STYLE-PLAN.md D1 / D1-2 (warm neutrals + one slate blue);
+   Palette: archive/2026-10-style-plan/STYLE-PLAN.md D1 / D1-2 (warm neutrals + one slate blue);
    type scale: D3 (fixed px); print reset: P3.
    Copies that must stay identical are checked by tools/check_tokens.py:
    light = print colors (except the two paper surfaces), [data-theme="dark"] = system dark. */

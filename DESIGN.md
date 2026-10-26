@@ -5,7 +5,7 @@
 - **Who it is for:** The site owner and invited readers who need quick, clear trip information on mobile and desktop.
 - **Project type:** Static travel utility site, closer to a compact planning app than a marketing page.
 - **Design priority:** Information must stay readable and scannable first. Color adds warmth and memory, but should never compete with maps, photos, times, or navigation links.
-- **Pages:** the homepage (`index.html`), the travel app pages (Noosa itinerary, Brisbane cafe and bakery maps) and the STARLUX research report. They look like one site: same tokens, fonts, toggles and header behaviour (`STYLE-PLAN.md`, 2026-10).
+- **Pages:** the homepage (`index.html`), the travel app pages (Noosa itinerary, Brisbane cafe and bakery maps) and the STARLUX research report. They look like one site: same tokens, fonts, toggles and header behaviour (`archive/2026-10-style-plan/STYLE-PLAN.md`, 2026-10).
 - **Shared files:** every page loads `styles/tokens.css` → `styles/base.css` → (travel pages) `styles/app-shell.css` → its own page CSS, and `scripts/site.js` before its own script. `site.js` owns the theme (`theme`: `light`/`dark`, absent = follow the system), the language (`lang`: `zh-TW`/`en`; URL `?lang=` → remembered value → browser language) and the two header toggles (`data-toggle="theme"` / `data-toggle="lang"`). Every page header has「阿星」top left linking to the homepage.
 
 ## Aesthetic Direction
@@ -43,7 +43,7 @@
 - **Approach:** Balanced. Calm warm neutrals with one muted slate blue for structure and actions, plus a restrained Instagram-inspired accent set.
 - **Light mode base:** Warm off-white page and card surfaces, warm charcoal text.
 - **Dark mode base:** Warm soft charcoal surfaces (not near-black) with softened accents and strong contrast.
-- **Why slate blue, not Google blue:** in 2026-10 the homepage's warm neutrals (2026-10-20) became the site-wide background, text and border colors, and the site kept one blue — the homepage's slate blue — so pages read as one site (`STYLE-PLAN.md` D1, D1-2). Its job is unchanged: blue still means navigation and map movement. Green, coral, amber and violet keep their jobs below; only their soft tints were warmed to sit on the warm surfaces.
+- **Why slate blue, not Google blue:** in 2026-10 the homepage's warm neutrals (2026-10-20) became the site-wide background, text and border colors, and the site kept one blue — the homepage's slate blue — so pages read as one site (`archive/2026-10-style-plan/STYLE-PLAN.md` D1, D1-2). Its job is unchanged: blue still means navigation and map movement. Green, coral, amber and violet keep their jobs below; only their soft tints were warmed to sit on the warm surfaces.
 - **Gradient rule:** Gradients are allowed only for subtle route strips or image overlays. Never use gradient buttons as the default CTA style.
 
 ## Color Tokens
@@ -62,7 +62,7 @@
 - **`--color-*-strong` (primary / secondary / accent):** The base `--color-primary/secondary/accent` are brand/status colors; in light mode secondary and accent do not reach 4.5:1 as small text. Use the `*-strong` variants for text on a `*-soft` background, for colored text on cards, and for solid button backgrounds that carry white text; keep the base tokens for dots, borders, route strips and icons where text contrast does not apply. In dark mode secondary-strong equals its base token and accent-strong is lighter than the base, for text on `--color-accent-soft`. Solid buttons use the per-family `--color-on-primary/secondary/accent` for label color — green buttons use dark labels on the base green, so they do not need `--color-secondary-strong`.
 - **`--color-text-soft` vs `--color-text-muted`:** both pass AA as text and sit close together; distinguish them by size/weight, not by relying on the small color difference.
 - **`--color-warning` vs `--color-warning-text`:** `--color-warning` is a *status* color (badges, small dots, the bullet marker before a tip) — it is not dark enough to pass 4.5:1 as body/label text on light warm surfaces. `--color-warning-text` is the text-safe variant (in dark mode it equals `--color-warning`). Any warning/shop tag or tips-list text must use `--color-warning-text`, never `--color-warning` directly.
-- **Charts (STARLUX report):** bars, lines and legend swatches use the base color tokens; value labels and axis labels use text tokens (`--color-text`, `--color-text-soft`), never the series color. Stacked segments are separated by a 2px gap in the card color. **Known gap:** on the chart card, light-mode green and amber marks are under 3:1, and red vs green is hard to tell apart for red-green colour-blind readers; a chart-specific palette is left for a later chart redesign (`STYLE-PLAN.md` section 6).
+- **Charts (STARLUX report):** bars, lines and legend swatches use the base color tokens; value labels and axis labels use text tokens (`--color-text`, `--color-text-soft`), never the series color. Stacked segments are separated by a 2px gap in the card color. **Known gap:** on the chart card, light-mode green and amber marks are under 3:1, and red vs green is hard to tell apart for red-green colour-blind readers; a chart-specific palette is left for a later chart redesign (`archive/2026-10-style-plan/STYLE-PLAN.md` section 6).
 
 ## Dark Mode Rules
 - Follow `prefers-color-scheme: dark` when no explicit `[data-theme]` is set. The theme toggle (`scripts/site.js`) sets the override and persists the choice in `localStorage` under `theme`; its first click always flips what is on screen, even when the page is following a dark system theme. A small script in each page's `<head>` applies the saved theme before first paint.
@@ -181,7 +181,19 @@
   | Photo, drag handle | Element-specific feedback (zoom + shadow; wider, colored bar) | `.tl-photo`, `.resize-divider` |
 
   **Never fade a control with `opacity` on hover**: it drops text contrast (measured 6.09 → 3.47 on a blue pill) and reads as disabled, which is what reduced opacity means elsewhere on the site. The background-image layer switches instantly (gradients do not transition); that is accepted. Contrast on every state layer is checked in `tools/check_tokens.py` groups 8 and 9.
-- Shared rules go in the shared files, not copied into pages: `base.css` (font stack, focus ring, round toggles, reduced motion), `app-shell.css` (travel pages' top bar, map + sidebar / bottom sheet, lightbox, back-to-top), `site.js` (theme, language, toggles). When a shared file changes, bump its `?v=` on every page that loads it (dependency list: `STYLE-PLAN.md` appendix A).
+- Shared rules go in the shared files, not copied into pages: `base.css` (font stack, focus ring, round toggles, reduced motion), `app-shell.css` (travel pages' top bar, map + sidebar / bottom sheet, lightbox, back-to-top), `site.js` (theme, language, toggles). When a shared file changes, bump its `?v=` on every page that loads it (dependency list below).
+- **Which page loads which shared file** (check with a search for the file name before bumping; add a row when a page is added):
+
+  | Shared file | Loaded by |
+  |---|---|
+  | `styles/tokens.css`, `styles/base.css`, `scripts/site.js` | all 5 pages: `index.html`, `travel/australia/brisbane/cafe/index.html`, `travel/australia/brisbane/bakery/index.html`, `travel/australia/noosa/itinerary.html`, `ai_report/2026/starlux-australia-report.html` |
+  | `styles/app-shell.css` | the 3 travel pages (cafe, bakery, Noosa) |
+  | `styles/map-list.css`, `scripts/map-list.js` | cafe, bakery |
+  | `styles/noosa.css`, `scripts/noosa.js` | Noosa |
+  | `styles/home.css`, `scripts/home.js` | homepage |
+  | `styles/report-starlux.css`, `scripts/report-starlux.js` | STARLUX report |
+
+  Load order on every page: theme pre-paint script → Google Fonts → `tokens.css` → `base.css` → (travel) `app-shell.css` → page CSS; before `</body>`: page data (`page.js`, `data.js`, report `.data.js`) → `site.js` → page script. Paths are relative (`../../../../` for cafe and bakery, `../../../` for Noosa, `../../` for the report), never `/styles/…`, so `file://` previews work. Version format: `YYYYMMDD` plus a letter for a second change the same day (`20261026b`).
 - Before changing UI, read this file and check whether the change preserves the Google clarity / Instagram warmth balance.
 
 ## Decision History

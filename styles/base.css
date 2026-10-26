@@ -1,5 +1,5 @@
 /* Site-wide base. Load after tokens.css, before any page CSS.
-   Only rules every page agrees on (STYLE-PLAN.md step 2, appendix C.6).
+   Only rules every page agrees on (archive/2026-10-style-plan/STYLE-PLAN.md step 2, appendix C.6).
    Not here on purpose: the travel reset (margin/padding 0, full-height body)
    lives in app-shell.css; the homepage link button is .btn-pill in home.css;
    .pill means different things per page, so base never styles it. */

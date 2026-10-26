@@ -1,6 +1,6 @@
 /* Travel app shell, shared by the list-map pages (cafe, bakery) and Noosa.
    Load after tokens.css and base.css, before the page's own CSS.
-   Contents follow the D4 diff (tools/diff_shell_css.py, STYLE-PLAN.md C.8):
+   Contents follow the D4 diff (tools/diff_shell_css.py, archive/2026-10-style-plan/STYLE-PLAN.md C.8):
    rules both pages already shared, plus the map-list version of rules that
    only Noosa will see change (confirmed with screenshots in step 5).
    Colors that differ per page (chips, map button) stay in the page CSS. */

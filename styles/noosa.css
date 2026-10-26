@@ -1,5 +1,5 @@
 /* Noosa itinerary page: timeline, food cards and the per-day colors.
-   Load after tokens.css, base.css and app-shell.css (STYLE-PLAN.md step 5).
+   Load after tokens.css, base.css and app-shell.css (archive/2026-10-style-plan/STYLE-PLAN.md step 5).
    The shell (top bar, map panel, bottom sheet / sidebar, divider, lightbox,
    print shell) lives in app-shell.css. Day 1 is blue (primary), day 2 green
    (secondary); classes .d1 / .d2 come from the itinerary data. */
@@ -284,7 +284,7 @@
   border: 1px solid var(--color-border);
 }
 .fr-budget { align-self: start; font-size: var(--fs-sm); font-weight: 700; color: var(--color-text); white-space: nowrap; padding-top: 3px; }
-/* 40px, not 44px: two sit side by side in a dense food row (STYLE-PLAN.md step 7). */
+/* 40px, not 44px: two sit side by side in a dense food row (archive/2026-10-style-plan/STYLE-PLAN.md step 7). */
 .fr-link {
   width: 40px;
   height: 40px;

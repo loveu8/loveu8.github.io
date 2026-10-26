@@ -1,7 +1,7 @@
 # 布里斯本咖啡廳地圖＋清單地圖共用化：開發計畫
 
 - 日期：2026-10-16
-- 狀態：**共用架構（步驟 1～3）、咖啡廳候選調查（步驟 4）已完成；等使用者定案（步驟 5）**。最新進度看下面的進度表
+- 狀態：**已完成**（2026-10-26 更新）：進度表步驟 0～8b 全部 ✅，咖啡廳頁 36 家已上線；之後的全站樣式統一見 `archive/2026-10-style-plan/STYLE-PLAN.md`
 - 參考：`travel/australia/brisbane/bakery/`（PLAN.md、CANDIDATES.md、TOP3.md）、根目錄 `DESIGN.md`、`DECISIONS.md`、`AGENTS.md`
 
 ## 進度表

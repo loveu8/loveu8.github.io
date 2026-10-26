@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Diff the shared shell rules of the two travel stylesheets (STYLE-PLAN.md D4, step 4).
+"""Diff the shared shell rules of the two travel stylesheets (archive/2026-10-style-plan/STYLE-PLAN.md D4, step 4).
 
 Run from the repo root:  python3 tools/diff_shell_css.py > out.md
 

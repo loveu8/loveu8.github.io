@@ -1,7 +1,7 @@
 // Noosa itinerary page. Theme, language and the two header toggles come from
 // scripts/site.js; this file re-renders its text when Site.onLangChange fires.
 
-// "阿星 (Lorn)" back to the homepage (STYLE-PLAN.md D6, revised).
+// "阿星 (Lorn)" back to the homepage (archive/2026-10-style-plan/STYLE-PLAN.md D6, revised).
 var BRAND = {
   'zh-TW': { brandEn: '', homeTitle: '回到首頁' },
   en: { brandEn: ' (Lorn)', homeTitle: 'Back to home' }

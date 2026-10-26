@@ -1,5 +1,5 @@
 /* Homepage layout. Colors, type scale, focus ring and the round toggles
-   come from tokens.css and base.css (STYLE-PLAN.md step 3). */
+   come from tokens.css and base.css (archive/2026-10-style-plan/STYLE-PLAN.md step 3). */
 body { line-height: 1.7; }
 a { color: inherit; text-decoration: none; }
 button { font: inherit; }

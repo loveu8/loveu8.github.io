@@ -1,5 +1,5 @@
   /* STARLUX report layout. Colors, type scale, focus ring and the round
-     toggles come from tokens.css and base.css (STYLE-PLAN.md step 6, C.9).
+     toggles come from tokens.css and base.css (archive/2026-10-style-plan/STYLE-PLAN.md step 6, C.9).
      Exceptions to the type scale: the cover title and the big stat number keep
      their viewport scaling (C.9 #1); chart text is in SVG viewBox units and
      scales with the chart (C.9 #3). */
@@ -279,7 +279,7 @@
     .chart-card svg .lbl-unit { display: none; }
     /* Shared phone sizing for the other charts (bar / line / fleet). The SVG
        viewBox is 600 wide, so on a ~245px chart these come out near 9-10px
-       (below the 12px floor; left for the chart redesign, STYLE-PLAN section 6). */
+       (below the 12px floor; left for the chart redesign, archive/2026-10-style-plan/STYLE-PLAN.md section 6). */
     .chart-card svg .c-val { font-size: 22px; }
     .chart-card svg .c-cat { font-size: 21px; }
     .chart-card svg .c-cat-alt { display: none; }

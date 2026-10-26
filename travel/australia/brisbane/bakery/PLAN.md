@@ -1,7 +1,7 @@
 # 布里斯本烘焙地圖：靜態網頁規劃（討論稿）
 
 - 日期：2026-10-16
-- 狀態：**規劃已定案（第 7 節），尚未實作**
+- 狀態：**已完成**（2026-10-26 更新）：烘焙頁已上線；之後的共用化和咖啡廳頁見 `travel/australia/brisbane/cafe/PLAN.md`，全站樣式統一見 `archive/2026-10-style-plan/STYLE-PLAN.md`
 - 參考：`travel/australia/noosa/itinerary.html`、`script.js`、`style.css`，以及根目錄的 `DESIGN.md`、`DECISIONS.md`
 - 資料：`bakery.csv`（24 家）、`TOP3.md`（推薦前三名＋提及次數）、`QA.md`（Google 評分、熱度）
 

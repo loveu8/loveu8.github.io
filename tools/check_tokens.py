@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Check styles/tokens.css and print its contrast list (STYLE-PLAN.md step 2).
+"""Check styles/tokens.css and print its contrast list (archive/2026-10-style-plan/STYLE-PLAN.md step 2).
 
 Run from the repo root:  python3 tools/check_tokens.py [--quiet]
 Exit code 1 if a structural check fails, including a raw color value outside
@@ -217,7 +217,7 @@ def contrast(b):
         add("3 實心按鈕、active chip", fg, bg, 4.5)
     # Chart value labels use --color-text since step 6 (C.9 #4), covered by group 1.
     # Chart marks sit on the chart card (--color-surface-soft); the misses are a
-    # known issue left for the chart redesign (STYLE-PLAN section 6).
+    # known issue left for the chart redesign (archive/2026-10-style-plan/STYLE-PLAN.md section 6).
     for fg in ["--color-primary", "--color-secondary", "--color-accent", "--color-warm"]:
         add("5 報告圖表：長條、折線、圖例色塊（非文字，已知問題）", fg, "--color-surface-soft", 3.0)
     for bg in surfaces:

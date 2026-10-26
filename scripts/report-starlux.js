@@ -5,7 +5,7 @@
   var UI = D.UI;
 
   /* ============ LANGUAGE STATE ============ */
-  /* site.js owns the language (URL, memory, browser; STYLE-PLAN D5) and the
+  /* site.js owns the language (URL, memory, browser; archive/2026-10-style-plan/STYLE-PLAN.md D5) and the
      toggle buttons. The report data is keyed zh / en, so map zh-TW to zh. */
 
   function dataLang(lang) {
@@ -14,7 +14,7 @@
 
   var currentLang = dataLang(Site.getLang());
 
-  // "阿星 (Lorn)" back to the homepage (STYLE-PLAN.md D6).
+  // "阿星 (Lorn)" back to the homepage (archive/2026-10-style-plan/STYLE-PLAN.md D6).
   var BRAND = {
     zh: { brandEn: "", homeTitle: "回到首頁" },
     en: { brandEn: " (Lorn)", homeTitle: "Back to home" }
@@ -57,7 +57,7 @@
   /* ============ SVG CHART BUILDERS ============ */
   /* Colors are set via style="fill/stroke:var(--token)" so they follow the
      theme tokens automatically — no redraw needed. Value labels use text ink,
-     never the series color (STYLE-PLAN C.9 #4). */
+     never the series color (archive/2026-10-style-plan/STYLE-PLAN.md C.9 #4). */
 
   function buildBarChart(data, opts) {
     opts = opts || {};

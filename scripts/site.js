@@ -14,7 +14,7 @@
     en: { themeDark: 'Switch to dark mode', themeLight: 'Switch to light mode' }
   };
 
-  // The language button is labelled in the language it switches to (STYLE-PLAN C.7 #3).
+  // The language button is labelled in the language it switches to (archive/2026-10-style-plan/STYLE-PLAN.md C.7 #3).
   var LANG_BUTTON = {
     'zh-TW': { text: 'EN', label: 'Switch to English', lang: 'en' },
     en: { text: '中文', label: '切換為中文', lang: 'zh-TW' }
