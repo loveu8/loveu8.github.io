@@ -26,15 +26,15 @@
 
 ## 待決定（一次一題）
 
-- [ ] 👤 D1：上網站的獎項等級（建議：冠軍＋金牌＋第 1 名）
-- [ ] 👤 D2：收哪些店（建議：只收有實體門市的店；Adelaide's Finest、Coles Casuarina、Bakers Delight 另外逐家決定）
-- [ ] 👤 D3：ASCA 等個人賽（建議：第一版不收）
-- [ ] 👤 D4：賽事範圍（建議：RAS、NABC、Golden Bean）
-- [ ] 👤 D5：`award_attributions.csv` 要不要獨立（建議：獨立）
-- [ ] 👤 D6：徽章樣式（建議：文字徽章，不用 🥇）
-- [ ] 👤 D7：SEO 靜態摘要（建議：第一版不做）
-- [ ] 👤 D8：JS 架構（建議：方案 B，拆出 `list-map-shell.js`）
-- [ ] 每個決定寫進 `PLAN.md` 第 10 節決定紀錄
+- [x] 👤 D1：上網站的獎項等級 → 冠軍＋金牌＋第 1 名當店家門檻；過門檻的店，銀牌＋第 2 名列為「也推薦」（2026-10-27）
+- [x] 👤 D2：收哪些店 → 有門市的都收；超市內烘焙、連鎖加盟店只收得獎的那一間並加標籤；製造商、批發不收（2026-10-27）
+- [x] 👤 D3：ASCA 等個人賽 → 第一版不收（2026-10-27）
+- [x] 👤 D4：賽事範圍 → RAS、NABC、Golden Bean（總冠軍＋分類金牌轉錄）（2026-10-27）
+- [x] 👤 D5：`award_attributions.csv` → 獨立，7 個 CSV（2026-10-27）
+- [x] 👤 D6：徽章樣式 → 文字徽章（冠軍 coral、金牌 amber、第 1 名中性），不用 🥇；「也推薦」只用文字（2026-10-27）
+- [x] 👤 D7：SEO 靜態摘要 → 第一版不做，Step 7 再評估（2026-10-27）
+- [x] 👤 D8：JS 架構 → 方案 B，拆出 `list-map-shell.js`（2026-10-27）
+- [x] 每個決定寫進 `PLAN.md` 第 10 節決定紀錄
 
 ## Step 1b：研究補完
 
@@ -45,6 +45,7 @@
 - [ ] Golden Bean 2024 分類投影片：只轉錄金牌
 - [ ] Golden Bean 2025 分類投影片：只轉錄金牌（Category 1 已做）
 - [ ] Golden Bean 金牌得主：篩出澳洲的，查有沒有咖啡廳或門市
+- [ ] Golden Bean 已過門檻的店：補轉錄它的銀牌（D1「也推薦」）
 - [ ] 檢查 Golden Bean 2026 結果頁是否已公布
 - [ ] RAS 2024 冠軍：找 2024 冠軍手冊存檔（Wayback）
 - [ ] 👤 要不要寫信問 RAS 2024 冠軍紀錄
@@ -74,7 +75,7 @@
 - [ ] 更新 `travel/tools/README.md`
 - [ ] （選用）`import_ras_results.py`：研究 CSV → `awards.csv` 草稿列
 
-## Step 4a：拆出共用外殼（只有 D8 = B）
+## Step 4a：拆出共用外殼（D8 = B，要做）
 
 - [ ] 改之前：線上版咖啡廳、烘焙頁 8 種狀態的頁面內容雜湊值和截圖當基準
 - [ ] 新增 `scripts/list-map-shell.js`（抽屜、拖曳、地圖嵌入、chip strip、scroll-spy、回到頂部、lightbox）

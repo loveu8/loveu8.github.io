@@ -36,7 +36,7 @@
 | `business_id` | id | ✔ | `B-` 開頭，例如 `B-bonfire-bread` |
 | `official_name` | text | ✔ | 店家自己用的名稱（不是比賽登記的公司名，例如不寫 PTY LTD） |
 | `business_type` | enum | ✔ | `bakery`、`cafe`、`roaster`，可以多個，用 `；` 分隔，第一個是主類型 |
-| `scope` | enum | ✔ | `retail`（有門市可去）、`wholesale`、`manufacturer`、`supermarket`、`chain_franchise`、`other`。只有通過 D2 的值會上網站 |
+| `scope` | enum | ✔ | `retail`（有門市可去）、`wholesale`、`manufacturer`、`supermarket`（超市內烘焙）、`chain_franchise`（連鎖加盟店）、`other`。上網站的只有 `retail`、`supermarket`、`chain_franchise`（D2）；後兩種卡片加標籤，而且只有得獎的那間門市上網站（第 5 節條件 5） |
 | `website_url` | url | | 官網 |
 | `instagram_url` | url | | |
 | `description_zh` | text | | 一句話，**只寫查得到的事實**，不寫製程、發酵時數、豆子產地，除非有來源 |
@@ -172,10 +172,16 @@ competitions 1 ── * awards * ── * sources        （透過 award_sources
 2. 至少一個 `award_sources` 是 `supports`，而且那個來源 `is_official = yes`
 3. 沒有任何 `conflicts` 的官方來源（有的話自動降為 DISPUTED，見第 6 節）
 4. `award_attributions.attribution_status = VERIFIED`
-5. 店家的 `scope` 在 D2 允許的清單內
+5. 店家的 `scope` 是 `retail`、`supermarket` 或 `chain_franchise`（D2，2026-10-27 決定）。後兩種的獎**必須對到某一間門市**（`award_attributions.location_id` 不能空白），網站上也只出現有對到獎的門市，不會帶出同品牌的其他分店
 6. 店家至少有一間 `location_role = shop` 且 `operating_status = open` 的門市
-7. 獎項等級在 D1 允許的清單內（建議：`champion`、`medal_type = gold`、`rank = 1`）
+7. 獎項等級在 D1 允許的清單內（見下方「兩層」）
 8. `recipient_type` 不是 `individual`（純個人獎不上網站，D3）
+
+**兩層（D1，2026-10-27 決定）**：
+
+- **店家門檻**：店家至少要有一個符合 1～8 的 `champion`、`medal_type = gold` 或 `rank = 1`，整家店才上網站。
+- **商品清單**：店家過了門檻以後，它的 `medal_type = silver` 和 `rank = 2` 也上網站（條件 1～6、8 一樣要成立），在卡片上標成「也推薦」。銀牌和第 2 名本身**不能**讓一家店上網站。
+- `medal_type = bronze`、`rank = 3` 一律不上網站。
 
 其餘資料留在 CSV 當研究紀錄。產生工具會印出「沒上網站的獎」和原因，數量要和 CSV 對得起來。
 
