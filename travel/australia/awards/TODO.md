@@ -38,7 +38,7 @@
 
 ## Step 1b：研究補完
 
-- [ ] 依 D1、D2 篩出第一批店家，名單寫進 `CANDIDATES.md`
+- [x] 依 D1、D2 篩出第一批店家，名單寫進 `CANDIDATES.md` 2.5 節（烘焙 46、咖啡 5；2026-10-27）
 - [ ] 每家查實體門市：官網門市頁、Google Maps 地址、座標、營業狀態，記查核日期
 - [ ] 多門市品牌（Bonfire Bread、Burleigh Baker、Wholegreen）：每個獎對到哪間門市，對不到就記在品牌
 - [ ] 同名店確認：Piece of Cake Bakery、Wandin Bakery、Sourdough Portland

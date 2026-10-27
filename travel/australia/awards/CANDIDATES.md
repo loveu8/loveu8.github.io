@@ -107,6 +107,85 @@
 | Coffee Mentality | RAS 2025 Specialty Foods Champion Coffee（"Auditory" Blend 200g） | VERIFIED（RAS 2025 目錄 p.13） | D4（第五個來源） |
 | Veneziano Coffee Roasters、Plus Two Coffee | ASCA 2025 Barista 第 2、第 3 名選手的任職公司 | 個人獎 | D3 |
 
+## 2.5 第一批名單（Step 1b 第 1 項，2026-10-27）
+
+依 D1（冠軍、金牌、第 1 名過門檻）、D2（有門市都收；超市、連鎖只收得獎那間；製造商不收）、D3（不收個人獎）、D4（RAS、NABC、Golden Bean）篩出。來源：兩份研究 CSV 全部的金牌、第 1 名、冠軍列，加上 Golden Bean 冠軍；同一家店的不同寫法已經合併（例：`HEARTHE`／`HEARTHE BAKERY`／空白 producer，`THE PIEFATHER`／`the pie father`，`Bitesize`／`Bite Size`）。
+
+**門市都還沒查**。「門市疑問」欄是看名稱和參賽地址的初判，Step 1b 第 2 項逐家查證。
+
+### A. 烘焙：要逐家查門市（46 家）
+
+| 州 | 店家 | 過門檻的獎 | 門市疑問 |
+|---|---|---|---|
+| NSW | Bonfire Bread | RAS 金 8（2024 Balmain 1；2025、2026 Avalon 7）；NABC 2025 冠軍 2＋第 1 2（Marrickville、Avalon） | 多門市，獎要對到門市 |
+| NSW | The Gumnut Patisserie | RAS 金 17（2024 7、2025 10）；NABC 2025 第 1 | Mittagong |
+| NSW | Wholegreen Bakery | RAS 2026 Champion Bread＋金 11 | Alexandria 可能只是工廠 |
+| NSW | Slowbreads Roseville | RAS 金 9；2025 Champion Bread | |
+| NSW | The Piefather | RAS 金 11；2025 Champion Pastry | 有沒有門市 |
+| NSW | Crois | RAS 2026 金 1 | |
+| NSW | Parfait Patisserie | NABC 2025 Champion Viennoiserie＋第 1 2 | 官方沒地址（媒體：Kiama） |
+| NSW | Hearthe | RAS 金 3（每年 1） | |
+| NSW | Sacrebleu! Canelés and Co | RAS 金 5 | |
+| NSW | Madame and Yves | RAS 2024 金 2 | |
+| NSW | Sébastien Sans Gluten | RAS 2024 金 2 | |
+| NSW | Tuga Pastries | RAS 2026 金 2 | |
+| NSW | Hudson's Bakery | RAS 2026 金 1 | |
+| NSW | Doughheads | RAS 2026 金 1 | |
+| NSW | Sussex Sourdough | RAS 2026 金 1 | |
+| NSW | Zweefers Cakes | RAS 2024 金 3 | |
+| NSW | Butter Baked Pastries | RAS 2025 金 2 | |
+| NSW | Bakehouse Delights | RAS 2026 金 2 | |
+| NSW | Racecourse Pie Company | RAS 金 2 | |
+| NSW | The Focaccia Factory | RAS 2026 金 2 | 名稱像批發 |
+| NSW | ISEO Patisserie | RAS 2026 Champion Cake＋金 1 | 只有 Instagram |
+| NSW | Sweet Ivy | RAS 2026 Champion Biscuit＋金 1 | |
+| NSW | Little Secrets Bakehouse | RAS 2026 Champion Pastry＋金 1 | |
+| NSW | This Is Us Baked Goods | RAS 金 3 | 可能是批發 |
+| NSW | Bakealicious by Gabriela | RAS 2025 金 3 | 可能是在家接單 |
+| NSW | Delicious & Simple by Svetlana | RAS 2026 金 1 | 可能是在家接單 |
+| NSW | V's Dessert Gluten Free | RAS 2026 金 2 | 只有 Instagram |
+| NSW | Pudding Lane | RAS 2026 金 1 | 聖誕布丁專賣，可能只有網購 |
+| NSW | Comeco Foods | RAS 2025 金 1 | 名稱像製造商 |
+| NSW | Forestway Fresh | RAS 2025 金 2 | 生鮮超市（D2：只收得獎那間，加標籤） |
+| NSW | Bakers Delight Lane Cove | RAS 2025 金 2 | 連鎖加盟（D2） |
+| NSW | Bakers Delight Albion Park Rail | NABC 2025 第 1 | 連鎖加盟（D2） |
+| ACT | Three Mills Bakery | RAS 金 10；2024 Champion Biscuit（PARTIAL） | |
+| QLD | Burleigh Baker | RAS 2026 金 4；NABC 2026 第 1 | 有幾間門市 |
+| VIC | Brazen Brownies | RAS 金 2 | 可能是批發 |
+| VIC | Cacao Chocolates & Patisserie | RAS 2026 金 2 | |
+| SA | Adelaide's Finest | NABC 2026 冠軍 3＋第 1 5 | 超市內（D2）；兩家 Foodland 要確認 |
+| SA | Riviera Bakery | NABC 2024 第 1 2 | |
+| SA | Stoney Acre Produce | RAS 2025 金 1 | 農場，可能只有市集攤位 |
+| NT | Coles Casuarina | NABC 2026 第 1 | 超市內（D2） |
+| ? | Piece of Cake Bakery | NABC 2024 冠軍 2＋第 1 | 官方沒地址；店主可能搬到 Melbourne |
+| ? | Wandin Bakery | NABC 2024 冠軍＋第 1 | 官方沒地址（可能 VIC Wandin） |
+| ? | Sourdough Portland | NABC 2024 第 1 | 官方沒地址（可能 VIC Portland） |
+| ? | Ottimo Bakery | NABC 2024 第 1 | 官方沒地址 |
+| ? | Country Cob Bakery | NABC 2024 第 1 | 官方沒地址 |
+| ? | The Beekeeper's Bakery | NABC 2025 第 1 | 官方沒地址 |
+
+### B. 咖啡：要逐家查門市（5 家，Golden Bean 分類金牌轉錄後會再增加）
+
+| 州 | 店家 | 過門檻的獎 |
+|---|---|---|
+| NSW | White Horse Coffee Roasters | GB 2024 Overall Champion |
+| NSW | Glee Coffee Roasters | GB 2025 Overall Champion |
+| ? | Black Bag Coffee Roasters | GB 2024、2025 Large Franchise Champion |
+| QLD | Espresso Club Australia | GB 2024、2025 Small Franchise Champion；2026 Overall（PARTIAL） |
+| VIC | The Bean Cartel | GB 2025 Category 1 金牌 |
+
+### C. 依 D2 不收（製造商、批發、超市自有品牌）
+
+Tucker's Natural（SA，金 7）、Kurrajong Kitchen Group（金 3）、Handy Foods（參賽者是 **Woolworths** Bella Vista，金 3，原本漏列）、Bite Size Coffee Treats（金 3）、Continental Taralli Biscuits（SA，2025 Champion Biscuit＋金 2）、Falcones（金 1）、Knutsford Gourmet（WA，金 1）、Silver Tongue Foods（QLD，金 1）。Step 1b 只快速確認「沒有門市」，有門市的話移回 A。
+
+### D. 依 D4 不收
+
+Coffee Mentality（RAS 2025 Specialty Foods Champion Coffee）：不在 RAS Professional Bakery 範圍內，第一版不收。
+
+### E. 使用者決定不收
+
+- Hungerford Meat Co（NSW Branxton）：肉舖，MR Charcuterie Pork Pie 拿到 RAS 2024 金牌（冠軍頭銜 PARTIAL）。2026-10-27 決定**不收**：地圖只放麵包店、甜點店、咖啡店，主業不是這三類的店不收，即使得獎品項是烘焙品（`PLAN.md` 第 10 節 D2 補充）。
+
 ## 3. 各州分布（只算有官方得獎、範圍初判不是「不收」的店）
 
 | 州 | 店家 | 備註 |
