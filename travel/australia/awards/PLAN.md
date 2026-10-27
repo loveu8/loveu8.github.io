@@ -15,7 +15,7 @@
 | 0 | 既有專案盤點 | ✅ 完成 | 2026-10-26 | （本 commit） | 結論在第 1 節 |
 | 1 | 官方賽事研究（第一輪） | ✅ 完成 | 2026-10-26 | （本 commit） | RAS 三年逐筆、NABC 三年、GB 冠軍、ASCA 2025。缺口見 `RESEARCH.md` 第 6 節 |
 | — | D1～D8 決定 | ✅ 完成 | 2026-10-27 | （本 commit） | 第 10 節 |
-| 1b | 研究補完：門市查證、GB 分類金牌轉錄 | 🔄 進行中 | | | 第一批名單已篩（`CANDIDATES.md` 2.5）；下一項：逐家查門市 |
+| 1b | 研究補完：門市查證、GB 分類金牌轉錄 | 🔄 進行中 | | `76c4a90`（第 1 項） | 第一批名單已篩（`CANDIDATES.md` 2.5）。**2026-10-27 停在這裡**。下一項：逐家查門市，要使用者先開 Chrome（擴充功能連線）；每 10 家停下來給使用者看；從得獎最多的開始（Bonfire Bread、Gumnut、Wholegreen、Slowbreads、Three Mills、Burleigh Baker） |
 | 2 | CSV 欄位定案、建立空 CSV | ⬜ | | | D5 已決定：7 個 CSV |
 | 3 | `make_awards_data.py` | ⬜ | | | |
 | 4a | 拆出 `list-map-shell.js`（D8 = B） | ⬜ | | | 獨立 commit，雜湊比對 |
