@@ -39,9 +39,10 @@
 ## Step 1b：研究補完
 
 - [x] 依 D1、D2 篩出第一批店家，名單寫進 `CANDIDATES.md` 2.5 節（烘焙 46、咖啡 5；2026-10-27）
-- [ ] 每家查實體門市：官網門市頁、Google Maps 地址、座標、營業狀態，記查核日期
-- [ ] 多門市品牌（Bonfire Bread、Burleigh Baker、Wholegreen）：每個獎對到哪間門市，對不到就記在品牌
-- [ ] 同名店確認：Piece of Cake Bakery、Wandin Bakery、Sourdough Portland
+- [x] 每家查實體門市：官網門市頁、Google Maps 地址、座標、營業狀態，記查核日期（51 家，2026-10-28）
+- [x] 多門市品牌（Bonfire Bread、Burleigh Baker、Wholegreen）：每個獎對到哪間門市，對不到就記在品牌（2026-10-28）
+- [x] 同名店確認：Piece of Cake Bakery、Wandin Bakery、Sourdough Portland（2026-10-28；另查 Ottimo、Country Cob、The Beekeeper's）
+- [ ] 上線前再確認 PARTIAL 的 5 家：ISEO、Cacao、The Beekeeper's Bakery、White Horse、The Bean Cartel；Crois 官網
 - [ ] Golden Bean 2024 分類投影片：只轉錄金牌
 - [ ] Golden Bean 2025 分類投影片：只轉錄金牌（Category 1 已做）
 - [ ] Golden Bean 金牌得主：篩出澳洲的，查有沒有咖啡廳或門市

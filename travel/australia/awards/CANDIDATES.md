@@ -295,6 +295,51 @@
 - Adelaide's Finest：2026-10-28 使用者決定兩間都收（`PLAN.md` 第 10 節 D2 補充）
 - 第 1～40 家累計：28 家 VERIFIED、10 家 REJECTED、2 家 PARTIAL
 
+### 門市查證：最後 6 家烘焙（沒有官方地址，2026-10-28）
+
+NABC 官方結果只寫店名，所以多一步「這家是不是得獎的那家」。「身分」欄：**對上**＝有報導或店家自己的說法連到 NABC；**只有店名**＝店名完全一樣、澳洲只找到這一家，但沒有直接證據。
+
+| 店家 | 身分 | 門市 | Google Maps 地址 | 座標 | 狀態 | 備註 |
+|---|---|---|---|---|---|---|
+| Piece of Cake Bakery | 對上 | Oakleigh East（唯一門市） | 2B Macrina St, Oakleigh East VIC 3166 | -37.8982823,145.1148986 | 營業 | 官網有「Media & Awards」頁、地址相同；Google 搜尋摘要寫 2024 NABC Champion Product of Show（摘要來源是官網和 Instagram）。2.5 節「店主搬到 Melbourne」的疑問解除：店就在 Melbourne |
+| Wandin Bakery | 對上 | Wandin North（唯一門市） | 380 Warburton Hwy, Wandin North VIC 3139 | -37.780023,145.427614 | 營業 | Upper Yarra Star Mail 2024-06-25 報導：Garlic, Rosemary and Sea Salt sourdough 拿 Open Sourdough 第 1，並得 National Champion Sourdough Loaf |
+| Sourdough Portland | 對上（較弱） | Portland（唯一門市） | 31 Percy St, Portland VIC 3305 | -38.3497204,141.6032766 | 營業 | Google Maps 名稱「Sourdough.」；Instagram `@sourdoughportland` 的貼文提到「Flashback to July 2024 when we brought home National Awards for our sourdough」 |
+| Ottimo Bakery | 只有店名 | Sunbury（唯一門市） | 57 O'Shanassy St, Sunbury VIC 3429 | -37.5811821,144.7304129 | 營業 | 官網沒提到得獎。主打 sourdough，和得獎班別（Sourdough Tin Bread、Open Sourdough）相符 |
+| Country Cob Bakery | 只有店名 | Kyneton | 130-132 Mollison St, Kyneton VIC 3444 | -37.2473808,144.4537904 | 營業 | 官網「Our Awards」頁只列派餅比賽（同樣是 BAA 主辦），沒列 NABC 2024 可頌第 1 |
+| | | Springvale | 890-892 Princes Hwy, Springvale VIC 3171 | -37.9345369,145.1589114 | 營業 | |
+| | | Boronia | 951 Mountain Hwy, Boronia VIC 3155 | -37.837306,145.287398 | 營業 | 另有 BP 加油站寄賣點，不收 |
+| The Beekeeper's Bakery | **對不上** | — | — | — | **PARTIAL** | 只找到 Tasmania Wynyard 一家同名店（Instagram 約 2026-03 宣布開幕），比 NABC 2025（2025 年年中）晚，Google Maps 也找不到。不能確定是同一家，先不收 |
+
+### 門市查證：5 家咖啡（2026-10-28）
+
+| 店家 | 門市 | Google Maps 地址 | 座標 | 狀態 | 備註 |
+|---|---|---|---|---|---|
+| Glee Coffee Roasters | Erina Heights 咖啡店 | 4/490 Central Coast Hwy, Erina Heights NSW 2260 | -33.4268817,151.4126921 | 營業 | 453 則評論 |
+| | Chapman 咖啡店 | The Chapman Building, 9/14 Alison Rd, Wyong NSW 2259 | -33.2837769,151.4239339 | 營業 | 678 則評論 |
+| | HQ（烘焙廠兼咖啡店） | B1/4 Dulmison Ave, Wyong NSW 2259 | -33.2681975,151.4394922 | 營業 | 評論提到現場喝咖啡、吃早餐 |
+| | ~~Brisbane~~ | 1/25 Glenelg St | — | 永久歇業 | 不收 |
+| White Horse Coffee Roasters | Kirrawee 烘焙廠 | Unit 10/44-46 Flora St, Kirrawee NSW 2232 | -34.0341703,151.0719685 | **PARTIAL** | Google Maps 分類「咖啡烘焙廠」、服務選項只有「外送」，評論都在講網購。官網寫「running Sydney cafés since 2008」，但現在的 Cafe Locator 列的是用他們豆子的別家咖啡店。沒找到自己的咖啡店，先不收 |
+| The Bean Cartel | Notting Hill 烘焙廠 | Unit 5/39-43 Duerdin St, Notting Hill VIC 3168 | -37.9103806,145.1478452 | **PARTIAL** | Google Maps 分類「咖啡烘焙廠」、平日有營業時間、84 則評論；官網主打批發和網購，沒寫可以現場喝。先不收，上線前再確認 |
+| **Black Bag Coffee Roasters** | 沒有咖啡店 | — | — | — | Nomad Coffee Group 的代工烘豆部門，替 The Coffee Club、ALDI 等品牌烘豆（Google 搜尋摘要，來源 Nomad Coffee Group、BeanScene）；Google Maps 只有一筆 2 則評論的烘焙廠 → **REJECTED** |
+| **Espresso Club Australia** | 沒有咖啡店 | （Unit 1/69 Springwood Rd, Springwood QLD 4127） | — | — | Google Maps 分類「學校中心」，評論都是咖啡師課程；沒有營業時間 → 依 D2 不是咖啡店，**REJECTED** |
+
+**最後 11 家的小結**
+
+- 門市 VERIFIED：6 家（Piece of Cake、Wandin、Sourdough Portland、Ottimo、Country Cob、Glee）
+- 門市 REJECTED：2 家（Black Bag、Espresso Club）
+- PARTIAL：3 家（Beekeeper's、White Horse、The Bean Cartel）
+- 身分只有店名對上：Ottimo、Country Cob（獎項狀態記 PARTIAL）
+
+### 第一批 51 家總結（2026-10-28）
+
+| 結果 | 家數 | 店家 |
+|---|---|---|
+| 門市 VERIFIED | 34 | 烘焙 33、咖啡 1（Glee） |
+| REJECTED | 12 | The Piefather、Zweefers（歇業）；Sussex Sourdough、Racecourse Pie、Focaccia Factory、Delicious & Simple、Stoney Acre（沒有自己的門市）；Butter Baked、Little Secrets、This Is Us、Black Bag（批發／代工）；Espresso Club（訓練學校） |
+| PARTIAL | 5 | ISEO、Cacao、The Beekeeper's Bakery、White Horse、The Bean Cartel |
+
+咖啡只剩 Glee 一家。Golden Bean 分類金牌轉錄後（Step 1b 後面的項目）會再增加。
+
 ### C. 依 D2 不收（製造商、批發、超市自有品牌）
 
 Tucker's Natural（SA，金 7）、Kurrajong Kitchen Group（金 3）、Handy Foods（參賽者是 **Woolworths** Bella Vista，金 3，原本漏列）、Bite Size Coffee Treats（金 3）、Continental Taralli Biscuits（SA，2025 Champion Biscuit＋金 2）、Falcones（金 1）、Knutsford Gourmet（WA，金 1）、Silver Tongue Foods（QLD，金 1）。Step 1b 只快速確認「沒有門市」，有門市的話移回 A。
