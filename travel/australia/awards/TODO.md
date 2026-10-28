@@ -52,8 +52,10 @@
 - [x] ~~👤 要不要寫信問 RAS 2024 冠軍紀錄~~ → 不用了，存檔已確認
 - [x] 重要官方頁存 Wayback，網址記下來 → 已有存檔的 11 個記在 `RESEARCH.md`「Wayback 存檔」（2026-10-28）
 - [ ] 👤 還沒存的 28 個網址要使用者自己送（Claude Code 自動權限檢查擋下代送）；清單在 `RESEARCH.md`「Wayback 存檔」
-- [ ] 更新 `CANDIDATES.md`：第一批每家都是獎項 VERIFIED＋門市 VERIFIED，或寫明不收的原因
-- [ ] 更新 `RESEARCH.md` 覆蓋矩陣
+- [x] 更新 `CANDIDATES.md`：第一批每家都是獎項 VERIFIED＋門市 VERIFIED，或寫明不收的原因 → 2.6 節最終名單（38 品牌、65 門市，2026-10-28）
+- [x] 更新 `RESEARCH.md` 覆蓋矩陣（2026-10-28）
+
+Step 1b 還沒打勾的兩項（PARTIAL 再查、使用者送 Wayback）留到 Step 8 上線前，不擋 Step 2。
 
 ## Step 2：CSV 欄位定案
 

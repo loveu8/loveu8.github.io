@@ -129,18 +129,20 @@
 | 賽事 | 類別 | 2024 | 2025 | 2026 | 備註 |
 |---|---|---|---|---|---|
 | RAS Professional Bakery | 全部班別（麵包、蛋糕、餅乾、酥皮／派、學徒班） | ✅ | ✅ | ✅ | myRAS 逐筆 |
-| RAS Professional Bakery | 4 個 Champion | ⚠️ | ✅ | ✅ | 2024 只有快取 |
+| RAS Professional Bakery | 4 個 Champion | ✅ | ✅ | ✅ | 2024 用 Wayback 存檔的冠軍手冊（2026-10-28） |
 | RAS Specialty Foods | Champion Coffee | 未查 | ✅（冠軍） | 未查 | 範圍外，待 D4 |
 | NABC | Class 001～007 | ✅ | ✅ | ✅ | 無地址 |
 | NABC | 3 個 Champion | ✅ | ✅ | ✅ | |
 | Golden Bean | Overall／Large／Small Franchise | ✅ | ✅ | ⚠️ | 2026 只有總冠軍 |
-| Golden Bean | 11 個分類的金／銀／銅牌 | ✅ 金牌已轉錄（14 面，`research/golden_bean_gold_2024-2025.csv`）；銀銅未轉錄 | ✅ 金牌已轉錄（11 面，同一份 CSV）；銀銅未轉錄 | ❌ 還沒公布 | 人工轉錄工作量大 |
+| Golden Bean | 11 個分類的金牌 | ✅ 14 面 | ✅ 11 面 | ❌ 還沒公布 | `research/golden_bean_gold_2024-2025.csv` |
+| Golden Bean | 11 個分類的銀牌 | ⚠️ 只轉錄已過門檻的 5 家 | ⚠️ 同左 | ❌ 還沒公布 | `research/golden_bean_silver_selected_2024-2025.csv`（31 面）；給 D1「也推薦」用，其他得主不需要 |
+| Golden Bean | 11 個分類的銅牌 | — | — | — | D1 不顯示銅牌，不轉錄 |
 | ASCA | Barista | ❌（只有媒體） | ✅ | ❌（只有媒體） | 個人獎 |
 | ASCA | Brewers Cup、Latte Art、Cup Tasters、CIGS、Roasting | ❌（只有媒體） | ✅（無任職店家） | ❌（只有媒體） | 個人獎 |
 
 ## 4. 原始候選名單查證結果
 
-詳細見 `CANDIDATES.md`。摘要：
+詳細見 `CANDIDATES.md`。下表是 2026-10-26 第一輪的狀態，**門市欄已過時**：2026-10-28 逐家查完門市，最新結果看 `CANDIDATES.md`「第一批總結」。摘要：
 
 | 候選 | 官方得獎紀錄 | 獎項狀態 | 門市狀態 |
 |---|---|---|---|
@@ -154,8 +156,8 @@
 | Piece of Cake Bakery | NABC 2024 Champion Product of Show、Champion Viennoiserie、Class 6 第 1～3 名 | VERIFIED | PARTIAL：官方沒地址；業界訪談暗示在 Melbourne，未確認 |
 | ONA Coffee | ASCA 2025 Latte Art 冠軍 Victor Vu、CIGS 冠軍 Danny Wilson（官方沒寫任職店家，媒體說是 Ona） | PARTIAL（個人獎） | — |
 | Axil Coffee Roasters | ASCA 2025 Barista 冠軍 Jack Simpson – Axil（官方） | VERIFIED 為**個人獎**；當成店家獎 → REJECTED | — |
-| Seven Miles Coffee Roasters | 已查的官方來源都沒有 | 未找到（Golden Bean 分類圖片轉錄後再判斷） | — |
-| Bellissimo Coffee | 已查的官方來源都沒有；自家網站說得過 Golden Bean Overall Runner Up，但沒寫年份 | 未找到（同上） | — |
+| Seven Miles Coffee Roasters | 已查的官方來源都沒有；Golden Bean 2024、2025 分類金牌也沒有（2026-10-28） | 未過門檻（D1 要金牌以上） | — |
+| Bellissimo Coffee | 已查的官方來源都沒有；Golden Bean 2024、2025 分類金牌也沒有；自家網站的「Overall Runner Up」沒寫年份 | 未過門檻 | — |
 
 ## 5. 來源衝突紀錄
 
@@ -175,11 +177,11 @@
 
 | 缺口 | 影響 | 建議 |
 |---|---|---|
-| Golden Bean 2024、2025 分類獎牌是圖片 | 咖啡烘豆商的金牌名單不完整 | 先只收三項冠軍；分類金牌在 Step 1b 逐張讀圖轉錄（估 2～3 小時／年），或只轉錄金牌 |
+| ~~Golden Bean 2024、2025 分類獎牌是圖片~~ | ~~咖啡烘豆商的金牌名單不完整~~ | **已解決（2026-10-28）**：金牌全部轉錄，已過門檻的店補轉錄銀牌 |
 | Golden Bean 2026 結果頁還沒公布 | 2026 只有總冠軍 | 每月檢查一次 `goldenbean.com.au/pages/2026-winners` |
 | ~~RAS 2024 冠軍頭銜~~ | ~~4 筆冠軍只能標 PARTIAL~~ | **已解決（2026-10-28）**：Wayback 找到 2024 冠軍手冊，4 筆改 VERIFIED |
 | ASCA 2024、2026 賽季 | 只有媒體 | 不收（個人獎＋非官方），見 D3 |
-| 所有得獎者的實際門市 | 沒有門市就不能上地圖 | 沿用咖啡廳計畫的方法：Google Maps 查地址、營業狀態、座標；每家記查核日期 |
+| ~~所有得獎者的實際門市~~ | ~~沒有門市就不能上地圖~~ | **已完成（2026-10-28）**：官網門市頁＋Google Maps，結果在 `CANDIDATES.md`；剩 7 家 PARTIAL 上線前再查 |
 | NABC 的「人名 - 店名」 | 是個人代表店家參賽，還是店家獎？ | 官方表把店名寫在一起，視為「代表該店參賽」：`relationship_type = staff_entry`，卡片顯示「由 X 代表參賽」 |
 | 製造商、超市、連鎖加盟店 | 不是探店目標 | 見 D2 |
 
@@ -188,7 +190,8 @@
 - myRAS 成績頁是 HTML，用一次性腳本轉成 csv（scratchpad，未進 repo）；抽查 2026 年和成績目錄 PDF 的金銀銅數一致（48／75／62）。
 - RAS PDF 用 `pdftotext`（Git Bash 內建）轉文字；2025 PDF 版面複雜，自動解析漏了幾筆，所以以 myRAS HTML 為準。
 - NABC 2025、2026 用 `pdftotext -table` 讀出表格；2024 掃描檔用上面寫的圖層轉圖方式讀取。
-- Golden Bean PDF 抽出投影片 JPEG 後讀圖。
+- Golden Bean PDF 的投影片是 JPEG 2000（JPXDecode），本機 Python 沒有能解的套件，Chrome 內建 PDF 檢視器又不能截圖。做法：在 `cdn.shopify.com` 的任一頁（和 PDF 同網域）用動態 import 載入 pdf.js 4.4.168（cdnjs），把每頁畫到 canvas 再截圖讀取。2024 每個 PDF 是「金→銀→銅」；2025 是「封面→銅→銀封面→銀→金封面→金」，而且 2025 Category 1 的銀牌頁頁首誤印成 Category 2。
+- RAS 2024 冠軍手冊：Wayback CDX 介面（`web.archive.org/cdx/search/cdx?url=rasnsw.com.au/globalassets/*&filter=original:.*[Cc]hampion.*`）找到存檔網址，用 pdf.js 讀文字層。
 
 ## Wayback 存檔（2026-10-28 查）
 

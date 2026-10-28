@@ -21,6 +21,8 @@
 
 ## 1. 原始候選（使用者提供的 12 家）
 
+（2026-10-26 第一輪的狀態。門市欄已過時，最新結果看 2.5 節的門市查證和 2.6 節最終名單。）
+
 | # | 店家 | 類型 | 官方得獎（2024–2026） | 獎項狀態 | 門市線索 | 門市狀態 | 待確認 |
 |---|---|---|---|---|---|---|---|
 | 1 | Burleigh Baker | Bakery | RAS 2026 金 4：Sourdough Croissant 94.5（Class 18 Viennoiserie 最高分）、Sourdough Peanut Cookie 90.33、Chicken and Leek Meat Pie 90、Quiche Lorraine 90；NABC 2026：Rye 第 1、Baguette 第 2（「Maxine Bernard - Burleigh Baker」） | VERIFIED | RAS 參賽地址 Varsity Lakes QLD 4227 | PARTIAL | 有幾間門市？哪間是烘焙廠？NABC 的獎記在品牌，不指定門市 |
@@ -364,7 +366,45 @@ NABC 官方結果只寫店名，所以多一步「這家是不是得獎的那家
 | **Yamaneco Roaster** | 2025 Cat 2 | QLD | 沒有咖啡店 | — | — | — | 官網只有網購和批發（Brisbane，2024 年成立）；投影片寫「YAMANECO ROASTER / CHERRY CREEK ESTATE」→ **REJECTED** |
 | **Dibella Coffee** | 2024 Cat 11（Beefy's Blend） | QLD | 只剩加盟店 | — | — | — | 2025 投影片寫「RETAIL FOOD GROUP - DI BELLA COFFEE」；Google Maps 上大多數 Di Bella 咖啡店、烘焙廠標永久歇業，只剩 Scarborough 一間 → 依 D2 加盟店不收，**REJECTED** |
 
-**小結**：咖啡 VERIFIED 增加 4 家（Coffee Mentality、O'GaBee、Coffee Presto、Peak Coffee），加上 Glee 共 5 家、13 間咖啡店。PARTIAL 增加 2 家（Latitude、The Purple Haze）。
+**小結**：咖啡 VERIFIED 增加 4 家（Coffee Mentality、O'GaBee、Coffee Presto、Peak Coffee），加上 Glee 共 5 家、12 間咖啡店（2026-10-28 初稿誤寫 13 間，已更正）。PARTIAL 增加 2 家（Latitude、The Purple Haze）。
+
+## 2.6 Step 1b 最終名單（2026-10-28）
+
+上網站的條件（`DATA-SCHEMA.md` 第 5 節）：獎項 VERIFIED＋門市 VERIFIED。下表只算這兩項都過的。
+
+**品牌數和門市數**
+
+| 州 | 烘焙品牌 | 烘焙門市 | 咖啡品牌 | 咖啡店 | 合計門市 |
+|---|---|---|---|---|---|
+| NSW | 22 | 34 | 2（Glee、Peak） | 4 | 38 |
+| VIC | 6 | 8 | 0 | 0 | 8 |
+| QLD | 1（Burleigh） | 2 | 3（Coffee Mentality、O'GaBee、Coffee Presto） | 8 | 10 |
+| ACT | 1（Three Mills） | 5 | 0 | 0 | 5 |
+| SA | 2（Adelaide's Finest、Riviera） | 3 | 0 | 0 | 3 |
+| NT | 1（Coles Casuarina） | 1 | 0 | 0 | 1 |
+| WA、TAS | 0 | 0 | 0 | 0 | 0 |
+| **合計** | **33** | **53** | **5** | **12** | **65** |
+
+NSW 烘焙 22 家：Bonfire、Gumnut、Wholegreen、Slowbreads、Crois、Parfait、Hearthe、Sacrebleu!、Madame and Yves、Sébastien Sans Gluten、Tuga、Hudson's、Doughheads、Bakehouse Delights、Sweet Ivy、Bakealicious、V's Dessert、Pudding Lane、Comeco、Forestway Fresh、Bakers Delight Lane Cove、Bakers Delight Albion Park Rail。VIC 6 家：Brazen Brownies、Piece of Cake、Wandin、Sourdough Portland、Ottimo、Country Cob。
+
+**加標籤的門市**（D2）：超市內專櫃 4（Bonfire ×3、Three Mills Majura Park）、超市內烘焙 4（Forestway、Adelaide's Finest ×2、Coles Casuarina）、連鎖加盟店 2（Bakers Delight ×2）、工廠門市 2（Pudding Lane、Brazen Brownies，標籤名稱 Step 2 再定）。
+
+**獎項只記在品牌、對不到單一門市**：Bonfire 的 RAS 2024 金牌（Balmain 店已不在）、Three Mills（Fyshwick 兩間）、Burleigh（參賽地址是烘焙廠）、Tuga（參賽地址 Marrickville 不是門市）、Country Cob、Adelaide's Finest、5 家咖啡烘豆商。
+
+**獎項狀態 PARTIAL、門市 VERIFIED**（身分只有店名對上）：Ottimo、Country Cob。上網站前要決定：照收但卡片註明，或先不收（Step 2 試驗資料時再問）。
+
+**不上網站**
+
+| 原因 | 家數 | 店家 |
+|---|---|---|
+| 歇業 | 2 | The Piefather、Zweefers |
+| 沒有自己的門市 | 5 | Sussex Sourdough、Racecourse Pie、Focaccia Factory、Delicious & Simple、Stoney Acre |
+| 批發、代工、超市包裝豆 | 9 | Butter Baked、Little Secrets、This Is Us、Black Bag、ALDI、Grinders/Coles、Jahnus、Yamaneco、Dibella（只剩加盟店） |
+| 訓練學校 | 1 | Espresso Club Australia |
+| PARTIAL，上線前再查 | 7 | ISEO、Cacao、The Beekeeper's Bakery、White Horse、The Bean Cartel、Latitude、The Purple Haze |
+| D2 主業不符 | 1 | Hungerford Meat Co |
+
+**偏差**：NSW 佔 65 間裡的 38 間（RAS 在雪梨）；咖啡 12 間裡 8 間在 QLD（Golden Bean 得獎烘豆商多在 Brisbane）。頁尾要寫明。
 
 ### C. 依 D2 不收（製造商、批發、超市自有品牌）
 
@@ -379,6 +419,8 @@ Coffee Mentality（RAS 2025 Specialty Foods Champion Coffee）：不在 RAS Prof
 - Hungerford Meat Co（NSW Branxton）：肉舖，MR Charcuterie Pork Pie 拿到 RAS 2024 金牌（冠軍頭銜 PARTIAL）。2026-10-27 決定**不收**：地圖只放麵包店、甜點店、咖啡店，主業不是這三類的店不收，即使得獎品項是烘焙品（`PLAN.md` 第 10 節 D2 補充）。
 
 ## 3. 各州分布（只算有官方得獎、範圍初判不是「不收」的店）
+
+（2026-10-26 初判，已由 2.6 節最終名單取代。）
 
 | 州 | 店家 | 備註 |
 |---|---|---|
