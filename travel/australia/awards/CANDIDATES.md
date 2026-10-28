@@ -174,6 +174,48 @@
 | QLD | Espresso Club Australia | GB 2024、2025 Small Franchise Champion；2026 Overall（PARTIAL） |
 | VIC | The Bean Cartel | GB 2025 Category 1 金牌 |
 
+### 門市查證：第 1～10 家（Step 1b 第 2 項，2026-10-28）
+
+查核方式：先看官網的門市頁，再用 Google Maps 對地址、座標、營業狀態。查核日期都是 2026-10-28。「營業狀態」只記 Google Maps 有沒有標「永久歇業」或「暫停營業」；當下幾點開門不算。
+
+| 店家 | 門市（官網寫法） | Google Maps 地址 | 座標 | 狀態 | 備註 |
+|---|---|---|---|---|---|
+| Bonfire Bread | Avalon Beach 旗艦店 | 68 Old Barrenjoey Rd, Avalon Beach NSW 2107 | -33.6370462,151.3293715 | 營業 | 官網稱「旗艦店」；RAS 2025、2026 的參賽地址是 Avalon |
+| | Harris Farm Mosman（店中店） | Bridgepoint Shopping Centre, T9/1-3 Brady St, Mosman NSW 2088 | -33.8238999,151.2403635 | 營業 | Harris Farm 超市裡的櫃位 |
+| | Harris Farm Lane Cove（店中店） | 4/56-60 Burns Bay Rd, Lane Cove NSW 2066 | -33.8148653,151.1676867 | 營業 | 同上；NABC 2025 Baguette 第 3 記在 Lane Cove |
+| | Harris Farm Marrickville（店中店） | 186 Victoria Rd, Marrickville NSW 2204 | -33.9086824,151.1633063 | 營業 | 同上；NABC 2025 Baguette 第 1 記在 Marrickville |
+| | Harris Farm Cronulla | 13-15 Kingsway, Cronulla | — | 官網寫「即將開幕」 | 先不收 |
+| | ~~Balmain~~ | 300 Darling St, Balmain NSW 2041 | — | **已不是 Bonfire** | 官網門市頁沒有 Balmain；Google Maps 同地址現在是另一家「Balmain Bread」。Broadsheet 2021-08-31 報導 Bonfire 在 Balmain 開店。RAS 2024 金牌（Balmain）只能記在品牌 |
+| The Gumnut Patisserie | Mittagong | Corner of Cavendish &, 16 Dalton St, Mittagong NSW 2575 | -34.4527297,150.4330786 | 營業 | RAS 參賽地址 |
+| | Bowral | Shop 7, Grand Arcade, Bong Bong St, Bowral NSW 2576 | -34.4788577,150.4177186 | 營業 | |
+| | Berrima | 1 Old Hume Hwy, Berrima NSW 2577 | -34.4896167,150.3353424 | 營業 | 官網寫「Shop 1, Post Office Corner, Hume Highway」；週二公休 |
+| Wholegreen Bakery | Alexandria Bakery Café | 25 McCauley St, Alexandria NSW 2015 | -33.9035821,151.1987099 | 營業 | **不是只有工廠**：官網列為門市（解決第 1 節的疑問） |
+| | Sydney CBD | 257 Clarence St, Sydney NSW 2000 | -33.8716284,151.2054569 | 營業 | |
+| | Bondi Junction | 110 Bronte Rd, Bondi Junction NSW 2022 | -33.895466,151.2510484 | 營業 | Google Maps 名稱只寫「Wholegreen」 |
+| | Manly | Unit 8/28 The Corso, Manly NSW 2095 | -33.7988564,151.285681 | 營業 | 2025-11-15 開幕 |
+| | Neutral Bay | 5/12 Waters Rd（入口在 Grosvenor St）, Neutral Bay NSW 2089 | -33.8306515,151.2232817 | 營業 | |
+| Slowbreads Roseville | Roseville（唯一門市） | 100 Pacific Hwy, Roseville NSW 2069 | -33.7845953,151.176711 | 營業 | |
+| Three Mills Bakery | Leeton Street | 5 Leeton St, Fyshwick ACT 2609 | -35.3226558,149.1514271 | 營業 | RAS 參賽地址在 Fyshwick，但 Fyshwick 有兩間，對不到是哪一間 |
+| | Newcastle Street | 75 Newcastle St, Fyshwick ACT 2609 | -35.3299515,149.1777186 | 營業 | |
+| | Belconnen（Capital Food Markets） | Shop T44-T45/10 Market St, Belconnen ACT 2617 | -35.2458497,149.0654686 | 營業 | 週一、二公休 |
+| | Woden | 193/35 Furzer St, Phillip ACT 2606 | -35.343451,149.085085 | 營業 | 只開平日 |
+| | Harris Farm Majura Park（店中店） | Unit 3/10 Catalina Dr, Majura Park ACT 2609 | -35.2954122,149.1889051 | 營業 | Harris Farm 超市裡的咖啡櫃位 |
+| | Capital Region Farmers Market | Exhibition Park (EPIC) | — | 只有週六早上 | 市集攤位，先不收 |
+| Burleigh Baker | Burleigh Heads Shop & Cafe | 13/50 James St, Burleigh Heads QLD 4220 | -28.0893042,153.4496674 | 營業 | |
+| | Paradise Point Shop & Cafe | Shop 7/46 The Esplanade, Paradise Point QLD 4216 | -27.8851941,153.3951239 | 營業 | |
+| | ~~Bakehouse~~ | 7 Rina Ct, Varsity Lakes QLD 4227 | -28.0999314,153.4114149 | 烘焙廠 | RAS 參賽地址就是這裡。官網門市只列上面兩間，這裡不收；獎記在品牌 |
+| The Piefather | Rosebery | 437 Gardeners Rd, Rosebery NSW 2018 | — | **永久歇業** | Google Maps 名稱「The Piefather by Mick's Pies」標永久歇業；官網 thepiefather.com.au 打不開 → **門市 REJECTED** |
+| Crois | Wollongong（唯一門市） | 75 Market St, Wollongong NSW 2500 | -34.4233757,150.8919777 | 營業 | 官網 crois.au 是 Shopify 的「store unavailable」頁；Google Maps 正常、最新評論 2 個月前。上線前再確認一次 |
+| Parfait Patisserie | Kiama（唯一門市） | 38-40 Manning St, Kiama NSW 2533 | -34.6727256,150.8560234 | 營業 | 官網寫店址；官網提到主廚 Troy，和 NABC 2025 得獎者 Troy Hindmarch 對上 |
+| Hearthe | Stanmore（唯一門市） | 16 Douglas St, Stanmore NSW 2048 | -33.8937931,151.1645689 | 營業 | 官網：Black Star Pastry 創辦人 Christopher Thé 的新店 |
+
+**這 10 家的小結**
+
+- 門市 VERIFIED：9 家（Bonfire、Gumnut、Wholegreen、Slowbreads、Three Mills、Burleigh、Crois、Parfait、Hearthe）
+- 門市 REJECTED：The Piefather（永久歇業）
+- 獎記不到單一門市、只能記在品牌：Bonfire 的 Balmain 金牌（店已不在）、Three Mills（Fyshwick 有兩間）、Burleigh（參賽地址是烘焙廠）
+- 待使用者決定：品牌開在 Harris Farm 超市裡的櫃位（Bonfire 3 間、Three Mills 1 間）算不算門市
+
 ### C. 依 D2 不收（製造商、批發、超市自有品牌）
 
 Tucker's Natural（SA，金 7）、Kurrajong Kitchen Group（金 3）、Handy Foods（參賽者是 **Woolworths** Bella Vista，金 3，原本漏列）、Bite Size Coffee Treats（金 3）、Continental Taralli Biscuits（SA，2025 Champion Biscuit＋金 2）、Falcones（金 1）、Knutsford Gourmet（WA，金 1）、Silver Tongue Foods（QLD，金 1）。Step 1b 只快速確認「沒有門市」，有門市的話移回 A。
