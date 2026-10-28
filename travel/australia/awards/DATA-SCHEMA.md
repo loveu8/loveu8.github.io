@@ -59,7 +59,7 @@
 | `postcode` | text | ✔ | 4 位數字；工具檢查和州別的郵遞區號範圍是否吻合 |
 | `latitude`、`longitude` | decimal | ✔ | 工具檢查在澳洲範圍內（緯度 -44～-10、經度 112～154） |
 | `location_role` | enum | ✔ | `shop`（門市）、`bakehouse`（只有製作）、`hq`；只有 `shop` 上地圖 |
-| `location_type` | enum | ✔ | `standalone`（自己的店面）、`supermarket_counter`（開在超市裡、掛自己招牌的專櫃，D2 補充 2026-10-28）、`factory_shop`（工廠附設門市）、`in_supermarket`（超市本身，用在 `scope = supermarket` 的店家）。`standalone` 以外的卡片都加標籤 |
+| `location_type` | enum | ✔ | `standalone`（自己的店面）、`supermarket_counter`（開在超市裡、掛自己招牌的專櫃，D2 補充 2026-10-28）、`factory_shop`（工廠附設門市）、`in_supermarket`（超市本身，用在 `scope = supermarket` 的店家）。標籤文字見 `UI-PLAN.md` 3.4b（`factory_shop`＝「工廠門市」，使用者 2026-10-28 選定） |
 | `operating_status` | enum | ✔ | `open`、`temporarily_closed`、`closed`、`moved`、`unknown`；只有 `open` 上網站 |
 | `moved_to_location_id` | id | | `operating_status = moved` 時必填 |
 | `location_source_url` | url | ✔ | 查到地址的來源（官網門市頁或 Google Maps） |

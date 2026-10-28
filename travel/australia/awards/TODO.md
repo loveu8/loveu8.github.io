@@ -65,7 +65,7 @@ Step 1b 還沒打勾的兩項（PARTIAL 再查、使用者送 Wayback）留到 S
 - [x] 填 5 家試驗資料：Bonfire Bread、Burleigh Baker、Three Mills Bakery、Adelaide's Finest、Glee Coffee Roasters（17 門市、88 獎、13 來源；由研究 CSV 用一次性腳本轉出，腳本在 scratchpad，沒進 repo）
 - [x] 檢查：每種情況都有欄位可以記：多門市（Bonfire 4、Three Mills 5）、超市專櫃（Bonfire ×3、Majura Park）、超市內烘焙（Adelaide's Finest ×2）、烘焙廠不上地圖（Burleigh Varsity Lakes）、獎對到門市（Bonfire NABC）、個人代表店家（NABC「人名 - 店名」）、冠軍、金銀牌、名次、烘豆商自營咖啡店（Glee）
 - [x] 👤 決定 Ottimo、Country Cob 收不收 → 先不收（D9，2026-10-28）
-- [ ] 👤 決定工廠門市的標籤文字（`location_type = factory_shop`）
+- [x] 👤 決定工廠門市的標籤文字 →「工廠門市 · Factory shop」（2026-10-28，記在 `UI-PLAN.md` 3.4b）
 - [ ] 👤 看過試驗資料
 
 ## Step 3：資料產生工具

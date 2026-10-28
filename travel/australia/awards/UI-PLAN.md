@@ -91,7 +91,17 @@
 
 ### 3.4b 店家類型標籤（D2，2026-10-27 決定）
 
-`scope = supermarket` 的卡片標籤列加「超市內烘焙 · In-store supermarket bakery」，`chain_franchise` 加「連鎖加盟店 · Franchise store」。用中性的 `.tag` 樣式，不加新顏色，排在最高榮譽徽章後面。頁尾加一句：「獎項代表得獎當年那間店的水準；超市和連鎖店只列得獎的那一間」。
+`scope = supermarket` 的卡片標籤列加「超市內烘焙 · In-store supermarket bakery」，`chain_franchise` 加「連鎖加盟店 · Franchise store」。用中性的 `.tag` 樣式，不加新顏色，排在最高榮譽徽章後面。頁尾加一句：「獎項代表得獎當年那間店的水準；連鎖加盟店只列得獎的那一間；超市的獎沒有指定門市時，列出它有烘焙部的門市」（2026-10-28 依 D2 補充更新）。
+
+**門市類型標籤**（2026-10-28，`locations.location_type`）：
+
+| `location_type` | 標籤 | 用在 |
+|---|---|---|
+| `supermarket_counter` | 超市內專櫃 · Supermarket counter | Bonfire 的 3 個 Harris Farm 專櫃、Three Mills Majura Park |
+| `factory_shop` | 工廠門市 · Factory shop（使用者 2026-10-28 選定） | Pudding Lane、Brazen Brownies |
+| `standalone`、`in_supermarket` | 不加（`in_supermarket` 已由卡片的「超市內烘焙」表達） | |
+
+放在門市列表那一列的店名後面，同樣用中性 `.tag`。店家**所有**上網站的門市都是同一種類型時（例如 Pudding Lane 只有工廠門市），卡片標籤列也加一次。
 
 ### 3.5 門市列表
 
