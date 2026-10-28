@@ -189,4 +189,32 @@
 - RAS PDF 用 `pdftotext`（Git Bash 內建）轉文字；2025 PDF 版面複雜，自動解析漏了幾筆，所以以 myRAS HTML 為準。
 - NABC 2025、2026 用 `pdftotext -table` 讀出表格；2024 掃描檔用上面寫的圖層轉圖方式讀取。
 - Golden Bean PDF 抽出投影片 JPEG 後讀圖。
+
+## Wayback 存檔（2026-10-28 查）
+
+官方頁之後可能改版或刪除，網站引用時可以改用存檔。網址格式：`https://web.archive.org/web/<時間>/<原網址>`。
+
+**已有存檔**
+
+| 來源 | 存檔時間 | 備註 |
+|---|---|---|
+| RAS 2024 冠軍手冊 `fine-food/2024_fine-food-champions-booklet_final.pdf` | 20250413162025 | 原網址已 404，只剩存檔 |
+| RAS 2025 冠軍手冊 `fine-food/2025_finefoodchampionsbooklet_a5_online.pdf` | 20250921235808 | |
+| RAS 2025 成績目錄 `fine-food/competitions-fine-food-catalogue-2025.pdf` | 20261002060509 | |
+| RAS 2026 冠軍手冊 `_shared/finefood/2026_finefoodchampionsbooklet_a5_online.pdf` | 20261002060509 | |
+| RAS 2026 成績目錄 `_shared/finefood/2026finefoodcatalogueweb.pdf` | 20261002060509 | |
+| myRAS 2025 逐筆成績（`SY=2025` 那一頁） | 20260506173657 | |
+| NABC 2024 結果 PDF（bakingbusiness.com.au） | 20250123183502 | |
+| NABC 2025 結果 PDF（bakingtradeshow.com.au） | 20260421193421 | |
+| bakingbusiness.com.au/results/ | 20260929140047 | |
+| Golden Bean 2024 結果頁 `/pages/2024-winners` | 20260315133208 | |
+| Golden Bean 2025 結果頁 `/pages/2025-winners` | 20251130082301 | |
+
+**還沒存、要使用者自己送**（Claude Code 的自動權限檢查不允許代送；在 https://web.archive.org/save 貼上網址即可）
+
+- RAS 賽事頁 https://www.rasnsw.com.au/competitions/food-beverage-and-produce/professional-bakery-details（舊存檔 2025-11，內容已換成 2026）
+- myRAS 2024、2026 逐筆成績（網址見 research csv 的 `source_url`）
+- NABC 賽事頁 https://bakingtradeshow.com.au/artisancompetition/（舊存檔 2026-03，在 2026 結果公布前）
+- NABC 2026 結果 PDF 兩份（第 2.2 節的兩個網址）
+- Golden Bean 22 個分類 PDF（2024：`GBA_2024_Category_N-results…pdf`；2025：`Cat_N_Medalists.pdf`，都在 `cdn.shopify.com/s/files/1/0584/8734/1218/files/`）
 - BeanScene、Time Out 只當線索，不當驗證來源。

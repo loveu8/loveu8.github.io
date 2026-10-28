@@ -50,7 +50,8 @@
 - [x] 檢查 Golden Bean 2026 結果頁是否已公布 → 2026-10-28 還沒有（`/pages/2026-winners` 404；首頁只寫總冠軍 Sam Shih, Espresso Club Australia）。之後每月再看一次
 - [x] RAS 2024 冠軍：找 2024 冠軍手冊存檔（Wayback）→ 找到，4 筆改 VERIFIED（2026-10-28）
 - [x] ~~👤 要不要寫信問 RAS 2024 冠軍紀錄~~ → 不用了，存檔已確認
-- [ ] 重要官方頁存 Wayback，網址記下來
+- [x] 重要官方頁存 Wayback，網址記下來 → 已有存檔的 11 個記在 `RESEARCH.md`「Wayback 存檔」（2026-10-28）
+- [ ] 👤 還沒存的 28 個網址要使用者自己送（Claude Code 自動權限檢查擋下代送）；清單在 `RESEARCH.md`「Wayback 存檔」
 - [ ] 更新 `CANDIDATES.md`：第一批每家都是獎項 VERIFIED＋門市 VERIFIED，或寫明不收的原因
 - [ ] 更新 `RESEARCH.md` 覆蓋矩陣
 
