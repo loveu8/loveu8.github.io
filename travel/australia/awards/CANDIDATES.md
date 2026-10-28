@@ -26,7 +26,7 @@
 | 1 | Burleigh Baker | Bakery | RAS 2026 金 4：Sourdough Croissant 94.5（Class 18 Viennoiserie 最高分）、Sourdough Peanut Cookie 90.33、Chicken and Leek Meat Pie 90、Quiche Lorraine 90；NABC 2026：Rye 第 1、Baguette 第 2（「Maxine Bernard - Burleigh Baker」） | VERIFIED | RAS 參賽地址 Varsity Lakes QLD 4227 | PARTIAL | 有幾間門市？哪間是烘焙廠？NABC 的獎記在品牌，不指定門市 |
 | 2 | Adelaide's Finest | Bakery（超市內烘焙） | NABC 2026：Champion Product of Show、Champion Sourdough Loaf、Champion Viennoiserie；Class 003～007 第 1；Class 001、002 第 2（「Robert Trimboli - Adelaide's Finest Bakeries & Patisserie」） | VERIFIED | 媒體（InDaily 2026-06-22）：Frewville、Pasadena 兩家 Foodland | PARTIAL | 店家類型算 Bakery 還是超市（D2）；獎項記在品牌還是兩家門市 |
 | 3 | Crois | Bakery | RAS 2026：Croissant Plain 金 93.67、White Sourdough 銀 82.5；NABC 2026：Croissants 第 2、Open Speciality Viennoiserie 第 2＋第 3（「Matt Taylor - Crois」） | VERIFIED | RAS：Wollongong NSW 2500；Time Out：75 Market St | PARTIAL | 用 Google Maps 確認地址、營業 |
-| 4 | Three Mills Bakery | Bakery | RAS 2024 金 2（含 Salted Chocolate Rye Cookie 93.33）、2025 金 4、2026 金 4（含 Croissant 91.33）；2024 Champion Biscuit | 金牌 VERIFIED；冠軍 PARTIAL | RAS：Fyshwick ACT 2609 | PARTIAL | Time Out 說 2026 可頌是「銅牌」，官方是金牌（衝突 C1，用官方） |
+| 4 | Three Mills Bakery | Bakery | RAS 2024 金 2（含 Salted Chocolate Rye Cookie 93.33）、2025 金 4、2026 金 4（含 Croissant 91.33）；2024 Champion Biscuit | VERIFIED（冠軍：2024 冠軍手冊 Wayback 存檔，2026-10-28） | RAS：Fyshwick ACT 2609 | PARTIAL | Time Out 說 2026 可頌是「銅牌」，官方是金牌（衝突 C1，用官方） |
 | 5 | Wholegreen Bakery | Bakery（無麩質） | RAS 2026 **Champion Bread**（Vegan GF Plain Sourdough 500G）＋金 5；2025 金 5；2024 金 1 | VERIFIED | RAS：Alexandria NSW 2015；冠軍手冊：Sydney NSW；舊報導：CBD 257 Clarence St、Waverley 原店、Bondi Junction 快閃 | PARTIAL | 現在營業的零售門市是哪幾家；Alexandria 是不是只有工廠 |
 | 6 | Parfait Patisserie | Bakery | NABC 2025：White Sourdough 第 1（Troy Hindmarch）、Croissants 第 1＋**Champion Viennoiserie**（Alex Miller）、Open Sourdough 第 2 | VERIFIED | 媒體：Kiama NSW | PARTIAL | 官方沒地址，要確認 |
 | 7 | Bonfire Bread | Bakery | RAS 2024 金 1（Balmain）、2025 金 2、2026 金 5（Avalon）；NABC 2025：**Champion Product of Show**、**Champion Sourdough Loaf**、Baguette 第 1（Marrickville）、Rye 第 1（Avalon）、White Sourdough 第 2、Baguette 第 3（Lane Cove） | VERIFIED | 至少 4 個地點：Balmain、Avalon、Marrickville、Lane Cove | PARTIAL | 每個地點是不是門市；RAS 的獎記在參賽地址還是品牌 |
@@ -42,14 +42,14 @@
 
 | 店家 | 參賽地址（官方） | 冠軍 | 其他 | 範圍初判 |
 |---|---|---|---|---|
-| Slowbreads Roseville | Roseville NSW 2069 | RAS 2025 Champion Bread（Fig, Cranberry and Walnut Sourdough）；2024 Champion Bread（PARTIAL） | RAS 金：2024 3、2025 3、2026 3 | 收 |
-| The Gumnut Patisserie | Mittagong NSW 2575 | RAS 2025 Champion Cake（Rock & Roll）；2024 Champion Cake（PARTIAL） | RAS 金：2024 7、2025 10；NABC 2025 Class 006 第 1～3（Tracy Nickl、Peter Theille） | 收 |
+| Slowbreads Roseville | Roseville NSW 2069 | RAS 2025 Champion Bread（Fig, Cranberry and Walnut Sourdough）；2024 Champion Bread（White Sourdough；2026-10-28 由 2024 冠軍手冊確認） | RAS 金：2024 3、2025 3、2026 3 | 收 |
+| The Gumnut Patisserie | Mittagong NSW 2575 | RAS 2025 Champion Cake（Rock & Roll）；2024 Champion Cake（ChocoBerry Swirl；2026-10-28 由 2024 冠軍手冊確認） | RAS 金：2024 7、2025 10；NABC 2025 Class 006 第 1～3（Tracy Nickl、Peter Theille） | 收 |
 | The Piefather | Rosebery NSW 2018 | RAS 2025 Champion Pastry（MICKTACO） | RAS 金：2024 6、2025 5（2024 名稱是 THE PIEFATHER PTY LTD） | 收（要確認有門市） |
 | ISEO Patisserie | Macquarie Park NSW 2113（網站只有 Instagram） | RAS 2026 Champion Cake | — | 待查：有沒有門市 |
 | Sweet Ivy | Mosman NSW 2088 | RAS 2026 Champion Biscuit（Lemon Macaron） | — | 待查 |
 | Little Secrets Bakehouse | Alexandria NSW 2015 | RAS 2026 Champion Pastry（Citrus Meringue Tart） | — | 待查 |
 | Continental Taralli Biscuits | Magill SA 5072 | RAS 2025 Champion Biscuit | — | 初判不收（製造商） |
-| Hungerford Meat Co | Branxton NSW 2335 | RAS 2024 Champion Pastry（MR Charcuterie Pork Pie，PARTIAL） | — | 初判不收（肉舖） |
+| Hungerford Meat Co | Branxton NSW 2335 | RAS 2024 Champion Pastry（MR Charcuterie Pork Pie；2026-10-28 由 2024 冠軍手冊確認） | — | 初判不收（肉舖） |
 | Wandin Bakery | 官方沒地址 | NABC 2024 Champion Sourdough Loaf | NABC 2024 Open Sourdough 第 1 | 待查地址 |
 
 ### 2.2 RAS 金牌（2024–2026，依金牌數排序，原始候選已列在上面的不重複）
@@ -149,7 +149,7 @@
 | NSW | Forestway Fresh | RAS 2025 金 2 | 生鮮超市（D2：只收得獎那間，加標籤） |
 | NSW | Bakers Delight Lane Cove | RAS 2025 金 2 | 連鎖加盟（D2） |
 | NSW | Bakers Delight Albion Park Rail | NABC 2025 第 1 | 連鎖加盟（D2） |
-| ACT | Three Mills Bakery | RAS 金 10；2024 Champion Biscuit（PARTIAL） | |
+| ACT | Three Mills Bakery | RAS 金 10；2024 Champion Biscuit | |
 | QLD | Burleigh Baker | RAS 2026 金 4；NABC 2026 第 1 | 有幾間門市 |
 | VIC | Brazen Brownies | RAS 金 2 | 可能是批發 |
 | VIC | Cacao Chocolates & Patisserie | RAS 2026 金 2 | |

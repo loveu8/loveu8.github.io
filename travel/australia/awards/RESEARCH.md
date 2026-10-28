@@ -33,6 +33,7 @@
 | 2026 冠軍手冊 | https://www.rasnsw.com.au/globalassets/document-library/rasnsw/competitions/_shared/finefood/2026_finefoodchampionsbooklet_a5_online.pdf | 4 個烘焙冠軍 |
 | 2026 成績目錄 | https://www.rasnsw.com.au/globalassets/document-library/rasnsw/competitions/_shared/finefood/2026finefoodcatalogueweb.pdf | 評審評語、獎牌分數門檻（第 299–301 行） |
 | 2025 成績目錄 | https://www.rasnsw.com.au/globalassets/document-library/rasnsw/competitions/fine-food/competitions-fine-food-catalogue-2025.pdf | 冠軍名單（p.13）、分數門檻 |
+| 2024 冠軍手冊（Wayback） | https://web.archive.org/web/20250413162025/https://www.rasnsw.com.au/globalassets/document-library/rasnsw/competitions/fine-food/2024_fine-food-champions-booklet_final.pdf | 原網址已 404。p.16–17：4 個烘焙冠軍，另有 Best Professional Bakery Apprentice/Student Exhibit（Hearthe 的學徒 James Hammond，學生獎，不收） |
 
 **獎牌門檻**（2025、2026 目錄都寫明，烘焙組適用 100 分制）：金 ≥ 90；銀 82～未滿 90；銅 74～未滿 82。未達 74 分沒有獎牌（csv 的 `award` 是空白）。研究 csv 抽查：所有金牌 ≥ 90、銀牌 82–89.5，和門檻一致。
 
@@ -48,7 +49,7 @@
 
 | 年 | Champion Bread | Champion Cake | Champion Biscuit | Champion Pastry | 狀態 |
 |---|---|---|---|---|---|
-| 2024 | Slowbreads Roseville（White Sourdough） | The Gumnut Patisserie（ChocoBerry Swirl） | Three Mills Bakery（Salted Chocolate Rye Cookie） | Hungerford Meat Co（MR Charcuterie Pork Pie） | **PARTIAL**：只在搜尋引擎快取的 RAS 頁面看到，現在的 RAS 頁面已換成 2026。四項產品都在 myRAS 2024 有金牌紀錄，但「冠軍」這個頭銜沒有現存官方頁面可引用 |
+| 2024 | Slowbreads Roseville（White Sourdough） | The Gumnut Patisserie（ChocoBerry Swirl） | Three Mills Bakery（Salted Chocolate Rye Cookie） | Hungerford Meat Co（MR Charcuterie Pork Pie） | **VERIFIED**（2024 冠軍手冊 p.16–17，Wayback 存檔，2026-10-28 補查） |
 | 2025 | Slowbreads Roseville（Fig, Cranberry and Walnut Sourdough） | The Gumnut Patisserie（Rock & Roll） | Continental Taralli Biscuits（Tarallini – Parmesan Cheese & Onion） | The Piefather（MICKTACO） | **VERIFIED**（2025 目錄 p.13） |
 | 2026 | Wholegreen Bakery（Vegan Gluten-Free Plain Sourdough 500G） | ISEO Patisserie（ISEO Vegan G.F Banana Cake） | Sweet Ivy（Lemon Macaron） | Little Secrets Bakehouse（Citrus Meringue Tart） | **VERIFIED**（2026 冠軍手冊） |
 
@@ -176,7 +177,7 @@
 |---|---|---|
 | Golden Bean 2024、2025 分類獎牌是圖片 | 咖啡烘豆商的金牌名單不完整 | 先只收三項冠軍；分類金牌在 Step 1b 逐張讀圖轉錄（估 2～3 小時／年），或只轉錄金牌 |
 | Golden Bean 2026 結果頁還沒公布 | 2026 只有總冠軍 | 每月檢查一次 `goldenbean.com.au/pages/2026-winners` |
-| RAS 2024 冠軍頭銜 | 4 筆冠軍只能標 PARTIAL | 寫信問 RAS，或找 2024 冠軍手冊的存檔；在那之前網站顯示為「金牌」 |
+| ~~RAS 2024 冠軍頭銜~~ | ~~4 筆冠軍只能標 PARTIAL~~ | **已解決（2026-10-28）**：Wayback 找到 2024 冠軍手冊，4 筆改 VERIFIED |
 | ASCA 2024、2026 賽季 | 只有媒體 | 不收（個人獎＋非官方），見 D3 |
 | 所有得獎者的實際門市 | 沒有門市就不能上地圖 | 沿用咖啡廳計畫的方法：Google Maps 查地址、營業狀態、座標；每家記查核日期 |
 | NABC 的「人名 - 店名」 | 是個人代表店家參賽，還是店家獎？ | 官方表把店名寫在一起，視為「代表該店參賽」：`relationship_type = staff_entry`，卡片顯示「由 X 代表參賽」 |
