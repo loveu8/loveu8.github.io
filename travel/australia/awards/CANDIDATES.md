@@ -216,6 +216,35 @@
 - 獎記不到單一門市、只能記在品牌：Bonfire 的 Balmain 金牌（店已不在）、Three Mills（Fyshwick 有兩間）、Burleigh（參賽地址是烘焙廠）
 - Harris Farm 超市裡的專櫃（Bonfire 3 間、Three Mills 1 間）：2026-10-28 使用者決定**算門市**，卡片加「超市內專櫃」標籤（`PLAN.md` 第 10 節 D2 補充）
 
+### 門市查證：第 11～20 家（2026-10-28）
+
+查核方式同上。
+
+| 店家 | 門市（官網寫法） | Google Maps 地址 | 座標 | 狀態 | 備註 |
+|---|---|---|---|---|---|
+| Sacrebleu! Canelés and Co | La Boutique（旗艦店） | 701 Pittwater Rd, Dee Why NSW 2099 | -33.7526369,151.2861013 | 營業 | RAS 參賽地址 |
+| | Crown Sydney | 1 Barangaroo Ave, Barangaroo NSW 2000 | -33.8620254,151.2014096 | 營業 | 週三到週日 |
+| | ~~Freshwater~~ | — | — | 官網寫已永久關閉 | |
+| Madame and Yves | Clovelly（唯一門市） | 343-345 Clovelly Rd, Clovelly NSW 2031 | -33.9121823,151.2596783 | 營業 | 也做批發 |
+| Sébastien Sans Gluten | Leichhardt（唯一門市） | 131 Marion St, Leichhardt NSW 2040 | -33.883998,151.1506288 | 營業 | |
+| Tuga Pastries | Clovelly（Bakery） | Shop 6/231 Clovelly Rd, Clovelly NSW 2031 | -33.9115076,151.2549011 | 營業 | |
+| | Tuga x Village, Clovelly（Cafe & Bakery） | Shop 1/231 Clovelly Rd, Clovelly NSW 2031 | -33.911473,151.2547154 | 營業 | 和上一間同一棟 |
+| | Alexandria（Cafe & Bakery） | 10/112 McEvoy St, Alexandria NSW 2015 | -33.9028552,151.1965566 | 營業 | |
+| | | | | | RAS 參賽地址是 Marrickville，三間門市都不在 Marrickville → 獎記在品牌 |
+| Hudson's Bakery | Bondi Junction（唯一門市） | 238 Oxford St, Bondi Junction NSW 2022 | -33.8904765,151.2436012 | 營業 | 無麩質；週日、一公休。另有 3 個週六農夫市集攤位（Shire、Kings Cross、Carriageworks），不收 |
+| Doughheads | The Junction（唯一門市） | Shop 17a/204 Union St, The Junction NSW 2291 | -32.9385158,151.7584618 | 營業 | Google Maps 分類是甜甜圈店，算甜點店；官網 doughheads.com.au 打不開 |
+| Bakehouse Delights | Nowra | 6/110 Kalandar St, Nowra NSW 2541 | -34.8884691,150.608724 | 營業 | 沒有官網。RAS 寫 East Nowra，Google Maps 寫 Nowra，郵遞區號都是 2541，附近只找到這一家同名店 |
+| **Zweefers Cakes** | Fairy Meadow | 43 Princes Hwy, Fairy Meadow NSW 2519 | — | **永久歇業** | Google Maps 標永久歇業；Illawarra Mercury 2025-07-15、Region Illawarra 2025-07-16 報導因成本上漲關店；官網 Shopify 已停用 → **門市 REJECTED** |
+| **Sussex Sourdough** | 沒有自己的店 | — | — | — | 店主 Daniel Turner 在家烘焙，在 Sussex Inlet 週末市集（Ellmoos Centre）擺攤，也放在 Sussex Greenhouse 農場商店寄賣（sussexinlet.nsw.au）→ 依 D2 沒有自己的門市，**REJECTED** |
+| **Butter Baked Pastries** | 沒有門市 | — | — | — | Google Maps 分類「麵包批發商」、0 則評論；官網只有產品型錄，沒有店址；RAS 參賽名稱是「Butter Baked Pastries Pty Ltd」→ 依 D2 批發不收，**REJECTED** |
+
+**這 10 家的小結**
+
+- 門市 VERIFIED：7 家（Sacrebleu!、Madame and Yves、Sébastien Sans Gluten、Tuga、Hudson's、Doughheads、Bakehouse Delights）
+- 門市 REJECTED：3 家（Zweefers 歇業、Sussex Sourdough 沒有店面、Butter Baked Pastries 批發）
+- 獎記在品牌：Tuga（參賽地址 Marrickville 不是門市）
+- 第 1～20 家累計：16 家 VERIFIED、4 家 REJECTED
+
 ### C. 依 D2 不收（製造商、批發、超市自有品牌）
 
 Tucker's Natural（SA，金 7）、Kurrajong Kitchen Group（金 3）、Handy Foods（參賽者是 **Woolworths** Bella Vista，金 3，原本漏列）、Bite Size Coffee Treats（金 3）、Continental Taralli Biscuits（SA，2025 Champion Biscuit＋金 2）、Falcones（金 1）、Knutsford Gourmet（WA，金 1）、Silver Tongue Foods（QLD，金 1）。Step 1b 只快速確認「沒有門市」，有門市的話移回 A。
