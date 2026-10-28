@@ -245,6 +245,30 @@
 - 獎記在品牌：Tuga（參賽地址 Marrickville 不是門市）
 - 第 1～20 家累計：16 家 VERIFIED、4 家 REJECTED
 
+### 門市查證：第 21～30 家（2026-10-28）
+
+查核方式同上。這一批大多是 2.5 節初判「可能是批發／在家接單／只有 Instagram」的店。
+
+| 店家 | 門市 | Google Maps 地址 | 座標 | 狀態 | 備註 |
+|---|---|---|---|---|---|
+| Sweet Ivy | Mosman（唯一門市） | 10 Reginald St, Mosman NSW 2088 | -33.8338592,151.2293332 | 營業 | 官網同地址；週一、二、四只開下午 |
+| Bakealicious by Gabriela | Forestville（唯一門市） | Shop 13 The Centre（Coles 對面）, Forestville NSW 2087 | -33.7623997,151.2158884 | 營業 | 官網寫「our Forestville shop」；Google Maps 524 則評論。**不是在家接單**，2.5 節的疑問解除 |
+| V's Dessert Gluten Free | Dee Why（唯一門市） | Shop 22/2b Francis St, Dee Why NSW 2099 | -33.7534332,151.2832929 | 營業 | 沒有官網，只有 Facebook；Google Maps 分類是咖啡店，208 則評論 |
+| Pudding Lane | Sandgate 工廠門市 | 4 Guernsey St, Sandgate NSW 2304 | -32.876311,151.711431 | 營業 | 官網聯絡頁寫「PUDDING LANE SHOP」；Google Maps 分類是食品製造商，週一到週五 8:00–16:00。聖誕布丁、聖誕蛋糕專賣 |
+| **Racecourse Pie Company** | 沒有門市 | — | — | — | Facebook：在 Wyong 賽馬場用派餐車（The Pie Cart）賣；Google Maps 找不到。ASIC 2026-10-02 公告收到公司註銷申請 → **REJECTED** |
+| **The Focaccia Factory** | 沒有門市 | — | — | — | 官網只列寄賣店（Fruit World Roselands、La Frutteria Abbotsford 等 6 家），另有市集攤位；Google Maps 找不到 → 依 D2 **REJECTED** |
+| **Little Secrets Bakehouse** | 沒有門市 | 10/566 Gardeners Rd, Alexandria NSW 2015 | — | — | Google Maps 分類「麵包批發商」、5 則評論；Google 搜尋結果的官網摘要寫專做蛋糕供應給咖啡店（官網本身連不上）；地址在工業區 → 依 D2 批發不收，**REJECTED**。注意：這家是 RAS 2026 Champion Pastry |
+| **This Is Us Baked Goods** | 沒有門市 | 24 Meeks Rd, Marrickville NSW 2204 | — | — | Google Maps 分類「麵包批發商」、4 則評論；在 EuroStore 等零售商寄賣 → 依 D2 **REJECTED** |
+| **Delicious & Simple by Svetlana** | 沒有門市 | — | — | — | 官網寫 homemade、網購蛋糕；Google Maps 找不到 → **REJECTED** |
+| ISEO Patisserie | 找不到 | — | — | **PARTIAL** | Google Maps 找不到；只有商家目錄 Infobel 寫 120 Herring Rd, Macquarie Park（是辦公大樓）；Instagram `iseopatisserie` 不存在。RAS 2026 Champion Cake（Vegan GF Banana Cake）。先不收，上線前再找一次 |
+
+**這 10 家的小結**
+
+- 門市 VERIFIED：4 家（Sweet Ivy、Bakealicious、V's Dessert、Pudding Lane）
+- 門市 REJECTED：5 家（Racecourse Pie、Focaccia Factory、Little Secrets、This Is Us、Delicious & Simple）
+- PARTIAL：ISEO Patisserie（找不到店面）
+- 第 1～30 家累計：20 家 VERIFIED、9 家 REJECTED、1 家 PARTIAL
+
 ### C. 依 D2 不收（製造商、批發、超市自有品牌）
 
 Tucker's Natural（SA，金 7）、Kurrajong Kitchen Group（金 3）、Handy Foods（參賽者是 **Woolworths** Bella Vista，金 3，原本漏列）、Bite Size Coffee Treats（金 3）、Continental Taralli Biscuits（SA，2025 Champion Biscuit＋金 2）、Falcones（金 1）、Knutsford Gourmet（WA，金 1）、Silver Tongue Foods（QLD，金 1）。Step 1b 只快速確認「沒有門市」，有門市的話移回 A。
