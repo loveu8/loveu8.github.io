@@ -47,7 +47,7 @@
 - [x] Golden Bean 2025 分類投影片：只轉錄金牌 → 同一份 CSV（11 類 11 面，2026-10-28）
 - [x] Golden Bean 金牌得主：篩出澳洲的，查有沒有咖啡廳或門市（新增 4 家 VERIFIED，2026-10-28）
 - [x] Golden Bean 已過門檻的店：補轉錄它的銀牌（D1「也推薦」）→ `research/golden_bean_silver_selected_2024-2025.csv`（5 家共 31 面，2026-10-28）
-- [ ] 檢查 Golden Bean 2026 結果頁是否已公布
+- [x] 檢查 Golden Bean 2026 結果頁是否已公布 → 2026-10-28 還沒有（`/pages/2026-winners` 404；首頁只寫總冠軍 Sam Shih, Espresso Club Australia）。之後每月再看一次
 - [ ] RAS 2024 冠軍：找 2024 冠軍手冊存檔（Wayback）
 - [ ] 👤 要不要寫信問 RAS 2024 冠軍紀錄
 - [ ] 重要官方頁存 Wayback，網址記下來
