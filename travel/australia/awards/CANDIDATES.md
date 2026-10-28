@@ -269,6 +269,32 @@
 - PARTIAL：ISEO Patisserie（找不到店面）
 - 第 1～30 家累計：20 家 VERIFIED、9 家 REJECTED、1 家 PARTIAL
 
+### 門市查證：第 31～40 家（2026-10-28）
+
+查核方式同上。這一批包含超市和連鎖加盟店（D2：只收得獎那一間，加標籤）。
+
+| 店家 | 門市 | Google Maps 地址 | 座標 | 狀態 | 備註 |
+|---|---|---|---|---|---|
+| Comeco Foods | Newtown（唯一門市） | 524A King St, Newtown NSW 2042 | -33.9024328,151.1793906 | 營業 | Google Maps 名稱「Comeco Cafe & Sushi Bar」、分類咖啡店、550 則評論。官網：全店純素、無麩質，自己做米麵包、甜甜圈，也賣素壽司。主業算咖啡店兼烘焙，收（得獎品項是 Hot Cross Buns） |
+| Forestway Fresh | Terrey Hills（唯一一間） | 2 Myoora Rd, Terrey Hills NSW 2084 | -33.6997429,151.2125566 | 營業 | 高級食材超市，官網寫店內有自己的廚師團隊。依 D2 加「超市內烘焙」標籤 |
+| Bakers Delight Lane Cove | Lane Cove | 2/23 Burns Bay Rd, Lane Cove NSW 2066 | -33.8144986,151.1691365 | 營業 | 連鎖加盟，只收這一間，加「連鎖加盟店」標籤 |
+| Bakers Delight Albion Park Rail | Albion Park Rail | Unit 1/183 Princes Hwy, Albion Park Rail NSW 2527 | -34.5608445,150.796014 | 營業 | 同上 |
+| Brazen Brownies | Thomastown 工廠門市 | Unit 6/36 Latitude Blvd, Thomastown VIC 3074 | -37.6853856,145.0175852 | 營業 | 官網是網購＋批發，沒寫店址；Google Maps 分類「巧克力工廠」、332 則評論，週一到週五 10:00–15:30，評論提到走進店裡購買。和 Pudding Lane 一樣算工廠門市 |
+| Riviera Bakery | Torrensville（唯一門市） | 96 Hayward Ave, Torrensville SA 5031 | -34.9136083,138.5568666 | 營業 | NABC 2024 寫「Riviera Bakery, Adelaide」 |
+| Coles Casuarina | Casuarina Square | Casuarina Square（Trower Rd 和 Dripstone Rd 口）, Casuarina NT 0810 | -12.3766504,130.8813286 | 營業 | 超市，依 D2 只收這一間，加「超市內烘焙」標籤。NABC 2026 的得獎者是這間店的烘焙師 Luke Moy |
+| Adelaide's Finest | Frewville Foodland | 177 Glen Osmond Rd, Frewville SA 5063 | -34.946548,138.6266 | 營業 | 超市。官網兩間店都有 Bakery、Breadbar & Patisserie |
+| | Pasadena Foodland | 20 Fiveash Dr, Pasadena SA 5042 | -35.0008333,138.5905556 | 營業 | 同上。NABC 的得獎者寫「Adelaide's Finest Bakeries & Patisserie」，沒有指定哪一間 → **待使用者決定收一間還是兩間** |
+| Cacao Chocolates & Patisserie | Cheltenham | 2 Kembla St, Cheltenham VIC 3192 | -37.975712,145.082814 | **PARTIAL** | 官網只寫這裡是「HEAD OFFICE」，主要是網購；Google Maps 分類「巧克力工匠」、69 則評論、有營業時間、不能內用，但評論都在講網購和外送，看不出能不能走進去買。先不收，上線前再確認 |
+| **Stoney Acre Produce** | 沒有門市 | （Google Maps：23 Herbert St, Laura SA 5480） | — | — | 官網只有網購和郵政信箱（PO Box 162, Laura）；Google Maps 分類「食品製造商」、沒有營業時間，評論都是訂聖誕布丁 → **REJECTED** |
+
+**這 10 家的小結**
+
+- 門市 VERIFIED：8 家（Comeco、Forestway Fresh、Bakers Delight ×2、Brazen Brownies、Riviera、Coles Casuarina、Adelaide's Finest）
+- 門市 REJECTED：Stoney Acre Produce（只有網購）
+- PARTIAL：Cacao（看不出能不能現場買）
+- 待使用者決定：Adelaide's Finest 收一間還是兩間
+- 第 1～40 家累計：28 家 VERIFIED、10 家 REJECTED、2 家 PARTIAL
+
 ### C. 依 D2 不收（製造商、批發、超市自有品牌）
 
 Tucker's Natural（SA，金 7）、Kurrajong Kitchen Group（金 3）、Handy Foods（參賽者是 **Woolworths** Bella Vista，金 3，原本漏列）、Bite Size Coffee Treats（金 3）、Continental Taralli Biscuits（SA，2025 Champion Biscuit＋金 2）、Falcones（金 1）、Knutsford Gourmet（WA，金 1）、Silver Tongue Foods（QLD，金 1）。Step 1b 只快速確認「沒有門市」，有門市的話移回 A。
