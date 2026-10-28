@@ -43,7 +43,7 @@
 - [x] 多門市品牌（Bonfire Bread、Burleigh Baker、Wholegreen）：每個獎對到哪間門市，對不到就記在品牌（2026-10-28）
 - [x] 同名店確認：Piece of Cake Bakery、Wandin Bakery、Sourdough Portland（2026-10-28；另查 Ottimo、Country Cob、The Beekeeper's）
 - [ ] 上線前再確認 PARTIAL 的 5 家：ISEO、Cacao、The Beekeeper's Bakery、White Horse、The Bean Cartel；Crois 官網
-- [ ] Golden Bean 2024 分類投影片：只轉錄金牌
+- [x] Golden Bean 2024 分類投影片：只轉錄金牌 → `research/golden_bean_gold_2024-2025.csv`（11 類 14 面，2026-10-28）
 - [ ] Golden Bean 2025 分類投影片：只轉錄金牌（Category 1 已做）
 - [ ] Golden Bean 金牌得主：篩出澳洲的，查有沒有咖啡廳或門市
 - [ ] Golden Bean 已過門檻的店：補轉錄它的銀牌（D1「也推薦」）
