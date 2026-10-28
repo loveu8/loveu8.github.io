@@ -340,6 +340,32 @@ NABC 官方結果只寫店名，所以多一步「這家是不是得獎的那家
 
 咖啡只剩 Glee 一家。Golden Bean 分類金牌轉錄後（Step 1b 後面的項目）會再增加。
 
+### Golden Bean 分類金牌：新候選查證（2026-10-28）
+
+來源：`research/golden_bean_gold_2024-2025.csv`（2024、2025 共 25 面）。已在上面查過的不重複（The Bean Cartel、Glee、White Horse、Espresso Club、Black Bag）。
+
+**先排除（依 D2，代工或超市包裝豆）**：ALDI（Black Bag 代工）、Grinders Coffee Roasters / Coles、Jahnus（投影片寫「contracted by Jamaica Blue」）。
+
+處理原則：烘豆商的獎記在品牌；烘豆商**自己經營**、掛自己招牌的咖啡店都收（和 Glee 一樣）。加盟店依 D2 只收得獎那一間，烘豆商的獎沒有指定門市，所以加盟店不收。
+
+| 烘豆商 | Golden Bean 金牌 | 州 | 咖啡店 | Google Maps 地址 | 座標 | 狀態 | 備註 |
+|---|---|---|---|---|---|---|---|
+| Coffee Mentality | 2024 Cat 1、Cat 10；2025 Cat 10 | QLD | Roastery Woolloongabba | 43 Balaclava St, Woolloongabba QLD 4102 | -27.4905539,153.0382874 | 營業 | **已在布里斯本咖啡廳頁（CF02）**，可以互相標註。Google Maps 分類「蒸餾咖啡吧」 |
+| | | | South Brisbane | 44 Montague Rd, South Brisbane QLD 4101 | -27.4711201,153.0155883 | 營業 | |
+| | | | Stones Corner | 5 Jeavons Ln, Greenslopes QLD 4120 | -27.5008181,153.0452129 | 營業 | |
+| O'GaBee & Co Coffee Roastery | 2024 Cat 4、Cat 10；2025 Cat 4 | QLD | Brisbane Quarter | Shop 8/300 George St, Brisbane City QLD 4000 | -27.4699177,153.0221707 | 營業 | 官網「Our Cafes & Locations」寫 Brisbane 4 間；Instagram：Brisbane Quarter、Queen St 只開平日 |
+| | | | Queen Street | G11A/141 Queen St, Brisbane City QLD 4000 | -27.4696418,153.0258888 | 營業 | |
+| | | | Chermside | Shop 397, Westfield Chermside（Hamilton Rd 和 Gympie Rd 口）, Chermside QLD 4032 | -27.3814598,153.0331798 | 營業 | 購物中心內 |
+| | | | Birkdale | Birkdale Fair, Shop 14/2 Mary Pleasant Dr, Birkdale QLD 4159 | -27.4912095,153.2184918 | 營業 | 購物中心內 |
+| Coffee Presto | 2024 Cat 5 | QLD | Rosslea（烘焙廠兼咖啡吧） | 103 Bowen Rd, Rosslea QLD 4812 | -19.3011804,146.7998245 | 營業 | Townsville。Google Maps 名稱「Coffee Roastery & Espresso Bar」、96 則評論 |
+| Peak Coffee Australia | 2024 Cat 7 | NSW | Port Macquarie（烘焙廠兼咖啡店） | 30 Jambali Rd, Port Macquarie NSW 2444 | -31.451154,152.886106 | 營業 | Google Maps 服務選項有內用、外帶，118 則評論；官網主打批發和外送 |
+| Latitude Coffee Roasters | 2025 Cat 7 | QLD | North Lakes 烘焙廠 | Unit 2/28 Flinders Parade, North Lakes QLD 4509 | — | **PARTIAL** | 官網只有網購、批發；Google Maps 沒有服務選項、16 則評論。看不出能不能現場喝 |
+| The Purple Haze Roasting Co. | 2024 Cat 2 | NSW | 找不到 | — | — | **PARTIAL** | Best Bean Deals 網站寫在 Caringbah；Google Maps 找不到 |
+| **Yamaneco Roaster** | 2025 Cat 2 | QLD | 沒有咖啡店 | — | — | — | 官網只有網購和批發（Brisbane，2024 年成立）；投影片寫「YAMANECO ROASTER / CHERRY CREEK ESTATE」→ **REJECTED** |
+| **Dibella Coffee** | 2024 Cat 11（Beefy's Blend） | QLD | 只剩加盟店 | — | — | — | 2025 投影片寫「RETAIL FOOD GROUP - DI BELLA COFFEE」；Google Maps 上大多數 Di Bella 咖啡店、烘焙廠標永久歇業，只剩 Scarborough 一間 → 依 D2 加盟店不收，**REJECTED** |
+
+**小結**：咖啡 VERIFIED 增加 4 家（Coffee Mentality、O'GaBee、Coffee Presto、Peak Coffee），加上 Glee 共 5 家、13 間咖啡店。PARTIAL 增加 2 家（Latitude、The Purple Haze）。
+
 ### C. 依 D2 不收（製造商、批發、超市自有品牌）
 
 Tucker's Natural（SA，金 7）、Kurrajong Kitchen Group（金 3）、Handy Foods（參賽者是 **Woolworths** Bella Vista，金 3，原本漏列）、Bite Size Coffee Treats（金 3）、Continental Taralli Biscuits（SA，2025 Champion Biscuit＋金 2）、Falcones（金 1）、Knutsford Gourmet（WA，金 1）、Silver Tongue Foods（QLD，金 1）。Step 1b 只快速確認「沒有門市」，有門市的話移回 A。
