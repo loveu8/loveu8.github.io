@@ -214,7 +214,7 @@
 - 門市 VERIFIED：9 家（Bonfire、Gumnut、Wholegreen、Slowbreads、Three Mills、Burleigh、Crois、Parfait、Hearthe）
 - 門市 REJECTED：The Piefather（永久歇業）
 - 獎記不到單一門市、只能記在品牌：Bonfire 的 Balmain 金牌（店已不在）、Three Mills（Fyshwick 有兩間）、Burleigh（參賽地址是烘焙廠）
-- 待使用者決定：品牌開在 Harris Farm 超市裡的櫃位（Bonfire 3 間、Three Mills 1 間）算不算門市
+- Harris Farm 超市裡的專櫃（Bonfire 3 間、Three Mills 1 間）：2026-10-28 使用者決定**算門市**，卡片加「超市內專櫃」標籤（`PLAN.md` 第 10 節 D2 補充）
 
 ### C. 依 D2 不收（製造商、批發、超市自有品牌）
 
