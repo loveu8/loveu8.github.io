@@ -391,7 +391,7 @@ NSW 烘焙 22 家：Bonfire、Gumnut、Wholegreen、Slowbreads、Crois、Parfait
 
 **獎項只記在品牌、對不到單一門市**：Bonfire 的 RAS 2024 金牌（Balmain 店已不在）、Three Mills（Fyshwick 兩間）、Burleigh（參賽地址是烘焙廠）、Tuga（參賽地址 Marrickville 不是門市）、Country Cob、Adelaide's Finest、5 家咖啡烘豆商。
 
-**獎項狀態 PARTIAL、門市 VERIFIED**（身分只有店名對上）：Ottimo、Country Cob。上網站前要決定：照收但卡片註明，或先不收（Step 2 試驗資料時再問）。
+**獎項狀態 PARTIAL、門市 VERIFIED**（身分只有店名對上）：Ottimo、Country Cob。2026-10-28 使用者決定**先不收**（`PLAN.md` D9），上表扣掉後是 **36 品牌、61 間門市**（VIC 4 品牌 4 間；全部烘焙 31 品牌 49 間）。
 
 **不上網站**
 
