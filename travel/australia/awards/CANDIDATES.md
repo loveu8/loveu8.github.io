@@ -292,7 +292,7 @@
 - 門市 VERIFIED：8 家（Comeco、Forestway Fresh、Bakers Delight ×2、Brazen Brownies、Riviera、Coles Casuarina、Adelaide's Finest）
 - 門市 REJECTED：Stoney Acre Produce（只有網購）
 - PARTIAL：Cacao（看不出能不能現場買）
-- 待使用者決定：Adelaide's Finest 收一間還是兩間
+- Adelaide's Finest：2026-10-28 使用者決定兩間都收（`PLAN.md` 第 10 節 D2 補充）
 - 第 1～40 家累計：28 家 VERIFIED、10 家 REJECTED、2 家 PARTIAL
 
 ### C. 依 D2 不收（製造商、批發、超市自有品牌）

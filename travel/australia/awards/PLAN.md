@@ -15,7 +15,7 @@
 | 0 | 既有專案盤點 | ✅ 完成 | 2026-10-26 | （本 commit） | 結論在第 1 節 |
 | 1 | 官方賽事研究（第一輪） | ✅ 完成 | 2026-10-26 | （本 commit） | RAS 三年逐筆、NABC 三年、GB 冠軍、ASCA 2025。缺口見 `RESEARCH.md` 第 6 節 |
 | — | D1～D8 決定 | ✅ 完成 | 2026-10-27 | （本 commit） | 第 10 節 |
-| 1b | 研究補完：門市查證、GB 分類金牌轉錄 | 🔄 進行中 | | `76c4a90`（第 1 項） | 第一批名單已篩（`CANDIDATES.md` 2.5）。門市查證：2026-10-28 完成第 1～10 家（`CANDIDATES.md` 2.5「門市查證：第 1～10 家」）。超市內專櫃算門市（第 10 節 D2 補充，2026-10-28）。第 11～40 家也完成（2026-10-28）。**下一步**：等使用者決定 Adelaide's Finest 收一間還是兩間；然後查最後 6 家沒有官方地址的店（Piece of Cake、Wandin、Sourdough Portland、Ottimo、Country Cob、The Beekeeper's），要開 Chrome |
+| 1b | 研究補完：門市查證、GB 分類金牌轉錄 | 🔄 進行中 | | `76c4a90`（第 1 項） | 第一批名單已篩（`CANDIDATES.md` 2.5）。門市查證：2026-10-28 完成第 1～10 家（`CANDIDATES.md` 2.5「門市查證：第 1～10 家」）。超市內專櫃算門市（第 10 節 D2 補充，2026-10-28）。第 11～40 家也完成（2026-10-28）。Adelaide's Finest 兩間都收（第 10 節 D2 補充）。**下一步**：查最後 6 家沒有官方地址的店（Piece of Cake、Wandin、Sourdough Portland、Ottimo、Country Cob、The Beekeeper's），要開 Chrome |
 | 2 | CSV 欄位定案、建立空 CSV | ⬜ | | | D5 已決定：7 個 CSV |
 | 3 | `make_awards_data.py` | ⬜ | | | |
 | 4a | 拆出 `list-map-shell.js`（D8 = B） | ⬜ | | | 獨立 commit，雜湊比對 |
@@ -323,6 +323,7 @@
 - **影響**：`DATA-SCHEMA.md` `scope` 欄位和第 5 節條件 5（這兩種的獎一定要對到門市）；`UI-PLAN.md` 3.4b 標籤。
 - **補充（2026-10-27，篩第一批名單時）**：主業不是麵包店、甜點店、咖啡店的店不收，即使得獎品項是烘焙品。第一個案例是肉舖 Hungerford Meat Co（RAS 2024 豬肉派金牌）。
 - **補充（2026-10-28，查門市時）**：得獎麵包店開在超市裡、掛自己招牌的專櫃，**算門市**，放上地圖，卡片加「超市內專櫃」標籤。案例：Bonfire Bread 在 Harris Farm 的 Mosman、Lane Cove、Marrickville 專櫃，Three Mills Bakery 在 Harris Farm Majura Park 的專櫃。理由：在專櫃買得到同樣的麵包；Bonfire 的 NABC 2025 名次報名時寫的就是 Marrickville、Lane Cove 兩個專櫃。這和上面的「超市內烘焙」不同：那是超市自己的烘焙部門，只收得獎那一間；專櫃是得獎品牌自己的櫃位，品牌名下的專櫃都收。還沒開幕的（Bonfire Cronulla）和市集攤位不收。
+- **補充（2026-10-28，查門市時）**：超市的獎如果只記在品牌、沒有指定哪一間店，那個品牌名下有烘焙部的店**都收**，都加「超市內烘焙」標籤。案例：Adelaide's Finest（NABC 2026 得獎者寫「Adelaide's Finest Bakeries & Patisserie」），Frewville、Pasadena 兩間 Foodland 都收。理由：沒有證據指向哪一間，兩間都是同一家公司的烘焙部，去哪一間都買得到。獎有指定門市時（例如 Coles Casuarina），仍然只收那一間。
 
 ### D3：ASCA 等個人賽（2026-10-27）
 
