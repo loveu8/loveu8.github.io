@@ -59,11 +59,13 @@ Step 1b 還沒打勾的兩項（PARTIAL 再查、使用者送 Wayback）留到 S
 
 ## Step 2：CSV 欄位定案
 
-- [ ] 依 D5 確定 `DATA-SCHEMA.md` 的欄位
-- [ ] 建 7 個 CSV（標題列）
-- [ ] `competitions.csv`：RAS-PB、NABC、GBA
-- [ ] 填 5 家試驗資料：Bonfire Bread、Burleigh Baker、Three Mills Bakery、Adelaide's Finest（看 D2）、Glee Coffee Roasters
-- [ ] 檢查：每種情況（多門市、個人代表店家、冠軍、金牌、名次）都有欄位可以記
+- [x] 依 D5 確定 `DATA-SCHEMA.md` 的欄位（定案 v1，差異見第 7 節，2026-10-28）
+- [x] 建 7 個 CSV（2026-10-28）
+- [x] `competitions.csv`：RAS-PB、NABC、GBA
+- [x] 填 5 家試驗資料：Bonfire Bread、Burleigh Baker、Three Mills Bakery、Adelaide's Finest、Glee Coffee Roasters（17 門市、88 獎、13 來源；由研究 CSV 用一次性腳本轉出，腳本在 scratchpad，沒進 repo）
+- [x] 檢查：每種情況都有欄位可以記：多門市（Bonfire 4、Three Mills 5）、超市專櫃（Bonfire ×3、Majura Park）、超市內烘焙（Adelaide's Finest ×2）、烘焙廠不上地圖（Burleigh Varsity Lakes）、獎對到門市（Bonfire NABC）、個人代表店家（NABC「人名 - 店名」）、冠軍、金銀牌、名次、烘豆商自營咖啡店（Glee）
+- [ ] 👤 決定 Ottimo、Country Cob 收不收（身分只有店名對上）
+- [ ] 👤 決定工廠門市的標籤文字（`location_type = factory_shop`）
 - [ ] 👤 看過試驗資料
 
 ## Step 3：資料產生工具

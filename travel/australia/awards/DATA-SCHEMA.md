@@ -1,7 +1,8 @@
 # 澳洲得獎咖啡與烘焙：資料結構
 
-- 日期：2026-10-26
-- 狀態：**草稿**，欄位在 Step 2 定案（`PLAN.md`）
+- 日期：2026-10-26（草稿）；2026-10-28 Step 2 定案第 1 版
+- 狀態：**定案 v1**。和草稿的差異見第 7 節
+- 檔案位置：7 個 CSV 放在 `travel/australia/awards/` 根目錄，UTF-8（無 BOM）、LF 換行，和既有咖啡廳、烘焙頁相同
 - 原則：CSV 是唯一要手動維護的資料；`data.js` 只能由 `travel/tools/make_awards_data.py` 產生
 
 ## 1. 為什麼要 7 個 CSV，不能更少嗎
@@ -36,7 +37,8 @@
 | `business_id` | id | ✔ | `B-` 開頭，例如 `B-bonfire-bread` |
 | `official_name` | text | ✔ | 店家自己用的名稱（不是比賽登記的公司名，例如不寫 PTY LTD） |
 | `business_type` | enum | ✔ | `bakery`、`cafe`、`roaster`，可以多個，用 `；` 分隔，第一個是主類型 |
-| `scope` | enum | ✔ | `retail`（有門市可去）、`wholesale`、`manufacturer`、`supermarket`（超市內烘焙）、`chain_franchise`（連鎖加盟店）、`other`。上網站的只有 `retail`、`supermarket`、`chain_franchise`（D2）；後兩種卡片加標籤，而且只有得獎的那間門市上網站（第 5 節條件 5） |
+| `scope` | enum | ✔ | `retail`（有門市可去）、`wholesale`、`manufacturer`、`supermarket`（超市內烘焙）、`chain_franchise`（連鎖加盟店）、`other`。上網站的只有 `retail`、`supermarket`、`chain_franchise`（D2）；後兩種卡片加標籤，門市怎麼挑見第 5 節條件 5。咖啡烘豆商有自己經營的咖啡店就是 `retail` |
+| `related_refs` | text | | 和本站其他頁的交叉標註，`<頁>:<ID>`，多個用 `；` 分隔，例如 `brisbane-cafe:CF02` |
 | `website_url` | url | | 官網 |
 | `instagram_url` | url | | |
 | `description_zh` | text | | 一句話，**只寫查得到的事實**，不寫製程、發酵時數、豆子產地，除非有來源 |
@@ -57,6 +59,7 @@
 | `postcode` | text | ✔ | 4 位數字；工具檢查和州別的郵遞區號範圍是否吻合 |
 | `latitude`、`longitude` | decimal | ✔ | 工具檢查在澳洲範圍內（緯度 -44～-10、經度 112～154） |
 | `location_role` | enum | ✔ | `shop`（門市）、`bakehouse`（只有製作）、`hq`；只有 `shop` 上地圖 |
+| `location_type` | enum | ✔ | `standalone`（自己的店面）、`supermarket_counter`（開在超市裡、掛自己招牌的專櫃，D2 補充 2026-10-28）、`factory_shop`（工廠附設門市）、`in_supermarket`（超市本身，用在 `scope = supermarket` 的店家）。`standalone` 以外的卡片都加標籤 |
 | `operating_status` | enum | ✔ | `open`、`temporarily_closed`、`closed`、`moved`、`unknown`；只有 `open` 上網站 |
 | `moved_to_location_id` | id | | `operating_status = moved` 時必填 |
 | `location_source_url` | url | ✔ | 查到地址的來源（官網門市頁或 Google Maps） |
@@ -88,7 +91,7 @@
 | `event_date` | date | | 評審或頒獎日期，知道才填 |
 | `class_code` | text | ✔ | 官方班號，例如 `18`、`22A`、`001`、`Cat 1`；冠軍填 `CHAMPION` |
 | `category` | text | ✔ | 官方班名原文，例如 `Viennoiserie (e.g., Danish, vanilla slice, brioche, croissant, pain au chocolat, etc.)` |
-| `category_group` | enum | ✔ | 網站篩選用的歸類：`bread`、`sourdough`、`viennoiserie`、`pastry_pie`、`cake`、`biscuit`、`gluten_free`、`coffee_espresso`、`coffee_milk`、`coffee_filter`、`coffee_other`、`overall` |
+| `category_group` | enum | ✔ | 網站篩選用的歸類：`bread`、`sourdough`、`viennoiserie`、`pastry_pie`、`cake`、`biscuit`、`gluten_free`、`coffee_espresso`、`coffee_milk`、`coffee_filter`、`coffee_other`、`overall`。對照見下方「班別歸類」 |
 | `product_name` | text | | 官方寫的產品名，**照抄不改寫**（全大寫也照抄，顯示時再處理大小寫） |
 | `official_award_title` | text | ✔ | 例如 `Gold Medal`、`First`、`Champion Bread`、`Overall Champion` |
 | `award_level` | enum | ✔ | `champion`（冠軍／總冠軍）、`medal`、`placing` |
@@ -102,6 +105,30 @@
 | `verification_note` | text | | PARTIAL／DISPUTED／REJECTED 必填理由 |
 
 **`medal_type` 和 `rank` 分開存**，所以「金牌」和「第一名」在資料層就不可能混在一起（查證規則 1、3）。冠軍是自己一列，不是在金牌那列加註（規則 2）。
+
+**`awards.csv` 只收 D1 會用到的等級**：冠軍、金牌、銀牌、第 1 名、第 2 名。銅牌和第 3 名留在 `research/` 的 CSV，不重複建檔。
+
+**班別歸類（`category_group`）**
+
+| 賽事 | 官方班別 | `category_group` |
+|---|---|---|
+| RAS | Traditional Bread、International Bread、Specialty Loaf | `bread` |
+| RAS | Sour Dough / Sourdough | `sourdough` |
+| RAS | Small Cakes、Cakes Tortes & Gateaux、Sweet Breads、Christmas Cake & Puddings、Brownies & Slices | `cake` |
+| RAS | Biscuit（各班）、Macaron | `biscuit` |
+| RAS | Savoury Pie、Quiche、Sweet Pie／Tart | `pastry_pie` |
+| RAS | Viennoiserie | `viennoiserie` |
+| RAS | Gluten Free（各班） | `gluten_free` |
+| NABC | 001、002、007（Sourdough 各班）、Sourdough Tin Bread | `sourdough` |
+| NABC | 003 Ciabatta、004 Baguette | `bread` |
+| NABC | 005 Croissants、006 Open Speciality Viennoiserie | `viennoiserie` |
+| GBA | Cat 1 Espresso、Cat 8、Cat 10（連鎖 Espresso） | `coffee_espresso` |
+| GBA | Cat 2 Milk Based、Cat 9、Cat 11（連鎖 Milk） | `coffee_milk` |
+| GBA | Cat 3 Filter | `coffee_filter` |
+| GBA | Cat 4 Alternative Milk、Cat 5 Decaf、Cat 6 Elite、Cat 7 Super Automatic | `coffee_other` |
+| 全部 | 冠軍、總冠軍 | `overall`（RAS 的 Champion Bread 等照產品類別歸，例如 Champion Bread → `bread`） |
+
+產生工具用班名關鍵字判斷，判斷不出來就報 ERROR。
 
 ### 2.5 `award_attributions.csv`：獎項和店家的關係
 
@@ -146,7 +173,7 @@
 | 店家 | `B-<slug>` | `B-burleigh-baker` | 讀得懂；slug 一旦建立就不改，改名只改 `official_name` |
 | 門市 | `L-<店家 slug>-<地點 slug>` | `L-bonfire-bread-avalon` | |
 | 賽事 | 大寫短碼 | `RAS-PB` | |
-| 獎項 | `<賽事>-<年>-<班>-<官方識別>` | RAS：`RAS-PB-2026-C18-E109`（目錄編號）；NABC：`NABC-2025-C005-P1`（名次）；冠軍：`NABC-2025-CHAMP-SHOW`；GB：`GBA-2025-CAT1-<slug>` | 從官方資料就能重新算出同一個 ID，重跑匯入不會產生重複 |
+| 獎項 | `<賽事>-<年>-<班>-<官方識別>` | RAS：`RAS-PB-2026-C18-E109`（目錄編號）；NABC：`NABC-2025-C005-P1`（名次，同班同名次只有一個）；冠軍：`NABC-2025-CHAMP-SHOW`、`RAS-PB-2024-CHAMP-BISCUIT`；GB：`GBA-2025-CAT1-G-<烘豆商 slug>-<產品 slug>` | 從官方資料就能重新算出同一個 ID，重跑匯入不會產生重複。GB 沒有目錄編號，同一家烘豆商同一班可能有好幾面（例：Glee 2024 Cat 2 三面銀牌），所以要加牌別和產品 |
 | 來源 | `S-<賽事或出版者>-<年>-<內容>` | `S-NABC-2025-PDF` | |
 
 slug：小寫英數和連字號，去掉 `pty-ltd`。
@@ -172,7 +199,10 @@ competitions 1 ── * awards * ── * sources        （透過 award_sources
 2. 至少一個 `award_sources` 是 `supports`，而且那個來源 `is_official = yes`
 3. 沒有任何 `conflicts` 的官方來源（有的話自動降為 DISPUTED，見第 6 節）
 4. `award_attributions.attribution_status = VERIFIED`
-5. 店家的 `scope` 是 `retail`、`supermarket` 或 `chain_franchise`（D2，2026-10-27 決定）。後兩種的獎**必須對到某一間門市**（`award_attributions.location_id` 不能空白），網站上也只出現有對到獎的門市，不會帶出同品牌的其他分店
+5. 店家的 `scope` 是 `retail`、`supermarket` 或 `chain_franchise`（D2，2026-10-27 決定）。門市怎麼挑：
+   - `retail`：店家所有 `shop`＋`open` 的門市都上網站，包括 `supermarket_counter`（D2 補充 2026-10-28）。咖啡烘豆商只建自己經營的咖啡店，加盟店不建
+   - `supermarket`：獎有對到門市（`location_id` 有填）就只出現那一間；獎只記品牌（`location_id` 空白）就出現品牌下所有有烘焙部的門市（D2 補充 2026-10-28，Adelaide's Finest）
+   - `chain_franchise`：獎**必須**對到某一間門市，只出現那一間，不帶出同品牌其他分店
 6. 店家至少有一間 `location_role = shop` 且 `operating_status = open` 的門市
 7. 獎項等級在 D1 允許的清單內（見下方「兩層」）
 8. `recipient_type` 不是 `individual`（純個人獎不上網站，D3）
@@ -253,6 +283,18 @@ python travel/tools/make_awards_data.py travel/australia/awards `
 ```
 
 `--mymaps-out` 另外寫 My Maps 匯入檔（一間門市一列：店名、門市、緯度、經度、主類型、最高榮譽、獎項摘要、地址），放 repo 外面，不 commit，和既有工具的規則相同（`travel/tools/README.md`）。
+
+## 7. 定案 v1 和草稿的差異（2026-10-28）
+
+| 項目 | 草稿 | 定案 | 原因 |
+|---|---|---|---|
+| `locations.location_type` | 沒有 | 新增必填 | Step 1b 查到超市內專櫃（Bonfire、Three Mills）、工廠門市（Pudding Lane、Brazen Brownies），要在門市層加標籤 |
+| `businesses.related_refs` | 沒有 | 新增選填 | Coffee Mentality 已在布里斯本咖啡廳頁（CF02），可以互相標註 |
+| 第 5 節條件 5 | 超市、加盟店都只出現得獎門市 | 超市的獎只記品牌時，品牌下有烘焙部的門市都出現；烘豆商只建自營咖啡店 | D2 補充（2026-10-28） |
+| `awards.csv` 收錄範圍 | 沒寫 | 只收冠軍、金、銀、第 1、第 2 | 銅牌、第 3 名不上網站，留在研究 CSV 就好 |
+| GB 獎項 ID | `GBA-2025-CAT1-<slug>` | 加牌別和產品 | 同一家同一班可能多面 |
+| 班別歸類 | 只有清單 | 加對照表 | 產生工具要能自動判斷 |
+| 檔案格式 | 沒寫 | UTF-8 無 BOM、LF | 和既有 CSV 一致 |
 
 ### 研究資料匯入（選用）
 
