@@ -133,7 +133,7 @@
 | NABC | Class 001～007 | ✅ | ✅ | ✅ | 無地址 |
 | NABC | 3 個 Champion | ✅ | ✅ | ✅ | |
 | Golden Bean | Overall／Large／Small Franchise | ✅ | ✅ | ⚠️ | 2026 只有總冠軍 |
-| Golden Bean | 11 個分類的金／銀／銅牌 | ✅ 金牌已轉錄（14 面，`research/golden_bean_gold_2024-2025.csv`）；銀銅未轉錄 | ⚠️ 只轉錄 Cat 1 金牌 | ❌ 還沒公布 | 人工轉錄工作量大 |
+| Golden Bean | 11 個分類的金／銀／銅牌 | ✅ 金牌已轉錄（14 面，`research/golden_bean_gold_2024-2025.csv`）；銀銅未轉錄 | ✅ 金牌已轉錄（11 面，同一份 CSV）；銀銅未轉錄 | ❌ 還沒公布 | 人工轉錄工作量大 |
 | ASCA | Barista | ❌（只有媒體） | ✅ | ❌（只有媒體） | 個人獎 |
 | ASCA | Brewers Cup、Latte Art、Cup Tasters、CIGS、Roasting | ❌（只有媒體） | ✅（無任職店家） | ❌（只有媒體） | 個人獎 |
 
