@@ -66,7 +66,7 @@ Step 1b 還沒打勾的兩項（PARTIAL 再查、使用者送 Wayback）留到 S
 - [x] 檢查：每種情況都有欄位可以記：多門市（Bonfire 4、Three Mills 5）、超市專櫃（Bonfire ×3、Majura Park）、超市內烘焙（Adelaide's Finest ×2）、烘焙廠不上地圖（Burleigh Varsity Lakes）、獎對到門市（Bonfire NABC）、個人代表店家（NABC「人名 - 店名」）、冠軍、金銀牌、名次、烘豆商自營咖啡店（Glee）
 - [x] 👤 決定 Ottimo、Country Cob 收不收 → 先不收（D9，2026-10-28）
 - [x] 👤 決定工廠門市的標籤文字 →「工廠門市 · Factory shop」（2026-10-28，記在 `UI-PLAN.md` 3.4b）
-- [ ] 👤 看過試驗資料
+- [x] 👤 看過試驗資料（2026-10-29；Glee HQ 改標 `factory_shop`）
 
 ## Step 3：資料產生工具
 

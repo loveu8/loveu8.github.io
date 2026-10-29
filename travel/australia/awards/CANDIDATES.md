@@ -387,7 +387,7 @@ NABC 官方結果只寫店名，所以多一步「這家是不是得獎的那家
 
 NSW 烘焙 22 家：Bonfire、Gumnut、Wholegreen、Slowbreads、Crois、Parfait、Hearthe、Sacrebleu!、Madame and Yves、Sébastien Sans Gluten、Tuga、Hudson's、Doughheads、Bakehouse Delights、Sweet Ivy、Bakealicious、V's Dessert、Pudding Lane、Comeco、Forestway Fresh、Bakers Delight Lane Cove、Bakers Delight Albion Park Rail。VIC 6 家：Brazen Brownies、Piece of Cake、Wandin、Sourdough Portland、Ottimo、Country Cob。
 
-**加標籤的門市**（D2）：超市內專櫃 4（Bonfire ×3、Three Mills Majura Park）、超市內烘焙 4（Forestway、Adelaide's Finest ×2、Coles Casuarina）、連鎖加盟店 2（Bakers Delight ×2）、工廠門市 2（Pudding Lane、Brazen Brownies，標籤名稱 Step 2 再定）。
+**加標籤的門市**（D2）：超市內專櫃 4（Bonfire ×3、Three Mills Majura Park）、超市內烘焙 4（Forestway、Adelaide's Finest ×2、Coles Casuarina）、連鎖加盟店 2（Bakers Delight ×2）、工廠門市 3（Pudding Lane、Brazen Brownies、Glee HQ；標籤「工廠門市」，2026-10-28 定；Glee HQ 2026-10-29 加入）。
 
 **獎項只記在品牌、對不到單一門市**：Bonfire 的 RAS 2024 金牌（Balmain 店已不在）、Three Mills（Fyshwick 兩間）、Burleigh（參賽地址是烘焙廠）、Tuga（參賽地址 Marrickville 不是門市）、Country Cob、Adelaide's Finest、5 家咖啡烘豆商。
 

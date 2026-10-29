@@ -16,8 +16,8 @@
 | 1 | 官方賽事研究（第一輪） | ✅ 完成 | 2026-10-26 | （本 commit） | RAS 三年逐筆、NABC 三年、GB 冠軍、ASCA 2025。缺口見 `RESEARCH.md` 第 6 節 |
 | — | D1～D8 決定 | ✅ 完成 | 2026-10-27 | （本 commit） | 第 10 節 |
 | 1b | 研究補完：門市查證、GB 分類金牌轉錄 | ✅ 完成 | 2026-10-28 | `76c4a90`；`674cceb`～（本 commit） | 第一批名單已篩（`CANDIDATES.md` 2.5）。**第一批 51 家門市查完**（2026-10-28）：34 VERIFIED、12 REJECTED、5 PARTIAL（`CANDIDATES.md`「第一批 51 家總結」）。過程中 D2 補了兩條（第 10 節）：超市內專櫃算門市；超市的獎只記品牌時，品牌下有烘焙部的店都收。Golden Bean 2024、2025 分類金牌已轉錄（25 面），新候選查完：咖啡 VERIFIED 共 5 家、13 間店（2026-10-28）。已過門檻的 5 家烘豆商銀牌也轉錄完（31 面）；GB 2026 結果還沒公布；RAS 2024 冠軍由 Wayback 存檔確認（2026-10-28）。已有的 Wayback 存檔記進 `RESEARCH.md`；28 個還沒存的要使用者自己送。**最終名單**：38 品牌、65 門市（`CANDIDATES.md` 2.6 節）。留到 Step 8：7 家 PARTIAL 再查、使用者送 Wayback |
-| 2 | CSV 欄位定案、建立空 CSV | 🔄 進行中 | | （本 commit） | 欄位定案 v1、7 個 CSV、5 家試驗資料完成（2026-10-28）。Ottimo／Country Cob 先不收（D9）；工廠門市標籤定為「工廠門市」。**下一步**：使用者看試驗資料，通過後 Step 2 完成 |
-| 3 | `make_awards_data.py` | ⬜ | | | |
+| 2 | CSV 欄位定案、建立空 CSV | ✅ 完成 | 2026-10-29 | （本 commit） | 欄位定案 v1、7 個 CSV、5 家試驗資料（17 門市、88 獎、13 來源）。Ottimo／Country Cob 先不收（D9）；工廠門市標籤定為「工廠門市」；使用者看過試驗資料，Glee HQ 改標工廠門市 |
+| 3 | `make_awards_data.py` | 🔄 下一步 | | | 細項見 `TODO.md` Step 3 |
 | 4a | 拆出 `list-map-shell.js`（D8 = B） | ⬜ | | | 獨立 commit，雜湊比對 |
 | 4 | 頁面原型（少量 VERIFIED 資料） | ⬜ | | | |
 | 5 | 搜尋與篩選 | ⬜ | | | |
