@@ -204,6 +204,47 @@ class CheckTest(unittest.TestCase):
         row(self.t, "businesses", "business_id", "B-delta")["official_name"] = "ALPHA BAKERY PTY LTD"
         self.assertWarning("B-alpha and B-delta have nearly the same name")
 
+    def test_group_differs_from_class_name(self):
+        self.award()["category"] = "Sweet Breads (e.g., banana bread, fruit log, etc.)"
+        self.assertWarning("category_group is sourdough but class name 'Sweet Breads (e.g., banana bread, "
+                           "fruit log, etc.)' looks like cake")
+
+    def test_group_keyword_unknown(self):
+        self.award()["category"] = "Pizza"
+        self.assertWarning("class name 'Pizza' matches no category_group keyword; check sourdough by hand")
+
+
+class GroupTest(unittest.TestCase):
+    def group(self, category, comp="RAS-PB", level="medal", class_code="1"):
+        return m.expected_group({"competition_id": comp, "award_level": level, "class_code": class_code,
+                                 "category": category})
+
+    def test_examples_in_brackets_are_ignored(self):
+        self.assertEqual(self.group("International Bread (e.g. baguette, ciabatta, chapatti, flatbread, etc.)"),
+                         "bread")
+        self.assertEqual(self.group("Viennoiserie (e.g., Danish, vanilla slice, brioche, croissant, etc.)"),
+                         "viennoiserie")
+
+    def test_class_names_from_the_schema_table(self):
+        for category, group in [("Sour Dough, including Rye", "sourdough"), ("Specialty Loaf, including Artisan "
+                                "Bread", "bread"), ("Cakes, Tortes & Gateaux", "cake"), ("Christmas Cake & "
+                                "Puddings", "cake"), ("Brownies & Slices", "cake"), ("Macaron", "biscuit"),
+                                ("Savoury Pie, Pastie or Sausage Roll", "pastry_pie"), ("Sweet Pie／Tart",
+                                "pastry_pie"), ("Gluten Free Bread", "gluten_free"),
+                                ("Traditional Rye Sourdough - Minimum 680gm", "sourdough"),
+                                ("Ciabatta Loaf - Minimum 200gm", "bread"), ("Croissants", "viennoiserie")]:
+            self.assertEqual(self.group(category), group, category)
+
+    def test_champions(self):
+        self.assertEqual(self.group("Champion Biscuit", level="champion"), "biscuit")
+        self.assertEqual(self.group("Champion Sourdough Loaf", "NABC", "champion"), "sourdough")
+        self.assertEqual(self.group("Champion Product of Show", "NABC", "champion"), "overall")
+        self.assertEqual(self.group("Overall Champion", "GBA", "champion", "CHAMPION"), "overall")
+
+    def test_golden_bean_goes_by_class_number(self):
+        self.assertEqual(self.group("Elite", "GBA", class_code="Cat 6"), "coffee_other")
+        self.assertEqual(self.group("Milk Based", "GBA", class_code="Cat 11"), "coffee_milk")
+
 
 class BuildTest(unittest.TestCase):
     @classmethod

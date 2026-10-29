@@ -76,6 +76,19 @@ REFS = [("locations", "business_id", "businesses"), ("locations", "moved_to_loca
         ("award_attributions", "business_id", "businesses"), ("award_attributions", "location_id", "locations"),
         ("award_sources", "award_id", "awards"), ("award_sources", "source_id", "sources")]
 
+# category_group is filled by hand (DATA-SCHEMA.md 2.4); these only cross-check it, as a WARNING.
+# Matched in order on the class name before its "(e.g. ...)" examples, so "Sweet Breads" is cake, not bread.
+GROUP_KEYWORDS = [(r"gluten free", "gluten_free"),
+                  (r"sweet bread|cake|torte|gateau|pudding|brownie|slice", "cake"),
+                  (r"biscuit|macaron", "biscuit"),
+                  (r"pie|pastie|quiche|tart", "pastry_pie"),
+                  (r"viennoiserie|croissant", "viennoiserie"),
+                  (r"sour ?dough", "sourdough"),
+                  (r"bread|loaf|baguette|ciabatta", "bread")]
+GBA_GROUPS = {"1": "coffee_espresso", "8": "coffee_espresso", "10": "coffee_espresso",
+              "2": "coffee_milk", "9": "coffee_milk", "11": "coffee_milk", "3": "coffee_filter",
+              "4": "coffee_other", "5": "coffee_other", "6": "coffee_other", "7": "coffee_other"}
+
 YEARS = (2024, 2026)
 # Australia Post ranges; 0200-0299 and 0800-0999 are written without the leading 0 here.
 POSTCODES = {"NSW": [(1000, 2599), (2619, 2899), (2921, 2999)], "ACT": [(200, 299), (2600, 2618), (2900, 2920)],
@@ -237,6 +250,32 @@ def check_awards(tables, errors):
             seen[key] = line(i)
 
 
+def expected_group(a):
+    # GB classes are numbered (Cat 1 ...); champions go by their product ("Champion Biscuit"),
+    # or overall when the title names none ("Champion Product of Show").
+    if val(a, "competition_id") == "GBA" and val(a, "award_level") != "champion":
+        return GBA_GROUPS.get(re.sub(r"\D", "", val(a, "class_code")))
+    head = re.split(r"[(,]| - ", val(a, "category"))[0].lower()
+    for pattern, group in GROUP_KEYWORDS:
+        if re.search(r"\b(%s)" % pattern, head):
+            return group
+    return "overall" if val(a, "award_level") == "champion" else None
+
+
+def check_groups(tables, warnings):
+    for i, a in enumerate(tables["awards"]):
+        where, filled = "awards.csv:%d" % line(i), val(a, "category_group")
+        expected = expected_group(a)
+        if not filled:
+            continue
+        if expected is None:
+            warnings.append("%s class name '%s' matches no category_group keyword; check %s by hand"
+                            % (where, val(a, "category"), filled))
+        elif expected != filled:
+            warnings.append("%s category_group is %s but class name '%s' looks like %s"
+                            % (where, filled, val(a, "category"), expected))
+
+
 def check_attributions(tables, errors):
     locations = {val(l, "location_id"): l for l in tables["locations"]}
     for i, at in enumerate(tables["award_attributions"]):
@@ -306,6 +345,7 @@ def check(tables, today):
     check_attributions(tables, errors)
     check_locations(tables, today, errors, warnings)
     check_names(tables, warnings)
+    check_groups(tables, warnings)
     return errors, warnings
 
 

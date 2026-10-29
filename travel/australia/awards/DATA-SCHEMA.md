@@ -126,9 +126,14 @@
 | GBA | Cat 2 Milk Based、Cat 9、Cat 11（連鎖 Milk） | `coffee_milk` |
 | GBA | Cat 3 Filter | `coffee_filter` |
 | GBA | Cat 4 Alternative Milk、Cat 5 Decaf、Cat 6 Elite、Cat 7 Super Automatic | `coffee_other` |
-| 全部 | 冠軍、總冠軍 | `overall`（RAS 的 Champion Bread 等照產品類別歸，例如 Champion Bread → `bread`） |
+| 全部 | 冠軍、總冠軍 | 照產品類別歸（Champion Bread → `bread`、NABC Champion Sourdough Loaf → `sourdough`）；看不出產品的（Champion Product of Show、Overall Champion）→ `overall` |
 
-`category_group` 由人照上表手填，產生工具只檢查是不是清單裡的值（2026-10-29 Step 3：草稿寫「用班名關鍵字判斷」，但欄位本來就是必填，自動判斷會和手填的值打架，所以不做）。
+`category_group` 由人照上表手填。產生工具另外用班名關鍵字交叉比對（使用者 2026-10-29 決定），不一致或判斷不出來時印 WARNING，不擋產生：
+
+- 只看班名括號前、逗號前、` - ` 前的部分，所以 International Bread 括號裡的 baguette、Viennoiserie 括號裡的 vanilla slice 不會誤判。
+- 依序比對：Gluten Free → 蛋糕類（Sweet Bread、Cake、Torte、Gateau、Pudding、Brownie、Slice）→ Biscuit、Macaron → Pie、Pastie、Quiche、Tart → Viennoiserie、Croissant → Sourdough → Bread、Loaf、Baguette、Ciabatta。GB 照班號（Cat 1～11）。
+- 冠軍照產品歸（Champion Biscuit → `biscuit`），看不出產品的（Product of Show、Overall）才是 `overall`。
+- **對照表還沒涵蓋的 RAS 班別**：Shortcrust Pastry、Filo／Kataifi Pastry、Choux Pastry、Creative（Viennoiserie 組合）。目前 88 筆沒有用到，Step 7 補資料前要決定歸哪一類（`TODO.md` Step 7）。
 
 ### 2.5 `award_attributions.csv`：獎項和店家的關係
 
@@ -283,6 +288,7 @@ var PAGE_DATA = {
 | ID 開頭（`B-`、`L-`、`S-`、`AT-<award_id>-`、`<賽事>-<年>-`） | ERROR | Step 3 補，第 3 節的規則 |
 | `rank` 只能 1～3；非 VERIFIED 的獎 `verification_note` 必填 | ERROR | Step 3 補，第 2.4 節的規則 |
 | 獎對到的門市不屬於那個店家；`entrant_location` 沒填 `location_id` | ERROR | Step 3 補 |
+| `category_group` 和班名關鍵字不一致，或班名判斷不出來 | WARNING | `awards.csv:9 category_group is bread but class name 'Sweet Breads …' looks like cake`（第 2.4 節） |
 
 每一項都有測試：`travel/tools/tests/test_make_awards_data.py`（見 `travel/tools/README.md`）。
 

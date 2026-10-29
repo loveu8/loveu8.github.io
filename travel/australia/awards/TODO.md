@@ -72,7 +72,8 @@ Step 1b 還沒打勾的兩項（PARTIAL 再查、使用者送 Wayback）留到 S
 
 - [x] 寫 `travel/tools/make_awards_data.py`（只 import `list_data.read_csv`，不改 `list_data.py`）
 - [x] 實作 `DATA-SCHEMA.md` 第 6 節的每一項檢查（另補型別、ID 開頭等 4 列，見第 6 節表格）
-- [x] 每項檢查都用一份故意寫錯的小 CSV 測過會報錯 → `travel/tools/tests/`，50 個測試（使用者 2026-10-29 決定留在 repo）
+- [x] 每項檢查都用一份故意寫錯的小 CSV 測過會報錯 → `travel/tools/tests/`，56 個測試（使用者 2026-10-29 決定留在 repo）
+- [x] 👤 `category_group` 手填＋班名關鍵字交叉比對（WARNING）（使用者 2026-10-29 選 B）
 - [x] 有 ERROR 時不寫 `data.js`、結束碼非 0
 - [x] 輸出摘要：各狀態獎項數、上網站／沒上網站的數量和原因、各州店家數
 - [x] `--mymaps-out` 輸出 My Maps 匯入檔
@@ -133,6 +134,7 @@ Step 1b 還沒打勾的兩項（PARTIAL 再查、使用者送 Wayback）留到 S
 
 ## Step 7：完整資料、中英文、SEO、首頁
 
+- [ ] 👤 決定 RAS 對照表沒涵蓋的班別歸哪一類：Shortcrust Pastry、Filo／Kataifi Pastry、Choux Pastry、Creative（Viennoiserie 組合）（`DATA-SCHEMA.md` 2.4；決定後加進 `GROUP_KEYWORDS` 和測試）
 - [ ] 第一批全部店家寫進 CSV
 - [ ] `make_awards_data.py` 無 ERROR、無 WARNING
 - [ ] 英文介面文字完整
