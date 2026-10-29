@@ -7,6 +7,8 @@
 | `make_data_js.py` | csv → `data.js`（`var PAGE_DATA = {...}`，用 `<script>` 載入，`file://` 也能開） |
 | `make_mymaps.py` | csv → My Maps 匯入 csv（每家一列，依主分類上色） |
 | `list_data.py` | 兩支共用的 csv 讀取函式、區域清單 |
+| `make_awards_data.py` | 得獎地圖（`australia/awards/`）的 7 個 csv → `data.js`＋My Maps 匯入檔，先跑全部檢查 |
+| `tests/` | `make_awards_data.py` 的測試和範例 csv（`awards_fixture/`） |
 
 需要 Python 3（只用標準函式庫）。在 repo 根目錄執行。
 
@@ -46,6 +48,28 @@ python travel/tools/make_data_js.py travel/australia/brisbane/cafe/cafe.csv `
 python travel/tools/make_mymaps.py travel/australia/brisbane/cafe/cafe.csv `
   "$env:USERPROFILE\Downloads\brisbane-cafe-mymaps.csv"
 ```
+
+## 得獎地圖的指令
+
+欄位、檢查和上網站的規則在 `australia/awards/DATA-SCHEMA.md`（第 2、5、6 節）。這支工具只 import `list_data.read_csv`，和上面兩頁的工具互不影響。
+
+```powershell
+python travel/tools/make_awards_data.py travel/australia/awards `
+  --data-as-of 2026-11 `
+  --mymaps-url "" `
+  --mymaps-out "$env:USERPROFILE\Downloads\australia-awards-mymaps.csv"
+```
+
+- 有 `ERROR` 就不寫 `data.js`，結束碼是 1。`WARNING`（查核超過 180 天、兩間門市距離不到 20 公尺、店名幾乎一樣）不會擋。
+- 最後印出摘要：各狀態的獎項數、上網站／沒上網站的獎和原因（兩個數字加起來要等於 `award_attributions.csv` 的列數）、各州店家數。
+
+改了 `make_awards_data.py` 或檢查規則之後，跑測試：
+
+```powershell
+python -m unittest discover travel/tools/tests
+```
+
+`tests/awards_fixture/` 是一份正確的小範例，涵蓋每一條上網站規則；每個測試改錯一個地方，確認對應的檢查會報。新增檢查時，也在 `test_make_awards_data.py` 加一個測試。
 
 ## 參數說明
 

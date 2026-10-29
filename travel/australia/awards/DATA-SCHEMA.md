@@ -36,7 +36,7 @@
 |---|---|---|---|
 | `business_id` | id | ✔ | `B-` 開頭，例如 `B-bonfire-bread` |
 | `official_name` | text | ✔ | 店家自己用的名稱（不是比賽登記的公司名，例如不寫 PTY LTD） |
-| `business_type` | enum | ✔ | `bakery`、`cafe`、`roaster`，可以多個，用 `；` 分隔，第一個是主類型 |
+| `business_type` | enum | ✔ | `bakery`、`cafe`、`roaster`，可以多個，用 `;` 或 `；` 分隔，第一個是主類型 |
 | `scope` | enum | ✔ | `retail`（有門市可去）、`wholesale`、`manufacturer`、`supermarket`（超市內烘焙）、`chain_franchise`（連鎖加盟店）、`other`。上網站的只有 `retail`、`supermarket`、`chain_franchise`（D2）；後兩種卡片加標籤，門市怎麼挑見第 5 節條件 5。咖啡烘豆商有自己經營的咖啡店就是 `retail` |
 | `related_refs` | text | | 和本站其他頁的交叉標註，`<頁>:<ID>`，多個用 `；` 分隔，例如 `brisbane-cafe:CF02` |
 | `website_url` | url | | 官網 |
@@ -128,7 +128,7 @@
 | GBA | Cat 4 Alternative Milk、Cat 5 Decaf、Cat 6 Elite、Cat 7 Super Automatic | `coffee_other` |
 | 全部 | 冠軍、總冠軍 | `overall`（RAS 的 Champion Bread 等照產品類別歸，例如 Champion Bread → `bread`） |
 
-產生工具用班名關鍵字判斷，判斷不出來就報 ERROR。
+`category_group` 由人照上表手填，產生工具只檢查是不是清單裡的值（2026-10-29 Step 3：草稿寫「用班名關鍵字判斷」，但欄位本來就是必填，自動判斷會和手填的值打架，所以不做）。
 
 ### 2.5 `award_attributions.csv`：獎項和店家的關係
 
@@ -197,7 +197,7 @@ competitions 1 ── * awards * ── * sources        （透過 award_sources
 
 1. `awards.verification_status = VERIFIED`
 2. 至少一個 `award_sources` 是 `supports`，而且那個來源 `is_official = yes`
-3. 沒有任何 `conflicts` 的官方來源（有的話自動降為 DISPUTED，見第 6 節）
+3. 沒有任何 `conflicts` 的官方來源（有的話產生工具報 ERROR，要人把狀態改成 DISPUTED，見第 6 節）
 4. `award_attributions.attribution_status = VERIFIED`
 5. 店家的 `scope` 是 `retail`、`supermarket` 或 `chain_franchise`（D2，2026-10-27 決定）。門市怎麼挑：
    - `retail`：店家所有 `shop`＋`open` 的門市都上網站，包括 `supermarket_counter`（D2 補充 2026-10-28）。咖啡烘豆商只建自己經營的咖啡店，加盟店不建
@@ -230,21 +230,30 @@ competitions 1 ── * awards * ── * sources        （透過 award_sources
 var PAGE_DATA = {
   "dataAsOf": "2026-11",
   "myMapsEmbedUrl": "",
-  "competitions": [ { "id": "RAS-PB", "zh": "雪梨皇家烘焙賽", "en": "Sydney Royal Bakery", ... } ],
+  "competitions": [ { "id": "RAS-PB", "name": "...", "zh": "雪梨皇家烘焙賽", "en": "Sydney Royal Bakery",
+                      "type": "bakery", "system": "medal_by_score", "website": "..." } ],
   "businesses": [
     {
-      "id": "B-bonfire-bread", "name": "Bonfire Bread", "types": ["bakery"],
-      "descZh": "...", "descEn": "...", "website": "...",
-      "locations": [ { "id": "L-bonfire-bread-avalon", "name": "Avalon", "address": "...", "city": "Sydney", "state": "NSW", "lat": -33.6, "lng": 151.3, "mapsUrl": "https://www.google.com/maps/search/?api=1&query=..." } ],
+      "id": "B-bonfire-bread", "name": "Bonfire Bread", "types": ["bakery"], "scope": "retail",
+      "descZh": "...", "descEn": "...", "website": "...", "instagram": "...", "related": [],
+      "locations": [ { "id": "L-bonfire-bread-avalon", "name": "Avalon Beach", "address": "68 Old Barrenjoey Rd, Avalon Beach NSW 2107",
+                       "suburb": "Avalon Beach", "city": "Sydney", "state": "NSW", "lat": -33.6, "lng": 151.3,
+                       "type": "standalone", "mapsUrl": "https://www.google.com/maps/search/?api=1&query=..." } ],
       "awards": [ { "id": "NABC-2025-CHAMP-SHOW", "comp": "NABC", "year": 2025, "level": "champion", "medal": null, "rank": null,
-                   "title": "Champion Product of Show", "category": "...", "group": "overall", "product": "",
+                   "tier": "top", "score": null, "title": "Champion Product of Show", "category": "...", "group": "overall", "product": "",
                    "locationId": "L-bonfire-bread-marrickville", "relation": "entrant_location",
-                   "sources": [ { "title": "...", "url": "...", "ref": "..." } ], "verifiedAt": "2026-11-02" } ],
-      "summary": { "champion": 2, "gold": 7, "first": 2, "years": [2024, 2025, 2026] }
+                   "sources": [ { "title": "...", "url": "...", "archive": "...", "ref": "..." } ], "verifiedAt": "2026-10-26" } ],
+      "summary": { "champion": 2, "gold": 8, "first": 2, "also": 15, "years": [2024, 2025, 2026] }
     }
   ]
 };
 ```
+
+- `tier`：`top`（冠軍、金牌、第 1 名）或 `also`（銀牌、第 2 名，卡片上的「也推薦」）。
+- `locationId`：只有官方寫到門市、而且那間門市上網站時才有值；`retail` 店家得獎的門市後來關了，獎留在品牌層（`null`）。
+- `verifiedAt`：這個獎的 `supports` 來源裡最近的 `verified_at`。
+- `relation = staff_entry` 時多一個 `recipient`（官方原文，例如「Robert Trimboli - Adelaide's Finest …」），卡片顯示「由 X 代表參賽」。
+- 店家已經依 UI-PLAN 第 5 節排序，獎項依 3.4 節排序（年份新到舊 → 冠軍 → 招牌 → 也推薦 → 分數），前端不用再排。
 
 - 只放上網站的資料（第 5 節），所以 `data.js` 不會帶研究用的 PARTIAL 紀錄。
 - 獎項掛在店家下面，前端不用再做 join，也避免重複資料。
@@ -270,10 +279,16 @@ var PAGE_DATA = {
 | 來源、門市查核超過 180 天 | WARNING | |
 | 同一店家兩間門市座標距離 < 20 公尺 | WARNING | 可能重複建檔 |
 | 店家名稱相似（去掉大小寫、PTY LTD 後相同） | WARNING | 可能同一家建了兩個 ID |
+| 型別：網址 `https://`、日期 `YYYY-MM-DD`、整數、數字；列的格數比標題多 | ERROR | Step 3 補 |
+| ID 開頭（`B-`、`L-`、`S-`、`AT-<award_id>-`、`<賽事>-<年>-`） | ERROR | Step 3 補，第 3 節的規則 |
+| `rank` 只能 1～3；非 VERIFIED 的獎 `verification_note` 必填 | ERROR | Step 3 補，第 2.4 節的規則 |
+| 獎對到的門市不屬於那個店家；`entrant_location` 沒填 `location_id` | ERROR | Step 3 補 |
+
+每一項都有測試：`travel/tools/tests/test_make_awards_data.py`（見 `travel/tools/README.md`）。
 
 有 ERROR 就**不寫出 `data.js`**、結束碼非 0。最後印出摘要：各狀態的獎項數、上網站／沒上網站的數量和原因、各州店家數。
 
-### 指令（預計）
+### 指令
 
 ```powershell
 python travel/tools/make_awards_data.py travel/australia/awards `
@@ -281,6 +296,8 @@ python travel/tools/make_awards_data.py travel/australia/awards `
   --mymaps-url "" `
   --mymaps-out "$env:USERPROFILE\Downloads\australia-awards-mymaps.csv"
 ```
+
+`--today 2026-10-29` 可以指定 180 天查核用的日期（測試用；預設是今天）。
 
 `--mymaps-out` 另外寫 My Maps 匯入檔（一間門市一列：店名、門市、緯度、經度、主類型、最高榮譽、獎項摘要、地址），放 repo 外面，不 commit，和既有工具的規則相同（`travel/tools/README.md`）。
 

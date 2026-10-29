@@ -1,0 +1,12 @@
+award_id,source_id,stance,evidence_note
+RAS-PB-2025-C2-E10,S-RAS-PB-2025-RESULTS,supports,"Class 2, Gold 92, entry 10"
+RAS-PB-2025-C2-E10,S-NEWS-2025-ALPHA,supports,article mentions the gold medal
+RAS-PB-2025-C2-E11,S-RAS-PB-2025-RESULTS,supports,"Class 2, Silver 85, entry 11"
+RAS-PB-2025-C2-E12,S-RAS-PB-2025-RESULTS,supports,"Class 2, Gold 90, entry 12"
+NABC-2025-CHAMP-SHOW,S-NABC-2025-PDF,supports,Champion Product of Show
+NABC-2025-C001-P1,S-NABC-2025-PDF,supports,"001 First, Sam Baker"
+NABC-2025-C004-P1,S-NABC-2025-PDF,supports,004 First
+NABC-2025-C002-P1,S-NABC-2025-PDF,supports,002 First
+RAS-PB-2025-C3-E20,S-RAS-PB-2025-RESULTS,supports,"Class 3, Gold 91, entry 20"
+RAS-PB-2025-C3-E21,S-RAS-PB-2025-RESULTS,supports,"Class 3, Silver 86, entry 21"
+RAS-PB-2025-C3-E22,S-RAS-PB-2025-RESULTS,supports,"Class 3, Gold 93, entry 22"

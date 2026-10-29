@@ -70,15 +70,15 @@ Step 1b 還沒打勾的兩項（PARTIAL 再查、使用者送 Wayback）留到 S
 
 ## Step 3：資料產生工具
 
-- [ ] 寫 `travel/tools/make_awards_data.py`（只 import `list_data.read_csv`，不改 `list_data.py`）
-- [ ] 實作 `DATA-SCHEMA.md` 第 6 節的每一項檢查
-- [ ] 每項檢查都用一份故意寫錯的小 CSV 測過會報錯
-- [ ] 有 ERROR 時不寫 `data.js`、結束碼非 0
-- [ ] 輸出摘要：各狀態獎項數、上網站／沒上網站的數量和原因、各州店家數
-- [ ] `--mymaps-out` 輸出 My Maps 匯入檔
-- [ ] 5 家試驗資料產生 `data.js`
-- [ ] 重跑咖啡廳、烘焙頁的 `make_data_js.py`，`git diff` 必須 0 行
-- [ ] 更新 `travel/tools/README.md`
+- [x] 寫 `travel/tools/make_awards_data.py`（只 import `list_data.read_csv`，不改 `list_data.py`）
+- [x] 實作 `DATA-SCHEMA.md` 第 6 節的每一項檢查（另補型別、ID 開頭等 4 列，見第 6 節表格）
+- [x] 每項檢查都用一份故意寫錯的小 CSV 測過會報錯 → `travel/tools/tests/`，50 個測試（使用者 2026-10-29 決定留在 repo）
+- [x] 有 ERROR 時不寫 `data.js`、結束碼非 0
+- [x] 輸出摘要：各狀態獎項數、上網站／沒上網站的數量和原因、各州店家數
+- [x] `--mymaps-out` 輸出 My Maps 匯入檔
+- [x] 5 家試驗資料產生 `data.js`（5 家、16 門市、88 獎全部上網站）
+- [x] 重跑咖啡廳、烘焙頁的 `make_data_js.py`，`git diff` 必須 0 行
+- [x] 更新 `travel/tools/README.md`
 - [ ] （選用）`import_ras_results.py`：研究 CSV → `awards.csv` 草稿列
 
 ## Step 4a：拆出共用外殼（D8 = B，要做）

@@ -1,0 +1,6 @@
+business_id,official_name,business_type,scope,website_url,instagram_url,description_zh,description_en,related_refs,notes
+B-alpha,Alpha Bakery,bakery;cafe,retail,https://example.com/alpha,https://www.instagram.com/alpha/,兩間門市的麵包店。,Bakery with two shops.,brisbane-bakery:BK01,retail：烘焙廠和已關的門市不上網站
+B-beta,Beta Foodland,bakery,supermarket,https://example.com/beta,,兩間超市。,Two supermarkets.,,supermarket：獎對到 east，只出現 east
+B-gamma,Gamma Franchise,bakery,chain_franchise,,,加盟店。,Franchise.,,chain_franchise：只出現得獎的 one；只記品牌的獎不收
+B-delta,Delta Bakery,bakery,retail,,,只有銀牌。,Silver only.,,沒過 D1 門檻
+B-epsilon,Epsilon Wholesale,bakery,wholesale,,,批發。,Wholesale.,,D2 不收

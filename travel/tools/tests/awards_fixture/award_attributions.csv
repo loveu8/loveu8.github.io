@@ -1,0 +1,11 @@
+attribution_id,award_id,business_id,location_id,relationship_type,attribution_status,attribution_notes
+AT-RAS-PB-2025-C2-E10-1,RAS-PB-2025-C2-E10,B-alpha,,entrant,VERIFIED,
+AT-RAS-PB-2025-C2-E11-1,RAS-PB-2025-C2-E11,B-alpha,,entrant,VERIFIED,
+AT-RAS-PB-2025-C2-E12-1,RAS-PB-2025-C2-E12,B-alpha,,entrant,VERIFIED,
+AT-NABC-2025-CHAMP-SHOW-1,NABC-2025-CHAMP-SHOW,B-alpha,L-alpha-old,entrant_location,VERIFIED,the awarded shop has closed since
+AT-NABC-2025-C001-P1-1,NABC-2025-C001-P1,B-alpha,,employee_individual,VERIFIED,
+AT-NABC-2025-C004-P1-1,NABC-2025-C004-P1,B-beta,L-beta-east,entrant_location,VERIFIED,
+AT-NABC-2025-C002-P1-1,NABC-2025-C002-P1,B-gamma,L-gamma-one,staff_entry,VERIFIED,
+AT-RAS-PB-2025-C3-E20-1,RAS-PB-2025-C3-E20,B-gamma,,entrant,VERIFIED,
+AT-RAS-PB-2025-C3-E21-1,RAS-PB-2025-C3-E21,B-delta,,entrant,VERIFIED,
+AT-RAS-PB-2025-C3-E22-1,RAS-PB-2025-C3-E22,B-epsilon,,entrant,VERIFIED,

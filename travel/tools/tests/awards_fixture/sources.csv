@@ -1,0 +1,4 @@
+source_id,source_title,source_url,publisher,source_type,is_official,published_at,verified_at,source_reference,archive_url
+S-RAS-PB-2025-RESULTS,Test RAS 2025 results,https://example.com/ras/2025,Test Society,official_results,yes,,2026-10-01,,https://web.archive.org/web/2026/https://example.com/ras/2025
+S-NABC-2025-PDF,Test NABC 2025 results,https://example.com/nabc/2025.pdf,Test Association,official_pdf,yes,2025-07-01,2026-10-01,p.2,
+S-NEWS-2025-ALPHA,Local news on Alpha Bakery,https://example.com/news/alpha,Test News,media,no,,2026-10-01,,

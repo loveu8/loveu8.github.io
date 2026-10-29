@@ -1,0 +1,11 @@
+award_id,competition_id,award_year,event_date,class_code,category,category_group,product_name,official_award_title,award_level,medal_type,rank,score,entry_number,recipient_type,recipient_name,verification_status,verification_note
+RAS-PB-2025-C2-E10,RAS-PB,2025,,2,Sour Dough,sourdough,WHITE SOURDOUGH,Gold Medal,medal,gold,,92,10,business,ALPHA BAKERY SYDNEY NSW 2000,VERIFIED,
+RAS-PB-2025-C2-E11,RAS-PB,2025,,2,Sour Dough,sourdough,RYE SOURDOUGH,Silver Medal,medal,silver,,85,11,business,ALPHA BAKERY SYDNEY NSW 2000,VERIFIED,
+RAS-PB-2025-C2-E12,RAS-PB,2025,,2,Sour Dough,sourdough,SPELT SOURDOUGH,Gold Medal,medal,gold,,90,12,business,ALPHA BAKERY SYDNEY NSW 2000,PARTIAL,results page and booklet disagree on the score
+NABC-2025-CHAMP-SHOW,NABC,2025,,CHAMPION,Champion Product of Show,overall,,Champion Product of Show,champion,,,,,location,Alpha Bakery Old,VERIFIED,
+NABC-2025-C001-P1,NABC,2025,,001,Sourdough,sourdough,,First,placing,,1,,,individual,Sam Baker,VERIFIED,
+NABC-2025-C004-P1,NABC,2025,,004,Baguette,bread,,First,placing,,1,,,location,Beta Foodland East,VERIFIED,
+NABC-2025-C002-P1,NABC,2025,,002,Sourdough Tin,sourdough,,First,placing,,1,,,individual_for_business,Kim Lee - Gamma Franchise One,VERIFIED,
+RAS-PB-2025-C3-E20,RAS-PB,2025,,3,International Bread,bread,BAGUETTE,Gold Medal,medal,gold,,91,20,business,GAMMA FRANCHISE,VERIFIED,
+RAS-PB-2025-C3-E21,RAS-PB,2025,,3,International Bread,bread,FOCACCIA,Silver Medal,medal,silver,,86,21,business,DELTA BAKERY MELBOURNE VIC 3000,VERIFIED,
+RAS-PB-2025-C3-E22,RAS-PB,2025,,3,International Bread,bread,CIABATTA,Gold Medal,medal,gold,,93,22,business,EPSILON WHOLESALE FYSHWICK ACT 2609,VERIFIED,

@@ -1,0 +1,3 @@
+competition_id,official_name,short_name_zh,short_name_en,organiser,competition_type,award_system,entrant_scope,region_scope,website_url,medal_rules
+RAS-PB,Test Royal Bakery Show,測試皇家烘焙賽,Test Royal Bakery,Test Society,bakery,medal_by_score,business,Australia,https://example.com/ras,Gold ≥ 90
+NABC,Test Artisan Baking Competition,測試手工烘焙賽,Test Artisan Baking,Test Association,bakery,placing,mixed,Australia,https://example.com/nabc,

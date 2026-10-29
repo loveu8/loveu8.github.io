@@ -1,0 +1,11 @@
+location_id,business_id,location_name,street_address,suburb,city,state_code,postcode,latitude,longitude,location_role,location_type,operating_status,moved_to_location_id,location_source_url,location_verified_at,notes
+L-alpha-north,B-alpha,North,1 North St,Sydney,Sydney,NSW,2000,-33.87,151.21,shop,standalone,open,,https://example.com/alpha,2026-10-01,
+L-alpha-south,B-alpha,South,2 South St,Redfern,Sydney,NSW,2016,-33.89,151.20,shop,supermarket_counter,open,,https://example.com/alpha,2026-10-01,
+L-alpha-bakehouse,B-alpha,Bakehouse,3 Factory Rd,Alexandria,Sydney,NSW,2015,-33.91,151.19,bakehouse,standalone,open,,https://example.com/alpha,2026-10-01,
+L-alpha-old,B-alpha,Old,4 Old St,Sydney,Sydney,NSW,2000,-33.86,151.20,shop,standalone,closed,,https://example.com/alpha,2026-10-01,
+L-beta-east,B-beta,East Foodland,5 East Rd,Kent Town,Adelaide,SA,5067,-34.92,138.62,shop,in_supermarket,open,,https://example.com/beta,2026-10-01,
+L-beta-west,B-beta,West Foodland,6 West Rd,Hindmarsh,Adelaide,SA,5007,-34.91,138.57,shop,in_supermarket,open,,https://example.com/beta,2026-10-01,
+L-gamma-one,B-gamma,One,7 One St,Brisbane City,Brisbane,QLD,4000,-27.47,153.02,shop,standalone,open,,https://example.com/gamma,2026-10-01,
+L-gamma-two,B-gamma,Two,8 Two St,South Brisbane,Brisbane,QLD,4101,-27.48,153.01,shop,standalone,open,,https://example.com/gamma,2026-10-01,
+L-delta-main,B-delta,Main,9 Main St,Melbourne,Melbourne,VIC,3000,-37.81,144.96,shop,standalone,open,,https://example.com/delta,2026-10-01,
+L-epsilon-main,B-epsilon,Main,10 Depot Rd,Fyshwick,Canberra,ACT,2609,-35.32,149.17,shop,factory_shop,open,,https://example.com/epsilon,2026-10-01,
