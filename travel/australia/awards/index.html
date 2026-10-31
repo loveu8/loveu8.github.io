@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>澳洲得獎咖啡與烘焙地圖</title>
+<meta name="description" content="澳洲烘焙與咖啡賽事的冠軍、金牌、第 1 名店家：依州別與類型篩選，每個獎都附官方來源。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<script>
+try { var theme = localStorage.getItem('theme'); if (theme === 'light' || theme === 'dark') document.documentElement.dataset.theme = theme; } catch(e) {}
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<!-- Bump ?v= whenever these files change, so browsers skip GitHub Pages' cached copy. -->
+<link rel="stylesheet" href="../../../styles/tokens.css?v=20261026c">
+<link rel="stylesheet" href="../../../styles/base.css?v=20261024">
+<link rel="stylesheet" href="../../../styles/app-shell.css?v=20261026b">
+<link rel="stylesheet" href="../../../styles/map-list.css?v=20261026b">
+<link rel="stylesheet" href="../../../styles/awards.css?v=20261031">
+</head>
+<body>
+
+<div class="map-chip-panel" id="mapChipPanel">
+  <a class="brand-link" id="homeLink" href="../../../index.html"><span>阿星<span class="brand-en" id="brandEn"></span></span></a>
+  <div class="chip-strip" id="chipStrip" role="group"></div>
+  <div class="top-actions">
+    <button class="lang-toggle" type="button" data-toggle="lang">EN</button>
+    <button class="theme-toggle" type="button" data-toggle="theme"></button>
+  </div>
+</div>
+
+<div class="app">
+  <div class="map-panel" id="mapPanel">
+    <div class="map-loading" id="mapLoading" aria-live="polite">
+      <span class="map-loading-spinner"></span>
+      <span id="mapLoadingText">地圖更新中</span>
+    </div>
+    <iframe class="map-frame" id="mapFrame" title="得獎店家地圖" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <button class="map-nav-float" id="overviewBtn" type="button" hidden>🗺️ 回到全部店家</button>
+  </div>
+
+  <div class="resize-divider" id="resizeDivider"></div>
+
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-sticky">
+      <div class="sheet-handle" id="sheetHandle">
+        <div class="handle-bar"></div>
+        <span class="handle-hint" id="handleHint">▲ 查看清單</span>
+      </div>
+
+      <div class="sidebar-header" id="sidebarHeader">
+        <div class="sidebar-title-wrap">
+          <span class="s-emoji" aria-hidden="true">🏆</span>
+          <div>
+            <h1 class="sidebar-name" id="pageTitle">澳洲得獎咖啡與烘焙地圖</h1>
+            <div class="sidebar-sub" id="pageSubtitle"></div>
+          </div>
+        </div>
+        <button class="print-btn" id="printBtn" type="button">🖨️ 列印</button>
+      </div>
+
+      <div class="filters">
+        <div class="filter-row">
+          <span class="filter-label" id="stateLabel">州別</span>
+          <button class="scroll-btn scroll-prev" type="button" data-target="stateChips" data-dir="-1">‹</button>
+          <div class="filter-scroll" id="stateChips" role="group" aria-labelledby="stateLabel"></div>
+          <button class="scroll-btn scroll-next" type="button" data-target="stateChips" data-dir="1">›</button>
+        </div>
+        <div class="filter-row">
+          <span class="filter-label" id="typeLabel">類型</span>
+          <button class="scroll-btn scroll-prev" type="button" data-target="typeTabs" data-dir="-1">‹</button>
+          <div class="filter-scroll" id="typeTabs" role="tablist" aria-labelledby="typeLabel"></div>
+          <button class="scroll-btn scroll-next" type="button" data-target="typeTabs" data-dir="1">›</button>
+        </div>
+      </div>
+      <div class="result-line" id="resultLine" aria-live="polite"></div>
+    </div>
+
+    <div class="sidebar-body" id="sidebarBody"></div>
+
+    <button class="back-to-top" id="backToTop" type="button">↑</button>
+  </aside>
+</div>
+
+<!-- No photos on this page, but list-map-shell.js expects the lightbox elements. -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightboxClose" type="button">✕</button>
+  <img id="lightboxImg" src="" alt="">
+</div>
+
+<script src="page.js?v=20261031"></script>
+<script src="data.js?v=20261031"></script>
+<script src="../../../scripts/site.js?v=20261024"></script>
+<script src="../../../scripts/list-map-shell.js?v=20261031"></script>
+<script src="../../../scripts/awards.js?v=20261031"></script>
+</body>
+</html>

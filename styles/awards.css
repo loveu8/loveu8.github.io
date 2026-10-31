@@ -1,0 +1,73 @@
+/* Award-winning shops map (travel/australia/awards/) — only what map-list.css doesn't have:
+   award badges, the award summary and details, and the one-line store list.
+   Layout decisions: travel/australia/awards/UI-PLAN.md 3.3–3.6. Colors come from tokens only. */
+
+/* ── 1. AWARD BADGE (first tag on the card; text, not 🥇 — 🥇 means Google top 3 elsewhere) ── */
+.award-badge {
+  font-size: var(--fs-2xs);
+  font-weight: 800;
+  padding: 1px var(--space-sm);
+  border-radius: var(--radius-sm);
+  border: 1px solid;
+}
+.award-badge-champion { background: var(--color-accent-soft); color: var(--color-accent-strong); border-color: var(--color-accent-border); }
+/* Amber is the food-tag family and the nearest thing to gold; the text-safe token keeps 4.5:1. */
+.award-badge-gold { background: var(--color-warm-soft); color: var(--color-warning-text); border-color: var(--color-warm-border); }
+/* Places are a different system from medals, so 1st place stays neutral on purpose. */
+.award-badge-first { background: var(--color-surface-soft); color: var(--color-text); border-color: var(--color-border); }
+
+/* ── 2. SUMMARY + DETAILS ── */
+.award-summary {
+  margin-top: var(--space-sm);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  color: var(--color-text);
+  font-variant-numeric: tabular-nums;
+}
+.award-details { margin-top: var(--space-xs); font-size: var(--fs-xs); }
+.award-details > summary,
+.store-more > summary {
+  cursor: pointer;
+  padding: var(--space-sm) 0;
+  line-height: 28px;  /* 8 + 28 + 8 = 44px tap height */
+  font-weight: 700;
+  color: var(--color-primary-strong);
+}
+.award-desc {
+  margin: 0 0 var(--space-sm);
+  max-width: 64ch;
+  line-height: 1.55;
+  color: var(--color-text-muted);
+}
+.award-group {
+  margin-top: var(--space-sm);
+  padding-bottom: var(--space-xs);
+  font-weight: 800;
+  color: var(--color-text);
+}
+.award-row {
+  padding: 6px 0;
+  border-top: 1px solid var(--color-border-soft);
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+.award-line { color: var(--color-text); }
+.award-level { font-weight: 700; font-variant-numeric: tabular-nums; }
+.award-meta { font-size: var(--fs-2xs); color: var(--color-text-muted); }
+.award-source {
+  color: var(--color-text-soft);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* ── 3. STORE LIST (one line per store: 📍 area · name + ↗ Maps) ── */
+.store-list { margin-top: var(--space-xs); }
+.store-head { font-size: var(--fs-2xs); font-weight: 800; color: var(--color-text-muted); }
+.store-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 6px;
+}
+.store-row .pill-map { flex: 1; text-align: left; }
+.store-more > summary { font-size: var(--fs-xs); }

@@ -98,15 +98,15 @@ Step 1b 還沒打勾的兩項（PARTIAL 再查、使用者送 Wayback）留到 S
 ## Step 4：頁面原型
 
 - [x] 👤 卡片版面討論（scratchpad demo，一次一題）：門市列表、介紹位置、摘要文字、店家類型標籤（`UI-PLAN.md` 3.5、3.6；2026-10-31）
-- [ ] `travel/australia/awards/index.html`（外殼照咖啡廳，路徑用 `../../../`）
-- [ ] `page.js`：中英介面文字、品項類別對照、`fallbackPlace`
-- [ ] `scripts/awards.js`：卡片、最高榮譽徽章、獎項摘要、獎項明細 `<details>`、門市列表
-- [ ] 州別、類型兩列篩選
-- [ ] `styles/awards.css`：搜尋框、更多篩選、徽章、獎項明細、門市列表（只用 token）
-- [ ] `python tools/check_tokens.py` 無 ERROR
-- [ ] 截圖：360px、768px、1280px × 中英 × 深淺色
-- [ ] 鍵盤可以操作所有控制
-- [ ] Console 無錯誤
+- [x] `travel/australia/awards/index.html`（外殼照烘焙頁，路徑用 `../../../`；2026-10-31）
+- [x] `page.js`：中英標題、類型篩選分組（烘焙；咖啡 = 烘豆＋咖啡廳）、`fallbackPlace` Australia＋`fallbackZoom` 4。品項類別對照留到 Step 5（更多篩選才用得到）
+- [x] `scripts/awards.js`：卡片、最高榮譽徽章、獎項摘要、獎項明細 `<details>`（介紹在第一段）、門市列表（前 2 間＋收起來、得獎門市排前面）；展開狀態在篩選、切換語言後保留
+- [x] 州別、類型兩列篩選（按鈕家數、0 家停用）
+- [x] `styles/awards.css`：徽章、獎項摘要與明細、門市列表（只用 token）。搜尋框、更多篩選移到 Step 5 一起做
+- [x] `python tools/check_tokens.py` 無 ERROR
+- [ ] 截圖：360px、768px、1280px × 中英 × 深淺色（2026-10-31 先拍了 8 張：1280 中淺、中淺展開、英深、英深展開，768 中淺，360 中淺、英深展開；其餘組合在使用者確認版面後補）
+- [ ] 鍵盤可以操作所有控制（都是原生 button／a／details，還沒實測）
+- [x] Console 無錯誤（上面 8 種畫面＋篩選、📍 操作）
 - [ ] 👤 看截圖，確認徽章和版面
 - [ ] `DESIGN.md`：搜尋框、獎項徽章、兩層篩選、依賴表加新頁（使用者確認後）
 
