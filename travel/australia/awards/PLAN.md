@@ -19,7 +19,7 @@
 | 2 | CSV 欄位定案、建立空 CSV | ✅ 完成 | 2026-10-29 | （本 commit） | 欄位定案 v1、7 個 CSV、5 家試驗資料（17 門市、88 獎、13 來源）。Ottimo／Country Cob 先不收（D9）；工廠門市標籤定為「工廠門市」；使用者看過試驗資料，Glee HQ 改標工廠門市 |
 | 3 | `make_awards_data.py` | ✅ 完成 | 2026-10-29 | （本 commit） | 工具＋56 個測試（`travel/tools/tests/`）；`category_group` 加班名關鍵字交叉比對（WARNING）；5 家試驗資料 → `data.js`（16 門市、88 獎）；既有兩頁 `data.js` diff 0 行。選用的 `import_ras_results.py` 沒做。**下一步**：Step 4a |
 | 4a | 拆出 `list-map-shell.js`（D8 = B） | ✅ 完成 | 2026-10-31 | c0d3bf6 | `ListMapShell.create({...})`；`fallbackZoom` 可設定（預設 11）。基準用拆之前的 `a88ba70`（和線上版相同）在本機拍：兩頁 × 25 種狀態（篩選、風格標籤、語言、深色、📍、回到全部、捲動、拖曳、列印、手機抽屜、空結果），DOM 雜湊 50/50 相同，console 無錯誤；燈箱另外測。使用者 2026-10-31 確認 OK。**下一步**：Step 4 |
-| 4 | 頁面原型（少量 VERIFIED 資料） | ⬜ | | | |
+| 4 | 頁面原型（少量 VERIFIED 資料） | 🔄 進行中 | | | 2026-10-31 卡片版面討論完（用 scratchpad demo 一題一題看）：門市一行只寫「地區 · 門市名」、前 2 間＋收起來、得獎門市排前面；介紹收進獎項明細；摘要只寫招牌；工廠門市寫進門市名（`UI-PLAN.md` 3.5、3.6）。**下一步**：寫 `index.html`、`page.js`、`awards.js`、`awards.css` |
 | 5 | 搜尋與篩選 | ⬜ | | | |
 | 6 | 地圖（My Maps） | ⬜ | | | 需要使用者匯入 |
 | 7 | 完整資料、中英文、SEO、首頁入口 | ⬜ | | | |

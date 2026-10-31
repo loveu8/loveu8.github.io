@@ -97,6 +97,7 @@ Step 1b 還沒打勾的兩項（PARTIAL 再查、使用者送 Wayback）留到 S
 
 ## Step 4：頁面原型
 
+- [x] 👤 卡片版面討論（scratchpad demo，一次一題）：門市列表、介紹位置、摘要文字、店家類型標籤（`UI-PLAN.md` 3.5、3.6；2026-10-31）
 - [ ] `travel/australia/awards/index.html`（外殼照咖啡廳，路徑用 `../../../`）
 - [ ] `page.js`：中英介面文字、品項類別對照、`fallbackPlace`
 - [ ] `scripts/awards.js`：卡片、最高榮譽徽章、獎項摘要、獎項明細 `<details>`、門市列表
@@ -135,6 +136,7 @@ Step 1b 還沒打勾的兩項（PARTIAL 再查、使用者送 Wayback）留到 S
 ## Step 7：完整資料、中英文、SEO、首頁
 
 - [ ] 👤 決定 RAS 對照表沒涵蓋的班別歸哪一類：Shortcrust Pastry、Filo／Kataifi Pastry、Choux Pastry、Creative（Viennoiserie 組合）（`DATA-SCHEMA.md` 2.4；決定後加進 `GROUP_KEYWORDS` 和測試）
+- [ ] 店家介紹改寫成店家特色，不重複卡片上已有的城市、門市數（試驗 5 家也要改；`UI-PLAN.md` 3.6）
 - [ ] 第一批全部店家寫進 CSV
 - [ ] `make_awards_data.py` 無 ERROR、無 WARNING
 - [ ] 英文介面文字完整
