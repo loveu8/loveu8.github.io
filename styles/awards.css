@@ -1,6 +1,6 @@
 /* Award-winning shops map (travel/australia/awards/) — only what map-list.css doesn't have:
-   award badges, the award summary and details, and the one-line store list.
-   Layout decisions: travel/australia/awards/UI-PLAN.md 3.3–3.6. Colors come from tokens only. */
+   award badges, the award summary and details, the winning items and the one-line store list.
+   Layout decisions: travel/australia/awards/UI-PLAN.md 3.3–3.7. Colors come from tokens only. */
 
 /* ── 1. AWARD BADGE (first tag on the card; text, not 🥇 — 🥇 means Google top 3 elsewhere) ── */
 .award-badge {
@@ -60,7 +60,31 @@
   text-underline-offset: 2px;
 }
 
-/* ── 3. STORE LIST (one line per store: 📍 area · name + ↗ Maps) ── */
+/* ── 3. WINNING ITEMS (what to order: top 3 items, the awards each won, latest year) ── */
+/* No medals or ranks here, so it doesn't read as the Google top 3 block on the cafe/bakery pages. */
+.award-items {
+  margin-top: var(--space-sm);
+  padding: 6px 10px;
+  border-radius: var(--radius-md);
+  background: var(--color-surface-warm);
+  border: 1px solid var(--color-border-soft);
+  font-size: var(--fs-xs);
+}
+.award-items-title { font-weight: 800; color: var(--color-text); margin-bottom: var(--space-2xs); }
+.award-items-list { list-style: none; margin: 0; padding: 0; }
+.award-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--space-sm);
+  padding: 3px 0;
+  border-top: 1px solid var(--color-border-soft);
+}
+.award-item-name { font-weight: 600; color: var(--color-text); min-width: 0; overflow-wrap: anywhere; }
+.award-item-awards { flex-shrink: 0; color: var(--color-text-muted); font-variant-numeric: tabular-nums; text-align: right; }
+.award-items-more { padding-top: 3px; color: var(--color-text-muted); }
+
+/* ── 4. STORE LIST (one line per store: 📍 area · name + ↗ Maps) ── */
 .store-list { margin-top: var(--space-xs); }
 .store-head { font-size: var(--fs-2xs); font-weight: 800; color: var(--color-text-muted); }
 .store-row {

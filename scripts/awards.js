@@ -2,11 +2,15 @@
 // generated data.js) into the list-map shell, using PAGE_CONFIG (page.js) for page text,
 // the type filter groups and the fallback map view. The map, sheet, chip strip, divider
 // and back-to-top are scripts/list-map-shell.js; this file owns the filters and the cards.
-// Card layout decisions: travel/australia/awards/UI-PLAN.md 3.3–3.6.
+// Card layout decisions: travel/australia/awards/UI-PLAN.md 3.3–3.7.
 
 var ALL = 'all';
 var STORES_SHOWN = 2;  // the rest go into a "N more stores" toggle
+var ITEMS_SHOWN = 3;   // winning items on the card; the rest are in the award details
 var LEVEL_ORDER = { champion: 0, medal: 1, placing: 1 };
+// Champion titles that name no item (best in show, or a whole class).
+var NO_ITEM = /^(champion )?(product of show|overall champion|viennoiserie)$/i;
+var SMALL_WORDS = ['a', 'an', 'and', 'au', 'de', 'di', 'in', 'of', 'on', 'or', 'the', 'with'];
 
 // Each page's PAGE_CONFIG.ui[lang] must add `title` and `mapTitle`, and may override any key here or in the shell.
 var UI = {
@@ -17,6 +21,8 @@ var UI = {
     emptyTitle: '這個組合沒有店家', emptyText: '換一個州別或類型看看；州別按鈕上的數字是目前類型下的家數。',
     meta: '{c} · {s} · {n} 間門市', yearOne: '{y} 年',
     levels: { champion: '冠軍', gold: '金牌', silver: '銀牌', first: '第 1 名', second: '第 2 名' },
+    levelsShort: { champion: '冠軍', gold: '金牌', first: '第 1 名' },
+    items: '得獎品項', moreItems: '另有 {n} 項，見獎項明細',
     details: '獎項明細（{n}）', groupTop: '招牌', groupAlso: '也推薦',
     awardStore: '{s} 店', staffEntry: '參賽者：{r}',
     source: '官方結果 ↗', archive: '存檔 ↗', verified: '查證 {d}',
@@ -38,6 +44,8 @@ var UI = {
     emptyTitle: 'No shops match', emptyText: 'Try another state or type; the numbers on the state buttons count shops for the current type.',
     meta: '{c} · {s} · {n} stores', yearOne: '{y}',
     levels: { champion: 'Champion', gold: 'Gold medal', silver: 'Silver medal', first: '1st place', second: '2nd place' },
+    levelsShort: { champion: 'Champion', gold: 'Gold', first: '1st' },
+    items: 'Winning items', moreItems: '{n} more in the award details',
     details: 'Award details ({n})', groupTop: 'Headline awards', groupAlso: 'Also recommended',
     awardStore: '{s} store', staffEntry: 'Entrant: {r}',
     source: 'Official results ↗', archive: 'Archive ↗', verified: 'Checked {d}',
@@ -125,10 +133,13 @@ function typeGroupLabel(code) {
   return isEn() ? group.en : group.zh;
 }
 
-// Official product names are often all caps; show them in Title Case.
+// Official product names are often all caps; show them in Title Case, small words kept lower.
 function titleCase(text) {
   if (!text || text !== text.toUpperCase()) return text;
-  return text.toLowerCase().replace(/(^|[\s\-(\/])([a-z])/g, function(m, sep, c) { return sep + c.toUpperCase(); });
+  return text.toLowerCase().replace(/(^|[\s\-(\/])([a-z]+)/g, function(m, sep, word, offset) {
+    if (offset > 0 && sep === ' ' && SMALL_WORDS.indexOf(word) !== -1) return m;
+    return sep + word.charAt(0).toUpperCase() + word.slice(1);
+  });
 }
 
 function yearRange(awards) {
@@ -310,6 +321,72 @@ function renderSummary(business) {
   return el('div', 'award-summary', parts.join(' · '));
 }
 
+// ── winning items (what to order) ──
+// The item an award names: the product if the result gives one (minus a repeated brand
+// prefix), else the class name for placings and class champions (minus "- Minimum 200gm",
+// examples in brackets, etc.). Best-in-show titles name no item.
+function itemName(business, award) {
+  var text;
+  if (award.product) {
+    text = award.product;
+    var brand = business.name.toUpperCase() + ' ';
+    if (text.toUpperCase().indexOf(brand) === 0) text = text.slice(brand.length);
+  } else {
+    if (award.level === 'champion' && NO_ITEM.test(award.category)) return null;
+    text = award.category.replace(/^Champion /, '').replace(/\s*-\s*Minimum.*$/i, '').replace(/\s*\(.*$/, '').replace(/,.*$/, '');
+  }
+  return titleCase(text.trim()) || null;
+}
+
+// Headline awards merged per item: champions first, then most awards, then most recent.
+function winningItems(business) {
+  var byKey = {};
+  var items = [];
+  business.awards.forEach(function(a) {
+    if (a.tier !== 'top') return;
+    var name = itemName(business, a);
+    if (!name) return;
+    var key = name.toLowerCase().replace(/s$/, '');  // "Croissants" = "Croissant"
+    var item = byKey[key];
+    if (!item) {
+      item = byKey[key] = { name: name, counts: { champion: 0, gold: 0, first: 0 }, total: 0, year: 0 };
+      items.push(item);
+    }
+    item.counts[levelKey(a)] += 1;
+    item.total += 1;
+    item.year = Math.max(item.year, a.year);
+  });
+  return items.sort(function(a, b) {
+    return (b.counts.champion > 0) - (a.counts.champion > 0) || (b.total - a.total) || (b.year - a.year);
+  });
+}
+
+// "冠軍＋金牌 ×2 · 2026": the awards the item won, and the most recent year (UI-PLAN 3.7).
+function itemAwardsText(item) {
+  var short = UI[state.lang].levelsShort;
+  var parts = ['champion', 'gold', 'first'].filter(function(key) { return item.counts[key]; }).map(function(key) {
+    return short[key] + (item.counts[key] > 1 ? ' ×' + item.counts[key] : '');
+  });
+  return parts.join(isEn() ? ' + ' : '＋') + ' · ' + item.year;
+}
+
+function renderItems(business) {
+  var items = winningItems(business);
+  if (!items.length) return null;
+  var box = el('section', 'award-items');
+  box.appendChild(el('div', 'award-items-title', t('items')));
+  var list = el('ul', 'award-items-list');
+  items.slice(0, ITEMS_SHOWN).forEach(function(item) {
+    var li = el('li', 'award-item');
+    li.appendChild(el('span', 'award-item-name', item.name));
+    li.appendChild(el('span', 'award-item-awards', itemAwardsText(item)));
+    list.appendChild(li);
+  });
+  box.appendChild(list);
+  if (items.length > ITEMS_SHOWN) box.appendChild(el('div', 'award-items-more', t('moreItems', { n: items.length - ITEMS_SHOWN })));
+  return box;
+}
+
 function renderAwardRow(business, award) {
   var comp = state.data.competitions.find(function(c) { return c.id === award.comp; });
   var compName = isEn() ? comp.en : comp.zh;
@@ -417,6 +494,8 @@ function renderCard(business) {
 
   card.appendChild(renderTags(business));
   card.appendChild(renderSummary(business));
+  var items = renderItems(business);
+  if (items) card.appendChild(items);
   card.appendChild(renderDetails(business));
   card.appendChild(renderStores(business));
   return card;

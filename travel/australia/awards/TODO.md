@@ -101,6 +101,7 @@ Step 1b 還沒打勾的兩項（PARTIAL 再查、使用者送 Wayback）留到 S
 - [x] `travel/australia/awards/index.html`（外殼照烘焙頁，路徑用 `../../../`；2026-10-31）
 - [x] `page.js`：中英標題、類型篩選分組（烘焙；咖啡 = 烘豆＋咖啡廳）、`fallbackPlace` Australia＋`fallbackZoom` 4。品項類別對照留到 Step 5（更多篩選才用得到）
 - [x] `scripts/awards.js`：卡片、最高榮譽徽章、獎項摘要、獎項明細 `<details>`（介紹在第一段）、門市列表（前 2 間＋收起來、得獎門市排前面）；展開狀態在篩選、切換語言後保留
+- [x] 👤 使用者看原型後提出「不知道吃哪一個」→ 卡片加「得獎品項」（前 3 項＋拿過的獎＋最近年份；demo 比較後選 B、只加最近一次年份；`UI-PLAN.md` 3.7；2026-10-31）
 - [x] 州別、類型兩列篩選（按鈕家數、0 家停用）
 - [x] `styles/awards.css`：徽章、獎項摘要與明細、門市列表（只用 token）。搜尋框、更多篩選移到 Step 5 一起做
 - [x] `python tools/check_tokens.py` 無 ERROR
