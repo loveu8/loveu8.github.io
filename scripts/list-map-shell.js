@@ -1,5 +1,5 @@
 // Shared shell for list-map pages (map + sidebar layout, e.g. travel/australia/brisbane/bakery/):
-// the mobile sheet, the drag divider, the map iframe (overview ⇄ single place), the filter-row
+// the mobile sheet, the drag divider, the map iframe (overview ⇄ area ⇄ single place), the filter-row
 // scroll buttons, the top chip strip with scroll-spy, back-to-top, the lightbox and the print
 // button. The page script owns its data, filters and cards, and calls
 // ListMapShell.create({...}) once; the returned object is how it talks to the shell.
@@ -45,6 +45,7 @@ var ListMapShell = (function() {
     var state = {
       lang: Site.getLang(),
       placeQuery: null,  // the 📍 single-place map query; null = overview
+      area: null,        // the showArea() view, e.g. one state; null = none
       mapTimer: null,
       chipObserver: null,
       chipVisibility: {}
@@ -258,12 +259,30 @@ var ListMapShell = (function() {
     function showOverview() {
       if (options.onOverview) options.onOverview();
       state.placeQuery = null;
+      state.area = null;
       els.overviewBtn.hidden = true;
       setMapSrc(overviewUrl());
     }
 
+    // The My Maps overview re-centred on an area, keeping its pins; without My Maps, the
+    // single-place embed of the area's name at the area's fallback zoom.
+    function areaUrl(area) {
+      if (options.overviewUrl) return options.overviewUrl + '&ll=' + area.lat + ',' + area.lng + '&z=' + area.zoom;
+      return singlePlaceEmbedUrl(area.query, area.fallbackZoom);
+    }
+
+    // Frame an area (e.g. the state a filter picked) and offer the way back to the overview.
+    // area: { lat, lng, zoom, query, fallbackZoom }. Leaves the mobile sheet as it is.
+    function showArea(area) {
+      state.placeQuery = null;
+      state.area = area;
+      els.overviewBtn.hidden = false;
+      setMapSrc(areaUrl(area));
+    }
+
     // 📍: show one place (a Google Maps search query) and offer the way back to the overview.
     function previewPlace(query) {
+      state.area = null;
       state.placeQuery = query;
       setMapSrc(singlePlaceEmbedUrl(query, 16));
       els.overviewBtn.hidden = false;
@@ -310,6 +329,7 @@ var ListMapShell = (function() {
       els.sidebarBody.scrollTop = scroll;
       // Keep the single-place map in the new language; the My Maps overview has no language switch.
       if (state.placeQuery) setMapSrc(singlePlaceEmbedUrl(state.placeQuery, 16));
+      if (state.area) setMapSrc(areaUrl(state.area));
     }
 
     function setupResize() {
@@ -390,6 +410,7 @@ var ListMapShell = (function() {
       setActiveChip: setActiveChip,
       scrollToCard: scrollToCard,
       previewPlace: previewPlace,
+      showArea: showArea,
       showOverview: showOverview,
       openLightbox: openLightbox
     };

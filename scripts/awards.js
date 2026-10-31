@@ -11,6 +11,19 @@ var LEVEL_ORDER = { champion: 0, medal: 1, placing: 1 };
 // Champion titles that name no item (best in show, or a whole class).
 var NO_ITEM = /^(champion )?(product of show|overall champion|viennoiserie)$/i;
 var SMALL_WORDS = ['a', 'an', 'and', 'au', 'de', 'di', 'in', 'of', 'on', 'or', 'the', 'with'];
+// Picking a state frames its stores on the map (DESIGN.md map-interaction rule, state-filter
+// exception). Names and zooms are only for the map shown until the My Maps embed exists.
+var STATES = {
+  ACT: { name: 'Australian Capital Territory', zoom: 9 },
+  NSW: { name: 'New South Wales', zoom: 6 },
+  NT: { name: 'Northern Territory', zoom: 5 },
+  QLD: { name: 'Queensland', zoom: 5 },
+  SA: { name: 'South Australia', zoom: 6 },
+  TAS: { name: 'Tasmania', zoom: 7 },
+  VIC: { name: 'Victoria', zoom: 7 },
+  WA: { name: 'Western Australia', zoom: 5 }
+};
+var AREA_FIT_PX = 560;  // map width the store box should fit in (narrower than most map panels)
 
 // Each page's PAGE_CONFIG.ui[lang] must add `title` and `mapTitle`, and may override any key here or in the shell.
 var UI = {
@@ -247,6 +260,7 @@ function renderFilters() {
     btn.addEventListener('click', function() {
       state.stateCode = code;
       refresh(true);
+      showStateOnMap(code);
     });
     els.stateChips.appendChild(btn);
   });
@@ -268,6 +282,33 @@ function renderFilters() {
   shell.revealActive(els.stateChips);
   shell.revealActive(els.typeTabs);
   shell.updateScrollButtons();
+}
+
+// Centre and zoom that fit every store in the state; "all" goes back to the overview.
+function showStateOnMap(code) {
+  if (code === ALL) {
+    shell.showOverview();
+    return;
+  }
+  var locs = [];
+  state.data.businesses.forEach(function(b) {
+    b.locations.forEach(function(l) { if (l.state === code) locs.push(l); });
+  });
+  var lats = locs.map(function(l) { return l.lat; });
+  var lngs = locs.map(function(l) { return l.lng; });
+  var minLat = Math.min.apply(null, lats), maxLat = Math.max.apply(null, lats);
+  var minLng = Math.min.apply(null, lngs), maxLng = Math.max.apply(null, lngs);
+  // At zoom z the world is 256 × 2^z px wide; latitude degrees are wider on screen, hence × 1.3.
+  var span = Math.max(maxLng - minLng, (maxLat - minLat) * 1.3, 0.01);
+  var zoom = Math.floor(Math.log(AREA_FIT_PX * 360 / (256 * span)) / Math.LN2);
+  var info = STATES[code] || { name: code, zoom: 6 };
+  shell.showArea({
+    lat: ((minLat + maxLat) / 2).toFixed(5),
+    lng: ((minLng + maxLng) / 2).toFixed(5),
+    zoom: Math.max(5, Math.min(12, zoom)),
+    query: info.name + ', Australia',
+    fallbackZoom: info.zoom
+  });
 }
 
 function renderResultLine(businesses) {
