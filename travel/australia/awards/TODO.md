@@ -93,7 +93,7 @@ Step 1b 還沒打勾的兩項（PARTIAL 再查、使用者送 Wayback）留到 S
 - [x] Console 無錯誤
 - [x] `python tools/check_tokens.py` 無 ERROR
 - [x] `DESIGN.md` 依賴表加 `list-map-shell.js`
-- [ ] 👤 `file://` 直接開兩頁確認
+- [x] 👤 `file://` 直接開兩頁確認（2026-10-31 使用者確認 OK）
 
 ## Step 4：頁面原型
 
