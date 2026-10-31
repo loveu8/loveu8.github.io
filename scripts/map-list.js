@@ -4,21 +4,20 @@
 // currency and the fallback map place. Map: a Google My Maps embed showing every
 // shop (PAGE_DATA.myMapsEmbedUrl); 📍 swaps in the free single-place Google embed.
 // Bilingual (zh-TW / en). Theme, language choice and the two toggles live in
-// scripts/site.js; this file re-renders its text when Site.onLangChange fires.
+// scripts/site.js. The map, sheet, chip strip, divider and lightbox are
+// scripts/list-map-shell.js; this file owns the filters and the shop cards.
 
 var MEDALS = ['🥇', '🥈', '🥉'];
 var ALL = 'all';
-var MOBILE_MAX = 768;
 
-// Shared UI strings. Each page's PAGE_CONFIG.ui[lang] must add `title` and
-// `mapTitle`, and may override any other key.
+// Shared UI strings (the shell's own strings live in list-map-shell.js). Each
+// page's PAGE_CONFIG.ui[lang] must add `title` and `mapTitle`, and may override
+// any key here or in the shell.
 var UI = {
   'zh-TW': {
-    mapLang: 'zh-TW', brandEn: '', homeTitle: '回到首頁',
     subtitle: '{n} 家 · Google 資料 {d}',
-    expand: '▲ 查看清單', collapse: '▼ 收起清單', print: '🖨️ 列印',
     category: '分類', region: '區域', all: '全部', allCats: '全部分類', allRegions: '全部區域',
-    result: '{c} × {r} · {n} 家', chipStrip: '目前清單的店家',
+    result: '{c} × {r} · {n} 家',
     emptyTitle: '這個組合沒有店家', emptyText: '換一個區域或分類看看；區域按鈕上的數字是目前分類下的家數。',
     top3: '{c} 前三名', low: '資料少', rec: '推薦', media: '媒體推薦',
     mentions: '{n} 則提到', mediaOnly: '只有媒體資料', generic: '評論只寫泛稱',
@@ -26,21 +25,16 @@ var UI = {
     tasting: { date: '試吃', average: '平均' },
     reviewsShort: '{n} 則', ratingAria: 'Google 評分 {r}，{n} 則評論', prioAria: '優先級 {p}',
     tagFilter: '只看{c}', styleClear: '取消風格篩選', mapAria: '在地圖上查看：{s}', mapsAria: '在 Google Maps 開啟：{s}',
-    igAria: '{s} 的 Instagram', source: '資料來源', overview: '🗺️ 回到全部店家',
-    mapLoading: '地圖更新中',
-    backToTop: '回到頂部', closeLightbox: '關閉圖片', viewPhoto: '查看照片：{s}',
-    divider: '拖曳調整地圖與清單寬度', scrollPrev: '往左捲動', scrollNext: '往右捲動',
+    igAria: '{s} 的 Instagram', source: '資料來源', viewPhoto: '查看照片：{s}',
     footnote: 'Google 評分與「N 則提到」為 {d} 的 Google Maps 評論資料，評論多的店為抽樣。' +
       '前三名依各分類中被提到最多的款式排序；「推薦」代表提到它的評論平均 4.5 星以上、負評不到一成；' +
       '「★」是提到該款評論的平均星等，不是對該款本身的評分；「資料少」代表提及次數偏低。' +
       '分類與區域篩選只作用在清單，地圖固定顯示全部店家。'
   },
   en: {
-    mapLang: 'en', brandEn: ' (Lorn)', homeTitle: 'Back to home',
     subtitle: '{n} shops · Google data {d}',
-    expand: '▲ View list', collapse: '▼ Hide list', print: '🖨️ Print',
     category: 'Type', region: 'Area', all: 'All', allCats: 'All types', allRegions: 'All areas',
-    result: '{c} × {r} · {n} shops', chipStrip: 'Shops in this list',
+    result: '{c} × {r} · {n} shops',
     emptyTitle: 'No shops match', emptyText: 'Try another area or type; the numbers on the area buttons count shops for the current type.',
     top3: 'Top 3 · {c}', low: 'Limited data', rec: 'Recommended', media: 'Media pick',
     mentions: '{n} mentions', mediaOnly: 'Media only', generic: 'Generic mentions only',
@@ -48,10 +42,7 @@ var UI = {
     tasting: { date: 'Tasted', average: 'Average' },
     reviewsShort: '{n} reviews', ratingAria: 'Google rating {r}, {n} reviews', prioAria: 'Priority {p}',
     tagFilter: 'Show only {c}', styleClear: 'Clear style filter', mapAria: 'Show on map: {s}', mapsAria: 'Open in Google Maps: {s}',
-    igAria: '{s} on Instagram', source: 'Source', overview: '🗺️ Back to all shops',
-    mapLoading: 'Updating map',
-    backToTop: 'Back to top', closeLightbox: 'Close photo', viewPhoto: 'View photo: {s}',
-    divider: 'Drag to resize the map and list', scrollPrev: 'Scroll left', scrollNext: 'Scroll right',
+    igAria: '{s} on Instagram', source: 'Source', viewPhoto: 'View photo: {s}',
     footnote: 'Google ratings and “N mentions” come from Google Maps reviews as of {d}; shops with many reviews were sampled. ' +
       'Each top 3 lists the most-mentioned items in that type. “Recommended” means the reviews mentioning it average 4.5★ or more with under 10% low scores; ' +
       '★ is the average of those reviews, not a rating of the item itself. “Limited data” means few mentions. ' +
@@ -66,42 +57,19 @@ var state = {
   category: ALL,
   region: ALL,
   style: null,  // a card's style tag (風格標籤) clicked as a filter; null = off
-  selectedId: null,
-  selectedPlace: null,
-  mapTimer: null,
-  chipObserver: null,
-  chipVisibility: {}
+  selectedId: null
 };
 
+var shell = null;  // ListMapShell instance, created in init()
+
 var els = {
-  html: document.documentElement,
-  title: document.querySelector('title'),
-  mapFrame: document.getElementById('mapFrame'),
-  mapLoading: document.getElementById('mapLoading'),
-  mapLoadingText: document.getElementById('mapLoadingText'),
-  overviewBtn: document.getElementById('overviewBtn'),
-  chipStrip: document.getElementById('chipStrip'),
-  sidebar: document.getElementById('sidebar'),
-  sidebarHeader: document.getElementById('sidebarHeader'),
   sidebarBody: document.getElementById('sidebarBody'),
-  sheetHandle: document.getElementById('sheetHandle'),
-  handleHint: document.getElementById('handleHint'),
-  pageTitle: document.getElementById('pageTitle'),
   pageSubtitle: document.getElementById('pageSubtitle'),
   categoryLabel: document.getElementById('categoryLabel'),
   regionLabel: document.getElementById('regionLabel'),
   categoryTabs: document.getElementById('categoryTabs'),
   regionChips: document.getElementById('regionChips'),
-  resultLine: document.getElementById('resultLine'),
-  printBtn: document.getElementById('printBtn'),
-  homeLink: document.getElementById('homeLink'),
-  brandEn: document.getElementById('brandEn'),
-  resizeDivider: document.getElementById('resizeDivider'),
-  backToTop: document.getElementById('backToTop'),
-  lightbox: document.getElementById('lightbox'),
-  lightboxImg: document.getElementById('lightboxImg'),
-  lightboxClose: document.getElementById('lightboxClose'),
-  scrollBtns: Array.prototype.slice.call(document.querySelectorAll('.scroll-btn'))
+  resultLine: document.getElementById('resultLine')
 };
 
 // ── helpers ──
@@ -110,10 +78,6 @@ function el(tag, className, text) {
   if (className) node.className = className;
   if (text != null) node.textContent = text;
   return node;
-}
-
-function isMobile() {
-  return window.innerWidth < MOBILE_MAX;
 }
 
 function isEn() {
@@ -166,17 +130,6 @@ function formatCount(n) {
   return n.toLocaleString('en-US');
 }
 
-// ── sheet ──
-function setSheet(expanded) {
-  if (!isMobile()) return;
-  els.sidebar.classList.toggle('expanded', expanded);
-  els.handleHint.textContent = expanded ? t('collapse') : t('expand');
-}
-
-function toggleSheet() {
-  setSheet(!els.sidebar.classList.contains('expanded'));
-}
-
 // ── filters (list only — the My Maps embed cannot be filtered from the page) ──
 function setCategory(code) {
   state.category = code;
@@ -220,54 +173,9 @@ function renderFilters() {
     els.regionChips.appendChild(btn);
   });
 
-  revealActive(els.categoryTabs);
-  revealActive(els.regionChips);
-  updateScrollButtons();
-}
-
-// Keep the selected filter visible inside its horizontal scroller without
-// scrolling any other ancestor (scrollIntoView would also move the page).
-function revealActive(scroller) {
-  var active = scroller.querySelector('.filter-btn.active');
-  if (!active) return;
-  var left = active.offsetLeft - scroller.offsetLeft;
-  var right = left + active.offsetWidth;
-  if (left < scroller.scrollLeft) {
-    scroller.scrollLeft = left - 8;
-  } else if (right > scroller.scrollLeft + scroller.clientWidth - 24) {
-    scroller.scrollLeft = right - scroller.clientWidth + 24;
-  }
-}
-
-// Desktop ‹ › buttons (hidden on mobile, where rows are swiped). Disabled at either end.
-function updateScrollButtons() {
-  els.scrollBtns.forEach(function(btn) {
-    var target = document.getElementById(btn.dataset.target);
-    var max = target.scrollWidth - target.clientWidth;
-    var atEdge = btn.dataset.dir === '-1' ? target.scrollLeft <= 1 : target.scrollLeft >= max - 1;
-    btn.disabled = max <= 1 || atEdge;
-  });
-}
-
-function setupFilterScroll() {
-  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  els.scrollBtns.forEach(function(btn) {
-    btn.addEventListener('click', function() {
-      var target = document.getElementById(btn.dataset.target);
-      target.scrollBy({ left: Number(btn.dataset.dir) * target.clientWidth * 0.7, behavior: reduceMotion ? 'auto' : 'smooth' });
-    });
-  });
-  [els.categoryTabs, els.regionChips].forEach(function(scroller) {
-    scroller.addEventListener('scroll', updateScrollButtons, { passive: true });
-    // A vertical mouse wheel scrolls the row sideways, so desktop users without a trackpad can still reach the end.
-    scroller.addEventListener('wheel', function(event) {
-      if (Math.abs(event.deltaY) <= Math.abs(event.deltaX)) return;
-      if (scroller.scrollWidth <= scroller.clientWidth) return;
-      scroller.scrollLeft += event.deltaY;
-      event.preventDefault();
-    }, { passive: false });
-  });
-  window.addEventListener('resize', updateScrollButtons);
+  shell.revealActive(els.categoryTabs);
+  shell.revealActive(els.regionChips);
+  shell.updateScrollButtons();
 }
 
 function renderResultLine(shops) {
@@ -287,61 +195,6 @@ function renderResultLine(shops) {
 function setStyle(style) {
   state.style = style;
   refresh(true);
-}
-
-// ── top chip strip (scroll-spy, never touches the map) ──
-function renderChips(shops) {
-  els.chipStrip.innerHTML = '';
-  els.chipStrip.setAttribute('aria-label', t('chipStrip'));
-  shops.forEach(function(shop) {
-    var chip = el('button', 'chip', shop.name);
-    chip.type = 'button';
-    chip.dataset.id = shop.id;
-    chip.addEventListener('click', function() {
-      scrollToCard(shop.id);
-      setActiveChip(shop.id);
-    });
-    els.chipStrip.appendChild(chip);
-  });
-}
-
-function setActiveChip(id) {
-  els.chipStrip.querySelectorAll('.chip').forEach(function(chip) {
-    var active = chip.dataset.id === id;
-    chip.classList.toggle('active', active);
-    if (active) {
-      chip.setAttribute('aria-current', 'true');
-      chip.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-    } else {
-      chip.removeAttribute('aria-current');
-    }
-  });
-}
-
-function setupScrollSpy() {
-  if (state.chipObserver) state.chipObserver.disconnect();
-  state.chipObserver = null;
-  state.chipVisibility = {};
-  if (!window.IntersectionObserver) return;
-
-  var cards = Array.prototype.slice.call(els.sidebarBody.querySelectorAll('.shop-card'));
-  if (!cards.length) return;
-
-  state.chipObserver = new IntersectionObserver(function(entries) {
-    entries.forEach(function(entry) {
-      state.chipVisibility[entry.target.dataset.id] = entry.isIntersecting;
-    });
-    var current = null;
-    cards.forEach(function(card) {
-      if (!current && state.chipVisibility[card.dataset.id]) current = card.dataset.id;
-    });
-    if (current) setActiveChip(current);
-  }, {
-    root: els.sidebarBody,
-    rootMargin: '0px 0px -70% 0px',
-    threshold: 0
-  });
-  cards.forEach(function(card) { state.chipObserver.observe(card); });
 }
 
 // ── shop cards ──
@@ -434,7 +287,7 @@ function renderPhotos(shop) {
     img.alt = shop.name;
     img.loading = 'lazy';
     btn.appendChild(img);
-    btn.addEventListener('click', function() { openLightbox(src, shop.name); });
+    btn.addEventListener('click', function() { shell.openLightbox(src, shop.name); });
     wrap.appendChild(btn);
   });
   return wrap;
@@ -485,7 +338,7 @@ function renderCard(shop) {
     tagBtn.addEventListener('click', function() {
       state.selectedId = shop.id;
       setCategory(active ? ALL : code);
-      scrollToCard(shop.id);
+      shell.scrollToCard(shop.id);
     });
     tags.appendChild(tagBtn);
   });
@@ -499,7 +352,7 @@ function renderCard(shop) {
     styleBtn.addEventListener('click', function() {
       state.selectedId = shop.id;
       setStyle(styleActive ? null : shop.style);
-      scrollToCard(shop.id);
+      shell.scrollToCard(shop.id);
     });
     tags.appendChild(styleBtn);
   }
@@ -573,13 +426,6 @@ function renderList(shops) {
   els.sidebarBody.appendChild(el('p', 'data-footnote', t('footnote', { d: state.data.dataAsOf })));
 }
 
-function scrollToCard(id) {
-  var card = document.getElementById('shop-' + id);
-  if (!card) return;
-  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  card.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
-}
-
 function markSelected(id) {
   state.selectedId = id;
   els.sidebarBody.querySelectorAll('.shop-card').forEach(function(card) {
@@ -587,86 +433,20 @@ function markSelected(id) {
   });
 }
 
-// ── map (Google embeds, no API key) ──
-function singlePlaceEmbedUrl(query, zoom) {
-  return 'https://maps.google.com/maps?q=' + encodeURIComponent(query) +
-    '&output=embed&z=' + zoom + '&language=' + t('mapLang');
-}
-
-function overviewUrl() {
-  // Until the My Maps embed URL is filled in, fall back to a plain view of the page's city.
-  return state.data.myMapsEmbedUrl || singlePlaceEmbedUrl(state.config.fallbackPlace, 11);
-}
-
-function showMapLoading() {
-  els.mapLoading.classList.add('show');
-  window.clearTimeout(state.mapTimer);
-  state.mapTimer = window.setTimeout(hideMapLoading, 3200);
-}
-
-function hideMapLoading() {
-  window.clearTimeout(state.mapTimer);
-  els.mapLoading.classList.remove('show');
-}
-
-function setMapSrc(src) {
-  if (els.mapFrame.src === src) return;
-  showMapLoading();
-  els.mapFrame.src = src;
-}
-
-function showOverview() {
-  markSelected(null);
-  state.selectedPlace = null;
-  els.overviewBtn.hidden = true;
-  setMapSrc(overviewUrl());
-}
-
 // 📍 pill: the only card control that moves the map.
 function previewOnMap(id) {
   var shop = shopById(id);
   if (!shop) return;
   markSelected(id);
-  setActiveChip(id);
-  state.selectedPlace = id;
-  setMapSrc(singlePlaceEmbedUrl(shop.name + ' ' + shop.address, 16));
-  els.overviewBtn.hidden = false;
-  setSheet(false);
-}
-
-// ── lightbox ──
-function openLightbox(src, alt) {
-  els.lightboxImg.src = src;
-  els.lightboxImg.alt = alt || '';
-  els.lightbox.classList.add('open');
-  els.lightboxClose.focus();
-}
-
-function closeLightbox() {
-  els.lightbox.classList.remove('open');
+  shell.setActiveChip(id);
+  shell.previewPlace(shop.name + ' ' + shop.address);
 }
 
 // ── render ──
 function renderStaticText() {
-  els.title.textContent = t('title');
-  els.brandEn.textContent = t('brandEn');
-  els.homeLink.setAttribute('title', t('homeTitle'));
-  els.pageTitle.textContent = t('title');
   els.pageSubtitle.textContent = t('subtitle', { n: state.data.shops.length, d: state.data.dataAsOf });
-  els.handleHint.textContent = els.sidebar.classList.contains('expanded') ? t('collapse') : t('expand');
-  els.printBtn.textContent = t('print');
   els.categoryLabel.textContent = t('category');
   els.regionLabel.textContent = t('region');
-  els.overviewBtn.textContent = t('overview');
-  els.mapLoadingText.textContent = t('mapLoading');
-  els.mapFrame.title = t('mapTitle');
-  els.resizeDivider.title = t('divider');
-  els.backToTop.setAttribute('aria-label', t('backToTop'));
-  els.backToTop.setAttribute('title', t('backToTop'));
-  els.lightboxClose.setAttribute('aria-label', t('closeLightbox'));
-  els.scrollBtns.forEach(function(btn) {
-    btn.setAttribute('aria-label', btn.dataset.dir === '-1' ? t('scrollPrev') : t('scrollNext'));
-  });
 }
 
 function refresh(filtersChanged) {
@@ -676,94 +456,23 @@ function refresh(filtersChanged) {
   }
   renderFilters();
   renderResultLine(shops);
-  renderChips(shops);
   renderList(shops);
   if (filtersChanged) els.sidebarBody.scrollTop = 0;
-  setupScrollSpy();
+  shell.refreshChips(shops);
 }
 
+// The shell has already re-rendered its own text and keeps the list's scroll position.
 function switchLanguage(lang) {
   state.lang = lang;
-  var scroll = els.sidebarBody.scrollTop;
   renderStaticText();
   refresh(false);
-  els.sidebarBody.scrollTop = scroll;
-  // Keep the single-place map in the new language; the My Maps overview has no language switch.
-  if (state.selectedPlace) {
-    var shop = shopById(state.selectedPlace);
-    if (shop) setMapSrc(singlePlaceEmbedUrl(shop.name + ' ' + shop.address, 16));
-  }
-}
-
-function setupResize() {
-  var dragging = false;
-
-  function start(event) {
-    if (isMobile()) return;
-    dragging = true;
-    els.resizeDivider.classList.add('dragging');
-    document.body.style.cursor = 'col-resize';
-    document.body.style.userSelect = 'none';
-    event.preventDefault();
-  }
-
-  function move(clientX) {
-    if (!dragging) return;
-    var minW = Math.floor(window.innerWidth / 4);
-    var maxW = Math.floor(window.innerWidth / 2);
-    els.sidebar.style.width = Math.max(minW, Math.min(maxW, window.innerWidth - clientX)) + 'px';
-    updateScrollButtons();
-  }
-
-  function stop() {
-    if (!dragging) return;
-    dragging = false;
-    els.resizeDivider.classList.remove('dragging');
-    document.body.style.cursor = '';
-    document.body.style.userSelect = '';
-  }
-
-  els.resizeDivider.addEventListener('mousedown', start);
-  document.addEventListener('mousemove', function(event) { move(event.clientX); });
-  document.addEventListener('mouseup', stop);
 }
 
 function setupEvents() {
-  Site.onLangChange(switchLanguage);
-
-  els.sheetHandle.addEventListener('click', toggleSheet);
-  els.sidebarHeader.addEventListener('click', toggleSheet);
-  els.printBtn.addEventListener('click', function(event) {
-    event.stopPropagation();
-    window.print();
-  });
-
-  els.mapFrame.addEventListener('load', hideMapLoading);
-  els.overviewBtn.addEventListener('click', showOverview);
-
   els.sidebarBody.addEventListener('click', function(event) {
     var mapBtn = event.target.closest('.pill-map');
     if (mapBtn) previewOnMap(mapBtn.dataset.id);
   });
-
-  els.sidebarBody.addEventListener('scroll', function() {
-    els.backToTop.classList.toggle('show', els.sidebarBody.scrollTop > 280);
-  });
-  els.backToTop.addEventListener('click', function() {
-    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    els.sidebarBody.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
-  });
-
-  els.lightbox.addEventListener('click', function(event) {
-    if (event.target === els.lightbox) closeLightbox();
-  });
-  els.lightboxClose.addEventListener('click', closeLightbox);
-  document.addEventListener('keydown', function(event) {
-    if (event.key === 'Escape') closeLightbox();
-  });
-
-  setupResize();
-  setupFilterScroll();
 }
 
 function init(data, config) {
@@ -772,11 +481,19 @@ function init(data, config) {
   Object.keys(UI).forEach(function(lang) {
     Object.assign(UI[lang], config.ui[lang]);
   });
-  state.lang = Site.getLang();
+  shell = ListMapShell.create({
+    ui: UI,
+    overviewUrl: data.myMapsEmbedUrl,
+    fallbackPlace: config.fallbackPlace,
+    fallbackZoom: config.fallbackZoom,
+    onLangChange: switchLanguage,
+    onOverview: function() { markSelected(null); }
+  });
+  state.lang = shell.lang();
   renderStaticText();
   setupEvents();
   refresh(true);
-  showOverview();
+  shell.showOverview();
 }
 
 init(PAGE_DATA, PAGE_CONFIG);

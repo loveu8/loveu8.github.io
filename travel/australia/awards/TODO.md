@@ -84,15 +84,15 @@ Step 1b 還沒打勾的兩項（PARTIAL 再查、使用者送 Wayback）留到 S
 
 ## Step 4a：拆出共用外殼（D8 = B，要做）
 
-- [ ] 改之前：線上版咖啡廳、烘焙頁 8 種狀態的頁面內容雜湊值和截圖當基準
-- [ ] 新增 `scripts/list-map-shell.js`（抽屜、拖曳、地圖嵌入、chip strip、scroll-spy、回到頂部、lightbox）
-- [ ] 備用地圖縮放改成可設定（`fallbackZoom`）
-- [ ] `scripts/map-list.js` 改成呼叫外殼
-- [ ] 咖啡廳、烘焙 `index.html` 載入新檔，`?v=` 改新
-- [ ] 本機比對雜湊值，和基準完全相同
-- [ ] Console 無錯誤
-- [ ] `python tools/check_tokens.py` 無 ERROR
-- [ ] `DESIGN.md` 依賴表加 `list-map-shell.js`
+- [x] 改之前：咖啡廳、烘焙頁的頁面內容雜湊值和截圖當基準（本機 `a88ba70`，和線上版相同；每頁 25 種狀態）
+- [x] 新增 `scripts/list-map-shell.js`（抽屜、拖曳、地圖嵌入、chip strip、scroll-spy、回到頂部、lightbox）
+- [x] 備用地圖縮放改成可設定（`fallbackZoom`）
+- [x] `scripts/map-list.js` 改成呼叫外殼
+- [x] 咖啡廳、烘焙 `index.html` 載入新檔，`?v=` 改新
+- [x] 本機比對雜湊值，和基準完全相同（50/50）
+- [x] Console 無錯誤
+- [x] `python tools/check_tokens.py` 無 ERROR
+- [x] `DESIGN.md` 依賴表加 `list-map-shell.js`
 - [ ] 👤 `file://` 直接開兩頁確認
 
 ## Step 4：頁面原型
