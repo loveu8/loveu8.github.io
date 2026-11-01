@@ -106,8 +106,9 @@ Step 1b 還沒打勾的兩項（PARTIAL 再查、使用者送 Wayback）留到 S
 - [x] 👤 使用者提出：點州別時地圖移到那個州 → 選 A（直接移動；`list-map-shell.js` 加 `showArea()`；`DESIGN.md` map-interaction rule 加例外；2026-10-31）
 - [x] `styles/awards.css`：徽章、獎項摘要與明細、門市列表（只用 token）。搜尋框、更多篩選移到 Step 5 一起做
 - [x] `python tools/check_tokens.py` 無 ERROR
-- [ ] 截圖：360px、768px、1280px × 中英 × 深淺色（2026-10-31 先拍了 8 張；2026-11-01 版面改過，要用最新版重拍全部 12 種組合）
-- [ ] 鍵盤可以操作所有控制（都是原生 button／a／details，還沒實測）
+- [x] 截圖：360px、768px、1280px × 中英 × 深淺色（2026-11-02 用最新版重拍 12 種組合＋手機抽屜打開、往下捲收起、獎項明細展開；無 console 錯誤、無橫向捲動）
+- [x] 鍵盤可以操作所有控制（2026-11-02 實測：Tab 順序合理、每個控制都有焦點框；Enter／Space 開關明細、📍 移動地圖。修正：選篩選後焦點掉回頁首 → 重畫後放回同一顆按鈕。Google 地圖 iframe 吃約 8 次 Tab，改不了）
+  - [ ] 類型篩選是 `role="tab"` 但不能用左右鍵切換 → Step 5 做篩選時一起處理（咖啡廳、烘焙頁同樣問題）
 - [x] Console 無錯誤（上面 8 種畫面＋篩選、📍 操作）
 - [x] 👤 看截圖，確認徽章和版面（2026-11-01，看 12 張截圖的 5 個重點，3 個用 demo 選定後改好）：
   - [x] 第 1 名徽章灰 → 藍（藍、紫、深色實心三選一；澳洲農展會第 1 名是藍彩帶；`UI-PLAN.md` 3.3；a68eba0）
@@ -168,4 +169,5 @@ Step 1b 還沒打勾的兩項（PARTIAL 再查、使用者送 Wayback）留到 S
 ## 上線後
 
 - [ ] 👤 要不要每年更新（RAS 9 月、NABC 6–7 月、Golden Bean 6 月公布）
+- [ ] 咖啡廳、烘焙頁（`scripts/map-list.js`）和 Noosa 頁（`scripts/noosa.js`）也有「選篩選後焦點掉回頁首」的問題（同樣是 `innerHTML = ''` 重畫）；修法照 `awards.js` `renderFilters()`，改之前先拍 DOM 雜湊基準（2026-11-02 使用者選先只修得獎頁）
 - [ ] 之後的擴充候選：RAS Champion Coffee、BAA 其他賽事（Pie、Donut、各州 Baking Show）、和布里斯本咖啡廳頁互相標註（Espresso Club、Bellissimo）

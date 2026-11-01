@@ -269,13 +269,23 @@ function filterButton(label, count, active, disabled) {
   return btn;
 }
 
+// Both rows are rebuilt on every change, which would drop keyboard focus to the page top;
+// remember which filter button had focus and put it back on the rebuilt one.
 function renderFilters() {
+  var focused = document.activeElement;
+  var refocus = null;
+  if (focused && focused.dataset && focused.dataset.code !== undefined &&
+      (els.stateChips.contains(focused) || els.typeTabs.contains(focused))) {
+    refocus = { row: els.stateChips.contains(focused) ? els.stateChips : els.typeTabs, code: focused.dataset.code };
+  }
+
   els.stateChips.innerHTML = '';
   [ALL].concat(stateCodes()).forEach(function(code) {
     var active = state.stateCode === code;
     var count = countWhere(code, state.typeGroup);
     var btn = filterButton(code === ALL ? t('all') : code, count, active, count === 0 && !active);
     btn.setAttribute('aria-pressed', active ? 'true' : 'false');
+    btn.dataset.code = code;
     btn.addEventListener('click', function() {
       state.stateCode = code;
       refresh(true);
@@ -291,6 +301,7 @@ function renderFilters() {
     var btn = filterButton(code === ALL ? t('all') : typeGroupLabel(code), count, active, count === 0 && !active);
     btn.setAttribute('role', 'tab');
     btn.setAttribute('aria-selected', active ? 'true' : 'false');
+    btn.dataset.code = code;
     btn.addEventListener('click', function() {
       state.typeGroup = code;
       refresh(true);
@@ -301,6 +312,11 @@ function renderFilters() {
   shell.revealActive(els.stateChips);
   shell.revealActive(els.typeTabs);
   shell.updateScrollButtons();
+
+  if (refocus) {
+    var again = [].slice.call(refocus.row.children).filter(function(b) { return b.dataset.code === refocus.code; })[0];
+    if (again && !again.disabled) again.focus({ preventScroll: true });
+  }
 }
 
 // Centre and zoom that fit every store in the state; "all" goes back to the overview.
