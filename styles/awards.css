@@ -13,8 +13,10 @@
 .award-badge-champion { background: var(--color-accent-soft); color: var(--color-accent-strong); border-color: var(--color-accent-border); }
 /* Amber is the food-tag family and the nearest thing to gold; the text-safe token keeps 4.5:1. */
 .award-badge-gold { background: var(--color-warm-soft); color: var(--color-warning-text); border-color: var(--color-warm-border); }
-/* Places are a different system from medals, so 1st place stays neutral on purpose. */
-.award-badge-first { background: var(--color-surface-soft); color: var(--color-text); border-color: var(--color-border); }
+/* Places are a different system from medals, so 1st place does not share the gold amber.
+   Blue follows Australian show ribbons (1st prize = blue); the user picked it over neutral
+   grey, which read like a type tag (2026-11-01, UI-PLAN 3.3). */
+.award-badge-first { background: var(--color-primary-soft); color: var(--color-primary-strong); border-color: var(--color-primary-border); }
 
 /* ── 2. SUMMARY + DETAILS ── */
 .award-summary {

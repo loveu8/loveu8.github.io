@@ -61,9 +61,9 @@
 |---|---|---|---|
 | 冠軍 | 🏆 冠軍 · Champion | accent（coral）soft 底＋`--color-accent-strong` 字 | `DESIGN.md`：coral 是 highlight／最重要的強調 |
 | 金牌 | 金牌（90+）· Gold medal | warm（amber）soft 底＋`--color-warning-text` 字 | amber 是食物標籤色系，接近金色；用 text-safe token |
-| 第 1 名 | 第 1 名 · 1st place | 中性（`--color-surface-soft`＋`--color-border`） | 名次和獎牌是不同制度，刻意不和金牌同色 |
+| 第 1 名 | 第 1 名 · 1st place | ~~中性（`--color-surface-soft`＋`--color-border`）~~ → **藍色**（`--color-primary-soft` 底＋`--color-primary-strong` 字＋`--color-primary-border`） | 名次和獎牌是不同制度，刻意不和金牌同色。2026-11-01 改：灰色截圖看起來和「烘焙」類型標籤幾乎一樣，不像獎；使用者比較了藍、紫、深色實心三種 demo 後**選藍色**，理由是澳洲農展會的第 1 名彩帶是藍色（墨爾本皇家農展會參展目錄「First Prize — Blue Ribbon」）。已知代價：全站藍色代表地圖／導覽，和 📍 按鈕同色系；寫進 `DESIGN.md` 時要註明這是例外 |
 
-- **不用 🥇🥈🥉**：它們在咖啡廳／烘焙頁代表 Google 評論前三名，而且會讓「金牌」和「第 1 名」看起來一樣（查證規則 1、3）。D6 已決定（2026-10-27）：用本節的文字徽章；「也推薦」（銀牌、第 2 名）只用文字，不加徽章。顏色在 Step 4 截圖確認。
+- **不用 🥇🥈🥉**：它們在咖啡廳／烘焙頁代表 Google 評論前三名，而且會讓「金牌」和「第 1 名」看起來一樣（查證規則 1、3）。D6 已決定（2026-10-27）：用本節的文字徽章；「也推薦」（銀牌、第 2 名）只用文字，不加徽章。顏色在 Step 4 截圖確認：冠軍、金牌維持，第 1 名改藍色（2026-11-01）。
 - 不新增金／銀／銅顏色 token，避免多一套只有這頁用的顏色。
 - 對比度由 `tools/check_tokens.py` 檢查；新組合（accent-soft 上的 accent-strong 等）已在既有組合裡。
 
