@@ -91,7 +91,27 @@
 .award-item-awards { flex-shrink: 0; color: var(--color-text-muted); font-variant-numeric: tabular-nums; text-align: right; }
 .award-items-more { padding-top: 3px; color: var(--color-text-muted); }
 
-/* ── 4. STORE LIST (one line per store: 📍 area · name + ↗ Maps) ── */
+/* ── 4. PHONE SHEET FOLD (title + filters fold while the list scrolls down; awards.js setupSheetFold) ── */
+/* Grid 1fr → 0fr animates to the content's own height. visibility drops the folded buttons
+   out of the tab order once the 300ms fold (FOLD_MS) ends. Screen only, so print is untouched. */
+@media screen and (max-width: 767px) {
+  .sheet-fold {
+    display: grid;
+    grid-template-rows: 1fr;
+    transition: grid-template-rows 0.3s ease;
+  }
+  .sheet-fold-inner {
+    min-height: 0;
+    min-width: 0;  /* else the grid track grows to the title's width and pushes 列印 off screen */
+    overflow: hidden;
+    overflow: clip;
+    overflow-clip-margin: 4px;  /* room for focus rings where supported */
+  }
+  .sheet-fold.folded { grid-template-rows: 0fr; }
+  .sheet-fold.folded .sheet-fold-inner { visibility: hidden; transition: visibility 0s 0.3s; }
+}
+
+/* ── 5. STORE LIST (one line per store: 📍 area · name + ↗ Maps) ── */
 .store-list { margin-top: var(--space-xs); }
 .store-head { font-size: var(--fs-2xs); font-weight: 800; color: var(--color-text-muted); }
 .store-row {

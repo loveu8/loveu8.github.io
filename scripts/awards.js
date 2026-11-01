@@ -24,6 +24,13 @@ var STATES = {
   WA: { name: 'Western Australia', zoom: 5 }
 };
 var AREA_FIT_PX = 560;  // map width the store box should fit in (narrower than most map panels)
+// Phone sheet: the title and filters fold away while the list scrolls down and come back on
+// any scroll up, so more cards fit; the result line stays (UI-PLAN 4.2, NN/g "partially
+// persistent header"). Keep FOLD_MS in step with the .sheet-fold transition in awards.css.
+var PHONE = window.matchMedia('(max-width: 767px)');
+var FOLD_TOP = 60;   // px of list scroll before folding starts
+var FOLD_STEP = 4;   // px of movement that counts as a scroll direction
+var FOLD_MS = 300;
 
 // Each page's PAGE_CONFIG.ui[lang] must add `title` and `mapTitle`, and may override any key here or in the shell.
 var UI = {
@@ -635,11 +642,46 @@ function switchLanguage(lang) {
   refresh(false);
 }
 
+// Folding resizes the list, which can nudge its scrollTop (the browser clamps it near the
+// end); scroll events during the fold animation are ignored so it doesn't flip back and forth.
+function setupSheetFold() {
+  var fold = document.getElementById('sheetFold');
+  var sidebar = document.getElementById('sidebar');
+  var body = els.sidebarBody;
+  var last = 0;
+  var lockUntil = 0;
+
+  function setFolded(folded) {
+    if (fold.classList.contains('folded') === folded) return;
+    fold.classList.toggle('folded', folded);
+    lockUntil = Date.now() + FOLD_MS + 50;
+  }
+
+  body.addEventListener('scroll', function() {
+    var y = body.scrollTop;
+    if (!PHONE.matches || y <= FOLD_TOP) setFolded(false);
+    else if (Date.now() >= lockUntil) {
+      if (y > last + FOLD_STEP) setFolded(true);
+      else if (y < last - FOLD_STEP) setFolded(false);
+    }
+    last = y;
+  }, { passive: true });
+
+  // A collapsed sheet shows the title, so unfold whenever the sheet closes.
+  new MutationObserver(function() {
+    if (!sidebar.classList.contains('expanded')) setFolded(false);
+  }).observe(sidebar, { attributes: true, attributeFilter: ['class'] });
+  if (PHONE.addEventListener) {
+    PHONE.addEventListener('change', function() { if (!PHONE.matches) setFolded(false); });
+  }
+}
+
 function setupEvents() {
   els.sidebarBody.addEventListener('click', function(event) {
     var mapBtn = event.target.closest('.pill-map');
     if (mapBtn) previewOnMap(mapBtn.dataset.id, mapBtn.dataset.loc);
   });
+  setupSheetFold();
 }
 
 function init(data, config) {

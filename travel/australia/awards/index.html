@@ -16,7 +16,7 @@ try { var theme = localStorage.getItem('theme'); if (theme === 'light' || theme 
 <link rel="stylesheet" href="../../../styles/base.css?v=20261024">
 <link rel="stylesheet" href="../../../styles/app-shell.css?v=20261026b">
 <link rel="stylesheet" href="../../../styles/map-list.css?v=20261026b">
-<link rel="stylesheet" href="../../../styles/awards.css?v=20261101b">
+<link rel="stylesheet" href="../../../styles/awards.css?v=20261101c">
 </head>
 <body>
 
@@ -48,6 +48,8 @@ try { var theme = localStorage.getItem('theme'); if (theme === 'light' || theme 
         <span class="handle-hint" id="handleHint">▲ 查看清單</span>
       </div>
 
+      <!-- Phone: folds away while the list scrolls down, back on scroll up (UI-PLAN 4.2) -->
+      <div class="sheet-fold" id="sheetFold"><div class="sheet-fold-inner">
       <div class="sidebar-header" id="sidebarHeader">
         <div class="sidebar-title-wrap">
           <span class="s-emoji" aria-hidden="true">🏆</span>
@@ -73,6 +75,7 @@ try { var theme = localStorage.getItem('theme'); if (theme === 'light' || theme 
           <button class="scroll-btn scroll-next" type="button" data-target="typeTabs" data-dir="1">›</button>
         </div>
       </div>
+      </div></div>
       <div class="result-line" id="resultLine" aria-live="polite"></div>
     </div>
 
@@ -92,6 +95,6 @@ try { var theme = localStorage.getItem('theme'); if (theme === 'light' || theme 
 <script src="data.js?v=20261031"></script>
 <script src="../../../scripts/site.js?v=20261024"></script>
 <script src="../../../scripts/list-map-shell.js?v=20261031b"></script>
-<script src="../../../scripts/awards.js?v=20261101"></script>
+<script src="../../../scripts/awards.js?v=20261101b"></script>
 </body>
 </html>
