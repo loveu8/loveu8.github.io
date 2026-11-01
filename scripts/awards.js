@@ -36,7 +36,7 @@ var UI = {
     levels: { champion: '冠軍', gold: '金牌', silver: '銀牌', first: '第 1 名', second: '第 2 名' },
     levelsShort: { champion: '冠軍', gold: '金牌', first: '第 1 名' },
     items: '得獎品項', moreItems: '另有 {n} 項，見獎項明細',
-    details: '獎項明細（{n}）', groupTop: '招牌', groupAlso: '也推薦',
+    details: '獎項明細（{n}）', groupTop: '招牌', groupAlsoCount: '也推薦（{n}）',
     awardStore: '{s} 店', staffEntry: '參賽者：{r}',
     source: '官方結果 ↗', archive: '存檔 ↗', verified: '查證 {d}',
     sourceAria: '{a} 的官方來源（另開新頁）', archiveAria: '{a} 的官方來源存檔（另開新頁）',
@@ -59,7 +59,7 @@ var UI = {
     levels: { champion: 'Champion', gold: 'Gold medal', silver: 'Silver medal', first: '1st place', second: '2nd place' },
     levelsShort: { champion: 'Champion', gold: 'Gold', first: '1st' },
     items: 'Winning items', moreItems: '{n} more in the award details',
-    details: 'Award details ({n})', groupTop: 'Headline awards', groupAlso: 'Also recommended',
+    details: 'Award details ({n})', groupTop: 'Headline awards', groupAlsoCount: 'Also recommended ({n})',
     awardStore: '{s} store', staffEntry: 'Entrant: {r}',
     source: 'Official results ↗', archive: 'Archive ↗', verified: 'Checked {d}',
     sourceAria: 'Official source for {a} (opens in a new tab)', archiveAria: 'Archived official source for {a} (opens in a new tab)',
@@ -153,6 +153,18 @@ function titleCase(text) {
     if (offset > 0 && sep === ' ' && SMALL_WORDS.indexOf(word) !== -1) return m;
     return sep + word.charAt(0).toUpperCase() + word.slice(1);
   });
+}
+
+// Official class names without the examples and specs ("International Bread (e.g. baguette…)"
+// → "International Bread"; "Traditional Rye Sourdough - Minimum 680gm" → "Traditional Rye
+// Sourdough"). The full name stays in the row's title and behind the source link (UI-PLAN 3.4).
+function shortClass(category) {
+  return category
+    .replace(/\s*\([^)]*\)/g, '')
+    .replace(/,\s*including.*$/i, '')
+    .replace(/\s*-\s*Minimum.*$/i, '')
+    .replace(/,?\s*etc\.?$/i, '')
+    .trim();
 }
 
 function yearRange(awards) {
@@ -364,8 +376,8 @@ function renderSummary(business) {
 
 // ── winning items (what to order) ──
 // The item an award names: the product if the result gives one (minus a repeated brand
-// prefix), else the class name for placings and class champions (minus "- Minimum 200gm",
-// examples in brackets, etc.). Best-in-show titles name no item.
+// prefix), else the short class name for placings and class champions, cut at the first
+// comma ("Cakes, Tortes & Gateaux" → "Cakes"). Best-in-show titles name no item.
 function itemName(business, award) {
   var text;
   if (award.product) {
@@ -374,7 +386,7 @@ function itemName(business, award) {
     if (text.toUpperCase().indexOf(brand) === 0) text = text.slice(brand.length);
   } else {
     if (award.level === 'champion' && NO_ITEM.test(award.category)) return null;
-    text = award.category.replace(/^Champion /, '').replace(/\s*-\s*Minimum.*$/i, '').replace(/\s*\(.*$/, '').replace(/,.*$/, '');
+    text = shortClass(award.category).replace(/^Champion /, '').replace(/,.*$/, '');
   }
   return titleCase(text.trim()) || null;
 }
@@ -428,22 +440,28 @@ function renderItems(business) {
   return box;
 }
 
+// Item first (UI-PLAN 3.4, 2026-11-01): "金牌 91.5 · Olive Sourdough", then the short class
+// name, year, competition, store and sources in small text. Without a product the class
+// name is the item.
 function renderAwardRow(business, award) {
   var comp = state.data.competitions.find(function(c) { return c.id === award.comp; });
   var compName = isEn() ? comp.en : comp.zh;
+  var cls = shortClass(award.category);
   var row = el('div', 'award-row');
 
   var line = el('div', 'award-line');
+  if (cls !== award.category) line.title = award.category;
   var level = el('span', 'award-level');
   level.appendChild(levelLabel(levelKey(award)));
   if (award.score != null) level.appendChild(document.createTextNode(' ' + award.score));
   line.appendChild(level);
-  line.appendChild(document.createTextNode(' · ' + award.category));
-  if (award.product) line.appendChild(document.createTextNode(' · ' + titleCase(award.product)));
+  line.appendChild(document.createTextNode(' · '));
+  line.appendChild(el('span', 'award-item-title', award.product ? titleCase(award.product) : cls));
   row.appendChild(line);
 
   var meta = el('div', 'award-meta');
-  var parts = [award.year + ' · ' + compName];
+  var parts = award.product ? [cls] : [];
+  parts.push(award.year + ' · ' + compName);
   var store = award.locationId && locationById(business, award.locationId);
   if (store) parts.push(t('awardStore', { s: store.name }));
   if (award.relation === 'staff_entry' && award.recipient) parts.push(t('staffEntry', { r: award.recipient }));
@@ -457,23 +475,34 @@ function renderAwardRow(business, award) {
       meta.appendChild(document.createTextNode(' · '));
     }
   });
-  meta.appendChild(document.createTextNode(t('verified', { d: award.verifiedAt })));
+  meta.appendChild(el('span', 'award-verified', t('verified', { d: award.verifiedAt })));
   row.appendChild(meta);
   return row;
 }
 
-// The shop blurb opens the award details (UI-PLAN 3.6), then headline awards, then also recommended.
+// The shop blurb opens the award details (UI-PLAN 3.6), then headline awards, then also
+// recommended, folded by default (UI-PLAN 3.4, 2026-11-01).
 function renderDetails(business) {
   var details = rememberedDetails('award-details', 'awards:' + business.id);
   details.appendChild(el('summary', '', t('details', { n: business.awards.length })));
   var desc = isEn() ? business.descEn : business.descZh;
   if (desc) details.appendChild(el('p', 'award-desc', desc));
-  [['top', 'groupTop'], ['also', 'groupAlso']].forEach(function(group) {
-    var awards = business.awards.filter(function(a) { return a.tier === group[0]; }).sort(compareAwards);
-    if (!awards.length) return;
-    details.appendChild(el('div', 'award-group', t(group[1])));
-    awards.forEach(function(a) { details.appendChild(renderAwardRow(business, a)); });
-  });
+
+  var byTier = function(tier) {
+    return business.awards.filter(function(a) { return a.tier === tier; }).sort(compareAwards);
+  };
+  var top = byTier('top');
+  if (top.length) {
+    details.appendChild(el('div', 'award-group', t('groupTop')));
+    top.forEach(function(a) { details.appendChild(renderAwardRow(business, a)); });
+  }
+  var also = byTier('also');
+  if (also.length) {
+    var fold = rememberedDetails('award-also', 'also:' + business.id);
+    fold.appendChild(el('summary', '', t('groupAlsoCount', { n: also.length })));
+    also.forEach(function(a) { fold.appendChild(renderAwardRow(business, a)); });
+    details.appendChild(fold);
+  }
   return details;
 }
 
