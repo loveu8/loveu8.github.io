@@ -306,7 +306,17 @@ python travel/tools/make_awards_data.py travel/australia/awards `
 
 `--today 2026-10-29` 可以指定 180 天查核用的日期（測試用；預設是今天）。
 
-`--mymaps-out` 另外寫 My Maps 匯入檔（一間門市一列：店名、門市、緯度、經度、主類型、最高榮譽、獎項摘要、地址），放 repo 外面，不 commit，和既有工具的規則相同（`travel/tools/README.md`）。
+`--mymaps-out` 另外寫 My Maps 匯入檔，放 repo 外面，不 commit，和既有工具的規則相同（`travel/tools/README.md`）。一間門市一列，**中英並列**（地圖不能切換語言，使用者 2026-11-02 看 demo 選 A）：
+
+| 欄位 | 內容 |
+|---|---|
+| `名稱 Name` | 「店名 · 門市」，My Maps 的標題欄（同一品牌好幾間時分得出來） |
+| `緯度 Latitude`、`經度 Longitude` | 放點用；面板上也會顯示 |
+| `類型 Type` | 「烘焙 Bakery」或「咖啡 Coffee」，My Maps 依這欄上色，圖例也顯示這個值 |
+| `最高榮譽 Top award` | 「冠軍 Champion」「金牌 Gold medal」「第 1 名 1st place」 |
+| `獎項 Awards` | 兩行：「冠軍 2 · 金牌 8 · 第 1 名 2 · 2024–2026」／「Champion 2 · Gold 8 · 1st 2」，只寫招牌，和卡片一致 |
+| `得獎品項 Winning items` | 前 3 項，規則和卡片的「得獎品項」相同（Python 版 `winning_items()`；2026-11-02 和頁面上的 JS 版逐家比對，34 家一致） |
+| `地址 Address` | |
 
 ## 7. 定案 v1 和草稿的差異（2026-10-28）
 

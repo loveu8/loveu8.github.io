@@ -6,6 +6,7 @@ awards_fixture/ is a small valid set of the seven csv files that covers every
 publish rule. Each check test breaks one cell and expects that check's message.
 """
 import copy
+import csv
 import datetime
 import io
 import os
@@ -271,6 +272,43 @@ class GroupTest(unittest.TestCase):
         self.assertEqual(self.group("Milk Based", "GBA", class_code="Cat 11"), "coffee_milk")
 
 
+class MyMapsTest(unittest.TestCase):
+    """My Maps import: Chinese and English side by side (user chose A, 2026-11-02)."""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.businesses, _ = m.build(TABLES)
+        cls.rows = m.mymaps_rows(cls.businesses)
+
+    def test_one_row_per_published_store(self):
+        self.assertEqual(len(self.rows), sum(len(b["locations"]) for b in self.businesses))
+        self.assertEqual(len(m.MYMAPS_HEADER), len(self.rows[0]))
+
+    def test_title_names_the_store_and_types_are_bilingual(self):
+        for row in self.rows:
+            self.assertIn(" · ", row[0])
+            self.assertIn(row[3], m.TYPE_BOTH.values())
+            self.assertIn(row[4], m.TOP_AWARD.values())
+
+    def test_awards_text_is_headline_only_in_two_languages(self):
+        for row in self.rows:
+            zh, en = row[5].split("\n")
+            self.assertNotIn("也推薦", row[5])
+            self.assertTrue(zh and en)
+
+    def test_winning_items_follow_the_card_rules(self):
+        def award(level, product="", category="", year=2026, medal=None, rank=None, tier="top"):
+            return {"level": level, "product": product, "category": category, "year": year, "medal": medal,
+                    "rank": rank, "tier": tier}
+        shop = {"name": "Alpha Bakery", "awards": [
+            award("medal", "ALPHA BAKERY CROISSANT", medal="gold", year=2025),
+            award("placing", category="Croissants", rank=1),                      # merges with Croissant
+            award("champion", category="Champion Product of Show"),               # names no item
+            award("champion", "OLIVE SOURDOUGH", "Champion Bread"),               # champions come first
+            award("medal", "WHITE LOAF", medal="silver", tier="also")]}           # also-recommended: left out
+        self.assertEqual(m.winning_items(shop), ["Olive Sourdough", "Croissant"])
+
+
 class BuildTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
@@ -371,8 +409,10 @@ class MainTest(unittest.TestCase):
         self.assertEqual(code, 0, out)
         with open(os.path.join(self.folder, "data.js"), encoding="utf-8") as f:
             self.assertTrue(f.read().startswith("// 由 make_awards_data.py 產生"))
-        with open(mymaps, encoding="utf-8-sig") as f:
-            self.assertEqual(len(f.read().splitlines()), 1 + 4)  # header + alpha 2, beta 1, gamma 1
+        with open(mymaps, encoding="utf-8-sig", newline="") as f:
+            rows = list(csv.reader(f))  # the awards cell holds a line break, so count records, not lines
+        self.assertEqual(len(rows), 1 + 4)  # header + alpha 2, beta 1, gamma 1
+        self.assertEqual(rows[0], m.MYMAPS_HEADER)
         self.assertIn("award links: 5 published, 5 not published (of 10", out)
 
     def test_error_in_csv_stops_before_data_js(self):

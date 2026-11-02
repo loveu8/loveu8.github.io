@@ -523,25 +523,113 @@ def competitions(tables):
              "system": val(c, "award_system"), "website": val(c, "website_url")} for c in tables["competitions"]]
 
 
-def summary_text(s):
-    # "冠軍 2 · 金牌 7 · 第 1 名 2 ／ 也推薦 7", as on the card
-    parts = ["%s %d" % (label, s[key]) for key, label in (("champion", "冠軍"), ("gold", "金牌"), ("first", "第 1 名"))
-             if s[key]]
-    text = " · ".join(parts)
-    return text + (" ／ 也推薦 %d" % s["also"] if s["also"] else "")
+# ── My Maps import (one language for everyone: Chinese and English side by side; user chose A, 2026-11-02) ──
+MYMAPS_HEADER = ["名稱 Name", "緯度 Latitude", "經度 Longitude", "類型 Type", "最高榮譽 Top award", "獎項 Awards",
+                 "得獎品項 Winning items", "地址 Address"]
+TYPE_BOTH = {"烘焙": "烘焙 Bakery", "咖啡": "咖啡 Coffee"}
+LEVELS_ZH = (("champion", "冠軍"), ("gold", "金牌"), ("first", "第 1 名"))
+LEVELS_EN = (("champion", "Champion"), ("gold", "Gold"), ("first", "1st"))
+TOP_AWARD = {"champion": "冠軍 Champion", "gold": "金牌 Gold medal", "first": "第 1 名 1st place"}
+ITEMS_SHOWN = 3
+# The same item rules as scripts/awards.js winningItems() / awards-filter.js itemName() (UI-PLAN 3.7),
+# so the My Maps panel names the same items as the card.
+NO_ITEM = re.compile(r"^(champion )?(product of show|overall champion|viennoiserie)$", re.I)
+SMALL_WORDS = {"a", "an", "and", "au", "de", "di", "in", "of", "on", "or", "the", "with"}
+
+
+def level_key(a):
+    if a["level"] == "champion":
+        return "champion"
+    if a["level"] == "medal":
+        return a["medal"]
+    return "first" if a["rank"] == 1 else "second"
+
+
+def title_case(text):
+    if not text or text != text.upper():
+        return text
+
+    def word(m):
+        sep, w = m.group(1), m.group(2)
+        if m.start() > 0 and sep == " " and w in SMALL_WORDS:
+            return m.group(0)
+        return sep + w[0].upper() + w[1:]
+    return re.sub(r"(^|[\s\-(/])([a-z]+)", word, text.lower())
+
+
+def short_class(category):
+    text = re.sub(r"\s*\([^)]*\)", "", category)
+    text = re.sub(r",\s*including.*$", "", text, flags=re.I)
+    text = re.sub(r"\s*-\s*Minimum.*$", "", text, flags=re.I)
+    text = re.sub(r",?\s*etc\.?$", "", text, flags=re.I)
+    return text.strip()
+
+
+def item_name(business, a):
+    if a["product"]:
+        text = a["product"]
+        brand = business["name"].upper() + " "
+        if text.upper().startswith(brand):
+            text = text[len(brand):]
+    else:
+        if a["level"] == "champion" and NO_ITEM.match(a["category"]):
+            return None
+        text = re.sub(r",.*$", "", re.sub(r"^Champion ", "", short_class(a["category"])))
+    return title_case(text.strip()) or None
+
+
+def winning_items(business):
+    items, by_key = [], {}
+    for a in business["awards"]:
+        if a["tier"] != "top":
+            continue
+        name = item_name(business, a)
+        if not name:
+            continue
+        key = re.sub(r"s$", "", name.lower())  # "Croissants" = "Croissant"
+        item = by_key.get(key)
+        if not item:
+            item = by_key[key] = {"name": name, "champion": 0, "total": 0, "year": 0, "order": len(items)}
+            items.append(item)
+        item["champion"] += level_key(a) == "champion"
+        item["total"] += 1
+        item["year"] = max(item["year"], a["year"])
+    items.sort(key=lambda i: (-(i["champion"] > 0), -i["total"], -i["year"], i["order"]))
+    return [i["name"] for i in items]
+
+
+def year_range(years, zh):
+    lo, hi = min(years), max(years)
+    return ("%d 年" % lo if zh else str(lo)) if lo == hi else "%d–%d" % (lo, hi)
+
+
+def awards_text(business):
+    # Two lines, as the card's summary: headline awards only, no "also recommended" (UI-PLAN 3.6).
+    s = business["summary"]
+    top_years = [a["year"] for a in business["awards"] if a["tier"] == "top"] or s["years"]
+    zh = " · ".join(["%s %d" % (label, s[k]) for k, label in LEVELS_ZH if s[k]] + [year_range(top_years, True)])
+    en = " · ".join("%s %d" % (label, s[k]) for k, label in LEVELS_EN if s[k])
+    return zh + "\n" + en
+
+
+def mymaps_rows(businesses):
+    # One row per published location; My Maps colours the pins by 類型 Type.
+    rows = []
+    for b in businesses:
+        s = b["summary"]
+        best = "champion" if s["champion"] else "gold" if s["gold"] else "first"
+        items = "、".join(winning_items(b)[:ITEMS_SHOWN])
+        for l in b["locations"]:
+            rows.append(["%s · %s" % (b["name"], l["name"]), l["lat"], l["lng"], TYPE_BOTH[TYPE_ZH[b["types"][0]]],
+                         TOP_AWARD[best], awards_text(b), items, l["address"]])
+    return rows
 
 
 def write_mymaps(businesses, path):
-    # One row per published location, coloured in My Maps by 主類型 (烘焙／咖啡).
     with open(path, "w", encoding="utf-8-sig", newline="") as f:
         w = csv.writer(f)
-        w.writerow(["店名", "門市", "緯度", "經度", "主類型", "最高榮譽", "獎項摘要", "地址"])
-        for b in businesses:
-            s = b["summary"]
-            best = "冠軍" if s["champion"] else "金牌" if s["gold"] else "第 1 名"
-            for l in b["locations"]:
-                w.writerow([b["name"], l["name"], l["lat"], l["lng"], TYPE_ZH[b["types"][0]], best,
-                            summary_text(s), l["address"]])
+        w.writerow(MYMAPS_HEADER)
+        w.writerows(mymaps_rows(businesses))
 
 
 def report(tables, businesses, skipped):
