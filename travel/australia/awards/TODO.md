@@ -194,7 +194,10 @@ Step 1b 還沒打勾的兩項（PARTIAL 再查、使用者送 Wayback）留到 S
     - [x] 官方網站核對：2026 官方 TOP 100 頁的澳洲 7 間、名次和媒體一致；官方只放最新一年、只寫國家不寫城市 → **2025 名單要從 Wayback 找**
     - [x] 👤 上網站規則：**進世界百大就算**（使用者選 A；全球約 15,000 間選 100 間，約 0.7%），徽章寫「世界百大 第 N 名」
     - [x] 👤 頁面要註明主辦和贊助（使用者要求）。查到的：主辦 The World's 100 Best Coffee Shops（執行長 César Ramírez，創辦者查不到）；冠名贊助 DaVinci Gourmet（Kerry 集團旗下），主要贊助 Slayer、Markibar、Cropster、CoffeeFest Madrid，另有 Fidatec、哥倫比亞咖啡生產者協會（來源：Kerry 新聞稿 https://www.kerry.com/about/news-and-media/2026/global-rankings-announced-for-the-worlds-best-coffee-shops、GlobeNewswire 2026-02-16）。評分：專業評審 70%＋公開投票 30%，評審名單未公開；官網沒寫報名費。有媒體（Switzer）質疑公信力。頁尾草稿：「世界百大咖啡店是『排名』，不是評分比賽：由 The World's 100 Best Coffee Shops（執行長 César Ramírez）舉辦，冠名贊助是 Kerry 集團旗下的 DaVinci Gourmet，另有 Slayer、Cropster 等咖啡品牌贊助；專業評審佔 70%、公開投票佔 30%，評審名單沒有公開。」
-    - [ ] Wayback 找 2025 官方名單、核對媒體的 9 間
+    - [x] Wayback 找 2025 官方名單（存檔 20250719044452），澳洲 9 間、名次和媒體一致；兩年合計 12 間不重複
+    - [x] 官方每一筆都連到店家頁（`/locales/…`），**都寫到某一間特定的店**（例：Toby's Estate＝32-36 City Rd, Chippendale；Veneziano＝Melbourne Airport T1；Coffee Anthology＝155 Charlotte St；Proud Mary＝172 Oxford St, Collingwood；Fonzie Abbott＝40 Fox St, Albion）。Veneziano、Calēre、Exchange、Fonzie Abbott、Seven Seeds 的店家頁現在 404，地址取自 Wayback
+    - [x] 👤 門市範圍：**只放官方寫的那一間**（使用者 2026-11-02 選 A；排名評的是那間店的體驗，不像獎牌是產品），12 個品牌＝12 間門市；獎掛到那間門市
+    - [ ] 👤 加「Google 評論推薦的飲品／餐點」（使用者 2026-11-02 要求，因為排名沒寫品項）：照布里斯本咖啡廳 `TOP3.md` 的方法（熱門關鍵字、最新 30 則平均 ≥ 4.5 且低分 ≤ 1 成標「大家推薦」、☕ 飲品／🍽️ 餐點各前三、記提及數和日期）。**要用使用者的 Chrome**（無頭版 Google Maps 是有限檢視，讀不到評論）。卡片新區塊要標明「Google 評論整理」，版面先做 demo 給使用者選。Coffee Anthology 在布里斯本咖啡廳頁有 2026-10-17 的資料（CF07），這次重查以統一日期
     - [ ] 資料結構：新賽事（例如 `W100BCS`，award_system 新增「ranking」）、徽章與篩選（等級列要不要加「世界百大」）、`make_awards_data.py` 門檻規則和測試
     - [ ] 查約 13 間不重複的店的門市（官方不寫城市）
   - 同時查過、不收的：世界咖啡師大賽（個人賽，D3；2025 冠軍 Jack Simpson／Axil Coffee）；世界級烘焙比賽（甜點世界盃、Mondial du Pain 是國家隊或個人，D3），也沒有權威的「世界最佳麵包店」排名
