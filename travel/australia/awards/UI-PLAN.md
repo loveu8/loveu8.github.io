@@ -190,6 +190,7 @@ Apple Crumble Danish                    金牌 · 2026
   - 300ms 收合動畫（grid `1fr` → `0fr`）；收起後 `visibility: hidden`，鍵盤 Tab 不會跳到看不見的按鈕。動畫期間忽略捲動事件，避免清單到底時來回跳。
   - 抽屜收起時、換篩選（清單回到頂端）時都會恢復。桌機和列印不受影響。
   - 只做在這一頁（`awards.js` `setupSheetFold()`、`awards.css` 第 4 節、`index.html` 的 `.sheet-fold` 包住標題和篩選），不動共用的 `list-map-shell.js`。Step 5 加搜尋框和「更多篩選」時放在 `.sheet-fold` 裡面，一起收起。
+- **2026-11-02 Step 5 加上搜尋框和「更多篩選」後實測 360×640**：清單剩 250px（更多篩選展開 80px、選好條件 229px）。比較了 A「更多篩選」自己一行和 B 手機上移到搜尋框旁（各多 32px，但搜尋框變窄、提示文字被截斷），**使用者選 A**（看對比網頁後）。小手機靠往下捲收起整塊（上一點）取得清單空間。
 - 按 📍 時抽屜自動收起，讓地圖看得到（沿用 `previewOnMap()`）。
 - 所有可點的東西至少 44px 高，篩選列可以橫向滑動，邊緣淡出（`DESIGN.md` Scroll affordance）。
 

@@ -41,8 +41,8 @@ var UI = {
     state: '州別', city: '城市', type: '類型', comp: '賽事', year: '年份', level: '等級', group: '品項',
     all: '全部', allStates: '全部州別', allTypes: '全部類型',
     search: '搜尋店名、城市或產品', searchPlaceholder: '例如 Sydney、croissant', searchClear: '清除搜尋',
-    more: '更多篩選', moreCount: '更多篩選 · {n}', clearAll: '✕ 全部清除',
-    result: '{s} × {c} · {n} 家', resultOne: '{s} × {c} · 1 家', resultMore: ' · 另有 {n} 個條件', resultMoreOne: ' · 另有 1 個條件',
+    more: '更多篩選', moreCount: '更多篩選 · {n}', clearAll: '✕ 清除', clearAllAria: '清除全部篩選',
+    result: '{s} × {c} · {n} 家', resultOne: '{s} × {c} · 1 家', resultMore: ' · 另 {n} 個條件', resultMoreOne: ' · 另 1 個條件',
     matchNote: '（符合篩選）',
     emptyTitle: '這個組合沒有店家', emptyText: '換個條件看看，或按「✕ 全部清除」；每個按鈕上的數字是選了它之後的家數。',
     meta: '{c} · {s} · {n} 間門市', yearOne: '{y} 年',
@@ -68,8 +68,8 @@ var UI = {
     state: 'State', city: 'City', type: 'Type', comp: 'Competition', year: 'Year', level: 'Level', group: 'Item',
     all: 'All', allStates: 'All states', allTypes: 'All types',
     search: 'Search shops, cities or items', searchPlaceholder: 'e.g. Sydney, croissant', searchClear: 'Clear search',
-    more: 'More filters', moreCount: 'More filters · {n}', clearAll: '✕ Clear all',
-    result: '{s} × {c} · {n} shops', resultOne: '{s} × {c} · 1 shop', resultMore: ' · {n} more conditions', resultMoreOne: ' · 1 more condition',
+    more: 'More filters', moreCount: 'More filters · {n}', clearAll: '✕ Clear', clearAllAria: 'Clear all filters',
+    result: '{s} × {c} · {n} shops', resultOne: '{s} × {c} · 1 shop', resultMore: ' · +{n} filters', resultMoreOne: ' · +1 filter',
     matchNote: ' (matches the filters)',
     emptyTitle: 'No shops match', emptyText: 'Try other filters, or press “✕ Clear all”; the number on each button is how many shops it would show.',
     meta: '{c} · {s} · {n} stores', yearOne: '{y}',
@@ -814,6 +814,7 @@ function renderStaticText() {
   els.searchInput.placeholder = t('searchPlaceholder');
   els.searchClear.setAttribute('aria-label', t('searchClear'));
   els.clearAll.textContent = t('clearAll');
+  els.clearAll.setAttribute('aria-label', t('clearAllAria'));
 }
 
 function refresh(filtersChanged) {
