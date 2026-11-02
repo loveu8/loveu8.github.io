@@ -393,6 +393,8 @@ NSW 烘焙 22 家：Bonfire、Gumnut、Wholegreen、Slowbreads、Crois、Parfait
 
 **獎項狀態 PARTIAL、門市 VERIFIED**（身分只有店名對上）：Ottimo、Country Cob。2026-10-28 使用者決定**先不收**（`PLAN.md` D9），上表扣掉後是 **36 品牌、61 間門市**（VIC 4 品牌 4 間；全部烘焙 31 品牌 49 間）。
 
+**2026-11-02 寫進 CSV 後（Step 6）**：34 家、60 間門市、314 個獎。和上面差兩家：Bakers Delight 兩間加盟店合成一個品牌（卡片一張），Riviera Bakery 改列 PARTIAL（下表）。
+
 **不上網站**
 
 | 原因 | 家數 | 店家 |
@@ -401,7 +403,7 @@ NSW 烘焙 22 家：Bonfire、Gumnut、Wholegreen、Slowbreads、Crois、Parfait
 | 沒有自己的門市 | 5 | Sussex Sourdough、Racecourse Pie、Focaccia Factory、Delicious & Simple、Stoney Acre |
 | 批發、代工、超市包裝豆 | 9 | Butter Baked、Little Secrets、This Is Us、Black Bag、ALDI、Grinders/Coles、Jahnus、Yamaneco、Dibella（只剩加盟店） |
 | 訓練學校 | 1 | Espresso Club Australia |
-| PARTIAL，上線前再查 | 7 | ISEO、Cacao、The Beekeeper's Bakery、White Horse、The Bean Cartel、Latitude、The Purple Haze |
+| PARTIAL，上線前再查 | 8 | ISEO、Cacao、The Beekeeper's Bakery、White Horse、The Bean Cartel、Latitude、The Purple Haze、Riviera Bakery（2026-11-02 加入：多個來源說是批發麵包廠，要確認 Torrensville 有沒有零售櫃台；使用者選 A） |
 | D2 主業不符 | 1 | Hungerford Meat Co |
 
 **偏差**：NSW 佔 65 間裡的 38 間（RAS 在雪梨）；咖啡 12 間裡 8 間在 QLD（Golden Bean 得獎烘豆商多在 Brisbane）。頁尾要寫明。

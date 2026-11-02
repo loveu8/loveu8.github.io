@@ -42,7 +42,7 @@
 - [x] 每家查實體門市：官網門市頁、Google Maps 地址、座標、營業狀態，記查核日期（51 家，2026-10-28）
 - [x] 多門市品牌（Bonfire Bread、Burleigh Baker、Wholegreen）：每個獎對到哪間門市，對不到就記在品牌（2026-10-28）
 - [x] 同名店確認：Piece of Cake Bakery、Wandin Bakery、Sourdough Portland（2026-10-28；另查 Ottimo、Country Cob、The Beekeeper's）
-- [ ] 上線前再確認 PARTIAL 的 7 家：ISEO、Cacao、The Beekeeper's Bakery、White Horse、The Bean Cartel、Latitude、The Purple Haze；Crois 官網
+- [ ] 上線前再確認 PARTIAL 的 8 家：ISEO、Cacao、The Beekeeper's Bakery、White Horse、The Bean Cartel、Latitude、The Purple Haze、Riviera Bakery（2026-11-02 加入，查有沒有零售櫃台）；Crois 官網
 - [x] Golden Bean 2024 分類投影片：只轉錄金牌 → `research/golden_bean_gold_2024-2025.csv`（11 類 14 面，2026-10-28）
 - [x] Golden Bean 2025 分類投影片：只轉錄金牌 → 同一份 CSV（11 類 11 面，2026-10-28）
 - [x] Golden Bean 金牌得主：篩出澳洲的，查有沒有咖啡廳或門市（新增 4 家 VERIFIED，2026-10-28）
@@ -147,7 +147,7 @@ Step 1b 還沒打勾的兩項（PARTIAL 再查、使用者送 Wayback）留到 S
   - [x] 第 2 批（2026-11-02）：Hudson's、Doughheads、Bakehouse Delights、Sweet Ivy、Bakealicious、V's Dessert、Pudding Lane、Comeco、Forestway Fresh、Bakers Delight（一個品牌、兩間得獎加盟店，獎掛到門市；Bowral 沒過門檻不收）→ 累計 25 家、46 門市、265 獎。Doughheads 的 RAS 2025 參賽名稱是 MilkJam Co（生產者欄寫 DOUGHHEADS），收進並寫歸屬備註
   - [ ] Doughheads 上線前再確認營業（報導說店東想出售 The Junction 店）
   - [x] 第 3 批（2026-11-02）：VIC 4 家（Brazen Brownies、Piece of Cake、Wandin、Sourdough Portland）、NT Coles（Casuarina，烘焙師 staff_entry 掛到門市）、咖啡 4 家（Peak、Coffee Mentality、O'GaBee、Coffee Presto；烘焙廠兼咖啡店比照 Glee HQ 標工廠門市）→ 累計 34 家、60 門市、314 獎；新增來源 NABC 2024＋金豆賽 11 個分類
-  - [ ] 👤 Riviera Bakery（SA）先擱著：多個來源說是批發麵包廠（供貨餐廳、超市，另有農夫市集攤位），D2 批發不收；Step 1b 只確認 Google Maps 有地址，看不出能不能進店買
+  - [x] 👤 Riviera Bakery（SA）：多個來源說是批發麵包廠 → 使用者 2026-11-02 選 A，先不收，改列 PARTIAL，和 Step 1b 的 7 家一起在上線前用 Chrome 再查（`CANDIDATES.md` 2.6）
   - [ ] 上線前再查的門市：Coffee Mentality（Time Out 寫 4 間，目前 3 間）、Coffee Presto（目錄寫 Annandale Central 另有 Espresso Bar）、Wandin Bakery（目錄網站同地址寫 Harrys Bakery，確認店名）
   - [ ] 手機副標題「34 家 · 60 間門市 · 官方結果 2024–2026」折行時把年份切開
 - [ ] Burleigh Baker 門市重查：報導（BOQ、2026）說另有 Tweed Heads 門市（NSW）、Harris Farm Isle of Capri 專櫃、Currumbin 總部；目前只收 Burleigh Heads、Paradise Point（專櫃照 D2 要收；總部看是不是門市）
