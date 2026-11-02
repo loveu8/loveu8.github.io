@@ -11,6 +11,8 @@ var translations = [
   ['#cafe-desc', 'Find your next cafe by type and area, and see what people like to order.'],
   ['#bakery-link', 'Brisbane bakery map'],
   ['#bakery-desc', 'Sourdough, croissants, and cakes worth a detour. Find your next stop on the map.'],
+  ['#awards-link', 'Australian award-winning coffee & bakery map'],
+  ['#awards-desc', 'Champions and gold medallists from Australian baking and coffee competitions, every award linked to its official source. Browse by state or item.'],
   ['#notes-heading', 'Research notes'],
   ['#report-link', 'STARLUX entering Australia'],
   ['#report-desc', 'Research on the market, routes, and opportunities.'],
@@ -24,7 +26,7 @@ function applyLanguage(language) {
   var en = language === 'en';
   document.title = en ? '阿星 (Lorn) · Places in everyday life' : '阿星 · 生活裡的目的地';
   var description = document.querySelector('meta[name="description"]');
-  if (description) description.content = en ? 'Travel, technology, and everyday notes by 阿星 (Lorn). Java backend development and career reflections, Australian itineraries, and Brisbane cafe and bakery maps.' : '阿星的旅行、技術與日常筆記。分享 Java 後端開發與職涯經驗，收集澳洲旅行路線、布里斯本咖啡與烘焙地圖。';
+  if (description) description.content = en ? 'Travel, technology, and everyday notes by 阿星 (Lorn). Java backend development and career reflections, Australian itineraries, Brisbane cafe and bakery maps, and a map of Australia\'s award-winning shops.' : '阿星的旅行、技術與日常筆記。分享 Java 後端開發與職涯經驗，收集澳洲旅行路線、布里斯本咖啡與烘焙地圖，以及澳洲得獎店家地圖。';
   translations.forEach(function (item) {
     item.element.firstChild.nodeValue = en ? item.en + (item.element.classList.contains('btn-pill') ? ' ' : '') : item.zh;
   });

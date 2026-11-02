@@ -178,8 +178,8 @@ Step 1b 還沒打勾的兩項（PARTIAL 再查、使用者送 Wayback）留到 S
 
 ## Step 8：QA、首頁入口與上線
 
-- [ ] 首頁「旅行與探店」加入口（`index.html`；2026-11-02 從原 Step 7 移來，加入口＝正式公開）
-- [ ] 首頁英文（`scripts/home.js` 翻譯表）
+- [x] 首頁「旅行與探店」加入口（`index.html`，接在布里斯本烘焙地圖後面，🏆；meta description 也加上；2026-11-02，**未 push**）
+- [x] 首頁英文（`scripts/home.js` 翻譯表＋英文 description；`?v=` 更新）；中英、360／1280、淺深色截圖正常，點入口開到得獎地圖，無錯誤
 - [ ] 跑完 `PLAN.md` 第 6 節 16 項檢查表，逐項記結果
 - [ ] 做不到的明確標「未測」
 - [ ] 👤 iPhone 實機
