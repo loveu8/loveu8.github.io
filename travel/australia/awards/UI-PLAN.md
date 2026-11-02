@@ -208,6 +208,45 @@ Apple Crumble Danish                    金牌 · 2026
 - 結果列：`<州別> × <類型> · N 家`，有進階條件時加「· 另有 2 個條件」，最後一顆 ✕ 全部清除。
 - 篩選狀態寫進網址（`?state=NSW&year=2025`），可以分享、重新整理不會遺失。**這是既有頁沒有的功能**，只在這頁做，不改 `map-list.js`。
 - 排序：冠軍數 → 金牌＋第 1 名數 → 最近得獎年份 → 店名。
+- **只看招牌獎（2026-11-02 使用者選 A）**：賽事、年份、獎項等級、品項類別只比對 `tier = top` 的獎（冠軍、金牌、第 1 名），銀牌和第 2 名不會讓店家出現在篩選結果裡，和 D1「銀牌、第 2 名本身不能讓一家店上網站」一致。所以等級列只有冠軍、金牌、第 1 名三個選項。關鍵字的「得獎品項名」也只比對招牌獎的品項（NABC 沒有產品名，用 3.7 節整理後的班名）。
+- 每一列都是單選，和既有的州別、類型列相同。品項類別列不放 `overall`（總冠軍沒有指定品項）。
+- 關鍵字屬於店家層，和獎項層條件**不需要是同一個獎**（見下表 #21）。
+
+### 5.1 測試案例（試驗資料 5 家）
+
+用 2026-11 的試驗資料（Adelaide's Finest、Bonfire Bread、Three Mills Bakery、Glee Coffee Roasters、Burleigh Baker）。預期家數手算，再用獨立的暴力比對腳本核對過；Step 5 的篩選函式要用 node 跑過全部案例。Step 7 換成完整資料後要重算預期值。
+
+| # | 條件 | 預期 | 店家 | 測的是什麼 |
+|---|---|---|---|---|
+| 1 | （無） | 5 | 全部 | 基準 |
+| 2 | 州別 NSW | 2 | Bonfire、Glee | 州別 |
+| 3 | NSW＋類型咖啡 | 1 | Glee | 店家層兩條件 |
+| 4 | 年份 2024 | 3 | Bonfire、Three Mills、Glee | 年份 |
+| 5 | 2025＋冠軍 | 2 | Bonfire、Glee | **同一個獎**：Three Mills 2024 冠軍、2025 金牌，不能出現 |
+| 6 | 2024＋冠軍 | 1 | Three Mills | 同上，反過來 |
+| 7 | 2026＋第 1 名 | 2 | Adelaide's、Burleigh | Bonfire 的第 1 名在 2025，不能出現 |
+| 8 | NABC＋金牌 | 0 | — | NABC 只有名次沒有獎牌；空結果畫面 |
+| 9 | RAS＋冠軍 | 1 | Three Mills | Adelaide's 的冠軍是 NABC，不能出現 |
+| 10 | 品項類別：鹹派／派 | 2 | Three Mills、Burleigh | 品項類別 |
+| 11 | 2025＋鹹派／派 | 0 | — | **只看招牌**：Three Mills 2025 的派只有銀牌 |
+| 12 | 品項類別：牛奶咖啡 | 0 | — | 只看招牌：Glee 的牛奶咖啡都是銀牌 |
+| 13 | 酸種＋冠軍 | 2 | Adelaide's、Bonfire | 品項類別＋等級 |
+| 14 | 2026＋金牌＋餅乾 | 2 | Three Mills、Burleigh | 三個獎項條件同一個獎 |
+| 15 | NSW＋2026 | 1 | Bonfire | 店家層＋獎項層；Glee 沒有 2026 |
+| 16 | NSW＋2025（網址 `?state=NSW&year=2025`） | 2 | Bonfire、Glee | 網址參數讀取；重新整理後保留 |
+| 17 | 關鍵字 `canberra` | 1 | Three Mills | 城市 |
+| 18 | 關鍵字 `frewville` | 1 | Adelaide's | suburb |
+| 19 | 關鍵字 `olive` | 1 | Bonfire | 招牌品項名（Olive Sourdough 金牌） |
+| 20 | 關鍵字 `carrot` | 0 | — | 只看招牌：Carrot Cake 只有銀牌 |
+| 21 | 關鍵字 `sourdough`＋2024 | 2 | Bonfire、Three Mills | 關鍵字和年份不必同一個獎（Three Mills 的 sourdough 金牌在 2025） |
+| 22 | 關鍵字 `croissant` | 3 | Adelaide's、Three Mills、Burleigh | NABC 用班名（Croissants）；Croissant 和 Croissants 都要找到 |
+| 23 | 關鍵字 `CROISSANT` | 3 | 同上 | 不分大小寫 |
+| 24 | 關鍵字 `pie` | 2 | Three Mills、Burleigh | 品項名子字串 |
+| 25 | 網址 `?year=1999` | 5 | 全部 | 不存在的值當作沒選，不出錯 |
+
+**按鈕家數**（選了 2025 時，「其他條件不變、選這個值」的家數）：等級列冠軍 2、金牌 3（Bonfire、Three Mills、Glee）、第 1 名 1（Bonfire）；賽事列 RAS 2、NABC 1、GBA 1。
+
+**去重音**：試驗資料沒有重音字，用單元測試直接測正規化函式（`Café` = `cafe`、`crème` = `creme`）。
 
 ## 6. 地圖
 

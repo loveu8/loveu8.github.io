@@ -203,7 +203,7 @@
   | `styles/app-shell.css` | the 4 travel pages (cafe, bakery, Noosa, awards) |
   | `styles/map-list.css`, `scripts/list-map-shell.js` | cafe, bakery, awards |
   | `scripts/map-list.js` | cafe, bakery |
-  | `styles/awards.css`, `scripts/awards.js` | awards |
+  | `styles/awards.css`, `scripts/awards-filter.js`, `scripts/awards.js` | awards |
   | `styles/noosa.css`, `scripts/noosa.js` | Noosa |
   | `styles/home.css`, `scripts/home.js` | homepage |
   | `styles/report-starlux.css`, `scripts/report-starlux.js` | STARLUX report |

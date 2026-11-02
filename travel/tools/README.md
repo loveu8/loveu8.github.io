@@ -8,7 +8,7 @@
 | `make_mymaps.py` | csv → My Maps 匯入 csv（每家一列，依主分類上色） |
 | `list_data.py` | 兩支共用的 csv 讀取函式、區域清單 |
 | `make_awards_data.py` | 得獎地圖（`australia/awards/`）的 7 個 csv → `data.js`＋My Maps 匯入檔，先跑全部檢查 |
-| `tests/` | `make_awards_data.py` 的測試和範例 csv（`awards_fixture/`） |
+| `tests/` | `make_awards_data.py` 的測試和範例 csv（`awards_fixture/`）；得獎地圖篩選規則的 node 測試（`awards_filter.test.js`） |
 
 需要 Python 3（只用標準函式庫）。在 repo 根目錄執行。
 
@@ -70,6 +70,14 @@ python -m unittest discover travel/tools/tests
 ```
 
 `tests/awards_fixture/` 是一份正確的小範例，涵蓋每一條上網站規則；每個測試改錯一個地方，確認對應的檢查會報。新增檢查時，也在 `test_make_awards_data.py` 加一個測試。
+
+得獎地圖的篩選規則（`scripts/awards-filter.js`）用 node 內建的測試跑，案例和 `travel/australia/awards/UI-PLAN.md` 5.1 的表一一對應，直接讀頁面的 `data.js`。改了篩選規則或重新產生 `data.js` 之後跑：
+
+```powershell
+node --test travel/tools/tests/awards_filter.test.js
+```
+
+預期家數是照 5 家試驗資料算的；Step 7 換成完整資料後，表和測試要一起重算。
 
 ## 參數說明
 

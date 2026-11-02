@@ -4,13 +4,15 @@
 // and back-to-top are scripts/list-map-shell.js; this file owns the filters and the cards.
 // Card layout decisions: travel/australia/awards/UI-PLAN.md 3.3–3.7.
 
-var ALL = 'all';
+// The filter rules and the item-name helpers live in scripts/awards-filter.js (tested in node).
+var ALL = AwardsFilter.ALL;
+var levelKey = AwardsFilter.levelKey;
+var titleCase = AwardsFilter.titleCase;
+var shortClass = AwardsFilter.shortClass;
+var itemName = AwardsFilter.itemName;
 var STORES_SHOWN = 2;  // the rest go into a "N more stores" toggle
 var ITEMS_SHOWN = 3;   // winning items on the card; the rest are in the award details
 var LEVEL_ORDER = { champion: 0, medal: 1, placing: 1 };
-// Champion titles that name no item (best in show, or a whole class).
-var NO_ITEM = /^(champion )?(product of show|overall champion|viennoiserie)$/i;
-var SMALL_WORDS = ['a', 'an', 'and', 'au', 'de', 'di', 'in', 'of', 'on', 'or', 'the', 'with'];
 // Picking a state frames its stores on the map (DESIGN.md map-interaction rule, state-filter
 // exception). Names and zooms are only for the map shown until the My Maps embed exists.
 var STATES = {
@@ -153,27 +155,6 @@ function typeGroupLabel(code) {
   return isEn() ? group.en : group.zh;
 }
 
-// Official product names are often all caps; show them in Title Case, small words kept lower.
-function titleCase(text) {
-  if (!text || text !== text.toUpperCase()) return text;
-  return text.toLowerCase().replace(/(^|[\s\-(\/])([a-z]+)/g, function(m, sep, word, offset) {
-    if (offset > 0 && sep === ' ' && SMALL_WORDS.indexOf(word) !== -1) return m;
-    return sep + word.charAt(0).toUpperCase() + word.slice(1);
-  });
-}
-
-// Official class names without the examples and specs ("International Bread (e.g. baguette…)"
-// → "International Bread"; "Traditional Rye Sourdough - Minimum 680gm" → "Traditional Rye
-// Sourdough"). The full name stays in the row's title and behind the source link (UI-PLAN 3.4).
-function shortClass(category) {
-  return category
-    .replace(/\s*\([^)]*\)/g, '')
-    .replace(/,\s*including.*$/i, '')
-    .replace(/\s*-\s*Minimum.*$/i, '')
-    .replace(/,?\s*etc\.?$/i, '')
-    .trim();
-}
-
 function yearRange(awards) {
   var years = awards.map(function(a) { return a.year; });
   var lo = Math.min.apply(null, years);
@@ -182,13 +163,6 @@ function yearRange(awards) {
 }
 
 // ── awards ──
-// Level keys: champion, gold, silver (medal_by_score), first, second (placing).
-function levelKey(award) {
-  if (award.level === 'champion') return 'champion';
-  if (award.level === 'medal') return award.medal;
-  return award.rank === 1 ? 'first' : 'second';
-}
-
 function headlineCounts(business) {
   var counts = { champion: 0, gold: 0, first: 0 };
   business.awards.forEach(function(a) {
@@ -231,21 +205,12 @@ function levelLabel(key) {
 }
 
 // ── filters (list only — the My Maps embed cannot be filtered from the page) ──
-function matches(business, stateCode, typeGroup) {
-  var stateOk = stateCode === ALL || business.locations.some(function(l) { return l.state === stateCode; });
-  var typeOk = typeGroup === ALL || business.types.some(function(type) {
-    return typeGroupByCode(typeGroup).types.indexOf(type) !== -1;
-  });
-  return stateOk && typeOk;
-}
-
 function countWhere(stateCode, typeGroup) {
-  return state.data.businesses.filter(function(b) { return matches(b, stateCode, typeGroup); }).length;
+  return AwardsFilter.filter(state.data.businesses, { state: stateCode, type: typeGroup }, state.config.typeGroups).length;
 }
 
 function filteredBusinesses() {
-  return state.data.businesses
-    .filter(function(b) { return matches(b, state.stateCode, state.typeGroup); })
+  return AwardsFilter.filter(state.data.businesses, { state: state.stateCode, type: state.typeGroup }, state.config.typeGroups)
     .sort(compareBusinesses);
 }
 
@@ -398,22 +363,6 @@ function renderSummary(business) {
 }
 
 // ── winning items (what to order) ──
-// The item an award names: the product if the result gives one (minus a repeated brand
-// prefix), else the short class name for placings and class champions, cut at the first
-// comma ("Cakes, Tortes & Gateaux" → "Cakes"). Best-in-show titles name no item.
-function itemName(business, award) {
-  var text;
-  if (award.product) {
-    text = award.product;
-    var brand = business.name.toUpperCase() + ' ';
-    if (text.toUpperCase().indexOf(brand) === 0) text = text.slice(brand.length);
-  } else {
-    if (award.level === 'champion' && NO_ITEM.test(award.category)) return null;
-    text = shortClass(award.category).replace(/^Champion /, '').replace(/,.*$/, '');
-  }
-  return titleCase(text.trim()) || null;
-}
-
 // Headline awards merged per item: champions first, then most awards, then most recent.
 function winningItems(business) {
   var byKey = {};
