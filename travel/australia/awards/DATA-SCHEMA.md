@@ -300,7 +300,7 @@ var PAGE_DATA = {
 ```powershell
 python travel/tools/make_awards_data.py travel/australia/awards `
   --data-as-of 2026-11 `
-  --mymaps-url "" `
+  --mymaps-url "https://www.google.com/maps/d/embed?mid=1dNSM5BwCtwvCcUahY4jQAP_PADdrWBA&ehbc=2E312F&noprof=1" `
   --mymaps-out "$env:USERPROFILE\Downloads\australia-awards-mymaps.csv"
 ```
 

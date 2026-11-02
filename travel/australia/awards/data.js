@@ -1,7 +1,7 @@
 // 由 make_awards_data.py 產生，請勿手改；csv 更新後重新產生。
 var PAGE_DATA = {
   "dataAsOf": "2026-11",
-  "myMapsEmbedUrl": "",
+  "myMapsEmbedUrl": "https://www.google.com/maps/d/embed?mid=1dNSM5BwCtwvCcUahY4jQAP_PADdrWBA&ehbc=2E312F&noprof=1",
   "competitions": [
     {
       "id": "RAS-PB",

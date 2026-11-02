@@ -56,9 +56,12 @@ python travel/tools/make_mymaps.py travel/australia/brisbane/cafe/cafe.csv `
 ```powershell
 python travel/tools/make_awards_data.py travel/australia/awards `
   --data-as-of 2026-11 `
-  --mymaps-url "" `
+  --mymaps-url "https://www.google.com/maps/d/embed?mid=1dNSM5BwCtwvCcUahY4jQAP_PADdrWBA&ehbc=2E312F&noprof=1" `
   --mymaps-out "$env:USERPROFILE\Downloads\australia-awards-mymaps.csv"
 ```
+
+- My Maps「澳洲得獎咖啡與烘焙地圖」（2026-11-02 建立）：圖層「得獎店家 60 間（依類型）」，依「類型 Type」上色（烘焙珊瑚紅、咖啡深棕），預設畫面全澳，分享「知道連結的人都可以查看」（不開放搜尋），嵌入時關掉擁有者頭像（`noprof=1`）。資料改了要重新匯入：照下面「之後更新」第 3 點，先匯入新圖層、確認後再刪舊的，嵌入網址不變。
+- PowerShell 5.1 會把空字串參數吃掉，所以 `--mymaps-url ""` 這種寫法會讓指令出錯；不需要網址時整個省略。
 
 - 有 `ERROR` 就不寫 `data.js`，結束碼是 1。`WARNING`（查核超過 180 天、兩間門市距離不到 20 公尺、店名幾乎一樣）不會擋。
 - 最後印出摘要：各狀態的獎項數、上網站／沒上網站的獎和原因（兩個數字加起來要等於 `award_attributions.csv` 的列數）、各州店家數。
