@@ -172,6 +172,25 @@
 | `stance` | enum | ✔ | `supports`、`conflicts` |
 | `evidence_note` | text | ✔ | 來源上的原文或位置，例如「Class 18, G 94.5, SOURDOUGH CROISSANT」 |
 
+### 2.8 `review_picks.csv`：Google 評論推薦（選用，2026-11-02 加，`PLAN.md` D10）
+
+世界百大的店排名沒有品項，用這個檔補 Google 評論的飲品、餐點前三名。方法見 `REVIEW-PICKS.md`。檔案不存在也可以產生 data.js。
+
+| 欄位 | 型別 | 必填 | 說明 |
+|---|---|---|---|
+| `business_id` | id | ✔ | 要在 `businesses.csv` |
+| `section` | enum | ✔ | `drink`、`food` |
+| `rank` | int | ✔ | 1～3；同一家同一區不能重複 |
+| `item_zh` | text | ✔ | 中文名稱 |
+| `item_en` | text | | 英文名稱（菜單上的寫法） |
+| `mentions` | int | ✔ | Google 關鍵字的提及數（全部評論累計） |
+| `avg_stars` | decimal | ✔ | 最新評論的平均星等，1～5 |
+| `low_count` | int | ✔ | 其中 1～2 星的則數 |
+| `sample_size` | int | ✔ | 算了幾則（最多 30） |
+| `verdict` | enum | ✔ | `recommended`（平均 ≥ 4.5 而且 `low_count` ≤ 1 成）、`mentioned`；**和數字不一致是 ERROR** |
+| `checked_at` | date | ✔ | 查的日期 |
+| `note` | text | | 合併、同數、排除的說明 |
+
 ## 3. ID 規則
 
 | 類型 | 格式 | 範例 | 理由 |

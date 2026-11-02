@@ -5416,6 +5416,48 @@ var PAGE_DATA = {
           2025,
           2026
         ]
+      },
+      "reviewPicks": {
+        "checkedAt": "2026-11-02",
+        "drink": [
+          {
+            "zh": "Flat white",
+            "en": "Flat white",
+            "mentions": 27,
+            "stars": 3.9,
+            "rec": false
+          },
+          {
+            "zh": "單品咖啡",
+            "en": "Single origin coffee",
+            "mentions": 14,
+            "stars": 3.6,
+            "rec": false
+          },
+          {
+            "zh": "濾泡咖啡",
+            "en": "Filter coffee",
+            "mentions": 6,
+            "stars": 4.5,
+            "rec": true
+          }
+        ],
+        "food": [
+          {
+            "zh": "可頌",
+            "en": "Croissant",
+            "mentions": 13,
+            "stars": 3.7,
+            "rec": false
+          },
+          {
+            "zh": "碎蛋烤三明治",
+            "en": "Smashed egg toastie",
+            "mentions": 2,
+            "stars": 5.0,
+            "rec": true
+          }
+        ]
       }
     },
     {
@@ -5507,6 +5549,48 @@ var PAGE_DATA = {
           2025,
           2026
         ]
+      },
+      "reviewPicks": {
+        "checkedAt": "2026-11-02",
+        "drink": [
+          {
+            "zh": "Long black",
+            "en": "Long black",
+            "mentions": 20,
+            "stars": 3.9,
+            "rec": false
+          },
+          {
+            "zh": "冷滴咖啡",
+            "en": "Cold drip",
+            "mentions": 12,
+            "stars": 4.2,
+            "rec": false
+          }
+        ],
+        "food": [
+          {
+            "zh": "馬鈴薯餅",
+            "en": "Potato hash",
+            "mentions": 46,
+            "stars": 4.4,
+            "rec": false
+          },
+          {
+            "zh": "鬆餅",
+            "en": "Hotcakes",
+            "mentions": 33,
+            "stars": 4.3,
+            "rec": false
+          },
+          {
+            "zh": "泡菜料理",
+            "en": "Kimchi dishes",
+            "mentions": 24,
+            "stars": 4.2,
+            "rec": false
+          }
+        ]
       }
     },
     {
@@ -5597,6 +5681,55 @@ var PAGE_DATA = {
         "years": [
           2025,
           2026
+        ]
+      },
+      "reviewPicks": {
+        "checkedAt": "2026-11-02",
+        "drink": [
+          {
+            "zh": "抹茶拿鐵",
+            "en": "Matcha latte",
+            "mentions": 10,
+            "stars": 3.9,
+            "rec": false
+          },
+          {
+            "zh": "手沖咖啡",
+            "en": "Pour over",
+            "mentions": 8,
+            "stars": 4.4,
+            "rec": false
+          },
+          {
+            "zh": "拉花咖啡",
+            "en": "Latte art",
+            "mentions": 6,
+            "stars": 4.2,
+            "rec": false
+          }
+        ],
+        "food": [
+          {
+            "zh": "酥皮點心",
+            "en": "Pastries",
+            "mentions": 90,
+            "stars": 4.0,
+            "rec": false
+          },
+          {
+            "zh": "班尼迪克蛋",
+            "en": "Eggs Benedict",
+            "mentions": 48,
+            "stars": 4.5,
+            "rec": false
+          },
+          {
+            "zh": "酪梨吐司",
+            "en": "Avocado toast",
+            "mentions": 24,
+            "stars": 4.8,
+            "rec": true
+          }
         ]
       }
     },
@@ -5690,6 +5823,41 @@ var PAGE_DATA = {
           2025,
           2026
         ]
+      },
+      "reviewPicks": {
+        "checkedAt": "2026-11-02",
+        "drink": [
+          {
+            "zh": "Flat white",
+            "en": "Flat white",
+            "mentions": 14,
+            "stars": 4.5,
+            "rec": true
+          }
+        ],
+        "food": [
+          {
+            "zh": "烤三明治",
+            "en": "Toasties",
+            "mentions": 18,
+            "stars": 4.6,
+            "rec": true
+          },
+          {
+            "zh": "酪梨吐司",
+            "en": "Avocado toast",
+            "mentions": 10,
+            "stars": 4.8,
+            "rec": true
+          },
+          {
+            "zh": "杏仁可頌",
+            "en": "Almond croissant",
+            "mentions": 4,
+            "stars": 3.8,
+            "rec": false
+          }
+        ]
       }
     },
     {
@@ -5755,6 +5923,33 @@ var PAGE_DATA = {
         "years": [
           2026
         ]
+      },
+      "reviewPicks": {
+        "checkedAt": "2026-11-02",
+        "drink": [
+          {
+            "zh": "濾泡咖啡",
+            "en": "Filter coffee",
+            "mentions": 17,
+            "stars": 4.6,
+            "rec": false
+          },
+          {
+            "zh": "手沖咖啡",
+            "en": "Pour over",
+            "mentions": 9,
+            "stars": 4.7,
+            "rec": true
+          },
+          {
+            "zh": "Long black",
+            "en": "Long black",
+            "mentions": 7,
+            "stars": 4.6,
+            "rec": false
+          }
+        ],
+        "food": []
       }
     },
     {
@@ -5820,6 +6015,33 @@ var PAGE_DATA = {
         "years": [
           2026
         ]
+      },
+      "reviewPicks": {
+        "checkedAt": "2026-11-02",
+        "drink": [
+          {
+            "zh": "Flat white",
+            "en": "Flat white",
+            "mentions": 13,
+            "stars": 4.2,
+            "rec": false
+          },
+          {
+            "zh": "手沖咖啡",
+            "en": "Pour over",
+            "mentions": 3,
+            "stars": 5.0,
+            "rec": true
+          },
+          {
+            "zh": "藝伎咖啡",
+            "en": "Geisha",
+            "mentions": 2,
+            "stars": 5.0,
+            "rec": true
+          }
+        ],
+        "food": []
       }
     },
     {
@@ -5886,6 +6108,41 @@ var PAGE_DATA = {
         "years": [
           2025
         ]
+      },
+      "reviewPicks": {
+        "checkedAt": "2026-11-02",
+        "drink": [
+          {
+            "zh": "冰 Long black",
+            "en": "Iced long black",
+            "mentions": 6,
+            "stars": 1.5,
+            "rec": false
+          },
+          {
+            "zh": "熱可可",
+            "en": "Hot chocolate",
+            "mentions": 4,
+            "stars": 2.2,
+            "rec": false
+          },
+          {
+            "zh": "冰巧克力",
+            "en": "Iced chocolate",
+            "mentions": 2,
+            "stars": 1.5,
+            "rec": false
+          }
+        ],
+        "food": [
+          {
+            "zh": "杏仁可頌",
+            "en": "Almond croissant",
+            "mentions": 2,
+            "stars": 3.0,
+            "rec": false
+          }
+        ]
       }
     },
     {
@@ -5950,6 +6207,55 @@ var PAGE_DATA = {
         "also": 0,
         "years": [
           2025
+        ]
+      },
+      "reviewPicks": {
+        "checkedAt": "2026-11-02",
+        "drink": [
+          {
+            "zh": "Flat white",
+            "en": "Flat white",
+            "mentions": 13,
+            "stars": 4.4,
+            "rec": false
+          },
+          {
+            "zh": "批次滴濾咖啡",
+            "en": "Batch brew",
+            "mentions": 7,
+            "stars": 4.6,
+            "rec": false
+          },
+          {
+            "zh": "Big White Rabbit 特調",
+            "en": "Big White Rabbit",
+            "mentions": 4,
+            "stars": 4.0,
+            "rec": false
+          }
+        ],
+        "food": [
+          {
+            "zh": "瑞士捲",
+            "en": "Swiss roll",
+            "mentions": 29,
+            "stars": 4.4,
+            "rec": false
+          },
+          {
+            "zh": "抹茶捲",
+            "en": "Matcha roll",
+            "mentions": 9,
+            "stars": 4.4,
+            "rec": false
+          },
+          {
+            "zh": "抹茶蛋糕",
+            "en": "Matcha cake",
+            "mentions": 5,
+            "stars": 3.4,
+            "rec": false
+          }
         ]
       }
     },
@@ -6017,6 +6323,33 @@ var PAGE_DATA = {
         "years": [
           2025
         ]
+      },
+      "reviewPicks": {
+        "checkedAt": "2026-11-02",
+        "drink": [],
+        "food": [
+          {
+            "zh": "土耳其蛋",
+            "en": "Turkish eggs",
+            "mentions": 16,
+            "stars": 4.7,
+            "rec": true
+          },
+          {
+            "zh": "香蕉麵包",
+            "en": "Banana bread",
+            "mentions": 11,
+            "stars": 4.1,
+            "rec": false
+          },
+          {
+            "zh": "酪梨吐司",
+            "en": "Avocado toast",
+            "mentions": 7,
+            "stars": 4.4,
+            "rec": false
+          }
+        ]
       }
     },
     {
@@ -6083,6 +6416,41 @@ var PAGE_DATA = {
         "years": [
           2026
         ]
+      },
+      "reviewPicks": {
+        "checkedAt": "2026-11-02",
+        "drink": [
+          {
+            "zh": "Flat white",
+            "en": "Flat white",
+            "mentions": 170,
+            "stars": 4.6,
+            "rec": true
+          }
+        ],
+        "food": [
+          {
+            "zh": "香蕉麵包",
+            "en": "Banana bread",
+            "mentions": 289,
+            "stars": 4.3,
+            "rec": false
+          },
+          {
+            "zh": "酪梨吐司",
+            "en": "Avocado toast",
+            "mentions": 47,
+            "stars": 4.8,
+            "rec": true
+          },
+          {
+            "zh": "雞肉烤三明治",
+            "en": "Chicken toastie",
+            "mentions": 26,
+            "stars": 4.8,
+            "rec": true
+          }
+        ]
       }
     },
     {
@@ -6147,6 +6515,41 @@ var PAGE_DATA = {
         "also": 0,
         "years": [
           2025
+        ]
+      },
+      "reviewPicks": {
+        "checkedAt": "2026-11-02",
+        "drink": [
+          {
+            "zh": "啤酒",
+            "en": "Beer",
+            "mentions": 32,
+            "stars": 4.5,
+            "rec": true
+          }
+        ],
+        "food": [
+          {
+            "zh": "班尼迪克蛋",
+            "en": "Eggs Benedict",
+            "mentions": 7,
+            "stars": 4.0,
+            "rec": false
+          },
+          {
+            "zh": "牛排三明治",
+            "en": "Steak sandwich",
+            "mentions": 5,
+            "stars": 4.2,
+            "rec": false
+          },
+          {
+            "zh": "杏仁可頌",
+            "en": "Almond croissant",
+            "mentions": 4,
+            "stars": 3.0,
+            "rec": false
+          }
         ]
       }
     },
@@ -6213,6 +6616,33 @@ var PAGE_DATA = {
         "also": 0,
         "years": [
           2025
+        ]
+      },
+      "reviewPicks": {
+        "checkedAt": "2026-11-02",
+        "drink": [],
+        "food": [
+          {
+            "zh": "法式吐司",
+            "en": "French toast",
+            "mentions": 38,
+            "stars": 4.7,
+            "rec": true
+          },
+          {
+            "zh": "鬆餅班尼迪克蛋",
+            "en": "Waffle eggs Benedict",
+            "mentions": 38,
+            "stars": 4.0,
+            "rec": false
+          },
+          {
+            "zh": "辣味炒蛋",
+            "en": "Chilli scrambled eggs",
+            "mentions": 25,
+            "stars": 3.5,
+            "rec": false
+          }
         ]
       }
     },

@@ -157,7 +157,78 @@ def name_key(name):
 
 
 def load(folder):
-    return {name: read_csv(os.path.join(folder, name + ".csv")) for name in FILES}
+    tables = {name: read_csv(os.path.join(folder, name + ".csv")) for name in FILES}
+    picks = os.path.join(folder, REVIEW_PICKS + ".csv")
+    tables[REVIEW_PICKS] = read_csv(picks) if os.path.exists(picks) else []
+    return tables
+
+
+# ── Google review picks (REVIEW-PICKS.md; user chose C 2026-11-02: the card shows the
+# recommended ones, the details list the top 3 drinks and food). Optional file. ──
+REVIEW_PICKS = "review_picks"
+PICK_COLUMNS = ["business_id", "section", "rank", "item_zh", "item_en", "mentions", "avg_stars", "low_count",
+                "sample_size", "verdict", "checked_at"]
+PICK_SECTIONS = ["drink", "food"]
+PICK_VERDICTS = ["recommended", "mentioned"]
+
+
+def recommended(avg, low, sample):
+    # brisbane/cafe/TOP3.md: average >= 4.5 stars and at most 1 in 10 of the latest reviews at 1-2 stars
+    return avg >= 4.5 and low * 10 <= sample
+
+
+def check_review_picks(tables, errors):
+    rows = tables.get(REVIEW_PICKS, [])
+    if rows:
+        for column in PICK_COLUMNS:
+            if column not in rows[0]:
+                errors.append("%s.csv column %s is missing" % (REVIEW_PICKS, column))
+    business_ids = {val(b, "business_id") for b in tables["businesses"]}
+    seen = set()
+    for i, r in enumerate(rows):
+        where = "%s.csv:%d" % (REVIEW_PICKS, line(i))
+        for column in PICK_COLUMNS:
+            if column != "item_en" and not val(r, column):
+                errors.append("%s %s is empty" % (where, column))
+        if val(r, "business_id") and val(r, "business_id") not in business_ids:
+            errors.append("%s business_id %s is not in businesses.csv" % (where, val(r, "business_id")))
+        if val(r, "section") not in PICK_SECTIONS:
+            errors.append("%s section %r must be one of %s" % (where, val(r, "section"), ", ".join(PICK_SECTIONS)))
+        if val(r, "verdict") not in PICK_VERDICTS:
+            errors.append("%s verdict %r must be one of %s" % (where, val(r, "verdict"), ", ".join(PICK_VERDICTS)))
+        rank = to_int(val(r, "rank"))
+        if rank not in (1, 2, 3):
+            errors.append("%s rank must be 1, 2 or 3" % where)
+        key = (val(r, "business_id"), val(r, "section"), rank)
+        if key in seen:
+            errors.append("%s %s %s rank %s is listed twice" % (where, key[0], key[1], rank))
+        seen.add(key)
+        if val(r, "checked_at") and not to_date(val(r, "checked_at")):
+            errors.append("%s checked_at %r must be YYYY-MM-DD" % (where, val(r, "checked_at")))
+        mentions, low, sample = to_int(val(r, "mentions")), to_int(val(r, "low_count")), to_int(val(r, "sample_size"))
+        avg = to_float(val(r, "avg_stars"))
+        if None in (mentions, low, sample) or avg is None or not 1 <= avg <= 5 or not 0 < sample <= 30 \
+                or low > sample:
+            errors.append("%s mentions, avg_stars (1-5), low_count and sample_size (1-30) must be numbers" % where)
+            continue
+        rule = "recommended" if recommended(avg, low, sample) else "mentioned"
+        if val(r, "verdict") in PICK_VERDICTS and val(r, "verdict") != rule:
+            errors.append("%s verdict %s does not match the rule (%.2f stars, %d of %d low -> %s)"
+                          % (where, val(r, "verdict"), avg, low, sample, rule))
+
+
+def review_picks(tables, business_id):
+    # -> {"checkedAt", "drink": [...], "food": [...]} in rank order, or None
+    rows = [r for r in tables.get(REVIEW_PICKS, []) if val(r, "business_id") == business_id]
+    if not rows:
+        return None
+    out = {"checkedAt": max(val(r, "checked_at") for r in rows)}
+    for section in PICK_SECTIONS:
+        mine = sorted((r for r in rows if val(r, "section") == section), key=lambda r: int(val(r, "rank")))
+        out[section] = [{"zh": val(r, "item_zh"), "en": val(r, "item_en"), "mentions": int(val(r, "mentions")),
+                         "stars": round(float(val(r, "avg_stars")), 1), "rec": val(r, "verdict") == "recommended"}
+                        for r in mine]
+    return out
 
 
 def check_cells(tables, errors):
@@ -360,6 +431,7 @@ def check(tables, today):
     check_locations(tables, today, errors, warnings)
     check_names(tables, warnings)
     check_groups(tables, warnings)
+    check_review_picks(tables, errors)
     return errors, warnings
 
 
@@ -512,7 +584,8 @@ def build(tables):
             continue
         shown_ids = {val(l, "location_id") for l in shops}
         entries = sorted((award_entry(a, at, shown_ids, sources_for) for a, at in mine), key=award_sort_key)
-        out.append({
+        picks = review_picks(tables, business_id)
+        out.append(dict({
             "id": business_id,
             "name": val(b, "official_name"),
             "types": split_list(val(b, "business_type")),
@@ -525,7 +598,7 @@ def build(tables):
             "locations": [location_entry(b, l) for l in shops],
             "awards": entries,
             "summary": summary(entries),
-        })
+        }, **({"reviewPicks": picks} if picks else {})))
     # UI-PLAN.md section 5: champions, then World's 100 Best places, then gold + 1st, then the
     # latest year, then the name.
     out.sort(key=lambda s: (-s["summary"]["champion"], -s["summary"]["top100"], s["summary"]["best100"] or 999,

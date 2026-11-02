@@ -307,6 +307,59 @@ class RankingTest(unittest.TestCase):
         self.assertEqual((s["top100"], s["best100"], s["first"]), (2, 1, 1))
 
 
+class ReviewPicksTest(unittest.TestCase):
+    """Google review picks for World's 100 Best shops (REVIEW-PICKS.md; user chose C, 2026-11-02)."""
+
+    def setUp(self):
+        self.t = copy.deepcopy(TABLES)
+        self.assertEqual(self.t[m.REVIEW_PICKS], [])  # the file is optional
+        self.t[m.REVIEW_PICKS] = [
+            self.pick("food", "2", "香蕉麵包", "Banana bread", "289", "4.30", "3", "30", "mentioned"),
+            self.pick("drink", "1", "Flat white", "Flat white", "170", "4.63", "1", "30", "recommended"),
+            self.pick("food", "1", "酪梨吐司", "Avocado toast", "47", "4.83", "0", "30", "recommended"),
+        ]
+
+    def pick(self, section, rank, zh, en, mentions, avg, low, sample, verdict, business_id="B-alpha"):
+        return {"business_id": business_id, "section": section, "rank": rank, "item_zh": zh, "item_en": en,
+                "mentions": mentions, "avg_stars": avg, "low_count": low, "sample_size": sample,
+                "verdict": verdict, "checked_at": "2026-11-02", "note": ""}
+
+    def errors(self):
+        return m.check(self.t, TODAY)[0]
+
+    def assertError(self, text):
+        errors = self.errors()
+        self.assertTrue(any(text in e for e in errors), "no error containing %r in %s" % (text, errors))
+
+    def test_rule_is_4_5_stars_and_at_most_1_in_10_low(self):
+        self.assertTrue(m.recommended(4.5, 1, 10))
+        self.assertFalse(m.recommended(4.57, 1, 7))   # 14% low
+        self.assertFalse(m.recommended(4.49, 0, 5))
+
+    def test_clean_picks_pass_and_reach_the_shop_in_rank_order(self):
+        self.assertEqual(self.errors(), [])
+        shops = {b["id"]: b for b in m.build(self.t)[0]}
+        picks = shops["B-alpha"]["reviewPicks"]
+        self.assertEqual(picks["checkedAt"], "2026-11-02")
+        self.assertEqual([p["zh"] for p in picks["food"]], ["酪梨吐司", "香蕉麵包"])
+        self.assertEqual([(p["mentions"], p["stars"], p["rec"]) for p in picks["drink"]], [(170, 4.6, True)])
+        self.assertTrue(all("reviewPicks" not in b for i, b in shops.items() if i != "B-alpha"))
+
+    def test_verdict_must_follow_the_rule(self):
+        self.t[m.REVIEW_PICKS][0]["verdict"] = "recommended"
+        self.assertError("verdict recommended does not match the rule")
+
+    def test_rank_listed_twice(self):
+        self.t[m.REVIEW_PICKS][2]["rank"] = "2"
+        self.assertError("B-alpha food rank 2 is listed twice")
+
+    def test_unknown_business_and_bad_section(self):
+        self.t[m.REVIEW_PICKS][1]["business_id"] = "B-nobody"
+        self.t[m.REVIEW_PICKS][1]["section"] = "dessert"
+        self.assertError("business_id B-nobody is not in businesses.csv")
+        self.assertError("section 'dessert' must be one of drink, food")
+
+
 class MyMapsTest(unittest.TestCase):
     """My Maps import: Chinese and English side by side (user chose A, 2026-11-02)."""
 

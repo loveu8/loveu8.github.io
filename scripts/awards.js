@@ -50,6 +50,9 @@ var UI = {
     rankOf: '第 {n} 名',
     levelsShort: { champion: '冠軍', gold: '金牌', first: '第 1 名' },
     items: '得獎品項', moreItems: '另有 {n} 項，見獎項明細',
+    picksTitle: 'Google 評論大家推薦', picksAsOf: '{d} 整理', picksCount: '{n} 則 · {s} ★',
+    picksGroup: 'Google 評論常點', picksSections: { drink: '飲品', food: '餐點' }, picksRec: '大家推薦',
+    picksMeta: '括號是提到的評論數 · Google 評論整理 {d}',
     details: '獎項明細（{n}）', groupTop: '招牌', groupAlsoCount: '也推薦（{n}）',
     awardStore: '{s} 店', staffEntry: '參賽者：{r}',
     source: '官方結果 ↗', archive: '存檔 ↗', verified: '查證 {d}',
@@ -62,6 +65,7 @@ var UI = {
     footnote: [
       '獎項來自雪梨皇家烘焙賽、全國手工烘焙賽、金豆烘豆賽 2024–2026 和世界百大咖啡店 2025–2026 官方公布的結果，每一筆都附來源連結和查證日期。',
       '世界百大咖啡店是「排名」，不是評分比賽：由 The World\'s 100 Best Coffee Shops（執行長 César Ramírez）舉辦，冠名贊助是 Kerry 集團旗下的 DaVinci Gourmet，另有 Slayer、Cropster 等咖啡品牌贊助；專業評審佔 70%、公開投票佔 30%，評審名單沒有公開。地圖只放官方寫的那一間店。',
+      '排名沒有品項，所以世界百大的店另附 Google 評論整理：取評論關鍵字裡的飲品和餐點，最新評論平均 4.5 星以上、1～2 星不超過 1 成的標「大家推薦」。這是評論整理，不是獎項。',
       '金牌是分數制，達到分數就有，同一班可以有好幾面；第 1 名是名次，每班只有一個，兩者不能直接比。',
       '卡片列出冠軍、金牌、第 1 名（招牌）和銀牌、第 2 名（也推薦），銅牌和第 3 名不列。',
       '雪梨皇家烘焙賽在雪梨舉辦，所以新州的店特別多；咖啡店則有一大半在昆士蘭。',
@@ -83,6 +87,9 @@ var UI = {
     rankOf: '#{n}',
     levelsShort: { champion: 'Champion', gold: 'Gold', first: '1st' },
     items: 'Winning items', moreItems: '{n} more in the award details',
+    picksTitle: 'Google reviewers recommend', picksAsOf: 'as of {d}', picksCount: '{n} reviews · {s} ★',
+    picksGroup: 'Popular in Google reviews', picksSections: { drink: 'Drinks', food: 'Food' }, picksRec: 'Recommended',
+    picksMeta: 'Numbers are reviews that mention it · Google reviews checked {d}',
     details: 'Award details ({n})', groupTop: 'Headline awards', groupAlsoCount: 'Also recommended ({n})',
     awardStore: '{s} store', staffEntry: 'Entrant: {r}',
     source: 'Official results ↗', archive: 'Archive ↗', verified: 'Checked {d}',
@@ -95,6 +102,7 @@ var UI = {
     footnote: [
       "Awards come from the official 2024–2026 results of the Sydney Royal Bakery show, the National Artisan Baking Competition and Golden Bean, and The World's 100 Best Coffee Shops 2025–2026; every row links to its source and the date it was checked.",
       "The World's 100 Best Coffee Shops is a ranking, not a scored competition: it is run by The World's 100 Best Coffee Shops (CEO César Ramírez), with Kerry's DaVinci Gourmet as title sponsor and coffee brands such as Slayer and Cropster as sponsors; an expert panel gives 70% of the score and a public vote 30%, and the judges are not named. Only the shop named on the official page is on the map.",
+      "A ranking names no items, so World's 100 Best shops also get a Google review summary: drinks and food from the review keywords, marked “Recommended” when the latest reviews average 4.5 stars or more with no more than 1 in 10 at 1–2 stars. It is a review summary, not an award.",
       'Gold medals are scored: every entry above the mark gets one, so a class can have several. A 1st place is a ranking, one per class. The two are not the same thing.',
       'Cards list champions, gold medals and 1st places (headline awards) plus silver medals and 2nd places (also recommended); bronze and 3rd places are left out.',
       'The Sydney Royal show is held in Sydney, so NSW shops are over-represented; more than half the coffee stores are in Queensland.',
@@ -649,6 +657,83 @@ function renderItems(business) {
   return box;
 }
 
+// Google review picks (World's 100 Best shops; REVIEW-PICKS.md, user chose C 2026-11-02):
+// the card shows the recommended ones, the details list the top 3 drinks and food.
+var PICK_ICONS = { drink: '☕', food: '🍽️' };
+
+// Chinese pages add the English name in muted text, so it can be found on the menu.
+function pickNameNode(item) {
+  var frag = document.createDocumentFragment();
+  if (isEn() || !item.en || item.en === item.zh) {
+    frag.appendChild(document.createTextNode(isEn() ? item.en || item.zh : item.zh));
+  } else {
+    frag.appendChild(document.createTextNode(item.zh + ' '));
+    frag.appendChild(el('span', 'review-pick-en', item.en));
+  }
+  return frag;
+}
+
+function pickIcon(section) {
+  var frag = document.createDocumentFragment();
+  var icon = el('span', '', PICK_ICONS[section] + ' ');
+  icon.setAttribute('aria-hidden', 'true');
+  frag.appendChild(icon);
+  frag.appendChild(el('span', 'visually-hidden', UI[state.lang].picksSections[section] + (isEn() ? ': ' : '：')));
+  return frag;
+}
+
+function renderReviewPicks(business) {
+  var picks = business.reviewPicks;
+  if (!picks) return null;
+  var rec = [];
+  ['drink', 'food'].forEach(function(section) {
+    picks[section].forEach(function(item) { if (item.rec) rec.push({ section: section, item: item }); });
+  });
+  if (!rec.length) return null;
+  var box = el('section', 'review-picks');
+  var title = el('div', 'review-picks-title', t('picksTitle'));
+  title.appendChild(el('span', 'review-picks-note', t('picksAsOf', { d: picks.checkedAt.slice(0, 7) })));
+  box.appendChild(title);
+  var list = el('ul', 'review-picks-list');
+  rec.forEach(function(r) {
+    var li = el('li', 'review-pick');
+    var name = el('span', 'review-pick-name');
+    name.appendChild(pickIcon(r.section));
+    name.appendChild(pickNameNode(r.item));
+    li.appendChild(name);
+    li.appendChild(el('span', 'review-pick-count', t('picksCount', { n: r.item.mentions, s: r.item.stars.toFixed(1) })));
+    list.appendChild(li);
+  });
+  box.appendChild(list);
+  return box;
+}
+
+function renderPicksDetails(business) {
+  var picks = business.reviewPicks;
+  var frag = document.createDocumentFragment();
+  frag.appendChild(el('div', 'award-group', t('picksGroup')));
+  var box = el('div', 'review-section');
+  ['drink', 'food'].forEach(function(section) {
+    if (!picks[section].length) return;
+    var line = el('div', 'review-line');
+    var icon = el('span');
+    icon.appendChild(pickIcon(section));
+    line.appendChild(icon);
+    var items = el('span', 'review-line-items');
+    picks[section].forEach(function(item) {
+      var one = el('span', 'review-line-item');
+      one.appendChild(document.createTextNode((isEn() ? item.en || item.zh : item.zh) + (isEn() ? ' (' + item.mentions + ')' : '（' + item.mentions + '）')));
+      if (item.rec) one.appendChild(el('span', 'tag tag-rec', t('picksRec')));
+      items.appendChild(one);
+    });
+    line.appendChild(items);
+    box.appendChild(line);
+  });
+  box.appendChild(el('div', 'review-meta', t('picksMeta', { d: picks.checkedAt })));
+  frag.appendChild(box);
+  return frag;
+}
+
 // Item first (UI-PLAN 3.4, 2026-11-01): "金牌 91.5 · Olive Sourdough", then the short class
 // name, year, competition, store and sources in small text. Without a product the class
 // name is the item.
@@ -726,6 +811,7 @@ function renderDetails(business) {
     also.forEach(function(a) { fold.appendChild(renderAwardRow(business, a)); });
     details.appendChild(fold);
   }
+  if (business.reviewPicks) details.appendChild(renderPicksDetails(business));
   return details;
 }
 
@@ -789,6 +875,8 @@ function renderCard(business) {
   card.appendChild(renderSummary(business));
   var items = renderItems(business);
   if (items) card.appendChild(items);
+  var picks = renderReviewPicks(business);
+  if (picks) card.appendChild(picks);
   card.appendChild(renderDetails(business));
   card.appendChild(renderStores(business));
   return card;

@@ -1,0 +1,51 @@
+business_id,section,rank,item_zh,item_en,mentions,avg_stars,low_count,sample_size,verdict,checked_at,note
+B-tobys-estate,drink,1,Flat white,Flat white,27,3.85,5,27,mentioned,2026-11-02,
+B-tobys-estate,drink,2,單品咖啡,Single origin coffee,14,3.64,3,14,mentioned,2026-11-02,
+B-tobys-estate,drink,3,濾泡咖啡,Filter coffee,6,4.50,0,6,recommended,2026-11-02,
+B-tobys-estate,food,1,可頌,Croissant,13,3.69,3,13,mentioned,2026-11-02,
+B-tobys-estate,food,2,碎蛋烤三明治,Smashed egg toastie,2,5.00,0,2,recommended,2026-11-02,
+B-proud-mary,drink,1,Long black,Long black,20,3.90,3,20,mentioned,2026-11-02,
+B-proud-mary,drink,2,冷滴咖啡,Cold drip,12,4.25,2,12,mentioned,2026-11-02,
+B-proud-mary,food,1,馬鈴薯餅,Potato hash,46,4.43,2,30,mentioned,2026-11-02,
+B-proud-mary,food,2,鬆餅,Hotcakes,33,4.33,3,30,mentioned,2026-11-02,Google 關鍵字 pancakes，評論多寫 ricotta hotcakes
+B-proud-mary,food,3,泡菜料理,Kimchi dishes,24,4.25,1,24,mentioned,2026-11-02,Google 關鍵字 kimchi，看不出是哪一道
+B-coffee-anthology,drink,1,抹茶拿鐵,Matcha latte,10,3.90,0,10,mentioned,2026-11-02,
+B-coffee-anthology,drink,2,手沖咖啡,Pour over,8,4.38,1,8,mentioned,2026-11-02,
+B-coffee-anthology,drink,3,拉花咖啡,Latte art,6,4.17,1,6,mentioned,2026-11-02,
+B-coffee-anthology,food,1,酥皮點心,Pastries,90,4.00,5,30,mentioned,2026-11-02,
+B-coffee-anthology,food,2,班尼迪克蛋,Eggs Benedict,48,4.47,2,30,mentioned,2026-11-02,
+B-coffee-anthology,food,3,酪梨吐司,Avocado toast,24,4.75,1,24,recommended,2026-11-02,
+B-veneziano,drink,1,冰 Long black,Iced long black,6,1.50,5,6,mentioned,2026-11-02,
+B-veneziano,drink,2,熱可可,Hot chocolate,4,2.25,3,4,mentioned,2026-11-02,
+B-veneziano,drink,3,冰巧克力,Iced chocolate,2,1.50,2,2,mentioned,2026-11-02,
+B-veneziano,food,1,杏仁可頌,Almond croissant,2,3.00,1,2,mentioned,2026-11-02,
+B-calere-coffee,drink,1,Flat white,Flat white,13,4.38,1,13,mentioned,2026-11-02,
+B-calere-coffee,drink,2,批次滴濾咖啡,Batch brew,7,4.57,1,7,mentioned,2026-11-02,1～2 星 14%，超過 1 成
+B-calere-coffee,drink,3,Big White Rabbit 特調,Big White Rabbit,4,4.00,1,4,mentioned,2026-11-02,
+B-calere-coffee,food,1,瑞士捲,Swiss roll,29,4.41,2,29,mentioned,2026-11-02,
+B-calere-coffee,food,2,抹茶捲,Matcha roll,9,4.44,1,9,mentioned,2026-11-02,
+B-calere-coffee,food,3,抹茶蛋糕,Matcha cake,5,3.40,2,5,mentioned,2026-11-02,
+B-exchange-coffee,food,1,土耳其蛋,Turkish eggs,16,4.69,0,16,recommended,2026-11-02,
+B-exchange-coffee,food,2,香蕉麵包,Banana bread,11,4.09,2,11,mentioned,2026-11-02,
+B-exchange-coffee,food,3,酪梨吐司,Avocado toast,7,4.43,0,7,mentioned,2026-11-02,
+B-fonzie-abbott,drink,1,啤酒,Beer,32,4.50,1,30,recommended,2026-11-02,店裡也賣啤酒（早上 10 點到晚上 10 點）
+B-fonzie-abbott,food,1,班尼迪克蛋,Eggs Benedict,7,4.00,1,7,mentioned,2026-11-02,
+B-fonzie-abbott,food,2,牛排三明治,Steak sandwich,5,4.20,0,5,mentioned,2026-11-02,
+B-fonzie-abbott,food,3,杏仁可頌,Almond croissant,4,3.00,2,4,mentioned,2026-11-02,
+B-vacation-coffee,drink,1,Flat white,Flat white,14,4.50,1,14,recommended,2026-11-02,
+B-vacation-coffee,food,1,烤三明治,Toasties,18,4.61,1,18,recommended,2026-11-02,
+B-vacation-coffee,food,2,酪梨吐司,Avocado toast,10,4.80,0,10,recommended,2026-11-02,
+B-vacation-coffee,food,3,杏仁可頌,Almond croissant,4,3.75,1,4,mentioned,2026-11-02,
+B-seven-seeds,food,1,法式吐司,French toast,38,4.67,0,30,recommended,2026-11-02,和鬆餅班尼迪克蛋同 38 則，評價較高排前面
+B-seven-seeds,food,2,鬆餅班尼迪克蛋,Waffle eggs Benedict,38,3.97,5,30,mentioned,2026-11-02,
+B-seven-seeds,food,3,辣味炒蛋,Chilli scrambled eggs,25,3.48,9,25,mentioned,2026-11-02,
+B-only-coffee-project,drink,1,濾泡咖啡,Filter coffee,17,4.59,2,17,mentioned,2026-11-02,1～2 星 12%，超過 1 成
+B-only-coffee-project,drink,2,手沖咖啡,Pour over,9,4.67,0,9,recommended,2026-11-02,
+B-only-coffee-project,drink,3,Long black,Long black,7,4.57,1,7,mentioned,2026-11-02,1～2 星 14%，超過 1 成
+B-beta-coffee,drink,1,Flat white,Flat white,13,4.23,2,13,mentioned,2026-11-02,
+B-beta-coffee,drink,2,手沖咖啡,Pour over,3,5.00,0,3,recommended,2026-11-02,
+B-beta-coffee,drink,3,藝伎咖啡,Geisha,2,5.00,0,2,recommended,2026-11-02,和冰 Long black 同 2 則、5.0 星，選比較具體的藝伎
+B-single-o,drink,1,Flat white,Flat white,170,4.63,1,30,recommended,2026-11-02,
+B-single-o,food,1,香蕉麵包,Banana bread,289,4.30,3,30,mentioned,2026-11-02,
+B-single-o,food,2,酪梨吐司,Avocado toast,47,4.83,0,30,recommended,2026-11-02,Google 關鍵字 Avocado Show（店裡的酪梨吐司），和 avo toast 13 則是同一道
+B-single-o,food,3,雞肉烤三明治,Chicken toastie,26,4.77,0,26,recommended,2026-11-02,

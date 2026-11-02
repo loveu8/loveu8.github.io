@@ -95,6 +95,37 @@
 .award-item-awards { flex-shrink: 0; color: var(--color-text-muted); font-variant-numeric: tabular-nums; text-align: right; }
 .award-items-more { padding-top: 3px; color: var(--color-text-muted); }
 
+/* Google review picks (World's 100 Best shops, user chose C 2026-11-02): same box as the winning
+   items, but with the green that means "大家推薦" on the cafe/bakery pages, so it doesn't read as an award. */
+.review-picks {
+  margin-top: var(--space-sm);
+  padding: 6px 10px;
+  border-radius: var(--radius-md);
+  background: var(--color-surface-warm);
+  border: 1px solid var(--color-secondary-border);
+  font-size: var(--fs-xs);
+}
+.review-picks-title { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px; font-weight: 800; color: var(--color-text); margin-bottom: var(--space-2xs); }
+.review-picks-note { font-weight: 500; color: var(--color-text-soft); }
+.review-picks-list { list-style: none; margin: 0; padding: 0; }
+.review-pick {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--space-sm);
+  padding: 3px 0;
+  border-top: 1px solid var(--color-border-soft);
+}
+.review-pick-name { font-weight: 600; color: var(--color-text); min-width: 0; overflow-wrap: anywhere; }
+.review-pick-en { font-weight: 500; color: var(--color-text-muted); }
+.review-pick-count { flex-shrink: 0; color: var(--color-text-muted); font-variant-numeric: tabular-nums; text-align: right; }
+/* Inside the award details: the top 3 drinks and food, recommended ones tagged. */
+.review-section { font-size: var(--fs-xs); }
+.review-line { display: grid; grid-template-columns: 22px 1fr; gap: 4px; padding: 4px 0; border-top: 1px solid var(--color-border-soft); }
+.review-line-items { display: flex; flex-wrap: wrap; gap: 4px 10px; }
+.review-line-item .tag { margin-left: 3px; }
+.review-meta { color: var(--color-text-soft); padding-top: 4px; }
+
 /* ── 4. PHONE SHEET FOLD (title + filters fold while the list scrolls down; awards.js setupSheetFold) ── */
 /* Grid 1fr → 0fr animates to the content's own height. visibility drops the folded buttons
    out of the tab order once the 300ms fold (FOLD_MS) ends. Screen only, so print is untouched. */
