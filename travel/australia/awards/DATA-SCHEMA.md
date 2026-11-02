@@ -190,6 +190,7 @@
 | `verdict` | enum | ✔ | `recommended`（平均 ≥ 4.5 而且 `low_count` ≤ 1 成）、`mentioned`；**和數字不一致是 ERROR** |
 | `checked_at` | date | ✔ | 查的日期 |
 | `note` | text | | 合併、同數、排除的說明 |
+| `icon` | text | | 選填的圖示，取代區塊的 ☕／🍽️；例如啤酒用 🍺 |
 
 ## 3. ID 規則
 

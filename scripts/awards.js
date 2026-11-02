@@ -82,19 +82,19 @@ var UI = {
     result: '{s} × {c} · {n} shops', resultOne: '{s} × {c} · 1 shop', resultMore: ' · +{n} filters', resultMoreOne: ' · +1 filter',
     matchNote: ' (matches the filters)', footnoteAsOf: 'Data as of {d}.',
     emptyTitle: 'No shops match', emptyText: 'Try other filters, or press “✕ Clear”; the number on each button is how many shops it would show.',
-    meta: '{c} · {s} · {n} stores', yearOne: '{y}',
+    meta: '{c} · {s} · {n} stores', metaOne: '{c} · {s} · 1 store', yearOne: '{y}',
     levels: { champion: 'Champion', top100: "World's 100 Best", gold: 'Gold medal', silver: 'Silver medal', first: '1st place', second: '2nd place' },
     rankOf: '#{n}',
     levelsShort: { champion: 'Champion', gold: 'Gold', first: '1st' },
     items: 'Winning items', moreItems: '{n} more in the award details',
-    picksTitle: 'Google reviewers recommend', picksAsOf: 'as of {d}', picksCount: '{n} reviews · {s} ★',
+    picksTitle: 'Google reviewers recommend', picksAsOf: 'as of {d}', picksCount: '{n} reviews · {s} ★', picksCountOne: '1 review · {s} ★',
     picksGroup: 'Popular in Google reviews', picksSections: { drink: 'Drinks', food: 'Food' }, picksRec: 'Recommended',
     picksMeta: 'Numbers are reviews that mention it · Google reviews checked {d}',
     details: 'Award details ({n})', groupTop: 'Headline awards', groupAlsoCount: 'Also recommended ({n})',
     awardStore: '{s} store', staffEntry: 'Entrant: {r}',
     source: 'Official results ↗', archive: 'Archive ↗', verified: 'Checked {d}',
     sourceAria: 'Official source for {a} (opens in a new tab)', archiveAria: 'Archived official source for {a} (opens in a new tab)',
-    stores: 'Stores', moreStores: '{n} more stores',
+    stores: 'Stores', moreStores: '{n} more stores', moreStoresOne: '1 more store',
     mapAria: 'Show on map: {s}', mapsAria: 'Open in Google Maps: {s}',
     types: { bakery: 'Bakery', cafe: 'Café', roaster: 'Roaster' },
     scopes: { supermarket: 'In-store supermarket bakery', chain_franchise: 'Franchise store' },
@@ -154,9 +154,11 @@ function isEn() {
   return state.lang === 'en';
 }
 
-// t('key', {n: 3}) — look up a UI string and fill {placeholders}.
+// t('key', {n: 3}) — look up a UI string and fill {placeholders}. When n is 1 and the
+// language has a 'keyOne' string ("1 store", not "1 stores"), that one is used.
 function t(key, vars) {
-  var text = UI[state.lang][key];
+  var one = vars && vars.n === 1 && UI[state.lang][key + 'One'];
+  var text = one || UI[state.lang][key];
   Object.keys(vars || {}).forEach(function(k) { text = text.split('{' + k + '}').join(vars[k]); });
   return text;
 }
@@ -673,9 +675,10 @@ function pickNameNode(item) {
   return frag;
 }
 
-function pickIcon(section) {
+// item.icon overrides the section icon, e.g. 🍺 for Fonzie Abbott's beer.
+function pickIcon(section, item) {
   var frag = document.createDocumentFragment();
-  var icon = el('span', '', PICK_ICONS[section] + ' ');
+  var icon = el('span', '', ((item && item.icon) || PICK_ICONS[section]) + ' ');
   icon.setAttribute('aria-hidden', 'true');
   frag.appendChild(icon);
   frag.appendChild(el('span', 'visually-hidden', UI[state.lang].picksSections[section] + (isEn() ? ': ' : '：')));
@@ -698,7 +701,7 @@ function renderReviewPicks(business) {
   rec.forEach(function(r) {
     var li = el('li', 'review-pick');
     var name = el('span', 'review-pick-name');
-    name.appendChild(pickIcon(r.section));
+    name.appendChild(pickIcon(r.section, r.item));
     name.appendChild(pickNameNode(r.item));
     li.appendChild(name);
     li.appendChild(el('span', 'review-pick-count', t('picksCount', { n: r.item.mentions, s: r.item.stars.toFixed(1) })));
@@ -717,7 +720,9 @@ function renderPicksDetails(business) {
     if (!picks[section].length) return;
     var line = el('div', 'review-line');
     var icon = el('span');
-    icon.appendChild(pickIcon(section));
+    var first = picks[section][0];
+    var shared = picks[section].every(function(i) { return i.icon === first.icon; });
+    icon.appendChild(pickIcon(section, shared ? first : null));
     line.appendChild(icon);
     var items = el('span', 'review-line-items');
     picks[section].forEach(function(item) {

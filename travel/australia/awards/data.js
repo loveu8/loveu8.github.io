@@ -6525,7 +6525,8 @@ var PAGE_DATA = {
             "en": "Beer",
             "mentions": 32,
             "stars": 4.5,
-            "rec": true
+            "rec": true,
+            "icon": "🍺"
           }
         ],
         "food": [

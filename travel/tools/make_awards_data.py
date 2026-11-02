@@ -225,8 +225,10 @@ def review_picks(tables, business_id):
     out = {"checkedAt": max(val(r, "checked_at") for r in rows)}
     for section in PICK_SECTIONS:
         mine = sorted((r for r in rows if val(r, "section") == section), key=lambda r: int(val(r, "rank")))
-        out[section] = [{"zh": val(r, "item_zh"), "en": val(r, "item_en"), "mentions": int(val(r, "mentions")),
-                         "stars": round(float(val(r, "avg_stars")), 1), "rec": val(r, "verdict") == "recommended"}
+        out[section] = [dict({"zh": val(r, "item_zh"), "en": val(r, "item_en"), "mentions": int(val(r, "mentions")),
+                              "stars": round(float(val(r, "avg_stars")), 1), "rec": val(r, "verdict") == "recommended"},
+                             # optional: an item that isn't coffee or a dish, e.g. 🍺 for beer
+                             **({"icon": val(r, "icon")} if val(r, "icon") else {}))
                         for r in mine]
     return out
 

@@ -344,6 +344,12 @@ class ReviewPicksTest(unittest.TestCase):
         self.assertEqual([p["zh"] for p in picks["food"]], ["酪梨吐司", "香蕉麵包"])
         self.assertEqual([(p["mentions"], p["stars"], p["rec"]) for p in picks["drink"]], [(170, 4.6, True)])
         self.assertTrue(all("reviewPicks" not in b for i, b in shops.items() if i != "B-alpha"))
+        self.assertNotIn("icon", picks["drink"][0])  # the icon column is optional
+
+    def test_item_icon_overrides_the_section_icon(self):
+        self.t[m.REVIEW_PICKS][1]["icon"] = "🍺"
+        picks = {b["id"]: b for b in m.build(self.t)[0]}["B-alpha"]["reviewPicks"]
+        self.assertEqual(picks["drink"][0]["icon"], "🍺")
 
     def test_verdict_must_follow_the_rule(self):
         self.t[m.REVIEW_PICKS][0]["verdict"] = "recommended"
