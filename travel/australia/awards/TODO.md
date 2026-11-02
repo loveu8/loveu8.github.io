@@ -184,8 +184,8 @@ Step 1b 還沒打勾的兩項（PARTIAL 再查、使用者送 Wayback）留到 S
 - [x] 做不到的明確標「未測」（線上版 Network 要 push 後才能看；iPhone 實機、列印要使用者）
 - [ ] 👤 iPhone 實機
 - [ ] 👤 列印
-- [ ] 👤 同意 push
-- [ ] push 後看線上版：Network 沒有 404、`?v=` 生效、首頁入口正常
+- [x] 👤 同意 push（2026-11-02，1253506；首頁入口上線）
+- [x] push 後看線上版：Network 沒有 404（只有原本就沒有的 favicon.ico）、`?v=` 生效、首頁入口正常、61 間門市
 - [ ] `PLAN.md` 狀態改成「已完成」
 
 ## 上線後
