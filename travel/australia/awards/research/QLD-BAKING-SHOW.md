@@ -57,6 +57,33 @@
 - 布里斯本媒體常推薦的手工麵包店（Agnes、Cordelia、Sprout 等）都沒有出現
 - 對照：雪梨皇家烘焙賽三年 818 件參賽品，約是昆州賽的 5～10 倍
 
+## 轉錄和 D11 候選名單（2026-11-02）
+
+- 轉錄：`qld_baking_show_2024-2026.csv`（175 列；用 pdf.js 取文字座標判斷第 1／2／3 名欄位，逐列對照純文字；冠軍 6 列 `CH-LOAF`／`CH-CAKE` 手動補）
+- 原文拼法：Alana Hills＝Arana Hills、Harvey Bay＝Hervey Bay、Coles Casurina＝Casuarina、2024 冠軍麵包寫「Coles Ridge」＝Coles Park Ridge（同年 005 班 Wholemeal Cob 第 1 名是 Luke Moy、Ashley Hughes 第 2 名，冠軍照印的記）
+- 套 D11（冠軍＋同班有第 2 名的第 1 名；Perpetual Trophy 不算）。門市用 Google Maps 查（無頭 Chrome，2026-11-02）
+
+**過門檻**
+
+| 店 | 招牌獎（D11） | Google Maps | 備註 |
+|---|---|---|---|
+| LTT Patisserie | 2025、2026 冠軍蛋糕／酥點＋4 個第 1 名 | 9/365 Mortimer Rd, Acacia Ridge；Bakery 4.4 | |
+| Rays Patisserie Taigum | 6 個第 1 名（2025–2026） | Shop 31/217 Beams Rd, Taigum；Bakery 3.4 | 同品牌兩間，各自參賽，獎掛各自門市 |
+| Rays Patisserie Carseldine | 4 個第 1 名（2025–2026） | 735 Beams Rd, Carseldine；Bakery 3.9 | |
+| Uncle Bobs Bakery | 2025 冠軍麵包＋3 個第 1 名 | Belmont（185 Belmont Rd）4.5、Crystal Waters（Thornlands）4.3 營業；Victoria Point、Redland Bay 已歇業 | 官方只寫品牌，照 D2 列營業中的 2 間 |
+| The Squealing Pig | 2024 冠軍蛋糕／酥點（千層麵派）＋3 個第 1 名 | Shop 6 Burpengary Plaza, 173 Station Rd, Burpengary；**Google 分類是肉店**（Butcher shop）4.4 | 肉店自己做派，**要使用者決定收不收** |
+| Egg Wash Bake Shop | 2024 香腸捲第 1 名 | Shop 2/406 Southport Nerang Rd, Ashmore（黃金海岸）；Bakery 4.9 | 原文 Johnny Park Egg Wash Bake Shop／Eggwash Bakery |
+| Yamanto Central Patisserie | 2024 肉派第 1 名 | Google 只寫「Yamanto QLD 4305」，沒有門牌；Bakery 3.5 | 要再確認地址、營業 |
+| Bakers Delight Arana Hills | 6 個第 1 名（2024–2025） | Kmart Plaza, Arana Hills；4.0 | 加盟店，只收這間 |
+| Woolworths Lutwyche | 3 個第 1 名（烘焙師 Grace Stegeman／Netov） | 543 Lutwyche Rd；超市 | 烘焙師代表門市（staff_entry） |
+| Brumby's Westridge | 2 個第 1 名（2025） | 300 West St, Kearneys Spring（Toowoomba）；4.1 | 加盟店 |
+| Coles Park Ridge | 2024 冠軍麵包＋1 個第 1 名（烘焙師 Ashley Hughes） | Park Ridge；超市 | staff_entry |
+| Woolworths Tweed City（**新州**） | 9 個第 1 名（Luke Moy，2024–2025） | 54 Minjungbal Dr, Tweed Heads South NSW | staff_entry；不在昆州 |
+| Coles Casuarina（北領地） | 2026 冠軍麵包＋3 個第 1 名（Luke Moy） | 已在地圖上 | 只加獎 |
+| Mr Bake、Mr Sourdough、Bakers Loaf | 各 1 個第 1 名（2026） | **Google Maps 找不到** | 先不收，記 PARTIAL |
+
+**被 D11 擋掉**：Ca Phe In（香蕉麵包）、Veganyumm（泥蛋糕、香蕉麵包）、Woolworths Nundah（海綿蛋糕、塔），第 1 名的班都沒有第 2 名
+
 ## 疑慮
 
 1. **比賽規模小**：很多班只有 1～2 個名次，有些「第 1 名」可能是唯一參賽者；PDF 沒有參賽件數，分不出來。現有的 RAS 金牌要達到分數、NABC 是全國賽，昆州賽的第 1 名分量比較輕。

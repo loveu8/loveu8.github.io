@@ -213,8 +213,9 @@ Step 1b 還沒打勾的兩項（PARTIAL 再查、使用者送 Wayback）留到 S
 - [ ] 👤 第二版：**先做昆州**（使用者 2026-11-02 決定）。2026-11-02 進度：
     - [x] 基本調查 → `research/QLD-BAKING-SHOW.md`（名次制、2023–2026 官方 PDF、每年約 10 間店得名次、可能多 8～12 個獨立品牌＋4～5 間加盟店／超市）
     - [x] 👤 收的範圍 → B（`PLAN.md` D11）：冠軍＋同班有第 2 名的第 1 名
-    - [ ] 轉錄 2024–2026 結果到 `research/`（每班第 1～3 名、冠軍）
-    - [ ] 套 D11 篩出候選，用 Google Maps 查門市、營業狀態（網路搜不到的 6～7 家：The Squealing Pig、Egg Wash、Mr Sourdough、Mr Bake、Bakers Loaf、Ca Phe In、Veganyumm）；名單給使用者看
+    - [x] 轉錄 2024–2026 結果 → `research/qld_baking_show_2024-2026.csv`（175 列，含 6 個冠軍）
+    - [x] 套 D11 篩出候選、Google Maps 查門市（2026-11-02，`research/QLD-BAKING-SHOW.md`）：昆州 12 間門市過門檻（獨立 8：LTT、Rays ×2、Uncle Bobs ×2、Squealing Pig、Egg Wash、Yamanto；加盟／超市 4）＋新州 Woolworths Tweed City＋Coles Casuarina 加獎；Mr Bake、Mr Sourdough、Bakers Loaf 找不到
+    - [ ] 👤 名單給使用者看；The Squealing Pig 是肉店（自己做派）收不收；Yamanto 地址再確認
     - [ ] 產生工具支援 D11、頁尾說明、My Maps 重新匯入
     - 原本的說明：布里斯本只有 7 間（全是咖啡、沒有烘焙），原因是 RAS 在雪梨（三年 818 件參賽品 NSW 591、QLD 41；QLD 金牌只有 5 面）、昆士蘭州賽第一版沒收（D4）。第一步：BAA **Queensland Baking Show**（2024–2026 官方結果 PDF 在 bakingbusiness.com.au/results/）的研究摘要：等級制度（有沒有金牌／冠軍）、結果有沒有地址、大概多幾家，給使用者決定
   - 備註，之後再決定要不要收的其他比賽：
