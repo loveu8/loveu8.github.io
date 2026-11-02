@@ -197,7 +197,9 @@ Step 1b 還沒打勾的兩項（PARTIAL 再查、使用者送 Wayback）留到 S
     - [x] Wayback 找 2025 官方名單（存檔 20250719044452），澳洲 9 間、名次和媒體一致；兩年合計 12 間不重複
     - [x] 官方每一筆都連到店家頁（`/locales/…`），**都寫到某一間特定的店**（例：Toby's Estate＝32-36 City Rd, Chippendale；Veneziano＝Melbourne Airport T1；Coffee Anthology＝155 Charlotte St；Proud Mary＝172 Oxford St, Collingwood；Fonzie Abbott＝40 Fox St, Albion）。Veneziano、Calēre、Exchange、Fonzie Abbott、Seven Seeds 的店家頁現在 404，地址取自 Wayback
     - [x] 👤 門市範圍：**只放官方寫的那一間**（使用者 2026-11-02 選 A；排名評的是那間店的體驗，不像獎牌是產品），12 個品牌＝12 間門市；獎掛到那間門市
-    - [ ] 👤 加「Google 評論推薦的飲品／餐點」（使用者 2026-11-02 要求，因為排名沒寫品項）：照布里斯本咖啡廳 `TOP3.md` 的方法（熱門關鍵字、最新 30 則平均 ≥ 4.5 且低分 ≤ 1 成標「大家推薦」、☕ 飲品／🍽️ 餐點各前三、記提及數和日期）。**要用使用者的 Chrome**（無頭版 Google Maps 是有限檢視，讀不到評論）。卡片新區塊要標明「Google 評論整理」，版面先做 demo 給使用者選。Coffee Anthology 在布里斯本咖啡廳頁有 2026-10-17 的資料（CF07），這次重查以統一日期
+    - [x] 查 12 間的評論推薦（2026-11-02，使用者的 Chrome）→ `REVIEW-PICKS.md`：10 間有 ✅ 大家推薦，Calēre、Proud Mary 只有評論常提到，Veneziano 機場店品項都很低分
+    - [ ] 👤 卡片新區塊的 demo 給使用者選，然後放進資料和網頁
+    - 原本的規劃：加「Google 評論推薦的飲品／餐點」（使用者 2026-11-02 要求，因為排名沒寫品項）：照布里斯本咖啡廳 `TOP3.md` 的方法（熱門關鍵字、最新 30 則平均 ≥ 4.5 且低分 ≤ 1 成標「大家推薦」、☕ 飲品／🍽️ 餐點各前三、記提及數和日期）。**要用使用者的 Chrome**（無頭版 Google Maps 是有限檢視，讀不到評論）。卡片新區塊要標明「Google 評論整理」，版面先做 demo 給使用者選。Coffee Anthology 在布里斯本咖啡廳頁有 2026-10-17 的資料（CF07），這次重查以統一日期
     - [x] 資料結構（2026-11-02）：賽事 `W100BCS`、`award_system`／`award_level` 新增 `ranking`（rank 1～100）；`tier()` 排名一律 top、placing 的第 1／2 名才算第 1 名／也推薦；摘要加 `top100`／`best100`；排序：冠軍 → 世界百大次數 → 最佳名次 → 金牌＋第 1 名；Python 測試＋排名專用測試、node 測試 37 個通過
     - [x] 12 間門市：Google Maps 2026-11-02 全部營業、地址和官方店家頁相同、座標取自 Google Maps（Veneziano 機場店 Google 2.3 星，照規則收）；介紹用官方店家頁改寫一句
     - [x] 網頁：紫色徽章「世界百大 第 N 名」（冠軍 > 世界百大 > 金牌 > 第 1 名）、摘要、獎項明細、等級列「世界百大」、頁尾主辦／贊助說明；排名沒有品項，卡片不顯示得獎品項 → 46 家、73 門市、330 獎
