@@ -141,8 +141,9 @@ Step 1b 還沒打勾的兩項（PARTIAL 再查、使用者送 Wayback）留到 S
 ## Step 6：完整資料、中英文、SEO（原 Step 7）
 
 - [x] 👤 決定 RAS 對照表沒涵蓋的班別歸哪一類（2026-11-02 使用者選 A：新增 `tart_choux`「塔／泡芙」收 Shortcrust、Choux；Filo → `pastry_pie`；Creative → `viennoiserie`。`GROUP_KEYWORDS`＋測試 57 個通過；`page.js` 品項名；`DATA-SCHEMA.md` 2.4）
-- [ ] 店家介紹改寫成店家特色，不重複卡片上已有的城市、門市數（試驗 5 家也要改；`UI-PLAN.md` 3.6）
-- [ ] 第一批全部店家寫進 CSV（`CANDIDATES.md` 2.6：36 家、61 間門市）
+- [x] 店家介紹改寫成店家特色，不重複卡片上已有的城市、門市數（試驗 5 家 2026-11-02 改好、使用者確認語氣；每句有來源，寫在 `businesses.csv` 備註欄）
+- [ ] 第一批全部店家寫進 CSV（`CANDIDATES.md` 2.6：36 家、61 間門市）；介紹照試驗 5 家的寫法：一句、講特色、附來源
+- [ ] Burleigh Baker 門市重查：報導（BOQ、2026）說另有 Tweed Heads 門市（NSW）、Harris Farm Isle of Capri 專櫃、Currumbin 總部；目前只收 Burleigh Heads、Paradise Point（專櫃照 D2 要收；總部看是不是門市）
 - [ ] `make_awards_data.py` 無 ERROR、無 WARNING
 - [ ] `UI-PLAN.md` 5.1 測試案例、`awards_filter.test.js` 用完整資料重算預期家數，node 測試通過
 - [ ] 👤 回頭看 Step 4 截圖第 2 點：冠軍徽章是不是太多、第 1 名徽章有沒有用到
