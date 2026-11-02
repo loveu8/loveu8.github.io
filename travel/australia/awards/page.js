@@ -17,6 +17,7 @@ var PAGE_CONFIG = {
     sourdough: { zh: '酸種麵包', en: 'Sourdough' },
     viennoiserie: { zh: '可頌／丹麥', en: 'Viennoiserie' },
     pastry_pie: { zh: '鹹派／派', en: 'Pies & quiches' },
+    tart_choux: { zh: '塔／泡芙', en: 'Tarts & choux' },
     cake: { zh: '蛋糕', en: 'Cakes' },
     biscuit: { zh: '餅乾', en: 'Biscuits' },
     gluten_free: { zh: '無麩質', en: 'Gluten-free' },

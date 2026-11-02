@@ -230,9 +230,26 @@ class GroupTest(unittest.TestCase):
                                 "Bread", "bread"), ("Cakes, Tortes & Gateaux", "cake"), ("Christmas Cake & "
                                 "Puddings", "cake"), ("Brownies & Slices", "cake"), ("Macaron", "biscuit"),
                                 ("Savoury Pie, Pastie or Sausage Roll", "pastry_pie"), ("Sweet Pie／Tart",
-                                "pastry_pie"), ("Gluten Free Bread", "gluten_free"),
+                                "tart_choux"), ("Gluten Free Bread", "gluten_free"),
                                 ("Traditional Rye Sourdough - Minimum 680gm", "sourdough"),
                                 ("Ciabatta Loaf - Minimum 200gm", "bread"), ("Croissants", "viennoiserie")]:
+            self.assertEqual(self.group(category), group, category)
+
+    def test_the_four_classes_decided_on_2026_11_02(self):
+        # Real RAS class names from research/ras_professional_bakery_2024-2026.csv.
+        for category, group in [
+                ("15 Shortcrust Pastry (e.g., sweet pies, tarts, flans, etc.) Excluding Quiches", "tart_choux"),
+                ("20 Choux Pastry (e.g., eclairs, profiteroles, etc.)", "tart_choux"),
+                ("16 Filo or Kataifi Pastry (e.g. spanakopita, filo rolls or wraps, baklava, strudel, etc.)",
+                 "pastry_pie"),
+                ("25A Creative - Three (3) Individual Viennoiserie Portions (e.g., Danish, croissant, etc.)",
+                 "viennoiserie"),
+                ("25A Creative – Three (3) different types of Viennoiserie Portions (e.g. Danish, etc.)",
+                 "viennoiserie"),
+                # Savoury pies and quiches made with shortcrust stay pastry_pie: the name is cut at the comma.
+                ("17 Savoury Pie, Pastie or Sausage/Vegetarian Roll. Made with shortcrust or puff pastry",
+                 "pastry_pie"),
+                ("18 Savoury Quiche, made with shortcrust or puff pastry (e.g spinach, etc)", "pastry_pie")]:
             self.assertEqual(self.group(category), group, category)
 
     def test_champions(self):

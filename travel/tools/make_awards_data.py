@@ -47,8 +47,8 @@ ENUMS = {
     ("locations", "location_role"): ["shop", "bakehouse", "hq"],
     ("locations", "location_type"): ["standalone", "supermarket_counter", "factory_shop", "in_supermarket"],
     ("locations", "operating_status"): ["open", "temporarily_closed", "closed", "moved", "unknown"],
-    ("awards", "category_group"): ["bread", "sourdough", "viennoiserie", "pastry_pie", "cake", "biscuit",
-                                   "gluten_free", "coffee_espresso", "coffee_milk", "coffee_filter",
+    ("awards", "category_group"): ["bread", "sourdough", "viennoiserie", "pastry_pie", "tart_choux", "cake",
+                                   "biscuit", "gluten_free", "coffee_espresso", "coffee_milk", "coffee_filter",
                                    "coffee_other", "overall"],
     ("awards", "award_level"): ["champion", "medal", "placing"],
     ("awards", "medal_type"): ["gold", "silver", "bronze"],
@@ -78,11 +78,14 @@ REFS = [("locations", "business_id", "businesses"), ("locations", "moved_to_loca
 
 # category_group is filled by hand (DATA-SCHEMA.md 2.4); these only cross-check it, as a WARNING.
 # Matched in order on the class name before its "(e.g. ...)" examples, so "Sweet Breads" is cake, not bread.
+# Sweet tarts and choux are tart_choux, savoury pies and filo are pastry_pie, and RAS 25A
+# "Creative" (three viennoiserie portions) is viennoiserie (user chose A, 2026-11-02).
 GROUP_KEYWORDS = [(r"gluten free", "gluten_free"),
                   (r"sweet bread|cake|torte|gateau|pudding|brownie|slice", "cake"),
                   (r"biscuit|macaron", "biscuit"),
-                  (r"pie|pastie|quiche|tart", "pastry_pie"),
-                  (r"viennoiserie|croissant", "viennoiserie"),
+                  (r"shortcrust|sweet pie|tart|choux|eclair|profiterole", "tart_choux"),
+                  (r"pie|pastie|quiche|filo|kataifi", "pastry_pie"),
+                  (r"viennoiserie|croissant|creative", "viennoiserie"),
                   (r"sour ?dough", "sourdough"),
                   (r"bread|loaf|baguette|ciabatta", "bread")]
 GBA_GROUPS = {"1": "coffee_espresso", "8": "coffee_espresso", "10": "coffee_espresso",
@@ -255,7 +258,7 @@ def expected_group(a):
     # or overall when the title names none ("Champion Product of Show").
     if val(a, "competition_id") == "GBA" and val(a, "award_level") != "champion":
         return GBA_GROUPS.get(re.sub(r"\D", "", val(a, "class_code")))
-    head = re.split(r"[(,]| - ", val(a, "category"))[0].lower()
+    head = re.split(r"[(,]| [-–] ", val(a, "category"))[0].lower()  # RAS 2025 writes "Creative – Three"
     for pattern, group in GROUP_KEYWORDS:
         if re.search(r"\b(%s)" % pattern, head):
             return group

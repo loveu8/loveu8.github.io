@@ -225,7 +225,7 @@ function levelLabel(key) {
 // line and the URL (UI-PLAN 3.1, 3.2, 5). state.f holds one value per key; ALL / '' = not set.
 var FILTER_KEYS = ['q', 'state', 'city', 'type', 'comp', 'year', 'level', 'group'];
 var LEVEL_KEYS = ['champion', 'gold', 'first'];
-var GROUP_ORDER = ['bread', 'sourdough', 'viennoiserie', 'pastry_pie', 'cake', 'biscuit', 'gluten_free',
+var GROUP_ORDER = ['bread', 'sourdough', 'viennoiserie', 'pastry_pie', 'tart_choux', 'cake', 'biscuit', 'gluten_free',
   'coffee_espresso', 'coffee_milk', 'coffee_filter', 'coffee_other'];  // "overall" names no item
 var SEARCH_DELAY = 150;  // ms after the last keystroke
 var SEARCH_MAX = 80;     // characters kept from ?q=

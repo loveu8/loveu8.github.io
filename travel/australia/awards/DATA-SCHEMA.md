@@ -91,7 +91,7 @@
 | `event_date` | date | | 評審或頒獎日期，知道才填 |
 | `class_code` | text | ✔ | 官方班號，例如 `18`、`22A`、`001`、`Cat 1`；冠軍填 `CHAMPION` |
 | `category` | text | ✔ | 官方班名原文，例如 `Viennoiserie (e.g., Danish, vanilla slice, brioche, croissant, pain au chocolat, etc.)` |
-| `category_group` | enum | ✔ | 網站篩選用的歸類：`bread`、`sourdough`、`viennoiserie`、`pastry_pie`、`cake`、`biscuit`、`gluten_free`、`coffee_espresso`、`coffee_milk`、`coffee_filter`、`coffee_other`、`overall`。對照見下方「班別歸類」 |
+| `category_group` | enum | ✔ | 網站篩選用的歸類：`bread`、`sourdough`、`viennoiserie`、`pastry_pie`、`tart_choux`、`cake`、`biscuit`、`gluten_free`、`coffee_espresso`、`coffee_milk`、`coffee_filter`、`coffee_other`、`overall`。對照見下方「班別歸類」 |
 | `product_name` | text | | 官方寫的產品名，**照抄不改寫**（全大寫也照抄，顯示時再處理大小寫） |
 | `official_award_title` | text | ✔ | 例如 `Gold Medal`、`First`、`Champion Bread`、`Overall Champion` |
 | `award_level` | enum | ✔ | `champion`（冠軍／總冠軍）、`medal`、`placing` |
@@ -116,8 +116,9 @@
 | RAS | Sour Dough / Sourdough | `sourdough` |
 | RAS | Small Cakes、Cakes Tortes & Gateaux、Sweet Breads、Christmas Cake & Puddings、Brownies & Slices | `cake` |
 | RAS | Biscuit（各班）、Macaron | `biscuit` |
-| RAS | Savoury Pie、Quiche、Sweet Pie／Tart | `pastry_pie` |
-| RAS | Viennoiserie | `viennoiserie` |
+| RAS | Savoury Pie、Quiche、Filo or Kataifi Pastry | `pastry_pie`（網站上「鹹派／派」） |
+| RAS | Shortcrust Pastry（甜派、甜塔、flan）、Choux Pastry（閃電泡芙、泡芙） | `tart_choux`（網站上「塔／泡芙」；2026-11-02 使用者選 A 新增） |
+| RAS | Viennoiserie、Creative（三種維也納麵包一組，25A） | `viennoiserie` |
 | RAS | Gluten Free（各班） | `gluten_free` |
 | NABC | 001、002、007（Sourdough 各班）、Sourdough Tin Bread | `sourdough` |
 | NABC | 003 Ciabatta、004 Baguette | `bread` |
@@ -130,10 +131,10 @@
 
 `category_group` 由人照上表手填。產生工具另外用班名關鍵字交叉比對（使用者 2026-10-29 決定），不一致或判斷不出來時印 WARNING，不擋產生：
 
-- 只看班名括號前、逗號前、` - ` 前的部分，所以 International Bread 括號裡的 baguette、Viennoiserie 括號裡的 vanilla slice 不會誤判。
-- 依序比對：Gluten Free → 蛋糕類（Sweet Bread、Cake、Torte、Gateau、Pudding、Brownie、Slice）→ Biscuit、Macaron → Pie、Pastie、Quiche、Tart → Viennoiserie、Croissant → Sourdough → Bread、Loaf、Baguette、Ciabatta。GB 照班號（Cat 1～11）。
+- 只看班名括號前、逗號前、` - `（或 ` – `）前的部分，所以 International Bread 括號裡的 baguette、Viennoiserie 括號裡的 vanilla slice、Savoury Pie 逗號後的「made with shortcrust」都不會誤判。
+- 依序比對：Gluten Free → 蛋糕類（Sweet Bread、Cake、Torte、Gateau、Pudding、Brownie、Slice）→ Biscuit、Macaron → 塔／泡芙（Shortcrust、Sweet Pie、Tart、Choux、Eclair、Profiterole）→ Pie、Pastie、Quiche、Filo、Kataifi → Viennoiserie、Croissant、Creative → Sourdough → Bread、Loaf、Baguette、Ciabatta。GB 照班號（Cat 1～11）。
 - 冠軍照產品歸（Champion Biscuit → `biscuit`），看不出產品的（Product of Show、Overall）才是 `overall`。
-- **對照表還沒涵蓋的 RAS 班別**：Shortcrust Pastry、Filo／Kataifi Pastry、Choux Pastry、Creative（Viennoiserie 組合）。目前 88 筆沒有用到，Step 6（原 Step 7）補資料前要決定歸哪一類（`TODO.md` Step 6）。
+- **2026-11-02 補上原本沒涵蓋的 4 個 RAS 班別**（使用者選 A）：Shortcrust Pastry、Choux Pastry → 新類別 `tart_choux`；Filo／Kataifi Pastry → `pastry_pie`（以菠菜起司派等鹹的為主）；Creative → `viennoiserie`。原本表上猜的「Sweet Pie／Tart」其實就是 Shortcrust Pastry 這班，也改成 `tart_choux`。
 
 ### 2.5 `award_attributions.csv`：獎項和店家的關係
 

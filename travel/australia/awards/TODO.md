@@ -140,7 +140,7 @@ Step 1b 還沒打勾的兩項（PARTIAL 再查、使用者送 Wayback）留到 S
 
 ## Step 6：完整資料、中英文、SEO（原 Step 7）
 
-- [ ] 👤 決定 RAS 對照表沒涵蓋的班別歸哪一類：Shortcrust Pastry、Filo／Kataifi Pastry、Choux Pastry、Creative（Viennoiserie 組合）（`DATA-SCHEMA.md` 2.4；決定後加進 `GROUP_KEYWORDS` 和測試）
+- [x] 👤 決定 RAS 對照表沒涵蓋的班別歸哪一類（2026-11-02 使用者選 A：新增 `tart_choux`「塔／泡芙」收 Shortcrust、Choux；Filo → `pastry_pie`；Creative → `viennoiserie`。`GROUP_KEYWORDS`＋測試 57 個通過；`page.js` 品項名；`DATA-SCHEMA.md` 2.4）
 - [ ] 店家介紹改寫成店家特色，不重複卡片上已有的城市、門市數（試驗 5 家也要改；`UI-PLAN.md` 3.6）
 - [ ] 第一批全部店家寫進 CSV（`CANDIDATES.md` 2.6：36 家、61 間門市）
 - [ ] `make_awards_data.py` 無 ERROR、無 WARNING
