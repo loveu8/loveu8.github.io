@@ -71,7 +71,7 @@
 | Rays Patisserie Taigum | 6 個第 1 名（2025–2026） | Shop 31/217 Beams Rd, Taigum；Bakery 3.4 | 同品牌兩間，各自參賽，獎掛各自門市 |
 | Rays Patisserie Carseldine | 4 個第 1 名（2025–2026） | 735 Beams Rd, Carseldine；Bakery 3.9 | |
 | Uncle Bobs Bakery | 2025 冠軍麵包＋3 個第 1 名 | Belmont（185 Belmont Rd）4.5、Crystal Waters（Thornlands）4.3 營業；Victoria Point、Redland Bay 已歇業 | 官方只寫品牌，照 D2 列營業中的 2 間 |
-| The Squealing Pig | 2024 冠軍蛋糕／酥點（千層麵派）＋3 個第 1 名 | Shop 6 Burpengary Plaza, 173 Station Rd, Burpengary；**Google 分類是肉店**（Butcher shop）4.4 | 肉店自己做派，**要使用者決定收不收** |
+| The Squealing Pig | 2024 冠軍蛋糕／酥點（千層麵派）＋3 個第 1 名 | Shop 6 Burpengary Plaza, 173 Station Rd, Burpengary；**Google 分類是肉店**（Butcher shop）4.4 | 肉店自己做派；**使用者 2026-11-02 選 A：收**，類型標烘焙，介紹寫明是肉店自製的派 |
 | Egg Wash Bake Shop | 2024 香腸捲第 1 名 | Shop 2/406 Southport Nerang Rd, Ashmore（黃金海岸）；Bakery 4.9 | 原文 Johnny Park Egg Wash Bake Shop／Eggwash Bakery |
 | Yamanto Central Patisserie | 2024 肉派第 1 名 | Google 只寫「Yamanto QLD 4305」，沒有門牌；Bakery 3.5 | 要再確認地址、營業 |
 | Bakers Delight Arana Hills | 6 個第 1 名（2024–2025） | Kmart Plaza, Arana Hills；4.0 | 加盟店，只收這間 |
