@@ -143,6 +143,9 @@ Step 1b 還沒打勾的兩項（PARTIAL 再查、使用者送 Wayback）留到 S
 - [x] 👤 決定 RAS 對照表沒涵蓋的班別歸哪一類（2026-11-02 使用者選 A：新增 `tart_choux`「塔／泡芙」收 Shortcrust、Choux；Filo → `pastry_pie`；Creative → `viennoiserie`。`GROUP_KEYWORDS`＋測試 57 個通過；`page.js` 品項名；`DATA-SCHEMA.md` 2.4）
 - [x] 店家介紹改寫成店家特色，不重複卡片上已有的城市、門市數（試驗 5 家 2026-11-02 改好、使用者確認語氣；每句有來源，寫在 `businesses.csv` 備註欄）
 - [ ] 第一批全部店家寫進 CSV（`CANDIDATES.md` 2.6：36 家、61 間門市）；介紹照試驗 5 家的寫法：一句、講特色、附來源
+  - [x] 第 1 批 10 家（2026-11-02，7952456）：Gumnut、Wholegreen、Slowbreads、Crois、Parfait、Hearthe、Sacrebleu!、Madame and Yves、Sébastien Sans Gluten、Tuga → 累計 15 家、35 門市、222 獎。RAS 冠軍重新打開官方 PDF 核對（2024 手冊 p.16、2025 目錄 p.12、2026 手冊 p.11–12）。產生工具加「已確認不同店」備註（Tuga 同一棟兩間店）
+  - [ ] 第 2 批 10 家：Hudson's、Doughheads、Bakehouse Delights、Sweet Ivy、Bakealicious、V's Dessert、Pudding Lane、Comeco、Forestway Fresh、Bakers Delight ×2（11 家，含兩間加盟）
+  - [ ] 第 3 批：VIC 4 家（Brazen Brownies、Piece of Cake、Wandin、Sourdough Portland）、SA Riviera、NT Coles Casuarina、咖啡 4 家（Peak、Coffee Mentality、O'GaBee、Coffee Presto）
 - [ ] Burleigh Baker 門市重查：報導（BOQ、2026）說另有 Tweed Heads 門市（NSW）、Harris Farm Isle of Capri 專櫃、Currumbin 總部；目前只收 Burleigh Heads、Paradise Point（專櫃照 D2 要收；總部看是不是門市）
 - [ ] `make_awards_data.py` 無 ERROR、無 WARNING
 - [ ] `UI-PLAN.md` 5.1 測試案例、`awards_filter.test.js` 用完整資料重算預期家數，node 測試通過
