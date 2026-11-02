@@ -298,7 +298,7 @@ Apple Crumble Danish                    金牌 · 2026
 
 ## 10. 要寫進 `DESIGN.md` 的規則（Step 4 完成後，經使用者確認）
 
-1. 文字輸入框（搜尋框）的樣式和行為。
-2. 獎項徽章：冠軍／金牌／名次的文字與色系，不用 🥇🥈🥉。
-3. 「更多篩選」的兩層篩選做法。
-4. Shared files 依賴表加一列 `travel/australia/awards/index.html`。
+1. ✅ 文字輸入框（搜尋框）的樣式和行為（2026-11-02，Step 5）。
+2. ✅ 獎項徽章：冠軍／金牌／名次的文字與色系，不用 🥇🥈🥉（2026-11-02，Step 4）。
+3. ✅ 「更多篩選」的兩層篩選做法（2026-11-02，Step 5）。
+4. ✅ Shared files 依賴表加一列 `travel/australia/awards/index.html`（2026-11-02，Step 4）。

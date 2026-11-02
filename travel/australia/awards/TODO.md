@@ -132,8 +132,8 @@ Step 1b 還沒打勾的兩項（PARTIAL 再查、使用者送 Wayback）留到 S
 - [x] 符合條件的獎項自動展開、排在前面（左邊 accent 邊線＋螢幕閱讀器文字「符合篩選」）
 - [x] 類型篩選左右鍵、Home／End（roving tabindex）
 - [x] 本機行為檢查 38 項通過（scratchpad 腳本），無 console 錯誤
-- [ ] 👤 看截圖；手機 360×640 清單只剩 250px（更多篩選展開 80px），要不要調整
-- [ ] `DESIGN.md`：搜尋框、兩層篩選（使用者看過截圖後）
+- [x] 👤 看截圖；手機 360×640 清單只剩 250px（更多篩選展開 80px）→ 對比網頁比較 A／B，使用者選 A 維持（`UI-PLAN.md` 4.2）；結果列縮短文字，中文 360px 一行（英文 390px 以上一行）
+- [x] `DESIGN.md`：搜尋框、兩層篩選、tablist 左右鍵（2026-11-02 使用者確認）
 - [x] 用 node 跑篩選函式，測試案例全部符合（`travel/tools/tests/awards_filter.test.js`，31 個測試通過）
 
 ## Step 6：地圖
