@@ -12,7 +12,7 @@ var shortClass = AwardsFilter.shortClass;
 var itemName = AwardsFilter.itemName;
 var STORES_SHOWN = 2;  // the rest go into a "N more stores" toggle
 var ITEMS_SHOWN = 3;   // winning items on the card; the rest are in the award details
-var LEVEL_ORDER = { champion: 0, medal: 1, placing: 1 };
+var LEVEL_ORDER = { champion: 0, ranking: 0, medal: 1, placing: 1 };
 // Picking a state frames its stores on the map (DESIGN.md map-interaction rule, state-filter
 // exception). Names and zooms are only for the map shown until the My Maps embed exists.
 var STATES = {
@@ -46,7 +46,8 @@ var UI = {
     matchNote: '（符合篩選）', footnoteAsOf: '資料整理到 {d}。',
     emptyTitle: '這個組合沒有店家', emptyText: '換個條件看看，或按「✕ 清除」；每個按鈕上的數字是選了它之後的家數。',
     meta: '{c} · {s} · {n} 間門市', yearOne: '{y} 年',
-    levels: { champion: '冠軍', gold: '金牌', silver: '銀牌', first: '第 1 名', second: '第 2 名' },
+    levels: { champion: '冠軍', top100: '世界百大', gold: '金牌', silver: '銀牌', first: '第 1 名', second: '第 2 名' },
+    rankOf: '第 {n} 名',
     levelsShort: { champion: '冠軍', gold: '金牌', first: '第 1 名' },
     items: '得獎品項', moreItems: '另有 {n} 項，見獎項明細',
     details: '獎項明細（{n}）', groupTop: '招牌', groupAlsoCount: '也推薦（{n}）',
@@ -59,7 +60,8 @@ var UI = {
     scopes: { supermarket: '超市內烘焙', chain_franchise: '連鎖加盟店' },
     locTypes: { supermarket_counter: '超市內專櫃', factory_shop: '工廠門市' },
     footnote: [
-      '獎項來自雪梨皇家烘焙賽、全國手工烘焙賽、金豆烘豆賽 2024–2026 官方公布的結果，每一筆都附來源連結和查證日期。',
+      '獎項來自雪梨皇家烘焙賽、全國手工烘焙賽、金豆烘豆賽 2024–2026 和世界百大咖啡店 2025–2026 官方公布的結果，每一筆都附來源連結和查證日期。',
+      '世界百大咖啡店是「排名」，不是評分比賽：由 The World\'s 100 Best Coffee Shops（執行長 César Ramírez）舉辦，冠名贊助是 Kerry 集團旗下的 DaVinci Gourmet，另有 Slayer、Cropster 等咖啡品牌贊助；專業評審佔 70%、公開投票佔 30%，評審名單沒有公開。地圖只放官方寫的那一間店。',
       '金牌是分數制，達到分數就有，同一班可以有好幾面；第 1 名是名次，每班只有一個，兩者不能直接比。',
       '卡片列出冠軍、金牌、第 1 名（招牌）和銀牌、第 2 名（也推薦），銅牌和第 3 名不列。',
       '雪梨皇家烘焙賽在雪梨舉辦，所以新州的店特別多；咖啡店則有一大半在昆士蘭。',
@@ -77,7 +79,8 @@ var UI = {
     matchNote: ' (matches the filters)', footnoteAsOf: 'Data as of {d}.',
     emptyTitle: 'No shops match', emptyText: 'Try other filters, or press “✕ Clear”; the number on each button is how many shops it would show.',
     meta: '{c} · {s} · {n} stores', yearOne: '{y}',
-    levels: { champion: 'Champion', gold: 'Gold medal', silver: 'Silver medal', first: '1st place', second: '2nd place' },
+    levels: { champion: 'Champion', top100: "World's 100 Best", gold: 'Gold medal', silver: 'Silver medal', first: '1st place', second: '2nd place' },
+    rankOf: '#{n}',
     levelsShort: { champion: 'Champion', gold: 'Gold', first: '1st' },
     items: 'Winning items', moreItems: '{n} more in the award details',
     details: 'Award details ({n})', groupTop: 'Headline awards', groupAlsoCount: 'Also recommended ({n})',
@@ -90,7 +93,8 @@ var UI = {
     scopes: { supermarket: 'In-store supermarket bakery', chain_franchise: 'Franchise store' },
     locTypes: { supermarket_counter: 'Supermarket counter', factory_shop: 'Factory shop' },
     footnote: [
-      'Awards come from the official 2024–2026 results of the Sydney Royal Bakery show, the National Artisan Baking Competition and Golden Bean; every row links to its source and the date it was checked.',
+      "Awards come from the official 2024–2026 results of the Sydney Royal Bakery show, the National Artisan Baking Competition and Golden Bean, and The World's 100 Best Coffee Shops 2025–2026; every row links to its source and the date it was checked.",
+      "The World's 100 Best Coffee Shops is a ranking, not a scored competition: it is run by The World's 100 Best Coffee Shops (CEO César Ramírez), with Kerry's DaVinci Gourmet as title sponsor and coffee brands such as Slayer and Cropster as sponsors; an expert panel gives 70% of the score and a public vote 30%, and the judges are not named. Only the shop named on the official page is on the map.",
       'Gold medals are scored: every entry above the mark gets one, so a class can have several. A 1st place is a ranking, one per class. The two are not the same thing.',
       'Cards list champions, gold medals and 1st places (headline awards) plus silver medals and 2nd places (also recommended); bronze and 3rd places are left out.',
       'The Sydney Royal show is held in Sydney, so NSW shops are over-represented; more than half the coffee stores are in Queensland.',
@@ -187,10 +191,14 @@ function yearRange(awards) {
 }
 
 // ── awards ──
+// best100: the best place in The World's 100 Best Coffee Shops (a rank, not a count).
 function headlineCounts(business) {
-  var counts = { champion: 0, gold: 0, first: 0 };
+  var counts = { champion: 0, top100: 0, best100: null, gold: 0, first: 0 };
   business.awards.forEach(function(a) {
-    if (a.tier === 'top') counts[levelKey(a)] += 1;
+    if (a.tier !== 'top') return;
+    var key = levelKey(a);
+    counts[key] += 1;
+    if (key === 'top100' && (counts.best100 === null || a.rank < counts.best100)) counts.best100 = a.rank;
   });
   return counts;
 }
@@ -199,11 +207,13 @@ function latestYear(business) {
   return Math.max.apply(null, business.awards.map(function(a) { return a.year; }));
 }
 
-// UI-PLAN 5: champions → gold + 1st places → most recent year → name.
+// UI-PLAN 5: champions → World's 100 Best places → gold + 1st places → most recent year → name.
 function compareBusinesses(a, b) {
   var ca = headlineCounts(a);
   var cb = headlineCounts(b);
   return (cb.champion - ca.champion) ||
+    (cb.top100 - ca.top100) ||
+    ((ca.best100 || 999) - (cb.best100 || 999)) ||  // then the better World's 100 Best rank
     ((cb.gold + cb.first) - (ca.gold + ca.first)) ||
     (latestYear(b) - latestYear(a)) ||
     a.name.localeCompare(b.name);
@@ -216,23 +226,29 @@ function compareAwards(a, b) {
     ((b.score || 0) - (a.score || 0));
 }
 
-// Level text with the 🏆 hidden from screen readers (the word says it).
-function levelLabel(key) {
+// Level text with the 🏆 hidden from screen readers (the word says it). A World's 100 Best
+// place carries its rank: "世界百大 第 5 名" / "World's 100 Best #5".
+function levelLabel(key, rank) {
   var frag = document.createDocumentFragment();
   if (key === 'champion') {
     var cup = el('span', '', '🏆 ');
     cup.setAttribute('aria-hidden', 'true');
     frag.appendChild(cup);
   }
-  frag.appendChild(document.createTextNode(UI[state.lang].levels[key]));
+  frag.appendChild(document.createTextNode(levelText(key, rank)));
   return frag;
+}
+
+function levelText(key, rank) {
+  var text = UI[state.lang].levels[key];
+  return key === 'top100' && rank ? text + ' ' + t('rankOf', { n: rank }) : text;
 }
 
 // ── filters (list only — the My Maps embed cannot be filtered from the page) ──
 // The rules are in awards-filter.js; this part draws the rows, the search box, the result
 // line and the URL (UI-PLAN 3.1, 3.2, 5). state.f holds one value per key; ALL / '' = not set.
 var FILTER_KEYS = ['q', 'state', 'city', 'type', 'comp', 'year', 'level', 'group'];
-var LEVEL_KEYS = ['champion', 'gold', 'first'];
+var LEVEL_KEYS = ['champion', 'top100', 'gold', 'first'];
 var GROUP_ORDER = ['bread', 'sourdough', 'viennoiserie', 'pastry_pie', 'tart_choux', 'cake', 'biscuit', 'gluten_free',
   'coffee_espresso', 'coffee_milk', 'coffee_filter', 'coffee_other'];  // "overall" names no item
 var SEARCH_DELAY = 150;  // ms after the last keystroke
@@ -545,10 +561,11 @@ function rememberedDetails(className, key, defaultOpen) {
   return details;
 }
 
+// Highest honour: champion, then a World's 100 Best place (its best rank), then gold, then 1st.
 function renderBadge(counts) {
-  var key = counts.champion ? 'champion' : counts.gold ? 'gold' : 'first';
+  var key = counts.champion ? 'champion' : counts.top100 ? 'top100' : counts.gold ? 'gold' : 'first';
   var badge = el('span', 'award-badge award-badge-' + key);
-  badge.appendChild(levelLabel(key));
+  badge.appendChild(levelLabel(key, key === 'top100' ? counts.best100 : null));
   return badge;
 }
 
@@ -573,6 +590,7 @@ function renderTags(business) {
 function renderSummary(business) {
   var counts = headlineCounts(business);
   var parts = [];
+  if (counts.top100) parts.push(levelText('top100', counts.best100));  // a rank, not a count
   ['champion', 'gold', 'first'].forEach(function(key) {
     if (counts[key]) parts.push(UI[state.lang].levels[key] + ' ' + counts[key]);
   });
@@ -643,7 +661,7 @@ function renderAwardRow(business, award) {
   var line = el('div', 'award-line');
   if (cls !== award.category) line.title = award.category;
   var level = el('span', 'award-level');
-  level.appendChild(levelLabel(levelKey(award)));
+  level.appendChild(levelLabel(levelKey(award), award.level === 'ranking' ? award.rank : null));
   if (award.score != null) level.appendChild(document.createTextNode(' ' + award.score));
   line.appendChild(level);
   line.appendChild(document.createTextNode(' · '));

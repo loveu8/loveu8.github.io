@@ -125,6 +125,14 @@ class CheckTest(unittest.TestCase):
         self.award("NABC-2025-C004-P1")["rank"] = "4"
         self.assertError("rank 4 must be 1, 2 or 3")
 
+    def test_ranking_rank_range_and_fields(self):
+        a = self.award("NABC-2025-C004-P1")
+        a["award_level"] = "ranking"
+        a["rank"] = "101"
+        self.assertError("rank 101 must be 1-100 in a ranking")
+        a["rank"] = ""
+        self.assertError("award_level=ranking needs rank and no medal_type")
+
     def test_year_range(self):
         a = self.award()
         a["award_year"], a["award_id"] = "2023", "RAS-PB-2023-C2-E10"
@@ -272,6 +280,33 @@ class GroupTest(unittest.TestCase):
         self.assertEqual(self.group("Milk Based", "GBA", class_code="Cat 11"), "coffee_milk")
 
 
+class RankingTest(unittest.TestCase):
+    """World's 100 Best Coffee Shops: a place in a ranking is its own level (user chose A, 2026-11-02)."""
+
+    def award(self, **kw):
+        a = {"award_level": "ranking", "rank": "5", "medal_type": "", "category": "World's 100 Best Coffee Shops",
+             "competition_id": "W100BCS", "class_code": "RANKING"}
+        a.update(kw)
+        return a
+
+    def test_any_place_in_the_top_100_is_a_headline_award(self):
+        for rank in ("1", "2", "3", "57", "100"):
+            self.assertEqual(m.tier(self.award(rank=rank)), "top", rank)
+
+    def test_placing_ranks_still_mean_podium_places(self):
+        self.assertEqual(m.tier(self.award(award_level="placing", rank="2")), "also")
+        self.assertIsNone(m.tier(self.award(award_level="placing", rank="3")))
+
+    def test_ranking_names_no_item_group(self):
+        self.assertEqual(m.expected_group(self.award()), "overall")
+
+    def test_summary_keeps_a_rank_1_apart_from_a_1st_place(self):
+        def entry(level, rank, year=2026):
+            return {"level": level, "rank": rank, "medal": None, "tier": "top", "year": year}
+        s = m.summary([entry("ranking", 1, 2025), entry("ranking", 5), entry("placing", 1)])
+        self.assertEqual((s["top100"], s["best100"], s["first"]), (2, 1, 1))
+
+
 class MyMapsTest(unittest.TestCase):
     """My Maps import: Chinese and English side by side (user chose A, 2026-11-02)."""
 
@@ -376,7 +411,8 @@ class BuildTest(unittest.TestCase):
         self.assertEqual(self.award_ids("B-alpha"), ["NABC-2025-CHAMP-SHOW", "RAS-PB-2025-C2-E10",
                                                      "RAS-PB-2025-C2-E11"])
         self.assertEqual([a["tier"] for a in alpha["awards"]], ["top", "top", "also"])
-        self.assertEqual(alpha["summary"], {"champion": 1, "gold": 1, "first": 0, "also": 1, "years": [2025]})
+        self.assertEqual(alpha["summary"], {"champion": 1, "top100": 0, "best100": None, "gold": 1, "first": 0,
+                                            "also": 1, "years": [2025]})
 
     def test_award_sources_include_non_official_support(self):
         gold = next(a for a in self.by_id["B-alpha"]["awards"] if a["id"] == "RAS-PB-2025-C2-E10")

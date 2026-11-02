@@ -16,9 +16,11 @@ var AwardsFilter = (function() {
   var SMALL_WORDS = ['a', 'an', 'and', 'au', 'de', 'di', 'in', 'of', 'on', 'or', 'the', 'with'];
   var AWARD_KEYS = ['comp', 'year', 'level', 'group'];
 
-  // Level keys: champion, gold, silver (medal_by_score), first, second (placing).
+  // Level keys: champion, gold, silver (medal_by_score), first, second (placing),
+  // top100 (a place in The World's 100 Best Coffee Shops ranking; any place counts).
   function levelKey(award) {
     if (award.level === 'champion') return 'champion';
+    if (award.level === 'ranking') return 'top100';
     if (award.level === 'medal') return award.medal;
     return award.rank === 1 ? 'first' : 'second';
   }
@@ -49,6 +51,7 @@ var AwardsFilter = (function() {
   // comma ("Cakes, Tortes & Gateaux" → "Cakes"). Best-in-show titles name no item.
   function itemName(business, award) {
     var text;
+    if (award.level === 'ranking') return null;  // a shop ranking names no drink or dish
     if (award.product) {
       text = award.product;
       var brand = business.name.toUpperCase() + ' ';

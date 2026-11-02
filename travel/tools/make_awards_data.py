@@ -39,7 +39,7 @@ STATES = ["NSW", "VIC", "QLD", "SA", "WA", "TAS", "ACT", "NT"]
 STATUSES = ["VERIFIED", "PARTIAL", "DISPUTED", "REJECTED"]
 ENUMS = {
     ("competitions", "competition_type"): ["bakery", "coffee"],
-    ("competitions", "award_system"): ["medal_by_score", "placing"],
+    ("competitions", "award_system"): ["medal_by_score", "placing", "ranking"],
     ("competitions", "entrant_scope"): ["business", "individual", "mixed"],
     ("businesses", "business_type"): ["bakery", "cafe", "roaster"],
     ("businesses", "scope"): ["retail", "wholesale", "manufacturer", "supermarket", "chain_franchise", "other"],
@@ -50,7 +50,7 @@ ENUMS = {
     ("awards", "category_group"): ["bread", "sourdough", "viennoiserie", "pastry_pie", "tart_choux", "cake",
                                    "biscuit", "gluten_free", "coffee_espresso", "coffee_milk", "coffee_filter",
                                    "coffee_other", "overall"],
-    ("awards", "award_level"): ["champion", "medal", "placing"],
+    ("awards", "award_level"): ["champion", "medal", "placing", "ranking"],
     ("awards", "medal_type"): ["gold", "silver", "bronze"],
     ("awards", "recipient_type"): ["business", "location", "individual_for_business", "individual"],
     ("awards", "verification_status"): STATUSES,
@@ -108,6 +108,7 @@ DISTINCT_MARK = "已確認不同店"
 # Publish rules (DATA-SCHEMA.md section 5, D1-D3).
 PUBLISHED_SCOPES = ["retail", "supermarket", "chain_franchise"]
 LEVEL_ORDER = {"champion": 0, "top": 1, "also": 2}
+RANKING_SIZE = 100  # World's 100 Best Coffee Shops: rank 1-100
 TYPE_ZH = {"bakery": "烘焙", "cafe": "咖啡", "roaster": "咖啡"}
 
 
@@ -234,7 +235,11 @@ def check_awards(tables, errors):
             errors.append("%s award_level=placing needs rank and no medal_type" % where)
         if level == "champion" and (medal or val(a, "rank")):
             errors.append("%s award_level=champion needs no medal_type and no rank" % where)
-        if rank is not None and rank not in (1, 2, 3):
+        if level == "ranking" and (medal or not val(a, "rank")):
+            errors.append("%s award_level=ranking needs rank and no medal_type" % where)
+        if level == "ranking" and rank is not None and not 1 <= rank <= RANKING_SIZE:
+            errors.append("%s rank %d must be 1-%d in a ranking" % (where, rank, RANKING_SIZE))
+        elif level != "ranking" and rank is not None and rank not in (1, 2, 3):
             errors.append("%s rank %d must be 1, 2 or 3" % (where, rank))
         if year is not None and not YEARS[0] <= year <= YEARS[1]:
             errors.append("%s award_year %d must be %d-%d" % (where, year, YEARS[0], YEARS[1]))
@@ -261,6 +266,8 @@ def expected_group(a):
     # or overall when the title names none ("Champion Product of Show").
     if val(a, "competition_id") == "GBA" and val(a, "award_level") != "champion":
         return GBA_GROUPS.get(re.sub(r"\D", "", val(a, "class_code")))
+    if val(a, "award_level") == "ranking":
+        return "overall"  # a shop ranking names no item
     head = re.split(r"[(,]| [-–] ", val(a, "category"))[0].lower()  # RAS 2025 writes "Creative – Three"
     for pattern, group in GROUP_KEYWORDS:
         if re.search(r"\b(%s)" % pattern, head):
@@ -359,9 +366,14 @@ def check(tables, today):
 def tier(a):
     # D1: champion, gold and 1st place make a business qualify ("top");
     # silver and 2nd place are only listed once it does ("also"); bronze and 3rd are never listed.
-    if val(a, "award_level") == "champion" or val(a, "medal_type") == "gold" or val(a, "rank") == "1":
+    # A place in a ranking (World's 100 Best Coffee Shops) always counts: being in the top 100
+    # is the award (user chose A, 2026-11-02). Its rank is not a podium place.
+    level = val(a, "award_level")
+    if level == "ranking":
         return "top"
-    if val(a, "medal_type") == "silver" or val(a, "rank") == "2":
+    if level == "champion" or val(a, "medal_type") == "gold" or (level == "placing" and val(a, "rank") == "1"):
+        return "top"
+    if val(a, "medal_type") == "silver" or (level == "placing" and val(a, "rank") == "2"):
         return "also"
     return None
 
@@ -448,10 +460,13 @@ def award_sort_key(e):
 
 
 def summary(awards):
+    ranks = [e["rank"] for e in awards if e["level"] == "ranking"]
     return {
         "champion": sum(e["level"] == "champion" for e in awards),
+        "top100": len(ranks),                       # places in the World's 100 Best Coffee Shops
+        "best100": min(ranks) if ranks else None,   # its best rank
         "gold": sum(e["medal"] == "gold" for e in awards),
-        "first": sum(e["rank"] == 1 for e in awards),
+        "first": sum(e["level"] == "placing" and e["rank"] == 1 for e in awards),
         "also": sum(e["tier"] == "also" for e in awards),
         "years": sorted({e["year"] for e in awards}),
     }
@@ -511,8 +526,10 @@ def build(tables):
             "awards": entries,
             "summary": summary(entries),
         })
-    # UI-PLAN.md section 5: champions, then gold + 1st, then the latest year, then the name.
-    out.sort(key=lambda s: (-s["summary"]["champion"], -(s["summary"]["gold"] + s["summary"]["first"]),
+    # UI-PLAN.md section 5: champions, then World's 100 Best places, then gold + 1st, then the
+    # latest year, then the name.
+    out.sort(key=lambda s: (-s["summary"]["champion"], -s["summary"]["top100"], s["summary"]["best100"] or 999,
+                            -(s["summary"]["gold"] + s["summary"]["first"]),
                             -max(s["summary"]["years"]), s["name"].lower()))
     return out, skipped
 
@@ -540,6 +557,8 @@ SMALL_WORDS = {"a", "an", "and", "au", "de", "di", "in", "of", "on", "or", "the"
 def level_key(a):
     if a["level"] == "champion":
         return "champion"
+    if a["level"] == "ranking":
+        return "top100"
     if a["level"] == "medal":
         return a["medal"]
     return "first" if a["rank"] == 1 else "second"
@@ -566,6 +585,8 @@ def short_class(category):
 
 
 def item_name(business, a):
+    if a["level"] == "ranking":
+        return None  # a shop ranking names no drink or dish
     if a["product"]:
         text = a["product"]
         brand = business["name"].upper() + " "
@@ -607,8 +628,13 @@ def awards_text(business):
     # Two lines, as the card's summary: headline awards only, no "also recommended" (UI-PLAN 3.6).
     s = business["summary"]
     top_years = [a["year"] for a in business["awards"] if a["tier"] == "top"] or s["years"]
-    zh = " · ".join(["%s %d" % (label, s[k]) for k, label in LEVELS_ZH if s[k]] + [year_range(top_years, True)])
-    en = " · ".join("%s %d" % (label, s[k]) for k, label in LEVELS_EN if s[k])
+    zh_parts = ["%s %d" % (label, s[k]) for k, label in LEVELS_ZH if s[k]]
+    en_parts = ["%s %d" % (label, s[k]) for k, label in LEVELS_EN if s[k]]
+    if s.get("top100"):  # World's 100 Best: its best rank, not a count
+        zh_parts.insert(0, "世界百大 第 %d 名" % s["best100"])
+        en_parts.insert(0, "World's 100 Best #%d" % s["best100"])
+    zh = " · ".join(zh_parts + [year_range(top_years, True)])
+    en = " · ".join(en_parts)
     return zh + "\n" + en
 
 
@@ -617,11 +643,16 @@ def mymaps_rows(businesses):
     rows = []
     for b in businesses:
         s = b["summary"]
-        best = "champion" if s["champion"] else "gold" if s["gold"] else "first"
+        if s["champion"]:
+            top = TOP_AWARD["champion"]
+        elif s.get("top100"):
+            top = "世界百大 第 %d 名 World's 100 Best #%d" % (s["best100"], s["best100"])
+        else:
+            top = TOP_AWARD["gold" if s["gold"] else "first"]
         items = "、".join(winning_items(b)[:ITEMS_SHOWN])
         for l in b["locations"]:
             rows.append(["%s · %s" % (b["name"], l["name"]), l["lat"], l["lng"], TYPE_BOTH[TYPE_ZH[b["types"][0]]],
-                         TOP_AWARD[best], awards_text(b), items, l["address"]])
+                         top, awards_text(b), items, l["address"]])
     return rows
 
 

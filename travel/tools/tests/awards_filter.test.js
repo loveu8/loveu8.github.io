@@ -120,7 +120,7 @@ test('real data: every type is in a type group, every level is known', () => {
   const types = new Set(CONFIG.typeGroups.flatMap(g => g.types));
   for (const b of REAL_SHOPS) {
     for (const t of b.types) assert.ok(types.has(t), `${b.name}: type ${t}`);
-    for (const a of b.awards) assert.ok(['champion', 'gold', 'silver', 'first', 'second'].includes(F.levelKey(a)), a.id);
+    for (const a of b.awards) assert.ok(['champion', 'top100', 'gold', 'silver', 'first', 'second'].includes(F.levelKey(a)), a.id);
   }
 });
 
@@ -130,6 +130,19 @@ test('real data: state counts match a count done without the filter code', () =>
     const direct = REAL_SHOPS.filter(b => b.locations.some(l => l.state === s)).length;
     assert.equal(F.filter(REAL_SHOPS, { state: s }, CONFIG.typeGroups).length, direct, s);
   }
+});
+
+test("real data: a World's 100 Best place is its own level, never a 1st place, and names no item", () => {
+  const ranked = REAL_SHOPS.flatMap(b => b.awards.filter(a => a.level === 'ranking').map(a => [b, a]));
+  assert.ok(ranked.length > 0);
+  for (const [b, a] of ranked) {
+    assert.equal(F.levelKey(a), 'top100', a.id);
+    assert.equal(a.tier, 'top', a.id);
+    assert.equal(F.itemName(b, a), null, a.id);
+  }
+  const firstWithoutPlacing = F.filter(REAL_SHOPS, { level: 'first' }, CONFIG.typeGroups)
+    .filter(b => !b.awards.some(a => a.level === 'placing' && a.rank === 1));
+  assert.deepEqual(firstWithoutPlacing.map(b => b.name), []);
 });
 
 test('real data: each headline award finds its shop; silver and 2nd place find nothing', () => {

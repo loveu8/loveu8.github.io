@@ -198,8 +198,12 @@ Step 1b 還沒打勾的兩項（PARTIAL 再查、使用者送 Wayback）留到 S
     - [x] 官方每一筆都連到店家頁（`/locales/…`），**都寫到某一間特定的店**（例：Toby's Estate＝32-36 City Rd, Chippendale；Veneziano＝Melbourne Airport T1；Coffee Anthology＝155 Charlotte St；Proud Mary＝172 Oxford St, Collingwood；Fonzie Abbott＝40 Fox St, Albion）。Veneziano、Calēre、Exchange、Fonzie Abbott、Seven Seeds 的店家頁現在 404，地址取自 Wayback
     - [x] 👤 門市範圍：**只放官方寫的那一間**（使用者 2026-11-02 選 A；排名評的是那間店的體驗，不像獎牌是產品），12 個品牌＝12 間門市；獎掛到那間門市
     - [ ] 👤 加「Google 評論推薦的飲品／餐點」（使用者 2026-11-02 要求，因為排名沒寫品項）：照布里斯本咖啡廳 `TOP3.md` 的方法（熱門關鍵字、最新 30 則平均 ≥ 4.5 且低分 ≤ 1 成標「大家推薦」、☕ 飲品／🍽️ 餐點各前三、記提及數和日期）。**要用使用者的 Chrome**（無頭版 Google Maps 是有限檢視，讀不到評論）。卡片新區塊要標明「Google 評論整理」，版面先做 demo 給使用者選。Coffee Anthology 在布里斯本咖啡廳頁有 2026-10-17 的資料（CF07），這次重查以統一日期
-    - [ ] 資料結構：新賽事（例如 `W100BCS`，award_system 新增「ranking」）、徽章與篩選（等級列要不要加「世界百大」）、`make_awards_data.py` 門檻規則和測試
-    - [ ] 查約 13 間不重複的店的門市（官方不寫城市）
+    - [x] 資料結構（2026-11-02）：賽事 `W100BCS`、`award_system`／`award_level` 新增 `ranking`（rank 1～100）；`tier()` 排名一律 top、placing 的第 1／2 名才算第 1 名／也推薦；摘要加 `top100`／`best100`；排序：冠軍 → 世界百大次數 → 最佳名次 → 金牌＋第 1 名；Python 測試＋排名專用測試、node 測試 37 個通過
+    - [x] 12 間門市：Google Maps 2026-11-02 全部營業、地址和官方店家頁相同、座標取自 Google Maps（Veneziano 機場店 Google 2.3 星，照規則收）；介紹用官方店家頁改寫一句
+    - [x] 網頁：紫色徽章「世界百大 第 N 名」（冠軍 > 世界百大 > 金牌 > 第 1 名）、摘要、獎項明細、等級列「世界百大」、頁尾主辦／贊助說明；排名沒有品項，卡片不顯示得獎品項 → 46 家、73 門市、330 獎
+    - [ ] 👤 確認紫色徽章（`DESIGN.md` 紫色原本是住宿／休息／特別時刻，用在世界百大是新用途）
+    - [ ] 👤 My Maps 重新匯入 73 間（`Downloads\australia-awards-mymaps-73.csv`；使用者選檔、刪舊圖層）
+    - [ ] Only Coffee Project 另有「2026 大洋洲最佳咖啡店」（同一組織的地區獎）：目前寫在介紹裡，要不要另算一個獎再說
   - 同時查過、不收的：世界咖啡師大賽（個人賽，D3；2025 冠軍 Jack Simpson／Axil Coffee）；世界級烘焙比賽（甜點世界盃、Mondial du Pain 是國家隊或個人，D3），也沒有權威的「世界最佳麵包店」排名
 
 - [ ] 👤 第二版：**先做昆州**（使用者 2026-11-02 決定）。布里斯本只有 7 間（全是咖啡、沒有烘焙），原因是 RAS 在雪梨（三年 818 件參賽品 NSW 591、QLD 41；QLD 金牌只有 5 面）、昆士蘭州賽第一版沒收（D4）。第一步：BAA **Queensland Baking Show**（2024–2026 官方結果 PDF 在 bakingbusiness.com.au/results/）的研究摘要：等級制度（有沒有金牌／冠軍）、結果有沒有地址、大概多幾家，給使用者決定

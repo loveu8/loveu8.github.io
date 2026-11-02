@@ -29,6 +29,15 @@ var PAGE_DATA = {
       "type": "coffee",
       "system": "medal_by_score",
       "website": "https://goldenbean.com.au/"
+    },
+    {
+      "id": "W100BCS",
+      "name": "The World's 100 Best Coffee Shops",
+      "zh": "世界百大咖啡店",
+      "en": "World's 100 Best Coffee Shops",
+      "type": "coffee",
+      "system": "ranking",
+      "website": "https://theworlds100bestcoffeeshops.com/"
     }
   ],
   "businesses": [
@@ -334,6 +343,8 @@ var PAGE_DATA = {
       ],
       "summary": {
         "champion": 3,
+        "top100": 0,
+        "best100": null,
         "gold": 0,
         "first": 5,
         "also": 2,
@@ -1648,6 +1659,8 @@ var PAGE_DATA = {
       ],
       "summary": {
         "champion": 2,
+        "top100": 0,
+        "best100": null,
         "gold": 17,
         "first": 1,
         "also": 30,
@@ -2398,6 +2411,8 @@ var PAGE_DATA = {
       ],
       "summary": {
         "champion": 2,
+        "top100": 0,
+        "best100": null,
         "gold": 8,
         "first": 2,
         "also": 15,
@@ -2863,6 +2878,8 @@ var PAGE_DATA = {
       ],
       "summary": {
         "champion": 2,
+        "top100": 0,
+        "best100": null,
         "gold": 9,
         "first": 0,
         "also": 6,
@@ -3028,6 +3045,8 @@ var PAGE_DATA = {
       ],
       "summary": {
         "champion": 2,
+        "top100": 0,
+        "best100": null,
         "gold": 0,
         "first": 1,
         "also": 2,
@@ -3814,6 +3833,8 @@ var PAGE_DATA = {
       ],
       "summary": {
         "champion": 1,
+        "top100": 0,
+        "best100": null,
         "gold": 11,
         "first": 0,
         "also": 16,
@@ -4577,6 +4598,8 @@ var PAGE_DATA = {
       ],
       "summary": {
         "champion": 1,
+        "top100": 0,
+        "best100": null,
         "gold": 10,
         "first": 0,
         "also": 16,
@@ -4942,6 +4965,8 @@ var PAGE_DATA = {
       ],
       "summary": {
         "champion": 1,
+        "top100": 0,
+        "best100": null,
         "gold": 2,
         "first": 0,
         "also": 9,
@@ -5085,6 +5110,8 @@ var PAGE_DATA = {
       ],
       "summary": {
         "champion": 1,
+        "top100": 0,
+        "best100": null,
         "gold": 0,
         "first": 2,
         "also": 1,
@@ -5198,6 +5225,8 @@ var PAGE_DATA = {
       ],
       "summary": {
         "champion": 1,
+        "top100": 0,
+        "best100": null,
         "gold": 1,
         "first": 0,
         "also": 1,
@@ -5287,11 +5316,903 @@ var PAGE_DATA = {
       ],
       "summary": {
         "champion": 1,
+        "top100": 0,
+        "best100": null,
         "gold": 0,
         "first": 1,
         "also": 0,
         "years": [
           2024
+        ]
+      }
+    },
+    {
+      "id": "B-tobys-estate",
+      "name": "Toby's Estate Coffee Roasters",
+      "types": [
+        "roaster",
+        "cafe"
+      ],
+      "scope": "retail",
+      "descZh": "Chippendale 旗艦店主打體驗：客人可以在店裡走動，近距離看咖啡師沖煮。",
+      "descEn": "The Chippendale flagship is built around the experience: guests can wander in and watch the baristas brew up close.",
+      "website": "",
+      "instagram": "",
+      "related": [],
+      "locations": [
+        {
+          "id": "L-tobys-estate-chippendale",
+          "name": "Chippendale",
+          "address": "32-36 City Rd, Chippendale NSW 2008",
+          "suburb": "Chippendale",
+          "city": "Sydney",
+          "state": "NSW",
+          "lat": -33.8858584,
+          "lng": 151.1944136,
+          "type": "standalone",
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Toby%27s%20Estate%20Coffee%20Roasters%2032-36%20City%20Rd%2C%20Chippendale%20NSW%202008"
+        }
+      ],
+      "awards": [
+        {
+          "id": "W100BCS-2026-R005",
+          "comp": "W100BCS",
+          "year": 2026,
+          "level": "ranking",
+          "medal": null,
+          "rank": 5,
+          "tier": "top",
+          "score": null,
+          "title": "No. 5",
+          "category": "World's 100 Best Coffee Shops",
+          "group": "overall",
+          "product": "",
+          "locationId": "L-tobys-estate-chippendale",
+          "relation": "entrant_location",
+          "sources": [
+            {
+              "title": "The World's 100 Best Coffee Shops 2026 – TOP 100",
+              "url": "https://theworlds100bestcoffeeshops.com/top-100-coffee-shops/",
+              "archive": "",
+              "ref": "2026-02-16 在 CoffeeFest Madrid 公布"
+            }
+          ],
+          "verifiedAt": "2026-11-02"
+        },
+        {
+          "id": "W100BCS-2025-R001",
+          "comp": "W100BCS",
+          "year": 2025,
+          "level": "ranking",
+          "medal": null,
+          "rank": 1,
+          "tier": "top",
+          "score": null,
+          "title": "No. 1",
+          "category": "World's 100 Best Coffee Shops",
+          "group": "overall",
+          "product": "",
+          "locationId": "L-tobys-estate-chippendale",
+          "relation": "entrant_location",
+          "sources": [
+            {
+              "title": "The World's 100 Best Coffee Shops 2025 – TOP 100",
+              "url": "https://theworlds100bestcoffeeshops.com/top-100-coffee-shops/",
+              "archive": "https://web.archive.org/web/20250719044452/https://theworlds100bestcoffeeshops.com/top-100-coffee-shops/",
+              "ref": "官方頁已換成 2026，2025 名單取自 Wayback 存檔（2025-07-19）"
+            }
+          ],
+          "verifiedAt": "2026-11-02"
+        }
+      ],
+      "summary": {
+        "champion": 0,
+        "top100": 2,
+        "best100": 1,
+        "gold": 0,
+        "first": 0,
+        "also": 0,
+        "years": [
+          2025,
+          2026
+        ]
+      }
+    },
+    {
+      "id": "B-proud-mary",
+      "name": "Proud Mary Coffee",
+      "types": [
+        "cafe"
+      ],
+      "scope": "retail",
+      "descZh": "墨爾本精品咖啡的先驅之一，和咖啡農長期合作採購，也有完整的早午餐和茶單。",
+      "descEn": "One of Melbourne's specialty coffee pioneers, buying through long-standing producer relationships, with a full brunch menu and tea list.",
+      "website": "",
+      "instagram": "",
+      "related": [],
+      "locations": [
+        {
+          "id": "L-proud-mary-collingwood",
+          "name": "Collingwood",
+          "address": "172 Oxford St, Collingwood VIC 3066",
+          "suburb": "Collingwood",
+          "city": "Melbourne",
+          "state": "VIC",
+          "lat": -37.8023383,
+          "lng": 144.9851717,
+          "type": "standalone",
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Proud%20Mary%20Coffee%20172%20Oxford%20St%2C%20Collingwood%20VIC%203066"
+        }
+      ],
+      "awards": [
+        {
+          "id": "W100BCS-2026-R027",
+          "comp": "W100BCS",
+          "year": 2026,
+          "level": "ranking",
+          "medal": null,
+          "rank": 27,
+          "tier": "top",
+          "score": null,
+          "title": "No. 27",
+          "category": "World's 100 Best Coffee Shops",
+          "group": "overall",
+          "product": "",
+          "locationId": "L-proud-mary-collingwood",
+          "relation": "entrant_location",
+          "sources": [
+            {
+              "title": "The World's 100 Best Coffee Shops 2026 – TOP 100",
+              "url": "https://theworlds100bestcoffeeshops.com/top-100-coffee-shops/",
+              "archive": "",
+              "ref": "2026-02-16 在 CoffeeFest Madrid 公布"
+            }
+          ],
+          "verifiedAt": "2026-11-02"
+        },
+        {
+          "id": "W100BCS-2025-R004",
+          "comp": "W100BCS",
+          "year": 2025,
+          "level": "ranking",
+          "medal": null,
+          "rank": 4,
+          "tier": "top",
+          "score": null,
+          "title": "No. 4",
+          "category": "World's 100 Best Coffee Shops",
+          "group": "overall",
+          "product": "",
+          "locationId": "L-proud-mary-collingwood",
+          "relation": "entrant_location",
+          "sources": [
+            {
+              "title": "The World's 100 Best Coffee Shops 2025 – TOP 100",
+              "url": "https://theworlds100bestcoffeeshops.com/top-100-coffee-shops/",
+              "archive": "https://web.archive.org/web/20250719044452/https://theworlds100bestcoffeeshops.com/top-100-coffee-shops/",
+              "ref": "官方頁已換成 2026，2025 名單取自 Wayback 存檔（2025-07-19）"
+            }
+          ],
+          "verifiedAt": "2026-11-02"
+        }
+      ],
+      "summary": {
+        "champion": 0,
+        "top100": 2,
+        "best100": 4,
+        "gold": 0,
+        "first": 0,
+        "also": 0,
+        "years": [
+          2025,
+          2026
+        ]
+      }
+    },
+    {
+      "id": "B-coffee-anthology",
+      "name": "Coffee Anthology",
+      "types": [
+        "cafe"
+      ],
+      "scope": "retail",
+      "descZh": "布里斯本市中心的精品咖啡店，同時供應澳洲和國外烘豆商的咖啡，也以早餐和酥皮點心出名。",
+      "descEn": "A Brisbane CBD specialty coffee shop pouring Australian and international roasters, also known for its breakfasts and pastries.",
+      "website": "",
+      "instagram": "",
+      "related": [],
+      "locations": [
+        {
+          "id": "L-coffee-anthology-brisbane-city",
+          "name": "Brisbane City",
+          "address": "155 Charlotte St, Brisbane City QLD 4000",
+          "suburb": "Brisbane City",
+          "city": "Brisbane",
+          "state": "QLD",
+          "lat": -27.4704616,
+          "lng": 153.0280493,
+          "type": "standalone",
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Coffee%20Anthology%20155%20Charlotte%20St%2C%20Brisbane%20City%20QLD%204000"
+        }
+      ],
+      "awards": [
+        {
+          "id": "W100BCS-2026-R029",
+          "comp": "W100BCS",
+          "year": 2026,
+          "level": "ranking",
+          "medal": null,
+          "rank": 29,
+          "tier": "top",
+          "score": null,
+          "title": "No. 29",
+          "category": "World's 100 Best Coffee Shops",
+          "group": "overall",
+          "product": "",
+          "locationId": "L-coffee-anthology-brisbane-city",
+          "relation": "entrant_location",
+          "sources": [
+            {
+              "title": "The World's 100 Best Coffee Shops 2026 – TOP 100",
+              "url": "https://theworlds100bestcoffeeshops.com/top-100-coffee-shops/",
+              "archive": "",
+              "ref": "2026-02-16 在 CoffeeFest Madrid 公布"
+            }
+          ],
+          "verifiedAt": "2026-11-02"
+        },
+        {
+          "id": "W100BCS-2025-R008",
+          "comp": "W100BCS",
+          "year": 2025,
+          "level": "ranking",
+          "medal": null,
+          "rank": 8,
+          "tier": "top",
+          "score": null,
+          "title": "No. 8",
+          "category": "World's 100 Best Coffee Shops",
+          "group": "overall",
+          "product": "",
+          "locationId": "L-coffee-anthology-brisbane-city",
+          "relation": "entrant_location",
+          "sources": [
+            {
+              "title": "The World's 100 Best Coffee Shops 2025 – TOP 100",
+              "url": "https://theworlds100bestcoffeeshops.com/top-100-coffee-shops/",
+              "archive": "https://web.archive.org/web/20250719044452/https://theworlds100bestcoffeeshops.com/top-100-coffee-shops/",
+              "ref": "官方頁已換成 2026，2025 名單取自 Wayback 存檔（2025-07-19）"
+            }
+          ],
+          "verifiedAt": "2026-11-02"
+        }
+      ],
+      "summary": {
+        "champion": 0,
+        "top100": 2,
+        "best100": 8,
+        "gold": 0,
+        "first": 0,
+        "also": 0,
+        "years": [
+          2025,
+          2026
+        ]
+      }
+    },
+    {
+      "id": "B-vacation-coffee",
+      "name": "Vacation Coffee",
+      "types": [
+        "roaster",
+        "cafe"
+      ],
+      "scope": "retail",
+      "descZh": "自家小團隊在墨爾本烘豆，店面挑高 8 公尺。",
+      "descEn": "Roasted by its own small team in Melbourne and served in an eight-metre-high space.",
+      "website": "",
+      "instagram": "",
+      "related": [],
+      "locations": [
+        {
+          "id": "L-vacation-coffee-exhibition-st",
+          "name": "Exhibition St",
+          "address": "1 Exhibition St, Melbourne VIC 3000",
+          "suburb": "Melbourne",
+          "city": "Melbourne",
+          "state": "VIC",
+          "lat": -37.8159117,
+          "lng": 144.9721572,
+          "type": "standalone",
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Vacation%20Coffee%201%20Exhibition%20St%2C%20Melbourne%20VIC%203000"
+        }
+      ],
+      "awards": [
+        {
+          "id": "W100BCS-2026-R100",
+          "comp": "W100BCS",
+          "year": 2026,
+          "level": "ranking",
+          "medal": null,
+          "rank": 100,
+          "tier": "top",
+          "score": null,
+          "title": "No. 100",
+          "category": "World's 100 Best Coffee Shops",
+          "group": "overall",
+          "product": "",
+          "locationId": "L-vacation-coffee-exhibition-st",
+          "relation": "entrant_location",
+          "sources": [
+            {
+              "title": "The World's 100 Best Coffee Shops 2026 – TOP 100",
+              "url": "https://theworlds100bestcoffeeshops.com/top-100-coffee-shops/",
+              "archive": "",
+              "ref": "2026-02-16 在 CoffeeFest Madrid 公布"
+            }
+          ],
+          "verifiedAt": "2026-11-02"
+        },
+        {
+          "id": "W100BCS-2025-R071",
+          "comp": "W100BCS",
+          "year": 2025,
+          "level": "ranking",
+          "medal": null,
+          "rank": 71,
+          "tier": "top",
+          "score": null,
+          "title": "No. 71",
+          "category": "World's 100 Best Coffee Shops",
+          "group": "overall",
+          "product": "",
+          "locationId": "L-vacation-coffee-exhibition-st",
+          "relation": "entrant_location",
+          "sources": [
+            {
+              "title": "The World's 100 Best Coffee Shops 2025 – TOP 100",
+              "url": "https://theworlds100bestcoffeeshops.com/top-100-coffee-shops/",
+              "archive": "https://web.archive.org/web/20250719044452/https://theworlds100bestcoffeeshops.com/top-100-coffee-shops/",
+              "ref": "官方頁已換成 2026，2025 名單取自 Wayback 存檔（2025-07-19）"
+            }
+          ],
+          "verifiedAt": "2026-11-02"
+        }
+      ],
+      "summary": {
+        "champion": 0,
+        "top100": 2,
+        "best100": 71,
+        "gold": 0,
+        "first": 0,
+        "also": 0,
+        "years": [
+          2025,
+          2026
+        ]
+      }
+    },
+    {
+      "id": "B-only-coffee-project",
+      "name": "Only Coffee Project",
+      "types": [
+        "cafe"
+      ],
+      "scope": "retail",
+      "descZh": "極簡風的濃縮咖啡吧，走純粹的精品咖啡路線；也是 2026 大洋洲最佳咖啡店。",
+      "descEn": "A minimalist espresso bar with a purist approach to specialty coffee; also named Oceania's Best Coffee Shop 2026.",
+      "website": "",
+      "instagram": "",
+      "related": [],
+      "locations": [
+        {
+          "id": "L-only-coffee-project-crows-nest",
+          "name": "Crows Nest",
+          "address": "Shop 2/118 Willoughby Rd, Crows Nest NSW 2065",
+          "suburb": "Crows Nest",
+          "city": "Sydney",
+          "state": "NSW",
+          "lat": -33.8243287,
+          "lng": 151.200812,
+          "type": "standalone",
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Only%20Coffee%20Project%20Shop%202/118%20Willoughby%20Rd%2C%20Crows%20Nest%20NSW%202065"
+        }
+      ],
+      "awards": [
+        {
+          "id": "W100BCS-2026-R004",
+          "comp": "W100BCS",
+          "year": 2026,
+          "level": "ranking",
+          "medal": null,
+          "rank": 4,
+          "tier": "top",
+          "score": null,
+          "title": "No. 4",
+          "category": "World's 100 Best Coffee Shops",
+          "group": "overall",
+          "product": "",
+          "locationId": "L-only-coffee-project-crows-nest",
+          "relation": "entrant_location",
+          "sources": [
+            {
+              "title": "The World's 100 Best Coffee Shops 2026 – TOP 100",
+              "url": "https://theworlds100bestcoffeeshops.com/top-100-coffee-shops/",
+              "archive": "",
+              "ref": "2026-02-16 在 CoffeeFest Madrid 公布"
+            }
+          ],
+          "verifiedAt": "2026-11-02"
+        }
+      ],
+      "summary": {
+        "champion": 0,
+        "top100": 1,
+        "best100": 4,
+        "gold": 0,
+        "first": 0,
+        "also": 0,
+        "years": [
+          2026
+        ]
+      }
+    },
+    {
+      "id": "B-beta-coffee",
+      "name": "Beta Coffee",
+      "types": [
+        "cafe"
+      ],
+      "scope": "retail",
+      "descZh": "嘗試用科技提升咖啡的品質和穩定度，讓咖啡師把心力放在跟客人互動。",
+      "descEn": "Uses technology to make coffee better and more consistent, freeing baristas to focus on their guests.",
+      "website": "",
+      "instagram": "",
+      "related": [],
+      "locations": [
+        {
+          "id": "L-beta-coffee-surry-hills",
+          "name": "Surry Hills",
+          "address": "76 Devonshire St, Surry Hills NSW 2010",
+          "suburb": "Surry Hills",
+          "city": "Sydney",
+          "state": "NSW",
+          "lat": -33.8859385,
+          "lng": 151.2077186,
+          "type": "standalone",
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Beta%20Coffee%2076%20Devonshire%20St%2C%20Surry%20Hills%20NSW%202010"
+        }
+      ],
+      "awards": [
+        {
+          "id": "W100BCS-2026-R013",
+          "comp": "W100BCS",
+          "year": 2026,
+          "level": "ranking",
+          "medal": null,
+          "rank": 13,
+          "tier": "top",
+          "score": null,
+          "title": "No. 13",
+          "category": "World's 100 Best Coffee Shops",
+          "group": "overall",
+          "product": "",
+          "locationId": "L-beta-coffee-surry-hills",
+          "relation": "entrant_location",
+          "sources": [
+            {
+              "title": "The World's 100 Best Coffee Shops 2026 – TOP 100",
+              "url": "https://theworlds100bestcoffeeshops.com/top-100-coffee-shops/",
+              "archive": "",
+              "ref": "2026-02-16 在 CoffeeFest Madrid 公布"
+            }
+          ],
+          "verifiedAt": "2026-11-02"
+        }
+      ],
+      "summary": {
+        "champion": 0,
+        "top100": 1,
+        "best100": 13,
+        "gold": 0,
+        "first": 0,
+        "also": 0,
+        "years": [
+          2026
+        ]
+      }
+    },
+    {
+      "id": "B-veneziano",
+      "name": "Veneziano Coffee Roasters",
+      "types": [
+        "roaster",
+        "cafe"
+      ],
+      "scope": "retail",
+      "descZh": "2002 年起在墨爾本烘豆的 Veneziano，開在機場第一航廈的旗艦店。",
+      "descEn": "The Terminal 1 airport flagship of Veneziano, roasting in Melbourne since 2002.",
+      "website": "",
+      "instagram": "",
+      "related": [],
+      "locations": [
+        {
+          "id": "L-veneziano-melbourne-airport",
+          "name": "Melbourne Airport T1",
+          "address": "Shop T1, Departure Dr, Melbourne Airport VIC 3045",
+          "suburb": "Melbourne Airport",
+          "city": "Melbourne",
+          "state": "VIC",
+          "lat": -37.6688647,
+          "lng": 144.8505886,
+          "type": "standalone",
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Veneziano%20Coffee%20Roasters%20Shop%20T1%2C%20Departure%20Dr%2C%20Melbourne%20Airport%20VIC%203045"
+        }
+      ],
+      "awards": [
+        {
+          "id": "W100BCS-2025-R019",
+          "comp": "W100BCS",
+          "year": 2025,
+          "level": "ranking",
+          "medal": null,
+          "rank": 19,
+          "tier": "top",
+          "score": null,
+          "title": "No. 19",
+          "category": "World's 100 Best Coffee Shops",
+          "group": "overall",
+          "product": "",
+          "locationId": "L-veneziano-melbourne-airport",
+          "relation": "entrant_location",
+          "sources": [
+            {
+              "title": "The World's 100 Best Coffee Shops 2025 – TOP 100",
+              "url": "https://theworlds100bestcoffeeshops.com/top-100-coffee-shops/",
+              "archive": "https://web.archive.org/web/20250719044452/https://theworlds100bestcoffeeshops.com/top-100-coffee-shops/",
+              "ref": "官方頁已換成 2026，2025 名單取自 Wayback 存檔（2025-07-19）"
+            }
+          ],
+          "verifiedAt": "2026-11-02"
+        }
+      ],
+      "summary": {
+        "champion": 0,
+        "top100": 1,
+        "best100": 19,
+        "gold": 0,
+        "first": 0,
+        "also": 0,
+        "years": [
+          2025
+        ]
+      }
+    },
+    {
+      "id": "B-calere-coffee",
+      "name": "Calēre Coffee",
+      "types": [
+        "cafe"
+      ],
+      "scope": "retail",
+      "descZh": "Fitzroy 的咖啡店，創辦人 Alicia 多年來在澳洲推廣雲南咖啡。",
+      "descEn": "A Fitzroy café whose founder, Alicia, has spent years championing Yunnan coffee in Australia.",
+      "website": "",
+      "instagram": "",
+      "related": [],
+      "locations": [
+        {
+          "id": "L-calere-coffee-fitzroy",
+          "name": "Fitzroy",
+          "address": "Shop 1/166 Gertrude St, Fitzroy VIC 3065",
+          "suburb": "Fitzroy",
+          "city": "Melbourne",
+          "state": "VIC",
+          "lat": -37.806135,
+          "lng": 144.9801785,
+          "type": "standalone",
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Cal%C4%93re%20Coffee%20Shop%201/166%20Gertrude%20St%2C%20Fitzroy%20VIC%203065"
+        }
+      ],
+      "awards": [
+        {
+          "id": "W100BCS-2025-R028",
+          "comp": "W100BCS",
+          "year": 2025,
+          "level": "ranking",
+          "medal": null,
+          "rank": 28,
+          "tier": "top",
+          "score": null,
+          "title": "No. 28",
+          "category": "World's 100 Best Coffee Shops",
+          "group": "overall",
+          "product": "",
+          "locationId": "L-calere-coffee-fitzroy",
+          "relation": "entrant_location",
+          "sources": [
+            {
+              "title": "The World's 100 Best Coffee Shops 2025 – TOP 100",
+              "url": "https://theworlds100bestcoffeeshops.com/top-100-coffee-shops/",
+              "archive": "https://web.archive.org/web/20250719044452/https://theworlds100bestcoffeeshops.com/top-100-coffee-shops/",
+              "ref": "官方頁已換成 2026，2025 名單取自 Wayback 存檔（2025-07-19）"
+            }
+          ],
+          "verifiedAt": "2026-11-02"
+        }
+      ],
+      "summary": {
+        "champion": 0,
+        "top100": 1,
+        "best100": 28,
+        "gold": 0,
+        "first": 0,
+        "also": 0,
+        "years": [
+          2025
+        ]
+      }
+    },
+    {
+      "id": "B-exchange-coffee",
+      "name": "Exchange Coffee",
+      "types": [
+        "roaster",
+        "cafe"
+      ],
+      "scope": "retail",
+      "descZh": "2013 年創立，想讓精品咖啡變得平易近人的阿德萊德咖啡店。",
+      "descEn": "An Adelaide coffee shop founded in 2013 to make specialty coffee approachable.",
+      "website": "",
+      "instagram": "",
+      "related": [],
+      "locations": [
+        {
+          "id": "L-exchange-coffee-adelaide",
+          "name": "Vardon Ave",
+          "address": "12/18 Vardon Ave, Adelaide SA 5000",
+          "suburb": "Adelaide",
+          "city": "Adelaide",
+          "state": "SA",
+          "lat": -34.9228308,
+          "lng": 138.6097945,
+          "type": "standalone",
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Exchange%20Coffee%2012/18%20Vardon%20Ave%2C%20Adelaide%20SA%205000"
+        }
+      ],
+      "awards": [
+        {
+          "id": "W100BCS-2025-R037",
+          "comp": "W100BCS",
+          "year": 2025,
+          "level": "ranking",
+          "medal": null,
+          "rank": 37,
+          "tier": "top",
+          "score": null,
+          "title": "No. 37",
+          "category": "World's 100 Best Coffee Shops",
+          "group": "overall",
+          "product": "",
+          "locationId": "L-exchange-coffee-adelaide",
+          "relation": "entrant_location",
+          "sources": [
+            {
+              "title": "The World's 100 Best Coffee Shops 2025 – TOP 100",
+              "url": "https://theworlds100bestcoffeeshops.com/top-100-coffee-shops/",
+              "archive": "https://web.archive.org/web/20250719044452/https://theworlds100bestcoffeeshops.com/top-100-coffee-shops/",
+              "ref": "官方頁已換成 2026，2025 名單取自 Wayback 存檔（2025-07-19）"
+            }
+          ],
+          "verifiedAt": "2026-11-02"
+        }
+      ],
+      "summary": {
+        "champion": 0,
+        "top100": 1,
+        "best100": 37,
+        "gold": 0,
+        "first": 0,
+        "also": 0,
+        "years": [
+          2025
+        ]
+      }
+    },
+    {
+      "id": "B-single-o",
+      "name": "Single O",
+      "types": [
+        "roaster",
+        "cafe"
+      ],
+      "scope": "retail",
+      "descZh": "2003 年起的精品咖啡先驅，Reservoir St 旗艦店有世界首創的自助批次滴濾吧。",
+      "descEn": "A specialty pioneer since 2003; its Reservoir St flagship has the world-first self-serve batch brew bar.",
+      "website": "",
+      "instagram": "",
+      "related": [],
+      "locations": [
+        {
+          "id": "L-single-o-surry-hills",
+          "name": "Surry Hills",
+          "address": "60/64 Reservoir St, Surry Hills NSW 2010",
+          "suburb": "Surry Hills",
+          "city": "Sydney",
+          "state": "NSW",
+          "lat": -33.8810973,
+          "lng": 151.2096465,
+          "type": "standalone",
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Single%20O%2060/64%20Reservoir%20St%2C%20Surry%20Hills%20NSW%202010"
+        }
+      ],
+      "awards": [
+        {
+          "id": "W100BCS-2026-R053",
+          "comp": "W100BCS",
+          "year": 2026,
+          "level": "ranking",
+          "medal": null,
+          "rank": 53,
+          "tier": "top",
+          "score": null,
+          "title": "No. 53",
+          "category": "World's 100 Best Coffee Shops",
+          "group": "overall",
+          "product": "",
+          "locationId": "L-single-o-surry-hills",
+          "relation": "entrant_location",
+          "sources": [
+            {
+              "title": "The World's 100 Best Coffee Shops 2026 – TOP 100",
+              "url": "https://theworlds100bestcoffeeshops.com/top-100-coffee-shops/",
+              "archive": "",
+              "ref": "2026-02-16 在 CoffeeFest Madrid 公布"
+            }
+          ],
+          "verifiedAt": "2026-11-02"
+        }
+      ],
+      "summary": {
+        "champion": 0,
+        "top100": 1,
+        "best100": 53,
+        "gold": 0,
+        "first": 0,
+        "also": 0,
+        "years": [
+          2026
+        ]
+      }
+    },
+    {
+      "id": "B-fonzie-abbott",
+      "name": "Fonzie Abbott",
+      "types": [
+        "cafe"
+      ],
+      "scope": "retail",
+      "descZh": "Albion 公園對面、粗獷工業風的咖啡店，除了咖啡也賣冰啤酒，一週七天營業。",
+      "descEn": "A rustic, edgy café across from a park in Albion, serving cold beer as well as coffee, seven days a week.",
+      "website": "",
+      "instagram": "",
+      "related": [],
+      "locations": [
+        {
+          "id": "L-fonzie-abbott-albion",
+          "name": "Albion",
+          "address": "40 Fox St, Albion QLD 4010",
+          "suburb": "Albion",
+          "city": "Brisbane",
+          "state": "QLD",
+          "lat": -27.4327236,
+          "lng": 153.0452592,
+          "type": "standalone",
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Fonzie%20Abbott%2040%20Fox%20St%2C%20Albion%20QLD%204010"
+        }
+      ],
+      "awards": [
+        {
+          "id": "W100BCS-2025-R070",
+          "comp": "W100BCS",
+          "year": 2025,
+          "level": "ranking",
+          "medal": null,
+          "rank": 70,
+          "tier": "top",
+          "score": null,
+          "title": "No. 70",
+          "category": "World's 100 Best Coffee Shops",
+          "group": "overall",
+          "product": "",
+          "locationId": "L-fonzie-abbott-albion",
+          "relation": "entrant_location",
+          "sources": [
+            {
+              "title": "The World's 100 Best Coffee Shops 2025 – TOP 100",
+              "url": "https://theworlds100bestcoffeeshops.com/top-100-coffee-shops/",
+              "archive": "https://web.archive.org/web/20250719044452/https://theworlds100bestcoffeeshops.com/top-100-coffee-shops/",
+              "ref": "官方頁已換成 2026，2025 名單取自 Wayback 存檔（2025-07-19）"
+            }
+          ],
+          "verifiedAt": "2026-11-02"
+        }
+      ],
+      "summary": {
+        "champion": 0,
+        "top100": 1,
+        "best100": 70,
+        "gold": 0,
+        "first": 0,
+        "also": 0,
+        "years": [
+          2025
+        ]
+      }
+    },
+    {
+      "id": "B-seven-seeds",
+      "name": "Seven Seeds",
+      "types": [
+        "roaster",
+        "cafe"
+      ],
+      "scope": "retail",
+      "descZh": "2007 年創立，從採購、烘豆、批發到門市一手包辦，重視咖啡豆的可追溯性。",
+      "descEn": "Founded in 2007, it sources, roasts, wholesales and brews its own coffee, with traceability at its core.",
+      "website": "",
+      "instagram": "",
+      "related": [],
+      "locations": [
+        {
+          "id": "L-seven-seeds-carlton",
+          "name": "Carlton",
+          "address": "114 Berkeley St, Carlton VIC 3053",
+          "suburb": "Carlton",
+          "city": "Melbourne",
+          "state": "VIC",
+          "lat": -37.8029711,
+          "lng": 144.9590027,
+          "type": "standalone",
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Seven%20Seeds%20114%20Berkeley%20St%2C%20Carlton%20VIC%203053"
+        }
+      ],
+      "awards": [
+        {
+          "id": "W100BCS-2025-R087",
+          "comp": "W100BCS",
+          "year": 2025,
+          "level": "ranking",
+          "medal": null,
+          "rank": 87,
+          "tier": "top",
+          "score": null,
+          "title": "No. 87",
+          "category": "World's 100 Best Coffee Shops",
+          "group": "overall",
+          "product": "",
+          "locationId": "L-seven-seeds-carlton",
+          "relation": "entrant_location",
+          "sources": [
+            {
+              "title": "The World's 100 Best Coffee Shops 2025 – TOP 100",
+              "url": "https://theworlds100bestcoffeeshops.com/top-100-coffee-shops/",
+              "archive": "https://web.archive.org/web/20250719044452/https://theworlds100bestcoffeeshops.com/top-100-coffee-shops/",
+              "ref": "官方頁已換成 2026，2025 名單取自 Wayback 存檔（2025-07-19）"
+            }
+          ],
+          "verifiedAt": "2026-11-02"
+        }
+      ],
+      "summary": {
+        "champion": 0,
+        "top100": 1,
+        "best100": 87,
+        "gold": 0,
+        "first": 0,
+        "also": 0,
+        "years": [
+          2025
         ]
       }
     },
@@ -5639,6 +6560,8 @@ var PAGE_DATA = {
       ],
       "summary": {
         "champion": 0,
+        "top100": 0,
+        "best100": null,
         "gold": 4,
         "first": 1,
         "also": 7,
@@ -5939,6 +6862,8 @@ var PAGE_DATA = {
       ],
       "summary": {
         "champion": 0,
+        "top100": 0,
+        "best100": null,
         "gold": 5,
         "first": 0,
         "also": 5,
@@ -6253,6 +7178,8 @@ var PAGE_DATA = {
       ],
       "summary": {
         "champion": 0,
+        "top100": 0,
+        "best100": null,
         "gold": 3,
         "first": 0,
         "also": 8,
@@ -6418,6 +7345,8 @@ var PAGE_DATA = {
       ],
       "summary": {
         "champion": 0,
+        "top100": 0,
+        "best100": null,
         "gold": 3,
         "first": 0,
         "also": 2,
@@ -6643,6 +7572,8 @@ var PAGE_DATA = {
       ],
       "summary": {
         "champion": 0,
+        "top100": 0,
+        "best100": null,
         "gold": 2,
         "first": 1,
         "also": 4,
@@ -6932,6 +7863,8 @@ var PAGE_DATA = {
       ],
       "summary": {
         "champion": 0,
+        "top100": 0,
+        "best100": null,
         "gold": 3,
         "first": 0,
         "also": 6,
@@ -7408,6 +8341,8 @@ var PAGE_DATA = {
       ],
       "summary": {
         "champion": 0,
+        "top100": 0,
+        "best100": null,
         "gold": 3,
         "first": 0,
         "also": 13,
@@ -7597,6 +8532,8 @@ var PAGE_DATA = {
       ],
       "summary": {
         "champion": 0,
+        "top100": 0,
+        "best100": null,
         "gold": 2,
         "first": 0,
         "also": 4,
@@ -7709,6 +8646,8 @@ var PAGE_DATA = {
       ],
       "summary": {
         "champion": 0,
+        "top100": 0,
+        "best100": null,
         "gold": 2,
         "first": 0,
         "also": 0,
@@ -7897,6 +8836,8 @@ var PAGE_DATA = {
       ],
       "summary": {
         "champion": 0,
+        "top100": 0,
+        "best100": null,
         "gold": 2,
         "first": 0,
         "also": 4,
@@ -8161,6 +9102,8 @@ var PAGE_DATA = {
       ],
       "summary": {
         "champion": 0,
+        "top100": 0,
+        "best100": null,
         "gold": 2,
         "first": 0,
         "also": 7,
@@ -8275,6 +9218,8 @@ var PAGE_DATA = {
       ],
       "summary": {
         "champion": 0,
+        "top100": 0,
+        "best100": null,
         "gold": 2,
         "first": 0,
         "also": 1,
@@ -8363,6 +9308,8 @@ var PAGE_DATA = {
       ],
       "summary": {
         "champion": 0,
+        "top100": 0,
+        "best100": null,
         "gold": 2,
         "first": 0,
         "also": 0,
@@ -8551,6 +9498,8 @@ var PAGE_DATA = {
       ],
       "summary": {
         "champion": 0,
+        "top100": 0,
+        "best100": null,
         "gold": 2,
         "first": 0,
         "also": 4,
@@ -8615,6 +9564,8 @@ var PAGE_DATA = {
       ],
       "summary": {
         "champion": 0,
+        "top100": 0,
+        "best100": null,
         "gold": 0,
         "first": 1,
         "also": 0,
@@ -8703,6 +9654,8 @@ var PAGE_DATA = {
       ],
       "summary": {
         "champion": 0,
+        "top100": 0,
+        "best100": null,
         "gold": 1,
         "first": 0,
         "also": 1,
@@ -8844,6 +9797,8 @@ var PAGE_DATA = {
       ],
       "summary": {
         "champion": 0,
+        "top100": 0,
+        "best100": null,
         "gold": 1,
         "first": 0,
         "also": 3,
@@ -9032,6 +9987,8 @@ var PAGE_DATA = {
       ],
       "summary": {
         "champion": 0,
+        "top100": 0,
+        "best100": null,
         "gold": 1,
         "first": 0,
         "also": 5,
@@ -9121,6 +10078,8 @@ var PAGE_DATA = {
       ],
       "summary": {
         "champion": 0,
+        "top100": 0,
+        "best100": null,
         "gold": 1,
         "first": 0,
         "also": 1,
@@ -9235,6 +10194,8 @@ var PAGE_DATA = {
       ],
       "summary": {
         "champion": 0,
+        "top100": 0,
+        "best100": null,
         "gold": 1,
         "first": 0,
         "also": 2,
@@ -9374,6 +10335,8 @@ var PAGE_DATA = {
       ],
       "summary": {
         "champion": 0,
+        "top100": 0,
+        "best100": null,
         "gold": 1,
         "first": 0,
         "also": 3,
@@ -9451,6 +10414,8 @@ var PAGE_DATA = {
       ],
       "summary": {
         "champion": 0,
+        "top100": 0,
+        "best100": null,
         "gold": 1,
         "first": 0,
         "also": 0,
@@ -9539,6 +10504,8 @@ var PAGE_DATA = {
       ],
       "summary": {
         "champion": 0,
+        "top100": 0,
+        "best100": null,
         "gold": 0,
         "first": 1,
         "also": 1,

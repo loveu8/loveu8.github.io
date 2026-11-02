@@ -75,7 +75,7 @@
 | `short_name_zh`、`short_name_en` | text | ✔ | 卡片和篩選按鈕用 |
 | `organiser` | text | ✔ | |
 | `competition_type` | enum | ✔ | `bakery`、`coffee` |
-| `award_system` | enum | ✔ | `medal_by_score`（RAS、GBA）、`placing`（NABC、ASCA） |
+| `award_system` | enum | ✔ | `medal_by_score`（RAS、GBA）、`placing`（NABC、ASCA）、`ranking`（世界百大咖啡店 `W100BCS`，排名 1～100；2026-11-02 加） |
 | `entrant_scope` | enum | ✔ | `business`、`individual`、`mixed`（NABC 有「人名 - 店名」） |
 | `region_scope` | text | ✔ | `Australia`、`Australasia (AU, NZ + others)` |
 | `website_url` | url | ✔ | |
@@ -94,9 +94,9 @@
 | `category_group` | enum | ✔ | 網站篩選用的歸類：`bread`、`sourdough`、`viennoiserie`、`pastry_pie`、`tart_choux`、`cake`、`biscuit`、`gluten_free`、`coffee_espresso`、`coffee_milk`、`coffee_filter`、`coffee_other`、`overall`。對照見下方「班別歸類」 |
 | `product_name` | text | | 官方寫的產品名，**照抄不改寫**（全大寫也照抄，顯示時再處理大小寫） |
 | `official_award_title` | text | ✔ | 例如 `Gold Medal`、`First`、`Champion Bread`、`Overall Champion` |
-| `award_level` | enum | ✔ | `champion`（冠軍／總冠軍）、`medal`、`placing` |
+| `award_level` | enum | ✔ | `champion`（冠軍／總冠軍）、`medal`、`placing`、`ranking`（排名榜上的名次，`rank` 填 1～100，`category_group` 填 `overall`） |
 | `medal_type` | enum | | `gold`、`silver`、`bronze`；`award_level = medal` 時必填，其他必空白 |
-| `rank` | int | | 1、2、3；`award_level = placing` 時必填，其他必空白 |
+| `rank` | int | | `placing`：1、2、3；`ranking`：1～100；這兩種必填，其他必空白 |
 | `score` | decimal | | 官方有公布才填 |
 | `entry_number` | text | | 官方目錄編號 |
 | `recipient_type` | enum | ✔ | `business`、`location`、`individual_for_business`、`individual` |
@@ -215,7 +215,8 @@ competitions 1 ── * awards * ── * sources        （透過 award_sources
 
 **兩層（D1，2026-10-27 決定）**：
 
-- **店家門檻**：店家至少要有一個符合 1～8 的 `champion`、`medal_type = gold` 或 `rank = 1`，整家店才上網站。
+- **店家門檻**：店家至少要有一個符合 1～8 的 `champion`、`medal_type = gold`、`placing` 的 `rank = 1`，或 **`ranking`（進世界百大，名次不限；使用者 2026-11-02 選 A）**，整家店才上網站。`ranking` 的第 2、3 名不是「第 2 名」，不會歸到也推薦。
+- **世界百大咖啡店只收官方店家頁寫的那一間**（使用者 2026-11-02 選 A）：排名評的是那間店的體驗，不像獎牌是產品；獎掛到那間門市（`entrant_location`），不帶出品牌其他分店。
 - **商品清單**：店家過了門檻以後，它的 `medal_type = silver` 和 `rank = 2` 也上網站（條件 1～6、8 一樣要成立），在卡片上標成「也推薦」。銀牌和第 2 名本身**不能**讓一家店上網站。
 - `medal_type = bronze`、`rank = 3` 一律不上網站。
 

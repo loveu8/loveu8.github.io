@@ -18,6 +18,9 @@
    Blue follows Australian show ribbons (1st prize = blue); the user picked it over neutral
    grey, which read like a type tag (2026-11-01, UI-PLAN 3.3). */
 .award-badge-first { background: var(--color-primary-soft); color: var(--color-primary-strong); border-color: var(--color-primary-border); }
+/* A place in The World's 100 Best Coffee Shops: violet, the colour DESIGN.md keeps rare for
+   special moments, so a world ranking does not look like a medal or a podium place (2026-11-02). */
+.award-badge-top100 { background: var(--color-violet-soft); color: var(--color-violet); border-color: var(--color-violet-border); }
 
 /* ── 2. SUMMARY + DETAILS ── */
 .award-summary {
