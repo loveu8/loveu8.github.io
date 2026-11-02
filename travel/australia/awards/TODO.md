@@ -145,10 +145,10 @@ Step 1b 還沒打勾的兩項（PARTIAL 再查、使用者送 Wayback）留到 S
 - [ ] 第一批全部店家寫進 CSV（`CANDIDATES.md` 2.6：36 家、61 間門市）；介紹照試驗 5 家的寫法：一句、講特色、附來源
   - [x] 第 1 批 10 家（2026-11-02，7952456）：Gumnut、Wholegreen、Slowbreads、Crois、Parfait、Hearthe、Sacrebleu!、Madame and Yves、Sébastien Sans Gluten、Tuga → 累計 15 家、35 門市、222 獎。RAS 冠軍重新打開官方 PDF 核對（2024 手冊 p.16、2025 目錄 p.12、2026 手冊 p.11–12）。產生工具加「已確認不同店」備註（Tuga 同一棟兩間店）
   - [x] 第 2 批（2026-11-02）：Hudson's、Doughheads、Bakehouse Delights、Sweet Ivy、Bakealicious、V's Dessert、Pudding Lane、Comeco、Forestway Fresh、Bakers Delight（一個品牌、兩間得獎加盟店，獎掛到門市；Bowral 沒過門檻不收）→ 累計 25 家、46 門市、265 獎。Doughheads 的 RAS 2025 參賽名稱是 MilkJam Co（生產者欄寫 DOUGHHEADS），收進並寫歸屬備註
-  - [ ] Doughheads 上線前再確認營業（報導說店東想出售 The Junction 店）
+  - [x] Doughheads 上線前再確認營業 → 2026-11-02 Google Maps 營業中、地址相同
   - [x] 第 3 批（2026-11-02）：VIC 4 家（Brazen Brownies、Piece of Cake、Wandin、Sourdough Portland）、NT Coles（Casuarina，烘焙師 staff_entry 掛到門市）、咖啡 4 家（Peak、Coffee Mentality、O'GaBee、Coffee Presto；烘焙廠兼咖啡店比照 Glee HQ 標工廠門市）→ 累計 34 家、60 門市、314 獎；新增來源 NABC 2024＋金豆賽 11 個分類
   - [x] 👤 Riviera Bakery（SA）：多個來源說是批發麵包廠 → 使用者 2026-11-02 選 A，先不收，改列 PARTIAL，和 Step 1b 的 7 家一起在上線前用 Chrome 再查（`CANDIDATES.md` 2.6）
-  - [ ] 上線前再查的門市：Coffee Mentality（Time Out 寫 4 間，目前 3 間）、Coffee Presto（目錄寫 Annandale Central 另有 Espresso Bar）、Wandin Bakery（目錄網站同地址寫 Harrys Bakery，確認店名）
+  - [x] 上線前再查的門市（2026-11-02 Step 8，無頭 Chrome 查 Google Maps）：Coffee Mentality Google Maps 只有 3 間（就是收的 3 間），維持；**Coffee Presto Annandale Central 有自家濃縮咖啡吧 → 補上**（使用者選 A，My Maps 重新匯入 61 間，舊 60 間圖層由使用者刪除）；Wandin Bakery 店名在 Google Maps 就是 Wandin Bakery
   - [ ] 手機副標題「34 家 · 60 間門市 · 官方結果 2024–2026」折行時把年份切開
 - [ ] Burleigh Baker 門市重查：報導（BOQ、2026）說另有 Tweed Heads 門市（NSW）、Harris Farm Isle of Capri 專櫃、Currumbin 總部；目前只收 Burleigh Heads、Paradise Point（專櫃照 D2 要收；總部看是不是門市）
 - [ ] `make_awards_data.py` 無 ERROR、無 WARNING
@@ -180,8 +180,8 @@ Step 1b 還沒打勾的兩項（PARTIAL 再查、使用者送 Wayback）留到 S
 
 - [x] 首頁「旅行與探店」加入口（`index.html`，接在布里斯本烘焙地圖後面，🏆；meta description 也加上；2026-11-02，**未 push**）
 - [x] 首頁英文（`scripts/home.js` 翻譯表＋英文 description；`?v=` 更新）；中英、360／1280、淺深色截圖正常，點入口開到得獎地圖，無錯誤
-- [ ] 跑完 `PLAN.md` 第 6 節 16 項檢查表，逐項記結果
-- [ ] 做不到的明確標「未測」
+- [x] 跑完 `PLAN.md` 第 6 節 16 項檢查表，逐項記結果（結果欄寫在 `PLAN.md` 第 6 節）
+- [x] 做不到的明確標「未測」（線上版 Network 要 push 後才能看；iPhone 實機、列印要使用者）
 - [ ] 👤 iPhone 實機
 - [ ] 👤 列印
 - [ ] 👤 同意 push

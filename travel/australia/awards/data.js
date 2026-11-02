@@ -9408,6 +9408,18 @@ var PAGE_DATA = {
           "lng": 146.7998245,
           "type": "factory_shop",
           "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Coffee%20Presto%20103%20Bowen%20Rd%2C%20Rosslea%20QLD%204812"
+        },
+        {
+          "id": "L-coffee-presto-annandale",
+          "name": "Annandale Central",
+          "address": "75 MacArthur Dr, Annandale QLD 4814",
+          "suburb": "Annandale",
+          "city": "Townsville",
+          "state": "QLD",
+          "lat": -19.3169233,
+          "lng": 146.7905677,
+          "type": "standalone",
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Coffee%20Presto%2075%20MacArthur%20Dr%2C%20Annandale%20QLD%204814"
         }
       ],
       "awards": [
