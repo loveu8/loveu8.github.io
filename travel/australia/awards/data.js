@@ -4931,6 +4931,120 @@ var PAGE_DATA = {
       }
     },
     {
+      "id": "B-sweet-ivy",
+      "name": "Sweet Ivy",
+      "types": [
+        "bakery"
+      ],
+      "scope": "retail",
+      "descZh": "Ivy Tran 經營的蛋糕店，客製蛋糕和馬卡龍都在店裡從頭做。",
+      "descEn": "Ivy Tran's cake shop; custom cakes and macarons are made from scratch on site.",
+      "website": "https://sweetivy.com.au/",
+      "instagram": "",
+      "related": [],
+      "locations": [
+        {
+          "id": "L-sweet-ivy-mosman",
+          "name": "Mosman",
+          "address": "10 Reginald St, Mosman NSW 2088",
+          "suburb": "Mosman",
+          "city": "Sydney",
+          "state": "NSW",
+          "lat": -33.8338592,
+          "lng": 151.2293332,
+          "type": "standalone",
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Sweet%20Ivy%2010%20Reginald%20St%2C%20Mosman%20NSW%202088"
+        }
+      ],
+      "awards": [
+        {
+          "id": "RAS-PB-2026-CHAMP-BISCUIT",
+          "comp": "RAS-PB",
+          "year": 2026,
+          "level": "champion",
+          "medal": null,
+          "rank": null,
+          "tier": "top",
+          "score": null,
+          "title": "Champion Biscuit",
+          "category": "Champion Biscuit",
+          "group": "biscuit",
+          "product": "Lemon Macaron",
+          "locationId": null,
+          "relation": "entrant",
+          "sources": [
+            {
+              "title": "2026 Sydney Royal Fine Food Show Champions booklet",
+              "url": "https://www.rasnsw.com.au/globalassets/document-library/rasnsw/competitions/_shared/finefood/2026_finefoodchampionsbooklet_a5_online.pdf",
+              "archive": "https://web.archive.org/web/20261002060509/https://www.rasnsw.com.au/globalassets/document-library/rasnsw/competitions/_shared/finefood/2026_finefoodchampionsbooklet_a5_online.pdf",
+              "ref": "p.11-12 Professional Bakery"
+            }
+          ],
+          "verifiedAt": "2026-11-02"
+        },
+        {
+          "id": "RAS-PB-2026-C13-E179",
+          "comp": "RAS-PB",
+          "year": 2026,
+          "level": "medal",
+          "medal": "gold",
+          "rank": null,
+          "tier": "top",
+          "score": 90.67,
+          "title": "Gold Medal",
+          "category": "Biscuit, Assortment Macaron (e.g., salted caramel, chocolate, pistachio)",
+          "group": "biscuit",
+          "product": "LEMON MACARON",
+          "locationId": null,
+          "relation": "entrant",
+          "sources": [
+            {
+              "title": "myRAS 2026 Professional Bakery results",
+              "url": "https://www.myras.com.au/res/results/CompetitonResults.aspx?TO=0&SY=2026&SN=17&CT=2&WT=&WST=&EN=All%20Exhibitors&TN=All+Towns&PC1=&PC2=&CL1=&CL2=&REGION=All+regions&ST=&EI=1&OR=1",
+              "archive": "",
+              "ref": ""
+            }
+          ],
+          "verifiedAt": "2026-10-26"
+        },
+        {
+          "id": "RAS-PB-2025-C14-E246",
+          "comp": "RAS-PB",
+          "year": 2025,
+          "level": "medal",
+          "medal": "silver",
+          "rank": null,
+          "tier": "also",
+          "score": 85.0,
+          "title": "Silver Medal",
+          "category": "Biscuit, Assortment Macaron (e.g., salted caramel, chocolate, pistachio)",
+          "group": "biscuit",
+          "product": "SWEET IVY MANDARIN PINEAPPLE MACARON",
+          "locationId": null,
+          "relation": "entrant",
+          "sources": [
+            {
+              "title": "myRAS 2025 Professional Bakery results",
+              "url": "https://www.myras.com.au/res/results/CompetitonResults.aspx?TO=0&SY=2025&SN=17&CT=2&WT=&WST=&EN=All%20Exhibitors&TN=All+Towns&PC1=&PC2=&CL1=&CL2=&REGION=All+regions&ST=&EI=1&OR=1",
+              "archive": "https://web.archive.org/web/20260506173657/https://www.myras.com.au/res/results/CompetitonResults.aspx?TO=0&SY=2025&SN=17&CT=2&WT=&WST=&EN=All%20Exhibitors&TN=All+Towns&PC1=&PC2=&CL1=&CL2=&REGION=All+regions&ST=&EI=1&OR=1",
+              "ref": ""
+            }
+          ],
+          "verifiedAt": "2026-10-26"
+        }
+      ],
+      "summary": {
+        "champion": 1,
+        "gold": 1,
+        "first": 0,
+        "also": 1,
+        "years": [
+          2025,
+          2026
+        ]
+      }
+    },
+    {
       "id": "B-burleigh-baker",
       "name": "Burleigh Baker",
       "types": [
@@ -5899,6 +6013,583 @@ var PAGE_DATA = {
       }
     },
     {
+      "id": "B-bakealicious",
+      "name": "Bakealicious by Gabriela",
+      "types": [
+        "bakery"
+      ],
+      "scope": "retail",
+      "descZh": "Gabriela Oporto 的蛋糕店，做過 Taylor Swift 的蛋糕，也做無麩質、無糖、純素等特殊飲食的蛋糕。",
+      "descEn": "Gabriela Oporto's cake shop, which has baked for Taylor Swift and makes cakes for gluten-free, sugar-free and vegan diets.",
+      "website": "https://bakealiciousbygabriela.com.au/",
+      "instagram": "",
+      "related": [],
+      "locations": [
+        {
+          "id": "L-bakealicious-forestville",
+          "name": "Forestville",
+          "address": "Shop 13 The Centre, Forestville NSW 2087",
+          "suburb": "Forestville",
+          "city": "Sydney",
+          "state": "NSW",
+          "lat": -33.7623997,
+          "lng": 151.2158884,
+          "type": "standalone",
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Bakealicious%20by%20Gabriela%20Shop%2013%20The%20Centre%2C%20Forestville%20NSW%202087"
+        }
+      ],
+      "awards": [
+        {
+          "id": "RAS-PB-2025-C6-E128",
+          "comp": "RAS-PB",
+          "year": 2025,
+          "level": "medal",
+          "medal": "gold",
+          "rank": null,
+          "tier": "top",
+          "score": 92.17,
+          "title": "Gold Medal",
+          "category": "Cakes, Tortes & Gateaux (e.g., classic chocolate, mud cake, white chocolate, blueberry, carrot, vanilla, sponge, etc.)",
+          "group": "cake",
+          "product": "FLOURLESS CHOCOLATE, HAZELNUT AND RASPBERRY CAKE",
+          "locationId": null,
+          "relation": "entrant",
+          "sources": [
+            {
+              "title": "myRAS 2025 Professional Bakery results",
+              "url": "https://www.myras.com.au/res/results/CompetitonResults.aspx?TO=0&SY=2025&SN=17&CT=2&WT=&WST=&EN=All%20Exhibitors&TN=All+Towns&PC1=&PC2=&CL1=&CL2=&REGION=All+regions&ST=&EI=1&OR=1",
+              "archive": "https://web.archive.org/web/20260506173657/https://www.myras.com.au/res/results/CompetitonResults.aspx?TO=0&SY=2025&SN=17&CT=2&WT=&WST=&EN=All%20Exhibitors&TN=All+Towns&PC1=&PC2=&CL1=&CL2=&REGION=All+regions&ST=&EI=1&OR=1",
+              "ref": ""
+            }
+          ],
+          "verifiedAt": "2026-10-26"
+        },
+        {
+          "id": "RAS-PB-2025-C6-E131",
+          "comp": "RAS-PB",
+          "year": 2025,
+          "level": "medal",
+          "medal": "gold",
+          "rank": null,
+          "tier": "top",
+          "score": 91.0,
+          "title": "Gold Medal",
+          "category": "Cakes, Tortes & Gateaux (e.g., classic chocolate, mud cake, white chocolate, blueberry, carrot, vanilla, sponge, etc.)",
+          "group": "cake",
+          "product": "HONEY RUSSIAN CAKE",
+          "locationId": null,
+          "relation": "entrant",
+          "sources": [
+            {
+              "title": "myRAS 2025 Professional Bakery results",
+              "url": "https://www.myras.com.au/res/results/CompetitonResults.aspx?TO=0&SY=2025&SN=17&CT=2&WT=&WST=&EN=All%20Exhibitors&TN=All+Towns&PC1=&PC2=&CL1=&CL2=&REGION=All+regions&ST=&EI=1&OR=1",
+              "archive": "https://web.archive.org/web/20260506173657/https://www.myras.com.au/res/results/CompetitonResults.aspx?TO=0&SY=2025&SN=17&CT=2&WT=&WST=&EN=All%20Exhibitors&TN=All+Towns&PC1=&PC2=&CL1=&CL2=&REGION=All+regions&ST=&EI=1&OR=1",
+              "ref": ""
+            }
+          ],
+          "verifiedAt": "2026-10-26"
+        },
+        {
+          "id": "RAS-PB-2025-C5-E102",
+          "comp": "RAS-PB",
+          "year": 2025,
+          "level": "medal",
+          "medal": "gold",
+          "rank": null,
+          "tier": "top",
+          "score": 90.0,
+          "title": "Gold Medal",
+          "category": "Small Cakes (e.g., muffins, cupcakes, donuts, lamingtons, etc.)",
+          "group": "cake",
+          "product": "VEGAN VICTORIA SPONGE CUPCAKE",
+          "locationId": null,
+          "relation": "entrant",
+          "sources": [
+            {
+              "title": "myRAS 2025 Professional Bakery results",
+              "url": "https://www.myras.com.au/res/results/CompetitonResults.aspx?TO=0&SY=2025&SN=17&CT=2&WT=&WST=&EN=All%20Exhibitors&TN=All+Towns&PC1=&PC2=&CL1=&CL2=&REGION=All+regions&ST=&EI=1&OR=1",
+              "archive": "https://web.archive.org/web/20260506173657/https://www.myras.com.au/res/results/CompetitonResults.aspx?TO=0&SY=2025&SN=17&CT=2&WT=&WST=&EN=All%20Exhibitors&TN=All+Towns&PC1=&PC2=&CL1=&CL2=&REGION=All+regions&ST=&EI=1&OR=1",
+              "ref": ""
+            }
+          ],
+          "verifiedAt": "2026-10-26"
+        },
+        {
+          "id": "RAS-PB-2025-C6-E147",
+          "comp": "RAS-PB",
+          "year": 2025,
+          "level": "medal",
+          "medal": "silver",
+          "rank": null,
+          "tier": "also",
+          "score": 86.67,
+          "title": "Silver Medal",
+          "category": "Cakes, Tortes & Gateaux (e.g., classic chocolate, mud cake, white chocolate, blueberry, carrot, vanilla, sponge, etc.)",
+          "group": "cake",
+          "product": "DULCE DE LECHE CHEESECAKE",
+          "locationId": null,
+          "relation": "entrant",
+          "sources": [
+            {
+              "title": "myRAS 2025 Professional Bakery results",
+              "url": "https://www.myras.com.au/res/results/CompetitonResults.aspx?TO=0&SY=2025&SN=17&CT=2&WT=&WST=&EN=All%20Exhibitors&TN=All+Towns&PC1=&PC2=&CL1=&CL2=&REGION=All+regions&ST=&EI=1&OR=1",
+              "archive": "https://web.archive.org/web/20260506173657/https://www.myras.com.au/res/results/CompetitonResults.aspx?TO=0&SY=2025&SN=17&CT=2&WT=&WST=&EN=All%20Exhibitors&TN=All+Towns&PC1=&PC2=&CL1=&CL2=&REGION=All+regions&ST=&EI=1&OR=1",
+              "ref": ""
+            }
+          ],
+          "verifiedAt": "2026-10-26"
+        },
+        {
+          "id": "RAS-PB-2025-C5-E94",
+          "comp": "RAS-PB",
+          "year": 2025,
+          "level": "medal",
+          "medal": "silver",
+          "rank": null,
+          "tier": "also",
+          "score": 85.0,
+          "title": "Silver Medal",
+          "category": "Small Cakes (e.g., muffins, cupcakes, donuts, lamingtons, etc.)",
+          "group": "cake",
+          "product": "GF LEMON MERINGUE CUPCAKES",
+          "locationId": null,
+          "relation": "entrant",
+          "sources": [
+            {
+              "title": "myRAS 2025 Professional Bakery results",
+              "url": "https://www.myras.com.au/res/results/CompetitonResults.aspx?TO=0&SY=2025&SN=17&CT=2&WT=&WST=&EN=All%20Exhibitors&TN=All+Towns&PC1=&PC2=&CL1=&CL2=&REGION=All+regions&ST=&EI=1&OR=1",
+              "archive": "https://web.archive.org/web/20260506173657/https://www.myras.com.au/res/results/CompetitonResults.aspx?TO=0&SY=2025&SN=17&CT=2&WT=&WST=&EN=All%20Exhibitors&TN=All+Towns&PC1=&PC2=&CL1=&CL2=&REGION=All+regions&ST=&EI=1&OR=1",
+              "ref": ""
+            }
+          ],
+          "verifiedAt": "2026-10-26"
+        }
+      ],
+      "summary": {
+        "champion": 0,
+        "gold": 3,
+        "first": 0,
+        "also": 2,
+        "years": [
+          2025
+        ]
+      }
+    },
+    {
+      "id": "B-bakers-delight",
+      "name": "Bakers Delight",
+      "types": [
+        "bakery"
+      ],
+      "scope": "chain_franchise",
+      "descZh": "1980 年從墨爾本 Hawthorn 一家店起步的連鎖麵包店；這裡只列拿到獎的兩間加盟店。",
+      "descEn": "A bakery chain that grew from one shop in Hawthorn, Melbourne in 1980; only the two award-winning franchise stores are listed.",
+      "website": "https://www.bakersdelight.com.au/",
+      "instagram": "",
+      "related": [],
+      "locations": [
+        {
+          "id": "L-bakers-delight-lane-cove",
+          "name": "Lane Cove",
+          "address": "2/23 Burns Bay Rd, Lane Cove NSW 2066",
+          "suburb": "Lane Cove",
+          "city": "Sydney",
+          "state": "NSW",
+          "lat": -33.8144986,
+          "lng": 151.1691365,
+          "type": "standalone",
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Bakers%20Delight%202/23%20Burns%20Bay%20Rd%2C%20Lane%20Cove%20NSW%202066"
+        },
+        {
+          "id": "L-bakers-delight-albion-park-rail",
+          "name": "Albion Park Rail",
+          "address": "Unit 1/183 Princes Hwy, Albion Park Rail NSW 2527",
+          "suburb": "Albion Park Rail",
+          "city": "Shellharbour",
+          "state": "NSW",
+          "lat": -34.5608445,
+          "lng": 150.796014,
+          "type": "standalone",
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Bakers%20Delight%20Unit%201/183%20Princes%20Hwy%2C%20Albion%20Park%20Rail%20NSW%202527"
+        }
+      ],
+      "awards": [
+        {
+          "id": "RAS-PB-2025-C8-E157",
+          "comp": "RAS-PB",
+          "year": 2025,
+          "level": "medal",
+          "medal": "gold",
+          "rank": null,
+          "tier": "top",
+          "score": 91.0,
+          "title": "Gold Medal",
+          "category": "Sweet Breads (e.g., banana bread, fruit log, date loaf, etc.)",
+          "group": "cake",
+          "product": "CHIA & FRUIT LOAF",
+          "locationId": "L-bakers-delight-lane-cove",
+          "relation": "entrant_location",
+          "sources": [
+            {
+              "title": "myRAS 2025 Professional Bakery results",
+              "url": "https://www.myras.com.au/res/results/CompetitonResults.aspx?TO=0&SY=2025&SN=17&CT=2&WT=&WST=&EN=All%20Exhibitors&TN=All+Towns&PC1=&PC2=&CL1=&CL2=&REGION=All+regions&ST=&EI=1&OR=1",
+              "archive": "https://web.archive.org/web/20260506173657/https://www.myras.com.au/res/results/CompetitonResults.aspx?TO=0&SY=2025&SN=17&CT=2&WT=&WST=&EN=All%20Exhibitors&TN=All+Towns&PC1=&PC2=&CL1=&CL2=&REGION=All+regions&ST=&EI=1&OR=1",
+              "ref": ""
+            }
+          ],
+          "verifiedAt": "2026-10-26"
+        },
+        {
+          "id": "RAS-PB-2025-C1-E11",
+          "comp": "RAS-PB",
+          "year": 2025,
+          "level": "medal",
+          "medal": "gold",
+          "rank": null,
+          "tier": "top",
+          "score": 90.0,
+          "title": "Gold Medal",
+          "category": "Traditional Bread, including White, Grain, Wholemeal & Rye",
+          "group": "bread",
+          "product": "WHOLEMEAL BLOCK LOAF 4 PIECE",
+          "locationId": "L-bakers-delight-lane-cove",
+          "relation": "entrant_location",
+          "sources": [
+            {
+              "title": "myRAS 2025 Professional Bakery results",
+              "url": "https://www.myras.com.au/res/results/CompetitonResults.aspx?TO=0&SY=2025&SN=17&CT=2&WT=&WST=&EN=All%20Exhibitors&TN=All+Towns&PC1=&PC2=&CL1=&CL2=&REGION=All+regions&ST=&EI=1&OR=1",
+              "archive": "https://web.archive.org/web/20260506173657/https://www.myras.com.au/res/results/CompetitonResults.aspx?TO=0&SY=2025&SN=17&CT=2&WT=&WST=&EN=All%20Exhibitors&TN=All+Towns&PC1=&PC2=&CL1=&CL2=&REGION=All+regions&ST=&EI=1&OR=1",
+              "ref": ""
+            }
+          ],
+          "verifiedAt": "2026-10-26"
+        },
+        {
+          "id": "NABC-2025-C003-P1",
+          "comp": "NABC",
+          "year": 2025,
+          "level": "placing",
+          "medal": null,
+          "rank": 1,
+          "tier": "top",
+          "score": null,
+          "title": "First",
+          "category": "Ciabatta Loaf - Minimum 200gm",
+          "group": "bread",
+          "product": "",
+          "locationId": "L-bakers-delight-albion-park-rail",
+          "relation": "entrant_location",
+          "sources": [
+            {
+              "title": "2025 National Artisan Baking Competition official results",
+              "url": "https://bakingtradeshow.com.au/wp-content/uploads/2025/07/2025-National-Artisan-Baking-Competition-Official-results.pdf",
+              "archive": "https://web.archive.org/web/20260421193421/https://bakingtradeshow.com.au/wp-content/uploads/2025/07/2025-National-Artisan-Baking-Competition-Official-results.pdf",
+              "ref": ""
+            }
+          ],
+          "verifiedAt": "2026-10-26"
+        },
+        {
+          "id": "RAS-PB-2025-C1-E3",
+          "comp": "RAS-PB",
+          "year": 2025,
+          "level": "medal",
+          "medal": "silver",
+          "rank": null,
+          "tier": "also",
+          "score": 85.67,
+          "title": "Silver Medal",
+          "category": "Traditional Bread, including White, Grain, Wholemeal & Rye",
+          "group": "bread",
+          "product": "WHITE BLOCK LOAF (4 PIECE)",
+          "locationId": "L-bakers-delight-lane-cove",
+          "relation": "entrant_location",
+          "sources": [
+            {
+              "title": "myRAS 2025 Professional Bakery results",
+              "url": "https://www.myras.com.au/res/results/CompetitonResults.aspx?TO=0&SY=2025&SN=17&CT=2&WT=&WST=&EN=All%20Exhibitors&TN=All+Towns&PC1=&PC2=&CL1=&CL2=&REGION=All+regions&ST=&EI=1&OR=1",
+              "archive": "https://web.archive.org/web/20260506173657/https://www.myras.com.au/res/results/CompetitonResults.aspx?TO=0&SY=2025&SN=17&CT=2&WT=&WST=&EN=All%20Exhibitors&TN=All+Towns&PC1=&PC2=&CL1=&CL2=&REGION=All+regions&ST=&EI=1&OR=1",
+              "ref": ""
+            }
+          ],
+          "verifiedAt": "2026-10-26"
+        },
+        {
+          "id": "RAS-PB-2025-C1-E8",
+          "comp": "RAS-PB",
+          "year": 2025,
+          "level": "medal",
+          "medal": "silver",
+          "rank": null,
+          "tier": "also",
+          "score": 85.67,
+          "title": "Silver Medal",
+          "category": "Traditional Bread, including White, Grain, Wholemeal & Rye",
+          "group": "bread",
+          "product": "HI PROTEIN, WHOLE GRAIN LOAF",
+          "locationId": "L-bakers-delight-lane-cove",
+          "relation": "entrant_location",
+          "sources": [
+            {
+              "title": "myRAS 2025 Professional Bakery results",
+              "url": "https://www.myras.com.au/res/results/CompetitonResults.aspx?TO=0&SY=2025&SN=17&CT=2&WT=&WST=&EN=All%20Exhibitors&TN=All+Towns&PC1=&PC2=&CL1=&CL2=&REGION=All+regions&ST=&EI=1&OR=1",
+              "archive": "https://web.archive.org/web/20260506173657/https://www.myras.com.au/res/results/CompetitonResults.aspx?TO=0&SY=2025&SN=17&CT=2&WT=&WST=&EN=All%20Exhibitors&TN=All+Towns&PC1=&PC2=&CL1=&CL2=&REGION=All+regions&ST=&EI=1&OR=1",
+              "ref": ""
+            }
+          ],
+          "verifiedAt": "2026-10-26"
+        },
+        {
+          "id": "RAS-PB-2024-C2-E26",
+          "comp": "RAS-PB",
+          "year": 2024,
+          "level": "medal",
+          "medal": "silver",
+          "rank": null,
+          "tier": "also",
+          "score": 83.67,
+          "title": "Silver Medal",
+          "category": "Sour Dough, including Rye",
+          "group": "sourdough",
+          "product": "MIXED SEED SOUR DOUGH VIENNA",
+          "locationId": "L-bakers-delight-lane-cove",
+          "relation": "entrant_location",
+          "sources": [
+            {
+              "title": "myRAS 2024 Professional Bakery results",
+              "url": "https://www.myras.com.au/res/results/CompetitonResults.aspx?TO=0&SY=2024&SN=17&CT=2&WT=&WST=&EN=All%20Exhibitors&TN=All+Towns&PC1=&PC2=&CL1=&CL2=&REGION=All+regions&ST=&EI=1&OR=1",
+              "archive": "",
+              "ref": ""
+            }
+          ],
+          "verifiedAt": "2026-10-26"
+        },
+        {
+          "id": "RAS-PB-2024-C3-E42",
+          "comp": "RAS-PB",
+          "year": 2024,
+          "level": "medal",
+          "medal": "silver",
+          "rank": null,
+          "tier": "also",
+          "score": 82.33,
+          "title": "Silver Medal",
+          "category": "International Bread (e.g. baguette, ciabatta, chapatti, flatbread, etc.)",
+          "group": "bread",
+          "product": "OLIVE PANE DI CASA",
+          "locationId": "L-bakers-delight-lane-cove",
+          "relation": "entrant_location",
+          "sources": [
+            {
+              "title": "myRAS 2024 Professional Bakery results",
+              "url": "https://www.myras.com.au/res/results/CompetitonResults.aspx?TO=0&SY=2024&SN=17&CT=2&WT=&WST=&EN=All%20Exhibitors&TN=All+Towns&PC1=&PC2=&CL1=&CL2=&REGION=All+regions&ST=&EI=1&OR=1",
+              "archive": "",
+              "ref": ""
+            }
+          ],
+          "verifiedAt": "2026-10-26"
+        }
+      ],
+      "summary": {
+        "champion": 0,
+        "gold": 2,
+        "first": 1,
+        "also": 4,
+        "years": [
+          2024,
+          2025
+        ]
+      }
+    },
+    {
+      "id": "B-bakehouse-delights",
+      "name": "Bakehouse Delights",
+      "types": [
+        "bakery"
+      ],
+      "scope": "retail",
+      "descZh": "Nowra 經營十多年的在地麵包店，賣派、香草千層和全麥、酸種麵包。",
+      "descEn": "A local Nowra bakery of more than a decade, selling pies, vanilla slices and wholegrain and sourdough bread.",
+      "website": "",
+      "instagram": "",
+      "related": [],
+      "locations": [
+        {
+          "id": "L-bakehouse-delights-nowra",
+          "name": "Nowra",
+          "address": "6/110 Kalandar St, Nowra NSW 2541",
+          "suburb": "Nowra",
+          "city": "Nowra",
+          "state": "NSW",
+          "lat": -34.8884691,
+          "lng": 150.608724,
+          "type": "standalone",
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Bakehouse%20Delights%206/110%20Kalandar%20St%2C%20Nowra%20NSW%202541"
+        }
+      ],
+      "awards": [
+        {
+          "id": "RAS-PB-2026-C16-E197",
+          "comp": "RAS-PB",
+          "year": 2026,
+          "level": "medal",
+          "medal": "gold",
+          "rank": null,
+          "tier": "top",
+          "score": 90.33,
+          "title": "Gold Medal",
+          "category": "Savoury Pie, Pastie or Sausage/Vegetarian Roll. Made with shortcrust or puff pastry (e.g. beef pie, chicken and broccoli, vegetarian, etc.)",
+          "group": "pastry_pie",
+          "product": "GOURMET PIE",
+          "locationId": null,
+          "relation": "entrant",
+          "sources": [
+            {
+              "title": "myRAS 2026 Professional Bakery results",
+              "url": "https://www.myras.com.au/res/results/CompetitonResults.aspx?TO=0&SY=2026&SN=17&CT=2&WT=&WST=&EN=All%20Exhibitors&TN=All+Towns&PC1=&PC2=&CL1=&CL2=&REGION=All+regions&ST=&EI=1&OR=1",
+              "archive": "",
+              "ref": ""
+            }
+          ],
+          "verifiedAt": "2026-10-26"
+        },
+        {
+          "id": "RAS-PB-2026-C1-E4",
+          "comp": "RAS-PB",
+          "year": 2026,
+          "level": "medal",
+          "medal": "gold",
+          "rank": null,
+          "tier": "top",
+          "score": 90.0,
+          "title": "Gold Medal",
+          "category": "Traditional Bread, including White, Grain, Wholemeal & Rye",
+          "group": "bread",
+          "product": "WHITE LOAF",
+          "locationId": null,
+          "relation": "entrant",
+          "sources": [
+            {
+              "title": "myRAS 2026 Professional Bakery results",
+              "url": "https://www.myras.com.au/res/results/CompetitonResults.aspx?TO=0&SY=2026&SN=17&CT=2&WT=&WST=&EN=All%20Exhibitors&TN=All+Towns&PC1=&PC2=&CL1=&CL2=&REGION=All+regions&ST=&EI=1&OR=1",
+              "archive": "",
+              "ref": ""
+            }
+          ],
+          "verifiedAt": "2026-10-26"
+        },
+        {
+          "id": "RAS-PB-2026-C1-E7",
+          "comp": "RAS-PB",
+          "year": 2026,
+          "level": "medal",
+          "medal": "silver",
+          "rank": null,
+          "tier": "also",
+          "score": 88.0,
+          "title": "Silver Medal",
+          "category": "Traditional Bread, including White, Grain, Wholemeal & Rye",
+          "group": "bread",
+          "product": "MULTI GRAIN LOAF",
+          "locationId": null,
+          "relation": "entrant",
+          "sources": [
+            {
+              "title": "myRAS 2026 Professional Bakery results",
+              "url": "https://www.myras.com.au/res/results/CompetitonResults.aspx?TO=0&SY=2026&SN=17&CT=2&WT=&WST=&EN=All%20Exhibitors&TN=All+Towns&PC1=&PC2=&CL1=&CL2=&REGION=All+regions&ST=&EI=1&OR=1",
+              "archive": "",
+              "ref": ""
+            }
+          ],
+          "verifiedAt": "2026-10-26"
+        },
+        {
+          "id": "RAS-PB-2026-C1-E10",
+          "comp": "RAS-PB",
+          "year": 2026,
+          "level": "medal",
+          "medal": "silver",
+          "rank": null,
+          "tier": "also",
+          "score": 85.0,
+          "title": "Silver Medal",
+          "category": "Traditional Bread, including White, Grain, Wholemeal & Rye",
+          "group": "bread",
+          "product": "WHOLEMEAL LOAF",
+          "locationId": null,
+          "relation": "entrant",
+          "sources": [
+            {
+              "title": "myRAS 2026 Professional Bakery results",
+              "url": "https://www.myras.com.au/res/results/CompetitonResults.aspx?TO=0&SY=2026&SN=17&CT=2&WT=&WST=&EN=All%20Exhibitors&TN=All+Towns&PC1=&PC2=&CL1=&CL2=&REGION=All+regions&ST=&EI=1&OR=1",
+              "archive": "",
+              "ref": ""
+            }
+          ],
+          "verifiedAt": "2026-10-26"
+        },
+        {
+          "id": "RAS-PB-2026-C11-E140",
+          "comp": "RAS-PB",
+          "year": 2026,
+          "level": "medal",
+          "medal": "silver",
+          "rank": null,
+          "tier": "also",
+          "score": 84.33,
+          "title": "Silver Medal",
+          "category": "Biscuit, Sweet, Chocolate, Nut or Other (e.g. triple chocolate, chocolate pinwheels, macadamia, cashew, shortbread, etc.)",
+          "group": "biscuit",
+          "product": "ANZAC BISCUITS",
+          "locationId": null,
+          "relation": "entrant",
+          "sources": [
+            {
+              "title": "myRAS 2026 Professional Bakery results",
+              "url": "https://www.myras.com.au/res/results/CompetitonResults.aspx?TO=0&SY=2026&SN=17&CT=2&WT=&WST=&EN=All%20Exhibitors&TN=All+Towns&PC1=&PC2=&CL1=&CL2=&REGION=All+regions&ST=&EI=1&OR=1",
+              "archive": "",
+              "ref": ""
+            }
+          ],
+          "verifiedAt": "2026-10-26"
+        },
+        {
+          "id": "RAS-PB-2026-C16-E196",
+          "comp": "RAS-PB",
+          "year": 2026,
+          "level": "medal",
+          "medal": "silver",
+          "rank": null,
+          "tier": "also",
+          "score": 82.67,
+          "title": "Silver Medal",
+          "category": "Savoury Pie, Pastie or Sausage/Vegetarian Roll. Made with shortcrust or puff pastry (e.g. beef pie, chicken and broccoli, vegetarian, etc.)",
+          "group": "pastry_pie",
+          "product": "REMOS CHUNKY BEEF PIE",
+          "locationId": null,
+          "relation": "entrant",
+          "sources": [
+            {
+              "title": "myRAS 2026 Professional Bakery results",
+              "url": "https://www.myras.com.au/res/results/CompetitonResults.aspx?TO=0&SY=2026&SN=17&CT=2&WT=&WST=&EN=All%20Exhibitors&TN=All+Towns&PC1=&PC2=&CL1=&CL2=&REGION=All+regions&ST=&EI=1&OR=1",
+              "archive": "",
+              "ref": ""
+            }
+          ],
+          "verifiedAt": "2026-10-26"
+        }
+      ],
+      "summary": {
+        "champion": 0,
+        "gold": 2,
+        "first": 0,
+        "also": 4,
+        "years": [
+          2026
+        ]
+      }
+    },
+    {
       "id": "B-tuga-pastries",
       "name": "Tuga Pastries",
       "types": [
@@ -6007,6 +6698,308 @@ var PAGE_DATA = {
         "also": 0,
         "years": [
           2026
+        ]
+      }
+    },
+    {
+      "id": "B-vs-dessert",
+      "name": "V's Dessert Gluten Free",
+      "types": [
+        "bakery"
+      ],
+      "scope": "retail",
+      "descZh": "前高級餐廳主廚 Vivian Wang 的全無麩質甜點店，招牌是巴斯克乳酪蛋糕。",
+      "descEn": "Former fine-dining chef Vivian Wang's entirely gluten-free dessert shop, best known for its Basque cheesecake.",
+      "website": "",
+      "instagram": "https://www.instagram.com/vsdessert_glutenfree/",
+      "related": [],
+      "locations": [
+        {
+          "id": "L-vs-dessert-dee-why",
+          "name": "Dee Why",
+          "address": "Shop 22/2b Francis St, Dee Why NSW 2099",
+          "suburb": "Dee Why",
+          "city": "Sydney",
+          "state": "NSW",
+          "lat": -33.7534332,
+          "lng": 151.2832929,
+          "type": "standalone",
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=V%27s%20Dessert%20Gluten%20Free%20Shop%2022/2b%20Francis%20St%2C%20Dee%20Why%20NSW%202099"
+        }
+      ],
+      "awards": [
+        {
+          "id": "RAS-PB-2026-C10-E125",
+          "comp": "RAS-PB",
+          "year": 2026,
+          "level": "medal",
+          "medal": "gold",
+          "rank": null,
+          "tier": "top",
+          "score": 91.67,
+          "title": "Gold Medal",
+          "category": "Brownies & Slices (e.g., fudge brownie, caramel slice, muesli slice, etc.)",
+          "group": "cake",
+          "product": "72HR TRIPLE CHOC HAZELNUT BROWNIE",
+          "locationId": null,
+          "relation": "entrant",
+          "sources": [
+            {
+              "title": "myRAS 2026 Professional Bakery results",
+              "url": "https://www.myras.com.au/res/results/CompetitonResults.aspx?TO=0&SY=2026&SN=17&CT=2&WT=&WST=&EN=All%20Exhibitors&TN=All+Towns&PC1=&PC2=&CL1=&CL2=&REGION=All+regions&ST=&EI=1&OR=1",
+              "archive": "",
+              "ref": ""
+            }
+          ],
+          "verifiedAt": "2026-10-26"
+        },
+        {
+          "id": "RAS-PB-2026-C5-E79",
+          "comp": "RAS-PB",
+          "year": 2026,
+          "level": "medal",
+          "medal": "gold",
+          "rank": null,
+          "tier": "top",
+          "score": 90.33,
+          "title": "Gold Medal",
+          "category": "Small Cakes (e.g., muffins, cupcakes, donuts, lamingtons, etc.)",
+          "group": "cake",
+          "product": "BANANA ALMOND CAKE",
+          "locationId": null,
+          "relation": "entrant",
+          "sources": [
+            {
+              "title": "myRAS 2026 Professional Bakery results",
+              "url": "https://www.myras.com.au/res/results/CompetitonResults.aspx?TO=0&SY=2026&SN=17&CT=2&WT=&WST=&EN=All%20Exhibitors&TN=All+Towns&PC1=&PC2=&CL1=&CL2=&REGION=All+regions&ST=&EI=1&OR=1",
+              "archive": "",
+              "ref": ""
+            }
+          ],
+          "verifiedAt": "2026-10-26"
+        },
+        {
+          "id": "RAS-PB-2026-C6-E97",
+          "comp": "RAS-PB",
+          "year": 2026,
+          "level": "medal",
+          "medal": "silver",
+          "rank": null,
+          "tier": "also",
+          "score": 85.67,
+          "title": "Silver Medal",
+          "category": "Cakes, Tortes & Gateaux (e.g., classic chocolate, mud cake, white chocolate, blueberry, carrot, vanilla, sponge, etc.)",
+          "group": "cake",
+          "product": "ANGEL CHIFFON",
+          "locationId": null,
+          "relation": "entrant",
+          "sources": [
+            {
+              "title": "myRAS 2026 Professional Bakery results",
+              "url": "https://www.myras.com.au/res/results/CompetitonResults.aspx?TO=0&SY=2026&SN=17&CT=2&WT=&WST=&EN=All%20Exhibitors&TN=All+Towns&PC1=&PC2=&CL1=&CL2=&REGION=All+regions&ST=&EI=1&OR=1",
+              "archive": "",
+              "ref": ""
+            }
+          ],
+          "verifiedAt": "2026-10-26"
+        },
+        {
+          "id": "RAS-PB-2026-C11-E129",
+          "comp": "RAS-PB",
+          "year": 2026,
+          "level": "medal",
+          "medal": "silver",
+          "rank": null,
+          "tier": "also",
+          "score": 85.0,
+          "title": "Silver Medal",
+          "category": "Biscuit, Sweet, Chocolate, Nut or Other (e.g. triple chocolate, chocolate pinwheels, macadamia, cashew, shortbread, etc.)",
+          "group": "biscuit",
+          "product": "CHOC CHIP COOKIE",
+          "locationId": null,
+          "relation": "entrant",
+          "sources": [
+            {
+              "title": "myRAS 2026 Professional Bakery results",
+              "url": "https://www.myras.com.au/res/results/CompetitonResults.aspx?TO=0&SY=2026&SN=17&CT=2&WT=&WST=&EN=All%20Exhibitors&TN=All+Towns&PC1=&PC2=&CL1=&CL2=&REGION=All+regions&ST=&EI=1&OR=1",
+              "archive": "",
+              "ref": ""
+            }
+          ],
+          "verifiedAt": "2026-10-26"
+        },
+        {
+          "id": "RAS-PB-2026-C5-E81",
+          "comp": "RAS-PB",
+          "year": 2026,
+          "level": "medal",
+          "medal": "silver",
+          "rank": null,
+          "tier": "also",
+          "score": 83.67,
+          "title": "Silver Medal",
+          "category": "Small Cakes (e.g., muffins, cupcakes, donuts, lamingtons, etc.)",
+          "group": "cake",
+          "product": "FLOURLESS CHOCOLATE CAKE",
+          "locationId": null,
+          "relation": "entrant",
+          "sources": [
+            {
+              "title": "myRAS 2026 Professional Bakery results",
+              "url": "https://www.myras.com.au/res/results/CompetitonResults.aspx?TO=0&SY=2026&SN=17&CT=2&WT=&WST=&EN=All%20Exhibitors&TN=All+Towns&PC1=&PC2=&CL1=&CL2=&REGION=All+regions&ST=&EI=1&OR=1",
+              "archive": "",
+              "ref": ""
+            }
+          ],
+          "verifiedAt": "2026-10-26"
+        },
+        {
+          "id": "RAS-PB-2025-C6-E119",
+          "comp": "RAS-PB",
+          "year": 2025,
+          "level": "medal",
+          "medal": "silver",
+          "rank": null,
+          "tier": "also",
+          "score": 82.33,
+          "title": "Silver Medal",
+          "category": "Cakes, Tortes & Gateaux (e.g., classic chocolate, mud cake, white chocolate, blueberry, carrot, vanilla, sponge, etc.)",
+          "group": "cake",
+          "product": "DAMN GOOD CHOCOLATE CAKE (GLUTEN FREE)",
+          "locationId": null,
+          "relation": "entrant",
+          "sources": [
+            {
+              "title": "myRAS 2025 Professional Bakery results",
+              "url": "https://www.myras.com.au/res/results/CompetitonResults.aspx?TO=0&SY=2025&SN=17&CT=2&WT=&WST=&EN=All%20Exhibitors&TN=All+Towns&PC1=&PC2=&CL1=&CL2=&REGION=All+regions&ST=&EI=1&OR=1",
+              "archive": "https://web.archive.org/web/20260506173657/https://www.myras.com.au/res/results/CompetitonResults.aspx?TO=0&SY=2025&SN=17&CT=2&WT=&WST=&EN=All%20Exhibitors&TN=All+Towns&PC1=&PC2=&CL1=&CL2=&REGION=All+regions&ST=&EI=1&OR=1",
+              "ref": ""
+            }
+          ],
+          "verifiedAt": "2026-10-26"
+        }
+      ],
+      "summary": {
+        "champion": 0,
+        "gold": 2,
+        "first": 0,
+        "also": 4,
+        "years": [
+          2025,
+          2026
+        ]
+      }
+    },
+    {
+      "id": "B-forestway-fresh",
+      "name": "Forestway Fresh",
+      "types": [
+        "bakery"
+      ],
+      "scope": "supermarket",
+      "descZh": "Terrey Hills 的高級食材超市，店裡有自己的廚師團隊。",
+      "descEn": "A premium grocer in Terrey Hills with its own in-house team of chefs.",
+      "website": "https://forestwayfresh.com/",
+      "instagram": "",
+      "related": [],
+      "locations": [
+        {
+          "id": "L-forestway-fresh-terrey-hills",
+          "name": "Terrey Hills",
+          "address": "2 Myoora Rd, Terrey Hills NSW 2084",
+          "suburb": "Terrey Hills",
+          "city": "Sydney",
+          "state": "NSW",
+          "lat": -33.6997429,
+          "lng": 151.2125566,
+          "type": "in_supermarket",
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Forestway%20Fresh%202%20Myoora%20Rd%2C%20Terrey%20Hills%20NSW%202084"
+        }
+      ],
+      "awards": [
+        {
+          "id": "RAS-PB-2025-C6-E125",
+          "comp": "RAS-PB",
+          "year": 2025,
+          "level": "medal",
+          "medal": "gold",
+          "rank": null,
+          "tier": "top",
+          "score": 92.0,
+          "title": "Gold Medal",
+          "category": "Cakes, Tortes & Gateaux (e.g., classic chocolate, mud cake, white chocolate, blueberry, carrot, vanilla, sponge, etc.)",
+          "group": "cake",
+          "product": "FORESTWAY ORANGE SYRUP CAKE",
+          "locationId": null,
+          "relation": "entrant",
+          "sources": [
+            {
+              "title": "myRAS 2025 Professional Bakery results",
+              "url": "https://www.myras.com.au/res/results/CompetitonResults.aspx?TO=0&SY=2025&SN=17&CT=2&WT=&WST=&EN=All%20Exhibitors&TN=All+Towns&PC1=&PC2=&CL1=&CL2=&REGION=All+regions&ST=&EI=1&OR=1",
+              "archive": "https://web.archive.org/web/20260506173657/https://www.myras.com.au/res/results/CompetitonResults.aspx?TO=0&SY=2025&SN=17&CT=2&WT=&WST=&EN=All%20Exhibitors&TN=All+Towns&PC1=&PC2=&CL1=&CL2=&REGION=All+regions&ST=&EI=1&OR=1",
+              "ref": ""
+            }
+          ],
+          "verifiedAt": "2026-10-26"
+        },
+        {
+          "id": "RAS-PB-2025-C6-E142",
+          "comp": "RAS-PB",
+          "year": 2025,
+          "level": "medal",
+          "medal": "gold",
+          "rank": null,
+          "tier": "top",
+          "score": 91.33,
+          "title": "Gold Medal",
+          "category": "Cakes, Tortes & Gateaux (e.g., classic chocolate, mud cake, white chocolate, blueberry, carrot, vanilla, sponge, etc.)",
+          "group": "cake",
+          "product": "FORESTWAY RICOTTA PEAR CAKE",
+          "locationId": null,
+          "relation": "entrant",
+          "sources": [
+            {
+              "title": "myRAS 2025 Professional Bakery results",
+              "url": "https://www.myras.com.au/res/results/CompetitonResults.aspx?TO=0&SY=2025&SN=17&CT=2&WT=&WST=&EN=All%20Exhibitors&TN=All+Towns&PC1=&PC2=&CL1=&CL2=&REGION=All+regions&ST=&EI=1&OR=1",
+              "archive": "https://web.archive.org/web/20260506173657/https://www.myras.com.au/res/results/CompetitonResults.aspx?TO=0&SY=2025&SN=17&CT=2&WT=&WST=&EN=All%20Exhibitors&TN=All+Towns&PC1=&PC2=&CL1=&CL2=&REGION=All+regions&ST=&EI=1&OR=1",
+              "ref": ""
+            }
+          ],
+          "verifiedAt": "2026-10-26"
+        },
+        {
+          "id": "RAS-PB-2025-C10-E169",
+          "comp": "RAS-PB",
+          "year": 2025,
+          "level": "medal",
+          "medal": "silver",
+          "rank": null,
+          "tier": "also",
+          "score": 87.0,
+          "title": "Silver Medal",
+          "category": "Brownies & Slices (e.g., fudge brownie, caramel slice, muesli slice, etc.)",
+          "group": "cake",
+          "product": "FORESTWAY RASPBERRY BROWNIE BITES",
+          "locationId": null,
+          "relation": "entrant",
+          "sources": [
+            {
+              "title": "myRAS 2025 Professional Bakery results",
+              "url": "https://www.myras.com.au/res/results/CompetitonResults.aspx?TO=0&SY=2025&SN=17&CT=2&WT=&WST=&EN=All%20Exhibitors&TN=All+Towns&PC1=&PC2=&CL1=&CL2=&REGION=All+regions&ST=&EI=1&OR=1",
+              "archive": "https://web.archive.org/web/20260506173657/https://www.myras.com.au/res/results/CompetitonResults.aspx?TO=0&SY=2025&SN=17&CT=2&WT=&WST=&EN=All%20Exhibitors&TN=All+Towns&PC1=&PC2=&CL1=&CL2=&REGION=All+regions&ST=&EI=1&OR=1",
+              "ref": ""
+            }
+          ],
+          "verifiedAt": "2026-10-26"
+        }
+      ],
+      "summary": {
+        "champion": 0,
+        "gold": 2,
+        "first": 0,
+        "also": 1,
+        "years": [
+          2025
         ]
       }
     },
@@ -6287,6 +7280,95 @@ var PAGE_DATA = {
       }
     },
     {
+      "id": "B-comeco-foods",
+      "name": "Comeco Foods",
+      "types": [
+        "bakery"
+      ],
+      "scope": "retail",
+      "descZh": "全店純素、無麩質，自己做米麵包和甜甜圈，也賣素壽司。",
+      "descEn": "Entirely vegan and gluten-free; it makes its own rice bread and doughnuts and also serves vegan sushi.",
+      "website": "https://www.comecofoods.com.au/",
+      "instagram": "",
+      "related": [],
+      "locations": [
+        {
+          "id": "L-comeco-foods-newtown",
+          "name": "Newtown",
+          "address": "524A King St, Newtown NSW 2042",
+          "suburb": "Newtown",
+          "city": "Sydney",
+          "state": "NSW",
+          "lat": -33.9024328,
+          "lng": 151.1793906,
+          "type": "standalone",
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Comeco%20Foods%20524A%20King%20St%2C%20Newtown%20NSW%202042"
+        }
+      ],
+      "awards": [
+        {
+          "id": "RAS-PB-2026-C3-E42",
+          "comp": "RAS-PB",
+          "year": 2026,
+          "level": "medal",
+          "medal": "silver",
+          "rank": null,
+          "tier": "also",
+          "score": 84.33,
+          "title": "Silver Medal",
+          "category": "International Bread (e.g. baguette, ciabatta, chapatti, flatbread, bagels, tortilla, etc.)",
+          "group": "bread",
+          "product": "KARE-PAN",
+          "locationId": null,
+          "relation": "entrant",
+          "sources": [
+            {
+              "title": "myRAS 2026 Professional Bakery results",
+              "url": "https://www.myras.com.au/res/results/CompetitonResults.aspx?TO=0&SY=2026&SN=17&CT=2&WT=&WST=&EN=All%20Exhibitors&TN=All+Towns&PC1=&PC2=&CL1=&CL2=&REGION=All+regions&ST=&EI=1&OR=1",
+              "archive": "",
+              "ref": ""
+            }
+          ],
+          "verifiedAt": "2026-10-26"
+        },
+        {
+          "id": "RAS-PB-2025-C4-E67",
+          "comp": "RAS-PB",
+          "year": 2025,
+          "level": "medal",
+          "medal": "gold",
+          "rank": null,
+          "tier": "top",
+          "score": 90.33,
+          "title": "Gold Medal",
+          "category": "Specialty Loaf, including Artisan Bread & Hot Cross Buns (e.g., spelt, soy & linseed, olive, roasted garlic, herbs, Plain Vienna or Cob Loaf, etc.)",
+          "group": "bread",
+          "product": "COMECO HOT CROSS BUNS (GLUTEN, EGG, DAIRY & NUT FREE)",
+          "locationId": null,
+          "relation": "entrant",
+          "sources": [
+            {
+              "title": "myRAS 2025 Professional Bakery results",
+              "url": "https://www.myras.com.au/res/results/CompetitonResults.aspx?TO=0&SY=2025&SN=17&CT=2&WT=&WST=&EN=All%20Exhibitors&TN=All+Towns&PC1=&PC2=&CL1=&CL2=&REGION=All+regions&ST=&EI=1&OR=1",
+              "archive": "https://web.archive.org/web/20260506173657/https://www.myras.com.au/res/results/CompetitonResults.aspx?TO=0&SY=2025&SN=17&CT=2&WT=&WST=&EN=All%20Exhibitors&TN=All+Towns&PC1=&PC2=&CL1=&CL2=&REGION=All+regions&ST=&EI=1&OR=1",
+              "ref": ""
+            }
+          ],
+          "verifiedAt": "2026-10-26"
+        }
+      ],
+      "summary": {
+        "champion": 0,
+        "gold": 1,
+        "first": 0,
+        "also": 1,
+        "years": [
+          2025,
+          2026
+        ]
+      }
+    },
+    {
       "id": "B-crois",
       "name": "Crois",
       "types": [
@@ -6421,6 +7503,397 @@ var PAGE_DATA = {
         "gold": 1,
         "first": 0,
         "also": 3,
+        "years": [
+          2026
+        ]
+      }
+    },
+    {
+      "id": "B-doughheads",
+      "name": "Doughheads",
+      "types": [
+        "bakery"
+      ],
+      "scope": "retail",
+      "descZh": "2014 年從市集攤位起家的甜甜圈店，2016 年在 The Junction 開旗艦店，也賣自製義式冰淇淋。",
+      "descEn": "A doughnut shop that began at markets in 2014 and opened its flagship at The Junction in 2016; it also makes its own gelato.",
+      "website": "https://doughheads.com.au/",
+      "instagram": "",
+      "related": [],
+      "locations": [
+        {
+          "id": "L-doughheads-the-junction",
+          "name": "The Junction",
+          "address": "Shop 17a/204 Union St, The Junction NSW 2291",
+          "suburb": "The Junction",
+          "city": "Newcastle",
+          "state": "NSW",
+          "lat": -32.9385158,
+          "lng": 151.7584618,
+          "type": "standalone",
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Doughheads%20Shop%2017a/204%20Union%20St%2C%20The%20Junction%20NSW%202291"
+        }
+      ],
+      "awards": [
+        {
+          "id": "RAS-PB-2026-C5-E93",
+          "comp": "RAS-PB",
+          "year": 2026,
+          "level": "medal",
+          "medal": "gold",
+          "rank": null,
+          "tier": "top",
+          "score": 91.5,
+          "title": "Gold Medal",
+          "category": "Small Cakes (e.g., muffins, cupcakes, donuts, lamingtons, etc.)",
+          "group": "cake",
+          "product": "DOUGHHEADS SALTED CARAMEL DOUGHNUT",
+          "locationId": null,
+          "relation": "entrant",
+          "sources": [
+            {
+              "title": "myRAS 2026 Professional Bakery results",
+              "url": "https://www.myras.com.au/res/results/CompetitonResults.aspx?TO=0&SY=2026&SN=17&CT=2&WT=&WST=&EN=All%20Exhibitors&TN=All+Towns&PC1=&PC2=&CL1=&CL2=&REGION=All+regions&ST=&EI=1&OR=1",
+              "archive": "",
+              "ref": ""
+            }
+          ],
+          "verifiedAt": "2026-10-26"
+        },
+        {
+          "id": "RAS-PB-2026-C5-E92",
+          "comp": "RAS-PB",
+          "year": 2026,
+          "level": "medal",
+          "medal": "silver",
+          "rank": null,
+          "tier": "also",
+          "score": 89.0,
+          "title": "Silver Medal",
+          "category": "Small Cakes (e.g., muffins, cupcakes, donuts, lamingtons, etc.)",
+          "group": "cake",
+          "product": "DOUGHHEADS PUMP UP THE JAM DOUGHNUT",
+          "locationId": null,
+          "relation": "entrant",
+          "sources": [
+            {
+              "title": "myRAS 2026 Professional Bakery results",
+              "url": "https://www.myras.com.au/res/results/CompetitonResults.aspx?TO=0&SY=2026&SN=17&CT=2&WT=&WST=&EN=All%20Exhibitors&TN=All+Towns&PC1=&PC2=&CL1=&CL2=&REGION=All+regions&ST=&EI=1&OR=1",
+              "archive": "",
+              "ref": ""
+            }
+          ],
+          "verifiedAt": "2026-10-26"
+        },
+        {
+          "id": "RAS-PB-2026-C5-E91",
+          "comp": "RAS-PB",
+          "year": 2026,
+          "level": "medal",
+          "medal": "silver",
+          "rank": null,
+          "tier": "also",
+          "score": 82.33,
+          "title": "Silver Medal",
+          "category": "Small Cakes (e.g., muffins, cupcakes, donuts, lamingtons, etc.)",
+          "group": "cake",
+          "product": "DOUGHHEADS ORIGINAL GLAZE DOUGHNUT",
+          "locationId": null,
+          "relation": "entrant",
+          "sources": [
+            {
+              "title": "myRAS 2026 Professional Bakery results",
+              "url": "https://www.myras.com.au/res/results/CompetitonResults.aspx?TO=0&SY=2026&SN=17&CT=2&WT=&WST=&EN=All%20Exhibitors&TN=All+Towns&PC1=&PC2=&CL1=&CL2=&REGION=All+regions&ST=&EI=1&OR=1",
+              "archive": "",
+              "ref": ""
+            }
+          ],
+          "verifiedAt": "2026-10-26"
+        },
+        {
+          "id": "RAS-PB-2025-C5-E114",
+          "comp": "RAS-PB",
+          "year": 2025,
+          "level": "medal",
+          "medal": "silver",
+          "rank": null,
+          "tier": "also",
+          "score": 84.67,
+          "title": "Silver Medal",
+          "category": "Small Cakes (e.g., muffins, cupcakes, donuts, lamingtons, etc.)",
+          "group": "cake",
+          "product": "ORIGINAL GLAZE DOUGHNUT",
+          "locationId": null,
+          "relation": "entrant",
+          "sources": [
+            {
+              "title": "myRAS 2025 Professional Bakery results",
+              "url": "https://www.myras.com.au/res/results/CompetitonResults.aspx?TO=0&SY=2025&SN=17&CT=2&WT=&WST=&EN=All%20Exhibitors&TN=All+Towns&PC1=&PC2=&CL1=&CL2=&REGION=All+regions&ST=&EI=1&OR=1",
+              "archive": "https://web.archive.org/web/20260506173657/https://www.myras.com.au/res/results/CompetitonResults.aspx?TO=0&SY=2025&SN=17&CT=2&WT=&WST=&EN=All%20Exhibitors&TN=All+Towns&PC1=&PC2=&CL1=&CL2=&REGION=All+regions&ST=&EI=1&OR=1",
+              "ref": ""
+            }
+          ],
+          "verifiedAt": "2026-10-26"
+        },
+        {
+          "id": "RAS-PB-2025-C5-E116",
+          "comp": "RAS-PB",
+          "year": 2025,
+          "level": "medal",
+          "medal": "silver",
+          "rank": null,
+          "tier": "also",
+          "score": 84.33,
+          "title": "Silver Medal",
+          "category": "Small Cakes (e.g., muffins, cupcakes, donuts, lamingtons, etc.)",
+          "group": "cake",
+          "product": "GAYTIME DOUGHNUT",
+          "locationId": null,
+          "relation": "entrant",
+          "sources": [
+            {
+              "title": "myRAS 2025 Professional Bakery results",
+              "url": "https://www.myras.com.au/res/results/CompetitonResults.aspx?TO=0&SY=2025&SN=17&CT=2&WT=&WST=&EN=All%20Exhibitors&TN=All+Towns&PC1=&PC2=&CL1=&CL2=&REGION=All+regions&ST=&EI=1&OR=1",
+              "archive": "https://web.archive.org/web/20260506173657/https://www.myras.com.au/res/results/CompetitonResults.aspx?TO=0&SY=2025&SN=17&CT=2&WT=&WST=&EN=All%20Exhibitors&TN=All+Towns&PC1=&PC2=&CL1=&CL2=&REGION=All+regions&ST=&EI=1&OR=1",
+              "ref": ""
+            }
+          ],
+          "verifiedAt": "2026-10-26"
+        },
+        {
+          "id": "RAS-PB-2025-C5-E117",
+          "comp": "RAS-PB",
+          "year": 2025,
+          "level": "medal",
+          "medal": "silver",
+          "rank": null,
+          "tier": "also",
+          "score": 83.0,
+          "title": "Silver Medal",
+          "category": "Small Cakes (e.g., muffins, cupcakes, donuts, lamingtons, etc.)",
+          "group": "cake",
+          "product": "PUMP UP THE JAM DOUGHNUT",
+          "locationId": null,
+          "relation": "entrant",
+          "sources": [
+            {
+              "title": "myRAS 2025 Professional Bakery results",
+              "url": "https://www.myras.com.au/res/results/CompetitonResults.aspx?TO=0&SY=2025&SN=17&CT=2&WT=&WST=&EN=All%20Exhibitors&TN=All+Towns&PC1=&PC2=&CL1=&CL2=&REGION=All+regions&ST=&EI=1&OR=1",
+              "archive": "https://web.archive.org/web/20260506173657/https://www.myras.com.au/res/results/CompetitonResults.aspx?TO=0&SY=2025&SN=17&CT=2&WT=&WST=&EN=All%20Exhibitors&TN=All+Towns&PC1=&PC2=&CL1=&CL2=&REGION=All+regions&ST=&EI=1&OR=1",
+              "ref": ""
+            }
+          ],
+          "verifiedAt": "2026-10-26"
+        }
+      ],
+      "summary": {
+        "champion": 0,
+        "gold": 1,
+        "first": 0,
+        "also": 5,
+        "years": [
+          2025,
+          2026
+        ]
+      }
+    },
+    {
+      "id": "B-hudsons-bakery",
+      "name": "Hudson's Bakery",
+      "types": [
+        "bakery"
+      ],
+      "scope": "retail",
+      "descZh": "全店無麩質，創辦人 Sandra Hudson 一開始是想讓孩子的午餐有無麩質的選擇。",
+      "descEn": "Entirely gluten-free; founder Sandra Hudson started out wanting gluten-free food for her children's lunches.",
+      "website": "https://hudsonsbakery.com/",
+      "instagram": "",
+      "related": [],
+      "locations": [
+        {
+          "id": "L-hudsons-bakery-bondi-junction",
+          "name": "Bondi Junction",
+          "address": "238 Oxford St, Bondi Junction NSW 2022",
+          "suburb": "Bondi Junction",
+          "city": "Sydney",
+          "state": "NSW",
+          "lat": -33.8904765,
+          "lng": 151.2436012,
+          "type": "standalone",
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Hudson%27s%20Bakery%20238%20Oxford%20St%2C%20Bondi%20Junction%20NSW%202022"
+        }
+      ],
+      "awards": [
+        {
+          "id": "RAS-PB-2026-C11-E130",
+          "comp": "RAS-PB",
+          "year": 2026,
+          "level": "medal",
+          "medal": "gold",
+          "rank": null,
+          "tier": "top",
+          "score": 92.67,
+          "title": "Gold Medal",
+          "category": "Biscuit, Sweet, Chocolate, Nut or Other (e.g. triple chocolate, chocolate pinwheels, macadamia, cashew, shortbread, etc.)",
+          "group": "biscuit",
+          "product": "HUDSON'S BAKERY GLUTEN FREE VEGAN GINGERNUT COOKIES",
+          "locationId": null,
+          "relation": "entrant",
+          "sources": [
+            {
+              "title": "myRAS 2026 Professional Bakery results",
+              "url": "https://www.myras.com.au/res/results/CompetitonResults.aspx?TO=0&SY=2026&SN=17&CT=2&WT=&WST=&EN=All%20Exhibitors&TN=All+Towns&PC1=&PC2=&CL1=&CL2=&REGION=All+regions&ST=&EI=1&OR=1",
+              "archive": "",
+              "ref": ""
+            }
+          ],
+          "verifiedAt": "2026-10-26"
+        },
+        {
+          "id": "RAS-PB-2025-C5-E98",
+          "comp": "RAS-PB",
+          "year": 2025,
+          "level": "medal",
+          "medal": "silver",
+          "rank": null,
+          "tier": "also",
+          "score": 82.0,
+          "title": "Silver Medal",
+          "category": "Small Cakes (e.g., muffins, cupcakes, donuts, lamingtons, etc.)",
+          "group": "cake",
+          "product": "HUDSON'S BAKERY GLUTEN FREE LAMINGTON",
+          "locationId": null,
+          "relation": "entrant",
+          "sources": [
+            {
+              "title": "myRAS 2025 Professional Bakery results",
+              "url": "https://www.myras.com.au/res/results/CompetitonResults.aspx?TO=0&SY=2025&SN=17&CT=2&WT=&WST=&EN=All%20Exhibitors&TN=All+Towns&PC1=&PC2=&CL1=&CL2=&REGION=All+regions&ST=&EI=1&OR=1",
+              "archive": "https://web.archive.org/web/20260506173657/https://www.myras.com.au/res/results/CompetitonResults.aspx?TO=0&SY=2025&SN=17&CT=2&WT=&WST=&EN=All%20Exhibitors&TN=All+Towns&PC1=&PC2=&CL1=&CL2=&REGION=All+regions&ST=&EI=1&OR=1",
+              "ref": ""
+            }
+          ],
+          "verifiedAt": "2026-10-26"
+        }
+      ],
+      "summary": {
+        "champion": 0,
+        "gold": 1,
+        "first": 0,
+        "also": 1,
+        "years": [
+          2025,
+          2026
+        ]
+      }
+    },
+    {
+      "id": "B-pudding-lane",
+      "name": "Pudding Lane",
+      "types": [
+        "bakery"
+      ],
+      "scope": "retail",
+      "descZh": "聖誕布丁專門店，用家傳食譜在 Newcastle 全程手工做、手工包布。",
+      "descEn": "Christmas pudding specialists, made and cloth-wrapped by hand in Newcastle from a family recipe.",
+      "website": "https://www.puddinglane.com.au/",
+      "instagram": "",
+      "related": [],
+      "locations": [
+        {
+          "id": "L-pudding-lane-sandgate",
+          "name": "Sandgate",
+          "address": "4 Guernsey St, Sandgate NSW 2304",
+          "suburb": "Sandgate",
+          "city": "Newcastle",
+          "state": "NSW",
+          "lat": -32.876311,
+          "lng": 151.711431,
+          "type": "factory_shop",
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Pudding%20Lane%204%20Guernsey%20St%2C%20Sandgate%20NSW%202304"
+        }
+      ],
+      "awards": [
+        {
+          "id": "RAS-PB-2026-C9-E123",
+          "comp": "RAS-PB",
+          "year": 2026,
+          "level": "medal",
+          "medal": "gold",
+          "rank": null,
+          "tier": "top",
+          "score": 90.33,
+          "title": "Gold Medal",
+          "category": "Christmas Cake & Puddings",
+          "group": "cake",
+          "product": "PUDDING LANE CHOCOLATE RUM & RAISIN PUDDING",
+          "locationId": null,
+          "relation": "entrant",
+          "sources": [
+            {
+              "title": "myRAS 2026 Professional Bakery results",
+              "url": "https://www.myras.com.au/res/results/CompetitonResults.aspx?TO=0&SY=2026&SN=17&CT=2&WT=&WST=&EN=All%20Exhibitors&TN=All+Towns&PC1=&PC2=&CL1=&CL2=&REGION=All+regions&ST=&EI=1&OR=1",
+              "archive": "",
+              "ref": ""
+            }
+          ],
+          "verifiedAt": "2026-10-26"
+        },
+        {
+          "id": "RAS-PB-2026-C9-E111",
+          "comp": "RAS-PB",
+          "year": 2026,
+          "level": "medal",
+          "medal": "silver",
+          "rank": null,
+          "tier": "also",
+          "score": 83.67,
+          "title": "Silver Medal",
+          "category": "Christmas Cake & Puddings",
+          "group": "cake",
+          "product": "PUDDING LANE CLASSIC CHRISTMAS PUDDING",
+          "locationId": null,
+          "relation": "entrant",
+          "sources": [
+            {
+              "title": "myRAS 2026 Professional Bakery results",
+              "url": "https://www.myras.com.au/res/results/CompetitonResults.aspx?TO=0&SY=2026&SN=17&CT=2&WT=&WST=&EN=All%20Exhibitors&TN=All+Towns&PC1=&PC2=&CL1=&CL2=&REGION=All+regions&ST=&EI=1&OR=1",
+              "archive": "",
+              "ref": ""
+            }
+          ],
+          "verifiedAt": "2026-10-26"
+        },
+        {
+          "id": "RAS-PB-2026-C9-E121",
+          "comp": "RAS-PB",
+          "year": 2026,
+          "level": "medal",
+          "medal": "silver",
+          "rank": null,
+          "tier": "also",
+          "score": 83.0,
+          "title": "Silver Medal",
+          "category": "Christmas Cake & Puddings",
+          "group": "cake",
+          "product": "PUDDING LANE TRIPLE CHOCOLATE PUDDING",
+          "locationId": null,
+          "relation": "entrant",
+          "sources": [
+            {
+              "title": "myRAS 2026 Professional Bakery results",
+              "url": "https://www.myras.com.au/res/results/CompetitonResults.aspx?TO=0&SY=2026&SN=17&CT=2&WT=&WST=&EN=All%20Exhibitors&TN=All+Towns&PC1=&PC2=&CL1=&CL2=&REGION=All+regions&ST=&EI=1&OR=1",
+              "archive": "",
+              "ref": ""
+            }
+          ],
+          "verifiedAt": "2026-10-26"
+        }
+      ],
+      "summary": {
+        "champion": 0,
+        "gold": 1,
+        "first": 0,
+        "also": 2,
         "years": [
           2026
         ]
