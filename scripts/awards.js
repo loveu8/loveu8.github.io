@@ -38,9 +38,13 @@ var FOLD_MS = 300;
 var UI = {
   'zh-TW': {
     subtitle: '{n} 家 · {m} 間門市 · 官方結果 {y}',
-    state: '州別', type: '類型', all: '全部', allStates: '全部州別', allTypes: '全部類型',
-    result: '{s} × {c} · {n} 家',
-    emptyTitle: '這個組合沒有店家', emptyText: '換一個州別或類型看看；州別按鈕上的數字是目前類型下的家數。',
+    state: '州別', city: '城市', type: '類型', comp: '賽事', year: '年份', level: '等級', group: '品項',
+    all: '全部', allStates: '全部州別', allTypes: '全部類型',
+    search: '搜尋店名、城市或產品', searchPlaceholder: '例如 Sydney、croissant', searchClear: '清除搜尋',
+    more: '更多篩選', moreCount: '更多篩選 · {n}', clearAll: '✕ 全部清除',
+    result: '{s} × {c} · {n} 家', resultOne: '{s} × {c} · 1 家', resultMore: ' · 另有 {n} 個條件', resultMoreOne: ' · 另有 1 個條件',
+    matchNote: '（符合篩選）',
+    emptyTitle: '這個組合沒有店家', emptyText: '換個條件看看，或按「✕ 全部清除」；每個按鈕上的數字是選了它之後的家數。',
     meta: '{c} · {s} · {n} 間門市', yearOne: '{y} 年',
     levels: { champion: '冠軍', gold: '金牌', silver: '銀牌', first: '第 1 名', second: '第 2 名' },
     levelsShort: { champion: '冠軍', gold: '金牌', first: '第 1 名' },
@@ -57,13 +61,17 @@ var UI = {
     footnote: '獎項來自各賽事官方公布的結果，每一筆都附來源連結和查證日期。' +
       '卡片列出冠軍、金牌、第 1 名（招牌）和銀牌、第 2 名（也推薦），銅牌和第 3 名不列。' +
       '獎項代表得獎當年那間店的水準；連鎖加盟店只列得獎的那一間；超市的獎沒有指定門市時，列出它有烘焙部的門市。' +
-      '州別與類型篩選只作用在清單，地圖固定顯示全部門市。'
+      '篩選只作用在清單，地圖固定顯示全部門市；賽事、年份、等級、品項只看冠軍、金牌、第 1 名。'
   },
   en: {
     subtitle: '{n} shops · {m} stores · official results {y}',
-    state: 'State', type: 'Type', all: 'All', allStates: 'All states', allTypes: 'All types',
-    result: '{s} × {c} · {n} shops',
-    emptyTitle: 'No shops match', emptyText: 'Try another state or type; the numbers on the state buttons count shops for the current type.',
+    state: 'State', city: 'City', type: 'Type', comp: 'Competition', year: 'Year', level: 'Level', group: 'Item',
+    all: 'All', allStates: 'All states', allTypes: 'All types',
+    search: 'Search shops, cities or items', searchPlaceholder: 'e.g. Sydney, croissant', searchClear: 'Clear search',
+    more: 'More filters', moreCount: 'More filters · {n}', clearAll: '✕ Clear all',
+    result: '{s} × {c} · {n} shops', resultOne: '{s} × {c} · 1 shop', resultMore: ' · {n} more conditions', resultMoreOne: ' · 1 more condition',
+    matchNote: ' (matches the filters)',
+    emptyTitle: 'No shops match', emptyText: 'Try other filters, or press “✕ Clear all”; the number on each button is how many shops it would show.',
     meta: '{c} · {s} · {n} stores', yearOne: '{y}',
     levels: { champion: 'Champion', gold: 'Gold medal', silver: 'Silver medal', first: '1st place', second: '2nd place' },
     levelsShort: { champion: 'Champion', gold: 'Gold', first: '1st' },
@@ -80,7 +88,7 @@ var UI = {
     footnote: 'Awards come from each competition’s official results; every row links to its source and the date it was checked. ' +
       'Cards list champions, gold medals and 1st places (headline awards) plus silver medals and 2nd places (also recommended); bronze and 3rd places are left out. ' +
       'An award reflects that shop in the year it won; for franchises only the winning store is listed; when a supermarket’s award names no store, every store with its own bakery is listed. ' +
-      'State and type filters apply to the list only; the map always shows every store.'
+      'Filters apply to the list only; the map always shows every store. Competition, year, level and item look at champions, gold medals and 1st places only.'
   }
 };
 
@@ -88,8 +96,8 @@ var state = {
   data: null,
   config: null,
   lang: 'zh-TW',
-  stateCode: ALL,
-  typeGroup: ALL,
+  f: null,           // filters: emptyFilters() shape, set in init() from the URL
+  moreOpen: false,   // the 更多篩選 rows are showing
   selectedId: null,
   open: {}  // ids of open <details> (award details, more stores), kept across re-renders
 };
@@ -99,12 +107,20 @@ var shell = null;  // ListMapShell instance, created in init()
 var els = {
   sidebarBody: document.getElementById('sidebarBody'),
   pageSubtitle: document.getElementById('pageSubtitle'),
-  stateLabel: document.getElementById('stateLabel'),
-  typeLabel: document.getElementById('typeLabel'),
-  stateChips: document.getElementById('stateChips'),
   typeTabs: document.getElementById('typeTabs'),
-  resultLine: document.getElementById('resultLine')
+  cityRow: document.getElementById('cityRow'),
+  moreBtn: document.getElementById('moreBtn'),
+  moreBtnText: document.getElementById('moreBtnText'),
+  moreFilters: document.getElementById('moreFilters'),
+  searchLabel: document.getElementById('searchLabel'),
+  searchInput: document.getElementById('searchInput'),
+  searchClear: document.getElementById('searchClear'),
+  resultText: document.getElementById('resultText'),
+  clearAll: document.getElementById('clearAll')
 };
+// Row labels, keyed by the UI string that fills them.
+var LABEL_IDS = { stateLabel: 'state', cityLabel: 'city', typeLabel: 'type', compLabel: 'comp',
+  yearLabel: 'year', levelLabel: 'level', groupLabel: 'group' };
 
 // ── helpers ──
 function el(tag, className, text) {
@@ -205,25 +221,117 @@ function levelLabel(key) {
 }
 
 // ── filters (list only — the My Maps embed cannot be filtered from the page) ──
-function countWhere(stateCode, typeGroup) {
-  return AwardsFilter.filter(state.data.businesses, { state: stateCode, type: typeGroup }, state.config.typeGroups).length;
+// The rules are in awards-filter.js; this part draws the rows, the search box, the result
+// line and the URL (UI-PLAN 3.1, 3.2, 5). state.f holds one value per key; ALL / '' = not set.
+var FILTER_KEYS = ['q', 'state', 'city', 'type', 'comp', 'year', 'level', 'group'];
+var LEVEL_KEYS = ['champion', 'gold', 'first'];
+var GROUP_ORDER = ['bread', 'sourdough', 'viennoiserie', 'pastry_pie', 'cake', 'biscuit', 'gluten_free',
+  'coffee_espresso', 'coffee_milk', 'coffee_filter', 'coffee_other'];  // "overall" names no item
+var SEARCH_DELAY = 150;  // ms after the last keystroke
+var SEARCH_MAX = 80;     // characters kept from ?q=
+
+function emptyFilters() {
+  var f = {};
+  FILTER_KEYS.forEach(function(k) { f[k] = k === 'q' ? '' : ALL; });
+  return f;
+}
+
+function isSet(value) {
+  return AwardsFilter.isSet(typeof value === 'string' ? value.trim() : value);
+}
+
+function advancedCount() {
+  return AwardsFilter.AWARD_KEYS.filter(function(k) { return isSet(state.f[k]); }).length;
+}
+
+function anyFilterSet() {
+  return FILTER_KEYS.some(function(k) { return isSet(state.f[k]); });
+}
+
+// The filters with one key changed; a new state drops the city, which belongs to the old one.
+function filtersWith(key, value) {
+  var f = {};
+  FILTER_KEYS.forEach(function(k) { f[k] = state.f[k]; });
+  f[key] = value;
+  if (key === 'state') f.city = ALL;
+  return f;
+}
+
+function shopsMatching(f) {
+  return AwardsFilter.filter(state.data.businesses, f, state.config.typeGroups);
 }
 
 function filteredBusinesses() {
-  return AwardsFilter.filter(state.data.businesses, { state: state.stateCode, type: state.typeGroup }, state.config.typeGroups)
-    .sort(compareBusinesses);
+  return shopsMatching(state.f).sort(compareBusinesses);
 }
 
-// States with the most shops first.
+function topAwardsOfAll() {
+  var list = [];
+  state.data.businesses.forEach(function(b) {
+    b.awards.forEach(function(a) { if (a.tier === 'top') list.push(a); });
+  });
+  return list;
+}
+
+// Places with the most shops first.
+function byShopCount(values, countOf) {
+  return values.sort(function(a, b) { return (countOf(b) - countOf(a)) || String(a).localeCompare(String(b)); });
+}
+
 function stateCodes() {
   var codes = [];
   state.data.businesses.forEach(function(b) {
     b.locations.forEach(function(l) { if (codes.indexOf(l.state) === -1) codes.push(l.state); });
   });
-  return codes.sort(function(a, b) {
-    return (countWhere(b, ALL) - countWhere(a, ALL)) || a.localeCompare(b);
-  });
+  return byShopCount(codes, function(code) { return shopsMatching({ state: code }).length; });
 }
+
+function cityNames(stateCode) {
+  if (!isSet(stateCode)) return [];
+  var names = [];
+  state.data.businesses.forEach(function(b) {
+    b.locations.forEach(function(l) {
+      if (l.state === stateCode && names.indexOf(l.city) === -1) names.push(l.city);
+    });
+  });
+  return byShopCount(names, function(city) { return shopsMatching({ state: stateCode, city: city }).length; });
+}
+
+// Only values some headline award has, so no row offers a button that can never match.
+function awardValues(field) {
+  return unique(topAwardsOfAll().map(function(a) { return field === 'level' ? levelKey(a) : a[field]; }));
+}
+
+function itemGroupLabel(code) {
+  var g = state.config.itemGroups[code];
+  return g ? (isEn() ? g.en : g.zh) : code;
+}
+
+// One entry per button row, top to bottom. `tabs` = the type row's tablist (arrow keys).
+var ROWS = [
+  { key: 'state', id: 'stateChips', options: stateCodes, label: String },
+  { key: 'city', id: 'cityChips', options: function() { return cityNames(state.f.state); }, label: String },
+  { key: 'type', id: 'typeTabs', tabs: true,
+    options: function() { return state.config.typeGroups.map(function(g) { return g.code; }); },
+    label: function(code) { return typeGroupLabel(code); } },
+  { key: 'comp', id: 'compChips',
+    options: function() {
+      var used = awardValues('comp');
+      return state.data.competitions.map(function(c) { return c.id; }).filter(function(id) { return used.indexOf(id) !== -1; });
+    },
+    label: function(id) {
+      var c = state.data.competitions.find(function(x) { return x.id === id; });
+      return isEn() ? c.en : c.zh;
+    } },
+  { key: 'year', id: 'yearChips',
+    options: function() { return awardValues('year').sort(function(a, b) { return b - a; }); }, label: String },
+  { key: 'level', id: 'levelChips',
+    options: function() { var used = awardValues('level'); return LEVEL_KEYS.filter(function(k) { return used.indexOf(k) !== -1; }); },
+    label: function(k) { return UI[state.lang].levels[k]; } },
+  { key: 'group', id: 'groupChips',
+    options: function() { var used = awardValues('group'); return GROUP_ORDER.filter(function(g) { return used.indexOf(g) !== -1; }); },
+    label: itemGroupLabel }
+];
 
 function filterButton(label, count, active, disabled) {
   var btn = el('button', 'filter-btn' + (active ? ' active' : ''));
@@ -234,54 +342,150 @@ function filterButton(label, count, active, disabled) {
   return btn;
 }
 
-// Both rows are rebuilt on every change, which would drop keyboard focus to the page top;
+function renderRow(row) {
+  var box = document.getElementById(row.id);
+  box.innerHTML = '';
+  [ALL].concat(row.options()).forEach(function(code) {
+    var active = String(state.f[row.key]) === String(code);
+    var count = shopsMatching(filtersWith(row.key, code)).length;
+    var btn = filterButton(code === ALL ? t('all') : row.label(code), count, active, count === 0 && !active);
+    btn.dataset.code = String(code);
+    if (row.tabs) {
+      btn.setAttribute('role', 'tab');
+      btn.setAttribute('aria-selected', active ? 'true' : 'false');
+      btn.tabIndex = active ? 0 : -1;  // roving tabindex: Tab enters the row once, arrows move inside
+    } else {
+      btn.setAttribute('aria-pressed', active ? 'true' : 'false');
+    }
+    btn.addEventListener('click', function() { setFilter(row.key, code); });
+    box.appendChild(btn);
+  });
+}
+
+// Every row is rebuilt on each change, which would drop keyboard focus to the page top;
 // remember which filter button had focus and put it back on the rebuilt one.
 function renderFilters() {
   var focused = document.activeElement;
   var refocus = null;
-  if (focused && focused.dataset && focused.dataset.code !== undefined &&
-      (els.stateChips.contains(focused) || els.typeTabs.contains(focused))) {
-    refocus = { row: els.stateChips.contains(focused) ? els.stateChips : els.typeTabs, code: focused.dataset.code };
-  }
-
-  els.stateChips.innerHTML = '';
-  [ALL].concat(stateCodes()).forEach(function(code) {
-    var active = state.stateCode === code;
-    var count = countWhere(code, state.typeGroup);
-    var btn = filterButton(code === ALL ? t('all') : code, count, active, count === 0 && !active);
-    btn.setAttribute('aria-pressed', active ? 'true' : 'false');
-    btn.dataset.code = code;
-    btn.addEventListener('click', function() {
-      state.stateCode = code;
-      refresh(true);
-      showStateOnMap(code);
-    });
-    els.stateChips.appendChild(btn);
+  ROWS.forEach(function(row) {
+    var box = document.getElementById(row.id);
+    if (focused && box.contains(focused) && focused.dataset.code !== undefined) {
+      refocus = { box: box, code: focused.dataset.code };
+    }
   });
 
-  els.typeTabs.innerHTML = '';
-  [ALL].concat(state.config.typeGroups.map(function(g) { return g.code; })).forEach(function(code) {
-    var active = state.typeGroup === code;
-    var count = countWhere(ALL, code);
-    var btn = filterButton(code === ALL ? t('all') : typeGroupLabel(code), count, active, count === 0 && !active);
-    btn.setAttribute('role', 'tab');
-    btn.setAttribute('aria-selected', active ? 'true' : 'false');
-    btn.dataset.code = code;
-    btn.addEventListener('click', function() {
-      state.typeGroup = code;
-      refresh(true);
-    });
-    els.typeTabs.appendChild(btn);
-  });
+  ROWS.forEach(renderRow);
+  els.cityRow.hidden = !isSet(state.f.state);
 
-  shell.revealActive(els.stateChips);
-  shell.revealActive(els.typeTabs);
+  var n = advancedCount();
+  els.moreBtnText.textContent = n ? t('moreCount', { n: n }) : t('more');
+  els.moreBtn.classList.toggle('has-filters', n > 0);
+  els.moreBtn.setAttribute('aria-expanded', state.moreOpen ? 'true' : 'false');
+  els.moreFilters.hidden = !state.moreOpen;
+
+  ROWS.forEach(function(row) { shell.revealActive(document.getElementById(row.id)); });
   shell.updateScrollButtons();
 
   if (refocus) {
-    var again = [].slice.call(refocus.row.children).filter(function(b) { return b.dataset.code === refocus.code; })[0];
+    var again = [].slice.call(refocus.box.children).filter(function(b) { return b.dataset.code === refocus.code; })[0];
     if (again && !again.disabled) again.focus({ preventScroll: true });
   }
+}
+
+function setFilter(key, value) {
+  state.f = filtersWith(key, value);
+  refresh(true);
+  writeUrl();
+  if (key === 'state') showStateOnMap(value);
+}
+
+function clearAll() {
+  var hadState = isSet(state.f.state);
+  state.f = emptyFilters();
+  els.searchInput.value = '';
+  els.searchClear.hidden = true;
+  refresh(true);
+  writeUrl();
+  if (hadState) shell.showOverview();
+}
+
+// Arrow keys, Home and End move through the type tabs and pick the one they land on.
+function onTabKey(event) {
+  var keys = { ArrowLeft: -1, ArrowRight: 1, Home: 'first', End: 'last' };
+  if (!(event.key in keys)) return;
+  var tabs = [].slice.call(event.currentTarget.querySelectorAll('[role="tab"]:not(:disabled)'));
+  var i = tabs.indexOf(document.activeElement);
+  if (i === -1) return;
+  var step = keys[event.key];
+  var next = step === 'first' ? 0 : step === 'last' ? tabs.length - 1 : (i + step + tabs.length) % tabs.length;
+  event.preventDefault();
+  tabs[next].focus();
+  tabs[next].click();
+}
+
+// ── URL (?state=NSW&year=2025: shareable, kept on reload; UI-PLAN 5) ──
+// Values no button offers (?year=1999, a city outside the state) are dropped, not errors.
+function readUrl() {
+  var params;
+  try { params = new URLSearchParams(window.location.search); } catch (e) { return emptyFilters(); }
+  var f = emptyFilters();
+  var q = params.get('q');
+  if (q) f.q = q.trim().slice(0, SEARCH_MAX);
+  var options = {
+    state: stateCodes,
+    city: function() { return cityNames(f.state); },
+    type: ROWS[2].options, comp: ROWS[3].options, year: ROWS[4].options, level: ROWS[5].options, group: ROWS[6].options
+  };
+  ['state', 'city', 'type', 'comp', 'year', 'level', 'group'].forEach(function(key) {
+    var value = params.get(key);
+    if (value == null) return;
+    var hit = options[key]().filter(function(o) { return String(o) === value; })[0];
+    if (hit !== undefined) f[key] = hit;
+  });
+  return f;
+}
+
+// replaceState keeps the Back button for leaving the page, not for undoing each filter.
+function writeUrl() {
+  try {
+    var params = new URLSearchParams(window.location.search);
+    FILTER_KEYS.forEach(function(k) { params.delete(k); });
+    FILTER_KEYS.forEach(function(k) {
+      var value = k === 'q' ? state.f.q.trim() : state.f[k];
+      if (isSet(value)) params.set(k, String(value));
+    });
+    var query = params.toString();
+    window.history.replaceState(null, '', window.location.pathname + (query ? '?' + query : '') + window.location.hash);
+  } catch (e) { /* some file:// previews refuse; the filters still work */ }
+}
+
+// ── search box (UI-PLAN 3.1) ──
+function setupSearch() {
+  var timer = null;
+  els.searchInput.addEventListener('input', function() {
+    els.searchClear.hidden = !els.searchInput.value;
+    clearTimeout(timer);
+    timer = setTimeout(function() {
+      state.f.q = els.searchInput.value.slice(0, SEARCH_MAX);
+      refresh(true);
+      writeUrl();
+    }, SEARCH_DELAY);
+  });
+  els.searchInput.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape' && els.searchInput.value) {
+      event.preventDefault();
+      els.searchClear.click();
+    }
+  });
+  els.searchClear.addEventListener('click', function() {
+    clearTimeout(timer);
+    els.searchInput.value = '';
+    els.searchClear.hidden = true;
+    state.f.q = '';
+    refresh(true);
+    writeUrl();
+    els.searchInput.focus();
+  });
 }
 
 // Centre and zoom that fit every store in the state; "all" goes back to the overview.
@@ -311,17 +515,24 @@ function showStateOnMap(code) {
   });
 }
 
+// "NSW · Sydney × 烘焙 · 3 家 · 另有 2 個條件" + ✕ 全部清除 (UI-PLAN 5).
 function renderResultLine(businesses) {
-  var stateText = state.stateCode === ALL ? t('allStates') : state.stateCode;
-  var typeText = state.typeGroup === ALL ? t('allTypes') : typeGroupLabel(state.typeGroup);
-  els.resultLine.textContent = t('result', { s: stateText, c: typeText, n: businesses.length });
+  var f = state.f;
+  var where = isSet(f.state) ? f.state + (isSet(f.city) ? ' · ' + f.city : '') : t('allStates');
+  var typeText = isSet(f.type) ? typeGroupLabel(f.type) : t('allTypes');
+  var text = t(businesses.length === 1 ? 'resultOne' : 'result', { s: where, c: typeText, n: businesses.length });
+  var extra = (isSet(f.q) ? 1 : 0) + advancedCount();
+  if (extra) text += t(extra === 1 ? 'resultMoreOne' : 'resultMore', { n: extra });
+  els.resultText.textContent = text;
+  els.clearAll.hidden = !anyFilterSet();
 }
 
 // ── shop cards ──
 // <details> that remember being open across re-renders (filters, language switch).
-function rememberedDetails(className, key) {
+// Until the reader toggles it, a details is open when defaultOpen says so.
+function rememberedDetails(className, key, defaultOpen) {
   var details = el('details', className);
-  details.open = !!state.open[key];
+  details.open = key in state.open ? state.open[key] : !!defaultOpen;
   details.addEventListener('toggle', function() { state.open[key] = details.open; });
   return details;
 }
@@ -454,19 +665,33 @@ function renderAwardRow(business, award) {
 
 // The shop blurb opens the award details (UI-PLAN 3.6), then headline awards, then also
 // recommended, folded by default (UI-PLAN 3.4, 2026-11-01).
+// With award filters on, the details open by themselves and the awards that match come
+// first, marked (UI-PLAN 5); the open state is remembered per filter combination.
 function renderDetails(business) {
-  var details = rememberedDetails('award-details', 'awards:' + business.id);
+  var awardFilter = AwardsFilter.hasAwardFilter(state.f);
+  var sig = awardFilter ? ':' + AwardsFilter.AWARD_KEYS.map(function(k) { return state.f[k]; }).join('|') : '';
+  var details = rememberedDetails('award-details', 'awards:' + business.id + sig, awardFilter);
   details.appendChild(el('summary', '', t('details', { n: business.awards.length })));
   var desc = isEn() ? business.descEn : business.descZh;
   if (desc) details.appendChild(el('p', 'award-desc', desc));
 
+  var isMatch = function(a) { return awardFilter && AwardsFilter.awardMatches(a, state.f); };
   var byTier = function(tier) {
-    return business.awards.filter(function(a) { return a.tier === tier; }).sort(compareAwards);
+    return business.awards.filter(function(a) { return a.tier === tier; }).sort(function(a, b) {
+      return (isMatch(b) - isMatch(a)) || compareAwards(a, b);
+    });
   };
   var top = byTier('top');
   if (top.length) {
     details.appendChild(el('div', 'award-group', t('groupTop')));
-    top.forEach(function(a) { details.appendChild(renderAwardRow(business, a)); });
+    top.forEach(function(a) {
+      var row = renderAwardRow(business, a);
+      if (isMatch(a)) {
+        row.classList.add('is-match');
+        row.appendChild(el('span', 'visually-hidden', t('matchNote')));
+      }
+      details.appendChild(row);
+    });
   }
   var also = byTier('also');
   if (also.length) {
@@ -584,8 +809,11 @@ function renderStaticText() {
   var awards = [];
   data.businesses.forEach(function(b) { awards = awards.concat(b.awards); });
   els.pageSubtitle.textContent = t('subtitle', { n: data.businesses.length, m: stores, y: yearRange(awards) });
-  els.stateLabel.textContent = t('state');
-  els.typeLabel.textContent = t('type');
+  Object.keys(LABEL_IDS).forEach(function(id) { document.getElementById(id).textContent = t(LABEL_IDS[id]); });
+  els.searchLabel.textContent = t('search');
+  els.searchInput.placeholder = t('searchPlaceholder');
+  els.searchClear.setAttribute('aria-label', t('searchClear'));
+  els.clearAll.textContent = t('clearAll');
 }
 
 function refresh(filtersChanged) {
@@ -646,6 +874,13 @@ function setupEvents() {
     var mapBtn = event.target.closest('.pill-map');
     if (mapBtn) previewOnMap(mapBtn.dataset.id, mapBtn.dataset.loc);
   });
+  els.typeTabs.addEventListener('keydown', onTabKey);
+  els.moreBtn.addEventListener('click', function() {
+    state.moreOpen = !state.moreOpen;
+    renderFilters();
+  });
+  els.clearAll.addEventListener('click', clearAll);
+  setupSearch();
   setupSheetFold();
 }
 
@@ -664,10 +899,16 @@ function init(data, config) {
     onOverview: function() { markSelected(null); }
   });
   state.lang = shell.lang();
+  state.f = readUrl();
+  state.moreOpen = advancedCount() > 0;  // a shared link with award filters shows them
+  els.searchInput.value = state.f.q;
+  els.searchClear.hidden = !state.f.q;
   renderStaticText();
   setupEvents();
   refresh(true);
-  shell.showOverview();
+  writeUrl();  // drops values readUrl() ignored, e.g. ?year=1999
+  if (isSet(state.f.state)) showStateOnMap(state.f.state);
+  else shell.showOverview();
 }
 
 init(PAGE_DATA, PAGE_CONFIG);

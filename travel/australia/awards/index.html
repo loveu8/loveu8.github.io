@@ -16,7 +16,7 @@ try { var theme = localStorage.getItem('theme'); if (theme === 'light' || theme 
 <link rel="stylesheet" href="../../../styles/base.css?v=20261024">
 <link rel="stylesheet" href="../../../styles/app-shell.css?v=20261026b">
 <link rel="stylesheet" href="../../../styles/map-list.css?v=20261026b">
-<link rel="stylesheet" href="../../../styles/awards.css?v=20261101c">
+<link rel="stylesheet" href="../../../styles/awards.css?v=20261102">
 </head>
 <body>
 
@@ -62,11 +62,25 @@ try { var theme = localStorage.getItem('theme'); if (theme === 'light' || theme 
       </div>
 
       <div class="filters">
+        <!-- Search: UI-PLAN 3.1. The label is for screen readers; the placeholder is only an example. -->
+        <div class="search-box">
+          <label class="visually-hidden" for="searchInput" id="searchLabel">搜尋店名、城市或產品</label>
+          <span class="search-icon" aria-hidden="true">🔍</span>
+          <input class="search-input" id="searchInput" type="search" autocomplete="off" spellcheck="false" maxlength="80" enterkeyhint="search">
+          <button class="search-clear" id="searchClear" type="button" hidden>✕</button>
+        </div>
         <div class="filter-row">
           <span class="filter-label" id="stateLabel">州別</span>
           <button class="scroll-btn scroll-prev" type="button" data-target="stateChips" data-dir="-1">‹</button>
           <div class="filter-scroll" id="stateChips" role="group" aria-labelledby="stateLabel"></div>
           <button class="scroll-btn scroll-next" type="button" data-target="stateChips" data-dir="1">›</button>
+        </div>
+        <!-- Shown once a state is picked (UI-PLAN 3.2) -->
+        <div class="filter-row" id="cityRow" hidden>
+          <span class="filter-label" id="cityLabel">城市</span>
+          <button class="scroll-btn scroll-prev" type="button" data-target="cityChips" data-dir="-1">‹</button>
+          <div class="filter-scroll" id="cityChips" role="group" aria-labelledby="cityLabel"></div>
+          <button class="scroll-btn scroll-next" type="button" data-target="cityChips" data-dir="1">›</button>
         </div>
         <div class="filter-row">
           <span class="filter-label" id="typeLabel">類型</span>
@@ -74,9 +88,42 @@ try { var theme = localStorage.getItem('theme'); if (theme === 'light' || theme 
           <div class="filter-scroll" id="typeTabs" role="tablist" aria-labelledby="typeLabel"></div>
           <button class="scroll-btn scroll-next" type="button" data-target="typeTabs" data-dir="1">›</button>
         </div>
+        <div class="more-row">
+          <button class="more-btn" id="moreBtn" type="button" aria-expanded="false" aria-controls="moreFilters"><span id="moreBtnText">更多篩選</span><span class="more-caret" aria-hidden="true">▾</span></button>
+        </div>
+        <!-- Award-layer filters: one headline award must meet all of them (UI-PLAN 5) -->
+        <div class="more-filters" id="moreFilters" hidden>
+          <div class="filter-row">
+            <span class="filter-label" id="compLabel">賽事</span>
+            <button class="scroll-btn scroll-prev" type="button" data-target="compChips" data-dir="-1">‹</button>
+            <div class="filter-scroll" id="compChips" role="group" aria-labelledby="compLabel"></div>
+            <button class="scroll-btn scroll-next" type="button" data-target="compChips" data-dir="1">›</button>
+          </div>
+          <div class="filter-row">
+            <span class="filter-label" id="yearLabel">年份</span>
+            <button class="scroll-btn scroll-prev" type="button" data-target="yearChips" data-dir="-1">‹</button>
+            <div class="filter-scroll" id="yearChips" role="group" aria-labelledby="yearLabel"></div>
+            <button class="scroll-btn scroll-next" type="button" data-target="yearChips" data-dir="1">›</button>
+          </div>
+          <div class="filter-row">
+            <span class="filter-label" id="levelLabel">等級</span>
+            <button class="scroll-btn scroll-prev" type="button" data-target="levelChips" data-dir="-1">‹</button>
+            <div class="filter-scroll" id="levelChips" role="group" aria-labelledby="levelLabel"></div>
+            <button class="scroll-btn scroll-next" type="button" data-target="levelChips" data-dir="1">›</button>
+          </div>
+          <div class="filter-row">
+            <span class="filter-label" id="groupLabel">品項</span>
+            <button class="scroll-btn scroll-prev" type="button" data-target="groupChips" data-dir="-1">‹</button>
+            <div class="filter-scroll" id="groupChips" role="group" aria-labelledby="groupLabel"></div>
+            <button class="scroll-btn scroll-next" type="button" data-target="groupChips" data-dir="1">›</button>
+          </div>
+        </div>
       </div>
       </div></div>
-      <div class="result-line" id="resultLine" aria-live="polite"></div>
+      <div class="result-line" id="resultLine">
+        <span id="resultText" aria-live="polite"></span>
+        <button class="result-clear" id="clearAll" type="button" hidden>✕ 全部清除</button>
+      </div>
     </div>
 
     <div class="sidebar-body" id="sidebarBody"></div>
@@ -91,11 +138,11 @@ try { var theme = localStorage.getItem('theme'); if (theme === 'light' || theme 
   <img id="lightboxImg" src="" alt="">
 </div>
 
-<script src="page.js?v=20261031"></script>
+<script src="page.js?v=20261102"></script>
 <script src="data.js?v=20261031"></script>
 <script src="../../../scripts/site.js?v=20261024"></script>
 <script src="../../../scripts/list-map-shell.js?v=20261031b"></script>
 <script src="../../../scripts/awards-filter.js?v=20261102"></script>
-<script src="../../../scripts/awards.js?v=20261102b"></script>
+<script src="../../../scripts/awards.js?v=20261102c"></script>
 </body>
 </html>

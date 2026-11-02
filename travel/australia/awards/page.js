@@ -10,6 +10,21 @@ var PAGE_CONFIG = {
     { code: 'bakery', zh: '烘焙', en: 'Bakery', types: ['bakery'] },
     { code: 'coffee', zh: '咖啡', en: 'Coffee', types: ['roaster', 'cafe'] }
   ],
+  // Names for the 品項 filter row, keyed by awards.csv category_group ("overall" has no
+  // button: best in show names no item). Only groups some headline award has get a button.
+  itemGroups: {
+    bread: { zh: '麵包', en: 'Bread' },
+    sourdough: { zh: '酸種麵包', en: 'Sourdough' },
+    viennoiserie: { zh: '可頌／丹麥', en: 'Viennoiserie' },
+    pastry_pie: { zh: '鹹派／派', en: 'Pies & quiches' },
+    cake: { zh: '蛋糕', en: 'Cakes' },
+    biscuit: { zh: '餅乾', en: 'Biscuits' },
+    gluten_free: { zh: '無麩質', en: 'Gluten-free' },
+    coffee_espresso: { zh: '濃縮咖啡', en: 'Espresso' },
+    coffee_milk: { zh: '牛奶咖啡', en: 'Milk coffee' },
+    coffee_filter: { zh: '濾泡咖啡', en: 'Filter coffee' },
+    coffee_other: { zh: '其他咖啡', en: 'Other coffee' }
+  },
   // Map view used only if data.js has no My Maps embed URL: the whole country.
   fallbackPlace: 'Australia',
   fallbackZoom: 4
