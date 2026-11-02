@@ -159,7 +159,7 @@ Step 1b 還沒打勾的兩項（PARTIAL 再查、使用者送 Wayback）留到 S
 - [x] `<title>`、description、canonical、Open Graph（沒有分享圖，og:image 先不放；全站第一個有 OG 的頁面）
 - [x] 頁尾說明：資料來源、NSW 偏差（38/60 門市）、咖啡店多在昆士蘭（8/12）、金牌≠名次、篩選只作用在清單、資料整理日期；改成條列（eb6837d）
 - [x] `DECISIONS.md` 新增決定紀錄（2026-11-02 的 6 個：進階篩選只看招牌、手機更多篩選維持 A、先補資料再做地圖、塔／泡芙、測試固定資料、Riviera 先不收）
-- [ ] 👤（看 D7）SEO 靜態摘要
+- [x] 👤（看 D7）SEO 靜態摘要 → 2026-11-02 再評估，使用者選 A：第一版維持不做（Googlebot 會執行 JavaScript，`data.js` 是同站靜態檔；分享預覽靠 Open Graph）
 
 ## Step 7：地圖（原 Step 6）
 
