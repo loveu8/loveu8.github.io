@@ -200,6 +200,14 @@ class CheckTest(unittest.TestCase):
         south["latitude"], south["longitude"] = "-33.87005", "151.21"
         self.assertWarning("L-alpha-north and L-alpha-south are 5 m apart")
 
+    def test_locations_close_but_confirmed_distinct(self):
+        south = self.location("L-alpha-south")
+        south["latitude"], south["longitude"] = "-33.87005", "151.21"
+        south["notes"] = "同一棟樓的內用店；%s" % m.DISTINCT_MARK
+        errors, warnings = m.check(self.t, TODAY)
+        self.assertEqual(errors, [])
+        self.assertFalse(any("m apart" in w for w in warnings), warnings)
+
     def test_similar_business_names(self):
         row(self.t, "businesses", "business_id", "B-delta")["official_name"] = "ALPHA BAKERY PTY LTD"
         self.assertWarning("B-alpha and B-delta have nearly the same name")

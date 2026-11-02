@@ -101,6 +101,9 @@ LAT_RANGE = (-44, -10)
 LNG_RANGE = (112, 154)
 STALE_DAYS = 180
 NEAR_METRES = 20
+# Two stores of one business that really are separate shops in the same building (Tuga's
+# takeaway bakery and its dine-in café, 17 m apart): put this in either store's notes.
+DISTINCT_MARK = "已確認不同店"
 
 # Publish rules (DATA-SCHEMA.md section 5, D1-D3).
 PUBLISHED_SCOPES = ["retail", "supermarket", "chain_franchise"]
@@ -312,12 +315,13 @@ def check_locations(tables, today, errors, warnings):
             errors.append("%s operating_status=moved needs moved_to_location_id" % where)
         stale(where, "location_verified_at", val(l, "location_verified_at"), today, warnings)
         if lat is not None and lng is not None:
-            for other_id, other in coords.get(val(l, "business_id"), []):
+            confirmed = DISTINCT_MARK in val(l, "notes")
+            for other_id, other, other_confirmed in coords.get(val(l, "business_id"), []):
                 gap = metres_apart((lat, lng), other)
-                if gap < NEAR_METRES:
+                if gap < NEAR_METRES and not (confirmed or other_confirmed):
                     warnings.append("locations.csv %s and %s are %d m apart (same shop twice?)"
                                     % (other_id, val(l, "location_id"), gap))
-            coords.setdefault(val(l, "business_id"), []).append((val(l, "location_id"), (lat, lng)))
+            coords.setdefault(val(l, "business_id"), []).append((val(l, "location_id"), (lat, lng), confirmed))
     for i, s in enumerate(tables["sources"]):
         stale("sources.csv:%d" % line(i), "verified_at", val(s, "verified_at"), today, warnings)
 
