@@ -182,13 +182,16 @@ Step 1b 還沒打勾的兩項（PARTIAL 再查、使用者送 Wayback）留到 S
 - [x] 首頁英文（`scripts/home.js` 翻譯表＋英文 description；`?v=` 更新）；中英、360／1280、淺深色截圖正常，點入口開到得獎地圖，無錯誤
 - [x] 跑完 `PLAN.md` 第 6 節 16 項檢查表，逐項記結果（結果欄寫在 `PLAN.md` 第 6 節）
 - [x] 做不到的明確標「未測」（線上版 Network 要 push 後才能看；iPhone 實機、列印要使用者）
-- [ ] 👤 iPhone 實機
-- [ ] 👤 列印
+- [x] 👤 iPhone 實機（2026-11-02 使用者看過，沒問題）
+- [x] 👤 列印（2026-11-02 使用者看過，沒問題）
 - [x] 👤 同意 push（2026-11-02，1253506；首頁入口上線）
 - [x] push 後看線上版：Network 沒有 404（只有原本就沒有的 favicon.ico）、`?v=` 生效、首頁入口正常、61 間門市
-- [ ] `PLAN.md` 狀態改成「已完成」
+- [x] `PLAN.md` 狀態改成「已完成」（2026-11-02）
 
 ## 上線後
+
+- [ ] 👤 第二版：布里斯本只有 7 間（全是咖啡、沒有烘焙）。原因是 RAS 在雪梨（三年 818 件參賽品 NSW 591、QLD 41；QLD 金牌只有 5 面）、昆士蘭州賽第一版沒收（D4）。考慮加 BAA Queensland Baking Show（2024–2026 有官方結果 PDF）等州賽；先做研究摘要（會多幾家、要不要也收其他州）給使用者決定（2026-11-02 使用者提出）
+- [ ] 8 家 PARTIAL 重查（見 Step 1b：ISEO、Cacao、The Beekeeper's Bakery、White Horse、The Bean Cartel、Latitude、The Purple Haze、Riviera）；查完只會增加店家，加店要重新匯入 My Maps
 
 - [ ] 👤 要不要每年更新（RAS 9 月、NABC 6–7 月、Golden Bean 6 月公布）
 - [ ] 咖啡廳、烘焙頁（`scripts/map-list.js`）和 Noosa 頁（`scripts/noosa.js`）也有「選篩選後焦點掉回頁首」的問題（同樣是 `innerHTML = ''` 重畫）；修法照 `awards.js` `renderFilters()`，改之前先拍 DOM 雜湊基準（2026-11-02 使用者選先只修得獎頁）
