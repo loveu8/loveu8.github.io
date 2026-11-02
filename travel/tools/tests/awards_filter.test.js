@@ -1,6 +1,6 @@
 // Filter cases from travel/australia/awards/UI-PLAN.md 5.1, run against the page's real data.js.
 // Run from the repo root: node --test travel/tools/tests/
-// The expected shops are for the 5 trial shops (2026-11); recount them when Step 7 adds full data.
+// The expected shops are for the 5 trial shops (2026-11); recount them when Step 6 (was Step 7) adds full data.
 'use strict';
 const test = require('node:test');
 const assert = require('node:assert/strict');

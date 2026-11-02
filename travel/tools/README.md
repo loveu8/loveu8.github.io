@@ -77,7 +77,7 @@ python -m unittest discover travel/tools/tests
 node --test travel/tools/tests/awards_filter.test.js
 ```
 
-預期家數是照 5 家試驗資料算的；Step 7 換成完整資料後，表和測試要一起重算。
+預期家數是照 5 家試驗資料算的；Step 6（原 Step 7）換成完整資料後，表和測試要一起重算。
 
 ## 參數說明
 

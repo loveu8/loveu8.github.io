@@ -133,7 +133,7 @@
 - 只看班名括號前、逗號前、` - ` 前的部分，所以 International Bread 括號裡的 baguette、Viennoiserie 括號裡的 vanilla slice 不會誤判。
 - 依序比對：Gluten Free → 蛋糕類（Sweet Bread、Cake、Torte、Gateau、Pudding、Brownie、Slice）→ Biscuit、Macaron → Pie、Pastie、Quiche、Tart → Viennoiserie、Croissant → Sourdough → Bread、Loaf、Baguette、Ciabatta。GB 照班號（Cat 1～11）。
 - 冠軍照產品歸（Champion Biscuit → `biscuit`），看不出產品的（Product of Show、Overall）才是 `overall`。
-- **對照表還沒涵蓋的 RAS 班別**：Shortcrust Pastry、Filo／Kataifi Pastry、Choux Pastry、Creative（Viennoiserie 組合）。目前 88 筆沒有用到，Step 7 補資料前要決定歸哪一類（`TODO.md` Step 7）。
+- **對照表還沒涵蓋的 RAS 班別**：Shortcrust Pastry、Filo／Kataifi Pastry、Choux Pastry、Creative（Viennoiserie 組合）。目前 88 筆沒有用到，Step 6（原 Step 7）補資料前要決定歸哪一類（`TODO.md` Step 6）。
 
 ### 2.5 `award_attributions.csv`：獎項和店家的關係
 

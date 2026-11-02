@@ -19,13 +19,20 @@
 | 2 | CSV 欄位定案、建立空 CSV | ✅ 完成 | 2026-10-29 | （本 commit） | 欄位定案 v1、7 個 CSV、5 家試驗資料（17 門市、88 獎、13 來源）。Ottimo／Country Cob 先不收（D9）；工廠門市標籤定為「工廠門市」；使用者看過試驗資料，Glee HQ 改標工廠門市 |
 | 3 | `make_awards_data.py` | ✅ 完成 | 2026-10-29 | （本 commit） | 工具＋56 個測試（`travel/tools/tests/`）；`category_group` 加班名關鍵字交叉比對（WARNING）；5 家試驗資料 → `data.js`（16 門市、88 獎）；既有兩頁 `data.js` diff 0 行。選用的 `import_ras_results.py` 沒做。**下一步**：Step 4a |
 | 4a | 拆出 `list-map-shell.js`（D8 = B） | ✅ 完成 | 2026-10-31 | c0d3bf6 | `ListMapShell.create({...})`；`fallbackZoom` 可設定（預設 11）。基準用拆之前的 `a88ba70`（和線上版相同）在本機拍：兩頁 × 25 種狀態（篩選、風格標籤、語言、深色、📍、回到全部、捲動、拖曳、列印、手機抽屜、空結果），DOM 雜湊 50/50 相同，console 無錯誤；燈箱另外測。使用者 2026-10-31 確認 OK。**下一步**：Step 4 |
-| 4 | 頁面原型（少量 VERIFIED 資料） | ✅ 完成 | 2026-11-02 | 6bed244、（本 commit） | 2026-10-31 卡片版面討論完（用 scratchpad demo 一題一題看）：門市一行只寫「地區 · 門市名」、前 2 間＋收起來、得獎門市排前面；介紹收進獎項明細；摘要只寫招牌；工廠門市寫進門市名（`UI-PLAN.md` 3.5、3.6）。同日寫好 `index.html`、`page.js`、`scripts/awards.js`、`styles/awards.css`，本機 file:// 檢查：篩選計數、📍、8 種畫面無 console 錯誤。同日加上「得獎品項」區塊（前 3 項，`UI-PLAN.md` 3.7；commit 46658c7）和「點州別地圖移到該州」（`ListMapShell.showArea()`，`DESIGN.md` 地圖規則加例外；commit ec20c0a），咖啡廳、烘焙頁 DOM 雜湊 50/50 不變。2026-10-31 收工時 push（原型先上線，首頁未連結）。2026-11-01 使用者看截圖：第 1 名徽章由灰改藍（`UI-PLAN.md` 3.3）；獎項明細改成品項優先、班名縮短、也推薦收起（`UI-PLAN.md` 3.4）；手機清單往下捲時收起標題和篩選（`UI-PLAN.md` 4.2）。截圖第 2 點「5 家有 4 家是冠軍徽章」等 Step 7 資料補齊再看。2026-11-01 收工時 push。2026-11-02：重拍 12 種截圖＋6 種補拍狀態（無 console 錯誤、無橫向捲動）；鍵盤實測找到「選篩選後焦點掉回頁首」並修正（6bed244，只修這頁，咖啡廳／烘焙／Noosa 記在 `TODO.md`「上線後」）；`DESIGN.md` 加獎項徽章（藍色例外）、手機收起、保留焦點、依賴表加得獎頁，`DECISIONS.md` 加一列。**下一步**：Step 5（先寫篩選測試案例表；類型篩選左右鍵一起做）。Step 6 要驗證 My Maps 嵌入是否吃 `ll`/`z` |
-| 5 | 搜尋與篩選 | ✅ 完成 | 2026-11-02 | c8a1d0f、03b19e6、ef734d2、（本 commit） | 進階篩選只看招牌獎（使用者選 A）；測試案例表 25 組（`UI-PLAN.md` 5.1）；`scripts/awards-filter.js`＋node 測試 31 個；介面：搜尋框、城市列、更多篩選、結果列＋✕ 清除、網址參數、符合的獎自動展開、類型列左右鍵；本機行為檢查 38 項通過；手機版面使用者看 A／B 對比網頁後選 A；`DESIGN.md` 加搜尋框、兩層篩選。**下一步**：Step 6（產生 My Maps 匯入檔；需要使用者在 My Maps 匯入） |
-| 6 | 地圖（My Maps） | ⬜ | | | 需要使用者匯入 |
-| 7 | 完整資料、中英文、SEO、首頁入口 | ⬜ | | | |
-| 8 | QA 與上線 | ⬜ | | | push 要使用者同意 |
+| 4 | 頁面原型（少量 VERIFIED 資料） | ✅ 完成 | 2026-11-02 | 6bed244、（本 commit） | 2026-10-31 卡片版面討論完（用 scratchpad demo 一題一題看）：門市一行只寫「地區 · 門市名」、前 2 間＋收起來、得獎門市排前面；介紹收進獎項明細；摘要只寫招牌；工廠門市寫進門市名（`UI-PLAN.md` 3.5、3.6）。同日寫好 `index.html`、`page.js`、`scripts/awards.js`、`styles/awards.css`，本機 file:// 檢查：篩選計數、📍、8 種畫面無 console 錯誤。同日加上「得獎品項」區塊（前 3 項，`UI-PLAN.md` 3.7；commit 46658c7）和「點州別地圖移到該州」（`ListMapShell.showArea()`，`DESIGN.md` 地圖規則加例外；commit ec20c0a），咖啡廳、烘焙頁 DOM 雜湊 50/50 不變。2026-10-31 收工時 push（原型先上線，首頁未連結）。2026-11-01 使用者看截圖：第 1 名徽章由灰改藍（`UI-PLAN.md` 3.3）；獎項明細改成品項優先、班名縮短、也推薦收起（`UI-PLAN.md` 3.4）；手機清單往下捲時收起標題和篩選（`UI-PLAN.md` 4.2）。截圖第 2 點「5 家有 4 家是冠軍徽章」等 Step 7 資料補齊再看。2026-11-01 收工時 push。2026-11-02：重拍 12 種截圖＋6 種補拍狀態（無 console 錯誤、無橫向捲動）；鍵盤實測找到「選篩選後焦點掉回頁首」並修正（6bed244，只修這頁，咖啡廳／烘焙／Noosa 記在 `TODO.md`「上線後」）；`DESIGN.md` 加獎項徽章（藍色例外）、手機收起、保留焦點、依賴表加得獎頁，`DECISIONS.md` 加一列。**下一步**：Step 5（先寫篩選測試案例表；類型篩選左右鍵一起做）。My Maps 嵌入吃 `ll`/`z` 已在 2026-11-02 驗證 |
+| 5 | 搜尋與篩選 | ✅ 完成 | 2026-11-02 | c8a1d0f、03b19e6、ef734d2、（本 commit） | 進階篩選只看招牌獎（使用者選 A）；測試案例表 25 組（`UI-PLAN.md` 5.1）；`scripts/awards-filter.js`＋node 測試 31 個；介面：搜尋框、城市列、更多篩選、結果列＋✕ 清除、網址參數、符合的獎自動展開、類型列左右鍵；本機行為檢查 38 項通過；手機版面使用者看 A／B 對比網頁後選 A；`DESIGN.md` 加搜尋框、兩層篩選。**下一步**：Step 6（完整資料；2026-11-02 和地圖對調） |
+| 6 | 完整資料、中英文、SEO（原 Step 7） | ⬜ | | | 2026-11-02 提前到地圖之前：My Maps 是匯入當下的快照，資料補齊後只要匯入一次（使用者選 A）。**下一步**：👤 決定 RAS 4 個班別歸哪一類，然後補第一批全部店家（`TODO.md` Step 6） |
+| 7 | 地圖（My Maps，原 Step 6） | ⬜ | | | 匯入檔已能產生（`--mymaps-out`）；`ll`／`z` 2026-11-02 用布里斯本烘焙地圖實測可用；匯入上限 2,000 列。需要使用者匯入 |
+| 8 | QA、首頁入口與上線 | ⬜ | | | 首頁入口從原 Step 7 移來（加入口＝正式公開）；push 要使用者同意 |
 
 狀態符號：⬜ 未開始、🔄 進行中、⏸️ 等使用者決定、✅ 完成
+
+**流程調整（2026-11-02）**：原本的 Step 6（地圖）和 Step 7（完整資料）對調並重新編號，首頁入口移到 Step 8。之前的 commit 和文件裡寫「Step 7 補資料」指的是現在的 Step 6，「Step 6 地圖」指的是現在的 Step 7。
+
+```text
+0 盤點 → 1 研究 → 1b 查證 → 2 CSV → 3 產生工具 → 4a 共用外殼 → 4 原型 → 5 篩選
+  → 6 完整資料、中英文、SEO → 7 地圖（使用者匯入 My Maps 一次）→ 8 QA、首頁入口、上線
+```
 
 ## 1. 既有專案盤點（Step 0）
 
@@ -129,7 +136,7 @@
 | D4 | 賽事範圍 | ✅ **已決定**（第 10 節）：**第一版：RAS、NABC、Golden Bean（冠軍＋已轉錄的金牌）**；RAS Champion Coffee、BAA 其他賽事（Pie、Donut、各州 Baking Show）列為之後 | 先用三個有官方完整資料的賽事做出頁面 |
 | D5 | `award_attributions.csv` 要不要併進 `awards.csv` | ✅ **已決定**（第 10 節）：**保留分開** | 一個獎對到兩間門市、或「個人代表店家」時才寫得清楚 |
 | D6 | 徽章樣式 | ✅ **已決定**（第 10 節）：**文字徽章（冠軍 coral、金牌 amber、第 1 名中性），不用 🥇** | `UI-PLAN.md` 3.3 |
-| D7 | SEO 靜態摘要 | ✅ **已決定**（第 10 節）：**第一版不做**；Step 7 再評估由產生工具在 `index.html` 標記區塊寫入靜態清單 | 個人網站，先把資料做對 |
+| D7 | SEO 靜態摘要 | ✅ **已決定**（第 10 節）：**第一版不做**；Step 6（原 Step 7）再評估由產生工具在 `index.html` 標記區塊寫入靜態清單 | 個人網站，先把資料做對 |
 | D8 | JS 架構 | ✅ **已決定**（第 10 節）：**方案 B：拆出 `list-map-shell.js`** | 第 3.1 節 |
 
 ## 5. 執行步驟
@@ -219,28 +226,30 @@
 - **Acceptance**：測試案例全部符合；按鈕家數和實際結果一致；網址參數重新整理後還在。
 - **Next**：Step 6。
 
-### Step 6：地圖
+### Step 6：完整資料、中英文、SEO（2026-11-02 從原 Step 7 提前）
 
-- **Objective**：全澳 My Maps 總覽、單店預覽、↗ Maps。
-- **Tasks**：產生匯入檔 → **使用者**在 My Maps 建新地圖、匯入、依主類型上色、設全澳預設畫面、開「知道連結的人可以查看」→ 把嵌入網址傳給我 → 寫進產生工具參數。
-- **Dependencies**：Step 3；使用者操作。
-- **Estimated Effort**：我 1 小時；使用者約 20 分鐘。
-- **Risks**：匯入後座標偏移；忘了公開分享導致嵌入空白。
-- **Acceptance**：總覽點數和 `data.js` 門市數相同；每個 📍 都對到正確地點；↗ Maps 搜尋結果是那間店。**沒收到使用者的嵌入網址前，不寫「地圖已完成」**。
+- **Objective**：所有 VERIFIED 店家上線前的內容完整度，讓 Step 7 的 My Maps 只匯入一次。
+- **Tasks**：👤 決定 RAS 4 個沒涵蓋的班別歸類；改寫店家介紹；填完第一批全部店家（`CANDIDATES.md` 2.6：36 家、61 間門市）；英文介面文字；`<title>`、description、canonical、Open Graph；頁尾說明（資料來源、NSW 偏差、金牌≠名次、篩選只作用在清單）；`UI-PLAN.md` 5.1 測試案例和 `awards_filter.test.js` 用完整資料重算；回頭看「冠軍徽章太多、第 1 名徽章沒用到」；`DECISIONS.md`。
+- **Estimated Effort**：4～6 小時（不含 Step 1b）。
+- **Risks**：完整資料讓篩選列太長（例如品項、城市列），手機版面要重拍截圖確認。
+- **Acceptance**：`make_awards_data.py` 沒有 ERROR／WARNING；node 測試和 Python 測試都通過；截圖給使用者看。
 - **Next**：Step 7。
 
-### Step 7：完整資料、中英文、SEO、首頁
+### Step 7：地圖（原 Step 6）
 
-- **Objective**：所有 VERIFIED 店家上線前的內容完整度。
-- **Tasks**：填完第一批全部店家；英文介面文字；`<title>`、description、canonical、Open Graph；頁尾說明（資料來源、NSW 偏差、金牌≠名次、篩選只作用在清單）；首頁「旅行與探店」加一項（`index.html`＋`home.js` 的英文）；`DESIGN.md`、`DECISIONS.md`。
-- **Estimated Effort**：4～6 小時（不含 Step 1b）。
-- **Acceptance**：`make_awards_data.py` 沒有 ERROR／WARNING；首頁中英切換正常。
+- **Objective**：全澳 My Maps 總覽、單店預覽、↗ Maps。
+- **Tasks**：產生匯入檔（完整資料）→ **使用者**在 My Maps 建新地圖、匯入、依主類型上色、設全澳預設畫面、開「知道連結的人可以查看」→ 把嵌入網址傳給我 → 寫進產生工具參數。
+- **已先確認（2026-11-02）**：My Maps 嵌入網址接受 `&ll=緯度,經度&z=縮放`（用布里斯本烘焙地圖實測，雪梨 z10、全澳 z4 都正確，點還在）；官方說明一次匯入不超過 2,000 列（預估 40～80 點）。
+- **Dependencies**：Step 6；使用者操作。
+- **Estimated Effort**：我 1 小時；使用者約 20 分鐘。
+- **Risks**：匯入後座標偏移；忘了公開分享導致嵌入空白。
+- **Acceptance**：總覽點數和 `data.js` 門市數相同；每個 📍 都對到正確地點；↗ Maps 搜尋結果是那間店；點每個州別地圖框住該州。**沒收到使用者的嵌入網址前，不寫「地圖已完成」**。
 - **Next**：Step 8。
 
-### Step 8：QA 與上線
+### Step 8：QA、首頁入口與上線
 
-- **Tasks**：第 6 節的檢查表全部跑過；問使用者是否 push；push 後看線上版、確認 `?v=` 生效。
-- **Acceptance**：檢查表每一項有結果；做不到的（例如 iPhone 實機、列印）明確標「未測」。
+- **Tasks**：首頁「旅行與探店」加一項（`index.html`＋`home.js` 的英文；2026-11-02 從原 Step 7 移來，加入口＝正式公開）；第 6 節的檢查表全部跑過；問使用者是否 push；push 後看線上版、確認 `?v=` 生效。
+- **Acceptance**：檢查表每一項有結果；做不到的（例如 iPhone 實機、列印）明確標「未測」；首頁中英切換正常。
 
 ## 6. QA 檢查表（Step 8 用，Step 4 起逐步填）
 
@@ -271,7 +280,7 @@
 | 門市查證（Google Maps） | 我（Chrome 擴充）＋使用者抽查 | Step 1b |
 | Golden Bean 投影片轉錄 | 我讀圖，使用者抽查 | Step 1b |
 | 問 RAS 2024 冠軍紀錄 | 使用者（如果要） | Step 1b |
-| My Maps 建立、匯入、上色、公開 | 使用者 | Step 6 |
+| My Maps 建立、匯入、上色、公開 | 使用者 | Step 7 |
 | iPhone 實機、列印 | 使用者 | Step 8 |
 | push | 使用者同意後 | Step 8 |
 | 之後每年更新（RAS 9 月、NABC 6–7 月、GB 6 月公布） | 使用者決定要不要 | 上線後 |
@@ -354,7 +363,7 @@
 
 ### D7：SEO 靜態摘要（2026-10-27）
 
-- **決定**：第一版不做。Step 7 再評估要不要讓產生工具把店家清單寫進 `index.html` 的標記區塊。`<title>`、description、canonical、Open Graph 照常在 Step 7 做。
+- **決定**：第一版不做。Step 6（原 Step 7）再評估要不要讓產生工具把店家清單寫進 `index.html` 的標記區塊。`<title>`、description、canonical、Open Graph 照常在 Step 6 做。
 - **理由**：個人網站，以自己探店為主；Google 會執行 JavaScript，看得到卡片；之後要加只需要改產生工具，頁面不用重做。
 - **影響**：無。
 
