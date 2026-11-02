@@ -265,9 +265,14 @@ var ListMapShell = (function() {
     }
 
     // The My Maps overview re-centred on an area, keeping its pins; without My Maps, the
-    // single-place embed of the area's name at the area's fallback zoom.
+    // single-place embed of the area's name at the area's fallback zoom. An overview URL may
+    // carry its own ll/z (the awards map pins the whole-country view); those are replaced,
+    // not repeated, so the area's centre wins.
     function areaUrl(area) {
-      if (options.overviewUrl) return options.overviewUrl + '&ll=' + area.lat + ',' + area.lng + '&z=' + area.zoom;
+      if (options.overviewUrl) {
+        var base = options.overviewUrl.replace(/&(ll|z)=[^&]*/g, '');
+        return base + '&ll=' + area.lat + ',' + area.lng + '&z=' + area.zoom;
+      }
       return singlePlaceEmbedUrl(area.query, area.fallbackZoom);
     }
 
