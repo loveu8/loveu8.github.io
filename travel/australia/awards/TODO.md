@@ -146,7 +146,10 @@ Step 1b 還沒打勾的兩項（PARTIAL 再查、使用者送 Wayback）留到 S
   - [x] 第 1 批 10 家（2026-11-02，7952456）：Gumnut、Wholegreen、Slowbreads、Crois、Parfait、Hearthe、Sacrebleu!、Madame and Yves、Sébastien Sans Gluten、Tuga → 累計 15 家、35 門市、222 獎。RAS 冠軍重新打開官方 PDF 核對（2024 手冊 p.16、2025 目錄 p.12、2026 手冊 p.11–12）。產生工具加「已確認不同店」備註（Tuga 同一棟兩間店）
   - [x] 第 2 批（2026-11-02）：Hudson's、Doughheads、Bakehouse Delights、Sweet Ivy、Bakealicious、V's Dessert、Pudding Lane、Comeco、Forestway Fresh、Bakers Delight（一個品牌、兩間得獎加盟店，獎掛到門市；Bowral 沒過門檻不收）→ 累計 25 家、46 門市、265 獎。Doughheads 的 RAS 2025 參賽名稱是 MilkJam Co（生產者欄寫 DOUGHHEADS），收進並寫歸屬備註
   - [ ] Doughheads 上線前再確認營業（報導說店東想出售 The Junction 店）
-  - [ ] 第 3 批：VIC 4 家（Brazen Brownies、Piece of Cake、Wandin、Sourdough Portland）、SA Riviera、NT Coles Casuarina、咖啡 4 家（Peak、Coffee Mentality、O'GaBee、Coffee Presto）
+  - [x] 第 3 批（2026-11-02）：VIC 4 家（Brazen Brownies、Piece of Cake、Wandin、Sourdough Portland）、NT Coles（Casuarina，烘焙師 staff_entry 掛到門市）、咖啡 4 家（Peak、Coffee Mentality、O'GaBee、Coffee Presto；烘焙廠兼咖啡店比照 Glee HQ 標工廠門市）→ 累計 34 家、60 門市、314 獎；新增來源 NABC 2024＋金豆賽 11 個分類
+  - [ ] 👤 Riviera Bakery（SA）先擱著：多個來源說是批發麵包廠（供貨餐廳、超市，另有農夫市集攤位），D2 批發不收；Step 1b 只確認 Google Maps 有地址，看不出能不能進店買
+  - [ ] 上線前再查的門市：Coffee Mentality（Time Out 寫 4 間，目前 3 間）、Coffee Presto（目錄寫 Annandale Central 另有 Espresso Bar）、Wandin Bakery（目錄網站同地址寫 Harrys Bakery，確認店名）
+  - [ ] 手機副標題「34 家 · 60 間門市 · 官方結果 2024–2026」折行時把年份切開
 - [ ] Burleigh Baker 門市重查：報導（BOQ、2026）說另有 Tweed Heads 門市（NSW）、Harris Farm Isle of Capri 專櫃、Currumbin 總部；目前只收 Burleigh Heads、Paradise Point（專櫃照 D2 要收；總部看是不是門市）
 - [ ] `make_awards_data.py` 無 ERROR、無 WARNING
 - [x] 篩選測試不怕補資料：25 組案例改跑在 5 家試驗資料的凍結副本 `awards_filter_fixture.js`（使用者 2026-11-02 選 A，不重算）；另加 5 個讀真實 `data.js` 的檢查，node 測試 36 個通過

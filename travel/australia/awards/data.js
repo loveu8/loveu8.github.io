@@ -2874,6 +2874,169 @@ var PAGE_DATA = {
       }
     },
     {
+      "id": "B-piece-of-cake-bakery",
+      "name": "Piece of Cake Bakery",
+      "types": [
+        "bakery"
+      ],
+      "scope": "retail",
+      "descZh": "Oakleigh East 的歐式甜點和手工麵包店，也接婚禮、生日的客製蛋糕。",
+      "descEn": "A European-style patisserie and artisan bakery in Oakleigh East that also makes cakes to order for weddings and birthdays.",
+      "website": "",
+      "instagram": "",
+      "related": [],
+      "locations": [
+        {
+          "id": "L-piece-of-cake-bakery-oakleigh-east",
+          "name": "Oakleigh East",
+          "address": "2B Macrina St, Oakleigh East VIC 3166",
+          "suburb": "Oakleigh East",
+          "city": "Melbourne",
+          "state": "VIC",
+          "lat": -37.8982823,
+          "lng": 145.1148986,
+          "type": "standalone",
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Piece%20of%20Cake%20Bakery%202B%20Macrina%20St%2C%20Oakleigh%20East%20VIC%203166"
+        }
+      ],
+      "awards": [
+        {
+          "id": "NABC-2024-CHAMP-SHOW",
+          "comp": "NABC",
+          "year": 2024,
+          "level": "champion",
+          "medal": null,
+          "rank": null,
+          "tier": "top",
+          "score": null,
+          "title": "Champion Product of Show",
+          "category": "Champion Product of Show",
+          "group": "overall",
+          "product": "",
+          "locationId": null,
+          "relation": "entrant",
+          "sources": [
+            {
+              "title": "2024 National Artisan Baking Competition official results",
+              "url": "https://bakingbusiness.com.au/wp-content/uploads/2024/06/National-Artisan-Results-2024.pdf",
+              "archive": "",
+              "ref": "掃描檔；PDF 內的黑白文字圖層轉成圖片後人工讀取（RESEARCH.md 2.2）"
+            }
+          ],
+          "verifiedAt": "2026-10-26"
+        },
+        {
+          "id": "NABC-2024-CHAMP-VIENN",
+          "comp": "NABC",
+          "year": 2024,
+          "level": "champion",
+          "medal": null,
+          "rank": null,
+          "tier": "top",
+          "score": null,
+          "title": "Champion Viennoiserie",
+          "category": "Champion Viennoiserie",
+          "group": "viennoiserie",
+          "product": "",
+          "locationId": null,
+          "relation": "entrant",
+          "sources": [
+            {
+              "title": "2024 National Artisan Baking Competition official results",
+              "url": "https://bakingbusiness.com.au/wp-content/uploads/2024/06/National-Artisan-Results-2024.pdf",
+              "archive": "",
+              "ref": "掃描檔；PDF 內的黑白文字圖層轉成圖片後人工讀取（RESEARCH.md 2.2）"
+            }
+          ],
+          "verifiedAt": "2026-10-26"
+        },
+        {
+          "id": "NABC-2024-C006-P1",
+          "comp": "NABC",
+          "year": 2024,
+          "level": "placing",
+          "medal": null,
+          "rank": 1,
+          "tier": "top",
+          "score": null,
+          "title": "First",
+          "category": "Open Speciality Viennoiserie",
+          "group": "viennoiserie",
+          "product": "",
+          "locationId": null,
+          "relation": "entrant",
+          "sources": [
+            {
+              "title": "2024 National Artisan Baking Competition official results",
+              "url": "https://bakingbusiness.com.au/wp-content/uploads/2024/06/National-Artisan-Results-2024.pdf",
+              "archive": "",
+              "ref": "掃描檔；PDF 內的黑白文字圖層轉成圖片後人工讀取（RESEARCH.md 2.2）"
+            }
+          ],
+          "verifiedAt": "2026-10-26"
+        },
+        {
+          "id": "NABC-2024-C001-P2",
+          "comp": "NABC",
+          "year": 2024,
+          "level": "placing",
+          "medal": null,
+          "rank": 2,
+          "tier": "also",
+          "score": null,
+          "title": "Second",
+          "category": "Traditional White Sourdough - Minimum 600gm",
+          "group": "sourdough",
+          "product": "",
+          "locationId": null,
+          "relation": "entrant",
+          "sources": [
+            {
+              "title": "2024 National Artisan Baking Competition official results",
+              "url": "https://bakingbusiness.com.au/wp-content/uploads/2024/06/National-Artisan-Results-2024.pdf",
+              "archive": "",
+              "ref": "掃描檔；PDF 內的黑白文字圖層轉成圖片後人工讀取（RESEARCH.md 2.2）"
+            }
+          ],
+          "verifiedAt": "2026-10-26"
+        },
+        {
+          "id": "NABC-2024-C006-P2",
+          "comp": "NABC",
+          "year": 2024,
+          "level": "placing",
+          "medal": null,
+          "rank": 2,
+          "tier": "also",
+          "score": null,
+          "title": "Second",
+          "category": "Open Speciality Viennoiserie",
+          "group": "viennoiserie",
+          "product": "",
+          "locationId": null,
+          "relation": "entrant",
+          "sources": [
+            {
+              "title": "2024 National Artisan Baking Competition official results",
+              "url": "https://bakingbusiness.com.au/wp-content/uploads/2024/06/National-Artisan-Results-2024.pdf",
+              "archive": "",
+              "ref": "掃描檔；PDF 內的黑白文字圖層轉成圖片後人工讀取（RESEARCH.md 2.2）"
+            }
+          ],
+          "verifiedAt": "2026-10-26"
+        }
+      ],
+      "summary": {
+        "champion": 2,
+        "gold": 0,
+        "first": 1,
+        "also": 2,
+        "years": [
+          2024
+        ]
+      }
+    },
+    {
       "id": "B-wholegreen-bakery",
       "name": "Wholegreen Bakery",
       "types": [
@@ -5045,6 +5208,94 @@ var PAGE_DATA = {
       }
     },
     {
+      "id": "B-wandin-bakery",
+      "name": "Wandin Bakery",
+      "types": [
+        "bakery"
+      ],
+      "scope": "retail",
+      "descZh": "Yarra Valley 入口的在地麵包店，以酸種麵包和派出名。",
+      "descEn": "A local bakery at the gateway to the Yarra Valley, known for its sourdough and pies.",
+      "website": "",
+      "instagram": "",
+      "related": [],
+      "locations": [
+        {
+          "id": "L-wandin-bakery-wandin-north",
+          "name": "Wandin North",
+          "address": "380 Warburton Hwy, Wandin North VIC 3139",
+          "suburb": "Wandin North",
+          "city": "Yarra Valley",
+          "state": "VIC",
+          "lat": -37.780023,
+          "lng": 145.427614,
+          "type": "standalone",
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Wandin%20Bakery%20380%20Warburton%20Hwy%2C%20Wandin%20North%20VIC%203139"
+        }
+      ],
+      "awards": [
+        {
+          "id": "NABC-2024-CHAMP-SOURDOUGH",
+          "comp": "NABC",
+          "year": 2024,
+          "level": "champion",
+          "medal": null,
+          "rank": null,
+          "tier": "top",
+          "score": null,
+          "title": "Champion Sourdough Loaf",
+          "category": "Champion Sourdough Loaf",
+          "group": "sourdough",
+          "product": "",
+          "locationId": null,
+          "relation": "entrant",
+          "sources": [
+            {
+              "title": "2024 National Artisan Baking Competition official results",
+              "url": "https://bakingbusiness.com.au/wp-content/uploads/2024/06/National-Artisan-Results-2024.pdf",
+              "archive": "",
+              "ref": "掃描檔；PDF 內的黑白文字圖層轉成圖片後人工讀取（RESEARCH.md 2.2）"
+            }
+          ],
+          "verifiedAt": "2026-10-26"
+        },
+        {
+          "id": "NABC-2024-C007-P1",
+          "comp": "NABC",
+          "year": 2024,
+          "level": "placing",
+          "medal": null,
+          "rank": 1,
+          "tier": "top",
+          "score": null,
+          "title": "First",
+          "category": "Open Sourdough - Minimum 600gm",
+          "group": "sourdough",
+          "product": "",
+          "locationId": null,
+          "relation": "entrant",
+          "sources": [
+            {
+              "title": "2024 National Artisan Baking Competition official results",
+              "url": "https://bakingbusiness.com.au/wp-content/uploads/2024/06/National-Artisan-Results-2024.pdf",
+              "archive": "",
+              "ref": "掃描檔；PDF 內的黑白文字圖層轉成圖片後人工讀取（RESEARCH.md 2.2）"
+            }
+          ],
+          "verifiedAt": "2026-10-26"
+        }
+      ],
+      "summary": {
+        "champion": 1,
+        "gold": 0,
+        "first": 1,
+        "also": 0,
+        "years": [
+          2024
+        ]
+      }
+    },
+    {
       "id": "B-burleigh-baker",
       "name": "Burleigh Baker",
       "types": [
@@ -6402,6 +6653,771 @@ var PAGE_DATA = {
       }
     },
     {
+      "id": "B-coffee-mentality",
+      "name": "Coffee Mentality",
+      "types": [
+        "roaster",
+        "cafe"
+      ],
+      "scope": "retail",
+      "descZh": "2014 年在 South Brisbane 開第一間咖啡店的家族烘豆商，旗艦烘焙廠在 Woolloongabba。",
+      "descEn": "A family roaster that opened its first café in South Brisbane in 2014; its flagship roastery is in Woolloongabba.",
+      "website": "",
+      "instagram": "https://www.instagram.com/coffeementality/",
+      "related": [],
+      "locations": [
+        {
+          "id": "L-coffee-mentality-woolloongabba",
+          "name": "Roastery Woolloongabba",
+          "address": "43 Balaclava St, Woolloongabba QLD 4102",
+          "suburb": "Woolloongabba",
+          "city": "Brisbane",
+          "state": "QLD",
+          "lat": -27.4905539,
+          "lng": 153.0382874,
+          "type": "standalone",
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Coffee%20Mentality%2043%20Balaclava%20St%2C%20Woolloongabba%20QLD%204102"
+        },
+        {
+          "id": "L-coffee-mentality-south-brisbane",
+          "name": "South Brisbane",
+          "address": "44 Montague Rd, South Brisbane QLD 4101",
+          "suburb": "South Brisbane",
+          "city": "Brisbane",
+          "state": "QLD",
+          "lat": -27.4711201,
+          "lng": 153.0155883,
+          "type": "standalone",
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Coffee%20Mentality%2044%20Montague%20Rd%2C%20South%20Brisbane%20QLD%204101"
+        },
+        {
+          "id": "L-coffee-mentality-stones-corner",
+          "name": "Stones Corner",
+          "address": "5 Jeavons Ln, Greenslopes QLD 4120",
+          "suburb": "Greenslopes",
+          "city": "Brisbane",
+          "state": "QLD",
+          "lat": -27.5008181,
+          "lng": 153.0452129,
+          "type": "standalone",
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Coffee%20Mentality%205%20Jeavons%20Ln%2C%20Greenslopes%20QLD%204120"
+        }
+      ],
+      "awards": [
+        {
+          "id": "GBA-2025-CAT10-G-coffee-mentality-visual",
+          "comp": "GBA",
+          "year": 2025,
+          "level": "medal",
+          "medal": "gold",
+          "rank": null,
+          "tier": "top",
+          "score": null,
+          "title": "Gold Medal",
+          "category": "Small Chain/Retail/Franchise Espresso",
+          "group": "coffee_espresso",
+          "product": "Visual",
+          "locationId": null,
+          "relation": "entrant",
+          "sources": [
+            {
+              "title": "Golden Bean 2025 Category 10 medallists",
+              "url": "https://cdn.shopify.com/s/files/1/0584/8734/1218/files/Cat_10_Medalists.pdf",
+              "archive": "",
+              "ref": "投影片圖片，人工讀取"
+            }
+          ],
+          "verifiedAt": "2026-10-28"
+        },
+        {
+          "id": "GBA-2024-CAT1-G-coffee-mentality-maypop",
+          "comp": "GBA",
+          "year": 2024,
+          "level": "medal",
+          "medal": "gold",
+          "rank": null,
+          "tier": "top",
+          "score": null,
+          "title": "Gold Medal",
+          "category": "Espresso",
+          "group": "coffee_espresso",
+          "product": "MAYPOP",
+          "locationId": null,
+          "relation": "entrant",
+          "sources": [
+            {
+              "title": "Golden Bean 2024 Category 1 medallists",
+              "url": "https://cdn.shopify.com/s/files/1/0584/8734/1218/files/GBA_2024_Category_1-results-website_a943b9a9-830b-4d84-8d0b-6dd819969715.pdf",
+              "archive": "",
+              "ref": "投影片圖片，人工讀取"
+            }
+          ],
+          "verifiedAt": "2026-10-28"
+        },
+        {
+          "id": "GBA-2024-CAT10-G-coffee-mentality-maypop",
+          "comp": "GBA",
+          "year": 2024,
+          "level": "medal",
+          "medal": "gold",
+          "rank": null,
+          "tier": "top",
+          "score": null,
+          "title": "Gold Medal",
+          "category": "SML Chain/Store/Retail Espresso",
+          "group": "coffee_espresso",
+          "product": "MAYPOP",
+          "locationId": null,
+          "relation": "entrant",
+          "sources": [
+            {
+              "title": "Golden Bean 2024 Category 10 medallists",
+              "url": "https://cdn.shopify.com/s/files/1/0584/8734/1218/files/GBA_2024_Category_10-results.pdf",
+              "archive": "",
+              "ref": "投影片圖片，人工讀取"
+            }
+          ],
+          "verifiedAt": "2026-10-28"
+        },
+        {
+          "id": "GBA-2024-CAT1-S-coffee-mentality-maypop",
+          "comp": "GBA",
+          "year": 2024,
+          "level": "medal",
+          "medal": "silver",
+          "rank": null,
+          "tier": "also",
+          "score": null,
+          "title": "Silver Medal",
+          "category": "Espresso",
+          "group": "coffee_espresso",
+          "product": "MAYPOP",
+          "locationId": null,
+          "relation": "entrant",
+          "sources": [
+            {
+              "title": "Golden Bean 2024 Category 1 medallists",
+              "url": "https://cdn.shopify.com/s/files/1/0584/8734/1218/files/GBA_2024_Category_1-results-website_a943b9a9-830b-4d84-8d0b-6dd819969715.pdf",
+              "archive": "",
+              "ref": "投影片圖片，人工讀取"
+            }
+          ],
+          "verifiedAt": "2026-10-28"
+        },
+        {
+          "id": "GBA-2024-CAT2-S-coffee-mentality-vestibular",
+          "comp": "GBA",
+          "year": 2024,
+          "level": "medal",
+          "medal": "silver",
+          "rank": null,
+          "tier": "also",
+          "score": null,
+          "title": "Silver Medal",
+          "category": "Milk Based",
+          "group": "coffee_milk",
+          "product": "VESTIBULAR",
+          "locationId": null,
+          "relation": "entrant",
+          "sources": [
+            {
+              "title": "Golden Bean 2024 Category 2 medallists",
+              "url": "https://cdn.shopify.com/s/files/1/0584/8734/1218/files/GBA_2024_Category_2-results_6f9dc1c1-c537-42cf-9c5c-adba7046b0e2.pdf",
+              "archive": "",
+              "ref": "投影片圖片，人工讀取"
+            }
+          ],
+          "verifiedAt": "2026-10-28"
+        },
+        {
+          "id": "GBA-2024-CAT2-S-coffee-mentality-visual",
+          "comp": "GBA",
+          "year": 2024,
+          "level": "medal",
+          "medal": "silver",
+          "rank": null,
+          "tier": "also",
+          "score": null,
+          "title": "Silver Medal",
+          "category": "Milk Based",
+          "group": "coffee_milk",
+          "product": "VISUAL",
+          "locationId": null,
+          "relation": "entrant",
+          "sources": [
+            {
+              "title": "Golden Bean 2024 Category 2 medallists",
+              "url": "https://cdn.shopify.com/s/files/1/0584/8734/1218/files/GBA_2024_Category_2-results_6f9dc1c1-c537-42cf-9c5c-adba7046b0e2.pdf",
+              "archive": "",
+              "ref": "投影片圖片，人工讀取"
+            }
+          ],
+          "verifiedAt": "2026-10-28"
+        },
+        {
+          "id": "GBA-2024-CAT3-S-coffee-mentality-vestibular",
+          "comp": "GBA",
+          "year": 2024,
+          "level": "medal",
+          "medal": "silver",
+          "rank": null,
+          "tier": "also",
+          "score": null,
+          "title": "Silver Medal",
+          "category": "Filter",
+          "group": "coffee_filter",
+          "product": "VESTIBULAR",
+          "locationId": null,
+          "relation": "entrant",
+          "sources": [
+            {
+              "title": "Golden Bean 2024 Category 3 medallists",
+              "url": "https://cdn.shopify.com/s/files/1/0584/8734/1218/files/GBA_2024_Category_3-results_91f3121d-73f7-4da5-938f-e72fde96c527.pdf",
+              "archive": "",
+              "ref": "投影片圖片，人工讀取"
+            }
+          ],
+          "verifiedAt": "2026-10-28"
+        },
+        {
+          "id": "GBA-2024-CAT3-S-coffee-mentality-visual",
+          "comp": "GBA",
+          "year": 2024,
+          "level": "medal",
+          "medal": "silver",
+          "rank": null,
+          "tier": "also",
+          "score": null,
+          "title": "Silver Medal",
+          "category": "Filter",
+          "group": "coffee_filter",
+          "product": "VISUAL",
+          "locationId": null,
+          "relation": "entrant",
+          "sources": [
+            {
+              "title": "Golden Bean 2024 Category 3 medallists",
+              "url": "https://cdn.shopify.com/s/files/1/0584/8734/1218/files/GBA_2024_Category_3-results_91f3121d-73f7-4da5-938f-e72fde96c527.pdf",
+              "archive": "",
+              "ref": "投影片圖片，人工讀取"
+            }
+          ],
+          "verifiedAt": "2026-10-28"
+        },
+        {
+          "id": "GBA-2024-CAT4-S-coffee-mentality-vestibular",
+          "comp": "GBA",
+          "year": 2024,
+          "level": "medal",
+          "medal": "silver",
+          "rank": null,
+          "tier": "also",
+          "score": null,
+          "title": "Silver Medal",
+          "category": "Alternative Milk",
+          "group": "coffee_other",
+          "product": "VESTIBULAR",
+          "locationId": null,
+          "relation": "entrant",
+          "sources": [
+            {
+              "title": "Golden Bean 2024 Category 4 medallists",
+              "url": "https://cdn.shopify.com/s/files/1/0584/8734/1218/files/GBA_2024_Category_4-results.pdf",
+              "archive": "",
+              "ref": "投影片圖片，人工讀取"
+            }
+          ],
+          "verifiedAt": "2026-10-28"
+        }
+      ],
+      "summary": {
+        "champion": 0,
+        "gold": 3,
+        "first": 0,
+        "also": 6,
+        "years": [
+          2024,
+          2025
+        ]
+      }
+    },
+    {
+      "id": "B-ogabee",
+      "name": "O'GaBee & Co Coffee Roastery",
+      "types": [
+        "roaster",
+        "cafe"
+      ],
+      "scope": "retail",
+      "descZh": "店名來自創辦人養的邊境牧羊犬「GaBee」；2022 年從市中心擴展到北區的 Chermside。",
+      "descEn": "Named after the founder's border collie, GaBee; it expanded from the city to Chermside in the north in 2022.",
+      "website": "",
+      "instagram": "",
+      "related": [],
+      "locations": [
+        {
+          "id": "L-ogabee-brisbane-quarter",
+          "name": "Brisbane Quarter",
+          "address": "Shop 8/300 George St, Brisbane City QLD 4000",
+          "suburb": "Brisbane City",
+          "city": "Brisbane",
+          "state": "QLD",
+          "lat": -27.4699177,
+          "lng": 153.0221707,
+          "type": "standalone",
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=O%27GaBee%20%26%20Co%20Coffee%20Roastery%20Shop%208/300%20George%20St%2C%20Brisbane%20City%20QLD%204000"
+        },
+        {
+          "id": "L-ogabee-queen-street",
+          "name": "Queen Street",
+          "address": "G11A/141 Queen St, Brisbane City QLD 4000",
+          "suburb": "Brisbane City",
+          "city": "Brisbane",
+          "state": "QLD",
+          "lat": -27.4696418,
+          "lng": 153.0258888,
+          "type": "standalone",
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=O%27GaBee%20%26%20Co%20Coffee%20Roastery%20G11A/141%20Queen%20St%2C%20Brisbane%20City%20QLD%204000"
+        },
+        {
+          "id": "L-ogabee-chermside",
+          "name": "Westfield Chermside",
+          "address": "Shop 397, Westfield Chermside, Chermside QLD 4032",
+          "suburb": "Chermside",
+          "city": "Brisbane",
+          "state": "QLD",
+          "lat": -27.3814598,
+          "lng": 153.0331798,
+          "type": "standalone",
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=O%27GaBee%20%26%20Co%20Coffee%20Roastery%20Shop%20397%2C%20Westfield%20Chermside%2C%20Chermside%20QLD%204032"
+        },
+        {
+          "id": "L-ogabee-birkdale",
+          "name": "Birkdale Fair",
+          "address": "Shop 14/2 Mary Pleasant Dr, Birkdale QLD 4159",
+          "suburb": "Birkdale",
+          "city": "Brisbane",
+          "state": "QLD",
+          "lat": -27.4912095,
+          "lng": 153.2184918,
+          "type": "standalone",
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=O%27GaBee%20%26%20Co%20Coffee%20Roastery%20Shop%2014/2%20Mary%20Pleasant%20Dr%2C%20Birkdale%20QLD%204159"
+        }
+      ],
+      "awards": [
+        {
+          "id": "GBA-2025-CAT4-G-ogabee-o-gabee-blend-ii-gabee-1228",
+          "comp": "GBA",
+          "year": 2025,
+          "level": "medal",
+          "medal": "gold",
+          "rank": null,
+          "tier": "top",
+          "score": null,
+          "title": "Gold Medal",
+          "category": "Alternative Milk",
+          "group": "coffee_other",
+          "product": "O'GaBee Blend II (GABEE 1228)",
+          "locationId": null,
+          "relation": "entrant",
+          "sources": [
+            {
+              "title": "Golden Bean 2025 Category 4 medallists",
+              "url": "https://cdn.shopify.com/s/files/1/0584/8734/1218/files/Cat_4_Medalists.pdf",
+              "archive": "",
+              "ref": "投影片圖片，人工讀取"
+            }
+          ],
+          "verifiedAt": "2026-10-28"
+        },
+        {
+          "id": "GBA-2025-CAT10-S-ogabee-o-gabee-blend-v-ft-taiwan-alishan",
+          "comp": "GBA",
+          "year": 2025,
+          "level": "medal",
+          "medal": "silver",
+          "rank": null,
+          "tier": "also",
+          "score": null,
+          "title": "Silver Medal",
+          "category": "Small Chain/Retail/Franchise Espresso",
+          "group": "coffee_espresso",
+          "product": "O'GaBee Blend V (Ft. Taiwan Alishan)",
+          "locationId": null,
+          "relation": "entrant",
+          "sources": [
+            {
+              "title": "Golden Bean 2025 Category 10 medallists",
+              "url": "https://cdn.shopify.com/s/files/1/0584/8734/1218/files/Cat_10_Medalists.pdf",
+              "archive": "",
+              "ref": "投影片圖片，人工讀取"
+            }
+          ],
+          "verifiedAt": "2026-10-28"
+        },
+        {
+          "id": "GBA-2025-CAT11-S-ogabee-o-gabee-blend-v-ft-taiwan-alishan",
+          "comp": "GBA",
+          "year": 2025,
+          "level": "medal",
+          "medal": "silver",
+          "rank": null,
+          "tier": "also",
+          "score": null,
+          "title": "Silver Medal",
+          "category": "Small Chain/Retail/Franchise Milk",
+          "group": "coffee_milk",
+          "product": "O'GaBee Blend V (Ft. Taiwan Alishan)",
+          "locationId": null,
+          "relation": "entrant",
+          "sources": [
+            {
+              "title": "Golden Bean 2025 Category 11 medallists",
+              "url": "https://cdn.shopify.com/s/files/1/0584/8734/1218/files/Cat_11_Medalists.pdf",
+              "archive": "",
+              "ref": "投影片圖片，人工讀取"
+            }
+          ],
+          "verifiedAt": "2026-10-28"
+        },
+        {
+          "id": "GBA-2025-CAT2-S-ogabee-o-gabee-blend-ii-gabee-1228",
+          "comp": "GBA",
+          "year": 2025,
+          "level": "medal",
+          "medal": "silver",
+          "rank": null,
+          "tier": "also",
+          "score": null,
+          "title": "Silver Medal",
+          "category": "Milk-Based",
+          "group": "coffee_milk",
+          "product": "O'GaBee Blend II (GABEE 1228)",
+          "locationId": null,
+          "relation": "entrant",
+          "sources": [
+            {
+              "title": "Golden Bean 2025 Category 2 medallists",
+              "url": "https://cdn.shopify.com/s/files/1/0584/8734/1218/files/Cat_2_Medalists.pdf",
+              "archive": "",
+              "ref": "投影片圖片，人工讀取"
+            }
+          ],
+          "verifiedAt": "2026-10-28"
+        },
+        {
+          "id": "GBA-2025-CAT4-S-ogabee-o-gabee-festival-blend-l-and-e",
+          "comp": "GBA",
+          "year": 2025,
+          "level": "medal",
+          "medal": "silver",
+          "rank": null,
+          "tier": "also",
+          "score": null,
+          "title": "Silver Medal",
+          "category": "Alternative Milk",
+          "group": "coffee_other",
+          "product": "O'GaBee Festival Blend (L & E)",
+          "locationId": null,
+          "relation": "entrant",
+          "sources": [
+            {
+              "title": "Golden Bean 2025 Category 4 medallists",
+              "url": "https://cdn.shopify.com/s/files/1/0584/8734/1218/files/Cat_4_Medalists.pdf",
+              "archive": "",
+              "ref": "投影片圖片，人工讀取"
+            }
+          ],
+          "verifiedAt": "2026-10-28"
+        },
+        {
+          "id": "GBA-2024-CAT10-G-ogabee-ogabee-birkdale-w-and-l",
+          "comp": "GBA",
+          "year": 2024,
+          "level": "medal",
+          "medal": "gold",
+          "rank": null,
+          "tier": "top",
+          "score": null,
+          "title": "Gold Medal",
+          "category": "SML Chain/Store/Retail Espresso",
+          "group": "coffee_espresso",
+          "product": "OGABEE @ BIRKDALE (W & L)",
+          "locationId": null,
+          "relation": "entrant",
+          "sources": [
+            {
+              "title": "Golden Bean 2024 Category 10 medallists",
+              "url": "https://cdn.shopify.com/s/files/1/0584/8734/1218/files/GBA_2024_Category_10-results.pdf",
+              "archive": "",
+              "ref": "投影片圖片，人工讀取"
+            }
+          ],
+          "verifiedAt": "2026-10-28"
+        },
+        {
+          "id": "GBA-2024-CAT4-G-ogabee-l-and-e-xmas",
+          "comp": "GBA",
+          "year": 2024,
+          "level": "medal",
+          "medal": "gold",
+          "rank": null,
+          "tier": "top",
+          "score": null,
+          "title": "Gold Medal",
+          "category": "Alternative Milk",
+          "group": "coffee_other",
+          "product": "L & E (XMAS)",
+          "locationId": null,
+          "relation": "entrant",
+          "sources": [
+            {
+              "title": "Golden Bean 2024 Category 4 medallists",
+              "url": "https://cdn.shopify.com/s/files/1/0584/8734/1218/files/GBA_2024_Category_4-results.pdf",
+              "archive": "",
+              "ref": "投影片圖片，人工讀取"
+            }
+          ],
+          "verifiedAt": "2026-10-28"
+        },
+        {
+          "id": "GBA-2024-CAT1-S-ogabee-blend-v-gabee-419",
+          "comp": "GBA",
+          "year": 2024,
+          "level": "medal",
+          "medal": "silver",
+          "rank": null,
+          "tier": "also",
+          "score": null,
+          "title": "Silver Medal",
+          "category": "Espresso",
+          "group": "coffee_espresso",
+          "product": "BLEND V (GABEE 419)",
+          "locationId": null,
+          "relation": "entrant",
+          "sources": [
+            {
+              "title": "Golden Bean 2024 Category 1 medallists",
+              "url": "https://cdn.shopify.com/s/files/1/0584/8734/1218/files/GBA_2024_Category_1-results-website_a943b9a9-830b-4d84-8d0b-6dd819969715.pdf",
+              "archive": "",
+              "ref": "投影片圖片，人工讀取"
+            }
+          ],
+          "verifiedAt": "2026-10-28"
+        },
+        {
+          "id": "GBA-2024-CAT1-S-ogabee-l-and-e-xmas",
+          "comp": "GBA",
+          "year": 2024,
+          "level": "medal",
+          "medal": "silver",
+          "rank": null,
+          "tier": "also",
+          "score": null,
+          "title": "Silver Medal",
+          "category": "Espresso",
+          "group": "coffee_espresso",
+          "product": "L & E (XMAS)",
+          "locationId": null,
+          "relation": "entrant",
+          "sources": [
+            {
+              "title": "Golden Bean 2024 Category 1 medallists",
+              "url": "https://cdn.shopify.com/s/files/1/0584/8734/1218/files/GBA_2024_Category_1-results-website_a943b9a9-830b-4d84-8d0b-6dd819969715.pdf",
+              "archive": "",
+              "ref": "投影片圖片，人工讀取"
+            }
+          ],
+          "verifiedAt": "2026-10-28"
+        },
+        {
+          "id": "GBA-2024-CAT11-S-ogabee-l-and-e-xmas",
+          "comp": "GBA",
+          "year": 2024,
+          "level": "medal",
+          "medal": "silver",
+          "rank": null,
+          "tier": "also",
+          "score": null,
+          "title": "Silver Medal",
+          "category": "SML Chain/Store/Retail Milk-Based",
+          "group": "coffee_milk",
+          "product": "L & E (XMAS)",
+          "locationId": null,
+          "relation": "entrant",
+          "sources": [
+            {
+              "title": "Golden Bean 2024 Category 11 medallists",
+              "url": "https://cdn.shopify.com/s/files/1/0584/8734/1218/files/GBA_2024_Category_11-results.pdf",
+              "archive": "",
+              "ref": "投影片圖片，人工讀取"
+            }
+          ],
+          "verifiedAt": "2026-10-28"
+        },
+        {
+          "id": "GBA-2024-CAT2-S-ogabee-l-and-e-xmas",
+          "comp": "GBA",
+          "year": 2024,
+          "level": "medal",
+          "medal": "silver",
+          "rank": null,
+          "tier": "also",
+          "score": null,
+          "title": "Silver Medal",
+          "category": "Milk Based",
+          "group": "coffee_milk",
+          "product": "L & E (XMAS)",
+          "locationId": null,
+          "relation": "entrant",
+          "sources": [
+            {
+              "title": "Golden Bean 2024 Category 2 medallists",
+              "url": "https://cdn.shopify.com/s/files/1/0584/8734/1218/files/GBA_2024_Category_2-results_6f9dc1c1-c537-42cf-9c5c-adba7046b0e2.pdf",
+              "archive": "",
+              "ref": "投影片圖片，人工讀取"
+            }
+          ],
+          "verifiedAt": "2026-10-28"
+        },
+        {
+          "id": "GBA-2024-CAT3-S-ogabee-colombia-caturra-nitro",
+          "comp": "GBA",
+          "year": 2024,
+          "level": "medal",
+          "medal": "silver",
+          "rank": null,
+          "tier": "also",
+          "score": null,
+          "title": "Silver Medal",
+          "category": "Filter",
+          "group": "coffee_filter",
+          "product": "COLOMBIA CATURRA NITRO",
+          "locationId": null,
+          "relation": "entrant",
+          "sources": [
+            {
+              "title": "Golden Bean 2024 Category 3 medallists",
+              "url": "https://cdn.shopify.com/s/files/1/0584/8734/1218/files/GBA_2024_Category_3-results_91f3121d-73f7-4da5-938f-e72fde96c527.pdf",
+              "archive": "",
+              "ref": "投影片圖片，人工讀取"
+            }
+          ],
+          "verifiedAt": "2026-10-28"
+        },
+        {
+          "id": "GBA-2024-CAT3-S-ogabee-colombia-double-cm",
+          "comp": "GBA",
+          "year": 2024,
+          "level": "medal",
+          "medal": "silver",
+          "rank": null,
+          "tier": "also",
+          "score": null,
+          "title": "Silver Medal",
+          "category": "Filter",
+          "group": "coffee_filter",
+          "product": "COLOMBIA DOUBLE CM",
+          "locationId": null,
+          "relation": "entrant",
+          "sources": [
+            {
+              "title": "Golden Bean 2024 Category 3 medallists",
+              "url": "https://cdn.shopify.com/s/files/1/0584/8734/1218/files/GBA_2024_Category_3-results_91f3121d-73f7-4da5-938f-e72fde96c527.pdf",
+              "archive": "",
+              "ref": "投影片圖片，人工讀取"
+            }
+          ],
+          "verifiedAt": "2026-10-28"
+        },
+        {
+          "id": "GBA-2024-CAT3-S-ogabee-colombia-maypop",
+          "comp": "GBA",
+          "year": 2024,
+          "level": "medal",
+          "medal": "silver",
+          "rank": null,
+          "tier": "also",
+          "score": null,
+          "title": "Silver Medal",
+          "category": "Filter",
+          "group": "coffee_filter",
+          "product": "COLOMBIA MAYPOP",
+          "locationId": null,
+          "relation": "entrant",
+          "sources": [
+            {
+              "title": "Golden Bean 2024 Category 3 medallists",
+              "url": "https://cdn.shopify.com/s/files/1/0584/8734/1218/files/GBA_2024_Category_3-results_91f3121d-73f7-4da5-938f-e72fde96c527.pdf",
+              "archive": "",
+              "ref": "投影片圖片，人工讀取"
+            }
+          ],
+          "verifiedAt": "2026-10-28"
+        },
+        {
+          "id": "GBA-2024-CAT6-S-ogabee-colombia-bourbon",
+          "comp": "GBA",
+          "year": 2024,
+          "level": "medal",
+          "medal": "silver",
+          "rank": null,
+          "tier": "also",
+          "score": null,
+          "title": "Silver Medal",
+          "category": "Elite",
+          "group": "coffee_other",
+          "product": "COLOMBIA BOURBON",
+          "locationId": null,
+          "relation": "entrant",
+          "sources": [
+            {
+              "title": "Golden Bean 2024 Category 6 medallists",
+              "url": "https://cdn.shopify.com/s/files/1/0584/8734/1218/files/GBA_2024_Category_6-results.pdf",
+              "archive": "",
+              "ref": "投影片圖片，人工讀取"
+            }
+          ],
+          "verifiedAt": "2026-10-28"
+        },
+        {
+          "id": "GBA-2024-CAT7-S-ogabee-l-and-e-xmas",
+          "comp": "GBA",
+          "year": 2024,
+          "level": "medal",
+          "medal": "silver",
+          "rank": null,
+          "tier": "also",
+          "score": null,
+          "title": "Silver Medal",
+          "category": "Super Automatic",
+          "group": "coffee_other",
+          "product": "L & E (XMAS)",
+          "locationId": null,
+          "relation": "entrant",
+          "sources": [
+            {
+              "title": "Golden Bean 2024 Category 7 medallists",
+              "url": "https://cdn.shopify.com/s/files/1/0584/8734/1218/files/GBA_2024_Category_7-results.pdf",
+              "archive": "",
+              "ref": "投影片圖片，人工讀取"
+            }
+          ],
+          "verifiedAt": "2026-10-28"
+        }
+      ],
+      "summary": {
+        "champion": 0,
+        "gold": 3,
+        "first": 0,
+        "also": 13,
+        "years": [
+          2024,
+          2025
+        ]
+      }
+    },
+    {
       "id": "B-bakehouse-delights",
       "name": "Bakehouse Delights",
       "types": [
@@ -6891,6 +7907,270 @@ var PAGE_DATA = {
       }
     },
     {
+      "id": "B-brazen-brownies",
+      "name": "Brazen Brownies",
+      "types": [
+        "bakery"
+      ],
+      "scope": "retail",
+      "descZh": "前銀行員 George Kalpakis 和當律師的太太 Caroline 一起創立的布朗尼專門店。",
+      "descEn": "A brownie specialist founded by former banker George Kalpakis and his wife Caroline, a lawyer.",
+      "website": "https://www.brazenbrownies.com.au/",
+      "instagram": "",
+      "related": [],
+      "locations": [
+        {
+          "id": "L-brazen-brownies-thomastown",
+          "name": "Thomastown",
+          "address": "Unit 6/36 Latitude Blvd, Thomastown VIC 3074",
+          "suburb": "Thomastown",
+          "city": "Melbourne",
+          "state": "VIC",
+          "lat": -37.6853856,
+          "lng": 145.0175852,
+          "type": "factory_shop",
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Brazen%20Brownies%20Unit%206/36%20Latitude%20Blvd%2C%20Thomastown%20VIC%203074"
+        }
+      ],
+      "awards": [
+        {
+          "id": "RAS-PB-2025-C10-E176",
+          "comp": "RAS-PB",
+          "year": 2025,
+          "level": "medal",
+          "medal": "gold",
+          "rank": null,
+          "tier": "top",
+          "score": 90.0,
+          "title": "Gold Medal",
+          "category": "Brownies & Slices (e.g., fudge brownie, caramel slice, muesli slice, etc.)",
+          "group": "cake",
+          "product": "BRAZEN BROWNIES, WALNUT",
+          "locationId": null,
+          "relation": "entrant",
+          "sources": [
+            {
+              "title": "myRAS 2025 Professional Bakery results",
+              "url": "https://www.myras.com.au/res/results/CompetitonResults.aspx?TO=0&SY=2025&SN=17&CT=2&WT=&WST=&EN=All%20Exhibitors&TN=All+Towns&PC1=&PC2=&CL1=&CL2=&REGION=All+regions&ST=&EI=1&OR=1",
+              "archive": "https://web.archive.org/web/20260506173657/https://www.myras.com.au/res/results/CompetitonResults.aspx?TO=0&SY=2025&SN=17&CT=2&WT=&WST=&EN=All%20Exhibitors&TN=All+Towns&PC1=&PC2=&CL1=&CL2=&REGION=All+regions&ST=&EI=1&OR=1",
+              "ref": ""
+            }
+          ],
+          "verifiedAt": "2026-10-26"
+        },
+        {
+          "id": "RAS-PB-2025-C10-E170",
+          "comp": "RAS-PB",
+          "year": 2025,
+          "level": "medal",
+          "medal": "silver",
+          "rank": null,
+          "tier": "also",
+          "score": 87.33,
+          "title": "Silver Medal",
+          "category": "Brownies & Slices (e.g., fudge brownie, caramel slice, muesli slice, etc.)",
+          "group": "cake",
+          "product": "BRAZEN BROWNIES, SURF NUT, SEA SALT MACADAMIA BROWNIE GLUTEN FREE",
+          "locationId": null,
+          "relation": "entrant",
+          "sources": [
+            {
+              "title": "myRAS 2025 Professional Bakery results",
+              "url": "https://www.myras.com.au/res/results/CompetitonResults.aspx?TO=0&SY=2025&SN=17&CT=2&WT=&WST=&EN=All%20Exhibitors&TN=All+Towns&PC1=&PC2=&CL1=&CL2=&REGION=All+regions&ST=&EI=1&OR=1",
+              "archive": "https://web.archive.org/web/20260506173657/https://www.myras.com.au/res/results/CompetitonResults.aspx?TO=0&SY=2025&SN=17&CT=2&WT=&WST=&EN=All%20Exhibitors&TN=All+Towns&PC1=&PC2=&CL1=&CL2=&REGION=All+regions&ST=&EI=1&OR=1",
+              "ref": ""
+            }
+          ],
+          "verifiedAt": "2026-10-26"
+        },
+        {
+          "id": "RAS-PB-2025-C10-E172",
+          "comp": "RAS-PB",
+          "year": 2025,
+          "level": "medal",
+          "medal": "silver",
+          "rank": null,
+          "tier": "also",
+          "score": 86.67,
+          "title": "Silver Medal",
+          "category": "Brownies & Slices (e.g., fudge brownie, caramel slice, muesli slice, etc.)",
+          "group": "cake",
+          "product": "BRAZEN BROWNIES, BROOKIE, BROWNIE COOKIE",
+          "locationId": null,
+          "relation": "entrant",
+          "sources": [
+            {
+              "title": "myRAS 2025 Professional Bakery results",
+              "url": "https://www.myras.com.au/res/results/CompetitonResults.aspx?TO=0&SY=2025&SN=17&CT=2&WT=&WST=&EN=All%20Exhibitors&TN=All+Towns&PC1=&PC2=&CL1=&CL2=&REGION=All+regions&ST=&EI=1&OR=1",
+              "archive": "https://web.archive.org/web/20260506173657/https://www.myras.com.au/res/results/CompetitonResults.aspx?TO=0&SY=2025&SN=17&CT=2&WT=&WST=&EN=All%20Exhibitors&TN=All+Towns&PC1=&PC2=&CL1=&CL2=&REGION=All+regions&ST=&EI=1&OR=1",
+              "ref": ""
+            }
+          ],
+          "verifiedAt": "2026-10-26"
+        },
+        {
+          "id": "RAS-PB-2025-C10-E171",
+          "comp": "RAS-PB",
+          "year": 2025,
+          "level": "medal",
+          "medal": "silver",
+          "rank": null,
+          "tier": "also",
+          "score": 83.33,
+          "title": "Silver Medal",
+          "category": "Brownies & Slices (e.g., fudge brownie, caramel slice, muesli slice, etc.)",
+          "group": "cake",
+          "product": "BRAZEN BROWNIES, SALTED CARAMEL MACADAMIA GLUTEN FREE",
+          "locationId": null,
+          "relation": "entrant",
+          "sources": [
+            {
+              "title": "myRAS 2025 Professional Bakery results",
+              "url": "https://www.myras.com.au/res/results/CompetitonResults.aspx?TO=0&SY=2025&SN=17&CT=2&WT=&WST=&EN=All%20Exhibitors&TN=All+Towns&PC1=&PC2=&CL1=&CL2=&REGION=All+regions&ST=&EI=1&OR=1",
+              "archive": "https://web.archive.org/web/20260506173657/https://www.myras.com.au/res/results/CompetitonResults.aspx?TO=0&SY=2025&SN=17&CT=2&WT=&WST=&EN=All%20Exhibitors&TN=All+Towns&PC1=&PC2=&CL1=&CL2=&REGION=All+regions&ST=&EI=1&OR=1",
+              "ref": ""
+            }
+          ],
+          "verifiedAt": "2026-10-26"
+        },
+        {
+          "id": "RAS-PB-2025-C11-E178",
+          "comp": "RAS-PB",
+          "year": 2025,
+          "level": "medal",
+          "medal": "silver",
+          "rank": null,
+          "tier": "also",
+          "score": 83.33,
+          "title": "Silver Medal",
+          "category": "Biscuit, Sweet, Chocolate (e.g., triple chocolate, chocolate pinwheels, etc.)",
+          "group": "biscuit",
+          "product": "BRAZEN BROWNIES, BROOKIE, BROWNIE COOKIE GLUTEN FREE",
+          "locationId": null,
+          "relation": "entrant",
+          "sources": [
+            {
+              "title": "myRAS 2025 Professional Bakery results",
+              "url": "https://www.myras.com.au/res/results/CompetitonResults.aspx?TO=0&SY=2025&SN=17&CT=2&WT=&WST=&EN=All%20Exhibitors&TN=All+Towns&PC1=&PC2=&CL1=&CL2=&REGION=All+regions&ST=&EI=1&OR=1",
+              "archive": "https://web.archive.org/web/20260506173657/https://www.myras.com.au/res/results/CompetitonResults.aspx?TO=0&SY=2025&SN=17&CT=2&WT=&WST=&EN=All%20Exhibitors&TN=All+Towns&PC1=&PC2=&CL1=&CL2=&REGION=All+regions&ST=&EI=1&OR=1",
+              "ref": ""
+            }
+          ],
+          "verifiedAt": "2026-10-26"
+        },
+        {
+          "id": "RAS-PB-2024-C10-E116",
+          "comp": "RAS-PB",
+          "year": 2024,
+          "level": "medal",
+          "medal": "gold",
+          "rank": null,
+          "tier": "top",
+          "score": 91.0,
+          "title": "Gold Medal",
+          "category": "Brownies & Slices (e.g., fudge brownie, caramel slice, muesli slice, etc.)",
+          "group": "cake",
+          "product": "BRAZEN BROWNIES, SINFULLY SALTED CARAMEL PEANUT",
+          "locationId": null,
+          "relation": "entrant",
+          "sources": [
+            {
+              "title": "myRAS 2024 Professional Bakery results",
+              "url": "https://www.myras.com.au/res/results/CompetitonResults.aspx?TO=0&SY=2024&SN=17&CT=2&WT=&WST=&EN=All%20Exhibitors&TN=All+Towns&PC1=&PC2=&CL1=&CL2=&REGION=All+regions&ST=&EI=1&OR=1",
+              "archive": "",
+              "ref": ""
+            }
+          ],
+          "verifiedAt": "2026-10-26"
+        },
+        {
+          "id": "RAS-PB-2024-C10-E107",
+          "comp": "RAS-PB",
+          "year": 2024,
+          "level": "medal",
+          "medal": "silver",
+          "rank": null,
+          "tier": "also",
+          "score": 87.0,
+          "title": "Silver Medal",
+          "category": "Brownies & Slices (e.g., fudge brownie, caramel slice, muesli slice, etc.)",
+          "group": "cake",
+          "product": "BRAZEN BROWNIES, SINFULLY SALTED CARAMEL PEANUT GLUTEN FREE",
+          "locationId": null,
+          "relation": "entrant",
+          "sources": [
+            {
+              "title": "myRAS 2024 Professional Bakery results",
+              "url": "https://www.myras.com.au/res/results/CompetitonResults.aspx?TO=0&SY=2024&SN=17&CT=2&WT=&WST=&EN=All%20Exhibitors&TN=All+Towns&PC1=&PC2=&CL1=&CL2=&REGION=All+regions&ST=&EI=1&OR=1",
+              "archive": "",
+              "ref": ""
+            }
+          ],
+          "verifiedAt": "2026-10-26"
+        },
+        {
+          "id": "RAS-PB-2024-C10-E115",
+          "comp": "RAS-PB",
+          "year": 2024,
+          "level": "medal",
+          "medal": "silver",
+          "rank": null,
+          "tier": "also",
+          "score": 86.33,
+          "title": "Silver Medal",
+          "category": "Brownies & Slices (e.g., fudge brownie, caramel slice, muesli slice, etc.)",
+          "group": "cake",
+          "product": "BRAZEN BROWNIES, GOING NUTS PEANUT BUTTER",
+          "locationId": null,
+          "relation": "entrant",
+          "sources": [
+            {
+              "title": "myRAS 2024 Professional Bakery results",
+              "url": "https://www.myras.com.au/res/results/CompetitonResults.aspx?TO=0&SY=2024&SN=17&CT=2&WT=&WST=&EN=All%20Exhibitors&TN=All+Towns&PC1=&PC2=&CL1=&CL2=&REGION=All+regions&ST=&EI=1&OR=1",
+              "archive": "",
+              "ref": ""
+            }
+          ],
+          "verifiedAt": "2026-10-26"
+        },
+        {
+          "id": "RAS-PB-2024-C10-E112",
+          "comp": "RAS-PB",
+          "year": 2024,
+          "level": "medal",
+          "medal": "silver",
+          "rank": null,
+          "tier": "also",
+          "score": 83.0,
+          "title": "Silver Medal",
+          "category": "Brownies & Slices (e.g., fudge brownie, caramel slice, muesli slice, etc.)",
+          "group": "cake",
+          "product": "BRAZEN BROWNIES, WICKED CHOCOLATE ADDICTION",
+          "locationId": null,
+          "relation": "entrant",
+          "sources": [
+            {
+              "title": "myRAS 2024 Professional Bakery results",
+              "url": "https://www.myras.com.au/res/results/CompetitonResults.aspx?TO=0&SY=2024&SN=17&CT=2&WT=&WST=&EN=All%20Exhibitors&TN=All+Towns&PC1=&PC2=&CL1=&CL2=&REGION=All+regions&ST=&EI=1&OR=1",
+              "archive": "",
+              "ref": ""
+            }
+          ],
+          "verifiedAt": "2026-10-26"
+        }
+      ],
+      "summary": {
+        "champion": 0,
+        "gold": 2,
+        "first": 0,
+        "also": 7,
+        "years": [
+          2024,
+          2025
+        ]
+      }
+    },
+    {
       "id": "B-forestway-fresh",
       "name": "Forestway Fresh",
       "types": [
@@ -7276,6 +8556,70 @@ var PAGE_DATA = {
         "also": 4,
         "years": [
           2024
+        ]
+      }
+    },
+    {
+      "id": "B-coles",
+      "name": "Coles",
+      "types": [
+        "bakery"
+      ],
+      "scope": "supermarket",
+      "descZh": "Darwin Casuarina Square 裡的 Coles 超市；得獎的是店內烘焙部的烘焙師 Luke Moy。",
+      "descEn": "The Coles supermarket in Darwin's Casuarina Square; the award went to Luke Moy, a baker in its in-store bakery.",
+      "website": "https://www.coles.com.au/",
+      "instagram": "",
+      "related": [],
+      "locations": [
+        {
+          "id": "L-coles-casuarina",
+          "name": "Casuarina Square",
+          "address": "Casuarina Square, Trower Rd & Dripstone Rd, Casuarina NT 0810",
+          "suburb": "Casuarina",
+          "city": "Darwin",
+          "state": "NT",
+          "lat": -12.3766504,
+          "lng": 130.8813286,
+          "type": "in_supermarket",
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Coles%20Casuarina%20Square%2C%20Trower%20Rd%20%26%20Dripstone%20Rd%2C%20Casuarina%20NT%200810"
+        }
+      ],
+      "awards": [
+        {
+          "id": "NABC-2026-C001-P1",
+          "comp": "NABC",
+          "year": 2026,
+          "level": "placing",
+          "medal": null,
+          "rank": 1,
+          "tier": "top",
+          "score": null,
+          "title": "First",
+          "category": "Traditional White Sourdough - Minimum 600gm",
+          "group": "sourdough",
+          "product": "",
+          "locationId": "L-coles-casuarina",
+          "relation": "staff_entry",
+          "sources": [
+            {
+              "title": "2026 National Artisan Baking Competition official results",
+              "url": "https://bakingtradeshow.com.au/wp-content/uploads/2026/07/2026-ARTISAN_BAKING_official-results.pdf",
+              "archive": "",
+              "ref": ""
+            }
+          ],
+          "verifiedAt": "2026-10-26",
+          "recipient": "Luke Moy - Coles Casuarina"
+        }
+      ],
+      "summary": {
+        "champion": 0,
+        "gold": 0,
+        "first": 1,
+        "also": 0,
+        "years": [
+          2026
         ]
       }
     },
@@ -7896,6 +9240,298 @@ var PAGE_DATA = {
         "also": 2,
         "years": [
           2026
+        ]
+      }
+    },
+    {
+      "id": "B-peak-coffee",
+      "name": "Peak Coffee Australia",
+      "types": [
+        "roaster",
+        "cafe"
+      ],
+      "scope": "retail",
+      "descZh": "Mid North Coast 第一家咖啡烘豆商，用鑄鐵滾筒烘豆機，也烘自家在印度農園的豆子。",
+      "descEn": "The Mid North Coast's first coffee roaster, using a cast-iron drum roaster and roasting beans from its own farm in India.",
+      "website": "https://peakcoffee.com.au/",
+      "instagram": "",
+      "related": [],
+      "locations": [
+        {
+          "id": "L-peak-coffee-port-macquarie",
+          "name": "Port Macquarie",
+          "address": "30 Jambali Rd, Port Macquarie NSW 2444",
+          "suburb": "Port Macquarie",
+          "city": "Port Macquarie",
+          "state": "NSW",
+          "lat": -31.451154,
+          "lng": 152.886106,
+          "type": "factory_shop",
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Peak%20Coffee%20Australia%2030%20Jambali%20Rd%2C%20Port%20Macquarie%20NSW%202444"
+        }
+      ],
+      "awards": [
+        {
+          "id": "GBA-2025-CAT4-S-peak-coffee-real-wild-child",
+          "comp": "GBA",
+          "year": 2025,
+          "level": "medal",
+          "medal": "silver",
+          "rank": null,
+          "tier": "also",
+          "score": null,
+          "title": "Silver Medal",
+          "category": "Alternative Milk",
+          "group": "coffee_other",
+          "product": "Real Wild Child",
+          "locationId": null,
+          "relation": "entrant",
+          "sources": [
+            {
+              "title": "Golden Bean 2025 Category 4 medallists",
+              "url": "https://cdn.shopify.com/s/files/1/0584/8734/1218/files/Cat_4_Medalists.pdf",
+              "archive": "",
+              "ref": "投影片圖片，人工讀取"
+            }
+          ],
+          "verifiedAt": "2026-10-28"
+        },
+        {
+          "id": "GBA-2025-CAT7-S-peak-coffee-real-wild-child",
+          "comp": "GBA",
+          "year": 2025,
+          "level": "medal",
+          "medal": "silver",
+          "rank": null,
+          "tier": "also",
+          "score": null,
+          "title": "Silver Medal",
+          "category": "Super Automatic",
+          "group": "coffee_other",
+          "product": "Real Wild Child",
+          "locationId": null,
+          "relation": "entrant",
+          "sources": [
+            {
+              "title": "Golden Bean 2025 Category 7 medallists",
+              "url": "https://cdn.shopify.com/s/files/1/0584/8734/1218/files/Cat_7_Medalists.pdf",
+              "archive": "",
+              "ref": "投影片圖片，人工讀取"
+            }
+          ],
+          "verifiedAt": "2026-10-28"
+        },
+        {
+          "id": "GBA-2024-CAT7-G-peak-coffee-real-wild-child",
+          "comp": "GBA",
+          "year": 2024,
+          "level": "medal",
+          "medal": "gold",
+          "rank": null,
+          "tier": "top",
+          "score": null,
+          "title": "Gold Medal",
+          "category": "Super Automatic",
+          "group": "coffee_other",
+          "product": "REAL WILD CHILD",
+          "locationId": null,
+          "relation": "entrant",
+          "sources": [
+            {
+              "title": "Golden Bean 2024 Category 7 medallists",
+              "url": "https://cdn.shopify.com/s/files/1/0584/8734/1218/files/GBA_2024_Category_7-results.pdf",
+              "archive": "",
+              "ref": "投影片圖片，人工讀取"
+            }
+          ],
+          "verifiedAt": "2026-10-28"
+        },
+        {
+          "id": "GBA-2024-CAT1-S-peak-coffee-real-wild-child",
+          "comp": "GBA",
+          "year": 2024,
+          "level": "medal",
+          "medal": "silver",
+          "rank": null,
+          "tier": "also",
+          "score": null,
+          "title": "Silver Medal",
+          "category": "Espresso",
+          "group": "coffee_espresso",
+          "product": "REAL WILD CHILD",
+          "locationId": null,
+          "relation": "entrant",
+          "sources": [
+            {
+              "title": "Golden Bean 2024 Category 1 medallists",
+              "url": "https://cdn.shopify.com/s/files/1/0584/8734/1218/files/GBA_2024_Category_1-results-website_a943b9a9-830b-4d84-8d0b-6dd819969715.pdf",
+              "archive": "",
+              "ref": "投影片圖片，人工讀取"
+            }
+          ],
+          "verifiedAt": "2026-10-28"
+        }
+      ],
+      "summary": {
+        "champion": 0,
+        "gold": 1,
+        "first": 0,
+        "also": 3,
+        "years": [
+          2024,
+          2025
+        ]
+      }
+    },
+    {
+      "id": "B-coffee-presto",
+      "name": "Coffee Presto",
+      "types": [
+        "roaster",
+        "cafe"
+      ],
+      "scope": "retail",
+      "descZh": "北昆士蘭的咖啡烘豆商，也替當地咖啡店供應咖啡機。",
+      "descEn": "A North Queensland coffee roaster that also supplies coffee machines to local cafés.",
+      "website": "",
+      "instagram": "",
+      "related": [],
+      "locations": [
+        {
+          "id": "L-coffee-presto-rosslea",
+          "name": "Rosslea",
+          "address": "103 Bowen Rd, Rosslea QLD 4812",
+          "suburb": "Rosslea",
+          "city": "Townsville",
+          "state": "QLD",
+          "lat": -19.3011804,
+          "lng": 146.7998245,
+          "type": "factory_shop",
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Coffee%20Presto%20103%20Bowen%20Rd%2C%20Rosslea%20QLD%204812"
+        }
+      ],
+      "awards": [
+        {
+          "id": "GBA-2024-CAT5-G-coffee-presto-presto-zero",
+          "comp": "GBA",
+          "year": 2024,
+          "level": "medal",
+          "medal": "gold",
+          "rank": null,
+          "tier": "top",
+          "score": null,
+          "title": "Gold Medal",
+          "category": "Decaf",
+          "group": "coffee_other",
+          "product": "PRESTO ZERO",
+          "locationId": null,
+          "relation": "entrant",
+          "sources": [
+            {
+              "title": "Golden Bean 2024 Category 5 medallists",
+              "url": "https://cdn.shopify.com/s/files/1/0584/8734/1218/files/GBA_2024_Category_5-results.pdf",
+              "archive": "",
+              "ref": "投影片圖片，人工讀取"
+            }
+          ],
+          "verifiedAt": "2026-10-28"
+        }
+      ],
+      "summary": {
+        "champion": 0,
+        "gold": 1,
+        "first": 0,
+        "also": 0,
+        "years": [
+          2024
+        ]
+      }
+    },
+    {
+      "id": "B-sourdough-portland",
+      "name": "Sourdough Portland",
+      "types": [
+        "bakery"
+      ],
+      "scope": "retail",
+      "descZh": "藏在 Percy St 黑色大門後面的麵包坊，只做天然發酵的酸種麵包和酥皮點心。",
+      "descEn": "A bakehouse behind black gates on Percy St, making only naturally leavened sourdough and pastries.",
+      "website": "",
+      "instagram": "https://www.instagram.com/sourdoughportland/",
+      "related": [],
+      "locations": [
+        {
+          "id": "L-sourdough-portland-portland",
+          "name": "Portland",
+          "address": "31 Percy St, Portland VIC 3305",
+          "suburb": "Portland",
+          "city": "Portland",
+          "state": "VIC",
+          "lat": -38.3497204,
+          "lng": 141.6032766,
+          "type": "standalone",
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Sourdough%20Portland%2031%20Percy%20St%2C%20Portland%20VIC%203305"
+        }
+      ],
+      "awards": [
+        {
+          "id": "NABC-2024-C001-P1",
+          "comp": "NABC",
+          "year": 2024,
+          "level": "placing",
+          "medal": null,
+          "rank": 1,
+          "tier": "top",
+          "score": null,
+          "title": "First",
+          "category": "Traditional White Sourdough - Minimum 600gm",
+          "group": "sourdough",
+          "product": "",
+          "locationId": null,
+          "relation": "entrant",
+          "sources": [
+            {
+              "title": "2024 National Artisan Baking Competition official results",
+              "url": "https://bakingbusiness.com.au/wp-content/uploads/2024/06/National-Artisan-Results-2024.pdf",
+              "archive": "",
+              "ref": "掃描檔；PDF 內的黑白文字圖層轉成圖片後人工讀取（RESEARCH.md 2.2）"
+            }
+          ],
+          "verifiedAt": "2026-10-26"
+        },
+        {
+          "id": "NABC-2024-C004-P2",
+          "comp": "NABC",
+          "year": 2024,
+          "level": "placing",
+          "medal": null,
+          "rank": 2,
+          "tier": "also",
+          "score": null,
+          "title": "Second",
+          "category": "Sourdough Tin Bread",
+          "group": "sourdough",
+          "product": "",
+          "locationId": null,
+          "relation": "entrant",
+          "sources": [
+            {
+              "title": "2024 National Artisan Baking Competition official results",
+              "url": "https://bakingbusiness.com.au/wp-content/uploads/2024/06/National-Artisan-Results-2024.pdf",
+              "archive": "",
+              "ref": "掃描檔；PDF 內的黑白文字圖層轉成圖片後人工讀取（RESEARCH.md 2.2）"
+            }
+          ],
+          "verifiedAt": "2026-10-26"
+        }
+      ],
+      "summary": {
+        "champion": 0,
+        "gold": 0,
+        "first": 1,
+        "also": 1,
+        "years": [
+          2024
         ]
       }
     }
