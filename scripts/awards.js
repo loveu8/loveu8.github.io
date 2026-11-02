@@ -43,8 +43,8 @@ var UI = {
     search: '搜尋店名、城市或產品', searchPlaceholder: '例如 Sydney、croissant', searchClear: '清除搜尋',
     more: '更多篩選', moreCount: '更多篩選 · {n}', clearAll: '✕ 清除', clearAllAria: '清除全部篩選',
     result: '{s} × {c} · {n} 家', resultOne: '{s} × {c} · 1 家', resultMore: ' · 另 {n} 個條件', resultMoreOne: ' · 另 1 個條件',
-    matchNote: '（符合篩選）',
-    emptyTitle: '這個組合沒有店家', emptyText: '換個條件看看，或按「✕ 全部清除」；每個按鈕上的數字是選了它之後的家數。',
+    matchNote: '（符合篩選）', footnoteAsOf: '資料整理到 {d}。',
+    emptyTitle: '這個組合沒有店家', emptyText: '換個條件看看，或按「✕ 清除」；每個按鈕上的數字是選了它之後的家數。',
     meta: '{c} · {s} · {n} 間門市', yearOne: '{y} 年',
     levels: { champion: '冠軍', gold: '金牌', silver: '銀牌', first: '第 1 名', second: '第 2 名' },
     levelsShort: { champion: '冠軍', gold: '金牌', first: '第 1 名' },
@@ -58,10 +58,14 @@ var UI = {
     types: { bakery: '烘焙', cafe: '咖啡廳', roaster: '烘豆' },
     scopes: { supermarket: '超市內烘焙', chain_franchise: '連鎖加盟店' },
     locTypes: { supermarket_counter: '超市內專櫃', factory_shop: '工廠門市' },
-    footnote: '獎項來自各賽事官方公布的結果，每一筆都附來源連結和查證日期。' +
-      '卡片列出冠軍、金牌、第 1 名（招牌）和銀牌、第 2 名（也推薦），銅牌和第 3 名不列。' +
-      '獎項代表得獎當年那間店的水準；連鎖加盟店只列得獎的那一間；超市的獎沒有指定門市時，列出它有烘焙部的門市。' +
+    footnote: [
+      '獎項來自雪梨皇家烘焙賽、全國手工烘焙賽、金豆烘豆賽 2024–2026 官方公布的結果，每一筆都附來源連結和查證日期。',
+      '金牌是分數制，達到分數就有，同一班可以有好幾面；第 1 名是名次，每班只有一個，兩者不能直接比。',
+      '卡片列出冠軍、金牌、第 1 名（招牌）和銀牌、第 2 名（也推薦），銅牌和第 3 名不列。',
+      '雪梨皇家烘焙賽在雪梨舉辦，所以新州的店特別多；咖啡店則有一大半在昆士蘭。',
+      '獎項代表得獎當年那間店的水準；連鎖加盟店只列得獎的那一間；超市的獎沒有指定門市時，列出它有烘焙部的門市。',
       '篩選只作用在清單，地圖固定顯示全部門市；賽事、年份、等級、品項只看冠軍、金牌、第 1 名。'
+    ]
   },
   en: {
     subtitle: '{n} shops · {m} stores · official results {y}',
@@ -70,8 +74,8 @@ var UI = {
     search: 'Search shops, cities or items', searchPlaceholder: 'e.g. Sydney, croissant', searchClear: 'Clear search',
     more: 'More filters', moreCount: 'More filters · {n}', clearAll: '✕ Clear', clearAllAria: 'Clear all filters',
     result: '{s} × {c} · {n} shops', resultOne: '{s} × {c} · 1 shop', resultMore: ' · +{n} filters', resultMoreOne: ' · +1 filter',
-    matchNote: ' (matches the filters)',
-    emptyTitle: 'No shops match', emptyText: 'Try other filters, or press “✕ Clear all”; the number on each button is how many shops it would show.',
+    matchNote: ' (matches the filters)', footnoteAsOf: 'Data as of {d}.',
+    emptyTitle: 'No shops match', emptyText: 'Try other filters, or press “✕ Clear”; the number on each button is how many shops it would show.',
     meta: '{c} · {s} · {n} stores', yearOne: '{y}',
     levels: { champion: 'Champion', gold: 'Gold medal', silver: 'Silver medal', first: '1st place', second: '2nd place' },
     levelsShort: { champion: 'Champion', gold: 'Gold', first: '1st' },
@@ -85,10 +89,14 @@ var UI = {
     types: { bakery: 'Bakery', cafe: 'Café', roaster: 'Roaster' },
     scopes: { supermarket: 'In-store supermarket bakery', chain_franchise: 'Franchise store' },
     locTypes: { supermarket_counter: 'Supermarket counter', factory_shop: 'Factory shop' },
-    footnote: 'Awards come from each competition’s official results; every row links to its source and the date it was checked. ' +
-      'Cards list champions, gold medals and 1st places (headline awards) plus silver medals and 2nd places (also recommended); bronze and 3rd places are left out. ' +
-      'An award reflects that shop in the year it won; for franchises only the winning store is listed; when a supermarket’s award names no store, every store with its own bakery is listed. ' +
+    footnote: [
+      'Awards come from the official 2024–2026 results of the Sydney Royal Bakery show, the National Artisan Baking Competition and Golden Bean; every row links to its source and the date it was checked.',
+      'Gold medals are scored: every entry above the mark gets one, so a class can have several. A 1st place is a ranking, one per class. The two are not the same thing.',
+      'Cards list champions, gold medals and 1st places (headline awards) plus silver medals and 2nd places (also recommended); bronze and 3rd places are left out.',
+      'The Sydney Royal show is held in Sydney, so NSW shops are over-represented; more than half the coffee stores are in Queensland.',
+      'An award reflects that shop in the year it won; for franchises only the winning store is listed; when a supermarket’s award names no store, every store with its own bakery is listed.',
       'Filters apply to the list only; the map always shows every store. Competition, year, level and item look at champions, gold medals and 1st places only.'
+    ]
   }
 };
 
@@ -782,7 +790,12 @@ function renderList(businesses) {
   var list = el('div', 'shop-list');
   businesses.forEach(function(b) { list.appendChild(renderCard(b)); });
   els.sidebarBody.appendChild(list);
-  els.sidebarBody.appendChild(el('p', 'data-footnote', t('footnote')));
+  // One point per line: six sentences in one block were hard to read.
+  var notes = el('ul', 'data-footnote awards-footnote');
+  UI[state.lang].footnote.concat(t('footnoteAsOf', { d: state.data.dataAsOf })).forEach(function(line) {
+    notes.appendChild(el('li', '', line));
+  });
+  els.sidebarBody.appendChild(notes);
 }
 
 function markSelected(id) {
@@ -808,7 +821,13 @@ function renderStaticText() {
   var stores = data.businesses.reduce(function(n, b) { return n + b.locations.length; }, 0);
   var awards = [];
   data.businesses.forEach(function(b) { awards = awards.concat(b.awards); });
-  els.pageSubtitle.textContent = t('subtitle', { n: data.businesses.length, m: stores, y: yearRange(awards) });
+  // Each " · " part stays whole, so a narrow phone wraps between parts, never inside "2024–2026".
+  var subtitle = t('subtitle', { n: data.businesses.length, m: stores, y: yearRange(awards) });
+  els.pageSubtitle.textContent = '';
+  subtitle.split(' · ').forEach(function(part, i) {
+    if (i) els.pageSubtitle.appendChild(document.createTextNode(' · '));
+    els.pageSubtitle.appendChild(el('span', 'nowrap', part));
+  });
   Object.keys(LABEL_IDS).forEach(function(id) { document.getElementById(id).textContent = t(LABEL_IDS[id]); });
   els.searchLabel.textContent = t('search');
   els.searchInput.placeholder = t('searchPlaceholder');

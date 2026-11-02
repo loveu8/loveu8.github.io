@@ -115,7 +115,7 @@ Step 1b 還沒打勾的兩項（PARTIAL 再查、使用者送 Wayback）留到 S
   - [x] 獎項明細太長 → C 品項優先＋班名縮短＋也推薦收起（2092 → 約 980px；`UI-PLAN.md` 3.4；d51a6c5）；順手修查證日期斷行
   - [x] 手機清單只剩 340px → C 往下捲收起標題和篩選（490px；`UI-PLAN.md` 4.2；f0e1d5d）；行為實測 13 項通過
   - [x] 點州別地圖移動：正常
-  - [ ] 5 家有 4 家是冠軍徽章、第 1 名徽章沒用到 → Step 6（原 Step 7）資料補齊後再看
+  - [x] 5 家有 4 家是冠軍徽章、第 1 名徽章沒用到 → 2026-11-02 完整資料：冠軍 11、金牌 21、第 1 名 2（Coles、Sourdough Portland）；使用者看實際卡片後確認維持
 - [x] `DESIGN.md`：獎項徽章（第 1 名藍色要標成「藍色 = 導覽」的例外）、手機往下捲收起、依賴表加新頁、重畫後保留焦點（2026-11-02 使用者確認；`DECISIONS.md` 加藍色徽章一列）。搜尋框、兩層篩選移到 Step 5 做完再寫
 
 ## Step 5：搜尋與篩選
@@ -153,7 +153,7 @@ Step 1b 還沒打勾的兩項（PARTIAL 再查、使用者送 Wayback）留到 S
 - [ ] Burleigh Baker 門市重查：報導（BOQ、2026）說另有 Tweed Heads 門市（NSW）、Harris Farm Isle of Capri 專櫃、Currumbin 總部；目前只收 Burleigh Heads、Paradise Point（專櫃照 D2 要收；總部看是不是門市）
 - [ ] `make_awards_data.py` 無 ERROR、無 WARNING
 - [x] 篩選測試不怕補資料：25 組案例改跑在 5 家試驗資料的凍結副本 `awards_filter_fixture.js`（使用者 2026-11-02 選 A，不重算）；另加 5 個讀真實 `data.js` 的檢查，node 測試 36 個通過
-- [ ] 👤 回頭看 Step 4 截圖第 2 點：冠軍徽章是不是太多、第 1 名徽章有沒有用到
+- [x] 👤 回頭看 Step 4 截圖第 2 點：冠軍徽章是不是太多、第 1 名徽章有沒有用到（2026-11-02 確認維持，見 Step 4）
 - [ ] 完整資料的截圖（篩選列變長、手機版面）給使用者看
 - [ ] 英文介面文字完整
 - [ ] `<title>`、description、canonical、Open Graph
