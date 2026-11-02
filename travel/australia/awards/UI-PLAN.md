@@ -215,7 +215,7 @@ Apple Crumble Danish                    金牌 · 2026
 
 ### 5.1 測試案例（試驗資料 5 家）
 
-用 2026-11 的試驗資料（Adelaide's Finest、Bonfire Bread、Three Mills Bakery、Glee Coffee Roasters、Burleigh Baker）。預期家數手算，再用獨立的暴力比對腳本核對過；Step 5 的篩選函式要用 node 跑過全部案例。Step 6（原 Step 7）換成完整資料後要重算預期值。
+用 2026-11 的試驗資料（Adelaide's Finest、Bonfire Bread、Three Mills Bakery、Glee Coffee Roasters、Burleigh Baker）。預期家數手算，再用獨立的暴力比對腳本核對過；Step 5 的篩選函式要用 node 跑過全部案例。**2026-11-02 決定（使用者選 A）**：這 25 組固定跑在 5 家試驗資料的凍結副本（`travel/tools/tests/awards_filter_fixture.js`）上，不隨真實資料重算；真實資料另有通用檢查（見 `travel/tools/README.md`）。
 
 | # | 條件 | 預期 | 店家 | 測的是什麼 |
 |---|---|---|---|---|

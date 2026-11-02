@@ -1,6 +1,6 @@
-// Filter cases from travel/australia/awards/UI-PLAN.md 5.1, run against the page's real data.js.
-// Run from the repo root: node --test travel/tools/tests/
-// The expected shops are for the 5 trial shops (2026-11); recount them when Step 6 (was Step 7) adds full data.
+// Filter cases from travel/australia/awards/UI-PLAN.md 5.1 on a frozen fixture of the 5 trial
+// shops (awards_filter_fixture.js), plus checks that hold for any real data.js.
+// Run from the repo root: node --test travel/tools/tests/awards_filter.test.js
 'use strict';
 const test = require('node:test');
 const assert = require('node:assert/strict');
@@ -18,7 +18,10 @@ function loadGlobal(file, name) {
   // Copy out of the vm realm, or deepStrictEqual sees a different Array prototype.
   return JSON.parse(JSON.stringify(ctx.__v));
 }
-const DATA = loadGlobal('travel/australia/awards/data.js', 'PAGE_DATA');
+// The 25 cases run on a frozen copy of the 5 trial shops, so adding real shops never breaks
+// them (user chose A, 2026-11-02). The real data.js gets its own checks at the end.
+const DATA = loadGlobal('travel/tools/tests/awards_filter_fixture.js', 'PAGE_DATA');
+const REAL = loadGlobal('travel/australia/awards/data.js', 'PAGE_DATA');
 const CONFIG = loadGlobal('travel/australia/awards/page.js', 'PAGE_CONFIG');
 const SHOPS = DATA.businesses;
 
@@ -95,5 +98,43 @@ test('a keyword with accents finds the plain spelling', () => {
 test('silver and 2nd place never match the award layer', () => {
   for (const b of SHOPS) for (const a of b.awards) {
     if (a.tier === 'also') assert.equal(F.awardMatches(a, {}), false, a.id);
+  }
+});
+
+// ── the real data.js (whatever it holds today) ──
+const REAL_SHOPS = REAL.businesses;
+
+test('real data: every shop has a headline award (D1 threshold)', () => {
+  for (const b of REAL_SHOPS) {
+    assert.ok(b.awards.some(a => a.tier === 'top'), b.name);
+  }
+});
+
+test('real data: every item group has a 品項 button label (except overall)', () => {
+  const groups = new Set(REAL_SHOPS.flatMap(b => b.awards.map(a => a.group)));
+  groups.delete('overall');
+  for (const g of groups) assert.ok(CONFIG.itemGroups[g], `page.js itemGroups lacks ${g}`);
+});
+
+test('real data: every type is in a type group, every level is known', () => {
+  const types = new Set(CONFIG.typeGroups.flatMap(g => g.types));
+  for (const b of REAL_SHOPS) {
+    for (const t of b.types) assert.ok(types.has(t), `${b.name}: type ${t}`);
+    for (const a of b.awards) assert.ok(['champion', 'gold', 'silver', 'first', 'second'].includes(F.levelKey(a)), a.id);
+  }
+});
+
+test('real data: state counts match a count done without the filter code', () => {
+  const states = new Set(REAL_SHOPS.flatMap(b => b.locations.map(l => l.state)));
+  for (const s of states) {
+    const direct = REAL_SHOPS.filter(b => b.locations.some(l => l.state === s)).length;
+    assert.equal(F.filter(REAL_SHOPS, { state: s }, CONFIG.typeGroups).length, direct, s);
+  }
+});
+
+test('real data: each headline award finds its shop; silver and 2nd place find nothing', () => {
+  for (const b of REAL_SHOPS) for (const a of b.awards) {
+    const f = { comp: a.comp, year: a.year, level: F.levelKey(a), group: a.group };
+    assert.equal(F.filter([b], f, CONFIG.typeGroups).length, a.tier === 'top' ? 1 : 0, a.id);
   }
 });

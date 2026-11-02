@@ -71,13 +71,14 @@ python -m unittest discover travel/tools/tests
 
 `tests/awards_fixture/` 是一份正確的小範例，涵蓋每一條上網站規則；每個測試改錯一個地方，確認對應的檢查會報。新增檢查時，也在 `test_make_awards_data.py` 加一個測試。
 
-得獎地圖的篩選規則（`scripts/awards-filter.js`）用 node 內建的測試跑，案例和 `travel/australia/awards/UI-PLAN.md` 5.1 的表一一對應，直接讀頁面的 `data.js`。改了篩選規則或重新產生 `data.js` 之後跑：
+得獎地圖的篩選規則（`scripts/awards-filter.js`）用 node 內建的測試跑。改了篩選規則或重新產生 `data.js` 之後跑：
 
 ```powershell
 node --test travel/tools/tests/awards_filter.test.js
 ```
 
-預期家數是照 5 家試驗資料算的；Step 6（原 Step 7）換成完整資料後，表和測試要一起重算。
+- `travel/australia/awards/UI-PLAN.md` 5.1 的 25 組案例跑在 `tests/awards_filter_fixture.js` 上：這是 5 家試驗資料的凍結副本（2026-11-02），**不要重新產生**，所以補資料不會弄壞這些案例（使用者選 A）。
+- 另外幾個測試讀真正的 `data.js`：每家都有招牌獎、每個品項類別都有按鈕名稱（`page.js` `itemGroups`）、州別家數和直接計算的一致、每個招牌獎都找得到自己的店而銀牌和第 2 名找不到。
 
 ## 參數說明
 
