@@ -190,7 +190,7 @@ Step 1b 還沒打勾的兩項（PARTIAL 再查、使用者送 Wayback）留到 S
 
 ## 上線後
 
-- [ ] 👤 第二版第一項（插隊，2026-11-02 使用者決定，排在昆州前面）：**World's 100 Best Coffee Shops**（世界百大咖啡店，2025 起每年在 CoffeeFest Madrid 公布，專業評審＋公開投票，排名單位是店家）。使用者：「我覺得是一個肯定」。媒體報導的澳洲上榜：2025 共 9 間（Toby's Estate 1、Proud Mary 4、Coffee Anthology〔布里斯本〕8、Veneziano 19、Calēre 28、Exchange Coffee〔阿德萊德〕37、Fonzie Abbott〔布里斯本〕70、Vacation 71、Seven Seeds 87）；2026 共 7 間（Only Coffee Project 4、Toby's Estate 5、Beta Coffee 13、Proud Mary 27、Coffee Anthology 29、Single O 53、Vacation 100）。2026-11-02 進度：
+- [x] 👤 第二版第一項（插隊，2026-11-02 使用者決定，排在昆州前面）✅ **2026-11-02 完成並上線**（`PLAN.md` 進度表 v2-1）：**World's 100 Best Coffee Shops**（世界百大咖啡店，2025 起每年在 CoffeeFest Madrid 公布，專業評審＋公開投票，排名單位是店家）。使用者：「我覺得是一個肯定」。媒體報導的澳洲上榜：2025 共 9 間（Toby's Estate 1、Proud Mary 4、Coffee Anthology〔布里斯本〕8、Veneziano 19、Calēre 28、Exchange Coffee〔阿德萊德〕37、Fonzie Abbott〔布里斯本〕70、Vacation 71、Seven Seeds 87）；2026 共 7 間（Only Coffee Project 4、Toby's Estate 5、Beta Coffee 13、Proud Mary 27、Coffee Anthology 29、Single O 53、Vacation 100）。2026-11-02 進度：
     - [x] 官方網站核對：2026 官方 TOP 100 頁的澳洲 7 間、名次和媒體一致；官方只放最新一年、只寫國家不寫城市 → **2025 名單要從 Wayback 找**
     - [x] 👤 上網站規則：**進世界百大就算**（使用者選 A；全球約 15,000 間選 100 間，約 0.7%），徽章寫「世界百大 第 N 名」
     - [x] 👤 頁面要註明主辦和贊助（使用者要求）。查到的：主辦 The World's 100 Best Coffee Shops（執行長 César Ramírez，創辦者查不到）；冠名贊助 DaVinci Gourmet（Kerry 集團旗下），主要贊助 Slayer、Markibar、Cropster、CoffeeFest Madrid，另有 Fidatec、哥倫比亞咖啡生產者協會（來源：Kerry 新聞稿 https://www.kerry.com/about/news-and-media/2026/global-rankings-announced-for-the-worlds-best-coffee-shops、GlobeNewswire 2026-02-16）。評分：專業評審 70%＋公開投票 30%，評審名單未公開；官網沒寫報名費。有媒體（Switzer）質疑公信力。頁尾草稿：「世界百大咖啡店是『排名』，不是評分比賽：由 The World's 100 Best Coffee Shops（執行長 César Ramírez）舉辦，冠名贊助是 Kerry 集團旗下的 DaVinci Gourmet，另有 Slayer、Cropster 等咖啡品牌贊助；專業評審佔 70%、公開投票佔 30%，評審名單沒有公開。」
@@ -199,6 +199,8 @@ Step 1b 還沒打勾的兩項（PARTIAL 再查、使用者送 Wayback）留到 S
     - [x] 👤 門市範圍：**只放官方寫的那一間**（使用者 2026-11-02 選 A；排名評的是那間店的體驗，不像獎牌是產品），12 個品牌＝12 間門市；獎掛到那間門市
     - [x] 查 12 間的評論推薦（2026-11-02，使用者的 Chrome）→ `REVIEW-PICKS.md`：9 間有 ✅ 大家推薦，Calēre、Proud Mary 只有評論常提到，Veneziano 機場店品項都很低分
     - [x] 👤 卡片新區塊：使用者看 A／B／C 對比後選 C（2026-11-02，`PLAN.md` D10）→ `review_picks.csv`、產生工具檢查（✅ 要符合規則，否則 ERROR）、卡片綠框＋明細「Google 評論常點」、頁尾說明；Python 72／node 37 個測試通過
+    - [x] 順手修（使用者 2026-11-02 同意）：`review_picks.csv` 加選填 `icon` 欄（Fonzie Abbott 的啤酒用 🍺）；英文數量 1 用單數（1 store、1 more store、1 review）；Python 73 個測試通過
+    - [x] push 並看線上版（`22c2c7a..4f88111`）：9 間卡片有大家推薦、12 間明細有評論常點、無 console 錯誤
     - 原本的規劃：加「Google 評論推薦的飲品／餐點」（使用者 2026-11-02 要求，因為排名沒寫品項）：照布里斯本咖啡廳 `TOP3.md` 的方法（熱門關鍵字、最新 30 則平均 ≥ 4.5 且低分 ≤ 1 成標「大家推薦」、☕ 飲品／🍽️ 餐點各前三、記提及數和日期）。**要用使用者的 Chrome**（無頭版 Google Maps 是有限檢視，讀不到評論）。卡片新區塊要標明「Google 評論整理」，版面先做 demo 給使用者選。Coffee Anthology 在布里斯本咖啡廳頁有 2026-10-17 的資料（CF07），這次重查以統一日期
     - [x] 資料結構（2026-11-02）：賽事 `W100BCS`、`award_system`／`award_level` 新增 `ranking`（rank 1～100）；`tier()` 排名一律 top、placing 的第 1／2 名才算第 1 名／也推薦；摘要加 `top100`／`best100`；排序：冠軍 → 世界百大次數 → 最佳名次 → 金牌＋第 1 名；Python 測試＋排名專用測試、node 測試 37 個通過
     - [x] 12 間門市：Google Maps 2026-11-02 全部營業、地址和官方店家頁相同、座標取自 Google Maps（Veneziano 機場店 Google 2.3 星，照規則收）；介紹用官方店家頁改寫一句
