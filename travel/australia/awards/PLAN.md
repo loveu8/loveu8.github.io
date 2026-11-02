@@ -25,7 +25,7 @@
 | 7 | 地圖（My Maps，原 Step 6） | ✅ 完成 | 2026-11-02 | ad72b6f、2ae569e、（本 commit） | My Maps 面板中英並列（使用者看 A／B／C 選 A）；60 個點、依類型兩色、沒登入可看；總覽固定 `ll=-25.5,142&z=4`（手機、桌機都框得住全部門市），`list-map-shell.js` 州別網址換掉原有 `ll`／`z`；6 州框選、60 個 📍、60 個 ↗ Maps 搜尋結果都驗證過（`TODO.md` Step 7）。**下一步**：Step 8（首頁入口、16 項 QA 檢查表、上線前再查的門市；push 要使用者同意） |
 | 8 | QA、首頁入口與上線 | ✅ 完成 | 2026-11-02 | de6309b、1253506、8c361f5、（本 commit） | 首頁入口上線（使用者同意 push）；16 項 QA 結果寫在第 6 節，線上版檢查通過；上線前重查補上 Coffee Presto Annandale（61 間，My Maps 重新匯入）；使用者 iPhone 實機、列印看過沒問題。**第一版完成**。上線後：8 家 PARTIAL 重查；使用者提出布里斯本太少 → 第二版考慮加 Queensland Baking Show 等州賽（`TODO.md`「上線後」） |
 | v2-1 | 世界百大咖啡店（第二版第一項，插隊） | ✅ 完成 | 2026-11-02 | 76e2b37、ec636e0、3aef448、09eb035、22c2c7a、a9af49c、00a9a9d、4f88111、（本 commit） | 決定見 D10。新增「排名」等級、12 間店（只收官方寫的那一間）、紫色徽章「世界百大 第 N 名」、頁尾寫主辦和贊助；My Maps 重新匯入 73 間；用使用者的 Chrome 查 Google 評論推薦（`REVIEW-PICKS.md`、`review_picks.csv`），版面 C（卡片放 ✅、明細放前三名）。46 家、73 門市、330 獎，全部上線並看過線上版 |
-| v2-2 | 昆士蘭州賽（Queensland Baking Show） | ⬜ 未開始 | | | **下一步**：研究摘要給使用者決定（等級制度、結果有沒有地址、大概多幾家），見 `TODO.md`「上線後」。其他待辦：8 家 PARTIAL 重查、咖啡廳／烘焙／Noosa 頁焦點問題、Only Coffee Project 的大洋洲獎要不要算 |
+| v2-2 | 昆士蘭州賽（Queensland Baking Show） | ⏸️ 等使用者決定 | | （本 commit） | 2026-11-02 基本調查完成（`research/QLD-BAKING-SHOW.md`）：名次制、三年官方 PDF、可能多 8～12 個獨立品牌＋4～5 間加盟店／超市，多在布里斯本；疑慮是比賽規模小。**下一步**：使用者決定收的範圍。其他待辦：8 家 PARTIAL 重查、咖啡廳／烘焙／Noosa 頁焦點問題、Only Coffee Project 的大洋洲獎要不要算 |
 
 狀態符號：⬜ 未開始、🔄 進行中、⏸️ 等使用者決定、✅ 完成
 
