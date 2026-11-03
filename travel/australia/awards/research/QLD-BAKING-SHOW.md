@@ -72,7 +72,7 @@
 | Rays Patisserie Carseldine | 4 個第 1 名（2025–2026） | 735 Beams Rd, Carseldine；Bakery 3.9 | |
 | Uncle Bobs Bakery | 2025 冠軍麵包＋3 個第 1 名 | Belmont（185 Belmont Rd）4.5、Crystal Waters（Thornlands）4.3 營業；Victoria Point、Redland Bay 已歇業 | 官方只寫品牌，照 D2 列營業中的 2 間 |
 | The Squealing Pig | 2024 冠軍蛋糕／酥點（千層麵派）＋3 個第 1 名 | Shop 6 Burpengary Plaza, 173 Station Rd, Burpengary；**Google 分類是肉店**（Butcher shop）4.4 | 肉店自己做派；**使用者 2026-11-02 選 A：收**，類型標烘焙，介紹寫明是肉店自製的派 |
-| Egg Wash Bake Shop | 2024 香腸捲第 1 名 | Shop 2/406 Southport Nerang Rd, Ashmore（黃金海岸）；Bakery 4.9 | 原文 Johnny Park Egg Wash Bake Shop／Eggwash Bakery |
+| Egg Wash Bake Shop | 2024 香腸捲第 1 名 | Shop 2/406 Southport Nerang Rd, Ashmore（黃金海岸）；Bakery 4.9 | 原文 Johnny Park Egg Wash Bake Shop／Eggwash Bakery。**2026-11-03 改 PARTIAL（D9）**：只有店名對上，官方沒寫地區，網路找不到報導或店家自己的說法，先不收 |
 | Yamanto Central Patisserie | 2024 肉派第 1 名 | Yamanto Central 商場內，488 Warwick Rd, Yamanto（Ipswich）；Bakery 3.5；營業中（週二 7:00–17:30），電話 0451 695 688；Plus Code 8PQR+QV | 2026-11-03 確認：Google 店家頁「Located in: Yamanto Central」，商場地址 488 Warwick Rd。**不是**隔壁 Yamanto Shopping Village（512 Warwick Rd，現名 Centuria Yamanto）Shop 1 的 Yamanto Bakery（4.2，8PQR+32），兩間別搞混。老闆 Leon Ly，2021 年開業（prwire 2023-10-16） |
 | Bakers Delight Arana Hills | 6 個第 1 名（2024–2025） | Kmart Plaza, Arana Hills；4.0 | 加盟店，只收這間 |
 | Woolworths Lutwyche | 3 個第 1 名（烘焙師 Grace Stegeman／Netov） | 543 Lutwyche Rd；超市 | 烘焙師代表門市（staff_entry） |
@@ -81,6 +81,17 @@
 | Woolworths Tweed City（**新州**） | 9 個第 1 名（Luke Moy，2024–2025） | 54 Minjungbal Dr, Tweed Heads South NSW | staff_entry；不在昆州 |
 | Coles Casuarina（北領地） | 2026 冠軍麵包＋3 個第 1 名（Luke Moy） | 已在地圖上 | 只加獎 |
 | Mr Bake、Mr Sourdough、Bakers Loaf | 各 1 個第 1 名（2026） | **Google Maps 找不到** | 先不收，記 PARTIAL |
+
+**身分查證（D9，2026-11-03）**：官方只寫店名、沒寫地區的 4 家另外找證據
+
+| 店 | 結果 | 證據 |
+|---|---|---|
+| The Squealing Pig | VERIFIED | Great Aussie Pie Competition 2025 結果寫「The Squealing Pig, Burpengary QLD」；Baking Business 2024-05-28 報導連兩年冠軍 |
+| Uncle Bobs Bakery | VERIFIED | 昆州只有這一家；官網寫有參加全國和國際比賽（unclebobs.com.au/awards）；Baking Business 2025-05-15 報導「Connor McNaught from Uncle Bobs Bakery」 |
+| Yamanto Central Patisserie | VERIFIED | JMK Retail 新聞稿（2023-10-16）寫這間店在昆州烘焙賽得獎 |
+| Egg Wash Bake Shop | **PARTIAL** | 只有 Google 店名對上，沒有報導或店家說法 |
+
+**寫進 CSV（2026-11-03）**：94 個獎（冠軍 6、第 1 名 50、第 2 名 38），7 個新品牌、12 間新門市（昆州 11＋新州 Tweed City）；Bakers Delight、Coles 各加一間門市。第 1 名有 5 個同班沒有第 2 名（Woolworths Lutwyche 2024 海綿蛋糕、Squealing Pig 2024 肉餡餅、Yamanto 2024 焦糖片、Uncle Bobs 2025 黑麥酸種、Coles Casuarina 2026 黑麥酸種），`awards.csv` 新欄位 `class_places_awarded` 填 1，使用者選擇列「也推薦」。Perpetual Trophy 沒有寫進去（D11 說另外決定）。
 
 **被 D11 擋掉**：Ca Phe In（香蕉麵包）、Veganyumm（泥蛋糕、香蕉麵包）、Woolworths Nundah（海綿蛋糕、塔），第 1 名的班都沒有第 2 名
 

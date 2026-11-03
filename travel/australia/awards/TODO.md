@@ -217,8 +217,10 @@ Step 1b 還沒打勾的兩項（PARTIAL 再查、使用者送 Wayback）留到 S
     - [x] 套 D11 篩出候選、Google Maps 查門市（2026-11-02，`research/QLD-BAKING-SHOW.md`）：昆州 12 間門市過門檻（獨立 8：LTT、Rays ×2、Uncle Bobs ×2、Squealing Pig、Egg Wash、Yamanto；加盟／超市 4）＋新州 Woolworths Tweed City＋Coles Casuarina 加獎；Mr Bake、Mr Sourdough、Bakers Loaf 找不到
     - [x] 👤 The Squealing Pig 是肉店（自己做派）→ 使用者 2026-11-02 選 A：收，類型標烘焙、介紹寫明是肉店自製的派
     - [x] Yamanto Central Patisserie 地址、營業再確認 → 2026-11-03：Yamanto Central 商場內（488 Warwick Rd），營業中；和 512 Warwick Rd 的 Yamanto Bakery 是不同店
-    - [ ] 寫進 CSV（獎、門市、來源、介紹），Mr Bake、Mr Sourdough、Bakers Loaf 記 PARTIAL
-    - [ ] 產生工具支援 D11、頁尾說明、My Maps 重新匯入
+    - [x] 寫進 CSV（獎、門市、來源、介紹），Mr Bake、Mr Sourdough、Bakers Loaf 記 PARTIAL → 2026-11-03：94 個獎、7 個新品牌、12 間新門市；Egg Wash 身分查不到證據，照 D9 改 PARTIAL；`awards.csv` 加 `class_places_awarded`；產生工具檢查通過（53 家、85 間、424 個獎，data.js 還沒重新產生）
+    - [x] 👤 同班沒有第 2 名的第 1 名（店已經過門檻時）→ 使用者 2026-11-03 選：列「也推薦」
+    - [ ] 產生工具支援 D11（`class_places_awarded = 1` 的第 1 名當「也推薦」、不算門檻；班名關鍵字補 Plait、Cob、Rolls、Sponge、Sausage Roll、Apple Pie），加測試；重新產生 data.js
+    - [ ] 頁尾說明昆州賽規則、My Maps 重新匯入
     - 原本的說明：布里斯本只有 7 間（全是咖啡、沒有烘焙），原因是 RAS 在雪梨（三年 818 件參賽品 NSW 591、QLD 41；QLD 金牌只有 5 面）、昆士蘭州賽第一版沒收（D4）。第一步：BAA **Queensland Baking Show**（2024–2026 官方結果 PDF 在 bakingbusiness.com.au/results/）的研究摘要：等級制度（有沒有金牌／冠軍）、結果有沒有地址、大概多幾家，給使用者決定
   - 備註，之後再決定要不要收的其他比賽：
     - BAA 其他州／地區烘焙展：Victorian、South Australia、Tasmania、Canberra Baking Show，以及 NSW 的 Newcastle、Wollongong Baking Show（BAA 清單上沒有 WA、NT）

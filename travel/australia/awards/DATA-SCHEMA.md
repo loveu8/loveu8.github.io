@@ -103,6 +103,7 @@
 | `recipient_name` | text | ✔ | **照官方原文**，例如 `BONFIRE BREAD AVALON NSW 2107`、`Robert Trimboli - Adelaide's Finest Bakeries & Patisserie` |
 | `verification_status` | enum | ✔ | `VERIFIED`、`PARTIAL`、`DISPUTED`、`REJECTED` |
 | `verification_note` | text | | PARTIAL／DISPUTED／REJECTED 必填理由 |
+| `class_places_awarded` | int | | 那一班官方頒出幾個名次（1～3）；目前只有昆士蘭烘焙賽（`QLDBS`）填，冠軍列空白。填 `1` 的第 1 名代表同班沒有第 2 名，照 D11 不算招牌、列「也推薦」（使用者 2026-11-03 選定）。2026-11-03 加 |
 
 **`medal_type` 和 `rank` 分開存**，所以「金牌」和「第一名」在資料層就不可能混在一起（查證規則 1、3）。冠軍是自己一列，不是在金牌那列加註（規則 2）。
 

@@ -435,3 +435,15 @@ Coffee Mentality（RAS 2025 Specialty Foods Champion Coffee）：不在 RAS Prof
 | WA、TAS | 目前沒有符合範圍的 | Knutsford Gourmet（WA）是製造商；TAS 只有 Shelduck Farm 的銅牌。不硬湊 |
 
 **偏差提醒**：RAS 是 NSW 的賽事，NSW 店家參賽多，所以地圖會偏 NSW。這是資料來源的偏差，不代表其他州沒有好店；頁面註腳要寫出來。
+
+## 3. 第二版：昆士蘭烘焙賽（2026-11-03）
+
+詳細在 `research/QLD-BAKING-SHOW.md`。收錄規則 D11（`PLAN.md`）。
+
+| 店 | 狀態 | 備註 |
+|---|---|---|
+| LTT Patisserie、Rays Patisserie（2 間）、Uncle Bobs Bakery（2 間）、The Squealing Pig、Yamanto Central Patisserie | VERIFIED | 獨立店 |
+| Bakers Delight Arana Hills、Brumby's Westridge、Woolworths Lutwyche、Coles Park Ridge、Woolworths Tweed City（新州） | VERIFIED | 加盟店、超市，只收得獎門市 |
+| Egg Wash Bake Shop（Ashmore） | **PARTIAL** | D9：只有店名對上 |
+| Mr Bake、Mr Sourdough、Bakers Loaf | **PARTIAL** | Google Maps 找不到門市 |
+| Ca Phe In、Veganyumm、Woolworths Nundah | REJECTED | D11：第 1 名的班都沒有第 2 名 |

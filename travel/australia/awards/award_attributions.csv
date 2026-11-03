@@ -329,3 +329,97 @@ AT-W100BCS-2025-R087-1,W100BCS-2025-R087,B-seven-seeds,L-seven-seeds-carlton,ent
 AT-W100BCS-2026-R004-1,W100BCS-2026-R004,B-only-coffee-project,L-only-coffee-project-crows-nest,entrant_location,VERIFIED,官方店家頁寫的地址就是這間門市
 AT-W100BCS-2026-R013-1,W100BCS-2026-R013,B-beta-coffee,L-beta-coffee-surry-hills,entrant_location,VERIFIED,官方店家頁寫的地址就是這間門市
 AT-W100BCS-2026-R053-1,W100BCS-2026-R053,B-single-o,L-single-o-surry-hills,entrant_location,VERIFIED,官方店家頁寫的地址就是這間門市
+AT-QLDBS-2024-C001-P1-1,QLDBS-2024-C001-P1,B-woolworths,L-woolworths-tweed-city,staff_entry,VERIFIED,
+AT-QLDBS-2024-C001-P2-1,QLDBS-2024-C001-P2,B-coles,L-coles-park-ridge,staff_entry,VERIFIED,
+AT-QLDBS-2024-C002-P1-1,QLDBS-2024-C002-P1,B-woolworths,L-woolworths-tweed-city,staff_entry,VERIFIED,
+AT-QLDBS-2024-C002-P2-1,QLDBS-2024-C002-P2,B-bakers-delight,L-bakers-delight-arana-hills,entrant_location,VERIFIED,官方拼成 Alana Hills，就是 Arana Hills
+AT-QLDBS-2024-C003-P1-1,QLDBS-2024-C003-P1,B-woolworths,L-woolworths-tweed-city,staff_entry,VERIFIED,
+AT-QLDBS-2024-C003-P2-1,QLDBS-2024-C003-P2,B-coles,L-coles-park-ridge,staff_entry,VERIFIED,
+AT-QLDBS-2024-C004-P1-1,QLDBS-2024-C004-P1,B-coles,L-coles-park-ridge,staff_entry,VERIFIED,
+AT-QLDBS-2024-C004-P2-1,QLDBS-2024-C004-P2,B-woolworths,L-woolworths-tweed-city,staff_entry,VERIFIED,
+AT-QLDBS-2024-C005-P1-1,QLDBS-2024-C005-P1,B-woolworths,L-woolworths-tweed-city,staff_entry,VERIFIED,
+AT-QLDBS-2024-C005-P2-1,QLDBS-2024-C005-P2,B-coles,L-coles-park-ridge,staff_entry,VERIFIED,
+AT-QLDBS-2024-C006-P1-1,QLDBS-2024-C006-P1,B-bakers-delight,L-bakers-delight-arana-hills,entrant_location,VERIFIED,官方拼成 Alana Hills，就是 Arana Hills
+AT-QLDBS-2024-C006-P2-1,QLDBS-2024-C006-P2,B-coles,L-coles-park-ridge,staff_entry,VERIFIED,
+AT-QLDBS-2024-C007-P1-1,QLDBS-2024-C007-P1,B-woolworths,L-woolworths-tweed-city,staff_entry,VERIFIED,
+AT-QLDBS-2024-C007-P2-1,QLDBS-2024-C007-P2,B-bakers-delight,L-bakers-delight-arana-hills,entrant_location,VERIFIED,官方拼成 Alana Hills，就是 Arana Hills
+AT-QLDBS-2024-C009-P1-1,QLDBS-2024-C009-P1,B-bakers-delight,L-bakers-delight-arana-hills,entrant_location,VERIFIED,官方拼成 Alana Hills，就是 Arana Hills
+AT-QLDBS-2024-C010-P1-1,QLDBS-2024-C010-P1,B-woolworths,L-woolworths-tweed-city,staff_entry,VERIFIED,
+AT-QLDBS-2024-C010-P2-1,QLDBS-2024-C010-P2,B-yamanto-central-patisserie,,entrant,VERIFIED,
+AT-QLDBS-2024-C011-P1-1,QLDBS-2024-C011-P1,B-woolworths,L-woolworths-lutwyche,staff_entry,VERIFIED,
+AT-QLDBS-2024-C012-P1-1,QLDBS-2024-C012-P1,B-woolworths,L-woolworths-lutwyche,staff_entry,VERIFIED,
+AT-QLDBS-2024-C013-P1-1,QLDBS-2024-C013-P1,B-woolworths,L-woolworths-lutwyche,staff_entry,VERIFIED,
+AT-QLDBS-2024-C015-P1-1,QLDBS-2024-C015-P1,B-yamanto-central-patisserie,,entrant,VERIFIED,
+AT-QLDBS-2024-C016-P1-1,QLDBS-2024-C016-P1,B-the-squealing-pig,,entrant,VERIFIED,
+AT-QLDBS-2024-C016-P2-1,QLDBS-2024-C016-P2,B-the-squealing-pig,,entrant,VERIFIED,
+AT-QLDBS-2024-C017-P1-1,QLDBS-2024-C017-P1,B-the-squealing-pig,,entrant,VERIFIED,
+AT-QLDBS-2024-C018-P2-1,QLDBS-2024-C018-P2,B-the-squealing-pig,,entrant,VERIFIED,
+AT-QLDBS-2024-C022-P1-1,QLDBS-2024-C022-P1,B-yamanto-central-patisserie,,entrant,VERIFIED,
+AT-QLDBS-2025-C001-P1-1,QLDBS-2025-C001-P1,B-bakers-delight,L-bakers-delight-arana-hills,staff_entry,VERIFIED,
+AT-QLDBS-2025-C002-P1-1,QLDBS-2025-C002-P1,B-bakers-delight,L-bakers-delight-arana-hills,staff_entry,VERIFIED,
+AT-QLDBS-2025-C003-P1-1,QLDBS-2025-C003-P1,B-uncle-bobs-bakery,,staff_entry,VERIFIED,官方沒寫門市，記在品牌
+AT-QLDBS-2025-C003-P2-1,QLDBS-2025-C003-P2,B-bakers-delight,L-bakers-delight-arana-hills,staff_entry,VERIFIED,
+AT-QLDBS-2025-C004-P1-1,QLDBS-2025-C004-P1,B-brumbys,L-brumbys-westridge,staff_entry,VERIFIED,
+AT-QLDBS-2025-C004-P2-1,QLDBS-2025-C004-P2,B-ltt-patisserie,,staff_entry,VERIFIED,
+AT-QLDBS-2025-C005-P1-1,QLDBS-2025-C005-P1,B-bakers-delight,L-bakers-delight-arana-hills,staff_entry,VERIFIED,
+AT-QLDBS-2025-C006-P1-1,QLDBS-2025-C006-P1,B-woolworths,L-woolworths-tweed-city,staff_entry,VERIFIED,
+AT-QLDBS-2025-C007-P1-1,QLDBS-2025-C007-P1,B-bakers-delight,L-bakers-delight-arana-hills,staff_entry,VERIFIED,
+AT-QLDBS-2025-C007-P2-1,QLDBS-2025-C007-P2,B-woolworths,L-woolworths-tweed-city,staff_entry,VERIFIED,
+AT-QLDBS-2025-C008-P1-1,QLDBS-2025-C008-P1,B-uncle-bobs-bakery,,staff_entry,VERIFIED,官方沒寫門市，記在品牌
+AT-QLDBS-2025-C009-P1-1,QLDBS-2025-C009-P1,B-uncle-bobs-bakery,,staff_entry,VERIFIED,官方沒寫門市，記在品牌
+AT-QLDBS-2025-C009-P2-1,QLDBS-2025-C009-P2,B-bakers-delight,L-bakers-delight-arana-hills,staff_entry,VERIFIED,
+AT-QLDBS-2025-C010-P1-1,QLDBS-2025-C010-P1,B-woolworths,L-woolworths-tweed-city,staff_entry,VERIFIED,
+AT-QLDBS-2025-C010-P2-1,QLDBS-2025-C010-P2,B-ltt-patisserie,,staff_entry,VERIFIED,
+AT-QLDBS-2025-C011-P1-1,QLDBS-2025-C011-P1,B-uncle-bobs-bakery,,staff_entry,VERIFIED,官方沒寫門市，記在品牌
+AT-QLDBS-2025-C011-P2-1,QLDBS-2025-C011-P2,B-woolworths,L-woolworths-lutwyche,staff_entry,VERIFIED,
+AT-QLDBS-2025-C012-P1-1,QLDBS-2025-C012-P1,B-woolworths,L-woolworths-tweed-city,staff_entry,VERIFIED,
+AT-QLDBS-2025-C012-P2-1,QLDBS-2025-C012-P2,B-woolworths,L-woolworths-lutwyche,staff_entry,VERIFIED,
+AT-QLDBS-2025-C013-P1-1,QLDBS-2025-C013-P1,B-brumbys,L-brumbys-westridge,staff_entry,VERIFIED,
+AT-QLDBS-2025-C013-P2-1,QLDBS-2025-C013-P2,B-woolworths,L-woolworths-lutwyche,staff_entry,VERIFIED,
+AT-QLDBS-2025-C014-P1-1,QLDBS-2025-C014-P1,B-woolworths,L-woolworths-lutwyche,staff_entry,VERIFIED,
+AT-QLDBS-2025-C014-P2-1,QLDBS-2025-C014-P2,B-brumbys,L-brumbys-westridge,staff_entry,VERIFIED,
+AT-QLDBS-2025-C015-P1-1,QLDBS-2025-C015-P1,B-rays-patisserie,L-rays-patisserie-carseldine,entrant_location,VERIFIED,
+AT-QLDBS-2025-C016-P1-1,QLDBS-2025-C016-P1,B-the-squealing-pig,,entrant,VERIFIED,
+AT-QLDBS-2025-C016-P2-1,QLDBS-2025-C016-P2,B-the-squealing-pig,,entrant,VERIFIED,
+AT-QLDBS-2025-C017-P1-1,QLDBS-2025-C017-P1,B-rays-patisserie,L-rays-patisserie-carseldine,entrant_location,VERIFIED,
+AT-QLDBS-2025-C017-P2-1,QLDBS-2025-C017-P2,B-rays-patisserie,L-rays-patisserie-taigum,entrant_location,VERIFIED,
+AT-QLDBS-2025-C018-P1-1,QLDBS-2025-C018-P1,B-the-squealing-pig,,entrant,VERIFIED,
+AT-QLDBS-2025-C020-P1-1,QLDBS-2025-C020-P1,B-ltt-patisserie,,staff_entry,VERIFIED,
+AT-QLDBS-2025-C020-P2-1,QLDBS-2025-C020-P2,B-rays-patisserie,L-rays-patisserie-taigum,entrant_location,VERIFIED,
+AT-QLDBS-2025-C022-P1-1,QLDBS-2025-C022-P1,B-rays-patisserie,L-rays-patisserie-taigum,entrant_location,VERIFIED,
+AT-QLDBS-2025-C022-P2-1,QLDBS-2025-C022-P2,B-ltt-patisserie,,staff_entry,VERIFIED,
+AT-QLDBS-2025-C023-P1-1,QLDBS-2025-C023-P1,B-rays-patisserie,L-rays-patisserie-taigum,entrant_location,VERIFIED,
+AT-QLDBS-2025-C023-P2-1,QLDBS-2025-C023-P2,B-brumbys,L-brumbys-westridge,staff_entry,VERIFIED,
+AT-QLDBS-2026-C001-P1-1,QLDBS-2026-C001-P1,B-rays-patisserie,L-rays-patisserie-carseldine,entrant_location,VERIFIED,
+AT-QLDBS-2026-C001-P2-1,QLDBS-2026-C001-P2,B-coles,L-coles-casuarina,staff_entry,VERIFIED,官方拼成 Casurina，就是 Casuarina
+AT-QLDBS-2026-C002-P1-1,QLDBS-2026-C002-P1,B-coles,L-coles-casuarina,staff_entry,VERIFIED,官方拼成 Casurina，就是 Casuarina
+AT-QLDBS-2026-C002-P2-1,QLDBS-2026-C002-P2,B-rays-patisserie,L-rays-patisserie-carseldine,entrant_location,VERIFIED,
+AT-QLDBS-2026-C004-P2-1,QLDBS-2026-C004-P2,B-coles,L-coles-casuarina,staff_entry,VERIFIED,官方拼成 Casurina，就是 Casuarina
+AT-QLDBS-2026-C005-P1-1,QLDBS-2026-C005-P1,B-coles,L-coles-casuarina,staff_entry,VERIFIED,官方拼成 Casurina，就是 Casuarina
+AT-QLDBS-2026-C005-P2-1,QLDBS-2026-C005-P2,B-rays-patisserie,L-rays-patisserie-carseldine,entrant_location,VERIFIED,
+AT-QLDBS-2026-C006-P1-1,QLDBS-2026-C006-P1,B-coles,L-coles-casuarina,staff_entry,VERIFIED,官方拼成 Casurina，就是 Casuarina
+AT-QLDBS-2026-C006-P2-1,QLDBS-2026-C006-P2,B-rays-patisserie,L-rays-patisserie-carseldine,entrant_location,VERIFIED,
+AT-QLDBS-2026-C007-P2-1,QLDBS-2026-C007-P2,B-coles,L-coles-casuarina,staff_entry,VERIFIED,官方拼成 Casurina，就是 Casuarina
+AT-QLDBS-2026-C009-P1-1,QLDBS-2026-C009-P1,B-coles,L-coles-casuarina,staff_entry,VERIFIED,官方拼成 Casurina，就是 Casuarina
+AT-QLDBS-2026-C011-P1-1,QLDBS-2026-C011-P1,B-rays-patisserie,L-rays-patisserie-carseldine,entrant_location,VERIFIED,
+AT-QLDBS-2026-C011-P2-1,QLDBS-2026-C011-P2,B-coles,L-coles-casuarina,staff_entry,VERIFIED,官方拼成 Casurina，就是 Casuarina
+AT-QLDBS-2026-C016-P1-1,QLDBS-2026-C016-P1,B-rays-patisserie,L-rays-patisserie-taigum,entrant_location,VERIFIED,
+AT-QLDBS-2026-C016-P2-1,QLDBS-2026-C016-P2,B-rays-patisserie,L-rays-patisserie-carseldine,entrant_location,VERIFIED,
+AT-QLDBS-2026-C017-P1-1,QLDBS-2026-C017-P1,B-rays-patisserie,L-rays-patisserie-taigum,entrant_location,VERIFIED,
+AT-QLDBS-2026-C017-P2-1,QLDBS-2026-C017-P2,B-rays-patisserie,L-rays-patisserie-carseldine,entrant_location,VERIFIED,
+AT-QLDBS-2026-C018-P1-1,QLDBS-2026-C018-P1,B-rays-patisserie,L-rays-patisserie-taigum,entrant_location,VERIFIED,
+AT-QLDBS-2026-C018-P2-1,QLDBS-2026-C018-P2,B-ltt-patisserie,L-ltt-patisserie-acacia-ridge,entrant_location,VERIFIED,
+AT-QLDBS-2026-C019-P1-1,QLDBS-2026-C019-P1,B-ltt-patisserie,L-ltt-patisserie-acacia-ridge,entrant_location,VERIFIED,
+AT-QLDBS-2026-C019-P2-1,QLDBS-2026-C019-P2,B-rays-patisserie,L-rays-patisserie-taigum,entrant_location,VERIFIED,
+AT-QLDBS-2026-C020-P1-1,QLDBS-2026-C020-P1,B-ltt-patisserie,L-ltt-patisserie-acacia-ridge,entrant_location,VERIFIED,
+AT-QLDBS-2026-C027-P1-1,QLDBS-2026-C027-P1,B-rays-patisserie,L-rays-patisserie-taigum,entrant_location,VERIFIED,
+AT-QLDBS-2026-C027-P2-1,QLDBS-2026-C027-P2,B-rays-patisserie,L-rays-patisserie-carseldine,entrant_location,VERIFIED,
+AT-QLDBS-2026-C028-P2-1,QLDBS-2026-C028-P2,B-rays-patisserie,L-rays-patisserie-taigum,entrant_location,VERIFIED,
+AT-QLDBS-2026-C030-P1-1,QLDBS-2026-C030-P1,B-ltt-patisserie,L-ltt-patisserie-acacia-ridge,entrant_location,VERIFIED,
+AT-QLDBS-2026-C030-P2-1,QLDBS-2026-C030-P2,B-rays-patisserie,L-rays-patisserie-taigum,entrant_location,VERIFIED,
+AT-QLDBS-2024-CHAMP-LOAF-1,QLDBS-2024-CHAMP-LOAF,B-coles,L-coles-park-ridge,staff_entry,VERIFIED,官方印 Coles Ridge；同年 001～010 班她都寫 Coles Park Ridge
+AT-QLDBS-2024-CHAMP-CAKE-1,QLDBS-2024-CHAMP-CAKE,B-the-squealing-pig,,entrant,VERIFIED,
+AT-QLDBS-2025-CHAMP-LOAF-1,QLDBS-2025-CHAMP-LOAF,B-uncle-bobs-bakery,,staff_entry,VERIFIED,官方沒寫門市，記在品牌
+AT-QLDBS-2025-CHAMP-CAKE-1,QLDBS-2025-CHAMP-CAKE,B-ltt-patisserie,,staff_entry,VERIFIED,
+AT-QLDBS-2026-CHAMP-LOAF-1,QLDBS-2026-CHAMP-LOAF,B-coles,L-coles-casuarina,staff_entry,VERIFIED,官方拼成 Casurina，就是 Casuarina
+AT-QLDBS-2026-CHAMP-CAKE-1,QLDBS-2026-CHAMP-CAKE,B-ltt-patisserie,L-ltt-patisserie-acacia-ridge,entrant_location,VERIFIED,
