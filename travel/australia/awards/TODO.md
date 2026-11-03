@@ -236,6 +236,11 @@ Step 1b 還沒打勾的兩項（PARTIAL 再查、使用者送 Wayback）留到 S
     - BAA 其他州／地區烘焙展：Victorian、South Australia、Tasmania、Canberra Baking Show，以及 NSW 的 Newcastle、Wollongong Baking Show（BAA 清單上沒有 WA、NT）
     - 各州皇家農展會的烘焙組（例如 Royal Adelaide Show，Adelaide's Finest 有報導在那裡得很多獎）；還沒研究，不確定每州都有、官方結果查不查得到
 - [ ] 8 家 PARTIAL 重查（見 Step 1b：ISEO、Cacao、The Beekeeper's Bakery、White Horse、The Bean Cartel、Latitude、The Purple Haze、Riviera）；查完只會增加店家，加店要重新匯入 My Maps
+  - 2026-11-03 查完，**等使用者決定（先擱置）**，還沒改 CSV：
+    - 建議收：**Cacao**（Google 評論：工廠兼辦公室，可直接過去、網購後到店自取，有人現場買馬卡龍 → 比照 Brazen Brownies 工廠門市）；**Latitude**（官網 Our Story 寫 BaseCamp 是「our flagship cafe」；BaseCamp, Shop 10/4 Cook Ct, North Lakes QLD 4509, -27.2143797,152.9978981，Google 252 則評論、網站連 latitudecoffee.com.au；店名不同要決定怎麼顯示）
+    - 不收：**ISEO**（Instagram @iseo_patisserie「Pop-up & pre-order only」，D2）；**White Horse**（Sutherland Flora St 原址現在是 Dose Sutherland；官網 Family Cafés 指批發客戶；Sister Fox／Brother Fox 沒證據還是自營）
+    - 仍 PARTIAL：**Riviera**（官網零售點沒列自己；Adelaide Farmers Market 攤位電話是自家號碼；Google 寫內用外帶 08:30 開，但評論多在超市買）；**The Bean Cartel**（Google 有門市服務、外帶，有人在烘豆廠買豆，但沒證據能現場喝）；**Beekeeper's**、**Purple Haze**（仍找不到）
+    - 第一題（擱置中）：Cacao 要不要照工廠門市收
 
 - [x] 👤 要不要每年更新（RAS 9 月、NABC 6–7 月、Golden Bean 6 月公布）→ 使用者 2026-11-03 選一年兩次：
   - **每年 8 月**：金豆賽、全國手工烘焙賽、昆士蘭烘焙賽、世界百大（2 月公布）
