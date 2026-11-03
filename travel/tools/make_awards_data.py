@@ -65,7 +65,7 @@ ENUMS = {
 LIST_COLUMNS = {("businesses", "business_type"), ("businesses", "related_refs")}
 URL_COLUMNS = {"website_url", "instagram_url", "location_source_url", "source_url", "archive_url"}
 DATE_COLUMNS = {"event_date", "location_verified_at", "published_at", "verified_at"}
-INT_COLUMNS = {"award_year", "rank"}
+INT_COLUMNS = {"award_year", "rank", "class_places_awarded"}
 DECIMAL_COLUMNS = {"latitude", "longitude", "score"}
 
 ID_COLUMNS = {"competitions": "competition_id", "businesses": "business_id", "locations": "location_id",
@@ -82,12 +82,14 @@ REFS = [("locations", "business_id", "businesses"), ("locations", "moved_to_loca
 # "Creative" (three viennoiserie portions) is viennoiserie (user chose A, 2026-11-02).
 GROUP_KEYWORDS = [(r"gluten free", "gluten_free"),
                   (r"sweet bread|cake|torte|gateau|pudding|brownie|slice", "cake"),
+                  (r"sponge", "cake"),  # Queensland Baking Show "Decorated Sponge"
                   (r"biscuit|macaron", "biscuit"),
-                  (r"shortcrust|sweet pie|tart|choux|eclair|profiterole", "tart_choux"),
-                  (r"pie|pastie|quiche|filo|kataifi", "pastry_pie"),
+                  (r"shortcrust|sweet pie|apple pie|tart|choux|eclair|profiterole", "tart_choux"),
+                  (r"pie|pastie|pastry|sausage roll|quiche|filo|kataifi", "pastry_pie"),
                   (r"viennoiserie|croissant|creative", "viennoiserie"),
                   (r"sour ?dough", "sourdough"),
-                  (r"bread|loaf|baguette|ciabatta", "bread")]
+                  # Queensland Baking Show tin loaves: "Hi-Top", "Five Strand Plait", "Wholemeal Cob", "Grain Rolls"
+                  (r"bread|loaf|baguette|ciabatta|hi-top|plait|cob|rolls?\b", "bread")]
 GBA_GROUPS = {"1": "coffee_espresso", "8": "coffee_espresso", "10": "coffee_espresso",
               "2": "coffee_milk", "9": "coffee_milk", "11": "coffee_milk", "3": "coffee_filter",
               "4": "coffee_other", "5": "coffee_other", "6": "coffee_other", "7": "coffee_other"}
@@ -314,6 +316,11 @@ def check_awards(tables, errors):
             errors.append("%s rank %d must be 1-%d in a ranking" % (where, rank, RANKING_SIZE))
         elif level != "ranking" and rank is not None and rank not in (1, 2, 3):
             errors.append("%s rank %d must be 1, 2 or 3" % (where, rank))
+        places = to_int(val(a, "class_places_awarded"))
+        if places is not None and (level != "placing" or not 1 <= places <= 3):
+            errors.append("%s class_places_awarded needs award_level=placing and 1-3" % where)
+        elif places is not None and rank is not None and rank > places:
+            errors.append("%s rank %d but the class handed out only %d place(s)" % (where, rank, places))
         if year is not None and not YEARS[0] <= year <= YEARS[1]:
             errors.append("%s award_year %d must be %d-%d" % (where, year, YEARS[0], YEARS[1]))
         if year is not None and comp and award_id and not award_id.startswith("%s-%d-" % (comp, year)):
@@ -342,10 +349,13 @@ def expected_group(a):
     if val(a, "award_level") == "ranking":
         return "overall"  # a shop ranking names no item
     head = re.split(r"[(,]| [-–] ", val(a, "category"))[0].lower()  # RAS 2025 writes "Creative – Three"
-    for pattern, group in GROUP_KEYWORDS:
-        if re.search(r"\b(%s)" % pattern, head):
-            return group
-    return "overall" if val(a, "award_level") == "champion" else None
+    found = [group for pattern, group in GROUP_KEYWORDS if re.search(r"\b(%s)" % pattern, head)]
+    if not found:
+        return "overall" if val(a, "award_level") == "champion" else None
+    # A champion title naming two kinds ("Champion Cake / Pastry of the Show") fits either.
+    if val(a, "award_level") == "champion" and " / " in head and val(a, "category_group") in found:
+        return val(a, "category_group")
+    return found[0]
 
 
 def check_groups(tables, warnings):
@@ -442,14 +452,23 @@ def tier(a):
     # silver and 2nd place are only listed once it does ("also"); bronze and 3rd are never listed.
     # A place in a ranking (World's 100 Best Coffee Shops) always counts: being in the top 100
     # is the award (user chose A, 2026-11-02). Its rank is not a podium place.
+    # D11 (Queensland Baking Show): a 1st place in a class that handed out no 2nd place does not
+    # make a business qualify; it is listed as "also" (user chose this, 2026-11-03).
     level = val(a, "award_level")
     if level == "ranking":
         return "top"
+    if level == "placing" and val(a, "rank") == "1" and alone_in_class(a):
+        return "also"
     if level == "champion" or val(a, "medal_type") == "gold" or (level == "placing" and val(a, "rank") == "1"):
         return "top"
     if val(a, "medal_type") == "silver" or (level == "placing" and val(a, "rank") == "2"):
         return "also"
     return None
+
+
+def alone_in_class(a):
+    # awards.csv class_places_awarded (optional): how many placings the class handed out.
+    return val(a, "class_places_awarded") == "1"
 
 
 def skip_reason(a, at, b, open_shops, official_supports):
@@ -526,6 +545,8 @@ def award_entry(a, at, shown_ids, sources_for):
     }
     if entry["relation"] == "staff_entry":
         entry["recipient"] = val(a, "recipient_name")  # shown as 由 X 代表參賽
+    if val(a, "award_level") == "placing" and alone_in_class(a):
+        entry["aloneInClass"] = True  # shown as 該班只頒出這一個名次
     return entry
 
 
@@ -540,7 +561,7 @@ def summary(awards):
         "top100": len(ranks),                       # places in the World's 100 Best Coffee Shops
         "best100": min(ranks) if ranks else None,   # its best rank
         "gold": sum(e["medal"] == "gold" for e in awards),
-        "first": sum(e["level"] == "placing" and e["rank"] == 1 for e in awards),
+        "first": sum(e["level"] == "placing" and e["rank"] == 1 and e["tier"] == "top" for e in awards),
         "also": sum(e["tier"] == "also" for e in awards),
         "years": sorted({e["year"] for e in awards}),
     }
@@ -652,7 +673,8 @@ def title_case(text):
 
 
 def short_class(category):
-    text = re.sub(r"\s*\([^)]*\)", "", category)
+    text = re.sub(r"^(\d+\s*x\s+|\d+\s*gm?\s+|\d+\s+)+", "", category, flags=re.I)  # "2 x Caramel Slice", "450gm Cob"
+    text = re.sub(r"\s*\([^)]*\)", "", text)
     text = re.sub(r",\s*including.*$", "", text, flags=re.I)
     text = re.sub(r"\s*-\s*Minimum.*$", "", text, flags=re.I)
     text = re.sub(r",?\s*etc\.?$", "", text, flags=re.I)

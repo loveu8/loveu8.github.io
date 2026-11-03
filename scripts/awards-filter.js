@@ -39,6 +39,7 @@ var AwardsFilter = (function() {
   // Sourdough"). The full name stays in the row's title and behind the source link (UI-PLAN 3.4).
   function shortClass(category) {
     return category
+      .replace(/^(\d+\s*x\s+|\d+\s*gm?\s+|\d+\s+)+/i, '')  // Queensland: "2 x Caramel Slice", "450gm Wholemeal Cob"
       .replace(/\s*\([^)]*\)/g, '')
       .replace(/,\s*including.*$/i, '')
       .replace(/\s*-\s*Minimum.*$/i, '')

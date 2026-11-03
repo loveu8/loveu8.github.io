@@ -38,6 +38,15 @@ var PAGE_DATA = {
       "type": "coffee",
       "system": "ranking",
       "website": "https://theworlds100bestcoffeeshops.com/"
+    },
+    {
+      "id": "QLDBS",
+      "name": "Queensland Baking Show",
+      "zh": "昆士蘭烘焙賽",
+      "en": "Queensland Baking Show",
+      "type": "bakery",
+      "system": "placing",
+      "website": "https://bakingbusiness.com.au/results/"
     }
   ],
   "businesses": [
@@ -2891,6 +2900,772 @@ var PAGE_DATA = {
       }
     },
     {
+      "id": "B-coles",
+      "name": "Coles",
+      "types": [
+        "bakery"
+      ],
+      "scope": "supermarket",
+      "descZh": "Coles 超市；得獎的是店內烘焙部的烘焙師，這裡只列得獎的兩間：Darwin Casuarina Square、布里斯本南邊的 Park Ridge。",
+      "descEn": "Coles supermarkets; the awards went to bakers in the in-store bakeries, so only the two winning stores are listed: Casuarina Square in Darwin and Park Ridge, south of Brisbane.",
+      "website": "https://www.coles.com.au/",
+      "instagram": "",
+      "related": [],
+      "locations": [
+        {
+          "id": "L-coles-casuarina",
+          "name": "Casuarina Square",
+          "address": "Casuarina Square, Trower Rd & Dripstone Rd, Casuarina NT 0810",
+          "suburb": "Casuarina",
+          "city": "Darwin",
+          "state": "NT",
+          "lat": -12.3766504,
+          "lng": 130.8813286,
+          "type": "in_supermarket",
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Coles%20Casuarina%20Square%2C%20Trower%20Rd%20%26%20Dripstone%20Rd%2C%20Casuarina%20NT%200810"
+        },
+        {
+          "id": "L-coles-park-ridge",
+          "name": "Park Ridge",
+          "address": "Park Ridge Town Centre, Mount Lindesay Hwy & Park Ridge Rd, Park Ridge QLD 4125",
+          "suburb": "Park Ridge",
+          "city": "Brisbane",
+          "state": "QLD",
+          "lat": -27.6968279,
+          "lng": 153.0407182,
+          "type": "in_supermarket",
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Coles%20Park%20Ridge%20Town%20Centre%2C%20Mount%20Lindesay%20Hwy%20%26%20Park%20Ridge%20Rd%2C%20Park%20Ridge%20QLD%204125"
+        }
+      ],
+      "awards": [
+        {
+          "id": "QLDBS-2026-CHAMP-LOAF",
+          "comp": "QLDBS",
+          "year": 2026,
+          "level": "champion",
+          "medal": null,
+          "rank": null,
+          "tier": "top",
+          "score": null,
+          "title": "Champion Loaf Of The Show",
+          "category": "Champion Loaf Of The Show",
+          "group": "bread",
+          "product": "Cob",
+          "locationId": "L-coles-casuarina",
+          "relation": "staff_entry",
+          "sources": [
+            {
+              "title": "2026 Queensland Baking Show official results",
+              "url": "https://bakingbusiness.com.au/wp-content/uploads/2026/07/Qld-Baking-Show-Official-Results_2026.pdf",
+              "archive": "",
+              "ref": "OVERALL RESULTS SUMMARY"
+            }
+          ],
+          "verifiedAt": "2026-11-02",
+          "recipient": "Luke Moy Coles Casurina"
+        },
+        {
+          "id": "NABC-2026-C001-P1",
+          "comp": "NABC",
+          "year": 2026,
+          "level": "placing",
+          "medal": null,
+          "rank": 1,
+          "tier": "top",
+          "score": null,
+          "title": "First",
+          "category": "Traditional White Sourdough - Minimum 600gm",
+          "group": "sourdough",
+          "product": "",
+          "locationId": "L-coles-casuarina",
+          "relation": "staff_entry",
+          "sources": [
+            {
+              "title": "2026 National Artisan Baking Competition official results",
+              "url": "https://bakingtradeshow.com.au/wp-content/uploads/2026/07/2026-ARTISAN_BAKING_official-results.pdf",
+              "archive": "",
+              "ref": ""
+            }
+          ],
+          "verifiedAt": "2026-10-26",
+          "recipient": "Luke Moy - Coles Casuarina"
+        },
+        {
+          "id": "QLDBS-2026-C002-P1",
+          "comp": "QLDBS",
+          "year": 2026,
+          "level": "placing",
+          "medal": null,
+          "rank": 1,
+          "tier": "top",
+          "score": null,
+          "title": "First",
+          "category": "680gm White Hi-Top Half Married (2 Piece)",
+          "group": "bread",
+          "product": "",
+          "locationId": "L-coles-casuarina",
+          "relation": "staff_entry",
+          "sources": [
+            {
+              "title": "2026 Queensland Baking Show official results",
+              "url": "https://bakingbusiness.com.au/wp-content/uploads/2026/07/Qld-Baking-Show-Official-Results_2026.pdf",
+              "archive": "",
+              "ref": "OVERALL RESULTS SUMMARY"
+            }
+          ],
+          "verifiedAt": "2026-11-02",
+          "recipient": "Luke Moy Coles Casurina"
+        },
+        {
+          "id": "QLDBS-2026-C005-P1",
+          "comp": "QLDBS",
+          "year": 2026,
+          "level": "placing",
+          "medal": null,
+          "rank": 1,
+          "tier": "top",
+          "score": null,
+          "title": "First",
+          "category": "450gm Wholemeal Cob",
+          "group": "bread",
+          "product": "",
+          "locationId": "L-coles-casuarina",
+          "relation": "staff_entry",
+          "sources": [
+            {
+              "title": "2026 Queensland Baking Show official results",
+              "url": "https://bakingbusiness.com.au/wp-content/uploads/2026/07/Qld-Baking-Show-Official-Results_2026.pdf",
+              "archive": "",
+              "ref": "OVERALL RESULTS SUMMARY"
+            }
+          ],
+          "verifiedAt": "2026-11-02",
+          "recipient": "Luke Moy Coles Casurina"
+        },
+        {
+          "id": "QLDBS-2026-C006-P1",
+          "comp": "QLDBS",
+          "year": 2026,
+          "level": "placing",
+          "medal": null,
+          "rank": 1,
+          "tier": "top",
+          "score": null,
+          "title": "First",
+          "category": "680gm Grain Loaf Condensed Square (4 Piece)",
+          "group": "bread",
+          "product": "",
+          "locationId": "L-coles-casuarina",
+          "relation": "staff_entry",
+          "sources": [
+            {
+              "title": "2026 Queensland Baking Show official results",
+              "url": "https://bakingbusiness.com.au/wp-content/uploads/2026/07/Qld-Baking-Show-Official-Results_2026.pdf",
+              "archive": "",
+              "ref": "OVERALL RESULTS SUMMARY"
+            }
+          ],
+          "verifiedAt": "2026-11-02",
+          "recipient": "Luke Moy Coles Casurina"
+        },
+        {
+          "id": "QLDBS-2026-C001-P2",
+          "comp": "QLDBS",
+          "year": 2026,
+          "level": "placing",
+          "medal": null,
+          "rank": 2,
+          "tier": "also",
+          "score": null,
+          "title": "Second",
+          "category": "680g White Loaf Condensed Square (4 Piece)",
+          "group": "bread",
+          "product": "",
+          "locationId": "L-coles-casuarina",
+          "relation": "staff_entry",
+          "sources": [
+            {
+              "title": "2026 Queensland Baking Show official results",
+              "url": "https://bakingbusiness.com.au/wp-content/uploads/2026/07/Qld-Baking-Show-Official-Results_2026.pdf",
+              "archive": "",
+              "ref": "OVERALL RESULTS SUMMARY"
+            }
+          ],
+          "verifiedAt": "2026-11-02",
+          "recipient": "Luke Moy Coles Casurina"
+        },
+        {
+          "id": "QLDBS-2026-C004-P2",
+          "comp": "QLDBS",
+          "year": 2026,
+          "level": "placing",
+          "medal": null,
+          "rank": 2,
+          "tier": "also",
+          "score": null,
+          "title": "Second",
+          "category": "680g Wholemeal Loaf Upright (1 Piece)",
+          "group": "bread",
+          "product": "",
+          "locationId": "L-coles-casuarina",
+          "relation": "staff_entry",
+          "sources": [
+            {
+              "title": "2026 Queensland Baking Show official results",
+              "url": "https://bakingbusiness.com.au/wp-content/uploads/2026/07/Qld-Baking-Show-Official-Results_2026.pdf",
+              "archive": "",
+              "ref": "OVERALL RESULTS SUMMARY"
+            }
+          ],
+          "verifiedAt": "2026-11-02",
+          "recipient": "Luke Moy Coles Casurina"
+        },
+        {
+          "id": "QLDBS-2026-C007-P2",
+          "comp": "QLDBS",
+          "year": 2026,
+          "level": "placing",
+          "medal": null,
+          "rank": 2,
+          "tier": "also",
+          "score": null,
+          "title": "Second",
+          "category": "Sourdough, White Min. 500gm",
+          "group": "sourdough",
+          "product": "",
+          "locationId": "L-coles-casuarina",
+          "relation": "staff_entry",
+          "sources": [
+            {
+              "title": "2026 Queensland Baking Show official results",
+              "url": "https://bakingbusiness.com.au/wp-content/uploads/2026/07/Qld-Baking-Show-Official-Results_2026.pdf",
+              "archive": "",
+              "ref": "OVERALL RESULTS SUMMARY"
+            }
+          ],
+          "verifiedAt": "2026-11-02",
+          "recipient": "Luke Moy Coles Casurina"
+        },
+        {
+          "id": "QLDBS-2026-C009-P1",
+          "comp": "QLDBS",
+          "year": 2026,
+          "level": "placing",
+          "medal": null,
+          "rank": 1,
+          "tier": "also",
+          "score": null,
+          "title": "First",
+          "category": "Sourdough, Rye Min. 500gm",
+          "group": "sourdough",
+          "product": "",
+          "locationId": "L-coles-casuarina",
+          "relation": "staff_entry",
+          "sources": [
+            {
+              "title": "2026 Queensland Baking Show official results",
+              "url": "https://bakingbusiness.com.au/wp-content/uploads/2026/07/Qld-Baking-Show-Official-Results_2026.pdf",
+              "archive": "",
+              "ref": "OVERALL RESULTS SUMMARY"
+            }
+          ],
+          "verifiedAt": "2026-11-02",
+          "recipient": "Luke Moy Coles Casurina",
+          "aloneInClass": true
+        },
+        {
+          "id": "QLDBS-2026-C011-P2",
+          "comp": "QLDBS",
+          "year": 2026,
+          "level": "placing",
+          "medal": null,
+          "rank": 2,
+          "tier": "also",
+          "score": null,
+          "title": "Second",
+          "category": "Gourmet Pull A Part Loaf",
+          "group": "bread",
+          "product": "",
+          "locationId": "L-coles-casuarina",
+          "relation": "staff_entry",
+          "sources": [
+            {
+              "title": "2026 Queensland Baking Show official results",
+              "url": "https://bakingbusiness.com.au/wp-content/uploads/2026/07/Qld-Baking-Show-Official-Results_2026.pdf",
+              "archive": "",
+              "ref": "OVERALL RESULTS SUMMARY"
+            }
+          ],
+          "verifiedAt": "2026-11-02",
+          "recipient": "Luke Moy Coles Casurina"
+        },
+        {
+          "id": "QLDBS-2024-CHAMP-LOAF",
+          "comp": "QLDBS",
+          "year": 2024,
+          "level": "champion",
+          "medal": null,
+          "rank": null,
+          "tier": "top",
+          "score": null,
+          "title": "Champion Loaf Of The Show",
+          "category": "Champion Loaf Of The Show",
+          "group": "bread",
+          "product": "Wholemeal Cob",
+          "locationId": "L-coles-park-ridge",
+          "relation": "staff_entry",
+          "sources": [
+            {
+              "title": "2024 Queensland Baking Show official results",
+              "url": "https://bakingbusiness.com.au/wp-content/uploads/2024/05/2024-QLD-Official-Results.pdf",
+              "archive": "",
+              "ref": "OVERALL RESULTS SUMMARY"
+            }
+          ],
+          "verifiedAt": "2026-11-02",
+          "recipient": "Ashley Hughes Coles Ridge"
+        },
+        {
+          "id": "QLDBS-2024-C004-P1",
+          "comp": "QLDBS",
+          "year": 2024,
+          "level": "placing",
+          "medal": null,
+          "rank": 1,
+          "tier": "top",
+          "score": null,
+          "title": "First",
+          "category": "680g Wholemeal Loaf Upright (1 Piece)",
+          "group": "bread",
+          "product": "",
+          "locationId": "L-coles-park-ridge",
+          "relation": "staff_entry",
+          "sources": [
+            {
+              "title": "2024 Queensland Baking Show official results",
+              "url": "https://bakingbusiness.com.au/wp-content/uploads/2024/05/2024-QLD-Official-Results.pdf",
+              "archive": "",
+              "ref": "OVERALL RESULTS SUMMARY"
+            }
+          ],
+          "verifiedAt": "2026-11-02",
+          "recipient": "Ashley Hughes Coles Park Ridge"
+        },
+        {
+          "id": "QLDBS-2024-C001-P2",
+          "comp": "QLDBS",
+          "year": 2024,
+          "level": "placing",
+          "medal": null,
+          "rank": 2,
+          "tier": "also",
+          "score": null,
+          "title": "Second",
+          "category": "680g White Loaf Condensed Square (4 Piece)",
+          "group": "bread",
+          "product": "",
+          "locationId": "L-coles-park-ridge",
+          "relation": "staff_entry",
+          "sources": [
+            {
+              "title": "2024 Queensland Baking Show official results",
+              "url": "https://bakingbusiness.com.au/wp-content/uploads/2024/05/2024-QLD-Official-Results.pdf",
+              "archive": "",
+              "ref": "OVERALL RESULTS SUMMARY"
+            }
+          ],
+          "verifiedAt": "2026-11-02",
+          "recipient": "Ashley Hughes Coles Park Ridge"
+        },
+        {
+          "id": "QLDBS-2024-C003-P2",
+          "comp": "QLDBS",
+          "year": 2024,
+          "level": "placing",
+          "medal": null,
+          "rank": 2,
+          "tier": "also",
+          "score": null,
+          "title": "Second",
+          "category": "450gm Five Strand Plait",
+          "group": "bread",
+          "product": "",
+          "locationId": "L-coles-park-ridge",
+          "relation": "staff_entry",
+          "sources": [
+            {
+              "title": "2024 Queensland Baking Show official results",
+              "url": "https://bakingbusiness.com.au/wp-content/uploads/2024/05/2024-QLD-Official-Results.pdf",
+              "archive": "",
+              "ref": "OVERALL RESULTS SUMMARY"
+            }
+          ],
+          "verifiedAt": "2026-11-02",
+          "recipient": "Ashley Hughes Coles Park Ridge"
+        },
+        {
+          "id": "QLDBS-2024-C005-P2",
+          "comp": "QLDBS",
+          "year": 2024,
+          "level": "placing",
+          "medal": null,
+          "rank": 2,
+          "tier": "also",
+          "score": null,
+          "title": "Second",
+          "category": "450gm Wholemeal Cob",
+          "group": "bread",
+          "product": "",
+          "locationId": "L-coles-park-ridge",
+          "relation": "staff_entry",
+          "sources": [
+            {
+              "title": "2024 Queensland Baking Show official results",
+              "url": "https://bakingbusiness.com.au/wp-content/uploads/2024/05/2024-QLD-Official-Results.pdf",
+              "archive": "",
+              "ref": "OVERALL RESULTS SUMMARY"
+            }
+          ],
+          "verifiedAt": "2026-11-02",
+          "recipient": "Ashley Hughes Coles Park Ridge"
+        },
+        {
+          "id": "QLDBS-2024-C006-P2",
+          "comp": "QLDBS",
+          "year": 2024,
+          "level": "placing",
+          "medal": null,
+          "rank": 2,
+          "tier": "also",
+          "score": null,
+          "title": "Second",
+          "category": "680gm Grain Loaf Condensed Square (4 Piece)",
+          "group": "bread",
+          "product": "",
+          "locationId": "L-coles-park-ridge",
+          "relation": "staff_entry",
+          "sources": [
+            {
+              "title": "2024 Queensland Baking Show official results",
+              "url": "https://bakingbusiness.com.au/wp-content/uploads/2024/05/2024-QLD-Official-Results.pdf",
+              "archive": "",
+              "ref": "OVERALL RESULTS SUMMARY"
+            }
+          ],
+          "verifiedAt": "2026-11-02",
+          "recipient": "Ashley Hughes Coles Park Ridge"
+        }
+      ],
+      "summary": {
+        "champion": 2,
+        "top100": 0,
+        "best100": null,
+        "gold": 0,
+        "first": 5,
+        "also": 9,
+        "years": [
+          2024,
+          2026
+        ]
+      }
+    },
+    {
+      "id": "B-ltt-patisserie",
+      "name": "LTT Patisserie",
+      "types": [
+        "bakery"
+      ],
+      "scope": "retail",
+      "descZh": "布里斯本南區 Acacia Ridge 的麵包甜點店；2025、2026 連兩年拿下昆士蘭烘焙賽的蛋糕／酥點冠軍（香草片、焦糖片）。",
+      "descEn": "A bakery and patisserie in Acacia Ridge, south Brisbane; Champion Cake / Pastry at the Queensland Baking Show two years running (2025 vanilla slice, 2026 caramel slice).",
+      "website": "",
+      "instagram": "",
+      "related": [],
+      "locations": [
+        {
+          "id": "L-ltt-patisserie-acacia-ridge",
+          "name": "Acacia Ridge",
+          "address": "9/365 Mortimer Rd, Acacia Ridge QLD 4110",
+          "suburb": "Acacia Ridge",
+          "city": "Brisbane",
+          "state": "QLD",
+          "lat": -27.5799843,
+          "lng": 153.0250087,
+          "type": "standalone",
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=LTT%20Patisserie%209/365%20Mortimer%20Rd%2C%20Acacia%20Ridge%20QLD%204110"
+        }
+      ],
+      "awards": [
+        {
+          "id": "QLDBS-2026-CHAMP-CAKE",
+          "comp": "QLDBS",
+          "year": 2026,
+          "level": "champion",
+          "medal": null,
+          "rank": null,
+          "tier": "top",
+          "score": null,
+          "title": "Champion Cake / Pastry of the Show",
+          "category": "Champion Cake / Pastry of the Show",
+          "group": "cake",
+          "product": "Caramel Slice",
+          "locationId": "L-ltt-patisserie-acacia-ridge",
+          "relation": "entrant_location",
+          "sources": [
+            {
+              "title": "2026 Queensland Baking Show official results",
+              "url": "https://bakingbusiness.com.au/wp-content/uploads/2026/07/Qld-Baking-Show-Official-Results_2026.pdf",
+              "archive": "",
+              "ref": "OVERALL RESULTS SUMMARY"
+            }
+          ],
+          "verifiedAt": "2026-11-02"
+        },
+        {
+          "id": "QLDBS-2026-C019-P1",
+          "comp": "QLDBS",
+          "year": 2026,
+          "level": "placing",
+          "medal": null,
+          "rank": 1,
+          "tier": "top",
+          "score": null,
+          "title": "First",
+          "category": "2 Pasties",
+          "group": "pastry_pie",
+          "product": "",
+          "locationId": "L-ltt-patisserie-acacia-ridge",
+          "relation": "entrant_location",
+          "sources": [
+            {
+              "title": "2026 Queensland Baking Show official results",
+              "url": "https://bakingbusiness.com.au/wp-content/uploads/2026/07/Qld-Baking-Show-Official-Results_2026.pdf",
+              "archive": "",
+              "ref": "OVERALL RESULTS SUMMARY"
+            }
+          ],
+          "verifiedAt": "2026-11-02"
+        },
+        {
+          "id": "QLDBS-2026-C020-P1",
+          "comp": "QLDBS",
+          "year": 2026,
+          "level": "placing",
+          "medal": null,
+          "rank": 1,
+          "tier": "top",
+          "score": null,
+          "title": "First",
+          "category": "2 Sausage Rolls",
+          "group": "pastry_pie",
+          "product": "",
+          "locationId": "L-ltt-patisserie-acacia-ridge",
+          "relation": "entrant_location",
+          "sources": [
+            {
+              "title": "2026 Queensland Baking Show official results",
+              "url": "https://bakingbusiness.com.au/wp-content/uploads/2026/07/Qld-Baking-Show-Official-Results_2026.pdf",
+              "archive": "",
+              "ref": "OVERALL RESULTS SUMMARY"
+            }
+          ],
+          "verifiedAt": "2026-11-02"
+        },
+        {
+          "id": "QLDBS-2026-C030-P1",
+          "comp": "QLDBS",
+          "year": 2026,
+          "level": "placing",
+          "medal": null,
+          "rank": 1,
+          "tier": "top",
+          "score": null,
+          "title": "First",
+          "category": "2 x Caramel Slice",
+          "group": "cake",
+          "product": "",
+          "locationId": "L-ltt-patisserie-acacia-ridge",
+          "relation": "entrant_location",
+          "sources": [
+            {
+              "title": "2026 Queensland Baking Show official results",
+              "url": "https://bakingbusiness.com.au/wp-content/uploads/2026/07/Qld-Baking-Show-Official-Results_2026.pdf",
+              "archive": "",
+              "ref": "OVERALL RESULTS SUMMARY"
+            }
+          ],
+          "verifiedAt": "2026-11-02"
+        },
+        {
+          "id": "QLDBS-2026-C018-P2",
+          "comp": "QLDBS",
+          "year": 2026,
+          "level": "placing",
+          "medal": null,
+          "rank": 2,
+          "tier": "also",
+          "score": null,
+          "title": "Second",
+          "category": "2 Gourmet Pies",
+          "group": "pastry_pie",
+          "product": "",
+          "locationId": "L-ltt-patisserie-acacia-ridge",
+          "relation": "entrant_location",
+          "sources": [
+            {
+              "title": "2026 Queensland Baking Show official results",
+              "url": "https://bakingbusiness.com.au/wp-content/uploads/2026/07/Qld-Baking-Show-Official-Results_2026.pdf",
+              "archive": "",
+              "ref": "OVERALL RESULTS SUMMARY"
+            }
+          ],
+          "verifiedAt": "2026-11-02"
+        },
+        {
+          "id": "QLDBS-2025-CHAMP-CAKE",
+          "comp": "QLDBS",
+          "year": 2025,
+          "level": "champion",
+          "medal": null,
+          "rank": null,
+          "tier": "top",
+          "score": null,
+          "title": "Champion Cake / Pastry of the Show",
+          "category": "Champion Cake / Pastry of the Show",
+          "group": "cake",
+          "product": "Vanilla Slice",
+          "locationId": null,
+          "relation": "staff_entry",
+          "sources": [
+            {
+              "title": "2025 Queensland Baking Show official results",
+              "url": "https://bakingbusiness.com.au/wp-content/uploads/2025/05/QLD2025FinalResults.pdf",
+              "archive": "",
+              "ref": "OVERALL RESULTS SUMMARY"
+            }
+          ],
+          "verifiedAt": "2026-11-02",
+          "recipient": "Leon Ly - LTT Patisserie"
+        },
+        {
+          "id": "QLDBS-2025-C020-P1",
+          "comp": "QLDBS",
+          "year": 2025,
+          "level": "placing",
+          "medal": null,
+          "rank": 1,
+          "tier": "top",
+          "score": null,
+          "title": "First",
+          "category": "2 x Vanilla Slice",
+          "group": "cake",
+          "product": "",
+          "locationId": null,
+          "relation": "staff_entry",
+          "sources": [
+            {
+              "title": "2025 Queensland Baking Show official results",
+              "url": "https://bakingbusiness.com.au/wp-content/uploads/2025/05/QLD2025FinalResults.pdf",
+              "archive": "",
+              "ref": "OVERALL RESULTS SUMMARY"
+            }
+          ],
+          "verifiedAt": "2026-11-02",
+          "recipient": "Leon Ly LTT Patisserie"
+        },
+        {
+          "id": "QLDBS-2025-C004-P2",
+          "comp": "QLDBS",
+          "year": 2025,
+          "level": "placing",
+          "medal": null,
+          "rank": 2,
+          "tier": "also",
+          "score": null,
+          "title": "Second",
+          "category": "680g Wholemeal Loaf Upright (1 Piece)",
+          "group": "bread",
+          "product": "",
+          "locationId": null,
+          "relation": "staff_entry",
+          "sources": [
+            {
+              "title": "2025 Queensland Baking Show official results",
+              "url": "https://bakingbusiness.com.au/wp-content/uploads/2025/05/QLD2025FinalResults.pdf",
+              "archive": "",
+              "ref": "OVERALL RESULTS SUMMARY"
+            }
+          ],
+          "verifiedAt": "2026-11-02",
+          "recipient": "Leon Ly LTT Patisserie"
+        },
+        {
+          "id": "QLDBS-2025-C010-P2",
+          "comp": "QLDBS",
+          "year": 2025,
+          "level": "placing",
+          "medal": null,
+          "rank": 2,
+          "tier": "also",
+          "score": null,
+          "title": "Second",
+          "category": "Gourmet Pull A Part Loaf",
+          "group": "bread",
+          "product": "",
+          "locationId": null,
+          "relation": "staff_entry",
+          "sources": [
+            {
+              "title": "2025 Queensland Baking Show official results",
+              "url": "https://bakingbusiness.com.au/wp-content/uploads/2025/05/QLD2025FinalResults.pdf",
+              "archive": "",
+              "ref": "OVERALL RESULTS SUMMARY"
+            }
+          ],
+          "verifiedAt": "2026-11-02",
+          "recipient": "Leon Ly LTT Patisserie"
+        },
+        {
+          "id": "QLDBS-2025-C022-P2",
+          "comp": "QLDBS",
+          "year": 2025,
+          "level": "placing",
+          "medal": null,
+          "rank": 2,
+          "tier": "also",
+          "score": null,
+          "title": "Second",
+          "category": "2 x Caramel Slice",
+          "group": "cake",
+          "product": "",
+          "locationId": null,
+          "relation": "staff_entry",
+          "sources": [
+            {
+              "title": "2025 Queensland Baking Show official results",
+              "url": "https://bakingbusiness.com.au/wp-content/uploads/2025/05/QLD2025FinalResults.pdf",
+              "archive": "",
+              "ref": "OVERALL RESULTS SUMMARY"
+            }
+          ],
+          "verifiedAt": "2026-11-02",
+          "recipient": "Leon Ly LTT Patisserie"
+        }
+      ],
+      "summary": {
+        "champion": 2,
+        "top100": 0,
+        "best100": null,
+        "gold": 0,
+        "first": 4,
+        "also": 4,
+        "years": [
+          2025,
+          2026
+        ]
+      }
+    },
+    {
       "id": "B-piece-of-cake-bakery",
       "name": "Piece of Cake Bakery",
       "types": [
@@ -4607,6 +5382,431 @@ var PAGE_DATA = {
           2024,
           2025,
           2026
+        ]
+      }
+    },
+    {
+      "id": "B-the-squealing-pig",
+      "name": "The Squealing Pig",
+      "types": [
+        "bakery"
+      ],
+      "scope": "retail",
+      "descZh": "Burpengary 的肉店（Google 分類是肉店），派是店裡自己做的；2023、2024 連兩年拿下昆士蘭烘焙賽的蛋糕／酥點冠軍。",
+      "descEn": "A butcher in Burpengary that makes its own pies; Champion Cake / Pastry at the Queensland Baking Show in 2023 and 2024.",
+      "website": "",
+      "instagram": "",
+      "related": [],
+      "locations": [
+        {
+          "id": "L-the-squealing-pig-burpengary",
+          "name": "Burpengary",
+          "address": "Shop 6, Burpengary Plaza, 173 Station Rd, Burpengary QLD 4505",
+          "suburb": "Burpengary",
+          "city": "Brisbane",
+          "state": "QLD",
+          "lat": -27.1551947,
+          "lng": 152.9749211,
+          "type": "standalone",
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=The%20Squealing%20Pig%20Shop%206%2C%20Burpengary%20Plaza%2C%20173%20Station%20Rd%2C%20Burpengary%20QLD%204505"
+        }
+      ],
+      "awards": [
+        {
+          "id": "QLDBS-2025-C016-P1",
+          "comp": "QLDBS",
+          "year": 2025,
+          "level": "placing",
+          "medal": null,
+          "rank": 1,
+          "tier": "top",
+          "score": null,
+          "title": "First",
+          "category": "2 Gourmet Pies",
+          "group": "pastry_pie",
+          "product": "Cauliflower Flavour Pie",
+          "locationId": null,
+          "relation": "entrant",
+          "sources": [
+            {
+              "title": "2025 Queensland Baking Show official results",
+              "url": "https://bakingbusiness.com.au/wp-content/uploads/2025/05/QLD2025FinalResults.pdf",
+              "archive": "",
+              "ref": "OVERALL RESULTS SUMMARY"
+            }
+          ],
+          "verifiedAt": "2026-11-02"
+        },
+        {
+          "id": "QLDBS-2025-C018-P1",
+          "comp": "QLDBS",
+          "year": 2025,
+          "level": "placing",
+          "medal": null,
+          "rank": 1,
+          "tier": "top",
+          "score": null,
+          "title": "First",
+          "category": "2 Sausage Rolls",
+          "group": "pastry_pie",
+          "product": "",
+          "locationId": null,
+          "relation": "entrant",
+          "sources": [
+            {
+              "title": "2025 Queensland Baking Show official results",
+              "url": "https://bakingbusiness.com.au/wp-content/uploads/2025/05/QLD2025FinalResults.pdf",
+              "archive": "",
+              "ref": "OVERALL RESULTS SUMMARY"
+            }
+          ],
+          "verifiedAt": "2026-11-02"
+        },
+        {
+          "id": "QLDBS-2025-C016-P2",
+          "comp": "QLDBS",
+          "year": 2025,
+          "level": "placing",
+          "medal": null,
+          "rank": 2,
+          "tier": "also",
+          "score": null,
+          "title": "Second",
+          "category": "2 Gourmet Pies",
+          "group": "pastry_pie",
+          "product": "Pizza Flavour Pie",
+          "locationId": null,
+          "relation": "entrant",
+          "sources": [
+            {
+              "title": "2025 Queensland Baking Show official results",
+              "url": "https://bakingbusiness.com.au/wp-content/uploads/2025/05/QLD2025FinalResults.pdf",
+              "archive": "",
+              "ref": "OVERALL RESULTS SUMMARY"
+            }
+          ],
+          "verifiedAt": "2026-11-02"
+        },
+        {
+          "id": "QLDBS-2024-CHAMP-CAKE",
+          "comp": "QLDBS",
+          "year": 2024,
+          "level": "champion",
+          "medal": null,
+          "rank": null,
+          "tier": "top",
+          "score": null,
+          "title": "Champion Cake / Pastry of the Show",
+          "category": "Champion Cake / Pastry of the Show",
+          "group": "pastry_pie",
+          "product": "Lasagne Pie",
+          "locationId": null,
+          "relation": "entrant",
+          "sources": [
+            {
+              "title": "2024 Queensland Baking Show official results",
+              "url": "https://bakingbusiness.com.au/wp-content/uploads/2024/05/2024-QLD-Official-Results.pdf",
+              "archive": "",
+              "ref": "OVERALL RESULTS SUMMARY"
+            }
+          ],
+          "verifiedAt": "2026-11-02"
+        },
+        {
+          "id": "QLDBS-2024-C016-P1",
+          "comp": "QLDBS",
+          "year": 2024,
+          "level": "placing",
+          "medal": null,
+          "rank": 1,
+          "tier": "top",
+          "score": null,
+          "title": "First",
+          "category": "2 Gourmet Pies",
+          "group": "pastry_pie",
+          "product": "",
+          "locationId": null,
+          "relation": "entrant",
+          "sources": [
+            {
+              "title": "2024 Queensland Baking Show official results",
+              "url": "https://bakingbusiness.com.au/wp-content/uploads/2024/05/2024-QLD-Official-Results.pdf",
+              "archive": "",
+              "ref": "OVERALL RESULTS SUMMARY"
+            }
+          ],
+          "verifiedAt": "2026-11-02"
+        },
+        {
+          "id": "QLDBS-2024-C016-P2",
+          "comp": "QLDBS",
+          "year": 2024,
+          "level": "placing",
+          "medal": null,
+          "rank": 2,
+          "tier": "also",
+          "score": null,
+          "title": "Second",
+          "category": "2 Gourmet Pies",
+          "group": "pastry_pie",
+          "product": "",
+          "locationId": null,
+          "relation": "entrant",
+          "sources": [
+            {
+              "title": "2024 Queensland Baking Show official results",
+              "url": "https://bakingbusiness.com.au/wp-content/uploads/2024/05/2024-QLD-Official-Results.pdf",
+              "archive": "",
+              "ref": "OVERALL RESULTS SUMMARY"
+            }
+          ],
+          "verifiedAt": "2026-11-02"
+        },
+        {
+          "id": "QLDBS-2024-C017-P1",
+          "comp": "QLDBS",
+          "year": 2024,
+          "level": "placing",
+          "medal": null,
+          "rank": 1,
+          "tier": "also",
+          "score": null,
+          "title": "First",
+          "category": "2 Pasties",
+          "group": "pastry_pie",
+          "product": "",
+          "locationId": null,
+          "relation": "entrant",
+          "sources": [
+            {
+              "title": "2024 Queensland Baking Show official results",
+              "url": "https://bakingbusiness.com.au/wp-content/uploads/2024/05/2024-QLD-Official-Results.pdf",
+              "archive": "",
+              "ref": "OVERALL RESULTS SUMMARY"
+            }
+          ],
+          "verifiedAt": "2026-11-02",
+          "aloneInClass": true
+        },
+        {
+          "id": "QLDBS-2024-C018-P2",
+          "comp": "QLDBS",
+          "year": 2024,
+          "level": "placing",
+          "medal": null,
+          "rank": 2,
+          "tier": "also",
+          "score": null,
+          "title": "Second",
+          "category": "2 Sausage Rolls",
+          "group": "pastry_pie",
+          "product": "",
+          "locationId": null,
+          "relation": "entrant",
+          "sources": [
+            {
+              "title": "2024 Queensland Baking Show official results",
+              "url": "https://bakingbusiness.com.au/wp-content/uploads/2024/05/2024-QLD-Official-Results.pdf",
+              "archive": "",
+              "ref": "OVERALL RESULTS SUMMARY"
+            }
+          ],
+          "verifiedAt": "2026-11-02"
+        }
+      ],
+      "summary": {
+        "champion": 1,
+        "top100": 0,
+        "best100": null,
+        "gold": 0,
+        "first": 3,
+        "also": 4,
+        "years": [
+          2024,
+          2025
+        ]
+      }
+    },
+    {
+      "id": "B-uncle-bobs-bakery",
+      "name": "Uncle Bobs Bakery",
+      "types": [
+        "bakery"
+      ],
+      "scope": "retail",
+      "descZh": "布里斯本東邊 Redlands 一帶的手工麵包店；官網說店裡的酸種老麵收在比利時 Saint Vith 的酸種圖書館，是第 66 號、澳洲唯一一個。",
+      "descEn": "An artisan bakery in the Redlands, east of Brisbane; its website says its sourdough culture is No. 66 in the Sourdough Library in Saint Vith, Belgium, the only one from Australia.",
+      "website": "https://unclebobs.com.au/",
+      "instagram": "",
+      "related": [],
+      "locations": [
+        {
+          "id": "L-uncle-bobs-bakery-belmont",
+          "name": "Belmont",
+          "address": "Shop 2, Belmont Road Shopping Village, 185 Belmont Rd, Belmont QLD 4153",
+          "suburb": "Belmont",
+          "city": "Brisbane",
+          "state": "QLD",
+          "lat": -27.4839731,
+          "lng": 153.1259614,
+          "type": "standalone",
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Uncle%20Bobs%20Bakery%20Shop%202%2C%20Belmont%20Road%20Shopping%20Village%2C%20185%20Belmont%20Rd%2C%20Belmont%20QLD%204153"
+        },
+        {
+          "id": "L-uncle-bobs-bakery-thornlands",
+          "name": "Crystal Waters (Thornlands)",
+          "address": "Shop 7, Crystal Waters Shopping Centre, 51 Island Outlook Ave, Thornlands QLD 4164",
+          "suburb": "Thornlands",
+          "city": "Brisbane",
+          "state": "QLD",
+          "lat": -27.5578828,
+          "lng": 153.2664052,
+          "type": "standalone",
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Uncle%20Bobs%20Bakery%20Shop%207%2C%20Crystal%20Waters%20Shopping%20Centre%2C%2051%20Island%20Outlook%20Ave%2C%20Thornlands%20QLD%204164"
+        }
+      ],
+      "awards": [
+        {
+          "id": "QLDBS-2025-CHAMP-LOAF",
+          "comp": "QLDBS",
+          "year": 2025,
+          "level": "champion",
+          "medal": null,
+          "rank": null,
+          "tier": "top",
+          "score": null,
+          "title": "Champion Loaf Of The Show",
+          "category": "Champion Loaf Of The Show",
+          "group": "bread",
+          "product": "Ciabatta Loaf",
+          "locationId": null,
+          "relation": "staff_entry",
+          "sources": [
+            {
+              "title": "2025 Queensland Baking Show official results",
+              "url": "https://bakingbusiness.com.au/wp-content/uploads/2025/05/QLD2025FinalResults.pdf",
+              "archive": "",
+              "ref": "OVERALL RESULTS SUMMARY"
+            }
+          ],
+          "verifiedAt": "2026-11-02",
+          "recipient": "Connor McNaught - Uncle Bobs Bakery"
+        },
+        {
+          "id": "QLDBS-2025-C003-P1",
+          "comp": "QLDBS",
+          "year": 2025,
+          "level": "placing",
+          "medal": null,
+          "rank": 1,
+          "tier": "top",
+          "score": null,
+          "title": "First",
+          "category": "450gm Five Strand Plait",
+          "group": "bread",
+          "product": "",
+          "locationId": null,
+          "relation": "staff_entry",
+          "sources": [
+            {
+              "title": "2025 Queensland Baking Show official results",
+              "url": "https://bakingbusiness.com.au/wp-content/uploads/2025/05/QLD2025FinalResults.pdf",
+              "archive": "",
+              "ref": "OVERALL RESULTS SUMMARY"
+            }
+          ],
+          "verifiedAt": "2026-11-02",
+          "recipient": "Connor McNaught Uncle Bobs Bakery"
+        },
+        {
+          "id": "QLDBS-2025-C009-P1",
+          "comp": "QLDBS",
+          "year": 2025,
+          "level": "placing",
+          "medal": null,
+          "rank": 1,
+          "tier": "top",
+          "score": null,
+          "title": "First",
+          "category": "Ciabatta Loaf (Minimum 200gm)",
+          "group": "bread",
+          "product": "",
+          "locationId": null,
+          "relation": "staff_entry",
+          "sources": [
+            {
+              "title": "2025 Queensland Baking Show official results",
+              "url": "https://bakingbusiness.com.au/wp-content/uploads/2025/05/QLD2025FinalResults.pdf",
+              "archive": "",
+              "ref": "OVERALL RESULTS SUMMARY"
+            }
+          ],
+          "verifiedAt": "2026-11-02",
+          "recipient": "Connor McNaught Uncle Bobs Bakery"
+        },
+        {
+          "id": "QLDBS-2025-C011-P1",
+          "comp": "QLDBS",
+          "year": 2025,
+          "level": "placing",
+          "medal": null,
+          "rank": 1,
+          "tier": "top",
+          "score": null,
+          "title": "First",
+          "category": "680gm White Loaf Condensed Square (4 Piece)",
+          "group": "bread",
+          "product": "",
+          "locationId": null,
+          "relation": "staff_entry",
+          "sources": [
+            {
+              "title": "2025 Queensland Baking Show official results",
+              "url": "https://bakingbusiness.com.au/wp-content/uploads/2025/05/QLD2025FinalResults.pdf",
+              "archive": "",
+              "ref": "OVERALL RESULTS SUMMARY"
+            }
+          ],
+          "verifiedAt": "2026-11-02",
+          "recipient": "Nick Sullivan Uncle Bobs Bakery"
+        },
+        {
+          "id": "QLDBS-2025-C008-P1",
+          "comp": "QLDBS",
+          "year": 2025,
+          "level": "placing",
+          "medal": null,
+          "rank": 1,
+          "tier": "also",
+          "score": null,
+          "title": "First",
+          "category": "680gm Sourdough Rye (Baked on a Tray)",
+          "group": "sourdough",
+          "product": "",
+          "locationId": null,
+          "relation": "staff_entry",
+          "sources": [
+            {
+              "title": "2025 Queensland Baking Show official results",
+              "url": "https://bakingbusiness.com.au/wp-content/uploads/2025/05/QLD2025FinalResults.pdf",
+              "archive": "",
+              "ref": "OVERALL RESULTS SUMMARY"
+            }
+          ],
+          "verifiedAt": "2026-11-02",
+          "recipient": "Connor McNaught Uncle Bobs Bakery",
+          "aloneInClass": true
+        }
+      ],
+      "summary": {
+        "champion": 1,
+        "top100": 0,
+        "best100": null,
+        "gold": 0,
+        "first": 3,
+        "also": 1,
+        "years": [
+          2025
         ]
       }
     },
@@ -6648,6 +7848,1602 @@ var PAGE_DATA = {
       }
     },
     {
+      "id": "B-woolworths",
+      "name": "Woolworths",
+      "types": [
+        "bakery"
+      ],
+      "scope": "supermarket",
+      "descZh": "Woolworths 超市；得獎的是店內烘焙部的烘焙師，這裡只列得獎的兩間：布里斯本 Lutwyche、新州 Tweed City。",
+      "descEn": "Woolworths supermarkets; the awards went to bakers in the in-store bakeries, so only the two winning stores are listed: Lutwyche in Brisbane and Tweed City in NSW.",
+      "website": "https://www.woolworths.com.au/",
+      "instagram": "",
+      "related": [],
+      "locations": [
+        {
+          "id": "L-woolworths-lutwyche",
+          "name": "Lutwyche",
+          "address": "543 Lutwyche Rd, Lutwyche QLD 4030",
+          "suburb": "Lutwyche",
+          "city": "Brisbane",
+          "state": "QLD",
+          "lat": -27.4224839,
+          "lng": 153.0341723,
+          "type": "in_supermarket",
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Woolworths%20543%20Lutwyche%20Rd%2C%20Lutwyche%20QLD%204030"
+        },
+        {
+          "id": "L-woolworths-tweed-city",
+          "name": "Tweed City",
+          "address": "Tweed City Shopping Centre, 54 Minjungbal Dr, Tweed Heads South NSW 2486",
+          "suburb": "Tweed Heads South",
+          "city": "Tweed Heads",
+          "state": "NSW",
+          "lat": -28.2011408,
+          "lng": 153.5460347,
+          "type": "in_supermarket",
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Woolworths%20Tweed%20City%20Shopping%20Centre%2C%2054%20Minjungbal%20Dr%2C%20Tweed%20Heads%20South%20NSW%202486"
+        }
+      ],
+      "awards": [
+        {
+          "id": "QLDBS-2025-C006-P1",
+          "comp": "QLDBS",
+          "year": 2025,
+          "level": "placing",
+          "medal": null,
+          "rank": 1,
+          "tier": "top",
+          "score": null,
+          "title": "First",
+          "category": "680gm Grain Loaf Condensed Square (4 Piece)",
+          "group": "bread",
+          "product": "",
+          "locationId": "L-woolworths-tweed-city",
+          "relation": "staff_entry",
+          "sources": [
+            {
+              "title": "2025 Queensland Baking Show official results",
+              "url": "https://bakingbusiness.com.au/wp-content/uploads/2025/05/QLD2025FinalResults.pdf",
+              "archive": "",
+              "ref": "OVERALL RESULTS SUMMARY"
+            }
+          ],
+          "verifiedAt": "2026-11-02",
+          "recipient": "Luke Moy Woolworths Tweed City"
+        },
+        {
+          "id": "QLDBS-2025-C010-P1",
+          "comp": "QLDBS",
+          "year": 2025,
+          "level": "placing",
+          "medal": null,
+          "rank": 1,
+          "tier": "top",
+          "score": null,
+          "title": "First",
+          "category": "Gourmet Pull A Part Loaf",
+          "group": "bread",
+          "product": "",
+          "locationId": "L-woolworths-tweed-city",
+          "relation": "staff_entry",
+          "sources": [
+            {
+              "title": "2025 Queensland Baking Show official results",
+              "url": "https://bakingbusiness.com.au/wp-content/uploads/2025/05/QLD2025FinalResults.pdf",
+              "archive": "",
+              "ref": "OVERALL RESULTS SUMMARY"
+            }
+          ],
+          "verifiedAt": "2026-11-02",
+          "recipient": "Luke Moy Woolworths Tweed City"
+        },
+        {
+          "id": "QLDBS-2025-C012-P1",
+          "comp": "QLDBS",
+          "year": 2025,
+          "level": "placing",
+          "medal": null,
+          "rank": 1,
+          "tier": "top",
+          "score": null,
+          "title": "First",
+          "category": "450gm White 3 Strand Plait",
+          "group": "bread",
+          "product": "",
+          "locationId": "L-woolworths-tweed-city",
+          "relation": "staff_entry",
+          "sources": [
+            {
+              "title": "2025 Queensland Baking Show official results",
+              "url": "https://bakingbusiness.com.au/wp-content/uploads/2025/05/QLD2025FinalResults.pdf",
+              "archive": "",
+              "ref": "OVERALL RESULTS SUMMARY"
+            }
+          ],
+          "verifiedAt": "2026-11-02",
+          "recipient": "Luke Moy Woolworths Tweed City"
+        },
+        {
+          "id": "QLDBS-2025-C014-P1",
+          "comp": "QLDBS",
+          "year": 2025,
+          "level": "placing",
+          "medal": null,
+          "rank": 1,
+          "tier": "top",
+          "score": null,
+          "title": "First",
+          "category": "Plain Traditional Beef Pie",
+          "group": "pastry_pie",
+          "product": "",
+          "locationId": "L-woolworths-lutwyche",
+          "relation": "staff_entry",
+          "sources": [
+            {
+              "title": "2025 Queensland Baking Show official results",
+              "url": "https://bakingbusiness.com.au/wp-content/uploads/2025/05/QLD2025FinalResults.pdf",
+              "archive": "",
+              "ref": "OVERALL RESULTS SUMMARY"
+            }
+          ],
+          "verifiedAt": "2026-11-02",
+          "recipient": "Grace Netov Woolworths Lutwyche"
+        },
+        {
+          "id": "QLDBS-2025-C007-P2",
+          "comp": "QLDBS",
+          "year": 2025,
+          "level": "placing",
+          "medal": null,
+          "rank": 2,
+          "tier": "also",
+          "score": null,
+          "title": "Second",
+          "category": "2 x Grain Rolls (max 100gm each)",
+          "group": "bread",
+          "product": "",
+          "locationId": "L-woolworths-tweed-city",
+          "relation": "staff_entry",
+          "sources": [
+            {
+              "title": "2025 Queensland Baking Show official results",
+              "url": "https://bakingbusiness.com.au/wp-content/uploads/2025/05/QLD2025FinalResults.pdf",
+              "archive": "",
+              "ref": "OVERALL RESULTS SUMMARY"
+            }
+          ],
+          "verifiedAt": "2026-11-02",
+          "recipient": "Luke Moy Woolworths Tweed City"
+        },
+        {
+          "id": "QLDBS-2025-C011-P2",
+          "comp": "QLDBS",
+          "year": 2025,
+          "level": "placing",
+          "medal": null,
+          "rank": 2,
+          "tier": "also",
+          "score": null,
+          "title": "Second",
+          "category": "680gm White Loaf Condensed Square (4 Piece)",
+          "group": "bread",
+          "product": "",
+          "locationId": "L-woolworths-lutwyche",
+          "relation": "staff_entry",
+          "sources": [
+            {
+              "title": "2025 Queensland Baking Show official results",
+              "url": "https://bakingbusiness.com.au/wp-content/uploads/2025/05/QLD2025FinalResults.pdf",
+              "archive": "",
+              "ref": "OVERALL RESULTS SUMMARY"
+            }
+          ],
+          "verifiedAt": "2026-11-02",
+          "recipient": "Grace Netov Woolworths Lutwyche"
+        },
+        {
+          "id": "QLDBS-2025-C012-P2",
+          "comp": "QLDBS",
+          "year": 2025,
+          "level": "placing",
+          "medal": null,
+          "rank": 2,
+          "tier": "also",
+          "score": null,
+          "title": "Second",
+          "category": "450gm White 3 Strand Plait",
+          "group": "bread",
+          "product": "",
+          "locationId": "L-woolworths-lutwyche",
+          "relation": "staff_entry",
+          "sources": [
+            {
+              "title": "2025 Queensland Baking Show official results",
+              "url": "https://bakingbusiness.com.au/wp-content/uploads/2025/05/QLD2025FinalResults.pdf",
+              "archive": "",
+              "ref": "OVERALL RESULTS SUMMARY"
+            }
+          ],
+          "verifiedAt": "2026-11-02",
+          "recipient": "Grace Netov Woolworths Lutwyche"
+        },
+        {
+          "id": "QLDBS-2025-C013-P2",
+          "comp": "QLDBS",
+          "year": 2025,
+          "level": "placing",
+          "medal": null,
+          "rank": 2,
+          "tier": "also",
+          "score": null,
+          "title": "Second",
+          "category": "Decorated Sponge (Any type) (No larger than 203mm) With Inscription",
+          "group": "cake",
+          "product": "",
+          "locationId": "L-woolworths-lutwyche",
+          "relation": "staff_entry",
+          "sources": [
+            {
+              "title": "2025 Queensland Baking Show official results",
+              "url": "https://bakingbusiness.com.au/wp-content/uploads/2025/05/QLD2025FinalResults.pdf",
+              "archive": "",
+              "ref": "OVERALL RESULTS SUMMARY"
+            }
+          ],
+          "verifiedAt": "2026-11-02",
+          "recipient": "Grace Netov Woolworths Lutwyche"
+        },
+        {
+          "id": "QLDBS-2024-C001-P1",
+          "comp": "QLDBS",
+          "year": 2024,
+          "level": "placing",
+          "medal": null,
+          "rank": 1,
+          "tier": "top",
+          "score": null,
+          "title": "First",
+          "category": "680g White Loaf Condensed Square (4 Piece)",
+          "group": "bread",
+          "product": "",
+          "locationId": "L-woolworths-tweed-city",
+          "relation": "staff_entry",
+          "sources": [
+            {
+              "title": "2024 Queensland Baking Show official results",
+              "url": "https://bakingbusiness.com.au/wp-content/uploads/2024/05/2024-QLD-Official-Results.pdf",
+              "archive": "",
+              "ref": "OVERALL RESULTS SUMMARY"
+            }
+          ],
+          "verifiedAt": "2026-11-02",
+          "recipient": "Luke Moy Woolworths Tweed City"
+        },
+        {
+          "id": "QLDBS-2024-C002-P1",
+          "comp": "QLDBS",
+          "year": 2024,
+          "level": "placing",
+          "medal": null,
+          "rank": 1,
+          "tier": "top",
+          "score": null,
+          "title": "First",
+          "category": "680gm White Hi-Top Half Married (2 Piece)",
+          "group": "bread",
+          "product": "",
+          "locationId": "L-woolworths-tweed-city",
+          "relation": "staff_entry",
+          "sources": [
+            {
+              "title": "2024 Queensland Baking Show official results",
+              "url": "https://bakingbusiness.com.au/wp-content/uploads/2024/05/2024-QLD-Official-Results.pdf",
+              "archive": "",
+              "ref": "OVERALL RESULTS SUMMARY"
+            }
+          ],
+          "verifiedAt": "2026-11-02",
+          "recipient": "Luke Moy Woolworths Tweed City"
+        },
+        {
+          "id": "QLDBS-2024-C003-P1",
+          "comp": "QLDBS",
+          "year": 2024,
+          "level": "placing",
+          "medal": null,
+          "rank": 1,
+          "tier": "top",
+          "score": null,
+          "title": "First",
+          "category": "450gm Five Strand Plait",
+          "group": "bread",
+          "product": "",
+          "locationId": "L-woolworths-tweed-city",
+          "relation": "staff_entry",
+          "sources": [
+            {
+              "title": "2024 Queensland Baking Show official results",
+              "url": "https://bakingbusiness.com.au/wp-content/uploads/2024/05/2024-QLD-Official-Results.pdf",
+              "archive": "",
+              "ref": "OVERALL RESULTS SUMMARY"
+            }
+          ],
+          "verifiedAt": "2026-11-02",
+          "recipient": "Luke Moy Woolworths Tweed City"
+        },
+        {
+          "id": "QLDBS-2024-C005-P1",
+          "comp": "QLDBS",
+          "year": 2024,
+          "level": "placing",
+          "medal": null,
+          "rank": 1,
+          "tier": "top",
+          "score": null,
+          "title": "First",
+          "category": "450gm Wholemeal Cob",
+          "group": "bread",
+          "product": "",
+          "locationId": "L-woolworths-tweed-city",
+          "relation": "staff_entry",
+          "sources": [
+            {
+              "title": "2024 Queensland Baking Show official results",
+              "url": "https://bakingbusiness.com.au/wp-content/uploads/2024/05/2024-QLD-Official-Results.pdf",
+              "archive": "",
+              "ref": "OVERALL RESULTS SUMMARY"
+            }
+          ],
+          "verifiedAt": "2026-11-02",
+          "recipient": "Luke Moy Woolworths Tweed City"
+        },
+        {
+          "id": "QLDBS-2024-C007-P1",
+          "comp": "QLDBS",
+          "year": 2024,
+          "level": "placing",
+          "medal": null,
+          "rank": 1,
+          "tier": "top",
+          "score": null,
+          "title": "First",
+          "category": "2 x Grain Rolls (max 100gm each)",
+          "group": "bread",
+          "product": "",
+          "locationId": "L-woolworths-tweed-city",
+          "relation": "staff_entry",
+          "sources": [
+            {
+              "title": "2024 Queensland Baking Show official results",
+              "url": "https://bakingbusiness.com.au/wp-content/uploads/2024/05/2024-QLD-Official-Results.pdf",
+              "archive": "",
+              "ref": "OVERALL RESULTS SUMMARY"
+            }
+          ],
+          "verifiedAt": "2026-11-02",
+          "recipient": "Luke Moy Woolworths Tweed City"
+        },
+        {
+          "id": "QLDBS-2024-C010-P1",
+          "comp": "QLDBS",
+          "year": 2024,
+          "level": "placing",
+          "medal": null,
+          "rank": 1,
+          "tier": "top",
+          "score": null,
+          "title": "First",
+          "category": "Gourmet Pull A Part Loaf",
+          "group": "bread",
+          "product": "",
+          "locationId": "L-woolworths-tweed-city",
+          "relation": "staff_entry",
+          "sources": [
+            {
+              "title": "2024 Queensland Baking Show official results",
+              "url": "https://bakingbusiness.com.au/wp-content/uploads/2024/05/2024-QLD-Official-Results.pdf",
+              "archive": "",
+              "ref": "OVERALL RESULTS SUMMARY"
+            }
+          ],
+          "verifiedAt": "2026-11-02",
+          "recipient": "Luke Moy Woolworths Tweed City"
+        },
+        {
+          "id": "QLDBS-2024-C011-P1",
+          "comp": "QLDBS",
+          "year": 2024,
+          "level": "placing",
+          "medal": null,
+          "rank": 1,
+          "tier": "top",
+          "score": null,
+          "title": "First",
+          "category": "680gm White Loaf Condensed Square (4 Piece)",
+          "group": "bread",
+          "product": "",
+          "locationId": "L-woolworths-lutwyche",
+          "relation": "staff_entry",
+          "sources": [
+            {
+              "title": "2024 Queensland Baking Show official results",
+              "url": "https://bakingbusiness.com.au/wp-content/uploads/2024/05/2024-QLD-Official-Results.pdf",
+              "archive": "",
+              "ref": "OVERALL RESULTS SUMMARY"
+            }
+          ],
+          "verifiedAt": "2026-11-02",
+          "recipient": "Grace Stegeman Woolworths Lutwyche"
+        },
+        {
+          "id": "QLDBS-2024-C012-P1",
+          "comp": "QLDBS",
+          "year": 2024,
+          "level": "placing",
+          "medal": null,
+          "rank": 1,
+          "tier": "top",
+          "score": null,
+          "title": "First",
+          "category": "450gm White 3 Strand Plait",
+          "group": "bread",
+          "product": "",
+          "locationId": "L-woolworths-lutwyche",
+          "relation": "staff_entry",
+          "sources": [
+            {
+              "title": "2024 Queensland Baking Show official results",
+              "url": "https://bakingbusiness.com.au/wp-content/uploads/2024/05/2024-QLD-Official-Results.pdf",
+              "archive": "",
+              "ref": "OVERALL RESULTS SUMMARY"
+            }
+          ],
+          "verifiedAt": "2026-11-02",
+          "recipient": "Grace Stegeman Woolworths Lutwyche"
+        },
+        {
+          "id": "QLDBS-2024-C004-P2",
+          "comp": "QLDBS",
+          "year": 2024,
+          "level": "placing",
+          "medal": null,
+          "rank": 2,
+          "tier": "also",
+          "score": null,
+          "title": "Second",
+          "category": "680g Wholemeal Loaf Upright (1 Piece)",
+          "group": "bread",
+          "product": "",
+          "locationId": "L-woolworths-tweed-city",
+          "relation": "staff_entry",
+          "sources": [
+            {
+              "title": "2024 Queensland Baking Show official results",
+              "url": "https://bakingbusiness.com.au/wp-content/uploads/2024/05/2024-QLD-Official-Results.pdf",
+              "archive": "",
+              "ref": "OVERALL RESULTS SUMMARY"
+            }
+          ],
+          "verifiedAt": "2026-11-02",
+          "recipient": "Luke Moy Woolworths Tweed City"
+        },
+        {
+          "id": "QLDBS-2024-C013-P1",
+          "comp": "QLDBS",
+          "year": 2024,
+          "level": "placing",
+          "medal": null,
+          "rank": 1,
+          "tier": "also",
+          "score": null,
+          "title": "First",
+          "category": "Decorated Sponge (Any type) (No larger than 203mm) With Inscription",
+          "group": "cake",
+          "product": "",
+          "locationId": "L-woolworths-lutwyche",
+          "relation": "staff_entry",
+          "sources": [
+            {
+              "title": "2024 Queensland Baking Show official results",
+              "url": "https://bakingbusiness.com.au/wp-content/uploads/2024/05/2024-QLD-Official-Results.pdf",
+              "archive": "",
+              "ref": "OVERALL RESULTS SUMMARY"
+            }
+          ],
+          "verifiedAt": "2026-11-02",
+          "recipient": "Grace Stegeman Woolworths Lutwyche",
+          "aloneInClass": true
+        }
+      ],
+      "summary": {
+        "champion": 0,
+        "top100": 0,
+        "best100": null,
+        "gold": 0,
+        "first": 12,
+        "also": 6,
+        "years": [
+          2024,
+          2025
+        ]
+      }
+    },
+    {
+      "id": "B-rays-patisserie",
+      "name": "Rays Patisserie",
+      "types": [
+        "bakery"
+      ],
+      "scope": "retail",
+      "descZh": "布里斯本北區的麵包店，Taigum 和 Carseldine 兩間門市各自參賽、各自得獎。",
+      "descEn": "A bakery in Brisbane's north; its Taigum and Carseldine shops enter, and win, separately.",
+      "website": "",
+      "instagram": "",
+      "related": [],
+      "locations": [
+        {
+          "id": "L-rays-patisserie-taigum",
+          "name": "Taigum",
+          "address": "Shop 31, Taigum Square, 217 Beams Rd, Taigum QLD 4018",
+          "suburb": "Taigum",
+          "city": "Brisbane",
+          "state": "QLD",
+          "lat": -27.3506442,
+          "lng": 153.0481067,
+          "type": "standalone",
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Rays%20Patisserie%20Shop%2031%2C%20Taigum%20Square%2C%20217%20Beams%20Rd%2C%20Taigum%20QLD%204018"
+        },
+        {
+          "id": "L-rays-patisserie-carseldine",
+          "name": "Carseldine",
+          "address": "735 Beams Rd, Carseldine QLD 4034",
+          "suburb": "Carseldine",
+          "city": "Brisbane",
+          "state": "QLD",
+          "lat": -27.3448567,
+          "lng": 153.010891,
+          "type": "standalone",
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Rays%20Patisserie%20735%20Beams%20Rd%2C%20Carseldine%20QLD%204034"
+        }
+      ],
+      "awards": [
+        {
+          "id": "QLDBS-2026-C001-P1",
+          "comp": "QLDBS",
+          "year": 2026,
+          "level": "placing",
+          "medal": null,
+          "rank": 1,
+          "tier": "top",
+          "score": null,
+          "title": "First",
+          "category": "680g White Loaf Condensed Square (4 Piece)",
+          "group": "bread",
+          "product": "",
+          "locationId": "L-rays-patisserie-carseldine",
+          "relation": "entrant_location",
+          "sources": [
+            {
+              "title": "2026 Queensland Baking Show official results",
+              "url": "https://bakingbusiness.com.au/wp-content/uploads/2026/07/Qld-Baking-Show-Official-Results_2026.pdf",
+              "archive": "",
+              "ref": "OVERALL RESULTS SUMMARY"
+            }
+          ],
+          "verifiedAt": "2026-11-02"
+        },
+        {
+          "id": "QLDBS-2026-C011-P1",
+          "comp": "QLDBS",
+          "year": 2026,
+          "level": "placing",
+          "medal": null,
+          "rank": 1,
+          "tier": "top",
+          "score": null,
+          "title": "First",
+          "category": "Gourmet Pull A Part Loaf",
+          "group": "bread",
+          "product": "",
+          "locationId": "L-rays-patisserie-carseldine",
+          "relation": "entrant_location",
+          "sources": [
+            {
+              "title": "2026 Queensland Baking Show official results",
+              "url": "https://bakingbusiness.com.au/wp-content/uploads/2026/07/Qld-Baking-Show-Official-Results_2026.pdf",
+              "archive": "",
+              "ref": "OVERALL RESULTS SUMMARY"
+            }
+          ],
+          "verifiedAt": "2026-11-02"
+        },
+        {
+          "id": "QLDBS-2026-C016-P1",
+          "comp": "QLDBS",
+          "year": 2026,
+          "level": "placing",
+          "medal": null,
+          "rank": 1,
+          "tier": "top",
+          "score": null,
+          "title": "First",
+          "category": "2 Plain Meat Pies",
+          "group": "pastry_pie",
+          "product": "",
+          "locationId": "L-rays-patisserie-taigum",
+          "relation": "entrant_location",
+          "sources": [
+            {
+              "title": "2026 Queensland Baking Show official results",
+              "url": "https://bakingbusiness.com.au/wp-content/uploads/2026/07/Qld-Baking-Show-Official-Results_2026.pdf",
+              "archive": "",
+              "ref": "OVERALL RESULTS SUMMARY"
+            }
+          ],
+          "verifiedAt": "2026-11-02"
+        },
+        {
+          "id": "QLDBS-2026-C017-P1",
+          "comp": "QLDBS",
+          "year": 2026,
+          "level": "placing",
+          "medal": null,
+          "rank": 1,
+          "tier": "top",
+          "score": null,
+          "title": "First",
+          "category": "2 Chunky Beef Pies",
+          "group": "pastry_pie",
+          "product": "",
+          "locationId": "L-rays-patisserie-taigum",
+          "relation": "entrant_location",
+          "sources": [
+            {
+              "title": "2026 Queensland Baking Show official results",
+              "url": "https://bakingbusiness.com.au/wp-content/uploads/2026/07/Qld-Baking-Show-Official-Results_2026.pdf",
+              "archive": "",
+              "ref": "OVERALL RESULTS SUMMARY"
+            }
+          ],
+          "verifiedAt": "2026-11-02"
+        },
+        {
+          "id": "QLDBS-2026-C018-P1",
+          "comp": "QLDBS",
+          "year": 2026,
+          "level": "placing",
+          "medal": null,
+          "rank": 1,
+          "tier": "top",
+          "score": null,
+          "title": "First",
+          "category": "2 Gourmet Pies",
+          "group": "pastry_pie",
+          "product": "",
+          "locationId": "L-rays-patisserie-taigum",
+          "relation": "entrant_location",
+          "sources": [
+            {
+              "title": "2026 Queensland Baking Show official results",
+              "url": "https://bakingbusiness.com.au/wp-content/uploads/2026/07/Qld-Baking-Show-Official-Results_2026.pdf",
+              "archive": "",
+              "ref": "OVERALL RESULTS SUMMARY"
+            }
+          ],
+          "verifiedAt": "2026-11-02"
+        },
+        {
+          "id": "QLDBS-2026-C027-P1",
+          "comp": "QLDBS",
+          "year": 2026,
+          "level": "placing",
+          "medal": null,
+          "rank": 1,
+          "tier": "top",
+          "score": null,
+          "title": "First",
+          "category": "Mud Cake, Decorated 203mm",
+          "group": "cake",
+          "product": "",
+          "locationId": "L-rays-patisserie-taigum",
+          "relation": "entrant_location",
+          "sources": [
+            {
+              "title": "2026 Queensland Baking Show official results",
+              "url": "https://bakingbusiness.com.au/wp-content/uploads/2026/07/Qld-Baking-Show-Official-Results_2026.pdf",
+              "archive": "",
+              "ref": "OVERALL RESULTS SUMMARY"
+            }
+          ],
+          "verifiedAt": "2026-11-02"
+        },
+        {
+          "id": "QLDBS-2026-C002-P2",
+          "comp": "QLDBS",
+          "year": 2026,
+          "level": "placing",
+          "medal": null,
+          "rank": 2,
+          "tier": "also",
+          "score": null,
+          "title": "Second",
+          "category": "680gm White Hi-Top Half Married (2 Piece)",
+          "group": "bread",
+          "product": "",
+          "locationId": "L-rays-patisserie-carseldine",
+          "relation": "entrant_location",
+          "sources": [
+            {
+              "title": "2026 Queensland Baking Show official results",
+              "url": "https://bakingbusiness.com.au/wp-content/uploads/2026/07/Qld-Baking-Show-Official-Results_2026.pdf",
+              "archive": "",
+              "ref": "OVERALL RESULTS SUMMARY"
+            }
+          ],
+          "verifiedAt": "2026-11-02"
+        },
+        {
+          "id": "QLDBS-2026-C005-P2",
+          "comp": "QLDBS",
+          "year": 2026,
+          "level": "placing",
+          "medal": null,
+          "rank": 2,
+          "tier": "also",
+          "score": null,
+          "title": "Second",
+          "category": "450gm Wholemeal Cob",
+          "group": "bread",
+          "product": "",
+          "locationId": "L-rays-patisserie-carseldine",
+          "relation": "entrant_location",
+          "sources": [
+            {
+              "title": "2026 Queensland Baking Show official results",
+              "url": "https://bakingbusiness.com.au/wp-content/uploads/2026/07/Qld-Baking-Show-Official-Results_2026.pdf",
+              "archive": "",
+              "ref": "OVERALL RESULTS SUMMARY"
+            }
+          ],
+          "verifiedAt": "2026-11-02"
+        },
+        {
+          "id": "QLDBS-2026-C006-P2",
+          "comp": "QLDBS",
+          "year": 2026,
+          "level": "placing",
+          "medal": null,
+          "rank": 2,
+          "tier": "also",
+          "score": null,
+          "title": "Second",
+          "category": "680gm Grain Loaf Condensed Square (4 Piece)",
+          "group": "bread",
+          "product": "",
+          "locationId": "L-rays-patisserie-carseldine",
+          "relation": "entrant_location",
+          "sources": [
+            {
+              "title": "2026 Queensland Baking Show official results",
+              "url": "https://bakingbusiness.com.au/wp-content/uploads/2026/07/Qld-Baking-Show-Official-Results_2026.pdf",
+              "archive": "",
+              "ref": "OVERALL RESULTS SUMMARY"
+            }
+          ],
+          "verifiedAt": "2026-11-02"
+        },
+        {
+          "id": "QLDBS-2026-C016-P2",
+          "comp": "QLDBS",
+          "year": 2026,
+          "level": "placing",
+          "medal": null,
+          "rank": 2,
+          "tier": "also",
+          "score": null,
+          "title": "Second",
+          "category": "2 Plain Meat Pies",
+          "group": "pastry_pie",
+          "product": "",
+          "locationId": "L-rays-patisserie-carseldine",
+          "relation": "entrant_location",
+          "sources": [
+            {
+              "title": "2026 Queensland Baking Show official results",
+              "url": "https://bakingbusiness.com.au/wp-content/uploads/2026/07/Qld-Baking-Show-Official-Results_2026.pdf",
+              "archive": "",
+              "ref": "OVERALL RESULTS SUMMARY"
+            }
+          ],
+          "verifiedAt": "2026-11-02"
+        },
+        {
+          "id": "QLDBS-2026-C017-P2",
+          "comp": "QLDBS",
+          "year": 2026,
+          "level": "placing",
+          "medal": null,
+          "rank": 2,
+          "tier": "also",
+          "score": null,
+          "title": "Second",
+          "category": "2 Chunky Beef Pies",
+          "group": "pastry_pie",
+          "product": "",
+          "locationId": "L-rays-patisserie-carseldine",
+          "relation": "entrant_location",
+          "sources": [
+            {
+              "title": "2026 Queensland Baking Show official results",
+              "url": "https://bakingbusiness.com.au/wp-content/uploads/2026/07/Qld-Baking-Show-Official-Results_2026.pdf",
+              "archive": "",
+              "ref": "OVERALL RESULTS SUMMARY"
+            }
+          ],
+          "verifiedAt": "2026-11-02"
+        },
+        {
+          "id": "QLDBS-2026-C019-P2",
+          "comp": "QLDBS",
+          "year": 2026,
+          "level": "placing",
+          "medal": null,
+          "rank": 2,
+          "tier": "also",
+          "score": null,
+          "title": "Second",
+          "category": "2 Pasties",
+          "group": "pastry_pie",
+          "product": "",
+          "locationId": "L-rays-patisserie-taigum",
+          "relation": "entrant_location",
+          "sources": [
+            {
+              "title": "2026 Queensland Baking Show official results",
+              "url": "https://bakingbusiness.com.au/wp-content/uploads/2026/07/Qld-Baking-Show-Official-Results_2026.pdf",
+              "archive": "",
+              "ref": "OVERALL RESULTS SUMMARY"
+            }
+          ],
+          "verifiedAt": "2026-11-02"
+        },
+        {
+          "id": "QLDBS-2026-C027-P2",
+          "comp": "QLDBS",
+          "year": 2026,
+          "level": "placing",
+          "medal": null,
+          "rank": 2,
+          "tier": "also",
+          "score": null,
+          "title": "Second",
+          "category": "Mud Cake, Decorated 203mm",
+          "group": "cake",
+          "product": "",
+          "locationId": "L-rays-patisserie-carseldine",
+          "relation": "entrant_location",
+          "sources": [
+            {
+              "title": "2026 Queensland Baking Show official results",
+              "url": "https://bakingbusiness.com.au/wp-content/uploads/2026/07/Qld-Baking-Show-Official-Results_2026.pdf",
+              "archive": "",
+              "ref": "OVERALL RESULTS SUMMARY"
+            }
+          ],
+          "verifiedAt": "2026-11-02"
+        },
+        {
+          "id": "QLDBS-2026-C028-P2",
+          "comp": "QLDBS",
+          "year": 2026,
+          "level": "placing",
+          "medal": null,
+          "rank": 2,
+          "tier": "also",
+          "score": null,
+          "title": "Second",
+          "category": "2 x Vanilla Slice",
+          "group": "cake",
+          "product": "",
+          "locationId": "L-rays-patisserie-taigum",
+          "relation": "entrant_location",
+          "sources": [
+            {
+              "title": "2026 Queensland Baking Show official results",
+              "url": "https://bakingbusiness.com.au/wp-content/uploads/2026/07/Qld-Baking-Show-Official-Results_2026.pdf",
+              "archive": "",
+              "ref": "OVERALL RESULTS SUMMARY"
+            }
+          ],
+          "verifiedAt": "2026-11-02"
+        },
+        {
+          "id": "QLDBS-2026-C030-P2",
+          "comp": "QLDBS",
+          "year": 2026,
+          "level": "placing",
+          "medal": null,
+          "rank": 2,
+          "tier": "also",
+          "score": null,
+          "title": "Second",
+          "category": "2 x Caramel Slice",
+          "group": "cake",
+          "product": "",
+          "locationId": "L-rays-patisserie-taigum",
+          "relation": "entrant_location",
+          "sources": [
+            {
+              "title": "2026 Queensland Baking Show official results",
+              "url": "https://bakingbusiness.com.au/wp-content/uploads/2026/07/Qld-Baking-Show-Official-Results_2026.pdf",
+              "archive": "",
+              "ref": "OVERALL RESULTS SUMMARY"
+            }
+          ],
+          "verifiedAt": "2026-11-02"
+        },
+        {
+          "id": "QLDBS-2025-C015-P1",
+          "comp": "QLDBS",
+          "year": 2025,
+          "level": "placing",
+          "medal": null,
+          "rank": 1,
+          "tier": "top",
+          "score": null,
+          "title": "First",
+          "category": "2 Plain Meat Pie",
+          "group": "pastry_pie",
+          "product": "",
+          "locationId": "L-rays-patisserie-carseldine",
+          "relation": "entrant_location",
+          "sources": [
+            {
+              "title": "2025 Queensland Baking Show official results",
+              "url": "https://bakingbusiness.com.au/wp-content/uploads/2025/05/QLD2025FinalResults.pdf",
+              "archive": "",
+              "ref": "OVERALL RESULTS SUMMARY"
+            }
+          ],
+          "verifiedAt": "2026-11-02"
+        },
+        {
+          "id": "QLDBS-2025-C017-P1",
+          "comp": "QLDBS",
+          "year": 2025,
+          "level": "placing",
+          "medal": null,
+          "rank": 1,
+          "tier": "top",
+          "score": null,
+          "title": "First",
+          "category": "2 Pasties",
+          "group": "pastry_pie",
+          "product": "",
+          "locationId": "L-rays-patisserie-carseldine",
+          "relation": "entrant_location",
+          "sources": [
+            {
+              "title": "2025 Queensland Baking Show official results",
+              "url": "https://bakingbusiness.com.au/wp-content/uploads/2025/05/QLD2025FinalResults.pdf",
+              "archive": "",
+              "ref": "OVERALL RESULTS SUMMARY"
+            }
+          ],
+          "verifiedAt": "2026-11-02"
+        },
+        {
+          "id": "QLDBS-2025-C022-P1",
+          "comp": "QLDBS",
+          "year": 2025,
+          "level": "placing",
+          "medal": null,
+          "rank": 1,
+          "tier": "top",
+          "score": null,
+          "title": "First",
+          "category": "2 x Caramel Slice",
+          "group": "cake",
+          "product": "",
+          "locationId": "L-rays-patisserie-taigum",
+          "relation": "entrant_location",
+          "sources": [
+            {
+              "title": "2025 Queensland Baking Show official results",
+              "url": "https://bakingbusiness.com.au/wp-content/uploads/2025/05/QLD2025FinalResults.pdf",
+              "archive": "",
+              "ref": "OVERALL RESULTS SUMMARY"
+            }
+          ],
+          "verifiedAt": "2026-11-02"
+        },
+        {
+          "id": "QLDBS-2025-C023-P1",
+          "comp": "QLDBS",
+          "year": 2025,
+          "level": "placing",
+          "medal": null,
+          "rank": 1,
+          "tier": "top",
+          "score": null,
+          "title": "First",
+          "category": "Family Size Apple Pie, using Shortcrust Pastry",
+          "group": "tart_choux",
+          "product": "",
+          "locationId": "L-rays-patisserie-taigum",
+          "relation": "entrant_location",
+          "sources": [
+            {
+              "title": "2025 Queensland Baking Show official results",
+              "url": "https://bakingbusiness.com.au/wp-content/uploads/2025/05/QLD2025FinalResults.pdf",
+              "archive": "",
+              "ref": "OVERALL RESULTS SUMMARY"
+            }
+          ],
+          "verifiedAt": "2026-11-02"
+        },
+        {
+          "id": "QLDBS-2025-C017-P2",
+          "comp": "QLDBS",
+          "year": 2025,
+          "level": "placing",
+          "medal": null,
+          "rank": 2,
+          "tier": "also",
+          "score": null,
+          "title": "Second",
+          "category": "2 Pasties",
+          "group": "pastry_pie",
+          "product": "",
+          "locationId": "L-rays-patisserie-taigum",
+          "relation": "entrant_location",
+          "sources": [
+            {
+              "title": "2025 Queensland Baking Show official results",
+              "url": "https://bakingbusiness.com.au/wp-content/uploads/2025/05/QLD2025FinalResults.pdf",
+              "archive": "",
+              "ref": "OVERALL RESULTS SUMMARY"
+            }
+          ],
+          "verifiedAt": "2026-11-02"
+        },
+        {
+          "id": "QLDBS-2025-C020-P2",
+          "comp": "QLDBS",
+          "year": 2025,
+          "level": "placing",
+          "medal": null,
+          "rank": 2,
+          "tier": "also",
+          "score": null,
+          "title": "Second",
+          "category": "2 x Vanilla Slice",
+          "group": "cake",
+          "product": "",
+          "locationId": "L-rays-patisserie-taigum",
+          "relation": "entrant_location",
+          "sources": [
+            {
+              "title": "2025 Queensland Baking Show official results",
+              "url": "https://bakingbusiness.com.au/wp-content/uploads/2025/05/QLD2025FinalResults.pdf",
+              "archive": "",
+              "ref": "OVERALL RESULTS SUMMARY"
+            }
+          ],
+          "verifiedAt": "2026-11-02"
+        }
+      ],
+      "summary": {
+        "champion": 0,
+        "top100": 0,
+        "best100": null,
+        "gold": 0,
+        "first": 10,
+        "also": 11,
+        "years": [
+          2025,
+          2026
+        ]
+      }
+    },
+    {
+      "id": "B-bakers-delight",
+      "name": "Bakers Delight",
+      "types": [
+        "bakery"
+      ],
+      "scope": "chain_franchise",
+      "descZh": "1980 年從墨爾本 Hawthorn 一家店起步的連鎖麵包店；這裡只列拿到獎的三間加盟店。",
+      "descEn": "A bakery chain that grew from one shop in Hawthorn, Melbourne in 1980; only the three award-winning franchise stores are listed.",
+      "website": "https://www.bakersdelight.com.au/",
+      "instagram": "",
+      "related": [],
+      "locations": [
+        {
+          "id": "L-bakers-delight-lane-cove",
+          "name": "Lane Cove",
+          "address": "2/23 Burns Bay Rd, Lane Cove NSW 2066",
+          "suburb": "Lane Cove",
+          "city": "Sydney",
+          "state": "NSW",
+          "lat": -33.8144986,
+          "lng": 151.1691365,
+          "type": "standalone",
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Bakers%20Delight%202/23%20Burns%20Bay%20Rd%2C%20Lane%20Cove%20NSW%202066"
+        },
+        {
+          "id": "L-bakers-delight-albion-park-rail",
+          "name": "Albion Park Rail",
+          "address": "Unit 1/183 Princes Hwy, Albion Park Rail NSW 2527",
+          "suburb": "Albion Park Rail",
+          "city": "Shellharbour",
+          "state": "NSW",
+          "lat": -34.5608445,
+          "lng": 150.796014,
+          "type": "standalone",
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Bakers%20Delight%20Unit%201/183%20Princes%20Hwy%2C%20Albion%20Park%20Rail%20NSW%202527"
+        },
+        {
+          "id": "L-bakers-delight-arana-hills",
+          "name": "Arana Hills",
+          "address": "Shop 10, Kmart Plaza, Dawson Pde & Patricks Rd, Arana Hills QLD 4054",
+          "suburb": "Arana Hills",
+          "city": "Brisbane",
+          "state": "QLD",
+          "lat": -27.3990505,
+          "lng": 152.9588196,
+          "type": "standalone",
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Bakers%20Delight%20Shop%2010%2C%20Kmart%20Plaza%2C%20Dawson%20Pde%20%26%20Patricks%20Rd%2C%20Arana%20Hills%20QLD%204054"
+        }
+      ],
+      "awards": [
+        {
+          "id": "RAS-PB-2025-C8-E157",
+          "comp": "RAS-PB",
+          "year": 2025,
+          "level": "medal",
+          "medal": "gold",
+          "rank": null,
+          "tier": "top",
+          "score": 91.0,
+          "title": "Gold Medal",
+          "category": "Sweet Breads (e.g., banana bread, fruit log, date loaf, etc.)",
+          "group": "cake",
+          "product": "CHIA & FRUIT LOAF",
+          "locationId": "L-bakers-delight-lane-cove",
+          "relation": "entrant_location",
+          "sources": [
+            {
+              "title": "myRAS 2025 Professional Bakery results",
+              "url": "https://www.myras.com.au/res/results/CompetitonResults.aspx?TO=0&SY=2025&SN=17&CT=2&WT=&WST=&EN=All%20Exhibitors&TN=All+Towns&PC1=&PC2=&CL1=&CL2=&REGION=All+regions&ST=&EI=1&OR=1",
+              "archive": "https://web.archive.org/web/20260506173657/https://www.myras.com.au/res/results/CompetitonResults.aspx?TO=0&SY=2025&SN=17&CT=2&WT=&WST=&EN=All%20Exhibitors&TN=All+Towns&PC1=&PC2=&CL1=&CL2=&REGION=All+regions&ST=&EI=1&OR=1",
+              "ref": ""
+            }
+          ],
+          "verifiedAt": "2026-10-26"
+        },
+        {
+          "id": "RAS-PB-2025-C1-E11",
+          "comp": "RAS-PB",
+          "year": 2025,
+          "level": "medal",
+          "medal": "gold",
+          "rank": null,
+          "tier": "top",
+          "score": 90.0,
+          "title": "Gold Medal",
+          "category": "Traditional Bread, including White, Grain, Wholemeal & Rye",
+          "group": "bread",
+          "product": "WHOLEMEAL BLOCK LOAF 4 PIECE",
+          "locationId": "L-bakers-delight-lane-cove",
+          "relation": "entrant_location",
+          "sources": [
+            {
+              "title": "myRAS 2025 Professional Bakery results",
+              "url": "https://www.myras.com.au/res/results/CompetitonResults.aspx?TO=0&SY=2025&SN=17&CT=2&WT=&WST=&EN=All%20Exhibitors&TN=All+Towns&PC1=&PC2=&CL1=&CL2=&REGION=All+regions&ST=&EI=1&OR=1",
+              "archive": "https://web.archive.org/web/20260506173657/https://www.myras.com.au/res/results/CompetitonResults.aspx?TO=0&SY=2025&SN=17&CT=2&WT=&WST=&EN=All%20Exhibitors&TN=All+Towns&PC1=&PC2=&CL1=&CL2=&REGION=All+regions&ST=&EI=1&OR=1",
+              "ref": ""
+            }
+          ],
+          "verifiedAt": "2026-10-26"
+        },
+        {
+          "id": "NABC-2025-C003-P1",
+          "comp": "NABC",
+          "year": 2025,
+          "level": "placing",
+          "medal": null,
+          "rank": 1,
+          "tier": "top",
+          "score": null,
+          "title": "First",
+          "category": "Ciabatta Loaf - Minimum 200gm",
+          "group": "bread",
+          "product": "",
+          "locationId": "L-bakers-delight-albion-park-rail",
+          "relation": "entrant_location",
+          "sources": [
+            {
+              "title": "2025 National Artisan Baking Competition official results",
+              "url": "https://bakingtradeshow.com.au/wp-content/uploads/2025/07/2025-National-Artisan-Baking-Competition-Official-results.pdf",
+              "archive": "https://web.archive.org/web/20260421193421/https://bakingtradeshow.com.au/wp-content/uploads/2025/07/2025-National-Artisan-Baking-Competition-Official-results.pdf",
+              "ref": ""
+            }
+          ],
+          "verifiedAt": "2026-10-26"
+        },
+        {
+          "id": "QLDBS-2025-C001-P1",
+          "comp": "QLDBS",
+          "year": 2025,
+          "level": "placing",
+          "medal": null,
+          "rank": 1,
+          "tier": "top",
+          "score": null,
+          "title": "First",
+          "category": "680g White Loaf Condensed Square (4 Piece)",
+          "group": "bread",
+          "product": "",
+          "locationId": "L-bakers-delight-arana-hills",
+          "relation": "staff_entry",
+          "sources": [
+            {
+              "title": "2025 Queensland Baking Show official results",
+              "url": "https://bakingbusiness.com.au/wp-content/uploads/2025/05/QLD2025FinalResults.pdf",
+              "archive": "",
+              "ref": "OVERALL RESULTS SUMMARY"
+            }
+          ],
+          "verifiedAt": "2026-11-02",
+          "recipient": "Adam Kane Bakers Delight Arana Hills"
+        },
+        {
+          "id": "QLDBS-2025-C002-P1",
+          "comp": "QLDBS",
+          "year": 2025,
+          "level": "placing",
+          "medal": null,
+          "rank": 1,
+          "tier": "top",
+          "score": null,
+          "title": "First",
+          "category": "680gm White Hi-Top Half Married (2 Piece)",
+          "group": "bread",
+          "product": "",
+          "locationId": "L-bakers-delight-arana-hills",
+          "relation": "staff_entry",
+          "sources": [
+            {
+              "title": "2025 Queensland Baking Show official results",
+              "url": "https://bakingbusiness.com.au/wp-content/uploads/2025/05/QLD2025FinalResults.pdf",
+              "archive": "",
+              "ref": "OVERALL RESULTS SUMMARY"
+            }
+          ],
+          "verifiedAt": "2026-11-02",
+          "recipient": "Adam Kane Bakers Delight Arana Hills"
+        },
+        {
+          "id": "QLDBS-2025-C005-P1",
+          "comp": "QLDBS",
+          "year": 2025,
+          "level": "placing",
+          "medal": null,
+          "rank": 1,
+          "tier": "top",
+          "score": null,
+          "title": "First",
+          "category": "450gm Wholemeal Cob",
+          "group": "bread",
+          "product": "",
+          "locationId": "L-bakers-delight-arana-hills",
+          "relation": "staff_entry",
+          "sources": [
+            {
+              "title": "2025 Queensland Baking Show official results",
+              "url": "https://bakingbusiness.com.au/wp-content/uploads/2025/05/QLD2025FinalResults.pdf",
+              "archive": "",
+              "ref": "OVERALL RESULTS SUMMARY"
+            }
+          ],
+          "verifiedAt": "2026-11-02",
+          "recipient": "Adam Kane Bakers Delight Arana Hills"
+        },
+        {
+          "id": "QLDBS-2025-C007-P1",
+          "comp": "QLDBS",
+          "year": 2025,
+          "level": "placing",
+          "medal": null,
+          "rank": 1,
+          "tier": "top",
+          "score": null,
+          "title": "First",
+          "category": "2 x Grain Rolls (max 100gm each)",
+          "group": "bread",
+          "product": "",
+          "locationId": "L-bakers-delight-arana-hills",
+          "relation": "staff_entry",
+          "sources": [
+            {
+              "title": "2025 Queensland Baking Show official results",
+              "url": "https://bakingbusiness.com.au/wp-content/uploads/2025/05/QLD2025FinalResults.pdf",
+              "archive": "",
+              "ref": "OVERALL RESULTS SUMMARY"
+            }
+          ],
+          "verifiedAt": "2026-11-02",
+          "recipient": "Adam Kane Bakers Delight Arana Hills"
+        },
+        {
+          "id": "RAS-PB-2025-C1-E3",
+          "comp": "RAS-PB",
+          "year": 2025,
+          "level": "medal",
+          "medal": "silver",
+          "rank": null,
+          "tier": "also",
+          "score": 85.67,
+          "title": "Silver Medal",
+          "category": "Traditional Bread, including White, Grain, Wholemeal & Rye",
+          "group": "bread",
+          "product": "WHITE BLOCK LOAF (4 PIECE)",
+          "locationId": "L-bakers-delight-lane-cove",
+          "relation": "entrant_location",
+          "sources": [
+            {
+              "title": "myRAS 2025 Professional Bakery results",
+              "url": "https://www.myras.com.au/res/results/CompetitonResults.aspx?TO=0&SY=2025&SN=17&CT=2&WT=&WST=&EN=All%20Exhibitors&TN=All+Towns&PC1=&PC2=&CL1=&CL2=&REGION=All+regions&ST=&EI=1&OR=1",
+              "archive": "https://web.archive.org/web/20260506173657/https://www.myras.com.au/res/results/CompetitonResults.aspx?TO=0&SY=2025&SN=17&CT=2&WT=&WST=&EN=All%20Exhibitors&TN=All+Towns&PC1=&PC2=&CL1=&CL2=&REGION=All+regions&ST=&EI=1&OR=1",
+              "ref": ""
+            }
+          ],
+          "verifiedAt": "2026-10-26"
+        },
+        {
+          "id": "RAS-PB-2025-C1-E8",
+          "comp": "RAS-PB",
+          "year": 2025,
+          "level": "medal",
+          "medal": "silver",
+          "rank": null,
+          "tier": "also",
+          "score": 85.67,
+          "title": "Silver Medal",
+          "category": "Traditional Bread, including White, Grain, Wholemeal & Rye",
+          "group": "bread",
+          "product": "HI PROTEIN, WHOLE GRAIN LOAF",
+          "locationId": "L-bakers-delight-lane-cove",
+          "relation": "entrant_location",
+          "sources": [
+            {
+              "title": "myRAS 2025 Professional Bakery results",
+              "url": "https://www.myras.com.au/res/results/CompetitonResults.aspx?TO=0&SY=2025&SN=17&CT=2&WT=&WST=&EN=All%20Exhibitors&TN=All+Towns&PC1=&PC2=&CL1=&CL2=&REGION=All+regions&ST=&EI=1&OR=1",
+              "archive": "https://web.archive.org/web/20260506173657/https://www.myras.com.au/res/results/CompetitonResults.aspx?TO=0&SY=2025&SN=17&CT=2&WT=&WST=&EN=All%20Exhibitors&TN=All+Towns&PC1=&PC2=&CL1=&CL2=&REGION=All+regions&ST=&EI=1&OR=1",
+              "ref": ""
+            }
+          ],
+          "verifiedAt": "2026-10-26"
+        },
+        {
+          "id": "QLDBS-2025-C003-P2",
+          "comp": "QLDBS",
+          "year": 2025,
+          "level": "placing",
+          "medal": null,
+          "rank": 2,
+          "tier": "also",
+          "score": null,
+          "title": "Second",
+          "category": "450gm Five Strand Plait",
+          "group": "bread",
+          "product": "",
+          "locationId": "L-bakers-delight-arana-hills",
+          "relation": "staff_entry",
+          "sources": [
+            {
+              "title": "2025 Queensland Baking Show official results",
+              "url": "https://bakingbusiness.com.au/wp-content/uploads/2025/05/QLD2025FinalResults.pdf",
+              "archive": "",
+              "ref": "OVERALL RESULTS SUMMARY"
+            }
+          ],
+          "verifiedAt": "2026-11-02",
+          "recipient": "Adam Kane Bakers Delight Arana Hills"
+        },
+        {
+          "id": "QLDBS-2025-C009-P2",
+          "comp": "QLDBS",
+          "year": 2025,
+          "level": "placing",
+          "medal": null,
+          "rank": 2,
+          "tier": "also",
+          "score": null,
+          "title": "Second",
+          "category": "Ciabatta Loaf (Minimum 200gm)",
+          "group": "bread",
+          "product": "",
+          "locationId": "L-bakers-delight-arana-hills",
+          "relation": "staff_entry",
+          "sources": [
+            {
+              "title": "2025 Queensland Baking Show official results",
+              "url": "https://bakingbusiness.com.au/wp-content/uploads/2025/05/QLD2025FinalResults.pdf",
+              "archive": "",
+              "ref": "OVERALL RESULTS SUMMARY"
+            }
+          ],
+          "verifiedAt": "2026-11-02",
+          "recipient": "Adam Kane Bakers Delight Arana Hills"
+        },
+        {
+          "id": "QLDBS-2024-C006-P1",
+          "comp": "QLDBS",
+          "year": 2024,
+          "level": "placing",
+          "medal": null,
+          "rank": 1,
+          "tier": "top",
+          "score": null,
+          "title": "First",
+          "category": "680gm Grain Loaf Condensed Square (4 Piece)",
+          "group": "bread",
+          "product": "",
+          "locationId": "L-bakers-delight-arana-hills",
+          "relation": "entrant_location",
+          "sources": [
+            {
+              "title": "2024 Queensland Baking Show official results",
+              "url": "https://bakingbusiness.com.au/wp-content/uploads/2024/05/2024-QLD-Official-Results.pdf",
+              "archive": "",
+              "ref": "OVERALL RESULTS SUMMARY"
+            }
+          ],
+          "verifiedAt": "2026-11-02"
+        },
+        {
+          "id": "QLDBS-2024-C009-P1",
+          "comp": "QLDBS",
+          "year": 2024,
+          "level": "placing",
+          "medal": null,
+          "rank": 1,
+          "tier": "top",
+          "score": null,
+          "title": "First",
+          "category": "Ciabatta Loaf (Minimum 200gm)",
+          "group": "bread",
+          "product": "",
+          "locationId": "L-bakers-delight-arana-hills",
+          "relation": "entrant_location",
+          "sources": [
+            {
+              "title": "2024 Queensland Baking Show official results",
+              "url": "https://bakingbusiness.com.au/wp-content/uploads/2024/05/2024-QLD-Official-Results.pdf",
+              "archive": "",
+              "ref": "OVERALL RESULTS SUMMARY"
+            }
+          ],
+          "verifiedAt": "2026-11-02"
+        },
+        {
+          "id": "RAS-PB-2024-C2-E26",
+          "comp": "RAS-PB",
+          "year": 2024,
+          "level": "medal",
+          "medal": "silver",
+          "rank": null,
+          "tier": "also",
+          "score": 83.67,
+          "title": "Silver Medal",
+          "category": "Sour Dough, including Rye",
+          "group": "sourdough",
+          "product": "MIXED SEED SOUR DOUGH VIENNA",
+          "locationId": "L-bakers-delight-lane-cove",
+          "relation": "entrant_location",
+          "sources": [
+            {
+              "title": "myRAS 2024 Professional Bakery results",
+              "url": "https://www.myras.com.au/res/results/CompetitonResults.aspx?TO=0&SY=2024&SN=17&CT=2&WT=&WST=&EN=All%20Exhibitors&TN=All+Towns&PC1=&PC2=&CL1=&CL2=&REGION=All+regions&ST=&EI=1&OR=1",
+              "archive": "",
+              "ref": ""
+            }
+          ],
+          "verifiedAt": "2026-10-26"
+        },
+        {
+          "id": "RAS-PB-2024-C3-E42",
+          "comp": "RAS-PB",
+          "year": 2024,
+          "level": "medal",
+          "medal": "silver",
+          "rank": null,
+          "tier": "also",
+          "score": 82.33,
+          "title": "Silver Medal",
+          "category": "International Bread (e.g. baguette, ciabatta, chapatti, flatbread, etc.)",
+          "group": "bread",
+          "product": "OLIVE PANE DI CASA",
+          "locationId": "L-bakers-delight-lane-cove",
+          "relation": "entrant_location",
+          "sources": [
+            {
+              "title": "myRAS 2024 Professional Bakery results",
+              "url": "https://www.myras.com.au/res/results/CompetitonResults.aspx?TO=0&SY=2024&SN=17&CT=2&WT=&WST=&EN=All%20Exhibitors&TN=All+Towns&PC1=&PC2=&CL1=&CL2=&REGION=All+regions&ST=&EI=1&OR=1",
+              "archive": "",
+              "ref": ""
+            }
+          ],
+          "verifiedAt": "2026-10-26"
+        },
+        {
+          "id": "QLDBS-2024-C002-P2",
+          "comp": "QLDBS",
+          "year": 2024,
+          "level": "placing",
+          "medal": null,
+          "rank": 2,
+          "tier": "also",
+          "score": null,
+          "title": "Second",
+          "category": "680gm White Hi-Top Half Married (2 Piece)",
+          "group": "bread",
+          "product": "",
+          "locationId": "L-bakers-delight-arana-hills",
+          "relation": "entrant_location",
+          "sources": [
+            {
+              "title": "2024 Queensland Baking Show official results",
+              "url": "https://bakingbusiness.com.au/wp-content/uploads/2024/05/2024-QLD-Official-Results.pdf",
+              "archive": "",
+              "ref": "OVERALL RESULTS SUMMARY"
+            }
+          ],
+          "verifiedAt": "2026-11-02"
+        },
+        {
+          "id": "QLDBS-2024-C007-P2",
+          "comp": "QLDBS",
+          "year": 2024,
+          "level": "placing",
+          "medal": null,
+          "rank": 2,
+          "tier": "also",
+          "score": null,
+          "title": "Second",
+          "category": "2 x Grain Rolls (max 100gm each)",
+          "group": "bread",
+          "product": "",
+          "locationId": "L-bakers-delight-arana-hills",
+          "relation": "entrant_location",
+          "sources": [
+            {
+              "title": "2024 Queensland Baking Show official results",
+              "url": "https://bakingbusiness.com.au/wp-content/uploads/2024/05/2024-QLD-Official-Results.pdf",
+              "archive": "",
+              "ref": "OVERALL RESULTS SUMMARY"
+            }
+          ],
+          "verifiedAt": "2026-11-02"
+        }
+      ],
+      "summary": {
+        "champion": 0,
+        "top100": 0,
+        "best100": null,
+        "gold": 2,
+        "first": 7,
+        "also": 8,
+        "years": [
+          2024,
+          2025
+        ]
+      }
+    },
+    {
       "id": "B-burleigh-baker",
       "name": "Burleigh Baker",
       "types": [
@@ -7782,234 +10578,6 @@ var PAGE_DATA = {
         "first": 0,
         "also": 2,
         "years": [
-          2025
-        ]
-      }
-    },
-    {
-      "id": "B-bakers-delight",
-      "name": "Bakers Delight",
-      "types": [
-        "bakery"
-      ],
-      "scope": "chain_franchise",
-      "descZh": "1980 年從墨爾本 Hawthorn 一家店起步的連鎖麵包店；這裡只列拿到獎的兩間加盟店。",
-      "descEn": "A bakery chain that grew from one shop in Hawthorn, Melbourne in 1980; only the two award-winning franchise stores are listed.",
-      "website": "https://www.bakersdelight.com.au/",
-      "instagram": "",
-      "related": [],
-      "locations": [
-        {
-          "id": "L-bakers-delight-lane-cove",
-          "name": "Lane Cove",
-          "address": "2/23 Burns Bay Rd, Lane Cove NSW 2066",
-          "suburb": "Lane Cove",
-          "city": "Sydney",
-          "state": "NSW",
-          "lat": -33.8144986,
-          "lng": 151.1691365,
-          "type": "standalone",
-          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Bakers%20Delight%202/23%20Burns%20Bay%20Rd%2C%20Lane%20Cove%20NSW%202066"
-        },
-        {
-          "id": "L-bakers-delight-albion-park-rail",
-          "name": "Albion Park Rail",
-          "address": "Unit 1/183 Princes Hwy, Albion Park Rail NSW 2527",
-          "suburb": "Albion Park Rail",
-          "city": "Shellharbour",
-          "state": "NSW",
-          "lat": -34.5608445,
-          "lng": 150.796014,
-          "type": "standalone",
-          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Bakers%20Delight%20Unit%201/183%20Princes%20Hwy%2C%20Albion%20Park%20Rail%20NSW%202527"
-        }
-      ],
-      "awards": [
-        {
-          "id": "RAS-PB-2025-C8-E157",
-          "comp": "RAS-PB",
-          "year": 2025,
-          "level": "medal",
-          "medal": "gold",
-          "rank": null,
-          "tier": "top",
-          "score": 91.0,
-          "title": "Gold Medal",
-          "category": "Sweet Breads (e.g., banana bread, fruit log, date loaf, etc.)",
-          "group": "cake",
-          "product": "CHIA & FRUIT LOAF",
-          "locationId": "L-bakers-delight-lane-cove",
-          "relation": "entrant_location",
-          "sources": [
-            {
-              "title": "myRAS 2025 Professional Bakery results",
-              "url": "https://www.myras.com.au/res/results/CompetitonResults.aspx?TO=0&SY=2025&SN=17&CT=2&WT=&WST=&EN=All%20Exhibitors&TN=All+Towns&PC1=&PC2=&CL1=&CL2=&REGION=All+regions&ST=&EI=1&OR=1",
-              "archive": "https://web.archive.org/web/20260506173657/https://www.myras.com.au/res/results/CompetitonResults.aspx?TO=0&SY=2025&SN=17&CT=2&WT=&WST=&EN=All%20Exhibitors&TN=All+Towns&PC1=&PC2=&CL1=&CL2=&REGION=All+regions&ST=&EI=1&OR=1",
-              "ref": ""
-            }
-          ],
-          "verifiedAt": "2026-10-26"
-        },
-        {
-          "id": "RAS-PB-2025-C1-E11",
-          "comp": "RAS-PB",
-          "year": 2025,
-          "level": "medal",
-          "medal": "gold",
-          "rank": null,
-          "tier": "top",
-          "score": 90.0,
-          "title": "Gold Medal",
-          "category": "Traditional Bread, including White, Grain, Wholemeal & Rye",
-          "group": "bread",
-          "product": "WHOLEMEAL BLOCK LOAF 4 PIECE",
-          "locationId": "L-bakers-delight-lane-cove",
-          "relation": "entrant_location",
-          "sources": [
-            {
-              "title": "myRAS 2025 Professional Bakery results",
-              "url": "https://www.myras.com.au/res/results/CompetitonResults.aspx?TO=0&SY=2025&SN=17&CT=2&WT=&WST=&EN=All%20Exhibitors&TN=All+Towns&PC1=&PC2=&CL1=&CL2=&REGION=All+regions&ST=&EI=1&OR=1",
-              "archive": "https://web.archive.org/web/20260506173657/https://www.myras.com.au/res/results/CompetitonResults.aspx?TO=0&SY=2025&SN=17&CT=2&WT=&WST=&EN=All%20Exhibitors&TN=All+Towns&PC1=&PC2=&CL1=&CL2=&REGION=All+regions&ST=&EI=1&OR=1",
-              "ref": ""
-            }
-          ],
-          "verifiedAt": "2026-10-26"
-        },
-        {
-          "id": "NABC-2025-C003-P1",
-          "comp": "NABC",
-          "year": 2025,
-          "level": "placing",
-          "medal": null,
-          "rank": 1,
-          "tier": "top",
-          "score": null,
-          "title": "First",
-          "category": "Ciabatta Loaf - Minimum 200gm",
-          "group": "bread",
-          "product": "",
-          "locationId": "L-bakers-delight-albion-park-rail",
-          "relation": "entrant_location",
-          "sources": [
-            {
-              "title": "2025 National Artisan Baking Competition official results",
-              "url": "https://bakingtradeshow.com.au/wp-content/uploads/2025/07/2025-National-Artisan-Baking-Competition-Official-results.pdf",
-              "archive": "https://web.archive.org/web/20260421193421/https://bakingtradeshow.com.au/wp-content/uploads/2025/07/2025-National-Artisan-Baking-Competition-Official-results.pdf",
-              "ref": ""
-            }
-          ],
-          "verifiedAt": "2026-10-26"
-        },
-        {
-          "id": "RAS-PB-2025-C1-E3",
-          "comp": "RAS-PB",
-          "year": 2025,
-          "level": "medal",
-          "medal": "silver",
-          "rank": null,
-          "tier": "also",
-          "score": 85.67,
-          "title": "Silver Medal",
-          "category": "Traditional Bread, including White, Grain, Wholemeal & Rye",
-          "group": "bread",
-          "product": "WHITE BLOCK LOAF (4 PIECE)",
-          "locationId": "L-bakers-delight-lane-cove",
-          "relation": "entrant_location",
-          "sources": [
-            {
-              "title": "myRAS 2025 Professional Bakery results",
-              "url": "https://www.myras.com.au/res/results/CompetitonResults.aspx?TO=0&SY=2025&SN=17&CT=2&WT=&WST=&EN=All%20Exhibitors&TN=All+Towns&PC1=&PC2=&CL1=&CL2=&REGION=All+regions&ST=&EI=1&OR=1",
-              "archive": "https://web.archive.org/web/20260506173657/https://www.myras.com.au/res/results/CompetitonResults.aspx?TO=0&SY=2025&SN=17&CT=2&WT=&WST=&EN=All%20Exhibitors&TN=All+Towns&PC1=&PC2=&CL1=&CL2=&REGION=All+regions&ST=&EI=1&OR=1",
-              "ref": ""
-            }
-          ],
-          "verifiedAt": "2026-10-26"
-        },
-        {
-          "id": "RAS-PB-2025-C1-E8",
-          "comp": "RAS-PB",
-          "year": 2025,
-          "level": "medal",
-          "medal": "silver",
-          "rank": null,
-          "tier": "also",
-          "score": 85.67,
-          "title": "Silver Medal",
-          "category": "Traditional Bread, including White, Grain, Wholemeal & Rye",
-          "group": "bread",
-          "product": "HI PROTEIN, WHOLE GRAIN LOAF",
-          "locationId": "L-bakers-delight-lane-cove",
-          "relation": "entrant_location",
-          "sources": [
-            {
-              "title": "myRAS 2025 Professional Bakery results",
-              "url": "https://www.myras.com.au/res/results/CompetitonResults.aspx?TO=0&SY=2025&SN=17&CT=2&WT=&WST=&EN=All%20Exhibitors&TN=All+Towns&PC1=&PC2=&CL1=&CL2=&REGION=All+regions&ST=&EI=1&OR=1",
-              "archive": "https://web.archive.org/web/20260506173657/https://www.myras.com.au/res/results/CompetitonResults.aspx?TO=0&SY=2025&SN=17&CT=2&WT=&WST=&EN=All%20Exhibitors&TN=All+Towns&PC1=&PC2=&CL1=&CL2=&REGION=All+regions&ST=&EI=1&OR=1",
-              "ref": ""
-            }
-          ],
-          "verifiedAt": "2026-10-26"
-        },
-        {
-          "id": "RAS-PB-2024-C2-E26",
-          "comp": "RAS-PB",
-          "year": 2024,
-          "level": "medal",
-          "medal": "silver",
-          "rank": null,
-          "tier": "also",
-          "score": 83.67,
-          "title": "Silver Medal",
-          "category": "Sour Dough, including Rye",
-          "group": "sourdough",
-          "product": "MIXED SEED SOUR DOUGH VIENNA",
-          "locationId": "L-bakers-delight-lane-cove",
-          "relation": "entrant_location",
-          "sources": [
-            {
-              "title": "myRAS 2024 Professional Bakery results",
-              "url": "https://www.myras.com.au/res/results/CompetitonResults.aspx?TO=0&SY=2024&SN=17&CT=2&WT=&WST=&EN=All%20Exhibitors&TN=All+Towns&PC1=&PC2=&CL1=&CL2=&REGION=All+regions&ST=&EI=1&OR=1",
-              "archive": "",
-              "ref": ""
-            }
-          ],
-          "verifiedAt": "2026-10-26"
-        },
-        {
-          "id": "RAS-PB-2024-C3-E42",
-          "comp": "RAS-PB",
-          "year": 2024,
-          "level": "medal",
-          "medal": "silver",
-          "rank": null,
-          "tier": "also",
-          "score": 82.33,
-          "title": "Silver Medal",
-          "category": "International Bread (e.g. baguette, ciabatta, chapatti, flatbread, etc.)",
-          "group": "bread",
-          "product": "OLIVE PANE DI CASA",
-          "locationId": "L-bakers-delight-lane-cove",
-          "relation": "entrant_location",
-          "sources": [
-            {
-              "title": "myRAS 2024 Professional Bakery results",
-              "url": "https://www.myras.com.au/res/results/CompetitonResults.aspx?TO=0&SY=2024&SN=17&CT=2&WT=&WST=&EN=All%20Exhibitors&TN=All+Towns&PC1=&PC2=&CL1=&CL2=&REGION=All+regions&ST=&EI=1&OR=1",
-              "archive": "",
-              "ref": ""
-            }
-          ],
-          "verifiedAt": "2026-10-26"
-        }
-      ],
-      "summary": {
-        "champion": 0,
-        "top100": 0,
-        "best100": null,
-        "gold": 2,
-        "first": 1,
-        "also": 4,
-        "years": [
-          2024,
           2025
         ]
       }
@@ -9545,6 +12113,150 @@ var PAGE_DATA = {
       }
     },
     {
+      "id": "B-brumbys",
+      "name": "Brumby's Bakery",
+      "types": [
+        "bakery"
+      ],
+      "scope": "chain_franchise",
+      "descZh": "連鎖加盟麵包店；這裡只列得獎的 Toowoomba Westridge 店。",
+      "descEn": "A franchise bakery chain; only the award-winning Westridge store in Toowoomba is listed.",
+      "website": "https://www.brumbys.com.au/",
+      "instagram": "",
+      "related": [],
+      "locations": [
+        {
+          "id": "L-brumbys-westridge",
+          "name": "Westridge",
+          "address": "300 West St, Kearneys Spring QLD 4350",
+          "suburb": "Kearneys Spring",
+          "city": "Toowoomba",
+          "state": "QLD",
+          "lat": -27.5893816,
+          "lng": 151.9386481,
+          "type": "standalone",
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Brumby%27s%20Bakery%20300%20West%20St%2C%20Kearneys%20Spring%20QLD%204350"
+        }
+      ],
+      "awards": [
+        {
+          "id": "QLDBS-2025-C004-P1",
+          "comp": "QLDBS",
+          "year": 2025,
+          "level": "placing",
+          "medal": null,
+          "rank": 1,
+          "tier": "top",
+          "score": null,
+          "title": "First",
+          "category": "680g Wholemeal Loaf Upright (1 Piece)",
+          "group": "bread",
+          "product": "",
+          "locationId": "L-brumbys-westridge",
+          "relation": "staff_entry",
+          "sources": [
+            {
+              "title": "2025 Queensland Baking Show official results",
+              "url": "https://bakingbusiness.com.au/wp-content/uploads/2025/05/QLD2025FinalResults.pdf",
+              "archive": "",
+              "ref": "OVERALL RESULTS SUMMARY"
+            }
+          ],
+          "verifiedAt": "2026-11-02",
+          "recipient": "Elizabeth Green Brumby's Westridge"
+        },
+        {
+          "id": "QLDBS-2025-C013-P1",
+          "comp": "QLDBS",
+          "year": 2025,
+          "level": "placing",
+          "medal": null,
+          "rank": 1,
+          "tier": "top",
+          "score": null,
+          "title": "First",
+          "category": "Decorated Sponge (Any type) (No larger than 203mm) With Inscription",
+          "group": "cake",
+          "product": "",
+          "locationId": "L-brumbys-westridge",
+          "relation": "staff_entry",
+          "sources": [
+            {
+              "title": "2025 Queensland Baking Show official results",
+              "url": "https://bakingbusiness.com.au/wp-content/uploads/2025/05/QLD2025FinalResults.pdf",
+              "archive": "",
+              "ref": "OVERALL RESULTS SUMMARY"
+            }
+          ],
+          "verifiedAt": "2026-11-02",
+          "recipient": "Elizabeth Green Brumby's Westridge"
+        },
+        {
+          "id": "QLDBS-2025-C014-P2",
+          "comp": "QLDBS",
+          "year": 2025,
+          "level": "placing",
+          "medal": null,
+          "rank": 2,
+          "tier": "also",
+          "score": null,
+          "title": "Second",
+          "category": "Plain Traditional Beef Pie",
+          "group": "pastry_pie",
+          "product": "",
+          "locationId": "L-brumbys-westridge",
+          "relation": "staff_entry",
+          "sources": [
+            {
+              "title": "2025 Queensland Baking Show official results",
+              "url": "https://bakingbusiness.com.au/wp-content/uploads/2025/05/QLD2025FinalResults.pdf",
+              "archive": "",
+              "ref": "OVERALL RESULTS SUMMARY"
+            }
+          ],
+          "verifiedAt": "2026-11-02",
+          "recipient": "Elizabeth Green Brumby's Westridge"
+        },
+        {
+          "id": "QLDBS-2025-C023-P2",
+          "comp": "QLDBS",
+          "year": 2025,
+          "level": "placing",
+          "medal": null,
+          "rank": 2,
+          "tier": "also",
+          "score": null,
+          "title": "Second",
+          "category": "Family Size Apple Pie, using Shortcrust Pastry",
+          "group": "tart_choux",
+          "product": "",
+          "locationId": "L-brumbys-westridge",
+          "relation": "staff_entry",
+          "sources": [
+            {
+              "title": "2025 Queensland Baking Show official results",
+              "url": "https://bakingbusiness.com.au/wp-content/uploads/2025/05/QLD2025FinalResults.pdf",
+              "archive": "",
+              "ref": "OVERALL RESULTS SUMMARY"
+            }
+          ],
+          "verifiedAt": "2026-11-02",
+          "recipient": "Elizabeth Green Brumby's Westridge"
+        }
+      ],
+      "summary": {
+        "champion": 0,
+        "top100": 0,
+        "best100": null,
+        "gold": 0,
+        "first": 2,
+        "also": 2,
+        "years": [
+          2025
+        ]
+      }
+    },
+    {
       "id": "B-forestway-fresh",
       "name": "Forestway Fresh",
       "types": [
@@ -9936,72 +12648,6 @@ var PAGE_DATA = {
         "also": 4,
         "years": [
           2024
-        ]
-      }
-    },
-    {
-      "id": "B-coles",
-      "name": "Coles",
-      "types": [
-        "bakery"
-      ],
-      "scope": "supermarket",
-      "descZh": "Darwin Casuarina Square 裡的 Coles 超市；得獎的是店內烘焙部的烘焙師 Luke Moy。",
-      "descEn": "The Coles supermarket in Darwin's Casuarina Square; the award went to Luke Moy, a baker in its in-store bakery.",
-      "website": "https://www.coles.com.au/",
-      "instagram": "",
-      "related": [],
-      "locations": [
-        {
-          "id": "L-coles-casuarina",
-          "name": "Casuarina Square",
-          "address": "Casuarina Square, Trower Rd & Dripstone Rd, Casuarina NT 0810",
-          "suburb": "Casuarina",
-          "city": "Darwin",
-          "state": "NT",
-          "lat": -12.3766504,
-          "lng": 130.8813286,
-          "type": "in_supermarket",
-          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Coles%20Casuarina%20Square%2C%20Trower%20Rd%20%26%20Dripstone%20Rd%2C%20Casuarina%20NT%200810"
-        }
-      ],
-      "awards": [
-        {
-          "id": "NABC-2026-C001-P1",
-          "comp": "NABC",
-          "year": 2026,
-          "level": "placing",
-          "medal": null,
-          "rank": 1,
-          "tier": "top",
-          "score": null,
-          "title": "First",
-          "category": "Traditional White Sourdough - Minimum 600gm",
-          "group": "sourdough",
-          "product": "",
-          "locationId": "L-coles-casuarina",
-          "relation": "staff_entry",
-          "sources": [
-            {
-              "title": "2026 National Artisan Baking Competition official results",
-              "url": "https://bakingtradeshow.com.au/wp-content/uploads/2026/07/2026-ARTISAN_BAKING_official-results.pdf",
-              "archive": "",
-              "ref": ""
-            }
-          ],
-          "verifiedAt": "2026-10-26",
-          "recipient": "Luke Moy - Coles Casuarina"
-        }
-      ],
-      "summary": {
-        "champion": 0,
-        "top100": 0,
-        "best100": null,
-        "gold": 0,
-        "first": 1,
-        "also": 0,
-        "years": [
-          2026
         ]
       }
     },
@@ -10940,6 +13586,122 @@ var PAGE_DATA = {
         "gold": 0,
         "first": 1,
         "also": 1,
+        "years": [
+          2024
+        ]
+      }
+    },
+    {
+      "id": "B-yamanto-central-patisserie",
+      "name": "Yamanto Central Patisserie",
+      "types": [
+        "bakery"
+      ],
+      "scope": "retail",
+      "descZh": "Ipswich 的 Yamanto Central 商場一進門左手邊的麵包甜點店，2021 年開業。",
+      "descEn": "A bakery and patisserie just inside the entrance of Yamanto Central shopping centre in Ipswich, open since 2021.",
+      "website": "",
+      "instagram": "",
+      "related": [],
+      "locations": [
+        {
+          "id": "L-yamanto-central-patisserie-yamanto",
+          "name": "Yamanto Central",
+          "address": "Yamanto Central, 488 Warwick Rd, Yamanto QLD 4305",
+          "suburb": "Yamanto",
+          "city": "Ipswich",
+          "state": "QLD",
+          "lat": -27.6605663,
+          "lng": 152.7421956,
+          "type": "standalone",
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Yamanto%20Central%20Patisserie%20Yamanto%20Central%2C%20488%20Warwick%20Rd%2C%20Yamanto%20QLD%204305"
+        }
+      ],
+      "awards": [
+        {
+          "id": "QLDBS-2024-C015-P1",
+          "comp": "QLDBS",
+          "year": 2024,
+          "level": "placing",
+          "medal": null,
+          "rank": 1,
+          "tier": "top",
+          "score": null,
+          "title": "First",
+          "category": "2 Plain Meat Pie",
+          "group": "pastry_pie",
+          "product": "",
+          "locationId": null,
+          "relation": "entrant",
+          "sources": [
+            {
+              "title": "2024 Queensland Baking Show official results",
+              "url": "https://bakingbusiness.com.au/wp-content/uploads/2024/05/2024-QLD-Official-Results.pdf",
+              "archive": "",
+              "ref": "OVERALL RESULTS SUMMARY"
+            }
+          ],
+          "verifiedAt": "2026-11-02"
+        },
+        {
+          "id": "QLDBS-2024-C010-P2",
+          "comp": "QLDBS",
+          "year": 2024,
+          "level": "placing",
+          "medal": null,
+          "rank": 2,
+          "tier": "also",
+          "score": null,
+          "title": "Second",
+          "category": "Gourmet Pull A Part Loaf",
+          "group": "bread",
+          "product": "",
+          "locationId": null,
+          "relation": "entrant",
+          "sources": [
+            {
+              "title": "2024 Queensland Baking Show official results",
+              "url": "https://bakingbusiness.com.au/wp-content/uploads/2024/05/2024-QLD-Official-Results.pdf",
+              "archive": "",
+              "ref": "OVERALL RESULTS SUMMARY"
+            }
+          ],
+          "verifiedAt": "2026-11-02"
+        },
+        {
+          "id": "QLDBS-2024-C022-P1",
+          "comp": "QLDBS",
+          "year": 2024,
+          "level": "placing",
+          "medal": null,
+          "rank": 1,
+          "tier": "also",
+          "score": null,
+          "title": "First",
+          "category": "2 x Caramel Slice",
+          "group": "cake",
+          "product": "",
+          "locationId": null,
+          "relation": "entrant",
+          "sources": [
+            {
+              "title": "2024 Queensland Baking Show official results",
+              "url": "https://bakingbusiness.com.au/wp-content/uploads/2024/05/2024-QLD-Official-Results.pdf",
+              "archive": "",
+              "ref": "OVERALL RESULTS SUMMARY"
+            }
+          ],
+          "verifiedAt": "2026-11-02",
+          "aloneInClass": true
+        }
+      ],
+      "summary": {
+        "champion": 0,
+        "top100": 0,
+        "best100": null,
+        "gold": 0,
+        "first": 1,
+        "also": 2,
         "years": [
           2024
         ]

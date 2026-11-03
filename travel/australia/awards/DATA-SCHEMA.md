@@ -135,6 +135,7 @@
 - 只看班名括號前、逗號前、` - `（或 ` – `）前的部分，所以 International Bread 括號裡的 baguette、Viennoiserie 括號裡的 vanilla slice、Savoury Pie 逗號後的「made with shortcrust」都不會誤判。
 - 依序比對：Gluten Free → 蛋糕類（Sweet Bread、Cake、Torte、Gateau、Pudding、Brownie、Slice）→ Biscuit、Macaron → 塔／泡芙（Shortcrust、Sweet Pie、Tart、Choux、Eclair、Profiterole）→ Pie、Pastie、Quiche、Filo、Kataifi → Viennoiserie、Croissant、Creative → Sourdough → Bread、Loaf、Baguette、Ciabatta。GB 照班號（Cat 1～11）。
 - 冠軍照產品歸（Champion Biscuit → `biscuit`），看不出產品的（Product of Show、Overall）才是 `overall`。
+- **2026-11-03 補昆士蘭烘焙賽的班名**：Sponge → `cake`；Apple Pie → `tart_choux`；Pastry、Sausage Roll → `pastry_pie`；Hi-Top、Plait、Cob、Roll(s) → `bread`。關鍵字要整個字對上，所以「(4 Piece)」不會被當成 Pie（括號本來就不看）。冠軍名稱寫兩類的（Champion Cake / Pastry of the Show）兩類都算對。卡片和 My Maps 顯示品項時，班名開頭的數量、重量（「2 x」「450gm」「680g」）會去掉。
 - **2026-11-02 補上原本沒涵蓋的 4 個 RAS 班別**（使用者選 A）：Shortcrust Pastry、Choux Pastry → 新類別 `tart_choux`；Filo／Kataifi Pastry → `pastry_pie`（以菠菜起司派等鹹的為主）；Creative → `viennoiserie`。原本表上猜的「Sweet Pie／Tart」其實就是 Shortcrust Pastry 這班，也改成 `tart_choux`。
 
 ### 2.5 `award_attributions.csv`：獎項和店家的關係
@@ -277,7 +278,7 @@ var PAGE_DATA = {
 };
 ```
 
-- `tier`：`top`（冠軍、金牌、第 1 名）或 `also`（銀牌、第 2 名，卡片上的「也推薦」）。
+- `tier`：`top`（冠軍、金牌、第 1 名）或 `also`（銀牌、第 2 名，卡片上的「也推薦」）。`class_places_awarded = 1` 的第 1 名也是 `also`，而且多一個 `"aloneInClass": true`，卡片寫「該班只頒出這一個名次」；`summary.first` 不算它（D11）。
 - `locationId`：只有官方寫到門市、而且那間門市上網站時才有值；`retail` 店家得獎的門市後來關了，獎留在品牌層（`null`）。
 - `verifiedAt`：這個獎的 `supports` 來源裡最近的 `verified_at`。
 - `relation = staff_entry` 時多一個 `recipient`（官方原文，例如「Robert Trimboli - Adelaide's Finest …」），卡片顯示「由 X 代表參賽」。

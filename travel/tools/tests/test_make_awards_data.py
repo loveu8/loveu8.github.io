@@ -125,6 +125,19 @@ class CheckTest(unittest.TestCase):
         self.award("NABC-2025-C004-P1")["rank"] = "4"
         self.assertError("rank 4 must be 1, 2 or 3")
 
+    def test_class_places_awarded_range(self):
+        self.award("NABC-2025-C004-P1")["class_places_awarded"] = "4"
+        self.assertError("class_places_awarded needs award_level=placing and 1-3")
+
+    def test_class_places_awarded_only_on_placings(self):
+        self.award()["class_places_awarded"] = "1"
+        self.assertError("awards.csv:2 class_places_awarded needs award_level=placing")
+
+    def test_rank_beyond_places_awarded(self):
+        a = self.award("NABC-2025-C004-P1")
+        a["rank"], a["class_places_awarded"] = "2", "1"
+        self.assertError("rank 2 but the class handed out only 1 place(s)")
+
     def test_ranking_rank_range_and_fields(self):
         a = self.award("NABC-2025-C004-P1")
         a["award_level"] = "ranking"
@@ -275,9 +288,63 @@ class GroupTest(unittest.TestCase):
         self.assertEqual(self.group("Champion Product of Show", "NABC", "champion"), "overall")
         self.assertEqual(self.group("Overall Champion", "GBA", "champion", "CHAMPION"), "overall")
 
+    def test_queensland_baking_show_classes(self):
+        # Real class names from research/qld_baking_show_2024-2026.csv (2026-11-03).
+        for category, group in [("680gm White Hi-Top Half Married (2 Piece)", "bread"),
+                                ("680g White Loaf Condensed Square (4 Piece)", "bread"),  # "Piece" is no pie
+                                ("450gm Five Strand Plait", "bread"), ("450gm Wholemeal Cob", "bread"),
+                                ("2 x Grain Rolls (max 100gm each)", "bread"),
+                                ("680gm Sourdough Rye (Baked on a Tray)", "sourdough"),
+                                ("Decorated Sponge (Any type) (No larger than 203mm) With Inscription", "cake"),
+                                ("2 x Caramel Slice", "cake"), ("2 Sausage Rolls", "pastry_pie"),
+                                ("2 Chunky Beef Pies", "pastry_pie"), ("2 Pasties", "pastry_pie"),
+                                ("Family Size Apple Pie, using Shortcrust Pastry", "tart_choux"),
+                                ("4 Individual Tartlets, all to be decorated the same", "tart_choux")]:
+            self.assertEqual(self.group(category, "QLDBS", "placing"), group, category)
+
+    def test_champion_naming_two_kinds_fits_either(self):
+        for filled in ("cake", "pastry_pie"):
+            a = {"competition_id": "QLDBS", "award_level": "champion", "class_code": "CHAMPION",
+                 "category": "Champion Cake / Pastry of the Show", "category_group": filled}
+            self.assertEqual(m.expected_group(a), filled)
+
     def test_golden_bean_goes_by_class_number(self):
         self.assertEqual(self.group("Elite", "GBA", class_code="Cat 6"), "coffee_other")
         self.assertEqual(self.group("Milk Based", "GBA", class_code="Cat 11"), "coffee_milk")
+
+
+class AloneInClassTest(unittest.TestCase):
+    """D11: a 1st place in a class with no 2nd place is "also", never a headline (user chose, 2026-11-03)."""
+
+    def build(self, *alone):
+        t = copy.deepcopy(TABLES)
+        # Gamma's gold names only the brand, so a franchise skips it; tie it to the awarded shop
+        # so Gamma qualifies on the gold alone.
+        row(t, "award_attributions", "award_id", "RAS-PB-2025-C3-E20")["location_id"] = "L-gamma-one"
+        for award_id in alone:
+            row(t, "awards", "award_id", award_id)["class_places_awarded"] = "1"
+        self.assertEqual(m.check(t, TODAY)[0], [])
+        businesses, skipped = m.build(t)
+        return {b["id"]: b for b in businesses}, {a: r for a, _, r in skipped}
+
+    def test_contested_first_place_is_unchanged(self):
+        a = {"award_level": "placing", "rank": "1", "class_places_awarded": "2"}
+        self.assertEqual(m.tier(a), "top")
+        self.assertEqual(m.tier(dict(a, class_places_awarded="")), "top")
+
+    def test_lone_first_place_does_not_qualify_a_business(self):
+        by_id, skipped = self.build("NABC-2025-C004-P1")  # Beta's only headline award
+        self.assertNotIn("B-beta", by_id)
+        self.assertEqual(skipped["NABC-2025-C004-P1"], "business has no champion, gold or 1st place (D1)")
+
+    def test_lone_first_place_is_listed_as_also(self):
+        by_id, _ = self.build("NABC-2025-C002-P1")  # Gamma still has a gold medal
+        gamma = by_id["B-gamma"]
+        first = next(a for a in gamma["awards"] if a["id"] == "NABC-2025-C002-P1")
+        self.assertEqual(first["tier"], "also")
+        self.assertTrue(first["aloneInClass"])
+        self.assertEqual((gamma["summary"]["first"], gamma["summary"]["also"]), (0, 1))
+        self.assertNotIn("aloneInClass", next(a for a in gamma["awards"] if a["id"] != "NABC-2025-C002-P1"))
 
 
 class RankingTest(unittest.TestCase):
@@ -401,6 +468,14 @@ class MyMapsTest(unittest.TestCase):
             award("champion", "OLIVE SOURDOUGH", "Champion Bread"),               # champions come first
             award("medal", "WHITE LOAF", medal="silver", tier="also")]}           # also-recommended: left out
         self.assertEqual(m.winning_items(shop), ["Olive Sourdough", "Croissant"])
+
+    def test_queensland_class_names_lose_counts_and_weights(self):
+        for category, item in [("2 x Caramel Slice", "2 x Caramel Slice"[4:]), ("450gm Five Strand Plait",
+                                "Five Strand Plait"), ("680g White Loaf Condensed Square (4 Piece)",
+                                "White Loaf Condensed Square"), ("2 Sausage Rolls", "Sausage Rolls"),
+                               ("Sourdough, White Min. 500gm", "Sourdough"), ("Croissants", "Croissants")]:
+            a = {"level": "placing", "product": "", "category": category}
+            self.assertEqual(m.item_name({"name": "Rays Patisserie"}, a), item, category)
 
 
 class BuildTest(unittest.TestCase):

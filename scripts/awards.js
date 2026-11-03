@@ -54,7 +54,7 @@ var UI = {
     picksGroup: 'Google 評論常點', picksSections: { drink: '飲品', food: '餐點' }, picksRec: '大家推薦',
     picksMeta: '括號是提到的評論數 · Google 評論整理 {d}',
     details: '獎項明細（{n}）', groupTop: '招牌', groupAlsoCount: '也推薦（{n}）',
-    awardStore: '{s} 店', staffEntry: '參賽者：{r}',
+    awardStore: '{s} 店', staffEntry: '參賽者：{r}', aloneInClass: '該班只頒出這一個名次',
     source: '官方結果 ↗', archive: '存檔 ↗', verified: '查證 {d}',
     sourceAria: '{a} 的官方來源（另開新頁）', archiveAria: '{a} 的官方來源存檔（另開新頁）',
     stores: '門市', moreStores: '還有 {n} 間門市',
@@ -91,7 +91,7 @@ var UI = {
     picksGroup: 'Popular in Google reviews', picksSections: { drink: 'Drinks', food: 'Food' }, picksRec: 'Recommended',
     picksMeta: 'Numbers are reviews that mention it · Google reviews checked {d}',
     details: 'Award details ({n})', groupTop: 'Headline awards', groupAlsoCount: 'Also recommended ({n})',
-    awardStore: '{s} store', staffEntry: 'Entrant: {r}',
+    awardStore: '{s} store', staffEntry: 'Entrant: {r}', aloneInClass: 'the only place awarded in this class',
     source: 'Official results ↗', archive: 'Archive ↗', verified: 'Checked {d}',
     sourceAria: 'Official source for {a} (opens in a new tab)', archiveAria: 'Archived official source for {a} (opens in a new tab)',
     stores: 'Stores', moreStores: '{n} more stores', moreStoresOne: '1 more store',
@@ -764,6 +764,7 @@ function renderAwardRow(business, award) {
   var store = award.locationId && locationById(business, award.locationId);
   if (store) parts.push(t('awardStore', { s: store.name }));
   if (award.relation === 'staff_entry' && award.recipient) parts.push(t('staffEntry', { r: award.recipient }));
+  if (award.aloneInClass) parts.push(t('aloneInClass'));  // D11: listed under also recommended
   meta.appendChild(document.createTextNode(parts.join(' · ') + ' · '));
   var what = award.year + ' ' + compName + ' ' + UI[state.lang].levels[levelKey(award)] + ' ' + award.category;
   award.sources.forEach(function(source) {
