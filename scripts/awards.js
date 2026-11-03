@@ -57,6 +57,7 @@ var UI = {
     picksGroup: 'Google 評論常點', picksSections: { drink: '飲品', food: '餐點' }, picksRec: '大家推薦',
     picksMeta: '括號是提到的評論數 · Google 評論整理 {d}',
     details: '獎項明細（{n}）', groupTop: '招牌', groupAlsoCount: '也推薦（{n}）',
+    detailsMatch: '· 符合 {n} 項', detailClose: '✕ 收合',
     awardStore: '{s} 店', staffEntry: '參賽者：{r}', aloneInClass: '該班只頒出這一個名次',
     source: '官方結果 ↗', archive: '存檔 ↗', verified: '查證 {d}',
     sourceAria: '{a} 的官方來源（另開新頁）', archiveAria: '{a} 的官方來源存檔（另開新頁）',
@@ -96,6 +97,7 @@ var UI = {
     picksGroup: 'Popular in Google reviews', picksSections: { drink: 'Drinks', food: 'Food' }, picksRec: 'Recommended',
     picksMeta: 'Numbers are reviews that mention it · Google reviews checked {d}',
     details: 'Award details ({n})', groupTop: 'Headline awards', groupAlsoCount: 'Also recommended ({n})',
+    detailsMatch: ' · {n} match', detailsMatchOne: ' · 1 match', detailClose: '✕ Close',
     awardStore: '{s} store', staffEntry: 'Entrant: {r}', aloneInClass: 'the only place awarded in this class',
     source: 'Official results ↗', archive: 'Archive ↗', verified: 'Checked {d}',
     sourceAria: 'Official source for {a} (opens in a new tab)', archiveAria: 'Archived official source for {a} (opens in a new tab)',
@@ -791,19 +793,30 @@ function renderAwardRow(business, award) {
   return row;
 }
 
-// The shop blurb opens the award details (UI-PLAN 3.6), then headline awards, then also
-// recommended, folded by default (UI-PLAN 3.4, 2026-11-01).
-// With award filters on, the details open by themselves and the awards that match come
-// first, marked (UI-PLAN 5); the open state is remembered per filter combination.
-function renderDetails(business) {
+function awardMatcher() {
   var awardFilter = AwardsFilter.hasAwardFilter(state.f);
-  var sig = awardFilter ? ':' + AwardsFilter.AWARD_KEYS.map(function(k) { return state.f[k]; }).join('|') : '';
-  var details = rememberedDetails('award-details', 'awards:' + business.id + sig, awardFilter);
-  details.appendChild(el('summary', '', t('details', { n: business.awards.length })));
-  var desc = isEn() ? business.descEn : business.descZh;
-  if (desc) details.appendChild(el('p', 'award-desc', desc));
+  return function(a) { return awardFilter && AwardsFilter.awardMatches(a, state.f); };
+}
 
-  var isMatch = function(a) { return awardFilter && AwardsFilter.awardMatches(a, state.f); };
+// "獎項明細（50）", plus " · 符合 3 項" on phones with award filters on: there the details
+// don't open by themselves, so the count says why the shop is in the results.
+function detailsLabel(business) {
+  var text = t('details', { n: business.awards.length });
+  if (PHONE.matches && AwardsFilter.hasAwardFilter(state.f)) {
+    text += t('detailsMatch', { n: business.awards.filter(awardMatcher()).length });
+  }
+  return text;
+}
+
+// The award details' content, shared by the card's <details> (desktop) and the phone detail
+// sheet: the shop blurb (UI-PLAN 3.6), then headline awards, then also recommended, folded
+// by default (UI-PLAN 3.4, 2026-11-01). With award filters on, the awards that match come
+// first, marked (UI-PLAN 5).
+function renderDetailsBody(business, container) {
+  var desc = isEn() ? business.descEn : business.descZh;
+  if (desc) container.appendChild(el('p', 'award-desc', desc));
+
+  var isMatch = awardMatcher();
   var byTier = function(tier) {
     return business.awards.filter(function(a) { return a.tier === tier; }).sort(function(a, b) {
       return (isMatch(b) - isMatch(a)) || compareAwards(a, b);
@@ -811,14 +824,14 @@ function renderDetails(business) {
   };
   var top = byTier('top');
   if (top.length) {
-    details.appendChild(el('div', 'award-group', t('groupTop')));
+    container.appendChild(el('div', 'award-group', t('groupTop')));
     top.forEach(function(a) {
       var row = renderAwardRow(business, a);
       if (isMatch(a)) {
         row.classList.add('is-match');
         row.appendChild(el('span', 'visually-hidden', t('matchNote')));
       }
-      details.appendChild(row);
+      container.appendChild(row);
     });
   }
   var also = byTier('also');
@@ -826,10 +839,82 @@ function renderDetails(business) {
     var fold = rememberedDetails('award-also', 'also:' + business.id);
     fold.appendChild(el('summary', '', t('groupAlsoCount', { n: also.length })));
     also.forEach(function(a) { fold.appendChild(renderAwardRow(business, a)); });
-    details.appendChild(fold);
+    container.appendChild(fold);
   }
-  if (business.reviewPicks) details.appendChild(renderPicksDetails(business));
+  if (business.reviewPicks) container.appendChild(renderPicksDetails(business));
+}
+
+// Desktop: with award filters on, the details open by themselves; the open state is
+// remembered per filter combination. Phone: the summary opens the detail sheet instead
+// (setupEvents), so the <details> itself stays shut and its body is only rendered there.
+function renderDetails(business) {
+  var details;
+  if (PHONE.matches) {
+    details = el('details', 'award-details');
+  } else {
+    var awardFilter = AwardsFilter.hasAwardFilter(state.f);
+    var sig = awardFilter ? ':' + AwardsFilter.AWARD_KEYS.map(function(k) { return state.f[k]; }).join('|') : '';
+    details = rememberedDetails('award-details', 'awards:' + business.id + sig, awardFilter);
+  }
+  details.appendChild(el('summary', '', detailsLabel(business)));
+  if (!PHONE.matches) renderDetailsBody(business, details);
   return details;
+}
+
+// ── phone detail sheet (user feedback 2026-11-03, UI-PLAN 3.4c) ──
+// 獎項明細 opens full screen and stays until ✕ 收合, the phone's Back (a history entry is
+// pushed) or Esc. The page behind is inert, so focus can't wander there.
+var sheetState = { id: null, summary: null };
+
+function openDetailSheet(id, summary) {
+  var business = businessById(id);
+  if (!business) return;
+  sheetState.id = id;
+  sheetState.summary = summary;
+  fillDetailSheet(business);
+  var sheet = document.getElementById('detailSheet');
+  sheet.hidden = false;
+  sheet.offsetHeight;  // start the slide from below
+  sheet.classList.add('is-open');
+  document.querySelector('.app').inert = true;
+  document.getElementById('mapChipPanel').inert = true;
+  try { history.pushState({ awardsDetail: id }, ''); } catch (e) {}
+  document.getElementById('detailClose').focus({ preventScroll: true });
+}
+
+function fillDetailSheet(business) {
+  var body = document.getElementById('detailBody');
+  document.getElementById('detailTitle').textContent = business.name;
+  document.getElementById('detailClose').textContent = t('detailClose');
+  body.innerHTML = '';
+  body.appendChild(el('div', 'detail-heading', detailsLabel(business)));
+  renderDetailsBody(business, body);
+  body.scrollTop = 0;
+}
+
+// fromHistory: Back already removed our history entry; otherwise step back over it.
+function closeDetailSheet(fromHistory) {
+  if (!sheetState.id) return;
+  var id = sheetState.id;
+  sheetState.id = null;
+  var sheet = document.getElementById('detailSheet');
+  sheet.classList.remove('is-open');
+  setTimeout(function() { if (!sheetState.id) sheet.hidden = true; }, FOLD_MS);
+  document.querySelector('.app').inert = false;
+  document.getElementById('mapChipPanel').inert = false;
+  if (!fromHistory && history.state && history.state.awardsDetail) history.back();
+  // The card may have been re-rendered (language switch); find its summary again.
+  var summary = sheetState.summary && sheetState.summary.isConnected ? sheetState.summary
+    : document.querySelector('#shop-' + id + ' .award-details > summary');
+  if (summary) summary.focus({ preventScroll: true });
+}
+
+function setupDetailSheet() {
+  document.getElementById('detailClose').addEventListener('click', function() { closeDetailSheet(false); });
+  window.addEventListener('popstate', function() { closeDetailSheet(true); });
+  document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape' && sheetState.id) closeDetailSheet(false);
+  });
 }
 
 // "<suburb> · <store name>", unless the name already says the suburb; a factory shop
@@ -1031,6 +1116,13 @@ function setupSheetFold() {
 
 function setupEvents() {
   els.sidebarBody.addEventListener('click', function(event) {
+    // Phone: 獎項明細 opens the full-screen sheet instead of unfolding inside the card.
+    var summary = event.target.closest('.award-details > summary');
+    if (summary && PHONE.matches) {
+      event.preventDefault();
+      openDetailSheet(summary.closest('.shop-card').dataset.id, summary);
+      return;
+    }
     var mapBtn = event.target.closest('.pill-map');
     if (mapBtn) previewOnMap(mapBtn.dataset.id, mapBtn.dataset.loc);
   });
@@ -1042,6 +1134,14 @@ function setupEvents() {
   els.clearAll.addEventListener('click', clearAll);
   setupSearch();
   setupSheetFold();
+  setupDetailSheet();
+  // Crossing 768px swaps how the details work (in the card vs full screen), so redraw.
+  if (PHONE.addEventListener) {
+    PHONE.addEventListener('change', function() {
+      if (!PHONE.matches) closeDetailSheet(false);
+      refresh(false);
+    });
+  }
 }
 
 function init(data, config) {

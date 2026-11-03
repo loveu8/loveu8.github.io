@@ -254,7 +254,7 @@ Step 1b 還沒打勾的兩項（PARTIAL 再查、使用者送 Wayback）留到 S
 
 實作順序（每題完成就 push）：
 - [x] 問題 1 收合（`awards.js` `setupSheetFold()`、`index.html` 結果列加 `#foldOpen`、`awards.css`；有篩選時縮短成「🔍 篩選 ▾」；無頭 Chrome 25 項檢查通過：中英、往回捲不展開、按鈕／點結果列／鍵盤 Enter 展開、回頂端／收抽屜展開、360／320px 有篩選時結果列最多兩行不溢出、桌機不收；`UI-PLAN.md` 4.2、`DESIGN.md` 收合規則已更新）
-- [ ] 問題 2 明細全螢幕蓋版
+- [x] 問題 2 明細全螢幕蓋版（`#detailSheet`、`awards.js` `openDetailSheet()`／`renderDetailsBody()`、`awards.css` 第 7 節；無頭 Chrome 26 項檢查通過：淺深色 × 中英，點明細打開、卡片不展開、焦點到 ✕、背後 inert、✕／返回鍵／Esc 都能關且焦點回卡片、也推薦可開關；手機有篩選時「· 符合 N 項」且符合的排前面；桌機維持卡片內展開、篩選自動展開；跨 768px 重畫；`UI-PLAN.md` 3.4c、`DESIGN.md` 兩層篩選＋新規則已更新）
 - [ ] 問題 3 卡片層級
 - [ ] 文件（`DESIGN.md` 徽章／門市按鈕例外／兩層篩選／蓋版、`UI-PLAN.md` 3.3、3.6、3.7）、截圖（360、768、1280 × 中英 × 深淺色）、push 後看線上版
 - [ ] 👤 使用者手機實機看過
