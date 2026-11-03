@@ -82,6 +82,14 @@
 | Coles Casuarina（北領地） | 2026 冠軍麵包＋3 個第 1 名（Luke Moy） | 已在地圖上 | 只加獎 |
 | Mr Bake、Mr Sourdough、Bakers Loaf | 各 1 個第 1 名（2026） | **Google Maps 找不到** | 先不收，記 PARTIAL |
 
+**2026-11-03 再查（無頭 Chrome 查 Google Maps＋網路搜尋）**：
+
+| 店 | 找到的 | 結論 |
+|---|---|---|
+| Mr Bake | Google Maps「MR BAKE」：Shop 4/110 Laver Dr, Robina（黃金海岸），Bakery 4.5，營業中；Uber Eats 也有 Mr Bake (Robina)。網站 mrbake.com.au 已經打不開 | 找到門市，但只有店名對上（D9），維持 PARTIAL；要 Instagram／Facebook 證據 |
+| Bakers Loaf | Google Maps「The Bakers Loaf Inverell」：206 Byron St, Inverell **NSW**，4.3。昆州找不到同名店 | 只有店名接近、又在州外，維持 PARTIAL |
+| Mr Sourdough | Google Maps、網路都找不到（NABC 2026 白酸種第 3 名也是這個名字，同樣沒寫地區） | 維持 PARTIAL |
+
 **身分查證（D9，2026-11-03）**：官方只寫店名、沒寫地區的 4 家另外找證據
 
 | 店 | 結果 | 證據 |

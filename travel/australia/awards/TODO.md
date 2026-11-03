@@ -150,7 +150,7 @@ Step 1b 還沒打勾的兩項（PARTIAL 再查、使用者送 Wayback）留到 S
   - [x] 👤 Riviera Bakery（SA）：多個來源說是批發麵包廠 → 使用者 2026-11-02 選 A，先不收，改列 PARTIAL，和 Step 1b 的 7 家一起在上線前用 Chrome 再查（`CANDIDATES.md` 2.6）
   - [x] 上線前再查的門市（2026-11-02 Step 8，無頭 Chrome 查 Google Maps）：Coffee Mentality Google Maps 只有 3 間（就是收的 3 間），維持；**Coffee Presto Annandale Central 有自家濃縮咖啡吧 → 補上**（使用者選 A，My Maps 重新匯入 61 間，舊 60 間圖層由使用者刪除）；Wandin Bakery 店名在 Google Maps 就是 Wandin Bakery
   - [x] 手機副標題「34 家 · 60 間門市 · 官方結果 2024–2026」折行時把年份切開 → 已修，見下方「完整資料的截圖」那項
-- [ ] Burleigh Baker 門市重查：報導（BOQ、2026）說另有 Tweed Heads 門市（NSW）、Harris Farm Isle of Capri 專櫃、Currumbin 總部；目前只收 Burleigh Heads、Paradise Point（專櫃照 D2 要收；總部看是不是門市）
+- [x] Burleigh Baker 門市重查：報導（BOQ、2026）說另有 Tweed Heads 門市（NSW）、Harris Farm Isle of Capri 專櫃、Currumbin 總部；目前只收 Burleigh Heads、Paradise Point → 2026-11-03 查完，**不加門市**：Google Maps 叫 Burleigh Baker 的只有 Burleigh Heads、Paradise Point 和 Varsity Lakes 烘焙廠；Tweed Heads 的酸種店是另一家 The Bread Social，Harris Farm Isle of Capri 麵包櫃賣的也是 The Bread Social（Food Magazine 報導）；BOQ 網頁現在的內容沒提到其他門市
 - [x] `make_awards_data.py` 無 ERROR、無 WARNING（2026-11-03 確認：51 家、81 間、0 個 WARNING）
 - [x] 篩選測試不怕補資料：25 組案例改跑在 5 家試驗資料的凍結副本 `awards_filter_fixture.js`（使用者 2026-11-02 選 A，不重算）；另加 5 個讀真實 `data.js` 的檢查，node 測試 36 個通過
 - [x] 👤 回頭看 Step 4 截圖第 2 點：冠軍徽章是不是太多、第 1 名徽章有沒有用到（2026-11-02 確認維持，見 Step 4）
@@ -226,7 +226,8 @@ Step 1b 還沒打勾的兩項（PARTIAL 再查、使用者送 Wayback）留到 S
     - [x] push 三個 commit（88f12e8、341f7b8、337dcc0），線上版看過：51 家、81 間，地圖已換
     - [x] 👤 Perpetual Trophy（個人總成績，三年都是 Luke Moy）要不要記、怎麼記 → 2026-11-03 不記（比照 D3 個人賽；寫在 `PLAN.md` D11）
     - [ ] Egg Wash Bake Shop（Ashmore）找身分證據（D9）：Instagram、店家說法或報導提到「Johnny Park」或昆州賽；找到再收（2024 香腸捲第 1 名）
-    - [ ] Mr Bake、Mr Sourdough、Bakers Loaf（2026 各有第 1 名）再找門市
+    - [x] Mr Bake、Mr Sourdough、Bakers Loaf（2026 各有第 1 名）再找門市 → 2026-11-03：Mr Bake 在 Robina 找到同名店、Bakers Loaf 只有新州 Inverell 的 The Bakers Loaf、Mr Sourdough 找不到；三家都只有店名，照 D9 維持 PARTIAL（`research/QLD-BAKING-SHOW.md`）
+    - [ ] Mr Bake（Robina）找身分證據：Instagram／Facebook 有沒有提到昆州賽（2026 白吐司、香草千層各第 1 名）
     - 原本的說明：布里斯本只有 7 間（全是咖啡、沒有烘焙），原因是 RAS 在雪梨（三年 818 件參賽品 NSW 591、QLD 41；QLD 金牌只有 5 面）、昆士蘭州賽第一版沒收（D4）。第一步：BAA **Queensland Baking Show**（2024–2026 官方結果 PDF 在 bakingbusiness.com.au/results/）的研究摘要：等級制度（有沒有金牌／冠軍）、結果有沒有地址、大概多幾家，給使用者決定
   - 備註，之後再決定要不要收的其他比賽：
     - BAA 其他州／地區烘焙展：Victorian、South Australia、Tasmania、Canberra Baking Show，以及 NSW 的 Newcastle、Wollongong Baking Show（BAA 清單上沒有 WA、NT）
