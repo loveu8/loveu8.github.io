@@ -151,7 +151,7 @@ Step 1b 還沒打勾的兩項（PARTIAL 再查、使用者送 Wayback）留到 S
   - [x] 上線前再查的門市（2026-11-02 Step 8，無頭 Chrome 查 Google Maps）：Coffee Mentality Google Maps 只有 3 間（就是收的 3 間），維持；**Coffee Presto Annandale Central 有自家濃縮咖啡吧 → 補上**（使用者選 A，My Maps 重新匯入 61 間，舊 60 間圖層由使用者刪除）；Wandin Bakery 店名在 Google Maps 就是 Wandin Bakery
   - [ ] 手機副標題「34 家 · 60 間門市 · 官方結果 2024–2026」折行時把年份切開
 - [ ] Burleigh Baker 門市重查：報導（BOQ、2026）說另有 Tweed Heads 門市（NSW）、Harris Farm Isle of Capri 專櫃、Currumbin 總部；目前只收 Burleigh Heads、Paradise Point（專櫃照 D2 要收；總部看是不是門市）
-- [ ] `make_awards_data.py` 無 ERROR、無 WARNING
+- [x] `make_awards_data.py` 無 ERROR、無 WARNING（2026-11-03 確認：51 家、81 間、0 個 WARNING）
 - [x] 篩選測試不怕補資料：25 組案例改跑在 5 家試驗資料的凍結副本 `awards_filter_fixture.js`（使用者 2026-11-02 選 A，不重算）；另加 5 個讀真實 `data.js` 的檢查，node 測試 36 個通過
 - [x] 👤 回頭看 Step 4 截圖第 2 點：冠軍徽章是不是太多、第 1 名徽章有沒有用到（2026-11-02 確認維持，見 Step 4）
 - [x] 完整資料的截圖：12 種組合無 console 錯誤、無橫向捲動；手機副標題改成在「 · 」之間換行（年份不再被切開）
@@ -210,7 +210,7 @@ Step 1b 還沒打勾的兩項（PARTIAL 再查、使用者送 Wayback）留到 S
     - [ ] Only Coffee Project 另有「2026 大洋洲最佳咖啡店」（同一組織的地區獎）：目前寫在介紹裡，要不要另算一個獎再說
   - 同時查過、不收的：世界咖啡師大賽（個人賽，D3；2025 冠軍 Jack Simpson／Axil Coffee）；世界級烘焙比賽（甜點世界盃、Mondial du Pain 是國家隊或個人，D3），也沒有權威的「世界最佳麵包店」排名
 
-- [ ] 👤 第二版：**先做昆州**（使用者 2026-11-02 決定）。2026-11-02 進度：
+- [x] 👤 第二版：**先做昆州**（使用者 2026-11-02 決定）✅ **2026-11-03 完成並上線**（`PLAN.md` 進度表 v2-2；51 家、81 間門市；D11、D12）。進度：
     - [x] 基本調查 → `research/QLD-BAKING-SHOW.md`（名次制、2023–2026 官方 PDF、每年約 10 間店得名次、可能多 8～12 個獨立品牌＋4～5 間加盟店／超市）
     - [x] 👤 收的範圍 → B（`PLAN.md` D11）：冠軍＋同班有第 2 名的第 1 名
     - [x] 轉錄 2024–2026 結果 → `research/qld_baking_show_2024-2026.csv`（175 列，含 6 個冠軍）
@@ -224,6 +224,9 @@ Step 1b 還沒打勾的兩項（PARTIAL 再查、使用者送 Wayback）留到 S
     - [x] 頁尾說明昆州賽規則（2026-11-03）：賽事清單加昆士蘭烘焙賽；新增一條說明 D11；門市規則那條加「全國連鎖超市不列」（D12）；og:description 補昆州賽和世界百大。中英文在無頭 Chrome 看過
     - [x] 👤 My Maps 重新匯入（2026-11-03）：新圖層「得獎店家 81 間（依類型）」，烘焙 56 珊瑚紅、咖啡 25 深咖啡色；使用者刪舊圖層
     - [x] push 三個 commit（88f12e8、341f7b8、337dcc0），線上版看過：51 家、81 間，地圖已換
+    - [ ] 👤 Perpetual Trophy（個人總成績，三年都是 Luke Moy）要不要記、怎麼記（D11 說另外決定；他代表的 Woolworths／Coles 照 D12 已不上網站，所以目前不影響頁面）
+    - [ ] Egg Wash Bake Shop（Ashmore）找身分證據（D9）：Instagram、店家說法或報導提到「Johnny Park」或昆州賽；找到再收（2024 香腸捲第 1 名）
+    - [ ] Mr Bake、Mr Sourdough、Bakers Loaf（2026 各有第 1 名）再找門市
     - 原本的說明：布里斯本只有 7 間（全是咖啡、沒有烘焙），原因是 RAS 在雪梨（三年 818 件參賽品 NSW 591、QLD 41；QLD 金牌只有 5 面）、昆士蘭州賽第一版沒收（D4）。第一步：BAA **Queensland Baking Show**（2024–2026 官方結果 PDF 在 bakingbusiness.com.au/results/）的研究摘要：等級制度（有沒有金牌／冠軍）、結果有沒有地址、大概多幾家，給使用者決定
   - 備註，之後再決定要不要收的其他比賽：
     - BAA 其他州／地區烘焙展：Victorian、South Australia、Tasmania、Canberra Baking Show，以及 NSW 的 Newcastle、Wollongong Baking Show（BAA 清單上沒有 WA、NT）
