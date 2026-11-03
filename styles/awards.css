@@ -126,7 +126,8 @@
 .review-line-item .tag { margin-left: 3px; }
 .review-meta { color: var(--color-text-soft); padding-top: 4px; }
 
-/* ── 4. PHONE SHEET FOLD (title + filters fold while the list scrolls down; awards.js setupSheetFold) ── */
+/* ── 4. PHONE SHEET FOLD (title + filters fold while the list scrolls down and come back only at
+   the list top or from the result line's 🔍 button; awards.js setupSheetFold) ── */
 /* Grid 1fr → 0fr animates to the content's own height. visibility drops the folded buttons
    out of the tab order once the 300ms fold (FOLD_MS) ends. Screen only, so print is untouched. */
 @media screen and (max-width: 767px) {
@@ -267,6 +268,29 @@
   cursor: pointer;
 }
 .result-clear:hover { background-image: var(--state-layer-hover); }
+#resultText { flex: 1; min-width: 0; }
+/* Phone, title + filters folded: the way back to search and filters (UI-PLAN 4.2). Blue like the
+   other "go somewhere" controls; the whole result line also opens them while folded. */
+.result-open {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  min-height: 32px;
+  padding: 2px 10px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--color-primary-border);
+  background-color: var(--color-primary-soft);
+  color: var(--color-primary-strong);
+  font: inherit;
+  font-size: var(--fs-2xs);
+  font-weight: 700;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.result-open:hover { background-image: var(--state-layer-hover); }
+.result-open[hidden] { display: none; }
+.result-line.is-folded { cursor: pointer; }
 
 /* Awards that meet the award filters come first in the details, marked with an accent edge. */
 .award-row.is-match {
@@ -279,7 +303,8 @@
 .awards-footnote li + li { margin-top: var(--space-xs); }
 
 @media print {
-  .result-clear { display: none !important; }
+  .result-clear,
+  .result-open { display: none !important; }
 }
 
 /* ── 5. STORE LIST (one line per store: 📍 area · name + ↗ Maps) ── */

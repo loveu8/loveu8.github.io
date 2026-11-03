@@ -26,9 +26,11 @@ var STATES = {
   WA: { name: 'Western Australia', zoom: 5 }
 };
 var AREA_FIT_PX = 560;  // map width the store box should fit in (narrower than most map panels)
-// Phone sheet: the title and filters fold away while the list scrolls down and come back on
-// any scroll up, so more cards fit; the result line stays (UI-PLAN 4.2, NN/g "partially
-// persistent header"). Keep FOLD_MS in step with the .sheet-fold transition in awards.css.
+// Phone sheet: the title and filters fold away while the list scrolls down, so more cards fit;
+// the result line stays. They come back at the list top or when the reader taps the result
+// line's 🔍 button, never on scroll up: the block is ~250px, so popping it open while someone
+// scrolls back to a shop hid that shop (user feedback 2026-11-03, UI-PLAN 4.2).
+// Keep FOLD_MS in step with the .sheet-fold transition in awards.css.
 var PHONE = window.matchMedia('(max-width: 767px)');
 var FOLD_TOP = 60;   // px of list scroll before folding starts
 var FOLD_STEP = 4;   // px of movement that counts as a scroll direction
@@ -42,6 +44,7 @@ var UI = {
     all: '全部', allStates: '全部州別', allTypes: '全部類型',
     search: '搜尋店名、城市或產品', searchPlaceholder: '例如 Sydney、croissant', searchClear: '清除搜尋',
     more: '更多篩選', moreCount: '更多篩選 · {n}', clearAll: '✕ 清除', clearAllAria: '清除全部篩選',
+    foldOpen: '🔍 搜尋／篩選', foldOpenShort: '🔍 篩選', foldOpenAria: '展開搜尋和篩選',
     result: '{s} × {c} · {n} 家', resultOne: '{s} × {c} · 1 家', resultMore: ' · 另 {n} 個條件', resultMoreOne: ' · 另 1 個條件',
     matchNote: '（符合篩選）', footnoteAsOf: '資料整理到 {d}。',
     emptyTitle: '這個組合沒有店家', emptyText: '換個條件看看，或按「✕ 清除」；每個按鈕上的數字是選了它之後的家數。',
@@ -80,6 +83,7 @@ var UI = {
     all: 'All', allStates: 'All states', allTypes: 'All types',
     search: 'Search shops, cities or items', searchPlaceholder: 'e.g. Sydney, croissant', searchClear: 'Clear search',
     more: 'More filters', moreCount: 'More filters · {n}', clearAll: '✕ Clear', clearAllAria: 'Clear all filters',
+    foldOpen: '🔍 Search / filter', foldOpenShort: '🔍 Filter', foldOpenAria: 'Show search and filters',
     result: '{s} × {c} · {n} shops', resultOne: '{s} × {c} · 1 shop', resultMore: ' · +{n} filters', resultMoreOne: ' · +1 filter',
     matchNote: ' (matches the filters)', footnoteAsOf: 'Data as of {d}.',
     emptyTitle: 'No shops match', emptyText: 'Try other filters, or press “✕ Clear”; the number on each button is how many shops it would show.',
@@ -137,8 +141,11 @@ var els = {
   searchLabel: document.getElementById('searchLabel'),
   searchInput: document.getElementById('searchInput'),
   searchClear: document.getElementById('searchClear'),
+  resultLine: document.getElementById('resultLine'),
   resultText: document.getElementById('resultText'),
-  clearAll: document.getElementById('clearAll')
+  clearAll: document.getElementById('clearAll'),
+  foldOpen: document.getElementById('foldOpen'),
+  foldOpenText: document.getElementById('foldOpenText')
 };
 // Row labels, keyed by the UI string that fills them.
 var LABEL_IDS = { stateLabel: 'state', cityLabel: 'city', typeLabel: 'type', compLabel: 'comp',
@@ -561,6 +568,8 @@ function renderResultLine(businesses) {
   if (extra) text += t(extra === 1 ? 'resultMoreOne' : 'resultMore', { n: extra });
   els.resultText.textContent = text;
   els.clearAll.hidden = !anyFilterSet();
+  // Next to ✕ 清除 the 🔍 button takes its short label, so a 360px line doesn't wrap to three rows.
+  els.foldOpenText.textContent = t(anyFilterSet() ? 'foldOpenShort' : 'foldOpen');
 }
 
 // ── shop cards ──
@@ -948,6 +957,7 @@ function renderStaticText() {
   els.searchClear.setAttribute('aria-label', t('searchClear'));
   els.clearAll.textContent = t('clearAll');
   els.clearAll.setAttribute('aria-label', t('clearAllAria'));
+  els.foldOpen.setAttribute('aria-label', t('foldOpenAria'));
 }
 
 function refresh(filtersChanged) {
@@ -981,18 +991,34 @@ function setupSheetFold() {
   function setFolded(folded) {
     if (fold.classList.contains('folded') === folded) return;
     fold.classList.toggle('folded', folded);
+    els.foldOpen.hidden = !folded;
+    els.resultLine.classList.toggle('is-folded', folded);
     lockUntil = Date.now() + FOLD_MS + 50;
   }
 
+  // Scrolling up keeps the fold; only the list top (or the 🔍 button below) unfolds.
   body.addEventListener('scroll', function() {
     var y = body.scrollTop;
     if (!PHONE.matches || y <= FOLD_TOP) setFolded(false);
-    else if (Date.now() >= lockUntil) {
-      if (y > last + FOLD_STEP) setFolded(true);
-      else if (y < last - FOLD_STEP) setFolded(false);
-    }
+    else if (Date.now() >= lockUntil && y > last + FOLD_STEP) setFolded(true);
     last = y;
   }, { passive: true });
+
+  // The button is the keyboard and screen-reader control; on touch the whole result line opens
+  // too (✕ 清除 keeps its own job). Scrolling down again folds them, as at the start.
+  function unfold(event) {
+    var fromKeyboard = event.detail === 0;  // Enter/Space: a keyboard user needs focus somewhere visible
+    setFolded(false);
+    if (fromKeyboard) els.searchInput.focus({ preventScroll: true });
+  }
+  els.foldOpen.addEventListener('click', function(event) {
+    event.stopPropagation();
+    unfold(event);
+  });
+  els.resultLine.addEventListener('click', function(event) {
+    if (!fold.classList.contains('folded') || event.target.closest('#clearAll')) return;
+    unfold(event);
+  });
 
   // A collapsed sheet shows the title, so unfold whenever the sheet closes.
   new MutationObserver(function() {
