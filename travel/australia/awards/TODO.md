@@ -229,7 +229,8 @@ Step 1b 還沒打勾的兩項（PARTIAL 再查、使用者送 Wayback）留到 S
     - [x] Mr Bake、Mr Sourdough、Bakers Loaf（2026 各有第 1 名）再找門市 → 2026-11-03：Mr Bake 在 Robina 找到同名店、Bakers Loaf 只有新州 Inverell 的 The Bakers Loaf、Mr Sourdough 找不到；三家都只有店名，照 D9 維持 PARTIAL（`research/QLD-BAKING-SHOW.md`）
     - [x] Mr Bake（Robina）找身分證據 → 2026-11-03 找到：Ocean Road Magazine 2026-10-07 寫 MR Bake 香草千層拿 2026 昆州賽第 1 名 → 收（香草千層第 1 名＋白吐司「該班只頒出這一個名次」）；Mr Sourdough 查到是 Nambour 在家接單外送，沒有門市，照 D2 不收
     - [x] 寫進 CSV、重新產生 data.js（53 家、83 間）；node 測試「也推薦不會自己符合篩選」改成直接檢查那個獎（Squealing Pig 2024 同一組條件有真正的第 1 名，從昆州資料上線就會失敗）
-    - [ ] 👤 My Maps 重新匯入 83 間（`Downloads\australia-awards-mymaps.csv`），使用者刪 81 間舊圖層
+    - [x] 👤 My Maps 重新匯入（2026-11-03）：新圖層「得獎店家 83 間（依類型）」，烘焙 58 珊瑚紅、咖啡 25 深咖啡色；使用者刪 81 間舊圖層
+    - [x] push d0e537f，線上版看過：53 家、83 間
     - 原本的說明：布里斯本只有 7 間（全是咖啡、沒有烘焙），原因是 RAS 在雪梨（三年 818 件參賽品 NSW 591、QLD 41；QLD 金牌只有 5 面）、昆士蘭州賽第一版沒收（D4）。第一步：BAA **Queensland Baking Show**（2024–2026 官方結果 PDF 在 bakingbusiness.com.au/results/）的研究摘要：等級制度（有沒有金牌／冠軍）、結果有沒有地址、大概多幾家，給使用者決定
   - 備註，之後再決定要不要收的其他比賽：
     - BAA 其他州／地區烘焙展：Victorian、South Australia、Tasmania、Canberra Baking Show，以及 NSW 的 Newcastle、Wollongong Baking Show（BAA 清單上沒有 WA、NT）
