@@ -42,7 +42,9 @@ ENUMS = {
     ("competitions", "award_system"): ["medal_by_score", "placing", "ranking"],
     ("competitions", "entrant_scope"): ["business", "individual", "mixed"],
     ("businesses", "business_type"): ["bakery", "cafe", "roaster"],
-    ("businesses", "scope"): ["retail", "wholesale", "manufacturer", "supermarket", "chain_franchise", "other"],
+    # national_supermarket: Woolworths, Coles - kept as research, never published (D12, 2026-11-03)
+    ("businesses", "scope"): ["retail", "wholesale", "manufacturer", "supermarket", "national_supermarket",
+                              "chain_franchise", "other"],
     ("locations", "state_code"): STATES,
     ("locations", "location_role"): ["shop", "bakehouse", "hq"],
     ("locations", "location_type"): ["standalone", "supermarket_counter", "factory_shop", "in_supermarket"],
@@ -480,7 +482,8 @@ def skip_reason(a, at, b, open_shops, official_supports):
     if val(at, "attribution_status") != "VERIFIED":
         return "attribution is %s" % val(at, "attribution_status")
     if val(b, "scope") not in PUBLISHED_SCOPES:
-        return "business scope is %s (D2)" % val(b, "scope")
+        return "business scope is %s (%s)" % (val(b, "scope"), "D12" if val(b, "scope") == "national_supermarket"
+                                              else "D2")
     if val(a, "recipient_type") == "individual":
         return "individual award (D3)"
     if tier(a) is None:

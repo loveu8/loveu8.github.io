@@ -443,7 +443,8 @@ Coffee Mentality（RAS 2025 Specialty Foods Champion Coffee）：不在 RAS Prof
 | 店 | 狀態 | 備註 |
 |---|---|---|
 | LTT Patisserie、Rays Patisserie（2 間）、Uncle Bobs Bakery（2 間）、The Squealing Pig、Yamanto Central Patisserie | VERIFIED | 獨立店 |
-| Bakers Delight Arana Hills、Brumby's Westridge、Woolworths Lutwyche、Coles Park Ridge、Woolworths Tweed City（新州） | VERIFIED | 加盟店、超市，只收得獎門市 |
+| Bakers Delight Arana Hills、Brumby's Westridge | VERIFIED | 加盟店，只收得獎門市 |
+| Woolworths Lutwyche、Woolworths Tweed City（新州）、Coles Park Ridge | REJECTED（D12） | 全國連鎖超市不上網站（使用者 2026-11-03）；第一版的 Coles Casuarina 也一起拿掉。資料留在 CSV |
 | Egg Wash Bake Shop（Ashmore） | **PARTIAL** | D9：只有店名對上 |
 | Mr Bake、Mr Sourdough、Bakers Loaf | **PARTIAL** | Google Maps 找不到門市 |
 | Ca Phe In、Veganyumm、Woolworths Nundah | REJECTED | D11：第 1 名的班都沒有第 2 名 |

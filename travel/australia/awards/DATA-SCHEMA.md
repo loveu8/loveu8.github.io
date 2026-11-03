@@ -37,7 +37,7 @@
 | `business_id` | id | ✔ | `B-` 開頭，例如 `B-bonfire-bread` |
 | `official_name` | text | ✔ | 店家自己用的名稱（不是比賽登記的公司名，例如不寫 PTY LTD） |
 | `business_type` | enum | ✔ | `bakery`、`cafe`、`roaster`，可以多個，用 `;` 或 `；` 分隔，第一個是主類型 |
-| `scope` | enum | ✔ | `retail`（有門市可去）、`wholesale`、`manufacturer`、`supermarket`（超市內烘焙）、`chain_franchise`（連鎖加盟店）、`other`。上網站的只有 `retail`、`supermarket`、`chain_franchise`（D2）；後兩種卡片加標籤，門市怎麼挑見第 5 節條件 5。咖啡烘豆商有自己經營的咖啡店就是 `retail` |
+| `scope` | enum | ✔ | `retail`（有門市可去）、`wholesale`、`manufacturer`、`supermarket`（在地超市內烘焙，例如 Adelaide's Finest）、`national_supermarket`（全國連鎖超市 Woolworths、Coles：只當研究資料，不上網站，D12 2026-11-03）、`chain_franchise`（連鎖加盟店）、`other`。上網站的只有 `retail`、`supermarket`、`chain_franchise`（D2）；後兩種卡片加標籤，門市怎麼挑見第 5 節條件 5。咖啡烘豆商有自己經營的咖啡店就是 `retail` |
 | `related_refs` | text | | 和本站其他頁的交叉標註，`<頁>:<ID>`，多個用 `；` 分隔，例如 `brisbane-cafe:CF02` |
 | `website_url` | url | | 官網 |
 | `instagram_url` | url | | |

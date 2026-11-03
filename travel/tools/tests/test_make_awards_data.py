@@ -527,6 +527,16 @@ class BuildTest(unittest.TestCase):
         self.assertEqual(self.skipped["RAS-PB-2025-C3-E21"], "business has no champion, gold or 1st place (D1)")
         self.assertEqual(self.skipped["RAS-PB-2025-C3-E22"], "business scope is wholesale (D2)")
 
+    def test_national_supermarket_is_never_published(self):
+        # D12 (2026-11-03): Woolworths and Coles stay in the csv as research only.
+        t = copy.deepcopy(TABLES)
+        row(t, "businesses", "business_id", "B-beta")["scope"] = "national_supermarket"
+        self.assertEqual(m.check(t, TODAY)[0], [])
+        businesses, skipped = m.build(t)
+        self.assertNotIn("B-beta", [b["id"] for b in businesses])
+        self.assertEqual({a: r for a, _, r in skipped}["NABC-2025-C004-P1"],
+                         "business scope is national_supermarket (D12)")
+
     def test_partial_attribution_is_skipped(self):
         t = copy.deepcopy(TABLES)
         row(t, "award_attributions", "award_id", "NABC-2025-C004-P1")["attribution_status"] = "PARTIAL"
