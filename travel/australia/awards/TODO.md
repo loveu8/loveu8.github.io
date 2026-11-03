@@ -108,7 +108,7 @@ Step 1b 還沒打勾的兩項（PARTIAL 再查、使用者送 Wayback）留到 S
 - [x] `python tools/check_tokens.py` 無 ERROR
 - [x] 截圖：360px、768px、1280px × 中英 × 深淺色（2026-11-02 用最新版重拍 12 種組合＋手機抽屜打開、往下捲收起、獎項明細展開；無 console 錯誤、無橫向捲動）
 - [x] 鍵盤可以操作所有控制（2026-11-02 實測：Tab 順序合理、每個控制都有焦點框；Enter／Space 開關明細、📍 移動地圖。修正：選篩選後焦點掉回頁首 → 重畫後放回同一顆按鈕。Google 地圖 iframe 吃約 8 次 Tab，改不了）
-  - [ ] 類型篩選是 `role="tab"` 但不能用左右鍵切換 → Step 5 做篩選時一起處理（咖啡廳、烘焙頁同樣問題）
+  - [x] 類型篩選是 `role="tab"` 但不能用左右鍵切換 → Step 5 做好了（左右鍵、Home／End）。咖啡廳、烘焙頁同樣問題，和下面「焦點掉回頁首」一起修
 - [x] Console 無錯誤（上面 8 種畫面＋篩選、📍 操作）
 - [x] 👤 看截圖，確認徽章和版面（2026-11-01，看 12 張截圖的 5 個重點，3 個用 demo 選定後改好）：
   - [x] 第 1 名徽章灰 → 藍（藍、紫、深色實心三選一；澳洲農展會第 1 名是藍彩帶；`UI-PLAN.md` 3.3；a68eba0）
@@ -142,14 +142,14 @@ Step 1b 還沒打勾的兩項（PARTIAL 再查、使用者送 Wayback）留到 S
 
 - [x] 👤 決定 RAS 對照表沒涵蓋的班別歸哪一類（2026-11-02 使用者選 A：新增 `tart_choux`「塔／泡芙」收 Shortcrust、Choux；Filo → `pastry_pie`；Creative → `viennoiserie`。`GROUP_KEYWORDS`＋測試 57 個通過；`page.js` 品項名；`DATA-SCHEMA.md` 2.4）
 - [x] 店家介紹改寫成店家特色，不重複卡片上已有的城市、門市數（試驗 5 家 2026-11-02 改好、使用者確認語氣；每句有來源，寫在 `businesses.csv` 備註欄）
-- [ ] 第一批全部店家寫進 CSV（`CANDIDATES.md` 2.6：36 家、61 間門市）；介紹照試驗 5 家的寫法：一句、講特色、附來源
+- [x] 第一批全部店家寫進 CSV（`CANDIDATES.md` 2.6：36 家、61 間門市；三批都做完）；介紹照試驗 5 家的寫法：一句、講特色、附來源
   - [x] 第 1 批 10 家（2026-11-02，7952456）：Gumnut、Wholegreen、Slowbreads、Crois、Parfait、Hearthe、Sacrebleu!、Madame and Yves、Sébastien Sans Gluten、Tuga → 累計 15 家、35 門市、222 獎。RAS 冠軍重新打開官方 PDF 核對（2024 手冊 p.16、2025 目錄 p.12、2026 手冊 p.11–12）。產生工具加「已確認不同店」備註（Tuga 同一棟兩間店）
   - [x] 第 2 批（2026-11-02）：Hudson's、Doughheads、Bakehouse Delights、Sweet Ivy、Bakealicious、V's Dessert、Pudding Lane、Comeco、Forestway Fresh、Bakers Delight（一個品牌、兩間得獎加盟店，獎掛到門市；Bowral 沒過門檻不收）→ 累計 25 家、46 門市、265 獎。Doughheads 的 RAS 2025 參賽名稱是 MilkJam Co（生產者欄寫 DOUGHHEADS），收進並寫歸屬備註
   - [x] Doughheads 上線前再確認營業 → 2026-11-02 Google Maps 營業中、地址相同
   - [x] 第 3 批（2026-11-02）：VIC 4 家（Brazen Brownies、Piece of Cake、Wandin、Sourdough Portland）、NT Coles（Casuarina，烘焙師 staff_entry 掛到門市）、咖啡 4 家（Peak、Coffee Mentality、O'GaBee、Coffee Presto；烘焙廠兼咖啡店比照 Glee HQ 標工廠門市）→ 累計 34 家、60 門市、314 獎；新增來源 NABC 2024＋金豆賽 11 個分類
   - [x] 👤 Riviera Bakery（SA）：多個來源說是批發麵包廠 → 使用者 2026-11-02 選 A，先不收，改列 PARTIAL，和 Step 1b 的 7 家一起在上線前用 Chrome 再查（`CANDIDATES.md` 2.6）
   - [x] 上線前再查的門市（2026-11-02 Step 8，無頭 Chrome 查 Google Maps）：Coffee Mentality Google Maps 只有 3 間（就是收的 3 間），維持；**Coffee Presto Annandale Central 有自家濃縮咖啡吧 → 補上**（使用者選 A，My Maps 重新匯入 61 間，舊 60 間圖層由使用者刪除）；Wandin Bakery 店名在 Google Maps 就是 Wandin Bakery
-  - [ ] 手機副標題「34 家 · 60 間門市 · 官方結果 2024–2026」折行時把年份切開
+  - [x] 手機副標題「34 家 · 60 間門市 · 官方結果 2024–2026」折行時把年份切開 → 已修，見下方「完整資料的截圖」那項
 - [ ] Burleigh Baker 門市重查：報導（BOQ、2026）說另有 Tweed Heads 門市（NSW）、Harris Farm Isle of Capri 專櫃、Currumbin 總部；目前只收 Burleigh Heads、Paradise Point（專櫃照 D2 要收；總部看是不是門市）
 - [x] `make_awards_data.py` 無 ERROR、無 WARNING（2026-11-03 確認：51 家、81 間、0 個 WARNING）
 - [x] 篩選測試不怕補資料：25 組案例改跑在 5 家試驗資料的凍結副本 `awards_filter_fixture.js`（使用者 2026-11-02 選 A，不重算）；另加 5 個讀真實 `data.js` 的檢查，node 測試 36 個通過
@@ -224,7 +224,7 @@ Step 1b 還沒打勾的兩項（PARTIAL 再查、使用者送 Wayback）留到 S
     - [x] 頁尾說明昆州賽規則（2026-11-03）：賽事清單加昆士蘭烘焙賽；新增一條說明 D11；門市規則那條加「全國連鎖超市不列」（D12）；og:description 補昆州賽和世界百大。中英文在無頭 Chrome 看過
     - [x] 👤 My Maps 重新匯入（2026-11-03）：新圖層「得獎店家 81 間（依類型）」，烘焙 56 珊瑚紅、咖啡 25 深咖啡色；使用者刪舊圖層
     - [x] push 三個 commit（88f12e8、341f7b8、337dcc0），線上版看過：51 家、81 間，地圖已換
-    - [ ] 👤 Perpetual Trophy（個人總成績，三年都是 Luke Moy）要不要記、怎麼記（D11 說另外決定；他代表的 Woolworths／Coles 照 D12 已不上網站，所以目前不影響頁面）
+    - [x] 👤 Perpetual Trophy（個人總成績，三年都是 Luke Moy）要不要記、怎麼記 → 2026-11-03 不記（比照 D3 個人賽；寫在 `PLAN.md` D11）
     - [ ] Egg Wash Bake Shop（Ashmore）找身分證據（D9）：Instagram、店家說法或報導提到「Johnny Park」或昆州賽；找到再收（2024 香腸捲第 1 名）
     - [ ] Mr Bake、Mr Sourdough、Bakers Loaf（2026 各有第 1 名）再找門市
     - 原本的說明：布里斯本只有 7 間（全是咖啡、沒有烘焙），原因是 RAS 在雪梨（三年 818 件參賽品 NSW 591、QLD 41；QLD 金牌只有 5 面）、昆士蘭州賽第一版沒收（D4）。第一步：BAA **Queensland Baking Show**（2024–2026 官方結果 PDF 在 bakingbusiness.com.au/results/）的研究摘要：等級制度（有沒有金牌／冠軍）、結果有沒有地址、大概多幾家，給使用者決定
@@ -234,5 +234,5 @@ Step 1b 還沒打勾的兩項（PARTIAL 再查、使用者送 Wayback）留到 S
 - [ ] 8 家 PARTIAL 重查（見 Step 1b：ISEO、Cacao、The Beekeeper's Bakery、White Horse、The Bean Cartel、Latitude、The Purple Haze、Riviera）；查完只會增加店家，加店要重新匯入 My Maps
 
 - [ ] 👤 要不要每年更新（RAS 9 月、NABC 6–7 月、Golden Bean 6 月公布）
-- [ ] 咖啡廳、烘焙頁（`scripts/map-list.js`）和 Noosa 頁（`scripts/noosa.js`）也有「選篩選後焦點掉回頁首」的問題（同樣是 `innerHTML = ''` 重畫）；修法照 `awards.js` `renderFilters()`，改之前先拍 DOM 雜湊基準（2026-11-02 使用者選先只修得獎頁）
+- [ ] 咖啡廳、烘焙頁（`scripts/map-list.js`）和 Noosa 頁（`scripts/noosa.js`）也有「選篩選後焦點掉回頁首」的問題；咖啡廳、烘焙頁的類型篩選也還不能用左右鍵（同樣是 `innerHTML = ''` 重畫）；修法照 `awards.js` `renderFilters()`，改之前先拍 DOM 雜湊基準（2026-11-02 使用者選先只修得獎頁）
 - [ ] 之後的擴充候選：RAS Champion Coffee、BAA 其他賽事（Pie、Donut、各州 Baking Show）、和布里斯本咖啡廳頁互相標註（Espresso Club、Bellissimo）

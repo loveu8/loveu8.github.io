@@ -420,7 +420,7 @@
 
 - **問題**：Queensland Baking Show 只有名次，規模很小：每年約 10 間店得名次，很多班只頒出 1～2 個名次（2024 有 5 班、2026 有 6 班只有 1 個），PDF 沒有參賽件數，分不出第 1 名是不是唯一參賽者（`research/QLD-BAKING-SHOW.md`）。
 - **選項**：A 照現有規則（冠軍＋第 1 名）；B 冠軍＋「同班至少有第 2 名」的第 1 名；C 只收冠軍。
-- **決定**：B。冠軍（Champion Loaf／Champion Cake / Pastry of the Show）一律算招牌；第 1 名要同一班也頒了第 2 名才算招牌，否則不當店家門檻。第 2 名照 D1 列「也推薦」（只在店家已過門檻時）。Perpetual Trophy 是個人總成績，不算單一品項的獎，另外決定怎麼記。
+- **決定**：B。冠軍（Champion Loaf／Champion Cake / Pastry of the Show）一律算招牌；第 1 名要同一班也頒了第 2 名才算招牌，否則不當店家門檻。第 2 名照 D1 列「也推薦」（只在店家已過門檻時）。Perpetual Trophy 是個人總成績，不算單一品項的獎，另外決定怎麼記。→ 2026-11-03 決定不記：它頒給烘焙師個人的總分，比照 D3 不收個人賽；三年冠軍 Luke Moy 代表的 Woolworths／Coles 照 D12 也不上網站。研究 CSV 保留原始列。
 - **理由**：分量和雪梨皇家烘焙賽金牌、全國賽第 1 名比較一致，又能保留主要的店（Rays Patisserie、LTT Patisserie、Uncle Bobs Bakery），補上布里斯本的烘焙店。
 - **影響**：產生工具要能分辨「同班有沒有第 2 名」（例如 awards 加欄位或依同班資料判斷），頁尾加一句說明這條規則。
 - **補充（2026-11-03）**：店已經靠別的獎過門檻時，同班沒有第 2 名的第 1 名列「也推薦」（使用者選）。做法：`awards.csv` 加選填欄位 `class_places_awarded`（那班頒出幾個名次）。
