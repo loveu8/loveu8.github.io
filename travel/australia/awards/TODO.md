@@ -207,7 +207,7 @@ Step 1b 還沒打勾的兩項（PARTIAL 再查、使用者送 Wayback）留到 S
     - [x] 網頁：紫色徽章「世界百大 第 N 名」（冠軍 > 世界百大 > 金牌 > 第 1 名）、摘要、獎項明細、等級列「世界百大」、頁尾主辦／贊助說明；排名沒有品項，卡片不顯示得獎品項 → 46 家、73 門市、330 獎
     - [x] 👤 確認紫色徽章（使用者 2026-11-02 同意；寫進 `DESIGN.md` 徽章規則）
     - [x] 👤 My Maps 重新匯入 73 間（2026-11-02：圖層「得獎店家 73 間（依類型）」烘焙 48／咖啡 25，顏色同舊圖層；使用者刪掉 61 間舊圖層；登出狀態看嵌入地圖只剩新圖層）
-    - [ ] Only Coffee Project 另有「2026 大洋洲最佳咖啡店」（同一組織的地區獎）：目前寫在介紹裡，要不要另算一個獎再說
+    - [x] Only Coffee Project 另有「2026 大洋洲最佳咖啡店」（同一組織的地區獎）→ 使用者 2026-11-03 決定維持寫在介紹裡，不另算一個獎（同一份榜單，避免重複加分）
   - 同時查過、不收的：世界咖啡師大賽（個人賽，D3；2025 冠軍 Jack Simpson／Axil Coffee）；世界級烘焙比賽（甜點世界盃、Mondial du Pain 是國家隊或個人，D3），也沒有權威的「世界最佳麵包店」排名
 
 - [x] 👤 第二版：**先做昆州**（使用者 2026-11-02 決定）✅ **2026-11-03 完成並上線**（`PLAN.md` 進度表 v2-2；51 家、81 間門市；D11、D12）。進度：
@@ -233,6 +233,10 @@ Step 1b 還沒打勾的兩項（PARTIAL 再查、使用者送 Wayback）留到 S
     - 各州皇家農展會的烘焙組（例如 Royal Adelaide Show，Adelaide's Finest 有報導在那裡得很多獎）；還沒研究，不確定每州都有、官方結果查不查得到
 - [ ] 8 家 PARTIAL 重查（見 Step 1b：ISEO、Cacao、The Beekeeper's Bakery、White Horse、The Bean Cartel、Latitude、The Purple Haze、Riviera）；查完只會增加店家，加店要重新匯入 My Maps
 
-- [ ] 👤 要不要每年更新（RAS 9 月、NABC 6–7 月、Golden Bean 6 月公布）
+- [x] 👤 要不要每年更新（RAS 9 月、NABC 6–7 月、Golden Bean 6 月公布）→ 使用者 2026-11-03 選一年兩次：
+  - **每年 8 月**：金豆賽、全國手工烘焙賽、昆士蘭烘焙賽、世界百大（2 月公布）
+  - **每年 10 月**：雪梨皇家烘焙賽（9 月公布）
+  - 每次：轉錄官方結果 → 查新店門市 → 寫 CSV → 重新產生 `data.js` → 頁尾資料整理日期 → 重新匯入 My Maps（使用者刪舊圖層）
+- [ ] 2027-08 第一次更新（第一項：Golden Bean 2026 結果，2026-10-28 還沒公布）
 - [ ] 咖啡廳、烘焙頁（`scripts/map-list.js`）和 Noosa 頁（`scripts/noosa.js`）也有「選篩選後焦點掉回頁首」的問題；咖啡廳、烘焙頁的類型篩選也還不能用左右鍵（同樣是 `innerHTML = ''` 重畫）；修法照 `awards.js` `renderFilters()`，改之前先拍 DOM 雜湊基準（2026-11-02 使用者選先只修得獎頁）
 - [ ] 之後的擴充候選：RAS Champion Coffee、BAA 其他賽事（Pie、Donut、各州 Baking Show）、和布里斯本咖啡廳頁互相標註（Espresso Club、Bellissimo）
