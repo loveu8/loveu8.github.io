@@ -350,9 +350,11 @@ QLDBS-2024-C011-P1,QLDBS,2024,,011,680gm White Loaf Condensed Square (4 Piece),b
 QLDBS-2024-C012-P1,QLDBS,2024,,012,450gm White 3 Strand Plait,bread,,First,placing,,1,,,individual_for_business,Grace Stegeman Woolworths Lutwyche,VERIFIED,,2
 QLDBS-2024-C013-P1,QLDBS,2024,,013,Decorated Sponge (Any type) (No larger than 203mm) With Inscription,cake,,First,placing,,1,,,individual_for_business,Grace Stegeman Woolworths Lutwyche,VERIFIED,,1
 QLDBS-2024-C015-P1,QLDBS,2024,,015,2 Plain Meat Pie,pastry_pie,,First,placing,,1,,,business,Yamanto Central Patisserie,VERIFIED,,3
+QLDBS-2024-C015-P2,QLDBS,2024,,015,2 Plain Meat Pie,pastry_pie,,Second,placing,,2,,,individual_for_business,Johnny Park Egg Wash Bake Shop,VERIFIED,,3
 QLDBS-2024-C016-P1,QLDBS,2024,,016,2 Gourmet Pies,pastry_pie,,First,placing,,1,,,business,The Squealing Pig,VERIFIED,,3
 QLDBS-2024-C016-P2,QLDBS,2024,,016,2 Gourmet Pies,pastry_pie,,Second,placing,,2,,,business,The Squealing Pig,VERIFIED,,3
 QLDBS-2024-C017-P1,QLDBS,2024,,017,2 Pasties,pastry_pie,,First,placing,,1,,,business,The Squealing Pig,VERIFIED,,1
+QLDBS-2024-C018-P1,QLDBS,2024,,018,2 Sausage Rolls,pastry_pie,,First,placing,,1,,,individual_for_business,Johnny Park Egg Wash Bake Shop,VERIFIED,,3
 QLDBS-2024-C018-P2,QLDBS,2024,,018,2 Sausage Rolls,pastry_pie,,Second,placing,,2,,,business,The Squealing Pig,VERIFIED,,3
 QLDBS-2024-C022-P1,QLDBS,2024,,022,2 x Caramel Slice,cake,,First,placing,,1,,,business,Yamanto Central Patisserie,VERIFIED,,1
 QLDBS-2025-C001-P1,QLDBS,2025,,001,680g White Loaf Condensed Square (4 Piece),bread,,First,placing,,1,,,individual_for_business,Adam Kane Bakers Delight Arana Hills,VERIFIED,,3
@@ -379,11 +381,13 @@ QLDBS-2025-C013-P2,QLDBS,2025,,013,Decorated Sponge (Any type) (No larger than 2
 QLDBS-2025-C014-P1,QLDBS,2025,,014,Plain Traditional Beef Pie,pastry_pie,,First,placing,,1,,,individual_for_business,Grace Netov Woolworths Lutwyche,VERIFIED,,2
 QLDBS-2025-C014-P2,QLDBS,2025,,014,Plain Traditional Beef Pie,pastry_pie,,Second,placing,,2,,,individual_for_business,Elizabeth Green Brumby's Westridge,VERIFIED,,2
 QLDBS-2025-C015-P1,QLDBS,2025,,015,2 Plain Meat Pie,pastry_pie,,First,placing,,1,,,location,Rays Patisserie Carseldine,VERIFIED,,3
+QLDBS-2025-C015-P2,QLDBS,2025,,015,2 Plain Meat Pie,pastry_pie,,Second,placing,,2,,,individual_for_business,Johnny Park Eggwash Bakery,VERIFIED,,3
 QLDBS-2025-C016-P1,QLDBS,2025,,016,2 Gourmet Pies,pastry_pie,Cauliflower Flavour Pie,First,placing,,1,,,business,The Squealing Pig,VERIFIED,,3
 QLDBS-2025-C016-P2,QLDBS,2025,,016,2 Gourmet Pies,pastry_pie,Pizza Flavour Pie,Second,placing,,2,,,business,The Squealing Pig,VERIFIED,,3
 QLDBS-2025-C017-P1,QLDBS,2025,,017,2 Pasties,pastry_pie,,First,placing,,1,,,location,Rays Patisserie Carseldine,VERIFIED,,2
 QLDBS-2025-C017-P2,QLDBS,2025,,017,2 Pasties,pastry_pie,,Second,placing,,2,,,location,Rays Patisserie Taigum,VERIFIED,,2
 QLDBS-2025-C018-P1,QLDBS,2025,,018,2 Sausage Rolls,pastry_pie,,First,placing,,1,,,business,The Squealing Pig,VERIFIED,,3
+QLDBS-2025-C018-P2,QLDBS,2025,,018,2 Sausage Rolls,pastry_pie,,Second,placing,,2,,,individual_for_business,Johnny Park Eggwash Bakery,VERIFIED,,3
 QLDBS-2025-C020-P1,QLDBS,2025,,020,2 x Vanilla Slice,cake,,First,placing,,1,,,individual_for_business,Leon Ly LTT Patisserie,VERIFIED,,2
 QLDBS-2025-C020-P2,QLDBS,2025,,020,2 x Vanilla Slice,cake,,Second,placing,,2,,,location,Rays Patisserie Taigum,VERIFIED,,2
 QLDBS-2025-C022-P1,QLDBS,2025,,022,2 x Caramel Slice,cake,,First,placing,,1,,,location,Rays Patisserie Taigum,VERIFIED,,3
@@ -403,6 +407,7 @@ QLDBS-2026-C007-P2,QLDBS,2026,,007,"Sourdough, White Min. 500gm",sourdough,,Seco
 QLDBS-2026-C009-P1,QLDBS,2026,,009,"Sourdough, Rye Min. 500gm",sourdough,,First,placing,,1,,,individual_for_business,Luke Moy Coles Casurina,VERIFIED,,1
 QLDBS-2026-C011-P1,QLDBS,2026,,011,Gourmet Pull A Part Loaf,bread,,First,placing,,1,,,location,Rays Patisserie Carseldine,VERIFIED,,3
 QLDBS-2026-C011-P2,QLDBS,2026,,011,Gourmet Pull A Part Loaf,bread,,Second,placing,,2,,,individual_for_business,Luke Moy Coles Casurina,VERIFIED,,3
+QLDBS-2026-C012-P1,QLDBS,2026,,012,680gm White Loaf Condensed Square (4 Piece),bread,,First,placing,,1,,,business,Mr Bake,VERIFIED,,1
 QLDBS-2026-C016-P1,QLDBS,2026,,016,2 Plain Meat Pies,pastry_pie,,First,placing,,1,,,location,Rays Patisserie Taigum,VERIFIED,,3
 QLDBS-2026-C016-P2,QLDBS,2026,,016,2 Plain Meat Pies,pastry_pie,,Second,placing,,2,,,location,Rays Patisserie Carseldine,VERIFIED,,3
 QLDBS-2026-C017-P1,QLDBS,2026,,017,2 Chunky Beef Pies,pastry_pie,,First,placing,,1,,,location,Rays Patisserie Taigum,VERIFIED,,3
@@ -414,6 +419,7 @@ QLDBS-2026-C019-P2,QLDBS,2026,,019,2 Pasties,pastry_pie,,Second,placing,,2,,,loc
 QLDBS-2026-C020-P1,QLDBS,2026,,020,2 Sausage Rolls,pastry_pie,,First,placing,,1,,,location,LTT Patisserie Acacia Ridge,VERIFIED,,3
 QLDBS-2026-C027-P1,QLDBS,2026,,027,"Mud Cake, Decorated 203mm",cake,,First,placing,,1,,,location,Rays Patisserie Taigum,VERIFIED,,3
 QLDBS-2026-C027-P2,QLDBS,2026,,027,"Mud Cake, Decorated 203mm",cake,,Second,placing,,2,,,location,Rays Patisserie Carseldine,VERIFIED,,3
+QLDBS-2026-C028-P1,QLDBS,2026,,028,2 x Vanilla Slice,cake,,First,placing,,1,,,business,Mr Bake,VERIFIED,,3
 QLDBS-2026-C028-P2,QLDBS,2026,,028,2 x Vanilla Slice,cake,,Second,placing,,2,,,location,Rays Patisserie Taigum,VERIFIED,,3
 QLDBS-2026-C030-P1,QLDBS,2026,,030,2 x Caramel Slice,cake,,First,placing,,1,,,location,LTT Patisserie Acacia Ridge,VERIFIED,,3
 QLDBS-2026-C030-P2,QLDBS,2026,,030,2 x Caramel Slice,cake,,Second,placing,,2,,,location,Rays Patisserie Taigum,VERIFIED,,3

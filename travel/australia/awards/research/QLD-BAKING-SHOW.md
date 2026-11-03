@@ -90,6 +90,17 @@
 | Bakers Loaf | Google Maps「The Bakers Loaf Inverell」：206 Byron St, Inverell **NSW**，4.3。昆州找不到同名店 | 只有店名接近、又在州外，維持 PARTIAL |
 | Mr Sourdough | Google Maps、網路都找不到（NABC 2026 白酸種第 3 名也是這個名字，同樣沒寫地區） | 維持 PARTIAL |
 
+**2026-11-03 再查（使用者的 Chrome：Instagram、Google 搜尋）**：
+
+| 店 | 結果 | 證據 |
+|---|---|---|
+| Egg Wash Bake Shop（Ashmore） | **VERIFIED** | Google Maps 店家頁連到 Instagram @eggwash_gc（簡介地址 Shop2/406 Southport-Nerang Rd Ashmore）；置頂貼文 2025-05-24 https://www.instagram.com/eggwash_gc/p/DKCUOjNPHVV/ 寫 Johnny「again」參加 Queensland Baking Show 2025，香腸捲、肉派兩班都第 2 名，和官方 2025 結果相同 |
+| MR Bake（Robina） | **VERIFIED** | Ocean Road Magazine 2026-10-07 https://www.oceanroadmagazine.com.au/rising-to-the-occasion-mr-bake-robinas-award-winning-family-bakery/ ：「MR Bake's Vanilla Slice won First Place at the 2026 Queensland Baking Show」；地址 110 Laver Drive, Robina（Google Maps：Shop 4/110 Laver Dr，4.5，營業中）。2023 年由 Mitch、Sarah Rough 開業（官網 mrbake.com.au About Us） |
+| Mr Sourdough | **不收（D2）** | 是 Nambour 的 Tremain Permewan，在家做酸種、接訂單外送，也供貨給商店（Sunshine Valley Gazette 2022-07-26、Facebook 社團）；沒有門市 |
+| Bakers Loaf | PARTIAL | 只找到新州 Inverell 的 The Baker's Loaf，沒有參賽證據 |
+
+套 D11：Egg Wash 2024 香腸捲第 1 名（同班有第 2 名）→ 過門檻；另有 3 個第 2 名（2024 肉派、2025 肉派、2025 香腸捲）列「也推薦」。MR Bake 2026 香草千層第 1 名（同班有第 2 名）→ 過門檻；班 012 白吐司第 1 名同班只頒一個名次 → 「也推薦」。第 3 名不收（D1）。
+
 **身分查證（D9，2026-11-03）**：官方只寫店名、沒寫地區的 4 家另外找證據
 
 | 店 | 結果 | 證據 |

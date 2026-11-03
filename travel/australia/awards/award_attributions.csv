@@ -350,9 +350,11 @@ AT-QLDBS-2024-C011-P1-1,QLDBS-2024-C011-P1,B-woolworths,L-woolworths-lutwyche,st
 AT-QLDBS-2024-C012-P1-1,QLDBS-2024-C012-P1,B-woolworths,L-woolworths-lutwyche,staff_entry,VERIFIED,
 AT-QLDBS-2024-C013-P1-1,QLDBS-2024-C013-P1,B-woolworths,L-woolworths-lutwyche,staff_entry,VERIFIED,
 AT-QLDBS-2024-C015-P1-1,QLDBS-2024-C015-P1,B-yamanto-central-patisserie,,entrant,VERIFIED,
+AT-QLDBS-2024-C015-P2-1,QLDBS-2024-C015-P2,B-egg-wash-bake-shop,,staff_entry,VERIFIED,Johnny Park 代表 Egg Wash（店家 Instagram 2025-05-24）
 AT-QLDBS-2024-C016-P1-1,QLDBS-2024-C016-P1,B-the-squealing-pig,,entrant,VERIFIED,
 AT-QLDBS-2024-C016-P2-1,QLDBS-2024-C016-P2,B-the-squealing-pig,,entrant,VERIFIED,
 AT-QLDBS-2024-C017-P1-1,QLDBS-2024-C017-P1,B-the-squealing-pig,,entrant,VERIFIED,
+AT-QLDBS-2024-C018-P1-1,QLDBS-2024-C018-P1,B-egg-wash-bake-shop,,staff_entry,VERIFIED,Johnny Park 代表 Egg Wash（店家 Instagram 2025-05-24）
 AT-QLDBS-2024-C018-P2-1,QLDBS-2024-C018-P2,B-the-squealing-pig,,entrant,VERIFIED,
 AT-QLDBS-2024-C022-P1-1,QLDBS-2024-C022-P1,B-yamanto-central-patisserie,,entrant,VERIFIED,
 AT-QLDBS-2025-C001-P1-1,QLDBS-2025-C001-P1,B-bakers-delight,L-bakers-delight-arana-hills,staff_entry,VERIFIED,
@@ -379,11 +381,13 @@ AT-QLDBS-2025-C013-P2-1,QLDBS-2025-C013-P2,B-woolworths,L-woolworths-lutwyche,st
 AT-QLDBS-2025-C014-P1-1,QLDBS-2025-C014-P1,B-woolworths,L-woolworths-lutwyche,staff_entry,VERIFIED,
 AT-QLDBS-2025-C014-P2-1,QLDBS-2025-C014-P2,B-brumbys,L-brumbys-westridge,staff_entry,VERIFIED,
 AT-QLDBS-2025-C015-P1-1,QLDBS-2025-C015-P1,B-rays-patisserie,L-rays-patisserie-carseldine,entrant_location,VERIFIED,
+AT-QLDBS-2025-C015-P2-1,QLDBS-2025-C015-P2,B-egg-wash-bake-shop,,staff_entry,VERIFIED,Johnny Park 代表 Egg Wash（店家 Instagram 2025-05-24）
 AT-QLDBS-2025-C016-P1-1,QLDBS-2025-C016-P1,B-the-squealing-pig,,entrant,VERIFIED,
 AT-QLDBS-2025-C016-P2-1,QLDBS-2025-C016-P2,B-the-squealing-pig,,entrant,VERIFIED,
 AT-QLDBS-2025-C017-P1-1,QLDBS-2025-C017-P1,B-rays-patisserie,L-rays-patisserie-carseldine,entrant_location,VERIFIED,
 AT-QLDBS-2025-C017-P2-1,QLDBS-2025-C017-P2,B-rays-patisserie,L-rays-patisserie-taigum,entrant_location,VERIFIED,
 AT-QLDBS-2025-C018-P1-1,QLDBS-2025-C018-P1,B-the-squealing-pig,,entrant,VERIFIED,
+AT-QLDBS-2025-C018-P2-1,QLDBS-2025-C018-P2,B-egg-wash-bake-shop,,staff_entry,VERIFIED,Johnny Park 代表 Egg Wash（店家 Instagram 2025-05-24）
 AT-QLDBS-2025-C020-P1-1,QLDBS-2025-C020-P1,B-ltt-patisserie,,staff_entry,VERIFIED,
 AT-QLDBS-2025-C020-P2-1,QLDBS-2025-C020-P2,B-rays-patisserie,L-rays-patisserie-taigum,entrant_location,VERIFIED,
 AT-QLDBS-2025-C022-P1-1,QLDBS-2025-C022-P1,B-rays-patisserie,L-rays-patisserie-taigum,entrant_location,VERIFIED,
@@ -403,6 +407,7 @@ AT-QLDBS-2026-C007-P2-1,QLDBS-2026-C007-P2,B-coles,L-coles-casuarina,staff_entry
 AT-QLDBS-2026-C009-P1-1,QLDBS-2026-C009-P1,B-coles,L-coles-casuarina,staff_entry,VERIFIED,官方拼成 Casurina，就是 Casuarina
 AT-QLDBS-2026-C011-P1-1,QLDBS-2026-C011-P1,B-rays-patisserie,L-rays-patisserie-carseldine,entrant_location,VERIFIED,
 AT-QLDBS-2026-C011-P2-1,QLDBS-2026-C011-P2,B-coles,L-coles-casuarina,staff_entry,VERIFIED,官方拼成 Casurina，就是 Casuarina
+AT-QLDBS-2026-C012-P1-1,QLDBS-2026-C012-P1,B-mr-bake,,entrant,VERIFIED,
 AT-QLDBS-2026-C016-P1-1,QLDBS-2026-C016-P1,B-rays-patisserie,L-rays-patisserie-taigum,entrant_location,VERIFIED,
 AT-QLDBS-2026-C016-P2-1,QLDBS-2026-C016-P2,B-rays-patisserie,L-rays-patisserie-carseldine,entrant_location,VERIFIED,
 AT-QLDBS-2026-C017-P1-1,QLDBS-2026-C017-P1,B-rays-patisserie,L-rays-patisserie-taigum,entrant_location,VERIFIED,
@@ -414,6 +419,7 @@ AT-QLDBS-2026-C019-P2-1,QLDBS-2026-C019-P2,B-rays-patisserie,L-rays-patisserie-t
 AT-QLDBS-2026-C020-P1-1,QLDBS-2026-C020-P1,B-ltt-patisserie,L-ltt-patisserie-acacia-ridge,entrant_location,VERIFIED,
 AT-QLDBS-2026-C027-P1-1,QLDBS-2026-C027-P1,B-rays-patisserie,L-rays-patisserie-taigum,entrant_location,VERIFIED,
 AT-QLDBS-2026-C027-P2-1,QLDBS-2026-C027-P2,B-rays-patisserie,L-rays-patisserie-carseldine,entrant_location,VERIFIED,
+AT-QLDBS-2026-C028-P1-1,QLDBS-2026-C028-P1,B-mr-bake,,entrant,VERIFIED,
 AT-QLDBS-2026-C028-P2-1,QLDBS-2026-C028-P2,B-rays-patisserie,L-rays-patisserie-taigum,entrant_location,VERIFIED,
 AT-QLDBS-2026-C030-P1-1,QLDBS-2026-C030-P1,B-ltt-patisserie,L-ltt-patisserie-acacia-ridge,entrant_location,VERIFIED,
 AT-QLDBS-2026-C030-P2-1,QLDBS-2026-C030-P2,B-rays-patisserie,L-rays-patisserie-taigum,entrant_location,VERIFIED,

@@ -145,9 +145,12 @@ test("real data: a World's 100 Best place is its own level, never a 1st place, a
   assert.deepEqual(firstWithoutPlacing.map(b => b.name), []);
 });
 
-test('real data: each headline award finds its shop; silver and 2nd place find nothing', () => {
+test('real data: each headline award finds its shop; silver and 2nd place never match by themselves', () => {
   for (const b of REAL_SHOPS) for (const a of b.awards) {
     const f = { comp: a.comp, year: a.year, level: F.levelKey(a), group: a.group };
-    assert.equal(F.filter([b], f, CONFIG.typeGroups).length, a.tier === 'top' ? 1 : 0, a.id);
+    if (a.tier === 'top') assert.equal(F.filter([b], f, CONFIG.typeGroups).length, 1, a.id);
+    // An "also" award never matches by itself. The shop can still show up through a
+    // headline award with the same keys (Squealing Pig 2024: a lone 1st next to a real 1st).
+    else assert.equal(F.awardMatches(a, f), false, a.id);
   }
 });

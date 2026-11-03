@@ -12175,6 +12175,97 @@ var PAGE_DATA = {
       }
     },
     {
+      "id": "B-mr-bake",
+      "name": "MR Bake",
+      "types": [
+        "bakery"
+      ],
+      "scope": "retail",
+      "descZh": "黃金海岸在地人 Mitch 和 Sarah Rough 2023 年開的獨立家庭麵包店，Mitch 做烘焙超過 20 年。",
+      "descEn": "An independent family bakery opened in 2023 by Gold Coast locals Mitch and Sarah Rough; Mitch has more than 20 years in baking.",
+      "website": "https://www.mrbake.com.au/",
+      "instagram": "https://www.instagram.com/hellomrbake/",
+      "related": [],
+      "locations": [
+        {
+          "id": "L-mr-bake-robina",
+          "name": "Robina",
+          "address": "Shop 4/110 Laver Dr, Robina QLD 4226",
+          "suburb": "Robina",
+          "city": "Gold Coast",
+          "state": "QLD",
+          "lat": -28.0712765,
+          "lng": 153.3793329,
+          "type": "standalone",
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=MR%20Bake%20Shop%204/110%20Laver%20Dr%2C%20Robina%20QLD%204226"
+        }
+      ],
+      "awards": [
+        {
+          "id": "QLDBS-2026-C028-P1",
+          "comp": "QLDBS",
+          "year": 2026,
+          "level": "placing",
+          "medal": null,
+          "rank": 1,
+          "tier": "top",
+          "score": null,
+          "title": "First",
+          "category": "2 x Vanilla Slice",
+          "group": "cake",
+          "product": "",
+          "locationId": null,
+          "relation": "entrant",
+          "sources": [
+            {
+              "title": "2026 Queensland Baking Show official results",
+              "url": "https://bakingbusiness.com.au/wp-content/uploads/2026/07/Qld-Baking-Show-Official-Results_2026.pdf",
+              "archive": "",
+              "ref": "OVERALL RESULTS SUMMARY"
+            }
+          ],
+          "verifiedAt": "2026-11-02"
+        },
+        {
+          "id": "QLDBS-2026-C012-P1",
+          "comp": "QLDBS",
+          "year": 2026,
+          "level": "placing",
+          "medal": null,
+          "rank": 1,
+          "tier": "also",
+          "score": null,
+          "title": "First",
+          "category": "680gm White Loaf Condensed Square (4 Piece)",
+          "group": "bread",
+          "product": "",
+          "locationId": null,
+          "relation": "entrant",
+          "sources": [
+            {
+              "title": "2026 Queensland Baking Show official results",
+              "url": "https://bakingbusiness.com.au/wp-content/uploads/2026/07/Qld-Baking-Show-Official-Results_2026.pdf",
+              "archive": "",
+              "ref": "OVERALL RESULTS SUMMARY"
+            }
+          ],
+          "verifiedAt": "2026-11-02",
+          "aloneInClass": true
+        }
+      ],
+      "summary": {
+        "champion": 0,
+        "top100": 0,
+        "best100": null,
+        "gold": 0,
+        "first": 1,
+        "also": 1,
+        "years": [
+          2026
+        ]
+      }
+    },
+    {
       "id": "B-pudding-lane",
       "name": "Pudding Lane",
       "types": [
@@ -12286,6 +12377,151 @@ var PAGE_DATA = {
         "also": 2,
         "years": [
           2026
+        ]
+      }
+    },
+    {
+      "id": "B-egg-wash-bake-shop",
+      "name": "Egg Wash Bake Shop",
+      "types": [
+        "bakery"
+      ],
+      "scope": "retail",
+      "descZh": "在 Ashmore Pitstop 小商場裡的派和蛋糕店，店家自介主打肉派和蛋糕。",
+      "descEn": "A pie and cake shop in the small Ashmore Pitstop centre; its own bio leads with meat pies and cakes.",
+      "website": "",
+      "instagram": "https://www.instagram.com/eggwash_gc/",
+      "related": [],
+      "locations": [
+        {
+          "id": "L-egg-wash-bake-shop-ashmore",
+          "name": "Ashmore",
+          "address": "Shop 2/406 Southport Nerang Rd, Ashmore QLD 4214",
+          "suburb": "Ashmore",
+          "city": "Gold Coast",
+          "state": "QLD",
+          "lat": -27.9798142,
+          "lng": 153.3790551,
+          "type": "standalone",
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Egg%20Wash%20Bake%20Shop%20Shop%202/406%20Southport%20Nerang%20Rd%2C%20Ashmore%20QLD%204214"
+        }
+      ],
+      "awards": [
+        {
+          "id": "QLDBS-2025-C015-P2",
+          "comp": "QLDBS",
+          "year": 2025,
+          "level": "placing",
+          "medal": null,
+          "rank": 2,
+          "tier": "also",
+          "score": null,
+          "title": "Second",
+          "category": "2 Plain Meat Pie",
+          "group": "pastry_pie",
+          "product": "",
+          "locationId": null,
+          "relation": "staff_entry",
+          "sources": [
+            {
+              "title": "2025 Queensland Baking Show official results",
+              "url": "https://bakingbusiness.com.au/wp-content/uploads/2025/05/QLD2025FinalResults.pdf",
+              "archive": "",
+              "ref": "OVERALL RESULTS SUMMARY"
+            }
+          ],
+          "verifiedAt": "2026-11-02",
+          "recipient": "Johnny Park Eggwash Bakery"
+        },
+        {
+          "id": "QLDBS-2025-C018-P2",
+          "comp": "QLDBS",
+          "year": 2025,
+          "level": "placing",
+          "medal": null,
+          "rank": 2,
+          "tier": "also",
+          "score": null,
+          "title": "Second",
+          "category": "2 Sausage Rolls",
+          "group": "pastry_pie",
+          "product": "",
+          "locationId": null,
+          "relation": "staff_entry",
+          "sources": [
+            {
+              "title": "2025 Queensland Baking Show official results",
+              "url": "https://bakingbusiness.com.au/wp-content/uploads/2025/05/QLD2025FinalResults.pdf",
+              "archive": "",
+              "ref": "OVERALL RESULTS SUMMARY"
+            }
+          ],
+          "verifiedAt": "2026-11-02",
+          "recipient": "Johnny Park Eggwash Bakery"
+        },
+        {
+          "id": "QLDBS-2024-C018-P1",
+          "comp": "QLDBS",
+          "year": 2024,
+          "level": "placing",
+          "medal": null,
+          "rank": 1,
+          "tier": "top",
+          "score": null,
+          "title": "First",
+          "category": "2 Sausage Rolls",
+          "group": "pastry_pie",
+          "product": "",
+          "locationId": null,
+          "relation": "staff_entry",
+          "sources": [
+            {
+              "title": "2024 Queensland Baking Show official results",
+              "url": "https://bakingbusiness.com.au/wp-content/uploads/2024/05/2024-QLD-Official-Results.pdf",
+              "archive": "",
+              "ref": "OVERALL RESULTS SUMMARY"
+            }
+          ],
+          "verifiedAt": "2026-11-02",
+          "recipient": "Johnny Park Egg Wash Bake Shop"
+        },
+        {
+          "id": "QLDBS-2024-C015-P2",
+          "comp": "QLDBS",
+          "year": 2024,
+          "level": "placing",
+          "medal": null,
+          "rank": 2,
+          "tier": "also",
+          "score": null,
+          "title": "Second",
+          "category": "2 Plain Meat Pie",
+          "group": "pastry_pie",
+          "product": "",
+          "locationId": null,
+          "relation": "staff_entry",
+          "sources": [
+            {
+              "title": "2024 Queensland Baking Show official results",
+              "url": "https://bakingbusiness.com.au/wp-content/uploads/2024/05/2024-QLD-Official-Results.pdf",
+              "archive": "",
+              "ref": "OVERALL RESULTS SUMMARY"
+            }
+          ],
+          "verifiedAt": "2026-11-02",
+          "recipient": "Johnny Park Egg Wash Bake Shop"
+        }
+      ],
+      "summary": {
+        "champion": 0,
+        "top100": 0,
+        "best100": null,
+        "gold": 0,
+        "first": 1,
+        "also": 3,
+        "years": [
+          2024,
+          2025
         ]
       }
     },
