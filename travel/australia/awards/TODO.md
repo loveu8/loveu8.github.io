@@ -255,8 +255,9 @@ Step 1b 還沒打勾的兩項（PARTIAL 再查、使用者送 Wayback）留到 S
 實作順序（每題完成就 push）：
 - [x] 問題 1 收合（`awards.js` `setupSheetFold()`、`index.html` 結果列加 `#foldOpen`、`awards.css`；有篩選時縮短成「🔍 篩選 ▾」；無頭 Chrome 25 項檢查通過：中英、往回捲不展開、按鈕／點結果列／鍵盤 Enter 展開、回頂端／收抽屜展開、360／320px 有篩選時結果列最多兩行不溢出、桌機不收；`UI-PLAN.md` 4.2、`DESIGN.md` 收合規則已更新）
 - [x] 問題 2 明細全螢幕蓋版（`#detailSheet`、`awards.js` `openDetailSheet()`／`renderDetailsBody()`、`awards.css` 第 7 節；無頭 Chrome 26 項檢查通過：淺深色 × 中英，點明細打開、卡片不展開、焦點到 ✕、背後 inert、✕／返回鍵／Esc 都能關且焦點回卡片、也推薦可開關；手機有篩選時「· 符合 N 項」且符合的排前面；桌機維持卡片內展開、篩選自動展開；跨 768px 重畫；`UI-PLAN.md` 3.4c、`DESIGN.md` 兩層篩選＋新規則已更新）
-- [ ] 問題 3 卡片層級
-- [ ] 文件（`DESIGN.md` 徽章／門市按鈕例外／兩層篩選／蓋版、`UI-PLAN.md` 3.3、3.6、3.7）、截圖（360、768、1280 × 中英 × 深淺色）、push 後看線上版
+- [x] 問題 3 卡片層級（`awards.js` `renderAwardLine()` 取代 `renderBadge()`＋`renderSummary()`、`detailsLabel()` 品項數、拿掉「另有 N 項」；`awards.css` 第 1、3、5 節；53 張卡片逐張檢查：獎項一行在店名和地點之間、只有一段上色、沒有舊徽章／摘要、有得獎品項的明細按鈕寫品項數、世界百大只出現一次、沒有溢出；360／1280 × 淺深色 × 中英、390／768 淺色中英都通過，無 console 錯誤；問題 1、2 的檢查重跑也通過）
+- [x] 文件：`DESIGN.md`（獎項一行取代徽章規則、門市按鈕例外、兩層篩選手機例外、蓋版、收合）、`UI-PLAN.md`（3.3、3.4c、3.6、3.7、4.2）、`DECISIONS.md` 3 列
+- [ ] push 後看線上版
 - [ ] 👤 使用者手機實機看過
 
 - [x] 👤 **問題 1：手機清單往回捲時，搜尋區塊自動展開擋住清單**

@@ -1,35 +1,33 @@
 /* Award-winning shops map (travel/australia/awards/) — only what map-list.css doesn't have:
-   award badges, the award summary and details, the winning items, the one-line store list,
-   and the search box / 更多篩選 / result line (section 6).
-   Layout decisions: travel/australia/awards/UI-PLAN.md 3.3–3.7. Colors come from tokens only. */
+   the award line, the award details, the winning items, the one-line store list, the search
+   box / 更多篩選 / result line (section 6) and the phone detail sheet (section 7).
+   Layout decisions: travel/australia/awards/UI-PLAN.md 3.3–3.7. Colors come from tokens only.
+   Card hierarchy (user feedback 2026-11-03): the shop name is the one focal point; awards are
+   one line under it, the side boxes are left rules, store buttons are outlined, not filled. */
 
-/* ── 1. AWARD BADGE (first tag on the card; text, not 🥇 — 🥇 means Google top 3 elsewhere) ── */
-.award-badge {
-  font-size: var(--fs-2xs);
-  font-weight: 800;
-  padding: 1px var(--space-sm);
-  border-radius: var(--radius-sm);
-  border: 1px solid;
-}
-.award-badge-champion { background: var(--color-accent-soft); color: var(--color-accent-strong); border-color: var(--color-accent-border); }
-/* Amber is the food-tag family and the nearest thing to gold; the text-safe token keeps 4.5:1. */
-.award-badge-gold { background: var(--color-warm-soft); color: var(--color-warning-text); border-color: var(--color-warm-border); }
-/* Places are a different system from medals, so 1st place does not share the gold amber.
-   Blue follows Australian show ribbons (1st prize = blue); the user picked it over neutral
-   grey, which read like a type tag (2026-11-01, UI-PLAN 3.3). */
-.award-badge-first { background: var(--color-primary-soft); color: var(--color-primary-strong); border-color: var(--color-primary-border); }
-/* A place in The World's 100 Best Coffee Shops: violet, the colour DESIGN.md keeps rare for
-   special moments, so a world ranking does not look like a medal or a podium place (2026-11-02). */
-.award-badge-top100 { background: var(--color-violet-soft); color: var(--color-violet); border-color: var(--color-violet-border); }
-
-/* ── 2. SUMMARY + DETAILS ── */
-.award-summary {
-  margin-top: var(--space-sm);
-  font-size: var(--fs-xs);
-  font-weight: 600;
-  color: var(--color-text);
+/* ── 1. AWARD LINE (under the shop name, like a rating under a place name; text, not 🥇 —
+   🥇 means Google top 3 elsewhere). Only the highest honour is coloured, text only. ── */
+.award-headline {
+  margin-top: 2px;
+  font-size: var(--fs-sm);
+  line-height: 1.45;
   font-variant-numeric: tabular-nums;
 }
+.award-hi { font-weight: 700; }
+.award-rest { font-weight: 500; color: var(--color-text-muted); }
+.award-hi-champion { color: var(--color-accent-strong); }
+/* Amber is the food-tag family and the nearest thing to gold; the text-safe token keeps 4.5:1. */
+.award-hi-gold { color: var(--color-warning-text); }
+/* Places are a different system from medals, so 1st place does not share the gold amber.
+   Blue follows Australian show ribbons (1st prize = blue; UI-PLAN 3.3, 2026-11-01). */
+.award-hi-first { color: var(--color-primary-strong); }
+/* A place in The World's 100 Best Coffee Shops: violet, the colour DESIGN.md keeps rare for
+   special moments, so a world ranking does not look like a medal or a podium place (2026-11-02). */
+.award-hi-top100 { color: var(--color-violet); }
+.shop-card .shop-meta { margin-top: 2px; }
+.shop-card .shop-tags { margin-top: 6px; }
+
+/* ── 2. DETAILS ── */
 .award-details { margin-top: var(--space-xs); font-size: var(--fs-xs); }
 .award-details > summary,
 .award-also > summary,
@@ -72,13 +70,13 @@
 }
 
 /* ── 3. WINNING ITEMS (what to order: top 3 items, the awards each won, latest year) ── */
-/* No medals or ranks here, so it doesn't read as the Google top 3 block on the cafe/bakery pages. */
+/* No medals or ranks here, so it doesn't read as the Google top 3 block on the cafe/bakery pages.
+   A left rule in the gold family, no fill or box (user chose B 2026-11-03): it stays findable
+   without competing with the shop name. */
 .award-items {
-  margin-top: var(--space-sm);
-  padding: 6px 10px;
-  border-radius: var(--radius-md);
-  background: var(--color-surface-warm);
-  border: 1px solid var(--color-border-soft);
+  margin-top: 12px;
+  padding: 6px 0 2px 12px;
+  border-left: 3px solid var(--color-warm-border);
   font-size: var(--fs-xs);
 }
 .award-items-title { font-weight: 800; color: var(--color-text); margin-bottom: var(--space-2xs); }
@@ -93,16 +91,14 @@
 }
 .award-item-name { font-weight: 600; color: var(--color-text); min-width: 0; overflow-wrap: anywhere; }
 .award-item-awards { flex-shrink: 0; color: var(--color-text-muted); font-variant-numeric: tabular-nums; text-align: right; }
-.award-items-more { padding-top: 3px; color: var(--color-text-muted); }
 
-/* Google review picks (World's 100 Best shops, user chose C 2026-11-02): same box as the winning
-   items, but with the green that means "大家推薦" on the cafe/bakery pages, so it doesn't read as an award. */
+/* Google review picks (World's 100 Best shops, user chose C 2026-11-02): same left rule as the
+   winning items (2026-11-03), but in the green that means "大家推薦" on the cafe/bakery pages,
+   so it doesn't read as an award. */
 .review-picks {
-  margin-top: var(--space-sm);
-  padding: 6px 10px;
-  border-radius: var(--radius-md);
-  background: var(--color-surface-warm);
-  border: 1px solid var(--color-secondary-border);
+  margin-top: 12px;
+  padding: 6px 0 2px 12px;
+  border-left: 3px solid var(--color-secondary-border);
   font-size: var(--fs-xs);
 }
 .review-picks-title { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px; font-weight: 800; color: var(--color-text); margin-bottom: var(--space-2xs); }
@@ -307,8 +303,22 @@
   .result-open { display: none !important; }
 }
 
-/* ── 5. STORE LIST (one line per store: 📍 area · name + ↗ Maps) ── */
-.store-list { margin-top: var(--space-xs); }
+/* ── 5. STORE LIST (one line per store: 📍 area · name + ↗ Maps) ──
+   Outlined pills on the surface, not the blue-filled pills of the other list pages (DESIGN.md
+   "Tappable = pill" exception, user chose A 2026-11-03): a card with several stores was mostly
+   blue and pulled the eye off the shop name. Still a bordered pill with icon + text. */
+.store-list {
+  margin-top: 10px;
+  padding-top: 8px;
+  border-top: 1px solid var(--color-border-soft);
+}
+.store-row .pill-map,
+.store-row .pill-ext {
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  border-color: var(--color-border);
+  font-weight: 600;
+}
 .store-head { font-size: var(--fs-2xs); font-weight: 800; color: var(--color-text-muted); }
 .store-row {
   display: flex;

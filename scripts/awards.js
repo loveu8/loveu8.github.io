@@ -52,11 +52,11 @@ var UI = {
     levels: { champion: '冠軍', top100: '世界百大', gold: '金牌', silver: '銀牌', first: '第 1 名', second: '第 2 名' },
     rankOf: '第 {n} 名',
     levelsShort: { champion: '冠軍', gold: '金牌', first: '第 1 名' },
-    items: '得獎品項', moreItems: '另有 {n} 項，見獎項明細',
+    items: '得獎品項',
     picksTitle: 'Google 評論大家推薦', picksAsOf: '{d} 整理', picksCount: '{n} 則 · {s} ★',
     picksGroup: 'Google 評論常點', picksSections: { drink: '飲品', food: '餐點' }, picksRec: '大家推薦',
     picksMeta: '括號是提到的評論數 · Google 評論整理 {d}',
-    details: '獎項明細（{n}）', groupTop: '招牌', groupAlsoCount: '也推薦（{n}）',
+    details: '獎項明細（{n}）', detailsItems: '獎項明細（{i} · {a}）', itemsCount: '{n} 項品項', awardsCount: '{n} 個獎', groupTop: '招牌', groupAlsoCount: '也推薦（{n}）',
     detailsMatch: '· 符合 {n} 項', detailClose: '✕ 收合',
     awardStore: '{s} 店', staffEntry: '參賽者：{r}', aloneInClass: '該班只頒出這一個名次',
     source: '官方結果 ↗', archive: '存檔 ↗', verified: '查證 {d}',
@@ -92,11 +92,11 @@ var UI = {
     levels: { champion: 'Champion', top100: "World's 100 Best", gold: 'Gold medal', silver: 'Silver medal', first: '1st place', second: '2nd place' },
     rankOf: '#{n}',
     levelsShort: { champion: 'Champion', gold: 'Gold', first: '1st' },
-    items: 'Winning items', moreItems: '{n} more in the award details',
+    items: 'Winning items',
     picksTitle: 'Google reviewers recommend', picksAsOf: 'as of {d}', picksCount: '{n} reviews · {s} ★', picksCountOne: '1 review · {s} ★',
     picksGroup: 'Popular in Google reviews', picksSections: { drink: 'Drinks', food: 'Food' }, picksRec: 'Recommended',
     picksMeta: 'Numbers are reviews that mention it · Google reviews checked {d}',
-    details: 'Award details ({n})', groupTop: 'Headline awards', groupAlsoCount: 'Also recommended ({n})',
+    details: 'Award details ({n})', detailsItems: 'Award details ({i} · {a})', itemsCount: '{n} items', itemsCountOne: '1 item', awardsCount: '{n} awards', awardsCountOne: '1 award', groupTop: 'Headline awards', groupAlsoCount: 'Also recommended ({n})',
     detailsMatch: ' · {n} match', detailsMatchOne: ' · 1 match', detailClose: '✕ Close',
     awardStore: '{s} store', staffEntry: 'Entrant: {r}', aloneInClass: 'the only place awarded in this class',
     source: 'Official results ↗', archive: 'Archive ↗', verified: 'Checked {d}',
@@ -584,14 +584,6 @@ function rememberedDetails(className, key, defaultOpen) {
   return details;
 }
 
-// Highest honour: champion, then a World's 100 Best place (its best rank), then gold, then 1st.
-function renderBadge(counts) {
-  var key = counts.champion ? 'champion' : counts.top100 ? 'top100' : counts.gold ? 'gold' : 'first';
-  var badge = el('span', 'award-badge award-badge-' + key);
-  badge.appendChild(levelLabel(key, key === 'top100' ? counts.best100 : null));
-  return badge;
-}
-
 // A location type that every store shares goes on the card once (UI-PLAN 3.4b).
 function sharedLocationType(business) {
   var types = unique(business.locations.map(function(l) { return l.type; }));
@@ -601,7 +593,6 @@ function sharedLocationType(business) {
 function renderTags(business) {
   var L = UI[state.lang];
   var tags = el('div', 'shop-tags');
-  tags.appendChild(renderBadge(headlineCounts(business)));
   business.types.forEach(function(type) { tags.appendChild(el('span', 'tag', L.types[type] || type)); });
   if (L.scopes[business.scope]) tags.appendChild(el('span', 'tag', L.scopes[business.scope]));
   var shared = sharedLocationType(business);
@@ -609,17 +600,34 @@ function renderTags(business) {
   return tags;
 }
 
-// Headline awards only (UI-PLAN 3.6): "冠軍 2 · 金牌 8 · 第 1 名 2 · 2024–2026".
-function renderSummary(business) {
+// One award line under the shop name, like a rating under a place name on Google Maps
+// (user feedback 2026-11-03, UI-PLAN 3.6): "🏆 冠軍 2 · 金牌 8 · 第 1 名 2 · 2024–2026".
+// It replaces the old badge + summary pair, which said the top honour twice. Only the
+// highest honour (champion > World's 100 Best > gold > 1st) is coloured; only champion has
+// an icon. Headline awards only.
+function renderAwardLine(business) {
   var counts = headlineCounts(business);
   var parts = [];
-  if (counts.top100) parts.push(levelText('top100', counts.best100));  // a rank, not a count
-  ['champion', 'gold', 'first'].forEach(function(key) {
-    if (counts[key]) parts.push(UI[state.lang].levels[key] + ' ' + counts[key]);
+  ['champion', 'top100', 'gold', 'first'].forEach(function(key) {
+    if (!counts[key]) return;
+    // A World's 100 Best place is a rank, not a count.
+    parts.push({ key: key, text: key === 'top100' ? levelText(key, counts.best100) : UI[state.lang].levels[key] + ' ' + counts[key] });
   });
   var top = business.awards.filter(function(a) { return a.tier === 'top'; });
-  parts.push(yearRange(top.length ? top : business.awards));
-  return el('div', 'award-summary', parts.join(' · '));
+  var line = el('div', 'award-headline');
+  if (parts.length) {
+    var hi = el('span', 'award-hi award-hi-' + parts[0].key);
+    if (parts[0].key === 'champion') {
+      var cup = el('span', '', '🏆 ');
+      cup.setAttribute('aria-hidden', 'true');
+      hi.appendChild(cup);
+    }
+    hi.appendChild(document.createTextNode(parts[0].text));
+    line.appendChild(hi);
+  }
+  var rest = parts.slice(1).map(function(p) { return p.text; }).concat(yearRange(top.length ? top : business.awards));
+  line.appendChild(el('span', 'award-rest', (parts.length ? ' · ' : '') + rest.join(' · ')));
+  return line;
 }
 
 // ── winning items (what to order) ──
@@ -667,8 +675,7 @@ function renderItems(business) {
     li.appendChild(el('span', 'award-item-awards', itemAwardsText(item)));
     list.appendChild(li);
   });
-  box.appendChild(list);
-  if (items.length > ITEMS_SHOWN) box.appendChild(el('div', 'award-items-more', t('moreItems', { n: items.length - ITEMS_SHOWN })));
+  box.appendChild(list);  // how many more there are is on the 獎項明細 button (detailsLabel)
   return box;
 }
 
@@ -798,10 +805,15 @@ function awardMatcher() {
   return function(a) { return awardFilter && AwardsFilter.awardMatches(a, state.f); };
 }
 
-// "獎項明細（50）", plus " · 符合 3 項" on phones with award filters on: there the details
-// don't open by themselves, so the count says why the shop is in the results.
+// "獎項明細（17 項品項 · 50 個獎）": the item count replaces the old "另有 14 項，見獎項明細"
+// line under the winning items (user feedback 2026-11-03), so it is said once. Shops without
+// winning items (World's 100 Best) keep "獎項明細（2）". On phones with award filters on,
+// "· 符合 3 項" follows: the details don't open by themselves there, so the count says why
+// the shop is in the results.
 function detailsLabel(business) {
-  var text = t('details', { n: business.awards.length });
+  var items = winningItems(business).length;
+  var n = business.awards.length;
+  var text = items ? t('detailsItems', { i: t('itemsCount', { n: items }), a: t('awardsCount', { n: n }) }) : t('details', { n: n });
   if (PHONE.matches && AwardsFilter.hasAwardFilter(state.f)) {
     text += t('detailsMatch', { n: business.awards.filter(awardMatcher()).length });
   }
@@ -964,6 +976,7 @@ function renderCard(business) {
   var head = el('div', 'shop-head');
   var title = el('div', 'shop-title');
   title.appendChild(el('h2', 'shop-name', business.name));
+  title.appendChild(renderAwardLine(business));
   var locs = business.locations;
   title.appendChild(el('div', 'shop-meta', t('meta', {
     c: unique(locs.map(function(l) { return l.city; })).join(isEn() ? ', ' : '、'),
@@ -974,7 +987,6 @@ function renderCard(business) {
   card.appendChild(head);
 
   card.appendChild(renderTags(business));
-  card.appendChild(renderSummary(business));
   var items = renderItems(business);
   if (items) card.appendChild(items);
   var picks = renderReviewPicks(business);
