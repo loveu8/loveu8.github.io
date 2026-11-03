@@ -63,13 +63,14 @@ var UI = {
     scopes: { supermarket: '超市內烘焙', chain_franchise: '連鎖加盟店' },
     locTypes: { supermarket_counter: '超市內專櫃', factory_shop: '工廠門市' },
     footnote: [
-      '獎項來自雪梨皇家烘焙賽、全國手工烘焙賽、金豆烘豆賽 2024–2026 和世界百大咖啡店 2025–2026 官方公布的結果，每一筆都附來源連結和查證日期。',
+      '獎項來自雪梨皇家烘焙賽、全國手工烘焙賽、昆士蘭烘焙賽、金豆烘豆賽 2024–2026 和世界百大咖啡店 2025–2026 官方公布的結果，每一筆都附來源連結和查證日期。',
       '世界百大咖啡店是「排名」，不是評分比賽：由 The World\'s 100 Best Coffee Shops（執行長 César Ramírez）舉辦，冠名贊助是 Kerry 集團旗下的 DaVinci Gourmet，另有 Slayer、Cropster 等咖啡品牌贊助；專業評審佔 70%、公開投票佔 30%，評審名單沒有公開。地圖只放官方寫的那一間店。',
       '排名沒有品項，所以世界百大的店另附 Google 評論整理：取評論關鍵字裡的飲品和餐點，最新評論平均 4.5 星以上、1～2 星不超過 1 成的標「大家推薦」。這是評論整理，不是獎項。',
       '金牌是分數制，達到分數就有，同一班可以有好幾面；第 1 名是名次，每班只有一個，兩者不能直接比。',
       '卡片列出冠軍、金牌、第 1 名（招牌）和銀牌、第 2 名（也推薦），銅牌和第 3 名不列。',
+      '昆士蘭烘焙賽規模比較小，很多班只頒出一兩個名次，官方也沒公布參賽件數；所以那一班也頒了第 2 名，第 1 名才算招牌，只頒出第 1 名的列在「也推薦」。',
       '雪梨皇家烘焙賽在雪梨舉辦，所以新州的店特別多；咖啡店則有一大半在昆士蘭。',
-      '獎項代表得獎當年那間店的水準；連鎖加盟店只列得獎的那一間；超市的獎沒有指定門市時，列出它有烘焙部的門市。',
+      '獎項代表得獎當年那間店的水準；連鎖加盟店只列得獎的那一間；超市的獎沒有指定門市時，列出它有烘焙部的門市。全國連鎖超市（Woolworths、Coles）的獎多半是店內烘焙師個人參賽、照總公司配方做，不列。',
       '篩選只作用在清單，地圖固定顯示全部門市；賽事、年份、等級、品項只看冠軍、金牌、第 1 名。'
     ]
   },
@@ -100,13 +101,14 @@ var UI = {
     scopes: { supermarket: 'In-store supermarket bakery', chain_franchise: 'Franchise store' },
     locTypes: { supermarket_counter: 'Supermarket counter', factory_shop: 'Factory shop' },
     footnote: [
-      "Awards come from the official 2024–2026 results of the Sydney Royal Bakery show, the National Artisan Baking Competition and Golden Bean, and The World's 100 Best Coffee Shops 2025–2026; every row links to its source and the date it was checked.",
+      "Awards come from the official 2024–2026 results of the Sydney Royal Bakery show, the National Artisan Baking Competition, the Queensland Baking Show and Golden Bean, and The World's 100 Best Coffee Shops 2025–2026; every row links to its source and the date it was checked.",
       "The World's 100 Best Coffee Shops is a ranking, not a scored competition: it is run by The World's 100 Best Coffee Shops (CEO César Ramírez), with Kerry's DaVinci Gourmet as title sponsor and coffee brands such as Slayer and Cropster as sponsors; an expert panel gives 70% of the score and a public vote 30%, and the judges are not named. Only the shop named on the official page is on the map.",
       "A ranking names no items, so World's 100 Best shops also get a Google review summary: drinks and food from the review keywords, marked “Recommended” when the latest reviews average 4.5 stars or more with no more than 1 in 10 at 1–2 stars. It is a review summary, not an award.",
       'Gold medals are scored: every entry above the mark gets one, so a class can have several. A 1st place is a ranking, one per class. The two are not the same thing.',
       'Cards list champions, gold medals and 1st places (headline awards) plus silver medals and 2nd places (also recommended); bronze and 3rd places are left out.',
+      'The Queensland Baking Show is small: many classes hand out only one or two places, and entry numbers are not published. So a 1st place counts as a headline award only when its class also awarded a 2nd; a 1st place that was the only place awarded is listed under also recommended.',
       'The Sydney Royal show is held in Sydney, so NSW shops are over-represented; more than half the coffee stores are in Queensland.',
-      'An award reflects that shop in the year it won; for franchises only the winning store is listed; when a supermarket’s award names no store, every store with its own bakery is listed.',
+      'An award reflects that shop in the year it won; for franchises only the winning store is listed; when a supermarket’s award names no store, every store with its own bakery is listed. National supermarket chains (Woolworths, Coles) are left out: their awards mostly go to individual in-store bakers working to head-office recipes.',
       'Filters apply to the list only; the map always shows every store. Competition, year, level and item look at champions, gold medals and 1st places only.'
     ]
   }
