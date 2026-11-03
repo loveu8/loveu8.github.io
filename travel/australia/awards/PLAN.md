@@ -1,7 +1,7 @@
 # 澳洲得獎咖啡與烘焙地圖：開發計畫
 
 - 日期：2026-10-26
-- 狀態：**第一版已完成並上線（2026-11-02）**：34 家、61 間門市、314 個獎，首頁有入口。**第二版第一項「世界百大咖啡店」也已上線（2026-11-02）**：46 家、73 間門市、330 個獎，12 間附 Google 評論推薦。上線後的事項在 `TODO.md`「上線後」。**第二版第二項「昆士蘭州賽」進行中**：調查、D11、轉錄、候選名單、Yamanto 地址、寫進 CSV、產生工具支援 D11、D12（Woolworths、Coles 不上網站）都完成（data.js 已更新，51 家、81 間），頁尾說明也完成；下一步是 My Maps 重新匯入、push（見進度表 v2-2）
+- 狀態：**第一版已完成並上線（2026-11-02）**：34 家、61 間門市、314 個獎，首頁有入口。**第二版第一項「世界百大咖啡店」也已上線（2026-11-02）**：46 家、73 間門市、330 個獎，12 間附 Google 評論推薦。上線後的事項在 `TODO.md`「上線後」。**第二版第二項「昆士蘭州賽」也已上線（2026-11-03）**：51 家、81 間門市；D11（沒有第 2 名的第 1 名列也推薦）、D12（Woolworths、Coles 不上網站）
 - 待辦：`TODO.md`（每個 Step 拆成可打勾的小項目；這份的進度表只記每個 Step 的狀態）
 - 文件：`RESEARCH.md`（賽事研究、覆蓋矩陣、衝突）、`CANDIDATES.md`（候選與查證狀態）、`DATA-SCHEMA.md`（CSV 欄位、產生工具）、`UI-PLAN.md`（介面）
 - 參考：根目錄 `AGENTS.md`、`DESIGN.md`、`DECISIONS.md`；`travel/australia/brisbane/cafe/PLAN.md`（共用化的前例）
@@ -25,7 +25,7 @@
 | 7 | 地圖（My Maps，原 Step 6） | ✅ 完成 | 2026-11-02 | ad72b6f、2ae569e、（本 commit） | My Maps 面板中英並列（使用者看 A／B／C 選 A）；60 個點、依類型兩色、沒登入可看；總覽固定 `ll=-25.5,142&z=4`（手機、桌機都框得住全部門市），`list-map-shell.js` 州別網址換掉原有 `ll`／`z`；6 州框選、60 個 📍、60 個 ↗ Maps 搜尋結果都驗證過（`TODO.md` Step 7）。**下一步**：Step 8（首頁入口、16 項 QA 檢查表、上線前再查的門市；push 要使用者同意） |
 | 8 | QA、首頁入口與上線 | ✅ 完成 | 2026-11-02 | de6309b、1253506、8c361f5、（本 commit） | 首頁入口上線（使用者同意 push）；16 項 QA 結果寫在第 6 節，線上版檢查通過；上線前重查補上 Coffee Presto Annandale（61 間，My Maps 重新匯入）；使用者 iPhone 實機、列印看過沒問題。**第一版完成**。上線後：8 家 PARTIAL 重查；使用者提出布里斯本太少 → 第二版考慮加 Queensland Baking Show 等州賽（`TODO.md`「上線後」） |
 | v2-1 | 世界百大咖啡店（第二版第一項，插隊） | ✅ 完成 | 2026-11-02 | 76e2b37、ec636e0、3aef448、09eb035、22c2c7a、a9af49c、00a9a9d、4f88111、（本 commit） | 決定見 D10。新增「排名」等級、12 間店（只收官方寫的那一間）、紫色徽章「世界百大 第 N 名」、頁尾寫主辦和贊助；My Maps 重新匯入 73 間；用使用者的 Chrome 查 Google 評論推薦（`REVIEW-PICKS.md`、`review_picks.csv`），版面 C（卡片放 ✅、明細放前三名）。46 家、73 門市、330 獎，全部上線並看過線上版 |
-| v2-2 | 昆士蘭州賽（Queensland Baking Show） | 🔄 進行中 | | 90bbb6d、（本 commit） | 2026-11-02 基本調查完成（`research/QLD-BAKING-SHOW.md`）：名次制、三年官方 PDF、可能多 8～12 個獨立品牌＋4～5 間加盟店／超市，多在布里斯本；比賽規模小（每年約 10 間店得名次）。使用者選 B（D11）：冠軍＋同班有第 2 名的第 1 名。轉錄 175 列、套 D11、Google Maps 查門市完成（fdbb53e）：昆州 12 間門市過門檻；The Squealing Pig（肉店做派）使用者選 A 收。Yamanto 地址確認（2026-11-03：Yamanto Central 商場，488 Warwick Rd）。寫進 CSV（2026-11-03）：94 個獎、7 個新品牌、12 間門市；Egg Wash 照 D9 改 PARTIAL；同班沒有第 2 名的第 1 名列「也推薦」（使用者選，`awards.csv` 加 `class_places_awarded`）。產生工具支援 D11、班名關鍵字，data.js 重新產生（2026-11-03）。使用者看完名單決定 D12：Woolworths、Coles 不上網站（含 Darwin 的 Coles Casuarina），加盟店和在地超市保留 → 51 家、81 間門市。頁尾說明完成（2026-11-03）。**下一步**：My Maps 重新匯入（使用者在選檔視窗挑檔、刪舊圖層），然後 push、看線上版。其他待辦：8 家 PARTIAL 重查、咖啡廳／烘焙／Noosa 頁焦點問題、Only Coffee Project 的大洋洲獎要不要算 |
+| v2-2 | 昆士蘭州賽（Queensland Baking Show） | ✅ 完成 | 2026-11-03 | 90bbb6d、fdbb53e、a023690、aa581ed、88f12e8、341f7b8、337dcc0、（本 commit） | 2026-11-02 基本調查完成（`research/QLD-BAKING-SHOW.md`）：名次制、三年官方 PDF、可能多 8～12 個獨立品牌＋4～5 間加盟店／超市，多在布里斯本；比賽規模小（每年約 10 間店得名次）。使用者選 B（D11）：冠軍＋同班有第 2 名的第 1 名。轉錄 175 列、套 D11、Google Maps 查門市完成（fdbb53e）：昆州 12 間門市過門檻；The Squealing Pig（肉店做派）使用者選 A 收。Yamanto 地址確認（2026-11-03：Yamanto Central 商場，488 Warwick Rd）。寫進 CSV（2026-11-03）：94 個獎、7 個新品牌、12 間門市；Egg Wash 照 D9 改 PARTIAL；同班沒有第 2 名的第 1 名列「也推薦」（使用者選，`awards.csv` 加 `class_places_awarded`）。產生工具支援 D11、班名關鍵字，data.js 重新產生（2026-11-03）。使用者看完名單決定 D12：Woolworths、Coles 不上網站（含 Darwin 的 Coles Casuarina），加盟店和在地超市保留 → 51 家、81 間門市。頁尾說明完成（2026-11-03）。My Maps 重新匯入：新圖層「得獎店家 81 間（依類型）」（烘焙 56、咖啡 25），使用者刪舊圖層；push 後看過線上版（51 家、81 間，地圖已換）。**第二版第二項完成**。其他待辦：8 家 PARTIAL 重查、咖啡廳／烘焙／Noosa 頁焦點問題、Only Coffee Project 的大洋洲獎、Perpetual Trophy 怎麼記、Egg Wash 找證據其他待辦：8 家 PARTIAL 重查、咖啡廳／烘焙／Noosa 頁焦點問題、Only Coffee Project 的大洋洲獎要不要算 |
 
 狀態符號：⬜ 未開始、🔄 進行中、⏸️ 等使用者決定、✅ 完成
 

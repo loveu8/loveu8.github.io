@@ -222,8 +222,8 @@ Step 1b 還沒打勾的兩項（PARTIAL 再查、使用者送 Wayback）留到 S
     - [x] 產生工具支援 D11（`class_places_awarded = 1` 的第 1 名當「也推薦」、不算門檻；班名關鍵字補 Plait、Cob、Rolls、Sponge、Sausage Roll、Apple Pie），加測試；重新產生 data.js → 2026-11-03：82 個測試通過；原本 44 家資料完全沒變，Bakers Delight、Coles 加門市，新增 7 家（53 家、85 間）；卡片「也推薦」寫「該班只頒出這一個名次」；品項名稱去掉「2 x」「450gm」這類數量；My Maps 匯入檔已寫到 Downloads（85 列）
     - [x] 👤 使用者看完 7 家新店的獎 → D12：Woolworths、Coles 不上網站（含 Coles Casuarina），加盟店、在地超市保留；51 家、81 間；My Maps 匯入檔重新產生（81 列）
     - [x] 頁尾說明昆州賽規則（2026-11-03）：賽事清單加昆士蘭烘焙賽；新增一條說明 D11；門市規則那條加「全國連鎖超市不列」（D12）；og:description 補昆州賽和世界百大。中英文在無頭 Chrome 看過
-    - [ ] 👤 My Maps 重新匯入（Downloads 的 `australia-awards-mymaps.csv`，81 列；使用者挑檔、刪舊圖層）
-    - [ ] push 三個 commit（88f12e8、341f7b8、頁尾），看線上版
+    - [x] 👤 My Maps 重新匯入（2026-11-03）：新圖層「得獎店家 81 間（依類型）」，烘焙 56 珊瑚紅、咖啡 25 深咖啡色；使用者刪舊圖層
+    - [x] push 三個 commit（88f12e8、341f7b8、337dcc0），線上版看過：51 家、81 間，地圖已換
     - 原本的說明：布里斯本只有 7 間（全是咖啡、沒有烘焙），原因是 RAS 在雪梨（三年 818 件參賽品 NSW 591、QLD 41；QLD 金牌只有 5 面）、昆士蘭州賽第一版沒收（D4）。第一步：BAA **Queensland Baking Show**（2024–2026 官方結果 PDF 在 bakingbusiness.com.au/results/）的研究摘要：等級制度（有沒有金牌／冠軍）、結果有沒有地址、大概多幾家，給使用者決定
   - 備註，之後再決定要不要收的其他比賽：
     - BAA 其他州／地區烘焙展：Victorian、South Australia、Tasmania、Canberra Baking Show，以及 NSW 的 Newcastle、Wollongong Baking Show（BAA 清單上沒有 WA、NT）
