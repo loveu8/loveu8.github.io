@@ -118,6 +118,11 @@
 }
 
 .result-line {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-sm);
+  min-height: 32px;
   padding: 6px 16px;
   font-size: var(--fs-xs);
   font-weight: 700;
@@ -125,6 +130,61 @@
   background: var(--color-surface-soft);
   border-top: 1px solid var(--color-border-soft);
   border-bottom: 1px solid var(--color-border);
+}
+#resultText { flex: 1; min-width: 0; }
+/* Phone, title + filters folded: the way back to them (list-map-shell.js setupSheetFold). Blue like
+   the other "go somewhere" controls; the whole result line also opens them while folded. */
+.result-open {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  min-height: 32px;
+  padding: 2px 10px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--color-primary-border);
+  background-color: var(--color-primary-soft);
+  color: var(--color-primary-strong);
+  font: inherit;
+  font-size: var(--fs-2xs);
+  font-weight: 700;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.result-open:hover { background-image: var(--state-layer-hover); }
+.result-open[hidden] { display: none; }
+.result-line.is-folded { cursor: pointer; }
+.more-caret { font-size: var(--fs-2xs); transition: transform 0.2s ease-out; }
+
+/* Phone sheet fold: grid 1fr → 0fr animates to the content's own height. visibility drops the
+   folded buttons out of the tab order once the 300ms fold (FOLD_MS) ends. Screen only. */
+@media screen and (max-width: 767px) {
+  .sheet-fold {
+    display: grid;
+    grid-template-rows: 1fr;
+    transition: grid-template-rows 0.3s ease;
+  }
+  .sheet-fold-inner {
+    min-height: 0;
+    min-width: 0;  /* else the grid track grows to the title's width and pushes 列印 off screen */
+    overflow: hidden;
+    overflow: clip;
+    overflow-clip-margin: 4px;  /* room for focus rings where supported */
+  }
+  .sheet-fold.folded { grid-template-rows: 0fr; }
+  .sheet-fold.folded .sheet-fold-inner { visibility: hidden; transition: visibility 0s 0.3s; }
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 /* ── 3. TIPS BOX (shared alert / empty state) ── */
@@ -163,24 +223,13 @@
   box-shadow: 0 0 0 2px var(--color-accent-border);
 }
 
+/* One focal point, the shop name (CARD-PLAN, from the awards map 2026-11-03): no badge before
+   it, the rating is one grey line under it. */
 .shop-head {
   display: flex;
   align-items: flex-start;
   gap: 8px;
 }
-.prio {
-  flex-shrink: 0;
-  min-width: 24px;
-  padding: 1px 6px;
-  border-radius: 6px;
-  font-size: var(--fs-2xs);
-  font-weight: 800;
-  text-align: center;
-  line-height: 1.6;
-  margin-top: 2px;
-}
-.prio-A { background: var(--color-accent-strong); color: var(--color-on-accent); }
-.prio-B { background: var(--color-surface-soft); color: var(--color-text-muted); border: 1px solid var(--color-border); }
 .shop-title { flex: 1; min-width: 0; }
 .shop-name {
   font-size: var(--fs-md);
@@ -192,25 +241,19 @@
 .shop-meta {
   font-size: var(--fs-xs);
   color: var(--color-text-muted);
-  margin-top: 1px;
-}
-.shop-rating {
-  flex-shrink: 0;
-  text-align: right;
-  font-size: var(--fs-sm);
-  font-weight: 700;
-  color: var(--color-text);
-  font-variant-numeric: tabular-nums;
-  line-height: 1.3;
   margin-top: 2px;
 }
-.shop-rating .star { color: var(--color-warning); }
-.shop-rating small {
-  display: block;
-  font-size: var(--fs-2xs);
-  font-weight: 600;
-  color: var(--color-text-soft);
+/* "★ 4.6 · 3,476 則評論 · 精選": only the star is coloured (like the awards line's one colour). */
+.shop-rating {
+  margin-top: 2px;
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  line-height: 1.45;
+  color: var(--color-text-muted);
+  font-variant-numeric: tabular-nums;
 }
+.shop-rating .star { color: var(--color-warning); }
+.shop-rating .rating-num { font-weight: 700; color: var(--color-text); }
 
 .shop-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 8px; }
 .tag {
@@ -233,27 +276,19 @@
 }
 .tag-btn:hover { border-color: var(--color-accent-border); background: var(--color-accent-soft); }
 .tag-done { background: var(--color-secondary-soft); color: var(--color-secondary-strong); border-color: var(--color-secondary-border); }
-.tag-low { background: var(--color-warm-soft); color: var(--color-warning-text); border-color: var(--color-warm-border); }
 /* Cross-page mark (🥐 麵包也有名): amber is the food-tag family in DESIGN.md. */
 .tag-cross { background: var(--color-warm-soft); color: var(--color-warning-text); border-color: var(--color-warm-border); }
 
-.top3 {
-  margin-top: 10px;
-  padding: 8px 10px;
-  border-radius: 8px;
-  background: var(--color-surface-warm);
-  border: 1px solid var(--color-accent-soft);
-}
+/* Review blocks (☕ 飲品 大家推薦…): no box, no rule, only the small title separates them, like
+   Google Maps (CARD-PLAN Q2). Ranked items are one line: 中文 + muted English (Q5); the rest
+   sit in one grey "也有人提到" line without stars (Q3, Q4). */
+.top3 { margin-top: 12px; }
 .top3-title {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: var(--fs-2xs);
-  font-weight: 700;
-  color: var(--color-accent-strong);
+  font-size: var(--fs-xs);
+  font-weight: 800;
+  color: var(--color-text);
   margin-bottom: 4px;
 }
-.top3 + .top3 { margin-top: 8px; }
 .top3-list { list-style: none; display: flex; flex-direction: column; gap: 6px; }
 .top3-item {
   display: grid;
@@ -262,13 +297,12 @@
   gap: 6px;
 }
 .top3-medal { font-size: 15px; line-height: 1.4; }
-.top3-name { min-width: 0; }
-.top3-line { display: flex; flex-wrap: wrap; align-items: center; gap: 4px; }
+.top3-line { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 6px; min-width: 0; }
 .top3-zh { font-size: var(--fs-sm); font-weight: 700; color: var(--color-text); }
 .top3-en {
   font-size: var(--fs-2xs);
+  font-weight: 500;
   color: var(--color-text-muted);
-  line-height: 1.4;
   overflow-wrap: anywhere;
 }
 .top3-count {
@@ -278,11 +312,15 @@
   white-space: nowrap;
   line-height: 1.6;
 }
+.top3-also,
 .top3-gap {
   font-size: var(--fs-2xs);
-  color: var(--color-text-soft);
-  padding-left: 28px;
+  line-height: 1.6;
+  padding-left: 28px;  /* lines up with the item names (22px medal + 6px gap) */
 }
+.top3-also { color: var(--color-text-muted); }
+.top3-also b { font-weight: 700; }
+.top3-gap { color: var(--color-text-soft); }
 .tag-rec {
   background: var(--color-secondary-soft);
   color: var(--color-secondary-strong);
@@ -300,14 +338,9 @@
 .shop-target b,
 .shop-note b { color: var(--color-text); font-weight: 700; }
 /* Neutral, not amber: the CSV note column mixes reminders (closed days)
-   with plain context, so it cannot claim warning status for every row. */
-.shop-note {
-  padding: 6px 10px;
-  border-radius: 8px;
-  background: var(--color-surface-soft);
-  border: 1px solid var(--color-border-soft);
-  color: var(--color-text-muted);
-}
+   with plain context, so it cannot claim warning status for every row.
+   A plain line like 我想吃, no box (CARD-PLAN Q6). */
+.shop-note { color: var(--color-text-muted); }
 
 .tasting {
   margin-top: 8px;
@@ -369,24 +402,21 @@
   cursor: pointer;
 }
 .pill:hover { background-image: var(--state-layer-hover); }
-.pill-map {
-  background: var(--color-primary-soft);
-  color: var(--color-primary-strong);
-  border-color: var(--color-primary-border);
+/* Outlined on the surface, not blue-filled (DESIGN.md "Tappable = pill" exception for list-map
+   pages, awards map 2026-11-03, cafe/bakery CARD-PLAN Q6): blue pills pulled the eye off the
+   shop name. Still bordered pills with icon + text. */
+.pill-map,
+.pill-ext,
+.pill-social {
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  border-color: var(--color-border);
+  font-weight: 600;
 }
-.pill-ext {
-  flex-shrink: 0;
-  white-space: nowrap;
-  background: var(--color-primary-soft);
-  color: var(--color-primary-strong);
-  border-color: var(--color-primary-border);
-}
+.pill-ext,
 .pill-social {
   flex-shrink: 0;
   white-space: nowrap;
-  background: var(--color-surface-soft);
-  color: var(--color-text);
-  border-color: var(--color-border);
 }
 
 .shop-source {
@@ -456,7 +486,8 @@
     page-break-inside: avoid;
   }
   .shop-name { font-size: 11px; }
-  .shop-meta, .shop-rating, .top3-zh, .shop-target, .shop-note { font-size: 9px; }
-  .top3-en, .top3-count, .tag, .shop-source, .shop-rating small { font-size: 8px; }
+  .shop-meta, .shop-rating, .top3-title, .top3-zh, .shop-target, .shop-note { font-size: 9px; }
+  .top3-en, .top3-count, .top3-also, .top3-gap, .tag, .shop-source { font-size: 8px; }
   .shop-source::after { content: ' ' attr(href); word-break: break-all; }
+  .result-open { display: none !important; }
 }

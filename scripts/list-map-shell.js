@@ -1,7 +1,7 @@
 // Shared shell for list-map pages (map + sidebar layout, e.g. travel/australia/brisbane/bakery/):
 // the mobile sheet, the drag divider, the map iframe (overview ⇄ area ⇄ single place), the filter-row
-// scroll buttons, the top chip strip with scroll-spy, back-to-top, the lightbox and the print
-// button. The page script owns its data, filters and cards, and calls
+// scroll buttons, the top chip strip with scroll-spy, back-to-top, the phone sheet fold, the
+// lightbox and the print button. The page script owns its data, filters and cards, and calls
 // ListMapShell.create({...}) once; the returned object is how it talks to the shell.
 //
 // Cards must be `.shop-card` elements with `id="shop-<id>"` and `data-id="<id>"` inside
@@ -294,6 +294,68 @@ var ListMapShell = (function() {
       setSheet(false);
     }
 
+    // ── phone sheet fold ──
+    // On phones the title and filters (#sheetFold) fold away while the list scrolls down, so
+    // more cards fit; the result line stays. They come back at the list top, when the sheet
+    // closes, or from the result line's 🔍 button (#foldOpen; on touch the whole line), never on
+    // scroll up: popping them open while someone scrolls back to a shop hid that shop (awards
+    // map feedback 2026-11-03). Keep FOLD_MS in step with the .sheet-fold transition in map-list.css.
+    // Other buttons on the result line (✕ clear) keep their own job.
+    // fold options: focusOnOpen() — where keyboard focus goes after the 🔍 button unfolds.
+    var FOLD_TOP = 60;   // px of list scroll before folding starts
+    var FOLD_STEP = 4;   // px of movement that counts as a scroll direction
+    var FOLD_MS = 300;
+    var phone = window.matchMedia('(max-width: ' + (MOBILE_MAX - 1) + 'px)');
+
+    function setupSheetFold(foldOptions) {
+      var fold = document.getElementById('sheetFold');
+      var resultLine = document.getElementById('resultLine');
+      var openBtn = document.getElementById('foldOpen');
+      if (!fold || !resultLine || !openBtn) return;
+      var body = els.sidebarBody;
+      var last = 0;
+      var lockUntil = 0;
+
+      // Folding resizes the list, which can nudge its scrollTop (the browser clamps it near the
+      // end); scroll events during the fold animation are ignored so it doesn't flip back and forth.
+      function setFolded(folded) {
+        if (fold.classList.contains('folded') === folded) return;
+        fold.classList.toggle('folded', folded);
+        openBtn.hidden = !folded;
+        resultLine.classList.toggle('is-folded', folded);
+        lockUntil = Date.now() + FOLD_MS + 50;
+      }
+
+      body.addEventListener('scroll', function() {
+        var y = body.scrollTop;
+        if (!phone.matches || y <= FOLD_TOP) setFolded(false);
+        else if (Date.now() >= lockUntil && y > last + FOLD_STEP) setFolded(true);
+        last = y;
+      }, { passive: true });
+
+      function unfold(event) {
+        var fromKeyboard = event.detail === 0;  // Enter/Space: a keyboard user needs focus somewhere visible
+        setFolded(false);
+        if (fromKeyboard && foldOptions && foldOptions.focusOnOpen) foldOptions.focusOnOpen();
+      }
+      openBtn.addEventListener('click', function(event) {
+        event.stopPropagation();
+        unfold(event);
+      });
+      resultLine.addEventListener('click', function(event) {
+        if (!fold.classList.contains('folded') || event.target.closest('button')) return;
+        unfold(event);
+      });
+
+      // A collapsed sheet shows the title, so unfold whenever the sheet closes.
+      new MutationObserver(function() {
+        if (!els.sidebar.classList.contains('expanded')) setFolded(false);
+      }).observe(els.sidebar, { attributes: true, attributeFilter: ['class'] });
+      if (phone.addEventListener) {
+        phone.addEventListener('change', function() { if (!phone.matches) setFolded(false); });
+      }
+    }
+
     // ── lightbox ──
     function openLightbox(src, alt) {
       els.lightboxImg.src = src;
@@ -417,6 +479,7 @@ var ListMapShell = (function() {
       previewPlace: previewPlace,
       showArea: showArea,
       showOverview: showOverview,
+      setupSheetFold: setupSheetFold,
       openLightbox: openLightbox
     };
   }

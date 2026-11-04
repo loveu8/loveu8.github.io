@@ -6,15 +6,19 @@ var PAGE_CONFIG = {
       title: '布里斯本咖啡廳地圖', mapTitle: '咖啡廳地圖',
       gap: '其餘品項的評論資料不足',
       footnote: 'Google 評分與「N 則提到」為 {d} 的 Google Maps 評論資料。' +
-        '前三名分飲品、餐點兩塊，依被提到最多的品項排序；「★」是提到該品項的最新約 30 則評論平均，不是對品項本身的評分；' +
-        '「推薦」代表這些評論平均 4.5 星以上、負評不到一成；「資料少」代表提及次數偏低。' +
+        '飲品、餐點分兩塊；「大家推薦」是被 5 則以上評論提到、這些評論平均 4.5 星以上而且負評不到一成的品項，依提到次數排序；' +
+        '「★」是提到該品項的最新約 30 則評論平均，不是對品項本身的評分。' +
+        '「也有人提到」是提到的評論不到 5 則、或評價沒有達到推薦標準的品項，依提到次數排序，不給星等；「媒體推薦」只有媒體資料。' +
+        '「精選」是評分高、又有媒體或社群推薦的店，排在前面。' +
         '分類與區域篩選只作用在清單，地圖固定顯示全部店家。'
     },
     en: {
       title: 'Brisbane Cafe Map', mapTitle: 'Cafe map',
       footnote: 'Google ratings and “N mentions” come from Google Maps reviews as of {d}. ' +
-        'Each shop has a drinks and a food top 3, ordered by mentions; ★ is the average of the latest ~30 reviews mentioning the item, not a rating of the item itself. ' +
-        '“Recommended” means those reviews average 4.5★ or more with under 10% low scores; “Limited data” means few mentions. ' +
+        'Each shop has a drinks and a food block. “Recommended” items are mentioned in 5 or more reviews that average 4.5★ or more with under 10% low scores, ordered by mentions; ' +
+        '★ is the average of the latest ~30 reviews mentioning the item, not a rating of the item itself. ' +
+        '“Also mentioned” items have fewer than 5 mentions or reviews below that bar, ordered by mentions and shown without stars; “Media picks” come from media only. ' +
+        '“Featured” shops rate highly and are backed by media or community picks; they come first. ' +
         'Type and area filters apply to the list only; the map always shows every shop.'
     }
   },

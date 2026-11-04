@@ -26,14 +26,10 @@ var STATES = {
   WA: { name: 'Western Australia', zoom: 5 }
 };
 var AREA_FIT_PX = 560;  // map width the store box should fit in (narrower than most map panels)
-// Phone sheet: the title and filters fold away while the list scrolls down, so more cards fit;
-// the result line stays. They come back at the list top or when the reader taps the result
-// line's 🔍 button, never on scroll up: the block is ~250px, so popping it open while someone
-// scrolls back to a shop hid that shop (user feedback 2026-11-03, UI-PLAN 4.2).
-// Keep FOLD_MS in step with the .sheet-fold transition in awards.css.
+// Phones (< 768px) open the award details full screen. The title and filters fold while the
+// list scrolls down; that fold is shared, in list-map-shell.js setupSheetFold().
+// FOLD_MS: the detail sheet's slide, same 300ms as the .detail-sheet transition in awards.css.
 var PHONE = window.matchMedia('(max-width: 767px)');
-var FOLD_TOP = 60;   // px of list scroll before folding starts
-var FOLD_STEP = 4;   // px of movement that counts as a scroll direction
 var FOLD_MS = 300;
 
 // Each page's PAGE_CONFIG.ui[lang] must add `title` and `mapTitle`, and may override any key here or in the shell.
@@ -1076,56 +1072,6 @@ function switchLanguage(lang) {
   refresh(false);
 }
 
-// Folding resizes the list, which can nudge its scrollTop (the browser clamps it near the
-// end); scroll events during the fold animation are ignored so it doesn't flip back and forth.
-function setupSheetFold() {
-  var fold = document.getElementById('sheetFold');
-  var sidebar = document.getElementById('sidebar');
-  var body = els.sidebarBody;
-  var last = 0;
-  var lockUntil = 0;
-
-  function setFolded(folded) {
-    if (fold.classList.contains('folded') === folded) return;
-    fold.classList.toggle('folded', folded);
-    els.foldOpen.hidden = !folded;
-    els.resultLine.classList.toggle('is-folded', folded);
-    lockUntil = Date.now() + FOLD_MS + 50;
-  }
-
-  // Scrolling up keeps the fold; only the list top (or the 🔍 button below) unfolds.
-  body.addEventListener('scroll', function() {
-    var y = body.scrollTop;
-    if (!PHONE.matches || y <= FOLD_TOP) setFolded(false);
-    else if (Date.now() >= lockUntil && y > last + FOLD_STEP) setFolded(true);
-    last = y;
-  }, { passive: true });
-
-  // The button is the keyboard and screen-reader control; on touch the whole result line opens
-  // too (✕ 清除 keeps its own job). Scrolling down again folds them, as at the start.
-  function unfold(event) {
-    var fromKeyboard = event.detail === 0;  // Enter/Space: a keyboard user needs focus somewhere visible
-    setFolded(false);
-    if (fromKeyboard) els.searchInput.focus({ preventScroll: true });
-  }
-  els.foldOpen.addEventListener('click', function(event) {
-    event.stopPropagation();
-    unfold(event);
-  });
-  els.resultLine.addEventListener('click', function(event) {
-    if (!fold.classList.contains('folded') || event.target.closest('#clearAll')) return;
-    unfold(event);
-  });
-
-  // A collapsed sheet shows the title, so unfold whenever the sheet closes.
-  new MutationObserver(function() {
-    if (!sidebar.classList.contains('expanded')) setFolded(false);
-  }).observe(sidebar, { attributes: true, attributeFilter: ['class'] });
-  if (PHONE.addEventListener) {
-    PHONE.addEventListener('change', function() { if (!PHONE.matches) setFolded(false); });
-  }
-}
-
 function setupEvents() {
   els.sidebarBody.addEventListener('click', function(event) {
     // Phone: 獎項明細 opens the full-screen sheet instead of unfolding inside the card.
@@ -1145,7 +1091,8 @@ function setupEvents() {
   });
   els.clearAll.addEventListener('click', clearAll);
   setupSearch();
-  setupSheetFold();
+  // Phone: title and filters fold while the list scrolls down (list-map-shell.js, UI-PLAN 4.2).
+  shell.setupSheetFold({ focusOnOpen: function() { els.searchInput.focus({ preventScroll: true }); } });
   setupDetailSheet();
   // Crossing 768px swaps how the details work (in the card vs full screen), so redraw.
   if (PHONE.addEventListener) {

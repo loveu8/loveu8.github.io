@@ -247,7 +247,7 @@ Step 1b 還沒打勾的兩項（PARTIAL 再查、使用者送 Wayback）留到 S
   - **每年 10 月**：雪梨皇家烘焙賽（9 月公布）
   - 每次：轉錄官方結果 → 查新店門市 → 寫 CSV → 重新產生 `data.js` → 頁尾資料整理日期 → 重新匯入 My Maps（使用者刪舊圖層）
 - [ ] 2027-08 第一次更新（第一項：Golden Bean 2026 結果，2026-10-28 還沒公布）
-- [ ] 咖啡廳、烘焙頁（`scripts/map-list.js`）和 Noosa 頁（`scripts/noosa.js`）也有「選篩選後焦點掉回頁首」的問題；咖啡廳、烘焙頁的類型篩選也還不能用左右鍵（同樣是 `innerHTML = ''` 重畫）；修法照 `awards.js` `renderFilters()`，改之前先拍 DOM 雜湊基準（2026-11-02 使用者選先只修得獎頁）
+- [ ] ~~咖啡廳、烘焙頁~~（2026-11-04 已修，`map-list.js` `renderFilters()`、左右鍵，見 `travel/australia/brisbane/CARD-PLAN.md`）和 Noosa 頁（`scripts/noosa.js`）也有「選篩選後焦點掉回頁首」的問題；咖啡廳、烘焙頁的類型篩選也還不能用左右鍵（同樣是 `innerHTML = ''` 重畫）；修法照 `awards.js` `renderFilters()`，改之前先拍 DOM 雜湊基準（2026-11-02 使用者選先只修得獎頁）
 - [ ] 之後的擴充候選：RAS Champion Coffee、BAA 其他賽事（Pie、Donut、各州 Baking Show）、和布里斯本咖啡廳頁互相標註（Espresso Club、Bellissimo）
 
 ## 使用者 UI／UX 反饋（2026-11-03 記錄；三題討論完，使用者同意一起實作，`PLAN.md` 進度表 v2-3）

@@ -9,6 +9,10 @@
 
 var MEDALS = ['🥇', '🥈', '🥉'];
 var ALL = 'all';
+// An item is ranked only when at least this many reviews mention it and they say 大家推薦; the rest
+// go into one grey "也有人提到" line, without stars (CARD-PLAN Q3/Q4: Airbnb, App Store and Steam
+// also show no score below a few reviews).
+var MIN_MENTIONS = 5;
 
 // Shared UI strings (the shell's own strings live in list-map-shell.js). Each
 // page's PAGE_CONFIG.ui[lang] must add `title` and `mapTitle`, and may override
@@ -19,16 +23,19 @@ var UI = {
     category: '分類', region: '區域', all: '全部', allCats: '全部分類', allRegions: '全部區域',
     result: '{c} × {r} · {n} 家',
     emptyTitle: '這個組合沒有店家', emptyText: '換一個區域或分類看看；區域按鈕上的數字是目前分類下的家數。',
-    top3: '{c} 前三名', low: '資料少', rec: '推薦', media: '媒體推薦',
-    mentions: '{n} 則提到', mediaOnly: '只有媒體資料', generic: '評論只寫泛稱',
-    gap: '其餘款式的評論資料不足', target: '我想吃：', note: '訪前提醒：', tasted: '✅ 已試吃', beans: '☕ 豆子：',
+    top3Rec: '{c} 大家推薦', alsoMentioned: '也有人提到：', mediaPicks: '媒體推薦：', listSep: '、',
+    mentions: '{n} 則提到',
+    gap: '其餘款式的評論資料不足', none: '評論資料不足', target: '我想吃：', note: '訪前提醒：', tasted: '✅ 已試吃', beans: '☕ 豆子：',
     tasting: { date: '試吃', average: '平均' },
-    reviewsShort: '{n} 則', ratingAria: 'Google 評分 {r}，{n} 則評論', prioAria: '優先級 {p}',
+    reviewsLine: '{n} 則評論', pick: '精選', ratingLabel: 'Google 評分 ',
     tagFilter: '只看{c}', styleClear: '取消風格篩選', mapAria: '在地圖上查看：{s}', mapsAria: '在 Google Maps 開啟：{s}',
     igAria: '{s} 的 Instagram', source: '資料來源', viewPhoto: '查看照片：{s}',
+    foldOpen: '🔍 篩選', foldOpenAria: '展開分類和區域篩選',
     footnote: 'Google 評分與「N 則提到」為 {d} 的 Google Maps 評論資料，評論多的店為抽樣。' +
-      '前三名依各分類中被提到最多的款式排序；「推薦」代表提到它的評論平均 4.5 星以上、負評不到一成；' +
-      '「★」是提到該款評論的平均星等，不是對該款本身的評分；「資料少」代表提及次數偏低。' +
+      '「大家推薦」是被 5 則以上評論提到、這些評論平均 4.5 星以上而且負評不到一成的款式，依提到次數排序；' +
+      '「★」是這些評論的平均星等，不是對款式本身的評分。' +
+      '「也有人提到」是提到的評論不到 5 則、或評價沒有達到推薦標準的款式，依提到次數排序，不給星等；「媒體推薦」只有媒體資料。' +
+      '「精選」是評分高、又有媒體或社群推薦的店，排在前面。' +
       '分類與區域篩選只作用在清單，地圖固定顯示全部店家。'
   },
   en: {
@@ -36,16 +43,19 @@ var UI = {
     category: 'Type', region: 'Area', all: 'All', allCats: 'All types', allRegions: 'All areas',
     result: '{c} × {r} · {n} shops',
     emptyTitle: 'No shops match', emptyText: 'Try another area or type; the numbers on the area buttons count shops for the current type.',
-    top3: 'Top 3 · {c}', low: 'Limited data', rec: 'Recommended', media: 'Media pick',
-    mentions: '{n} mentions', mediaOnly: 'Media only', generic: 'Generic mentions only',
-    gap: 'Not enough reviews for more items', target: 'I want to try: ', note: 'Before you go: ', tasted: '✅ Tasted', beans: '☕ Beans: ',
+    top3Rec: '{c} · Recommended', alsoMentioned: 'Also mentioned: ', mediaPicks: 'Media picks: ', listSep: ', ',
+    mentions: '{n} mentions',
+    gap: 'Not enough reviews for more items', none: 'Not enough reviews', target: 'I want to try: ', note: 'Before you go: ', tasted: '✅ Tasted', beans: '☕ Beans: ',
     tasting: { date: 'Tasted', average: 'Average' },
-    reviewsShort: '{n} reviews', ratingAria: 'Google rating {r}, {n} reviews', prioAria: 'Priority {p}',
+    reviewsLine: '{n} reviews', pick: 'Featured', ratingLabel: 'Google rating ',
     tagFilter: 'Show only {c}', styleClear: 'Clear style filter', mapAria: 'Show on map: {s}', mapsAria: 'Open in Google Maps: {s}',
     igAria: '{s} on Instagram', source: 'Source', viewPhoto: 'View photo: {s}',
+    foldOpen: '🔍 Filter', foldOpenAria: 'Show type and area filters',
     footnote: 'Google ratings and “N mentions” come from Google Maps reviews as of {d}; shops with many reviews were sampled. ' +
-      'Each top 3 lists the most-mentioned items in that type. “Recommended” means the reviews mentioning it average 4.5★ or more with under 10% low scores; ' +
-      '★ is the average of those reviews, not a rating of the item itself. “Limited data” means few mentions. ' +
+      '“Recommended” items are mentioned in 5 or more reviews that average 4.5★ or more with under 10% low scores, ordered by mentions; ' +
+      '★ is the average of those reviews, not a rating of the item itself. ' +
+      '“Also mentioned” items have fewer than 5 mentions or reviews below that bar, ordered by mentions and shown without stars; “Media picks” come from media only. ' +
+      '“Featured” shops rate highly and are backed by media or community picks; they come first. ' +
       'Type and area filters apply to the list only; the map always shows every shop.'
   }
 };
@@ -69,7 +79,10 @@ var els = {
   regionLabel: document.getElementById('regionLabel'),
   categoryTabs: document.getElementById('categoryTabs'),
   regionChips: document.getElementById('regionChips'),
-  resultLine: document.getElementById('resultLine')
+  resultLine: document.getElementById('resultLine'),
+  resultText: document.getElementById('resultText'),
+  foldOpen: document.getElementById('foldOpen'),
+  foldOpenText: document.getElementById('foldOpenText')
 };
 
 // ── helpers ──
@@ -136,7 +149,17 @@ function setCategory(code) {
   refresh(true);
 }
 
+// Both rows are rebuilt on every change, which would drop keyboard focus to the page top;
+// remember which filter button had focus and put it back on the rebuilt one (same as awards.js).
 function renderFilters() {
+  var focused = document.activeElement;
+  var refocus = null;
+  [els.categoryTabs, els.regionChips].forEach(function(box) {
+    if (focused && box.contains(focused) && focused.dataset.code !== undefined) {
+      refocus = { box: box, code: focused.dataset.code };
+    }
+  });
+
   els.categoryTabs.innerHTML = '';
   var codes = [];
   state.data.shops.forEach(function(s) {
@@ -150,6 +173,8 @@ function renderFilters() {
     btn.type = 'button';
     btn.setAttribute('role', 'tab');
     btn.setAttribute('aria-selected', active ? 'true' : 'false');
+    btn.tabIndex = active ? 0 : -1;  // roving tabindex: Tab enters the row once, arrows move inside
+    btn.dataset.code = code;
     btn.appendChild(el('span', '', code === ALL ? t('all') : categoryLabel(code)));
     btn.appendChild(el('span', 'count', String(countWhere(code, ALL))));
     btn.addEventListener('click', function() { setCategory(code); });
@@ -164,6 +189,7 @@ function renderFilters() {
     btn.type = 'button';
     btn.setAttribute('aria-pressed', active ? 'true' : 'false');
     btn.disabled = count === 0 && !active;
+    btn.dataset.code = region;
     btn.appendChild(el('span', '', region === ALL ? t('all') : regionLabel(region)));
     btn.appendChild(el('span', 'count', String(count)));
     btn.addEventListener('click', function() {
@@ -176,19 +202,41 @@ function renderFilters() {
   shell.revealActive(els.categoryTabs);
   shell.revealActive(els.regionChips);
   shell.updateScrollButtons();
+
+  if (refocus) {
+    var again = [].slice.call(refocus.box.children).filter(function(b) { return b.dataset.code === refocus.code; })[0];
+    if (again && !again.disabled) again.focus({ preventScroll: true });
+  }
 }
 
+// Arrow keys, Home and End move through the category tabs and pick the one they land on.
+function onTabKey(event) {
+  var keys = { ArrowLeft: -1, ArrowRight: 1, Home: 'first', End: 'last' };
+  if (!(event.key in keys)) return;
+  var tabs = [].slice.call(event.currentTarget.querySelectorAll('[role="tab"]:not(:disabled)'));
+  var i = tabs.indexOf(document.activeElement);
+  if (i === -1) return;
+  var step = keys[event.key];
+  var next = step === 'first' ? 0 : step === 'last' ? tabs.length - 1 : (i + step + tabs.length) % tabs.length;
+  event.preventDefault();
+  tabs[next].focus();
+  tabs[next].click();
+}
+
+// "精品咖啡 × 全部區域 · 11 家" [✕ 風格] [🔍 篩選 ▾]; the 🔍 button only shows while the phone
+// sheet has folded the title and filters (ListMapShell setupSheetFold).
 function renderResultLine(shops) {
   var cat = state.category === ALL ? t('allCats') : categoryLabel(state.category);
   var region = state.region === ALL ? t('allRegions') : regionLabel(state.region);
-  els.resultLine.textContent = t('result', { c: cat, r: region, n: shops.length });
+  els.resultText.textContent = t('result', { c: cat, r: region, n: shops.length });
+  els.resultLine.querySelectorAll('.result-style').forEach(function(old) { old.remove(); });
   if (state.style) {
     var clear = el('button', 'tag tag-btn tag-active result-style', '✕ ' + term(state.style));
     clear.type = 'button';
     clear.setAttribute('title', t('styleClear'));
     clear.setAttribute('aria-label', t('styleClear') + '：' + term(state.style));
     clear.addEventListener('click', function() { setStyle(null); });
-    els.resultLine.appendChild(clear);
+    els.resultLine.insertBefore(clear, els.foldOpen);
   }
 }
 
@@ -198,46 +246,55 @@ function setStyle(style) {
 }
 
 // ── shop cards ──
-// Per-category top 3 (top3.csv). Only items whose mentioning reviews average
-// ≥ 4.5★ with ≤ 10% low scores carry the 推薦 tag; the rest are just "常提到".
-function itemMeta(item) {
-  var parts = [];
-  if (item.count) parts.push(t('mentions', { n: item.count }));
-  if (item.rating != null) parts.push('★ ' + item.rating.toFixed(1));
-  if (parts.length) return parts.join(' · ');
-  return item.verdict === '媒體推薦' ? t('mediaOnly') : t('generic');
+// Per-category or per-block top 3 (top3.csv), split three ways (CARD-PLAN Q3–Q5):
+//   ranked  大家推薦 and mentioned in MIN_MENTIONS+ reviews: 🥇🥈🥉, one line, mentions · ★
+//   also    the rest that reviews mention (too few, or below the 推薦 bar): names only, one grey line
+//   media   媒體推薦 (no review count): names only, one grey line
+// The block title says 大家推薦 only when something is ranked. Items keep top3.csv's order (by mentions).
+function splitItems(items) {
+  var parts = { ranked: [], also: [], media: [] };
+  items.forEach(function(item) {
+    if (item.verdict === '媒體推薦') parts.media.push(item);
+    else if (item.verdict === '大家推薦' && item.count >= MIN_MENTIONS) parts.ranked.push(item);
+    else parts.also.push(item);
+  });
+  return parts;
 }
 
-function verdictTag(item) {
-  if (item.verdict === '大家推薦') return el('span', 'tag tag-rec', t('rec'));
-  if (item.verdict === '媒體推薦') return el('span', 'tag', t('media'));
-  return null;
+function itemName(item) {
+  return isEn() ? item.en || item.zh : item.zh;
+}
+
+function namesLine(label, items) {
+  var li = el('li', 'top3-also');
+  li.appendChild(el('b', '', t(label)));
+  li.appendChild(document.createTextNode(items.map(itemName).join(t('listSep'))));
+  return li;
 }
 
 function renderTop3Block(items, label) {
+  var parts = splitItems(items);
   var box = el('section', 'top3');
-  var title = el('div', 'top3-title', t('top3', { c: label }));
-  var lowCount = items.filter(function(i) { return i.confidence === '低'; }).length;
-  if (!items.length || lowCount * 2 >= items.length) title.appendChild(el('span', 'tag tag-low', t('low')));
-  box.appendChild(title);
+  box.appendChild(el('div', 'top3-title', parts.ranked.length ? t('top3Rec', { c: label }) : label));
 
   var list = el('ol', 'top3-list');
-  items.forEach(function(item, index) {
+  parts.ranked.forEach(function(item, index) {
     var li = el('li', 'top3-item');
     li.appendChild(el('span', 'top3-medal', MEDALS[index] || '·'));
-    var name = el('div', 'top3-name');
+    // Chinese pages add the English name in muted text, so it can be found on the menu.
     var line = el('div', 'top3-line');
-    line.appendChild(el('span', 'top3-zh', isEn() ? item.en : item.zh));
-    var tag = verdictTag(item);
-    if (tag) line.appendChild(tag);
-    name.appendChild(line);
-    var sub = isEn() ? item.flavorEn : item.en + (item.flavor ? ' · ' + item.flavor : '');
-    if (sub) name.appendChild(el('div', 'top3-en', sub));
-    li.appendChild(name);
-    li.appendChild(el('span', 'top3-count', itemMeta(item)));
+    line.appendChild(el('span', 'top3-zh', itemName(item)));
+    if (!isEn() && item.en && item.en !== item.zh) line.appendChild(el('span', 'top3-en', item.en));
+    li.appendChild(line);
+    li.appendChild(el('span', 'top3-count', t('mentions', { n: item.count }) + ' · ★ ' + item.rating.toFixed(1)));
     list.appendChild(li);
   });
-  if (items.length < 3) list.appendChild(el('li', 'top3-gap', t('gap')));
+  if (parts.also.length) list.appendChild(namesLine('alsoMentioned', parts.also));
+  if (parts.media.length) list.appendChild(namesLine('mediaPicks', parts.media));
+  if (!items.length) list.appendChild(el('li', 'top3-gap', t('none')));
+  else if (parts.ranked.length && parts.ranked.length < 3 && !parts.also.length && !parts.media.length) {
+    list.appendChild(el('li', 'top3-gap', t('gap')));
+  }
   box.appendChild(list);
   return box;
 }
@@ -307,24 +364,26 @@ function renderCard(shop) {
   card.id = 'shop-' + shop.id;
   card.dataset.id = shop.id;
 
+  // The shop name is the one focal point; the rating is one line under it, like a rating under a
+  // place name on Google Maps, and priority A shows as a grey "· 精選" there (CARD-PLAN Q1).
   var head = el('div', 'shop-head');
-  var prio = el('span', 'prio prio-' + shop.priority, shop.priority);
-  prio.setAttribute('aria-label', t('prioAria', { p: shop.priority }));
-  head.appendChild(prio);
-
   var title = el('div', 'shop-title');
   title.appendChild(el('h2', 'shop-name', shop.name));
+  if (shop.rating != null || shop.priority === 'A') {
+    var rating = el('div', 'shop-rating');
+    if (shop.rating != null) {
+      var star = el('span', 'star', '★ ');
+      star.setAttribute('aria-hidden', 'true');
+      rating.appendChild(star);
+      rating.appendChild(el('span', 'visually-hidden', t('ratingLabel')));
+      rating.appendChild(el('span', 'rating-num', shop.rating.toFixed(1)));
+      rating.appendChild(document.createTextNode(' · ' + t('reviewsLine', { n: formatCount(shop.reviews) })));
+    }
+    if (shop.priority === 'A') rating.appendChild(document.createTextNode((shop.rating != null ? ' · ' : '') + t('pick')));
+    title.appendChild(rating);
+  }
   title.appendChild(el('div', 'shop-meta', shop.suburb + ' · ' + regionLabel(shop.region)));
   head.appendChild(title);
-
-  if (shop.rating != null) {
-    var rating = el('div', 'shop-rating');
-    rating.setAttribute('aria-label', t('ratingAria', { r: shop.rating, n: shop.reviews }));
-    rating.appendChild(el('span', 'star', '★ '));
-    rating.appendChild(document.createTextNode(shop.rating.toFixed(1)));
-    rating.appendChild(el('small', '', t('reviewsShort', { n: formatCount(shop.reviews) })));
-    head.appendChild(rating);
-  }
   card.appendChild(head);
 
   // Category tags double as filter shortcuts.
@@ -447,6 +506,8 @@ function renderStaticText() {
   els.pageSubtitle.textContent = t('subtitle', { n: state.data.shops.length, d: state.data.dataAsOf });
   els.categoryLabel.textContent = t('category');
   els.regionLabel.textContent = t('region');
+  els.foldOpenText.textContent = t('foldOpen');
+  els.foldOpen.setAttribute('aria-label', t('foldOpenAria'));
 }
 
 function refresh(filtersChanged) {
@@ -472,6 +533,14 @@ function setupEvents() {
   els.sidebarBody.addEventListener('click', function(event) {
     var mapBtn = event.target.closest('.pill-map');
     if (mapBtn) previewOnMap(mapBtn.dataset.id);
+  });
+  els.categoryTabs.addEventListener('keydown', onTabKey);
+  // Phone: the title and filters fold while the list scrolls down (shared with the awards map).
+  shell.setupSheetFold({
+    focusOnOpen: function() {
+      var active = els.categoryTabs.querySelector('.filter-btn.active');
+      if (active) active.focus({ preventScroll: true });
+    }
   });
 }
 
