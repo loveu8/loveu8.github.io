@@ -1,0 +1,41 @@
+﻿B-adelaides-finest: fresh produce:183 | piano player:41 | bakery:54 | organic:48 | friendly staff:126 | local produce:25 | cafe:83 | seafood:34 | deli:27 | range of products:51
+B-gumnut-patisserie: banoffee tart:15 | salted caramel tart:17 | outdoor seating:12 | sausage rolls:53 | vanilla slice:40 | pies:117 | lamb and rosemary pie:21 | custard tart:16 | meat pie:41 | almond croissant:20
+B-bonfire-bread: sourdough:10 | fresh loaf:3 | focaccia:4 | baguettes:5 | 48 hour sourdough bread:2 | cheesecake:3 | plain white sourdough:2 | sausage rolls:2 | herb focaccia:2 | bagel:2
+B-slowbreads: sourdough:30 | croissants:16 | lamington:4 | quiche:8 | danishes:14 | almond croissant:6 | blueberry danish:5 | bread selection:2 | pear and walnut loaf:4 | tarts:8
+B-ltt-patisserie: pies:18 | steak cheese pie:4 | sausage rolls:4 | friendly owners:5 | bacon cheese sausage roll:2 | golden gaytime:2 | bread:2 | cooked:2 | baked goods:2 | steak pie:2
+B-piece-of-cake-bakery: croissants:20 | pies:28 | sourdough:9 | sausage rolls:8 | buttery pastry:5 | cheesecake:5 | baked cheesecake:2 | almond croissant:2 | bagel options:2 | coffee:22
+B-wholegreen-bakery: gluten free bakery:51 | almond croissant:29 | sausage roll:29 | cinnamon scroll:12 | beef pie:13 | quiches:15 | lemon meringue:8 | Pain Au Chocolat:20 | chocolate eclair:5 | ham and cheese croissant:6
+B-three-mills-bakery: sausage rolls:43 | almond croissant:20 | outdoor seating:6 | sourdough:24 | chicken and leek pie:10 | pies:28 | danishes:16 | croissants:17 | bacon and egg roll:5 | palak paneer pie:4
+B-the-squealing-pig: roast pork roll:18 | pies:43 | brisket pie:10 | jalapeno pie:5 | gravy:24 | pie size:4 | pork rolls:14 | potato bake:3 | roasts:8 | lamb roast roll:2
+B-uncle-bobs-bakery: pies:79 | sausage rolls:11 | paris brest:4 | chunky steak pie:4 | pie and peas:4 | friendly staff:67 | sour cherry pie:2 | hot cross buns:2 | lamingtons:2 | brekkie pie:2
+B-glee-coffee-roasters: chilli scrambled eggs:8 | bacon and egg roll:6 | outdoor seating:20 | Halloumi Heaven:8 | poached eggs:7 | waffle:6 | bruschetta:3 | banana bread:2 | maple latte:2 | latte art:2
+B-parfait-patisserie: almond croissant:15 | danish:16 | pies:42 | vanilla slice:9 | croissants:18 | sourdough:11 | sausage roll:5 | lemon meringue:4 | wedding cake:7 | fresh loafs:4
+B-sweet-ivy: macarons:28 | coconut pandan:6 | basque cheesecake:5 | pistachio cookie:4 | biscoff cookie:4 | chocolate chip cookie:2 | love and care in cakes:2 | brownie:3 | chocolate ice cream:2 | cake for mum:2
+B-wandin-bakery: pies:28 | vanilla slice:9 | sausage roll:4 | cinnamon doughnuts:2 | rustic sourdough:2 | friendly staff:32 | french vanilla slice:3 | donuts:9 | crumble:2 | local:2
+B-rays-patisserie: sausage rolls:6 | pies:16 | banh mi:3 | curry pie:2 | vietnamese food:2 | friendly staff:7 | bowls:2 | freshness:2 | cakes:2 | salad:2
+B-bakers-delight: hot cross buns:2 | low gi bread:2 | scones:2 | fresh bread:3 | bakers delight:2 | polite staff:4 | competent staff:2 | fresh food:3 | range of breads:2 | cakes:2
+B-burleigh-baker: sourdough:40 | almond croissant:16 | welcoming atmosphere:5 | portuguese tarts:8 | pies:23 | outdoor seating:3 | sausage rolls:9 | croissants:17 | pain au chocolat:6 | cinnamon bun:6
+B-sacrebleu: croissants:45 | madeleines:18 | canelés:20 | almond croissant:7 | buttery pastry:10 | french bakery:8 | pain au chocolat:4 | butter croissants:3 | baguettes:6 | french yummies:3
+B-hearthe: paperbark cake:14 | croissants:20 | outdoor seating:3 | geraldton wax cheesecake:9 | hibiscus cake:7 | scone:11 | cinnamon twist:6 | almond croissant:6 | watermelon cake:3 | freshly baked bread:6
+B-bakealicious: gluten free cake:34 | victoria sponge cake:28 | pavlova:18 | vintage vanilla cake:15 | tres leches cake:12 | moist cake:21 | carrot cake:16 | mini cupcakes:10 | empanadas:19 | dulce de leche cheesecake:8
+B-coffee-mentality: friendly baristas:8 | flat white:4 | outdoor seating:5 | bean selection:3 | tiny coffee shop:2 | latte art:2 | lattes:4 | strong coffee:3 | carrot cake:2 | dog friendly:2
+B-ogabee: filter coffee:3 | friendly staff:39 | chicken schnitzel:3 | cold brew:2 | mocha:3 | toastie:3 | shakes:2 | flat white:3 | lovely staff:3 | warm welcome:2
+B-bakehouse-delights: pies:63 | custard tart:7 | sausage rolls:6 | vanilla slice:6 | meat pies:6 | chicken curry pie:4 | sourdough:6 | pie selection:3 | chunky beef pie:2 | jam and cream cake:2
+B-tuga-pastries: portuguese tarts:121 | pastel de nata:80 | outdoor seating:11 | almond croissant:30 | bacon and egg roll:8 | limited seating:3 | nutella croissant:24 | sausage rolls:21 | savoury pastries:22 | cheeseburger pie:7
+B-vs-dessert: chiffon cake:7 | cheesecake:28 | gluten free cakes:15 | basque cheesecake:14 | gluten free options:29 | focaccia:13 | birthday cake:18 | gluten free cafe:10 | carrot cake:5 | chocolate cake:5
+B-brazen-brownies: brownies:139 | ice cream cake:16 | tiramisu in a can:6 | free brownies:4 | cookie dough brownie:4 | death by chocolate gelato cake:3 | moist brownies:3 | hazelnut brownie:3 | chocolate raspberry brownie:2 | brownie base:2
+B-brumbys: pies:10 | doughnut dough:3 | apple turnovers:2 | sausage rolls:3 | friendly staff:22 | fresh bread:2 | product quality:3 | freshness:3 | curry:2 | pastry:2
+B-forestway-fresh: fresh produce:155 | fresh fruit:12 | cafe:69 | produce quality:13 | fresh food:26 | tasting deck:3 | carrot cake:2 | bacon and egg roll:2 | friendly staff:64 | cakes:6
+B-madame-and-yves: eclairs:29 | raspberry almond croissant:7 | outdoor seating:3 | croissants:41 | tarts:23 | french patisserie:11 | gelato:16 | hot cross buns:7 | danish:6 | beef bourguignon pie:6
+B-sebastien-sans-gluten: gluten free pastries:180 | lemon meringue tart:24 | coeliac friendly:200 | ham and cheese croissant:22 | eclairs:21 | spinach and feta pastry:16 | almond croissant:16 | sausage roll:16 | gf bakery:16 | croissants:32
+B-comeco-foods: vegan options:156 | onigiri plate:50 | sourdough donuts:32 | japanese food:53 | katsu curry:23 | sweet potato donuts:19 | vegan sushi:20 | tempura:39 | matcha:28 | hojicha latte:8
+B-crois: croissants:9 | fresh croissants:2 | macarons:2 | pan au chocolate:2 | sourdough:4 | creative flavours:2 | freshly made:2 | catering:3 | coffee:16 | pastries:6
+B-doughheads: glazed doughnut:8 | golden gaytime doughnut:6 | premium doughnuts:5 | salted caramel doughnut:4 | vegan options:15 | caramilk brulee:3 | cinnamon doughnut:4 | fairy bread:3 | fluffy doughnuts:3 | vegan donuts:3
+B-hudsons-bakery: gluten free bread:31 | carrot cake:11 | coeliac friendly:17 | finger bun:8 | lamington:6 | bacon and egg roll:6 | gf bakery:4 | banana bread:3 | olive bread:3 | ham and cheese roll:3
+B-mr-bake: pies:29 | sausage roll:6 | flaky pastry:3 | sourdough:3 | chicken pie:2 | jalapeño:2 | friendly staff:14 | savoury treats:3 | sandwiches:2 | cleanliness:3
+B-pudding-lane: xmas pudding:3 | christmas cakes:3 | pudding:4
+B-egg-wash-bake-shop: pies:53 | cannoli:7 | donuts:27 | sausage rolls:6 | mango bingsu:3 | twisty donuts:2 | spinach and feta pastry:2 | vegetarian vegetable pies:2 | mince and mushroom pie:2 | flaky pastry:2
+B-peak-coffee: ev charging:4 | fresh roasted coffee:3 | peak coffee:2 | coffee space:4 | kind staff:3 | pool table:2 | drip coffee:3 | industrial area:2 | espresso:2 | atmosphere:11
+B-coffee-presto: roasting coffee beans:3 | plant wall:2 | friendly staff:32 | outdoor setting:2 | single origin:2 | frappe:4 | plants:3 | cake:2 | atmosphere:25 | air conditioning:2
+B-sourdough-portland: croissants:21 | bread loaves:7 | sourdough loaf:5 | almond croissant:7 | morning buns:3 | portuguese tart:3 | sour cherry tart:2 | fruit loaf:2 | rye bread:2 | fresh pastries:2
+B-yamanto-central-patisserie: pies:13 | sausage roll:4 | vietnamese roll:2 | pleasant team attitude:2 | freshness:3 | Serves coffee:2 | veggies:2 | bread:3 | food:4

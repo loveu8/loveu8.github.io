@@ -1,0 +1,91 @@
+﻿business_id	keyword	mentions	sample	avg_stars	low_count
+B-gumnut-patisserie	pies	117	30	4.37	4
+B-gumnut-patisserie	sausage rolls	53	30	4.23	3
+B-gumnut-patisserie	vanilla slice	40	30	4.63	1
+B-bonfire-bread	sourdough	10	10	5.00	0
+B-bonfire-bread	baguettes	5	5	5.00	0
+B-slowbreads	sourdough	30	30	4.93	0
+B-slowbreads	croissants	16	16	5.00	0
+B-slowbreads	danishes	14	14	4.57	2
+B-ltt-patisserie	pies	18	18	4.44	2
+B-piece-of-cake-bakery	pies	28	28	4.25	5
+B-piece-of-cake-bakery	croissants	20	20	4.05	4
+B-piece-of-cake-bakery	sourdough	9	9	4.78	0
+B-wholegreen-bakery	almond croissant	29	29	4.41	3
+B-wholegreen-bakery	sausage roll	29	29	4.72	1
+B-wholegreen-bakery	pain au chocolat	20	20	4.30	2
+B-three-mills-bakery	sausage rolls	43	30	4.20	5
+B-three-mills-bakery	pies	28	28	4.57	2
+B-three-mills-bakery	sourdough	24	24	4.79	0
+B-the-squealing-pig	pies	43	30	4.63	2
+B-the-squealing-pig	roast pork roll	18	18	4.89	0
+B-the-squealing-pig	brisket pie	10	10	4.60	1
+B-uncle-bobs-bakery	pies	79	30	4.63	2
+B-uncle-bobs-bakery	sausage rolls	11	11	3.82	3
+B-glee-coffee-roasters	chilli scrambled eggs	8	8	4.38	0
+B-glee-coffee-roasters	halloumi heaven	8	8	3.88	2
+B-glee-coffee-roasters	poached eggs	7	7	4.43	1
+B-parfait-patisserie	pies	42	30	4.40	3
+B-parfait-patisserie	croissants	18	18	3.94	2
+B-parfait-patisserie	danish	16	16	4.31	2
+B-sweet-ivy	macarons	28	28	4.75	2
+B-sweet-ivy	coconut pandan	6	6	5.00	0
+B-sweet-ivy	basque cheesecake	5	5	5.00	0
+B-wandin-bakery	pies	28	28	4.21	4
+B-wandin-bakery	vanilla slice	9	9	4.11	2
+B-wandin-bakery	donuts	9	9	4.11	2
+B-rays-patisserie	pies	16	16	3.69	5
+B-rays-patisserie	sausage rolls	6	6	4.50	0
+B-burleigh-baker	sourdough	40	30	4.47	3
+B-burleigh-baker	pies	23	23	4.04	3
+B-burleigh-baker	croissants	17	17	4.65	1
+B-sacrebleu	croissants	45	30	4.50	2
+B-sacrebleu	canelés	20	20	4.85	0
+B-sacrebleu	madeleines	18	18	4.67	0
+B-hearthe	croissants	20	20	4.00	3
+B-hearthe	paperbark cake	14	14	4.07	3
+B-hearthe	scone	11	11	4.64	0
+B-bakealicious	victoria sponge cake	28	28	5.00	0
+B-bakealicious	empanadas	19	19	4.84	0
+B-bakealicious	pavlova	18	18	4.78	1
+B-bakehouse-delights	pies	63	30	4.33	3
+B-bakehouse-delights	custard tart	7	7	4.57	0
+B-bakehouse-delights	sausage rolls	6	6	4.67	0
+B-bakehouse-delights	vanilla slice	6	6	4.83	0
+B-bakehouse-delights	sourdough	6	6	4.67	0
+B-tuga-pastries	portuguese tarts	121	30	4.37	3
+B-tuga-pastries	almond croissant	30	30	4.43	3
+B-tuga-pastries	nutella croissant	24	24	4.21	3
+B-vs-dessert	cheesecake	28	28	5.00	0
+B-vs-dessert	birthday cake	18	18	5.00	0
+B-vs-dessert	basque cheesecake	14	14	5.00	0
+B-madame-and-yves	croissants	41	30	4.70	2
+B-madame-and-yves	eclairs	29	29	4.86	0
+B-madame-and-yves	tarts	23	23	4.83	0
+B-brazen-brownies	brownies	139	30	5.00	0
+B-brazen-brownies	ice cream cake	16	16	5.00	0
+B-brazen-brownies	tiramisu in a can	6	6	5.00	0
+B-brumbys	pies	10	10	3.40	3
+B-sebastien-sans-gluten	croissants	32	30	4.97	0
+B-sebastien-sans-gluten	lemon meringue tart	24	24	4.92	0
+B-sebastien-sans-gluten	ham and cheese croissant	22	22	5.00	0
+B-comeco-foods	onigiri plate	50	30	4.73	1
+B-comeco-foods	tempura	39	30	4.70	1
+B-comeco-foods	sourdough donuts	32	30	4.60	2
+B-comeco-foods	matcha	28	28	4.71	2
+B-comeco-foods	hojicha latte	8	8	5.00	0
+B-crois	croissants	9	9	5.00	0
+B-doughheads	glazed doughnut	8	8	5.00	0
+B-doughheads	golden gaytime doughnut	6	6	4.50	0
+B-hudsons-bakery	gluten free bread	31	30	4.97	0
+B-hudsons-bakery	carrot cake	11	11	4.18	2
+B-hudsons-bakery	finger bun	8	8	5.00	0
+B-mr-bake	pies	29	29	4.76	1
+B-mr-bake	sausage roll	6	6	4.00	1
+B-egg-wash-bake-shop	pies	53	30	4.73	1
+B-egg-wash-bake-shop	donuts	27	27	4.93	0
+B-egg-wash-bake-shop	cannoli	7	7	4.86	0
+B-sourdough-portland	croissants	21	21	5.00	0
+B-sourdough-portland	almond croissant	7	7	5.00	0
+B-sourdough-portland	sourdough loaf	5	5	5.00	0
+B-yamanto-central-patisserie	pies	13	10	3.10	5
