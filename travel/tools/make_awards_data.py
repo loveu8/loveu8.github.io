@@ -66,9 +66,12 @@ ENUMS = {
 }
 LIST_COLUMNS = {("businesses", "business_type"), ("businesses", "related_refs")}
 URL_COLUMNS = {"website_url", "instagram_url", "location_source_url", "source_url", "archive_url"}
-DATE_COLUMNS = {"event_date", "location_verified_at", "published_at", "verified_at"}
-INT_COLUMNS = {"award_year", "rank", "class_places_awarded"}
-DECIMAL_COLUMNS = {"latitude", "longitude", "score"}
+DATE_COLUMNS = {"event_date", "location_verified_at", "published_at", "verified_at", "google_checked_at"}
+INT_COLUMNS = {"award_year", "rank", "class_places_awarded", "google_reviews"}
+DECIMAL_COLUMNS = {"latitude", "longitude", "score", "google_rating"}
+# locations.csv, optional (v2-4 Q2, 2026-11-04): Google Maps stars and review count, shown on the
+# store's 📍 button. All three are filled together or left empty.
+GOOGLE_COLUMNS = ["google_rating", "google_reviews", "google_checked_at"]
 
 ID_COLUMNS = {"competitions": "competition_id", "businesses": "business_id", "locations": "location_id",
               "awards": "award_id", "award_attributions": "attribution_id", "sources": "source_id"}
@@ -176,9 +179,13 @@ PICK_SECTIONS = ["drink", "food"]
 PICK_VERDICTS = ["recommended", "mentioned"]
 
 
-def recommended(avg, low, sample):
-    # brisbane/cafe/TOP3.md: average >= 4.5 stars and at most 1 in 10 of the latest reviews at 1-2 stars
-    return avg >= 4.5 and low * 10 <= sample
+MIN_MENTIONS = 5  # v2-4 Q3 (user chose A, 2026-11-04): the same rule as scripts/map-list.js
+
+
+def recommended(mentions, avg, low, sample):
+    # brisbane/cafe/TOP3.md: mentioned in 5+ reviews, average >= 4.5 stars and at most 1 in 10
+    # of the latest reviews at 1-2 stars
+    return mentions >= MIN_MENTIONS and avg >= 4.5 and low * 10 <= sample
 
 
 def check_review_picks(tables, errors):
@@ -215,10 +222,10 @@ def check_review_picks(tables, errors):
                 or low > sample:
             errors.append("%s mentions, avg_stars (1-5), low_count and sample_size (1-30) must be numbers" % where)
             continue
-        rule = "recommended" if recommended(avg, low, sample) else "mentioned"
+        rule = "recommended" if recommended(mentions, avg, low, sample) else "mentioned"
         if val(r, "verdict") in PICK_VERDICTS and val(r, "verdict") != rule:
-            errors.append("%s verdict %s does not match the rule (%.2f stars, %d of %d low -> %s)"
-                          % (where, val(r, "verdict"), avg, low, sample, rule))
+            errors.append("%s verdict %s does not match the rule (%d mentions, %.2f stars, %d of %d low -> %s)"
+                          % (where, val(r, "verdict"), mentions, avg, low, sample, rule))
 
 
 def review_picks(tables, business_id):
@@ -405,6 +412,12 @@ def check_locations(tables, today, errors, warnings):
             errors.append("%s longitude %s is outside Australia (%d to %d)" % (where, lng, LNG_RANGE[0], LNG_RANGE[1]))
         if val(l, "operating_status") == "moved" and not val(l, "moved_to_location_id"):
             errors.append("%s operating_status=moved needs moved_to_location_id" % where)
+        filled = [bool(val(l, c)) for c in GOOGLE_COLUMNS]
+        if any(filled) and not all(filled):
+            errors.append("%s %s must be filled together" % (where, ", ".join(GOOGLE_COLUMNS)))
+        rating = to_float(val(l, "google_rating"))
+        if rating is not None and not 1 <= rating <= 5:
+            errors.append("%s google_rating %s must be 1-5" % (where, rating))
         stale(where, "location_verified_at", val(l, "location_verified_at"), today, warnings)
         if lat is not None and lng is not None:
             confirmed = DISTINCT_MARK in val(l, "notes")
@@ -509,7 +522,7 @@ def pick_locations(b, links, open_shops):
 def location_entry(b, l):
     address = "%s, %s %s %s" % (val(l, "street_address"), val(l, "suburb"), val(l, "state_code"), val(l, "postcode"))
     query = urllib.parse.quote(val(b, "official_name") + " " + address)
-    return {
+    entry = {
         "id": val(l, "location_id"),
         "name": val(l, "location_name"),
         "address": address,
@@ -521,6 +534,11 @@ def location_entry(b, l):
         "type": val(l, "location_type"),
         "mapsUrl": "https://www.google.com/maps/search/?api=1&query=" + query,
     }
+    if val(l, "google_rating"):
+        # "📍 Mittagong ★ 4.6（1,203）" (v2-4 Q2)
+        entry["google"] = {"rating": float(val(l, "google_rating")), "reviews": int(val(l, "google_reviews")),
+                           "checkedAt": val(l, "google_checked_at")}
+    return entry
 
 
 def award_entry(a, at, shown_ids, sources_for):

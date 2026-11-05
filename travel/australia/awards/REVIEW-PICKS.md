@@ -1,9 +1,10 @@
-# 世界百大咖啡店：Google 評論的大家推薦
+# 得獎店家：Google 評論的大家推薦
 
-- 調查日期：2026-11-02（Google Maps 英文介面，為當天快照）
-- 對象：世界百大咖啡店的 12 間澳洲門市（官方店家頁寫的那一間，見 `locations.csv`）
-- 為什麼要做：世界百大是「排名」，不像比賽有得獎品項，卡片上沒有東西可以點。使用者 2026-11-02 決定補 Google 評論的推薦品項（`PLAN.md` D10）。
-- 資料：`review_picks.csv`（欄位見 `DATA-SCHEMA.md` 2.8）。網頁版面 C：卡片放 ✅ 大家推薦，獎項明細放飲品、餐點各前三名。
+- 調查日期：世界百大 12 家 2026-11-02；其他 41 家 2026-11-04（`PLAN.md` v2-4）。Google Maps 英文介面，為當天快照。
+- 對象：每家一間代表門市。世界百大用官方店家頁寫的那一間；其他店官方寫了得獎門市就用那間，沒有就取 Google 評論最多的門市（v2-4 Q1）。
+- 為什麼要做：世界百大是「排名」，不像比賽有得獎品項，卡片上沒有東西可以點，使用者 2026-11-02 決定補 Google 評論的推薦品項（`PLAN.md` D10）。2026-11-04 使用者決定補給全部 53 家（v2-4）。
+- 資料：`review_picks.csv`（欄位見 `DATA-SCHEMA.md` 2.8）。網頁版面（v2-4 Q4 B，2026-11-04）：卡片一行「Google 評論推薦：A、B、C」，只放大家推薦，依提及數最多 3 項（2026-11-05 使用者決定）；獎項明細「Google 評論常點」放飲品、餐點各前三名，大家推薦另附星等。
+- 門市星等和評論數（v2-4 Q2）：83 間門市都查了，寫在 `locations.csv` 的 `google_rating`、`google_reviews`、`google_checked_at`，顯示在 📍 按鈕上。原始資料 `research/google_ratings_2026-11-04.tsv`。
 
 ## 方法
 
@@ -13,7 +14,7 @@
 2. 候選品項：Google Maps 評論的熱門關鍵字（前 10 個）。排除非食物（店員、座位、排隊、等候）、太籠統的詞（specialty coffee、takeaway coffee、bean selection、coffee quality）、植物奶（oat milk、almond milk）和免費氣泡水。
 3. 提及數：關鍵字旁 Google 顯示的則數（全部評論累計）。
 4. 評價：點關鍵字、改成「最新」排序，取最新 30 則（提及較少就全部算），記平均星等和 1～2 星則數。
-5. 判定：平均 ≥ 4.5 星，而且 1～2 星不超過 1 成，標 ✅「大家推薦」；其他是「評論常提到」。
+5. 判定：提及 ≥ 5 則、平均 ≥ 4.5 星，而且 1～2 星不超過 1 成，標 ✅「大家推薦」；其他是「評論常提到」。「5 則」是 v2-4 Q3（2026-11-04）加的，和咖啡廳、烘焙頁同一條規則；因此世界百大的 Toby's 碎蛋烤三明治、Beta 的手沖和藝伎不再算大家推薦，Beta 沒有大家推薦。
 6. 名次依提及數；同數時選評價較高或較具體的，另一項寫在備註。
 
 ## 總表
@@ -34,6 +35,18 @@
 | Only Coffee Project（Crows Nest） | 濾泡咖啡（17，4.59）、✅ 手沖（9，4.67）、Long black（7，4.57） | — |
 | Beta Coffee（Surry Hills） | Flat white（13，4.23）、✅ 手沖（3，5.0）、✅ 藝伎（2，5.0） | — |
 | Single O（Surry Hills） | ✅ Flat white（170，4.63） | 香蕉麵包（289，4.30）、✅ 酪梨吐司（47，4.83）、✅ 雞肉烤三明治（26，4.77） |
+
+上表是 2026-11-02 的判定，✅ 照當時的規則；套用 5 則門檻後的結果見 `review_picks.csv`。
+
+## 其他 41 家（2026-11-04）
+
+用使用者的 Chrome 查。每家先記前 10 個評論關鍵字（`research/google_review_topics_2026-11-04.txt`），再挑 5 則以上的飲品和餐點，各讀最新 30 則（`research/google_review_keywords_2026-11-04.tsv`，共 90 項）。
+
+- 26 家有大家推薦，共 58 項（卡片最多列 3 項）。
+- 7 家有評論常提到的品項，但都沒有達到推薦標準：LTT Patisserie、Glee Coffee Roasters、Parfait Patisserie、Wandin Bakery、Tuga Pastries（葡式蛋塔 121 則，但只有 4.37 星）、Brumby's Bakery、Yamanto Central Patisserie。
+- 8 家沒有 5 則以上的具體品項，沒有資料列：Adelaide's Finest、Bakers Delight、Coffee Mentality、O'GaBee、Forestway、Pudding Lane、Peak Coffee、Coffee Presto。
+- 除了 Comeco Foods 的抹茶和焙茶拿鐵是飲品，其他都是餐點。
+- 每區最多 3 項：Bakehouse Delights 的餐點有 5 項，同為 6 則的香腸捲和酸種麵包排第 4、5（同數時評價高的優先，香草千層 4.83 星排第 3），所以沒有列；這兩項其實都是大家推薦。
 
 ## 備註
 

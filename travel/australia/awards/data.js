@@ -73,7 +73,12 @@ var PAGE_DATA = {
           "lat": -34.946548,
           "lng": 138.6266,
           "type": "in_supermarket",
-          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Adelaide%27s%20Finest%20177%20Glen%20Osmond%20Rd%2C%20Frewville%20SA%205063"
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Adelaide%27s%20Finest%20177%20Glen%20Osmond%20Rd%2C%20Frewville%20SA%205063",
+          "google": {
+            "rating": 4.5,
+            "reviews": 2424,
+            "checkedAt": "2026-11-04"
+          }
         },
         {
           "id": "L-adelaides-finest-pasadena",
@@ -85,7 +90,12 @@ var PAGE_DATA = {
           "lat": -35.0008333,
           "lng": 138.5905556,
           "type": "in_supermarket",
-          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Adelaide%27s%20Finest%2020%20Fiveash%20Dr%2C%20Pasadena%20SA%205042"
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Adelaide%27s%20Finest%2020%20Fiveash%20Dr%2C%20Pasadena%20SA%205042",
+          "google": {
+            "rating": 4.3,
+            "reviews": 17,
+            "checkedAt": "2026-11-04"
+          }
         }
       ],
       "awards": [
@@ -385,7 +395,12 @@ var PAGE_DATA = {
           "lat": -34.4527297,
           "lng": 150.4330786,
           "type": "standalone",
-          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=The%20Gumnut%20Patisserie%20Corner%20of%20Cavendish%20St%2C%2016%20Dalton%20St%2C%20Mittagong%20NSW%202575"
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=The%20Gumnut%20Patisserie%20Corner%20of%20Cavendish%20St%2C%2016%20Dalton%20St%2C%20Mittagong%20NSW%202575",
+          "google": {
+            "rating": 4.6,
+            "reviews": 643,
+            "checkedAt": "2026-11-04"
+          }
         },
         {
           "id": "L-gumnut-patisserie-bowral",
@@ -397,7 +412,12 @@ var PAGE_DATA = {
           "lat": -34.4788577,
           "lng": 150.4177186,
           "type": "standalone",
-          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=The%20Gumnut%20Patisserie%20Shop%207%2C%20Grand%20Arcade%2C%20Bong%20Bong%20St%2C%20Bowral%20NSW%202576"
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=The%20Gumnut%20Patisserie%20Shop%207%2C%20Grand%20Arcade%2C%20Bong%20Bong%20St%2C%20Bowral%20NSW%202576",
+          "google": {
+            "rating": 4.5,
+            "reviews": 1183,
+            "checkedAt": "2026-11-04"
+          }
         },
         {
           "id": "L-gumnut-patisserie-berrima",
@@ -409,7 +429,12 @@ var PAGE_DATA = {
           "lat": -34.4896167,
           "lng": 150.3353424,
           "type": "standalone",
-          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=The%20Gumnut%20Patisserie%201%20Old%20Hume%20Hwy%2C%20Berrima%20NSW%202577"
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=The%20Gumnut%20Patisserie%201%20Old%20Hume%20Hwy%2C%20Berrima%20NSW%202577",
+          "google": {
+            "rating": 4.4,
+            "reviews": 331,
+            "checkedAt": "2026-11-04"
+          }
         }
       ],
       "awards": [
@@ -1677,6 +1702,33 @@ var PAGE_DATA = {
           2024,
           2025
         ]
+      },
+      "reviewPicks": {
+        "checkedAt": "2026-11-04",
+        "drink": [],
+        "food": [
+          {
+            "zh": "肉派",
+            "en": "Pies",
+            "mentions": 117,
+            "stars": 4.4,
+            "rec": false
+          },
+          {
+            "zh": "香腸捲",
+            "en": "Sausage rolls",
+            "mentions": 53,
+            "stars": 4.2,
+            "rec": false
+          },
+          {
+            "zh": "香草千層",
+            "en": "Vanilla slice",
+            "mentions": 40,
+            "stars": 4.6,
+            "rec": true
+          }
+        ]
       }
     },
     {
@@ -1702,7 +1754,12 @@ var PAGE_DATA = {
           "lat": -33.6370462,
           "lng": 151.3293715,
           "type": "standalone",
-          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Bonfire%20Bread%2068%20Old%20Barrenjoey%20Rd%2C%20Avalon%20Beach%20NSW%202107"
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Bonfire%20Bread%2068%20Old%20Barrenjoey%20Rd%2C%20Avalon%20Beach%20NSW%202107",
+          "google": {
+            "rating": 4.6,
+            "reviews": 65,
+            "checkedAt": "2026-11-04"
+          }
         },
         {
           "id": "L-bonfire-bread-mosman",
@@ -1714,7 +1771,12 @@ var PAGE_DATA = {
           "lat": -33.8238999,
           "lng": 151.2403635,
           "type": "supermarket_counter",
-          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Bonfire%20Bread%20Bridgepoint%20Shopping%20Centre%2C%20T9/1-3%20Brady%20St%2C%20Mosman%20NSW%202088"
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Bonfire%20Bread%20Bridgepoint%20Shopping%20Centre%2C%20T9/1-3%20Brady%20St%2C%20Mosman%20NSW%202088",
+          "google": {
+            "rating": 4.3,
+            "reviews": 15,
+            "checkedAt": "2026-11-04"
+          }
         },
         {
           "id": "L-bonfire-bread-lane-cove",
@@ -1726,7 +1788,12 @@ var PAGE_DATA = {
           "lat": -33.8148653,
           "lng": 151.1676867,
           "type": "supermarket_counter",
-          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Bonfire%20Bread%204/56-60%20Burns%20Bay%20Rd%2C%20Lane%20Cove%20NSW%202066"
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Bonfire%20Bread%204/56-60%20Burns%20Bay%20Rd%2C%20Lane%20Cove%20NSW%202066",
+          "google": {
+            "rating": 5.0,
+            "reviews": 3,
+            "checkedAt": "2026-11-04"
+          }
         },
         {
           "id": "L-bonfire-bread-marrickville",
@@ -1738,7 +1805,12 @@ var PAGE_DATA = {
           "lat": -33.9086824,
           "lng": 151.1633063,
           "type": "supermarket_counter",
-          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Bonfire%20Bread%20186%20Victoria%20Rd%2C%20Marrickville%20NSW%202204"
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Bonfire%20Bread%20186%20Victoria%20Rd%2C%20Marrickville%20NSW%202204",
+          "google": {
+            "rating": 5.0,
+            "reviews": 2,
+            "checkedAt": "2026-11-04"
+          }
         }
       ],
       "awards": [
@@ -2430,6 +2502,26 @@ var PAGE_DATA = {
           2025,
           2026
         ]
+      },
+      "reviewPicks": {
+        "checkedAt": "2026-11-04",
+        "drink": [],
+        "food": [
+          {
+            "zh": "酸種麵包",
+            "en": "Sourdough",
+            "mentions": 10,
+            "stars": 5.0,
+            "rec": true
+          },
+          {
+            "zh": "法棍",
+            "en": "Baguettes",
+            "mentions": 5,
+            "stars": 5.0,
+            "rec": true
+          }
+        ]
       }
     },
     {
@@ -2455,7 +2547,12 @@ var PAGE_DATA = {
           "lat": -33.7845953,
           "lng": 151.176711,
           "type": "standalone",
-          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Slowbreads%20Roseville%20100%20Pacific%20Hwy%2C%20Roseville%20NSW%202069"
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Slowbreads%20Roseville%20100%20Pacific%20Hwy%2C%20Roseville%20NSW%202069",
+          "google": {
+            "rating": 4.8,
+            "reviews": 161,
+            "checkedAt": "2026-11-04"
+          }
         }
       ],
       "awards": [
@@ -2897,6 +2994,33 @@ var PAGE_DATA = {
           2025,
           2026
         ]
+      },
+      "reviewPicks": {
+        "checkedAt": "2026-11-04",
+        "drink": [],
+        "food": [
+          {
+            "zh": "酸種麵包",
+            "en": "Sourdough",
+            "mentions": 30,
+            "stars": 4.9,
+            "rec": true
+          },
+          {
+            "zh": "可頌",
+            "en": "Croissants",
+            "mentions": 16,
+            "stars": 5.0,
+            "rec": true
+          },
+          {
+            "zh": "丹麥酥",
+            "en": "Danishes",
+            "mentions": 14,
+            "stars": 4.6,
+            "rec": false
+          }
+        ]
       }
     },
     {
@@ -2922,7 +3046,12 @@ var PAGE_DATA = {
           "lat": -27.5799843,
           "lng": 153.0250087,
           "type": "standalone",
-          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=LTT%20Patisserie%209/365%20Mortimer%20Rd%2C%20Acacia%20Ridge%20QLD%204110"
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=LTT%20Patisserie%209/365%20Mortimer%20Rd%2C%20Acacia%20Ridge%20QLD%204110",
+          "google": {
+            "rating": 4.4,
+            "reviews": 31,
+            "checkedAt": "2026-11-04"
+          }
         }
       ],
       "awards": [
@@ -3193,6 +3322,19 @@ var PAGE_DATA = {
           2025,
           2026
         ]
+      },
+      "reviewPicks": {
+        "checkedAt": "2026-11-04",
+        "drink": [],
+        "food": [
+          {
+            "zh": "肉派",
+            "en": "Pies",
+            "mentions": 18,
+            "stars": 4.4,
+            "rec": false
+          }
+        ]
       }
     },
     {
@@ -3218,7 +3360,12 @@ var PAGE_DATA = {
           "lat": -37.8982823,
           "lng": 145.1148986,
           "type": "standalone",
-          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Piece%20of%20Cake%20Bakery%202B%20Macrina%20St%2C%20Oakleigh%20East%20VIC%203166"
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Piece%20of%20Cake%20Bakery%202B%20Macrina%20St%2C%20Oakleigh%20East%20VIC%203166",
+          "google": {
+            "rating": 4.4,
+            "reviews": 110,
+            "checkedAt": "2026-11-04"
+          }
         }
       ],
       "awards": [
@@ -3358,6 +3505,33 @@ var PAGE_DATA = {
         "years": [
           2024
         ]
+      },
+      "reviewPicks": {
+        "checkedAt": "2026-11-04",
+        "drink": [],
+        "food": [
+          {
+            "zh": "肉派",
+            "en": "Pies",
+            "mentions": 28,
+            "stars": 4.2,
+            "rec": false
+          },
+          {
+            "zh": "可頌",
+            "en": "Croissants",
+            "mentions": 20,
+            "stars": 4.0,
+            "rec": false
+          },
+          {
+            "zh": "酸種麵包",
+            "en": "Sourdough",
+            "mentions": 9,
+            "stars": 4.8,
+            "rec": true
+          }
+        ]
       }
     },
     {
@@ -3383,7 +3557,12 @@ var PAGE_DATA = {
           "lat": -33.9035821,
           "lng": 151.1987099,
           "type": "standalone",
-          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Wholegreen%20Bakery%2025%20McCauley%20St%2C%20Alexandria%20NSW%202015"
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Wholegreen%20Bakery%2025%20McCauley%20St%2C%20Alexandria%20NSW%202015",
+          "google": {
+            "rating": 4.6,
+            "reviews": 138,
+            "checkedAt": "2026-11-04"
+          }
         },
         {
           "id": "L-wholegreen-bakery-sydney-cbd",
@@ -3395,7 +3574,12 @@ var PAGE_DATA = {
           "lat": -33.8716284,
           "lng": 151.2054569,
           "type": "standalone",
-          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Wholegreen%20Bakery%20257%20Clarence%20St%2C%20Sydney%20NSW%202000"
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Wholegreen%20Bakery%20257%20Clarence%20St%2C%20Sydney%20NSW%202000",
+          "google": {
+            "rating": 4.6,
+            "reviews": 535,
+            "checkedAt": "2026-11-04"
+          }
         },
         {
           "id": "L-wholegreen-bakery-bondi-junction",
@@ -3407,7 +3591,12 @@ var PAGE_DATA = {
           "lat": -33.895466,
           "lng": 151.2510484,
           "type": "standalone",
-          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Wholegreen%20Bakery%20110%20Bronte%20Rd%2C%20Bondi%20Junction%20NSW%202022"
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Wholegreen%20Bakery%20110%20Bronte%20Rd%2C%20Bondi%20Junction%20NSW%202022",
+          "google": {
+            "rating": 4.5,
+            "reviews": 321,
+            "checkedAt": "2026-11-04"
+          }
         },
         {
           "id": "L-wholegreen-bakery-manly",
@@ -3419,7 +3608,12 @@ var PAGE_DATA = {
           "lat": -33.7988564,
           "lng": 151.285681,
           "type": "standalone",
-          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Wholegreen%20Bakery%20Unit%208/28%20The%20Corso%2C%20Manly%20NSW%202095"
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Wholegreen%20Bakery%20Unit%208/28%20The%20Corso%2C%20Manly%20NSW%202095",
+          "google": {
+            "rating": 4.4,
+            "reviews": 84,
+            "checkedAt": "2026-11-04"
+          }
         },
         {
           "id": "L-wholegreen-bakery-neutral-bay",
@@ -3431,7 +3625,12 @@ var PAGE_DATA = {
           "lat": -33.8306515,
           "lng": 151.2232817,
           "type": "standalone",
-          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Wholegreen%20Bakery%205/12%20Waters%20Rd%2C%20Neutral%20Bay%20NSW%202089"
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Wholegreen%20Bakery%205/12%20Waters%20Rd%2C%20Neutral%20Bay%20NSW%202089",
+          "google": {
+            "rating": 4.3,
+            "reviews": 46,
+            "checkedAt": "2026-11-04"
+          }
         }
       ],
       "awards": [
@@ -4148,6 +4347,33 @@ var PAGE_DATA = {
           2025,
           2026
         ]
+      },
+      "reviewPicks": {
+        "checkedAt": "2026-11-04",
+        "drink": [],
+        "food": [
+          {
+            "zh": "香腸捲",
+            "en": "Sausage roll",
+            "mentions": 29,
+            "stars": 4.7,
+            "rec": true
+          },
+          {
+            "zh": "杏仁可頌",
+            "en": "Almond croissant",
+            "mentions": 29,
+            "stars": 4.4,
+            "rec": false
+          },
+          {
+            "zh": "巧克力可頌",
+            "en": "Pain au chocolat",
+            "mentions": 20,
+            "stars": 4.3,
+            "rec": false
+          }
+        ]
       }
     },
     {
@@ -4173,7 +4399,12 @@ var PAGE_DATA = {
           "lat": -35.3226558,
           "lng": 149.1514271,
           "type": "standalone",
-          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Three%20Mills%20Bakery%205%20Leeton%20St%2C%20Fyshwick%20ACT%202609"
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Three%20Mills%20Bakery%205%20Leeton%20St%2C%20Fyshwick%20ACT%202609",
+          "google": {
+            "rating": 4.5,
+            "reviews": 451,
+            "checkedAt": "2026-11-04"
+          }
         },
         {
           "id": "L-three-mills-bakery-newcastle-st",
@@ -4185,7 +4416,12 @@ var PAGE_DATA = {
           "lat": -35.3299515,
           "lng": 149.1777186,
           "type": "standalone",
-          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Three%20Mills%20Bakery%2075%20Newcastle%20St%2C%20Fyshwick%20ACT%202609"
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Three%20Mills%20Bakery%2075%20Newcastle%20St%2C%20Fyshwick%20ACT%202609",
+          "google": {
+            "rating": 4.2,
+            "reviews": 130,
+            "checkedAt": "2026-11-04"
+          }
         },
         {
           "id": "L-three-mills-bakery-belconnen",
@@ -4197,7 +4433,12 @@ var PAGE_DATA = {
           "lat": -35.2458497,
           "lng": 149.0654686,
           "type": "standalone",
-          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Three%20Mills%20Bakery%20Shop%20T44-T45/10%20Market%20St%2C%20Belconnen%20ACT%202617"
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Three%20Mills%20Bakery%20Shop%20T44-T45/10%20Market%20St%2C%20Belconnen%20ACT%202617",
+          "google": {
+            "rating": 3.9,
+            "reviews": 47,
+            "checkedAt": "2026-11-04"
+          }
         },
         {
           "id": "L-three-mills-bakery-woden",
@@ -4209,7 +4450,12 @@ var PAGE_DATA = {
           "lat": -35.343451,
           "lng": 149.085085,
           "type": "standalone",
-          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Three%20Mills%20Bakery%20193/35%20Furzer%20St%2C%20Phillip%20ACT%202606"
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Three%20Mills%20Bakery%20193/35%20Furzer%20St%2C%20Phillip%20ACT%202606",
+          "google": {
+            "rating": 4.3,
+            "reviews": 52,
+            "checkedAt": "2026-11-04"
+          }
         },
         {
           "id": "L-three-mills-bakery-majura-park",
@@ -4221,7 +4467,12 @@ var PAGE_DATA = {
           "lat": -35.2954122,
           "lng": 149.1889051,
           "type": "supermarket_counter",
-          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Three%20Mills%20Bakery%20Unit%203/10%20Catalina%20Dr%2C%20Majura%20Park%20ACT%202609"
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Three%20Mills%20Bakery%20Unit%203/10%20Catalina%20Dr%2C%20Majura%20Park%20ACT%202609",
+          "google": {
+            "rating": 3.6,
+            "reviews": 19,
+            "checkedAt": "2026-11-04"
+          }
         }
       ],
       "awards": [
@@ -4913,6 +5164,33 @@ var PAGE_DATA = {
           2025,
           2026
         ]
+      },
+      "reviewPicks": {
+        "checkedAt": "2026-11-04",
+        "drink": [],
+        "food": [
+          {
+            "zh": "香腸捲",
+            "en": "Sausage rolls",
+            "mentions": 43,
+            "stars": 4.2,
+            "rec": false
+          },
+          {
+            "zh": "肉派",
+            "en": "Pies",
+            "mentions": 28,
+            "stars": 4.6,
+            "rec": true
+          },
+          {
+            "zh": "酸種麵包",
+            "en": "Sourdough",
+            "mentions": 24,
+            "stars": 4.8,
+            "rec": true
+          }
+        ]
       }
     },
     {
@@ -4938,7 +5216,12 @@ var PAGE_DATA = {
           "lat": -27.1551947,
           "lng": 152.9749211,
           "type": "standalone",
-          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=The%20Squealing%20Pig%20Shop%206%2C%20Burpengary%20Plaza%2C%20173%20Station%20Rd%2C%20Burpengary%20QLD%204505"
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=The%20Squealing%20Pig%20Shop%206%2C%20Burpengary%20Plaza%2C%20173%20Station%20Rd%2C%20Burpengary%20QLD%204505",
+          "google": {
+            "rating": 4.4,
+            "reviews": 158,
+            "checkedAt": "2026-11-04"
+          }
         }
       ],
       "awards": [
@@ -5155,6 +5438,33 @@ var PAGE_DATA = {
           2024,
           2025
         ]
+      },
+      "reviewPicks": {
+        "checkedAt": "2026-11-04",
+        "drink": [],
+        "food": [
+          {
+            "zh": "肉派",
+            "en": "Pies",
+            "mentions": 43,
+            "stars": 4.6,
+            "rec": true
+          },
+          {
+            "zh": "烤豬肉麵包捲",
+            "en": "Roast pork roll",
+            "mentions": 18,
+            "stars": 4.9,
+            "rec": true
+          },
+          {
+            "zh": "牛胸肉派",
+            "en": "Brisket pie",
+            "mentions": 10,
+            "stars": 4.6,
+            "rec": true
+          }
+        ]
       }
     },
     {
@@ -5180,7 +5490,12 @@ var PAGE_DATA = {
           "lat": -27.4839731,
           "lng": 153.1259614,
           "type": "standalone",
-          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Uncle%20Bobs%20Bakery%20Shop%202%2C%20Belmont%20Road%20Shopping%20Village%2C%20185%20Belmont%20Rd%2C%20Belmont%20QLD%204153"
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Uncle%20Bobs%20Bakery%20Shop%202%2C%20Belmont%20Road%20Shopping%20Village%2C%20185%20Belmont%20Rd%2C%20Belmont%20QLD%204153",
+          "google": {
+            "rating": 4.5,
+            "reviews": 345,
+            "checkedAt": "2026-11-04"
+          }
         },
         {
           "id": "L-uncle-bobs-bakery-thornlands",
@@ -5192,7 +5507,12 @@ var PAGE_DATA = {
           "lat": -27.5578828,
           "lng": 153.2664052,
           "type": "standalone",
-          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Uncle%20Bobs%20Bakery%20Shop%207%2C%20Crystal%20Waters%20Shopping%20Centre%2C%2051%20Island%20Outlook%20Ave%2C%20Thornlands%20QLD%204164"
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Uncle%20Bobs%20Bakery%20Shop%207%2C%20Crystal%20Waters%20Shopping%20Centre%2C%2051%20Island%20Outlook%20Ave%2C%20Thornlands%20QLD%204164",
+          "google": {
+            "rating": 4.3,
+            "reviews": 71,
+            "checkedAt": "2026-11-04"
+          }
         }
       ],
       "awards": [
@@ -5338,6 +5658,26 @@ var PAGE_DATA = {
         "years": [
           2025
         ]
+      },
+      "reviewPicks": {
+        "checkedAt": "2026-11-04",
+        "drink": [],
+        "food": [
+          {
+            "zh": "肉派",
+            "en": "Pies",
+            "mentions": 79,
+            "stars": 4.6,
+            "rec": true
+          },
+          {
+            "zh": "香腸捲",
+            "en": "Sausage rolls",
+            "mentions": 11,
+            "stars": 3.8,
+            "rec": false
+          }
+        ]
       }
     },
     {
@@ -5364,7 +5704,12 @@ var PAGE_DATA = {
           "lat": -33.4268817,
           "lng": 151.4126921,
           "type": "standalone",
-          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Glee%20Coffee%20Roasters%204/490%20Central%20Coast%20Hwy%2C%20Erina%20Heights%20NSW%202260"
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Glee%20Coffee%20Roasters%204/490%20Central%20Coast%20Hwy%2C%20Erina%20Heights%20NSW%202260",
+          "google": {
+            "rating": 4.5,
+            "reviews": 453,
+            "checkedAt": "2026-11-04"
+          }
         },
         {
           "id": "L-glee-coffee-roasters-chapman",
@@ -5376,7 +5721,12 @@ var PAGE_DATA = {
           "lat": -33.2837769,
           "lng": 151.4239339,
           "type": "standalone",
-          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Glee%20Coffee%20Roasters%20The%20Chapman%20Building%2C%209/14%20Alison%20Rd%2C%20Wyong%20NSW%202259"
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Glee%20Coffee%20Roasters%20The%20Chapman%20Building%2C%209/14%20Alison%20Rd%2C%20Wyong%20NSW%202259",
+          "google": {
+            "rating": 4.4,
+            "reviews": 681,
+            "checkedAt": "2026-11-04"
+          }
         },
         {
           "id": "L-glee-coffee-roasters-hq",
@@ -5388,7 +5738,12 @@ var PAGE_DATA = {
           "lat": -33.2681975,
           "lng": 151.4394922,
           "type": "factory_shop",
-          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Glee%20Coffee%20Roasters%20B1/4%20Dulmison%20Ave%2C%20Wyong%20NSW%202259"
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Glee%20Coffee%20Roasters%20B1/4%20Dulmison%20Ave%2C%20Wyong%20NSW%202259",
+          "google": {
+            "rating": 4.6,
+            "reviews": 67,
+            "checkedAt": "2026-11-04"
+          }
         }
       ],
       "awards": [
@@ -5704,6 +6059,33 @@ var PAGE_DATA = {
           2024,
           2025
         ]
+      },
+      "reviewPicks": {
+        "checkedAt": "2026-11-04",
+        "drink": [],
+        "food": [
+          {
+            "zh": "辣味炒蛋",
+            "en": "Chilli scrambled eggs",
+            "mentions": 8,
+            "stars": 4.4,
+            "rec": false
+          },
+          {
+            "zh": "哈羅米起司早餐",
+            "en": "Halloumi Heaven",
+            "mentions": 8,
+            "stars": 3.9,
+            "rec": false
+          },
+          {
+            "zh": "水波蛋",
+            "en": "Poached eggs",
+            "mentions": 7,
+            "stars": 4.4,
+            "rec": false
+          }
+        ]
       }
     },
     {
@@ -5729,7 +6111,12 @@ var PAGE_DATA = {
           "lat": -34.6727256,
           "lng": 150.8560234,
           "type": "standalone",
-          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Parfait%20Patisserie%2038-40%20Manning%20St%2C%20Kiama%20NSW%202533"
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Parfait%20Patisserie%2038-40%20Manning%20St%2C%20Kiama%20NSW%202533",
+          "google": {
+            "rating": 4.5,
+            "reviews": 419,
+            "checkedAt": "2026-11-04"
+          }
         }
       ],
       "awards": [
@@ -5848,6 +6235,33 @@ var PAGE_DATA = {
         "years": [
           2025
         ]
+      },
+      "reviewPicks": {
+        "checkedAt": "2026-11-04",
+        "drink": [],
+        "food": [
+          {
+            "zh": "肉派",
+            "en": "Pies",
+            "mentions": 42,
+            "stars": 4.4,
+            "rec": false
+          },
+          {
+            "zh": "可頌",
+            "en": "Croissants",
+            "mentions": 18,
+            "stars": 3.9,
+            "rec": false
+          },
+          {
+            "zh": "丹麥酥",
+            "en": "Danish",
+            "mentions": 16,
+            "stars": 4.3,
+            "rec": false
+          }
+        ]
       }
     },
     {
@@ -5873,7 +6287,12 @@ var PAGE_DATA = {
           "lat": -33.8338592,
           "lng": 151.2293332,
           "type": "standalone",
-          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Sweet%20Ivy%2010%20Reginald%20St%2C%20Mosman%20NSW%202088"
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Sweet%20Ivy%2010%20Reginald%20St%2C%20Mosman%20NSW%202088",
+          "google": {
+            "rating": 4.9,
+            "reviews": 70,
+            "checkedAt": "2026-11-04"
+          }
         }
       ],
       "awards": [
@@ -5964,6 +6383,33 @@ var PAGE_DATA = {
           2025,
           2026
         ]
+      },
+      "reviewPicks": {
+        "checkedAt": "2026-11-04",
+        "drink": [],
+        "food": [
+          {
+            "zh": "馬卡龍",
+            "en": "Macarons",
+            "mentions": 28,
+            "stars": 4.8,
+            "rec": true
+          },
+          {
+            "zh": "椰子班蘭",
+            "en": "Coconut pandan",
+            "mentions": 6,
+            "stars": 5.0,
+            "rec": true
+          },
+          {
+            "zh": "巴斯克乳酪蛋糕",
+            "en": "Basque cheesecake",
+            "mentions": 5,
+            "stars": 5.0,
+            "rec": true
+          }
+        ]
       }
     },
     {
@@ -5989,7 +6435,12 @@ var PAGE_DATA = {
           "lat": -37.780023,
           "lng": 145.427614,
           "type": "standalone",
-          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Wandin%20Bakery%20380%20Warburton%20Hwy%2C%20Wandin%20North%20VIC%203139"
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Wandin%20Bakery%20380%20Warburton%20Hwy%2C%20Wandin%20North%20VIC%203139",
+          "google": {
+            "rating": 4.5,
+            "reviews": 132,
+            "checkedAt": "2026-11-04"
+          }
         }
       ],
       "awards": [
@@ -6054,6 +6505,33 @@ var PAGE_DATA = {
         "years": [
           2024
         ]
+      },
+      "reviewPicks": {
+        "checkedAt": "2026-11-04",
+        "drink": [],
+        "food": [
+          {
+            "zh": "肉派",
+            "en": "Pies",
+            "mentions": 28,
+            "stars": 4.2,
+            "rec": false
+          },
+          {
+            "zh": "香草千層",
+            "en": "Vanilla slice",
+            "mentions": 9,
+            "stars": 4.1,
+            "rec": false
+          },
+          {
+            "zh": "甜甜圈",
+            "en": "Donuts",
+            "mentions": 9,
+            "stars": 4.1,
+            "rec": false
+          }
+        ]
       }
     },
     {
@@ -6080,7 +6558,12 @@ var PAGE_DATA = {
           "lat": -33.8858584,
           "lng": 151.1944136,
           "type": "standalone",
-          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Toby%27s%20Estate%20Coffee%20Roasters%2032-36%20City%20Rd%2C%20Chippendale%20NSW%202008"
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Toby%27s%20Estate%20Coffee%20Roasters%2032-36%20City%20Rd%2C%20Chippendale%20NSW%202008",
+          "google": {
+            "rating": 4.1,
+            "reviews": 731,
+            "checkedAt": "2026-11-04"
+          }
         }
       ],
       "awards": [
@@ -6185,7 +6668,7 @@ var PAGE_DATA = {
             "en": "Smashed egg toastie",
             "mentions": 2,
             "stars": 5.0,
-            "rec": true
+            "rec": false
           }
         ]
       }
@@ -6213,7 +6696,12 @@ var PAGE_DATA = {
           "lat": -37.8023383,
           "lng": 144.9851717,
           "type": "standalone",
-          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Proud%20Mary%20Coffee%20172%20Oxford%20St%2C%20Collingwood%20VIC%203066"
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Proud%20Mary%20Coffee%20172%20Oxford%20St%2C%20Collingwood%20VIC%203066",
+          "google": {
+            "rating": 4.5,
+            "reviews": 2084,
+            "checkedAt": "2026-11-04"
+          }
         }
       ],
       "awards": [
@@ -6346,7 +6834,12 @@ var PAGE_DATA = {
           "lat": -27.4704616,
           "lng": 153.0280493,
           "type": "standalone",
-          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Coffee%20Anthology%20155%20Charlotte%20St%2C%20Brisbane%20City%20QLD%204000"
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Coffee%20Anthology%20155%20Charlotte%20St%2C%20Brisbane%20City%20QLD%204000",
+          "google": {
+            "rating": 4.3,
+            "reviews": 2017,
+            "checkedAt": "2026-11-04"
+          }
         }
       ],
       "awards": [
@@ -6487,7 +6980,12 @@ var PAGE_DATA = {
           "lat": -37.8159117,
           "lng": 144.9721572,
           "type": "standalone",
-          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Vacation%20Coffee%201%20Exhibition%20St%2C%20Melbourne%20VIC%203000"
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Vacation%20Coffee%201%20Exhibition%20St%2C%20Melbourne%20VIC%203000",
+          "google": {
+            "rating": 4.6,
+            "reviews": 666,
+            "checkedAt": "2026-11-04"
+          }
         }
       ],
       "awards": [
@@ -6613,7 +7111,12 @@ var PAGE_DATA = {
           "lat": -33.8243287,
           "lng": 151.200812,
           "type": "standalone",
-          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Only%20Coffee%20Project%20Shop%202/118%20Willoughby%20Rd%2C%20Crows%20Nest%20NSW%202065"
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Only%20Coffee%20Project%20Shop%202/118%20Willoughby%20Rd%2C%20Crows%20Nest%20NSW%202065",
+          "google": {
+            "rating": 4.5,
+            "reviews": 426,
+            "checkedAt": "2026-11-04"
+          }
         }
       ],
       "awards": [
@@ -6705,7 +7208,12 @@ var PAGE_DATA = {
           "lat": -33.8859385,
           "lng": 151.2077186,
           "type": "standalone",
-          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Beta%20Coffee%2076%20Devonshire%20St%2C%20Surry%20Hills%20NSW%202010"
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Beta%20Coffee%2076%20Devonshire%20St%2C%20Surry%20Hills%20NSW%202010",
+          "google": {
+            "rating": 4.7,
+            "reviews": 287,
+            "checkedAt": "2026-11-04"
+          }
         }
       ],
       "awards": [
@@ -6761,14 +7269,14 @@ var PAGE_DATA = {
             "en": "Pour over",
             "mentions": 3,
             "stars": 5.0,
-            "rec": true
+            "rec": false
           },
           {
             "zh": "藝伎咖啡",
             "en": "Geisha",
             "mentions": 2,
             "stars": 5.0,
-            "rec": true
+            "rec": false
           }
         ],
         "food": []
@@ -6798,7 +7306,12 @@ var PAGE_DATA = {
           "lat": -37.6688647,
           "lng": 144.8505886,
           "type": "standalone",
-          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Veneziano%20Coffee%20Roasters%20Shop%20T1%2C%20Departure%20Dr%2C%20Melbourne%20Airport%20VIC%203045"
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Veneziano%20Coffee%20Roasters%20Shop%20T1%2C%20Departure%20Dr%2C%20Melbourne%20Airport%20VIC%203045",
+          "google": {
+            "rating": 2.3,
+            "reviews": 154,
+            "checkedAt": "2026-11-04"
+          }
         }
       ],
       "awards": [
@@ -6898,7 +7411,12 @@ var PAGE_DATA = {
           "lat": -37.806135,
           "lng": 144.9801785,
           "type": "standalone",
-          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Cal%C4%93re%20Coffee%20Shop%201/166%20Gertrude%20St%2C%20Fitzroy%20VIC%203065"
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Cal%C4%93re%20Coffee%20Shop%201/166%20Gertrude%20St%2C%20Fitzroy%20VIC%203065",
+          "google": {
+            "rating": 4.6,
+            "reviews": 437,
+            "checkedAt": "2026-11-04"
+          }
         }
       ],
       "awards": [
@@ -7013,7 +7531,12 @@ var PAGE_DATA = {
           "lat": -34.9228308,
           "lng": 138.6097945,
           "type": "standalone",
-          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Exchange%20Coffee%2012/18%20Vardon%20Ave%2C%20Adelaide%20SA%205000"
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Exchange%20Coffee%2012/18%20Vardon%20Ave%2C%20Adelaide%20SA%205000",
+          "google": {
+            "rating": 4.4,
+            "reviews": 1144,
+            "checkedAt": "2026-11-04"
+          }
         }
       ],
       "awards": [
@@ -7106,7 +7629,12 @@ var PAGE_DATA = {
           "lat": -33.8810973,
           "lng": 151.2096465,
           "type": "standalone",
-          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Single%20O%2060/64%20Reservoir%20St%2C%20Surry%20Hills%20NSW%202010"
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Single%20O%2060/64%20Reservoir%20St%2C%20Surry%20Hills%20NSW%202010",
+          "google": {
+            "rating": 4.5,
+            "reviews": 3334,
+            "checkedAt": "2026-11-04"
+          }
         }
       ],
       "awards": [
@@ -7206,7 +7734,12 @@ var PAGE_DATA = {
           "lat": -27.4327236,
           "lng": 153.0452592,
           "type": "standalone",
-          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Fonzie%20Abbott%2040%20Fox%20St%2C%20Albion%20QLD%204010"
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Fonzie%20Abbott%2040%20Fox%20St%2C%20Albion%20QLD%204010",
+          "google": {
+            "rating": 4.3,
+            "reviews": 708,
+            "checkedAt": "2026-11-04"
+          }
         }
       ],
       "awards": [
@@ -7308,7 +7841,12 @@ var PAGE_DATA = {
           "lat": -37.8029711,
           "lng": 144.9590027,
           "type": "standalone",
-          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Seven%20Seeds%20114%20Berkeley%20St%2C%20Carlton%20VIC%203053"
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Seven%20Seeds%20114%20Berkeley%20St%2C%20Carlton%20VIC%203053",
+          "google": {
+            "rating": 4.4,
+            "reviews": 3851,
+            "checkedAt": "2026-11-04"
+          }
         }
       ],
       "awards": [
@@ -7400,7 +7938,12 @@ var PAGE_DATA = {
           "lat": -27.3506442,
           "lng": 153.0481067,
           "type": "standalone",
-          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Rays%20Patisserie%20Shop%2031%2C%20Taigum%20Square%2C%20217%20Beams%20Rd%2C%20Taigum%20QLD%204018"
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Rays%20Patisserie%20Shop%2031%2C%20Taigum%20Square%2C%20217%20Beams%20Rd%2C%20Taigum%20QLD%204018",
+          "google": {
+            "rating": 3.4,
+            "reviews": 21,
+            "checkedAt": "2026-11-04"
+          }
         },
         {
           "id": "L-rays-patisserie-carseldine",
@@ -7412,7 +7955,12 @@ var PAGE_DATA = {
           "lat": -27.3448567,
           "lng": 153.010891,
           "type": "standalone",
-          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Rays%20Patisserie%20735%20Beams%20Rd%2C%20Carseldine%20QLD%204034"
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Rays%20Patisserie%20735%20Beams%20Rd%2C%20Carseldine%20QLD%204034",
+          "google": {
+            "rating": 3.9,
+            "reviews": 35,
+            "checkedAt": "2026-11-04"
+          }
         }
       ],
       "awards": [
@@ -7953,6 +8501,26 @@ var PAGE_DATA = {
           2025,
           2026
         ]
+      },
+      "reviewPicks": {
+        "checkedAt": "2026-11-04",
+        "drink": [],
+        "food": [
+          {
+            "zh": "肉派",
+            "en": "Pies",
+            "mentions": 16,
+            "stars": 3.7,
+            "rec": false
+          },
+          {
+            "zh": "香腸捲",
+            "en": "Sausage rolls",
+            "mentions": 6,
+            "stars": 4.5,
+            "rec": true
+          }
+        ]
       }
     },
     {
@@ -7978,7 +8546,12 @@ var PAGE_DATA = {
           "lat": -33.8144986,
           "lng": 151.1691365,
           "type": "standalone",
-          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Bakers%20Delight%202/23%20Burns%20Bay%20Rd%2C%20Lane%20Cove%20NSW%202066"
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Bakers%20Delight%202/23%20Burns%20Bay%20Rd%2C%20Lane%20Cove%20NSW%202066",
+          "google": {
+            "rating": 3.8,
+            "reviews": 38,
+            "checkedAt": "2026-11-04"
+          }
         },
         {
           "id": "L-bakers-delight-albion-park-rail",
@@ -7990,7 +8563,12 @@ var PAGE_DATA = {
           "lat": -34.5608445,
           "lng": 150.796014,
           "type": "standalone",
-          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Bakers%20Delight%20Unit%201/183%20Princes%20Hwy%2C%20Albion%20Park%20Rail%20NSW%202527"
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Bakers%20Delight%20Unit%201/183%20Princes%20Hwy%2C%20Albion%20Park%20Rail%20NSW%202527",
+          "google": {
+            "rating": 4.6,
+            "reviews": 135,
+            "checkedAt": "2026-11-04"
+          }
         },
         {
           "id": "L-bakers-delight-arana-hills",
@@ -8002,7 +8580,12 @@ var PAGE_DATA = {
           "lat": -27.3990505,
           "lng": 152.9588196,
           "type": "standalone",
-          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Bakers%20Delight%20Shop%2010%2C%20Kmart%20Plaza%2C%20Dawson%20Pde%20%26%20Patricks%20Rd%2C%20Arana%20Hills%20QLD%204054"
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Bakers%20Delight%20Shop%2010%2C%20Kmart%20Plaza%2C%20Dawson%20Pde%20%26%20Patricks%20Rd%2C%20Arana%20Hills%20QLD%204054",
+          "google": {
+            "rating": 4.0,
+            "reviews": 63,
+            "checkedAt": "2026-11-04"
+          }
         }
       ],
       "awards": [
@@ -8474,7 +9057,12 @@ var PAGE_DATA = {
           "lat": -28.0893042,
           "lng": 153.4496674,
           "type": "standalone",
-          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Burleigh%20Baker%2013/50%20James%20St%2C%20Burleigh%20Heads%20QLD%204220"
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Burleigh%20Baker%2013/50%20James%20St%2C%20Burleigh%20Heads%20QLD%204220",
+          "google": {
+            "rating": 4.4,
+            "reviews": 461,
+            "checkedAt": "2026-11-04"
+          }
         },
         {
           "id": "L-burleigh-baker-paradise-point",
@@ -8486,7 +9074,12 @@ var PAGE_DATA = {
           "lat": -27.8851941,
           "lng": 153.3951239,
           "type": "standalone",
-          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Burleigh%20Baker%20Shop%207/46%20The%20Esplanade%2C%20Paradise%20Point%20QLD%204216"
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Burleigh%20Baker%20Shop%207/46%20The%20Esplanade%2C%20Paradise%20Point%20QLD%204216",
+          "google": {
+            "rating": 4.1,
+            "reviews": 145,
+            "checkedAt": "2026-11-04"
+          }
         }
       ],
       "awards": [
@@ -8803,6 +9396,33 @@ var PAGE_DATA = {
         "years": [
           2026
         ]
+      },
+      "reviewPicks": {
+        "checkedAt": "2026-11-04",
+        "drink": [],
+        "food": [
+          {
+            "zh": "酸種麵包",
+            "en": "Sourdough",
+            "mentions": 40,
+            "stars": 4.5,
+            "rec": false
+          },
+          {
+            "zh": "肉派",
+            "en": "Pies",
+            "mentions": 23,
+            "stars": 4.0,
+            "rec": false
+          },
+          {
+            "zh": "可頌",
+            "en": "Croissants",
+            "mentions": 17,
+            "stars": 4.7,
+            "rec": true
+          }
+        ]
       }
     },
     {
@@ -8828,7 +9448,12 @@ var PAGE_DATA = {
           "lat": -33.7526369,
           "lng": 151.2861013,
           "type": "standalone",
-          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Sacrebleu%21%20Canel%C3%A9s%20and%20Co%20701%20Pittwater%20Rd%2C%20Dee%20Why%20NSW%202099"
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Sacrebleu%21%20Canel%C3%A9s%20and%20Co%20701%20Pittwater%20Rd%2C%20Dee%20Why%20NSW%202099",
+          "google": {
+            "rating": 4.8,
+            "reviews": 162,
+            "checkedAt": "2026-11-04"
+          }
         },
         {
           "id": "L-sacrebleu-crown-sydney",
@@ -8840,7 +9465,12 @@ var PAGE_DATA = {
           "lat": -33.8620254,
           "lng": 151.2014096,
           "type": "standalone",
-          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Sacrebleu%21%20Canel%C3%A9s%20and%20Co%201%20Barangaroo%20Ave%2C%20Barangaroo%20NSW%202000"
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Sacrebleu%21%20Canel%C3%A9s%20and%20Co%201%20Barangaroo%20Ave%2C%20Barangaroo%20NSW%202000",
+          "google": {
+            "rating": 4.5,
+            "reviews": 159,
+            "checkedAt": "2026-11-04"
+          }
         }
       ],
       "awards": [
@@ -9106,6 +9736,33 @@ var PAGE_DATA = {
           2024,
           2025
         ]
+      },
+      "reviewPicks": {
+        "checkedAt": "2026-11-04",
+        "drink": [],
+        "food": [
+          {
+            "zh": "可頌",
+            "en": "Croissants",
+            "mentions": 45,
+            "stars": 4.5,
+            "rec": true
+          },
+          {
+            "zh": "可麗露",
+            "en": "Canelés",
+            "mentions": 20,
+            "stars": 4.8,
+            "rec": true
+          },
+          {
+            "zh": "瑪德蓮",
+            "en": "Madeleines",
+            "mentions": 18,
+            "stars": 4.7,
+            "rec": true
+          }
+        ]
       }
     },
     {
@@ -9131,7 +9788,12 @@ var PAGE_DATA = {
           "lat": -33.8937931,
           "lng": 151.1645689,
           "type": "standalone",
-          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Hearthe%2016%20Douglas%20St%2C%20Stanmore%20NSW%202048"
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Hearthe%2016%20Douglas%20St%2C%20Stanmore%20NSW%202048",
+          "google": {
+            "rating": 4.3,
+            "reviews": 244,
+            "checkedAt": "2026-11-04"
+          }
         }
       ],
       "awards": [
@@ -9423,6 +10085,33 @@ var PAGE_DATA = {
           2025,
           2026
         ]
+      },
+      "reviewPicks": {
+        "checkedAt": "2026-11-04",
+        "drink": [],
+        "food": [
+          {
+            "zh": "可頌",
+            "en": "Croissants",
+            "mentions": 20,
+            "stars": 4.0,
+            "rec": false
+          },
+          {
+            "zh": "白千層蛋糕",
+            "en": "Paperbark cake",
+            "mentions": 14,
+            "stars": 4.1,
+            "rec": false
+          },
+          {
+            "zh": "司康",
+            "en": "Scone",
+            "mentions": 11,
+            "stars": 4.6,
+            "rec": true
+          }
+        ]
       }
     },
     {
@@ -9448,7 +10137,12 @@ var PAGE_DATA = {
           "lat": -33.7623997,
           "lng": 151.2158884,
           "type": "standalone",
-          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Bakealicious%20by%20Gabriela%20Shop%2013%20The%20Centre%2C%20Forestville%20NSW%202087"
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Bakealicious%20by%20Gabriela%20Shop%2013%20The%20Centre%2C%20Forestville%20NSW%202087",
+          "google": {
+            "rating": 4.7,
+            "reviews": 526,
+            "checkedAt": "2026-11-04"
+          }
         }
       ],
       "awards": [
@@ -9588,6 +10282,33 @@ var PAGE_DATA = {
         "years": [
           2025
         ]
+      },
+      "reviewPicks": {
+        "checkedAt": "2026-11-04",
+        "drink": [],
+        "food": [
+          {
+            "zh": "維多利亞海綿蛋糕",
+            "en": "Victoria sponge cake",
+            "mentions": 28,
+            "stars": 5.0,
+            "rec": true
+          },
+          {
+            "zh": "阿根廷餡餅",
+            "en": "Empanadas",
+            "mentions": 19,
+            "stars": 4.8,
+            "rec": true
+          },
+          {
+            "zh": "帕芙洛娃",
+            "en": "Pavlova",
+            "mentions": 18,
+            "stars": 4.8,
+            "rec": true
+          }
+        ]
       }
     },
     {
@@ -9614,7 +10335,12 @@ var PAGE_DATA = {
           "lat": -27.4905539,
           "lng": 153.0382874,
           "type": "standalone",
-          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Coffee%20Mentality%2043%20Balaclava%20St%2C%20Woolloongabba%20QLD%204102"
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Coffee%20Mentality%2043%20Balaclava%20St%2C%20Woolloongabba%20QLD%204102",
+          "google": {
+            "rating": 4.8,
+            "reviews": 170,
+            "checkedAt": "2026-11-04"
+          }
         },
         {
           "id": "L-coffee-mentality-south-brisbane",
@@ -9626,7 +10352,12 @@ var PAGE_DATA = {
           "lat": -27.4711201,
           "lng": 153.0155883,
           "type": "standalone",
-          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Coffee%20Mentality%2044%20Montague%20Rd%2C%20South%20Brisbane%20QLD%204101"
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Coffee%20Mentality%2044%20Montague%20Rd%2C%20South%20Brisbane%20QLD%204101",
+          "google": {
+            "rating": 4.8,
+            "reviews": 180,
+            "checkedAt": "2026-11-04"
+          }
         },
         {
           "id": "L-coffee-mentality-stones-corner",
@@ -9638,7 +10369,12 @@ var PAGE_DATA = {
           "lat": -27.5008181,
           "lng": 153.0452129,
           "type": "standalone",
-          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Coffee%20Mentality%205%20Jeavons%20Ln%2C%20Greenslopes%20QLD%204120"
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Coffee%20Mentality%205%20Jeavons%20Ln%2C%20Greenslopes%20QLD%204120",
+          "google": {
+            "rating": 4.8,
+            "reviews": 74,
+            "checkedAt": "2026-11-04"
+          }
         }
       ],
       "awards": [
@@ -9905,7 +10641,12 @@ var PAGE_DATA = {
           "lat": -27.4699177,
           "lng": 153.0221707,
           "type": "standalone",
-          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=O%27GaBee%20%26%20Co%20Coffee%20Roastery%20Shop%208/300%20George%20St%2C%20Brisbane%20City%20QLD%204000"
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=O%27GaBee%20%26%20Co%20Coffee%20Roastery%20Shop%208/300%20George%20St%2C%20Brisbane%20City%20QLD%204000",
+          "google": {
+            "rating": 4.5,
+            "reviews": 100,
+            "checkedAt": "2026-11-04"
+          }
         },
         {
           "id": "L-ogabee-queen-street",
@@ -9917,7 +10658,12 @@ var PAGE_DATA = {
           "lat": -27.4696418,
           "lng": 153.0258888,
           "type": "standalone",
-          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=O%27GaBee%20%26%20Co%20Coffee%20Roastery%20G11A/141%20Queen%20St%2C%20Brisbane%20City%20QLD%204000"
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=O%27GaBee%20%26%20Co%20Coffee%20Roastery%20G11A/141%20Queen%20St%2C%20Brisbane%20City%20QLD%204000",
+          "google": {
+            "rating": 4.6,
+            "reviews": 81,
+            "checkedAt": "2026-11-04"
+          }
         },
         {
           "id": "L-ogabee-chermside",
@@ -9929,7 +10675,12 @@ var PAGE_DATA = {
           "lat": -27.3814598,
           "lng": 153.0331798,
           "type": "standalone",
-          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=O%27GaBee%20%26%20Co%20Coffee%20Roastery%20Shop%20397%2C%20Westfield%20Chermside%2C%20Chermside%20QLD%204032"
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=O%27GaBee%20%26%20Co%20Coffee%20Roastery%20Shop%20397%2C%20Westfield%20Chermside%2C%20Chermside%20QLD%204032",
+          "google": {
+            "rating": 4.1,
+            "reviews": 106,
+            "checkedAt": "2026-11-04"
+          }
         },
         {
           "id": "L-ogabee-birkdale",
@@ -9941,7 +10692,12 @@ var PAGE_DATA = {
           "lat": -27.4912095,
           "lng": 153.2184918,
           "type": "standalone",
-          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=O%27GaBee%20%26%20Co%20Coffee%20Roastery%20Shop%2014/2%20Mary%20Pleasant%20Dr%2C%20Birkdale%20QLD%204159"
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=O%27GaBee%20%26%20Co%20Coffee%20Roastery%20Shop%2014/2%20Mary%20Pleasant%20Dr%2C%20Birkdale%20QLD%204159",
+          "google": {
+            "rating": 4.0,
+            "reviews": 106,
+            "checkedAt": "2026-11-04"
+          }
         }
       ],
       "awards": [
@@ -10382,7 +11138,12 @@ var PAGE_DATA = {
           "lat": -34.8884691,
           "lng": 150.608724,
           "type": "standalone",
-          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Bakehouse%20Delights%206/110%20Kalandar%20St%2C%20Nowra%20NSW%202541"
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Bakehouse%20Delights%206/110%20Kalandar%20St%2C%20Nowra%20NSW%202541",
+          "google": {
+            "rating": 4.5,
+            "reviews": 207,
+            "checkedAt": "2026-11-04"
+          }
         }
       ],
       "awards": [
@@ -10547,6 +11308,33 @@ var PAGE_DATA = {
         "years": [
           2026
         ]
+      },
+      "reviewPicks": {
+        "checkedAt": "2026-11-04",
+        "drink": [],
+        "food": [
+          {
+            "zh": "肉派",
+            "en": "Pies",
+            "mentions": 63,
+            "stars": 4.3,
+            "rec": false
+          },
+          {
+            "zh": "卡士達塔",
+            "en": "Custard tart",
+            "mentions": 7,
+            "stars": 4.6,
+            "rec": true
+          },
+          {
+            "zh": "香草千層",
+            "en": "Vanilla slice",
+            "mentions": 6,
+            "stars": 4.8,
+            "rec": true
+          }
+        ]
       }
     },
     {
@@ -10572,7 +11360,12 @@ var PAGE_DATA = {
           "lat": -33.9115076,
           "lng": 151.2549011,
           "type": "standalone",
-          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Tuga%20Pastries%20Shop%206/231%20Clovelly%20Rd%2C%20Clovelly%20NSW%202031"
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Tuga%20Pastries%20Shop%206/231%20Clovelly%20Rd%2C%20Clovelly%20NSW%202031",
+          "google": {
+            "rating": 4.5,
+            "reviews": 377,
+            "checkedAt": "2026-11-04"
+          }
         },
         {
           "id": "L-tuga-pastries-village-clovelly",
@@ -10584,7 +11377,12 @@ var PAGE_DATA = {
           "lat": -33.911473,
           "lng": 151.2547154,
           "type": "standalone",
-          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Tuga%20Pastries%20Shop%201/231%20Clovelly%20Rd%2C%20Clovelly%20NSW%202031"
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Tuga%20Pastries%20Shop%201/231%20Clovelly%20Rd%2C%20Clovelly%20NSW%202031",
+          "google": {
+            "rating": 4.4,
+            "reviews": 327,
+            "checkedAt": "2026-11-04"
+          }
         },
         {
           "id": "L-tuga-pastries-alexandria",
@@ -10596,7 +11394,12 @@ var PAGE_DATA = {
           "lat": -33.9028552,
           "lng": 151.1965566,
           "type": "standalone",
-          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Tuga%20Pastries%2010/112%20McEvoy%20St%2C%20Alexandria%20NSW%202015"
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Tuga%20Pastries%2010/112%20McEvoy%20St%2C%20Alexandria%20NSW%202015",
+          "google": {
+            "rating": 4.4,
+            "reviews": 820,
+            "checkedAt": "2026-11-04"
+          }
         }
       ],
       "awards": [
@@ -10661,6 +11464,33 @@ var PAGE_DATA = {
         "years": [
           2026
         ]
+      },
+      "reviewPicks": {
+        "checkedAt": "2026-11-04",
+        "drink": [],
+        "food": [
+          {
+            "zh": "葡式蛋塔",
+            "en": "Portuguese tarts",
+            "mentions": 121,
+            "stars": 4.4,
+            "rec": false
+          },
+          {
+            "zh": "杏仁可頌",
+            "en": "Almond croissant",
+            "mentions": 30,
+            "stars": 4.4,
+            "rec": false
+          },
+          {
+            "zh": "能多益可頌",
+            "en": "Nutella croissant",
+            "mentions": 24,
+            "stars": 4.2,
+            "rec": false
+          }
+        ]
       }
     },
     {
@@ -10686,7 +11516,12 @@ var PAGE_DATA = {
           "lat": -33.7534332,
           "lng": 151.2832929,
           "type": "standalone",
-          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=V%27s%20Dessert%20Gluten%20Free%20Shop%2022/2b%20Francis%20St%2C%20Dee%20Why%20NSW%202099"
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=V%27s%20Dessert%20Gluten%20Free%20Shop%2022/2b%20Francis%20St%2C%20Dee%20Why%20NSW%202099",
+          "google": {
+            "rating": 5.0,
+            "reviews": 208,
+            "checkedAt": "2026-11-04"
+          }
         }
       ],
       "awards": [
@@ -10852,6 +11687,33 @@ var PAGE_DATA = {
           2025,
           2026
         ]
+      },
+      "reviewPicks": {
+        "checkedAt": "2026-11-04",
+        "drink": [],
+        "food": [
+          {
+            "zh": "乳酪蛋糕",
+            "en": "Cheesecake",
+            "mentions": 28,
+            "stars": 5.0,
+            "rec": true
+          },
+          {
+            "zh": "生日蛋糕",
+            "en": "Birthday cake",
+            "mentions": 18,
+            "stars": 5.0,
+            "rec": true
+          },
+          {
+            "zh": "巴斯克乳酪蛋糕",
+            "en": "Basque cheesecake",
+            "mentions": 14,
+            "stars": 5.0,
+            "rec": true
+          }
+        ]
       }
     },
     {
@@ -10877,7 +11739,12 @@ var PAGE_DATA = {
           "lat": -37.6853856,
           "lng": 145.0175852,
           "type": "factory_shop",
-          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Brazen%20Brownies%20Unit%206/36%20Latitude%20Blvd%2C%20Thomastown%20VIC%203074"
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Brazen%20Brownies%20Unit%206/36%20Latitude%20Blvd%2C%20Thomastown%20VIC%203074",
+          "google": {
+            "rating": 4.8,
+            "reviews": 332,
+            "checkedAt": "2026-11-04"
+          }
         }
       ],
       "awards": [
@@ -11118,6 +11985,33 @@ var PAGE_DATA = {
           2024,
           2025
         ]
+      },
+      "reviewPicks": {
+        "checkedAt": "2026-11-04",
+        "drink": [],
+        "food": [
+          {
+            "zh": "布朗尼",
+            "en": "Brownies",
+            "mentions": 139,
+            "stars": 5.0,
+            "rec": true
+          },
+          {
+            "zh": "冰淇淋蛋糕",
+            "en": "Ice cream cake",
+            "mentions": 16,
+            "stars": 5.0,
+            "rec": true
+          },
+          {
+            "zh": "罐裝提拉米蘇",
+            "en": "Tiramisu in a can",
+            "mentions": 6,
+            "stars": 5.0,
+            "rec": true
+          }
+        ]
       }
     },
     {
@@ -11143,7 +12037,12 @@ var PAGE_DATA = {
           "lat": -27.5893816,
           "lng": 151.9386481,
           "type": "standalone",
-          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Brumby%27s%20Bakery%20300%20West%20St%2C%20Kearneys%20Spring%20QLD%204350"
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Brumby%27s%20Bakery%20300%20West%20St%2C%20Kearneys%20Spring%20QLD%204350",
+          "google": {
+            "rating": 4.1,
+            "reviews": 76,
+            "checkedAt": "2026-11-04"
+          }
         }
       ],
       "awards": [
@@ -11262,6 +12161,19 @@ var PAGE_DATA = {
         "years": [
           2025
         ]
+      },
+      "reviewPicks": {
+        "checkedAt": "2026-11-04",
+        "drink": [],
+        "food": [
+          {
+            "zh": "肉派",
+            "en": "Pies",
+            "mentions": 10,
+            "stars": 3.4,
+            "rec": false
+          }
+        ]
       }
     },
     {
@@ -11287,7 +12199,12 @@ var PAGE_DATA = {
           "lat": -33.6997429,
           "lng": 151.2125566,
           "type": "in_supermarket",
-          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Forestway%20Fresh%202%20Myoora%20Rd%2C%20Terrey%20Hills%20NSW%202084"
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Forestway%20Fresh%202%20Myoora%20Rd%2C%20Terrey%20Hills%20NSW%202084",
+          "google": {
+            "rating": 4.3,
+            "reviews": 781,
+            "checkedAt": "2026-11-04"
+          }
         }
       ],
       "awards": [
@@ -11402,7 +12319,12 @@ var PAGE_DATA = {
           "lat": -33.9121823,
           "lng": 151.2596783,
           "type": "standalone",
-          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Madame%20and%20Yves%20343-345%20Clovelly%20Rd%2C%20Clovelly%20NSW%202031"
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Madame%20and%20Yves%20343-345%20Clovelly%20Rd%2C%20Clovelly%20NSW%202031",
+          "google": {
+            "rating": 4.8,
+            "reviews": 315,
+            "checkedAt": "2026-11-04"
+          }
         }
       ],
       "awards": [
@@ -11467,6 +12389,33 @@ var PAGE_DATA = {
         "years": [
           2024
         ]
+      },
+      "reviewPicks": {
+        "checkedAt": "2026-11-04",
+        "drink": [],
+        "food": [
+          {
+            "zh": "可頌",
+            "en": "Croissants",
+            "mentions": 41,
+            "stars": 4.7,
+            "rec": true
+          },
+          {
+            "zh": "閃電泡芙",
+            "en": "Eclairs",
+            "mentions": 29,
+            "stars": 4.9,
+            "rec": true
+          },
+          {
+            "zh": "塔",
+            "en": "Tarts",
+            "mentions": 23,
+            "stars": 4.8,
+            "rec": true
+          }
+        ]
       }
     },
     {
@@ -11492,7 +12441,12 @@ var PAGE_DATA = {
           "lat": -33.883998,
           "lng": 151.1506288,
           "type": "standalone",
-          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=S%C3%A9bastien%20Sans%20Gluten%20131%20Marion%20St%2C%20Leichhardt%20NSW%202040"
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=S%C3%A9bastien%20Sans%20Gluten%20131%20Marion%20St%2C%20Leichhardt%20NSW%202040",
+          "google": {
+            "rating": 4.9,
+            "reviews": 782,
+            "checkedAt": "2026-11-04"
+          }
         }
       ],
       "awards": [
@@ -11657,6 +12611,33 @@ var PAGE_DATA = {
         "years": [
           2024
         ]
+      },
+      "reviewPicks": {
+        "checkedAt": "2026-11-04",
+        "drink": [],
+        "food": [
+          {
+            "zh": "可頌",
+            "en": "Croissants",
+            "mentions": 32,
+            "stars": 5.0,
+            "rec": true
+          },
+          {
+            "zh": "檸檬蛋白霜塔",
+            "en": "Lemon meringue tart",
+            "mentions": 24,
+            "stars": 4.9,
+            "rec": true
+          },
+          {
+            "zh": "火腿起司可頌",
+            "en": "Ham and cheese croissant",
+            "mentions": 22,
+            "stars": 5.0,
+            "rec": true
+          }
+        ]
       }
     },
     {
@@ -11682,7 +12663,12 @@ var PAGE_DATA = {
           "lat": -33.9024328,
           "lng": 151.1793906,
           "type": "standalone",
-          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Comeco%20Foods%20524A%20King%20St%2C%20Newtown%20NSW%202042"
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Comeco%20Foods%20524A%20King%20St%2C%20Newtown%20NSW%202042",
+          "google": {
+            "rating": 4.7,
+            "reviews": 552,
+            "checkedAt": "2026-11-04"
+          }
         }
       ],
       "awards": [
@@ -11748,6 +12734,48 @@ var PAGE_DATA = {
           2025,
           2026
         ]
+      },
+      "reviewPicks": {
+        "checkedAt": "2026-11-04",
+        "drink": [
+          {
+            "zh": "抹茶",
+            "en": "Matcha",
+            "mentions": 28,
+            "stars": 4.7,
+            "rec": true
+          },
+          {
+            "zh": "焙茶拿鐵",
+            "en": "Hojicha latte",
+            "mentions": 8,
+            "stars": 5.0,
+            "rec": true
+          }
+        ],
+        "food": [
+          {
+            "zh": "飯糰套餐",
+            "en": "Onigiri plate",
+            "mentions": 50,
+            "stars": 4.7,
+            "rec": true
+          },
+          {
+            "zh": "天婦羅",
+            "en": "Tempura",
+            "mentions": 39,
+            "stars": 4.7,
+            "rec": true
+          },
+          {
+            "zh": "酸種甜甜圈",
+            "en": "Sourdough donuts",
+            "mentions": 32,
+            "stars": 4.6,
+            "rec": true
+          }
+        ]
       }
     },
     {
@@ -11773,7 +12801,12 @@ var PAGE_DATA = {
           "lat": -34.4233757,
           "lng": 150.8919777,
           "type": "standalone",
-          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Crois%2075%20Market%20St%2C%20Wollongong%20NSW%202500"
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Crois%2075%20Market%20St%2C%20Wollongong%20NSW%202500",
+          "google": {
+            "rating": 5.0,
+            "reviews": 48,
+            "checkedAt": "2026-11-04"
+          }
         }
       ],
       "awards": [
@@ -11890,6 +12923,19 @@ var PAGE_DATA = {
         "years": [
           2026
         ]
+      },
+      "reviewPicks": {
+        "checkedAt": "2026-11-04",
+        "drink": [],
+        "food": [
+          {
+            "zh": "可頌",
+            "en": "Croissants",
+            "mentions": 9,
+            "stars": 5.0,
+            "rec": true
+          }
+        ]
       }
     },
     {
@@ -11915,7 +12961,12 @@ var PAGE_DATA = {
           "lat": -32.9385158,
           "lng": 151.7584618,
           "type": "standalone",
-          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Doughheads%20Shop%2017a/204%20Union%20St%2C%20The%20Junction%20NSW%202291"
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Doughheads%20Shop%2017a/204%20Union%20St%2C%20The%20Junction%20NSW%202291",
+          "google": {
+            "rating": 4.5,
+            "reviews": 473,
+            "checkedAt": "2026-11-04"
+          }
         }
       ],
       "awards": [
@@ -12081,6 +13132,26 @@ var PAGE_DATA = {
           2025,
           2026
         ]
+      },
+      "reviewPicks": {
+        "checkedAt": "2026-11-04",
+        "drink": [],
+        "food": [
+          {
+            "zh": "糖霜甜甜圈",
+            "en": "Glazed doughnut",
+            "mentions": 8,
+            "stars": 5.0,
+            "rec": true
+          },
+          {
+            "zh": "Golden Gaytime 甜甜圈",
+            "en": "Golden Gaytime doughnut",
+            "mentions": 6,
+            "stars": 4.5,
+            "rec": true
+          }
+        ]
       }
     },
     {
@@ -12106,7 +13177,12 @@ var PAGE_DATA = {
           "lat": -33.8904765,
           "lng": 151.2436012,
           "type": "standalone",
-          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Hudson%27s%20Bakery%20238%20Oxford%20St%2C%20Bondi%20Junction%20NSW%202022"
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Hudson%27s%20Bakery%20238%20Oxford%20St%2C%20Bondi%20Junction%20NSW%202022",
+          "google": {
+            "rating": 4.7,
+            "reviews": 127,
+            "checkedAt": "2026-11-04"
+          }
         }
       ],
       "awards": [
@@ -12172,6 +13248,33 @@ var PAGE_DATA = {
           2025,
           2026
         ]
+      },
+      "reviewPicks": {
+        "checkedAt": "2026-11-04",
+        "drink": [],
+        "food": [
+          {
+            "zh": "無麩質麵包",
+            "en": "Gluten-free bread",
+            "mentions": 31,
+            "stars": 5.0,
+            "rec": true
+          },
+          {
+            "zh": "紅蘿蔔蛋糕",
+            "en": "Carrot cake",
+            "mentions": 11,
+            "stars": 4.2,
+            "rec": false
+          },
+          {
+            "zh": "糖霜長麵包",
+            "en": "Finger bun",
+            "mentions": 8,
+            "stars": 5.0,
+            "rec": true
+          }
+        ]
       }
     },
     {
@@ -12197,7 +13300,12 @@ var PAGE_DATA = {
           "lat": -28.0712765,
           "lng": 153.3793329,
           "type": "standalone",
-          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=MR%20Bake%20Shop%204/110%20Laver%20Dr%2C%20Robina%20QLD%204226"
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=MR%20Bake%20Shop%204/110%20Laver%20Dr%2C%20Robina%20QLD%204226",
+          "google": {
+            "rating": 4.5,
+            "reviews": 56,
+            "checkedAt": "2026-11-04"
+          }
         }
       ],
       "awards": [
@@ -12263,6 +13371,26 @@ var PAGE_DATA = {
         "years": [
           2026
         ]
+      },
+      "reviewPicks": {
+        "checkedAt": "2026-11-04",
+        "drink": [],
+        "food": [
+          {
+            "zh": "肉派",
+            "en": "Pies",
+            "mentions": 29,
+            "stars": 4.8,
+            "rec": true
+          },
+          {
+            "zh": "香腸捲",
+            "en": "Sausage roll",
+            "mentions": 6,
+            "stars": 4.0,
+            "rec": false
+          }
+        ]
       }
     },
     {
@@ -12288,7 +13416,12 @@ var PAGE_DATA = {
           "lat": -32.876311,
           "lng": 151.711431,
           "type": "factory_shop",
-          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Pudding%20Lane%204%20Guernsey%20St%2C%20Sandgate%20NSW%202304"
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Pudding%20Lane%204%20Guernsey%20St%2C%20Sandgate%20NSW%202304",
+          "google": {
+            "rating": 5.0,
+            "reviews": 20,
+            "checkedAt": "2026-11-04"
+          }
         }
       ],
       "awards": [
@@ -12403,7 +13536,12 @@ var PAGE_DATA = {
           "lat": -27.9798142,
           "lng": 153.3790551,
           "type": "standalone",
-          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Egg%20Wash%20Bake%20Shop%20Shop%202/406%20Southport%20Nerang%20Rd%2C%20Ashmore%20QLD%204214"
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Egg%20Wash%20Bake%20Shop%20Shop%202/406%20Southport%20Nerang%20Rd%2C%20Ashmore%20QLD%204214",
+          "google": {
+            "rating": 4.9,
+            "reviews": 124,
+            "checkedAt": "2026-11-04"
+          }
         }
       ],
       "awards": [
@@ -12523,6 +13661,33 @@ var PAGE_DATA = {
           2024,
           2025
         ]
+      },
+      "reviewPicks": {
+        "checkedAt": "2026-11-04",
+        "drink": [],
+        "food": [
+          {
+            "zh": "肉派",
+            "en": "Pies",
+            "mentions": 53,
+            "stars": 4.7,
+            "rec": true
+          },
+          {
+            "zh": "甜甜圈",
+            "en": "Donuts",
+            "mentions": 27,
+            "stars": 4.9,
+            "rec": true
+          },
+          {
+            "zh": "西西里奶餡捲",
+            "en": "Cannoli",
+            "mentions": 7,
+            "stars": 4.9,
+            "rec": true
+          }
+        ]
       }
     },
     {
@@ -12549,7 +13714,12 @@ var PAGE_DATA = {
           "lat": -31.451154,
           "lng": 152.886106,
           "type": "factory_shop",
-          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Peak%20Coffee%20Australia%2030%20Jambali%20Rd%2C%20Port%20Macquarie%20NSW%202444"
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Peak%20Coffee%20Australia%2030%20Jambali%20Rd%2C%20Port%20Macquarie%20NSW%202444",
+          "google": {
+            "rating": 4.8,
+            "reviews": 118,
+            "checkedAt": "2026-11-04"
+          }
         }
       ],
       "awards": [
@@ -12691,7 +13861,12 @@ var PAGE_DATA = {
           "lat": -19.3011804,
           "lng": 146.7998245,
           "type": "factory_shop",
-          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Coffee%20Presto%20103%20Bowen%20Rd%2C%20Rosslea%20QLD%204812"
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Coffee%20Presto%20103%20Bowen%20Rd%2C%20Rosslea%20QLD%204812",
+          "google": {
+            "rating": 4.7,
+            "reviews": 96,
+            "checkedAt": "2026-11-04"
+          }
         },
         {
           "id": "L-coffee-presto-annandale",
@@ -12703,7 +13878,12 @@ var PAGE_DATA = {
           "lat": -19.3169233,
           "lng": 146.7905677,
           "type": "standalone",
-          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Coffee%20Presto%2075%20MacArthur%20Dr%2C%20Annandale%20QLD%204814"
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Coffee%20Presto%2075%20MacArthur%20Dr%2C%20Annandale%20QLD%204814",
+          "google": {
+            "rating": 4.8,
+            "reviews": 4,
+            "checkedAt": "2026-11-04"
+          }
         }
       ],
       "awards": [
@@ -12768,7 +13948,12 @@ var PAGE_DATA = {
           "lat": -38.3497204,
           "lng": 141.6032766,
           "type": "standalone",
-          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Sourdough%20Portland%2031%20Percy%20St%2C%20Portland%20VIC%203305"
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Sourdough%20Portland%2031%20Percy%20St%2C%20Portland%20VIC%203305",
+          "google": {
+            "rating": 4.8,
+            "reviews": 131,
+            "checkedAt": "2026-11-04"
+          }
         }
       ],
       "awards": [
@@ -12833,6 +14018,33 @@ var PAGE_DATA = {
         "years": [
           2024
         ]
+      },
+      "reviewPicks": {
+        "checkedAt": "2026-11-04",
+        "drink": [],
+        "food": [
+          {
+            "zh": "可頌",
+            "en": "Croissants",
+            "mentions": 21,
+            "stars": 5.0,
+            "rec": true
+          },
+          {
+            "zh": "杏仁可頌",
+            "en": "Almond croissant",
+            "mentions": 7,
+            "stars": 5.0,
+            "rec": true
+          },
+          {
+            "zh": "酸種麵包",
+            "en": "Sourdough loaf",
+            "mentions": 5,
+            "stars": 5.0,
+            "rec": true
+          }
+        ]
       }
     },
     {
@@ -12858,7 +14070,12 @@ var PAGE_DATA = {
           "lat": -27.6605663,
           "lng": 152.7421956,
           "type": "standalone",
-          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Yamanto%20Central%20Patisserie%20Yamanto%20Central%2C%20488%20Warwick%20Rd%2C%20Yamanto%20QLD%204305"
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Yamanto%20Central%20Patisserie%20Yamanto%20Central%2C%20488%20Warwick%20Rd%2C%20Yamanto%20QLD%204305",
+          "google": {
+            "rating": 3.5,
+            "reviews": 33,
+            "checkedAt": "2026-11-04"
+          }
         }
       ],
       "awards": [
@@ -12948,6 +14165,19 @@ var PAGE_DATA = {
         "also": 2,
         "years": [
           2024
+        ]
+      },
+      "reviewPicks": {
+        "checkedAt": "2026-11-04",
+        "drink": [],
+        "food": [
+          {
+            "zh": "肉派",
+            "en": "Pies",
+            "mentions": 13,
+            "stars": 3.1,
+            "rec": false
+          }
         ]
       }
     }

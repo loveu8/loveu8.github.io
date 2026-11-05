@@ -64,6 +64,9 @@
 | `moved_to_location_id` | id | | `operating_status = moved` 時必填 |
 | `location_source_url` | url | ✔ | 查到地址的來源（官網門市頁或 Google Maps） |
 | `location_verified_at` | date | ✔ | 超過 180 天，工具印 WARNING |
+| `google_rating` | decimal | | Google Maps 星等，1～5，顯示在 📍 按鈕上「📍 Mittagong ★ 4.6（1,203）」（2026-11-04 v2-4 Q2）。三個 `google_` 欄要一起填或一起空，否則 ERROR |
+| `google_reviews` | int | | Google Maps 評論數（不加千分位逗號） |
+| `google_checked_at` | date | | 查星等的日期 |
 | `notes` | text | | |
 
 ### 2.3 `competitions.csv`：賽事
@@ -176,7 +179,7 @@
 
 ### 2.8 `review_picks.csv`：Google 評論推薦（選用，2026-11-02 加，`PLAN.md` D10）
 
-世界百大的店排名沒有品項，用這個檔補 Google 評論的飲品、餐點前三名。方法見 `REVIEW-PICKS.md`。檔案不存在也可以產生 data.js。
+每家店 Google 評論的飲品、餐點前三名（原本只有世界百大的店，2026-11-04 v2-4 補給全部店家）。方法見 `REVIEW-PICKS.md`。檔案不存在也可以產生 data.js；沒有列的店卡片上就沒有推薦。
 
 | 欄位 | 型別 | 必填 | 說明 |
 |---|---|---|---|
@@ -189,7 +192,7 @@
 | `avg_stars` | decimal | ✔ | 最新評論的平均星等，1～5 |
 | `low_count` | int | ✔ | 其中 1～2 星的則數 |
 | `sample_size` | int | ✔ | 算了幾則（最多 30） |
-| `verdict` | enum | ✔ | `recommended`（平均 ≥ 4.5 而且 `low_count` ≤ 1 成）、`mentioned`；**和數字不一致是 ERROR** |
+| `verdict` | enum | ✔ | `recommended`（`mentions` ≥ 5、平均 ≥ 4.5 而且 `low_count` ≤ 1 成；5 則是 v2-4 Q3 加的）、`mentioned`；**和數字不一致是 ERROR** |
 | `checked_at` | date | ✔ | 查的日期 |
 | `note` | text | | 合併、同數、排除的說明 |
 | `icon` | text | | 選填的圖示，取代區塊的 ☕／🍽️；例如啤酒用 🍺 |

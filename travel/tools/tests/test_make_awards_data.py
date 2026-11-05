@@ -208,6 +208,32 @@ class CheckTest(unittest.TestCase):
         self.location("L-alpha-old")["operating_status"] = "moved"
         self.assertError("operating_status=moved needs moved_to_location_id")
 
+    # Google stars on the 📍 button (v2-4 Q2)
+    def google(self, rating="4.6", reviews="1203", checked="2026-11-04"):
+        loc = self.location()
+        loc["google_rating"], loc["google_reviews"], loc["google_checked_at"] = rating, reviews, checked
+        return loc
+
+    def test_google_rating_reaches_the_store(self):
+        self.google()
+        self.assertEqual(m.check(self.t, TODAY)[0], [])
+        stores = {l["id"]: l for b in m.build(self.t)[0] for l in b["locations"]}
+        self.assertEqual(stores["L-alpha-north"]["google"],
+                         {"rating": 4.6, "reviews": 1203, "checkedAt": "2026-11-04"})
+        self.assertNotIn("google", stores["L-alpha-south"])  # optional
+
+    def test_google_columns_filled_together(self):
+        self.google(reviews="")
+        self.assertError("google_rating, google_reviews, google_checked_at must be filled together")
+
+    def test_google_rating_range(self):
+        self.google(rating="5.3")
+        self.assertError("google_rating 5.3 must be 1-5")
+
+    def test_google_reviews_whole_number(self):
+        self.google(reviews="1,203")
+        self.assertError("google_reviews '1,203' must be a whole number")
+
     # warnings
     def test_stale_location(self):
         self.location()["location_verified_at"] = "2026-01-01"
@@ -398,10 +424,16 @@ class ReviewPicksTest(unittest.TestCase):
         errors = self.errors()
         self.assertTrue(any(text in e for e in errors), "no error containing %r in %s" % (text, errors))
 
-    def test_rule_is_4_5_stars_and_at_most_1_in_10_low(self):
-        self.assertTrue(m.recommended(4.5, 1, 10))
-        self.assertFalse(m.recommended(4.57, 1, 7))   # 14% low
-        self.assertFalse(m.recommended(4.49, 0, 5))
+    def test_rule_is_5_mentions_4_5_stars_and_at_most_1_in_10_low(self):
+        self.assertTrue(m.recommended(10, 4.5, 1, 10))
+        self.assertTrue(m.recommended(5, 5.0, 0, 5))
+        self.assertFalse(m.recommended(4, 5.0, 0, 4))   # under 5 mentions (v2-4 Q3)
+        self.assertFalse(m.recommended(7, 4.57, 1, 7))  # 14% low
+        self.assertFalse(m.recommended(5, 4.49, 0, 5))
+
+    def test_under_5_mentions_must_be_mentioned(self):
+        self.t[m.REVIEW_PICKS].append(self.pick("drink", "2", "藝伎", "Geisha", "2", "5.00", "0", "2", "recommended"))
+        self.assertError("verdict recommended does not match the rule (2 mentions")
 
     def test_clean_picks_pass_and_reach_the_shop_in_rank_order(self):
         self.assertEqual(self.errors(), [])

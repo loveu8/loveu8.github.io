@@ -49,9 +49,10 @@ var UI = {
     rankOf: '第 {n} 名',
     levelsShort: { champion: '冠軍', gold: '金牌', first: '第 1 名' },
     items: '得獎品項',
-    picksTitle: 'Google 評論大家推薦', picksAsOf: '{d} 整理', picksCount: '{n} 則 · {s} ★',
+    picksLine: 'Google 評論推薦：', picksSep: '、',
     picksGroup: 'Google 評論常點', picksSections: { drink: '飲品', food: '餐點' }, picksRec: '大家推薦',
-    picksMeta: '括號是提到的評論數 · Google 評論整理 {d}',
+    picksMeta: '括號是提到的評論數，大家推薦另附這些評論的平均星等 · Google 評論整理 {d}',
+    storeRating: '{s}，Google {r} 星，{n} 則評論',
     details: '獎項明細（{n}）', detailsItems: '獎項明細（{i} · {a}）', itemsCount: '{n} 項品項', awardsCount: '{n} 個獎', groupTop: '招牌', groupAlsoCount: '也推薦（{n}）',
     detailsMatch: '· 符合 {n} 項', detailClose: '✕ 收合',
     awardStore: '{s} 店', staffEntry: '參賽者：{r}', aloneInClass: '該班只頒出這一個名次',
@@ -65,7 +66,7 @@ var UI = {
     footnote: [
       '獎項來自雪梨皇家烘焙賽、全國手工烘焙賽、昆士蘭烘焙賽、金豆烘豆賽 2024–2026 和世界百大咖啡店 2025–2026 官方公布的結果，每一筆都附來源連結和查證日期。',
       '世界百大咖啡店是「排名」，不是評分比賽：由 The World\'s 100 Best Coffee Shops（執行長 César Ramírez）舉辦，冠名贊助是 Kerry 集團旗下的 DaVinci Gourmet，另有 Slayer、Cropster 等咖啡品牌贊助；專業評審佔 70%、公開投票佔 30%，評審名單沒有公開。地圖只放官方寫的那一間店。',
-      '排名沒有品項，所以世界百大的店另附 Google 評論整理：取評論關鍵字裡的飲品和餐點，最新評論平均 4.5 星以上、1～2 星不超過 1 成的標「大家推薦」。這是評論整理，不是獎項。',
+      '每家店另附 Google 評論整理，每家取一間門市（官方寫了得獎門市就用那間，否則取評論最多的門市）：取評論關鍵字裡的飲品和餐點，被 5 則以上評論提到、這些評論（最多取最新 30 則）平均 4.5 星以上、1～2 星不超過 1 成的標「大家推薦」，卡片依提到次數最多列 3 項。門市按鈕上的星等和評論數是整理當時 Google Maps 上的數字。這是評論整理，不是獎項。',
       '金牌是分數制，達到分數就有，同一班可以有好幾面；第 1 名是名次，每班只有一個，兩者不能直接比。',
       '卡片列出冠軍、金牌、第 1 名（招牌）和銀牌、第 2 名（也推薦），銅牌和第 3 名不列。',
       '昆士蘭烘焙賽規模比較小，很多班只頒出一兩個名次，官方也沒公布參賽件數；所以那一班也頒了第 2 名，第 1 名才算招牌，只頒出第 1 名的列在「也推薦」。',
@@ -89,9 +90,10 @@ var UI = {
     rankOf: '#{n}',
     levelsShort: { champion: 'Champion', gold: 'Gold', first: '1st' },
     items: 'Winning items',
-    picksTitle: 'Google reviewers recommend', picksAsOf: 'as of {d}', picksCount: '{n} reviews · {s} ★', picksCountOne: '1 review · {s} ★',
+    picksLine: 'Google reviewers recommend: ', picksSep: ', ',
     picksGroup: 'Popular in Google reviews', picksSections: { drink: 'Drinks', food: 'Food' }, picksRec: 'Recommended',
-    picksMeta: 'Numbers are reviews that mention it · Google reviews checked {d}',
+    picksMeta: 'Numbers are reviews that mention it; recommended items add the average stars of those reviews · Google reviews checked {d}',
+    storeRating: '{s}, Google {r} stars, {n} reviews', storeRatingOne: '{s}, Google {r} stars, 1 review',
     details: 'Award details ({n})', detailsItems: 'Award details ({i} · {a})', itemsCount: '{n} items', itemsCountOne: '1 item', awardsCount: '{n} awards', awardsCountOne: '1 award', groupTop: 'Headline awards', groupAlsoCount: 'Also recommended ({n})',
     detailsMatch: ' · {n} match', detailsMatchOne: ' · 1 match', detailClose: '✕ Close',
     awardStore: '{s} store', staffEntry: 'Entrant: {r}', aloneInClass: 'the only place awarded in this class',
@@ -105,7 +107,7 @@ var UI = {
     footnote: [
       "Awards come from the official 2024–2026 results of the Sydney Royal Bakery show, the National Artisan Baking Competition, the Queensland Baking Show and Golden Bean, and The World's 100 Best Coffee Shops 2025–2026; every row links to its source and the date it was checked.",
       "The World's 100 Best Coffee Shops is a ranking, not a scored competition: it is run by The World's 100 Best Coffee Shops (CEO César Ramírez), with Kerry's DaVinci Gourmet as title sponsor and coffee brands such as Slayer and Cropster as sponsors; an expert panel gives 70% of the score and a public vote 30%, and the judges are not named. Only the shop named on the official page is on the map.",
-      "A ranking names no items, so World's 100 Best shops also get a Google review summary: drinks and food from the review keywords, marked “Recommended” when the latest reviews average 4.5 stars or more with no more than 1 in 10 at 1–2 stars. It is a review summary, not an award.",
+      "Every shop also gets a Google review summary from one store (the awarded store when the results name one, otherwise the store with the most reviews): drinks and food from the review keywords, marked “Recommended” when 5 or more reviews mention it and those reviews (the latest 30 at most) average 4.5 stars or more with no more than 1 in 10 at 1–2 stars; cards list up to 3, most mentioned first. Stars and review counts on the store buttons are Google Maps figures at the time of checking. It is a review summary, not an award.",
       'Gold medals are scored: every entry above the mark gets one, so a class can have several. A 1st place is a ranking, one per class. The two are not the same thing.',
       'Cards list champions, gold medals and 1st places (headline awards) plus silver medals and 2nd places (also recommended); bronze and 3rd places are left out.',
       'The Queensland Baking Show is small: many classes hand out only one or two places, and entry numbers are not published. So a 1st place counts as a headline award only when its class also awarded a 2nd; a 1st place that was the only place awarded is listed under also recommended.',
@@ -675,20 +677,14 @@ function renderItems(business) {
   return box;
 }
 
-// Google review picks (World's 100 Best shops; REVIEW-PICKS.md, user chose C 2026-11-02):
-// the card shows the recommended ones, the details list the top 3 drinks and food.
+// Google review picks (every shop since v2-4; REVIEW-PICKS.md): the card shows one line of
+// the recommended ones (v2-4 Q4 B, at most PICKS_SHOWN, most mentioned first; user chose
+// 2026-11-05), the details list the top 3 drinks and food with mentions and stars.
 var PICK_ICONS = { drink: '☕', food: '🍽️' };
+var PICKS_SHOWN = 3;
 
-// Chinese pages add the English name in muted text, so it can be found on the menu.
-function pickNameNode(item) {
-  var frag = document.createDocumentFragment();
-  if (isEn() || !item.en || item.en === item.zh) {
-    frag.appendChild(document.createTextNode(isEn() ? item.en || item.zh : item.zh));
-  } else {
-    frag.appendChild(document.createTextNode(item.zh + ' '));
-    frag.appendChild(el('span', 'review-pick-en', item.en));
-  }
-  return frag;
+function pickName(item) {
+  return isEn() ? item.en || item.zh : item.zh;
 }
 
 // item.icon overrides the section icon, e.g. 🍺 for Fonzie Abbott's beer.
@@ -706,25 +702,14 @@ function renderReviewPicks(business) {
   if (!picks) return null;
   var rec = [];
   ['drink', 'food'].forEach(function(section) {
-    picks[section].forEach(function(item) { if (item.rec) rec.push({ section: section, item: item }); });
+    picks[section].forEach(function(item) { if (item.rec) rec.push(item); });
   });
   if (!rec.length) return null;
-  var box = el('section', 'review-picks');
-  var title = el('div', 'review-picks-title', t('picksTitle'));
-  title.appendChild(el('span', 'review-picks-note', t('picksAsOf', { d: picks.checkedAt.slice(0, 7) })));
-  box.appendChild(title);
-  var list = el('ul', 'review-picks-list');
-  rec.forEach(function(r) {
-    var li = el('li', 'review-pick');
-    var name = el('span', 'review-pick-name');
-    name.appendChild(pickIcon(r.section, r.item));
-    name.appendChild(pickNameNode(r.item));
-    li.appendChild(name);
-    li.appendChild(el('span', 'review-pick-count', t('picksCount', { n: r.item.mentions, s: r.item.stars.toFixed(1) })));
-    list.appendChild(li);
-  });
-  box.appendChild(list);
-  return box;
+  rec.sort(function(a, b) { return b.mentions - a.mentions || b.stars - a.stars; });
+  var line = el('div', 'review-picks');
+  line.appendChild(el('span', 'review-picks-label', t('picksLine')));
+  line.appendChild(document.createTextNode(rec.slice(0, PICKS_SHOWN).map(pickName).join(t('picksSep'))));
+  return line;
 }
 
 function renderPicksDetails(business) {
@@ -743,7 +728,9 @@ function renderPicksDetails(business) {
     var items = el('span', 'review-line-items');
     picks[section].forEach(function(item) {
       var one = el('span', 'review-line-item');
-      one.appendChild(document.createTextNode((isEn() ? item.en || item.zh : item.zh) + (isEn() ? ' (' + item.mentions + ')' : '（' + item.mentions + '）')));
+      // Stars only on recommended items, like the cafe/bakery cards (CARD-PLAN Q3).
+      var count = item.mentions + (item.rec ? ' · ★ ' + item.stars.toFixed(1) : '');
+      one.appendChild(document.createTextNode(pickName(item) + (isEn() ? ' (' + count + ')' : '（' + count + '）')));
       if (item.rec) one.appendChild(el('span', 'tag tag-rec', t('picksRec')));
       items.appendChild(one);
     });
@@ -936,11 +923,29 @@ function storeLabel(business, loc) {
 function renderStoreRow(business, loc) {
   var label = storeLabel(business, loc);
   var row = el('div', 'store-row');
-  var mapBtn = el('button', 'pill pill-map', '📍 ' + label);
+  var mapBtn = el('button', 'pill pill-map');
+  // One span, so a long store name wraps with its stars instead of the pill's flex
+  // layout pushing the stars into a column of their own.
+  var text = el('span', '', '📍 ' + label);
+  mapBtn.appendChild(text);
   mapBtn.type = 'button';
   mapBtn.dataset.id = business.id;
   mapBtn.dataset.loc = loc.id;
-  mapBtn.setAttribute('aria-label', t('mapAria', { s: business.name + ' ' + label }));
+  var spoken = business.name + ' ' + label;
+  // "📍 Mittagong ★ 4.6（1,203）": each store its own Google stars (v2-4 Q2 B).
+  var g = loc.google;
+  if (g) {
+    var reviews = g.reviews.toLocaleString('en-AU');
+    var rating = el('span', 'pill-rating');
+    var star = el('span', 'star', ' ★ ');
+    star.setAttribute('aria-hidden', 'true');
+    rating.appendChild(star);
+    rating.appendChild(document.createTextNode(g.rating.toFixed(1) + (isEn() ? ' (' + reviews + ')' : '（' + reviews + '）')));
+    rating.setAttribute('aria-hidden', 'true');
+    text.appendChild(rating);
+    spoken = t('storeRating', { s: spoken, r: g.rating.toFixed(1), n: g.reviews === 1 ? 1 : reviews });
+  }
+  mapBtn.setAttribute('aria-label', t('mapAria', { s: spoken }));
   row.appendChild(mapBtn);
   row.appendChild(externalLink('pill pill-ext', '↗ Maps', loc.mapsUrl, t('mapsAria', { s: business.name + ' ' + label })));
   return row;

@@ -95,27 +95,18 @@
 /* Google review picks (World's 100 Best shops, user chose C 2026-11-02): same left rule as the
    winning items (2026-11-03), but in the green that means "大家推薦" on the cafe/bakery pages,
    so it doesn't read as an award. */
+/* One line (v2-4 Q4 B): "Google 評論推薦：拿鐵、香腸捲", at most 3; mentions and stars are in the details. */
 .review-picks {
   margin-top: 12px;
-  padding: 6px 0 2px 12px;
+  padding: 2px 0 2px 12px;
   border-left: 3px solid var(--color-secondary-border);
   font-size: var(--fs-xs);
+  font-weight: 600;
+  color: var(--color-text);
+  overflow-wrap: anywhere;
 }
-.review-picks-title { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px; font-weight: 800; color: var(--color-text); margin-bottom: var(--space-2xs); }
-.review-picks-note { font-weight: 500; color: var(--color-text-soft); }
-.review-picks-list { list-style: none; margin: 0; padding: 0; }
-.review-pick {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: var(--space-sm);
-  padding: 3px 0;
-  border-top: 1px solid var(--color-border-soft);
-}
-.review-pick-name { font-weight: 600; color: var(--color-text); min-width: 0; overflow-wrap: anywhere; }
-.review-pick-en { font-weight: 500; color: var(--color-text-muted); }
-.review-pick-count { flex-shrink: 0; color: var(--color-text-muted); font-variant-numeric: tabular-nums; text-align: right; }
-/* Inside the award details: the top 3 drinks and food, recommended ones tagged. */
+.review-picks-label { font-weight: 800; }
+/* Inside the award details: the top 3 drinks and food, recommended ones tagged with stars. */
 .review-section { font-size: var(--fs-xs); }
 .review-line { display: grid; grid-template-columns: 22px 1fr; gap: 4px; padding: 4px 0; border-top: 1px solid var(--color-border-soft); }
 .review-line-items { display: flex; flex-wrap: wrap; gap: 4px 10px; }
@@ -257,6 +248,15 @@
   margin-top: 6px;
 }
 .store-row .pill-map { flex: 1; text-align: left; }
+/* "★ 4.6（1,203）" after the store name (v2-4 Q2 B): smaller and muted so the name leads;
+   the star in the same colour as the cafe/bakery rating line. */
+.pill-rating {
+  font-weight: 500;
+  color: var(--color-text-muted);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.pill-rating .star { color: var(--color-warning); }
 .store-more > summary { font-size: var(--fs-xs); }
 
 /* ── 7. PHONE DETAIL SHEET (獎項明細 full screen on phones; awards.js openDetailSheet, UI-PLAN 3.4c) ──
