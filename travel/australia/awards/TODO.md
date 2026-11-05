@@ -234,6 +234,7 @@ Step 1b 還沒打勾的兩項（PARTIAL 再查、使用者送 Wayback）留到 S
     - 原本的說明：布里斯本只有 7 間（全是咖啡、沒有烘焙），原因是 RAS 在雪梨（三年 818 件參賽品 NSW 591、QLD 41；QLD 金牌只有 5 面）、昆士蘭州賽第一版沒收（D4）。第一步：BAA **Queensland Baking Show**（2024–2026 官方結果 PDF 在 bakingbusiness.com.au/results/）的研究摘要：等級制度（有沒有金牌／冠軍）、結果有沒有地址、大概多幾家，給使用者決定
   - 備註，之後再決定要不要收的其他比賽：
     - BAA 其他州／地區烘焙展：Victorian、South Australia、Tasmania、Canberra Baking Show，以及 NSW 的 Newcastle、Wollongong Baking Show（BAA 清單上沒有 WA、NT）
+      - 2026-11-05 維州、南澳、塔州研究摘要完成（`research/STATE-BAKING-SHOWS.md`）：新品牌上限 47 家、估計實際多 30～40 家；**等使用者決定**收不收和 5 個問題（門市還沒查）
     - 各州皇家農展會的烘焙組（例如 Royal Adelaide Show，Adelaide's Finest 有報導在那裡得很多獎）；還沒研究，不確定每州都有、官方結果查不查得到
 - [ ] 8 家 PARTIAL 重查（見 Step 1b：ISEO、Cacao、The Beekeeper's Bakery、White Horse、The Bean Cartel、Latitude、The Purple Haze、Riviera）；查完只會增加店家，加店要重新匯入 My Maps
   - 2026-11-03 查完，**等使用者決定（先擱置）**，還沒改 CSV：
