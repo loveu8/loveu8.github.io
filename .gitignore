@@ -1,4 +1,5 @@
 .gstack/
 .claude/
 ai_report/2026/reference/data/*.xlsx
+ai_report/2026/reference/data/brisbane-transport/raw/pages/
 __pycache__/

@@ -1,0 +1,219 @@
+# 布里斯本交通專題：資料表說明
+
+建立日期：2026-11-10
+狀態：第一步「定義工作」的草稿。資料表目前只有欄位列，還沒有資料。地域定義表與名詞表有部分尚未查證，逐列標明。
+依據：[專題規劃](../../布里斯本交通發展_專題規劃_20261110.md) 第 6、7 節。
+
+## 1. 共同規則
+
+- 編碼 UTF-8，逗號分隔，第一列是欄位名。欄位名用英文小寫加底線，內容可用中文。
+- 日期寫 `YYYY-MM-DD`；只知道月份寫 `YYYY-MM`，只知道年份寫 `YYYY`。財政年度寫起訖日，例如 `2025-07-01` 到 `2026-06-30`。
+- 空值的意思：留空＝這一列不適用這個欄位；`未公開`＝查過，官方沒有公布；`待查`＝還沒查；`未標示`＝來源頁面沒有寫（只用在來源的發布或更新日期）。不用 0 代表沒有資料。
+- 一格要放多個編號時用分號隔開，例如 `P-01;P-03`。
+- 資料有變動時加新列，不改舊列（`status_log.csv`、`funding.csv`）。其他表修改時在 `note` 欄寫日期與原因。
+- 示例資料的編號一律以 `EX-` 開頭，`note` 欄寫「結構示例，非真實資料」。正式統計與網頁不得使用。
+
+## 2. 八個表與關聯
+
+| 檔案 | 一列代表 | 主鍵 | 指向其他表 |
+|---|---|---|---|
+| `sources.csv` | 一個來源 | `source_id`（`S-001`） | 無 |
+| `problems.csv` | 一個交通問題 | `problem_id`（`P-01`） | `source_ids`、`indicator_ids` |
+| `projects.csv` | 一個計畫、工作包或政策措施 | `project_id`（`PR-01`；工作包 `PR-01-A`） | `parent_id` → `projects`；`problem_ids` → `problems` |
+| `status_log.csv` | 一次狀態或時程的觀察 | `status_id`（`ST-0001`） | `project_id`、`source_id` |
+| `funding.csv` | 一個官方公布的金額 | `funding_id`（`F-0001`） | `project_id` 或 `coverage_id`；`included_in_id`、`supersedes_id` → `funding`；`source_id` |
+| `indicators.csv` | 一個指標數值 | `indicator_id`（`I-0001`） | `source_id`；`problem_ids` |
+| `claims.csv` | 一句重點主張 | `claim_id`（`C-001`） | `source_ids` |
+| `journeys.csv` | 一趟通勤案例的一次查詢 | `journey_id`（`J-01-a`） | `source_id` |
+
+## 3. 各表欄位
+
+### sources.csv
+
+`source_id`, `title`, `agency`, `url`, `published_date`, `updated_date`, `retrieved_date`, `locator`（頁碼、表格或段落）, `geo_id`, `period`, `unit`, `definition`, `grade`, `archive_path`, `note`
+
+- `published_date`、`updated_date`：頁面沒有寫就填 `未標示`。**不可填擷取日。**
+- `retrieved_date`：實際打開頁面的日期。引用時寫「於某日觀察到此說法」。
+- `grade`：A 官方原始資料直接支持／B 機關或公司說法、媒體轉述／C 作者推論或待驗。這描述來源類型，不保證整份文件每句話都正確。
+- `archive_path`：頁面副本或下載檔的位置。沒有日期的頁面必須存副本。
+
+### problems.csv
+
+`problem_id`, `type`, `geo_id`, `time_band`, `indicator_ids`, `current_value`, `value_year`, `benchmark`, `why_problem`, `limits`, `verdict`, `source_ids`, `added_date`, `added_reason`, `note`
+
+- `type`：跨河／進城／跨郊區／接駁／班距／可靠度／其他。
+- `benchmark`：比較基準或需求證據。可以是官方服務目標、同口徑的前後差異、可核對的可達性或轉乘缺口。不自行設定全市一體適用的門檻。
+- `why_problem`：這個數字為何對該時段、地點或人群構成限制。
+- `verdict`：`成立`（有指標也有基準）／`現況描述`（只有數字）／`待查`（只有印象）。只有 `成立` 的問題可以進第七章矩陣，也只有它能用來配對工程。
+- 問題清單定稿後才開始第二步。之後新增問題要填 `added_date` 與 `added_reason`。
+
+### projects.csv
+
+`project_id`, `level`, `parent_id`, `kind`, `name_en`, `name_zh`, `agency`, `geo_id`, `corridor`, `mode`, `scope`, `problem_ids`, `match_basis`, `full_funding_review`, `main_chapter`, `official_benefit`, `observed_indicator_ids`, `dependencies`, `limits`, `note`
+
+- `level`：`計畫` 或 `工作包`。工作包必須填 `parent_id`。
+- `kind`：`工程` 或 `政策措施`。
+- `problem_ids`：可填 `待查` 或 `不適用`。這類項目留在附錄清冊，不當作對症的證據。
+- `match_basis`：`官方說法` 或 `作者判斷`。
+- `full_funding_review`：`是` 表示占一個完整查財源的名額。名額最多 10 個，以上層計畫計算，工作包不另占，政策措施算在同一份名額內。
+- 狀態與時程不寫在這個表，一律寫在 `status_log.csv`。
+
+### status_log.csv
+
+`status_id`, `project_id`, `observed_date`, `source_date`, `status`, `planned_completion`, `planned_service`, `milestone`, `source_id`, `note`
+
+- `observed_date`：我們看到這個說法的日期。`source_date`：來源自己標示的日期，沒有就填 `未標示`。
+- 工程的 `status`：已營運／測試與試營運／已完工未營運／施工中／已核准未施工／規劃與商業論證／倡議或長期構想／暫停或取消。「施工中」以主體工程開工為準；只有前期工程時記「已核准未施工」，在 `note` 註明。
+- 政策措施的 `status`：試辦／常態實施／有期限／已結束。
+- 完工日與營運日分開填。兩者都是預定日期，不寫成確定。
+
+### funding.csv
+
+`funding_id`, `record_type`, `project_id`, `coverage_id`, `period_start`, `period_end`, `cost_type`, `amount_role`, `amount`, `currency`, `price_basis`, `funder`, `funding_stage`, `official_scope`, `included_in_id`, `supersedes_id`, `announced_date`, `source_id`, `note`
+
+- `record_type`：`逐案`（填 `project_id`，`coverage_id` 留空）或 `全路網`（`project_id` 留空，填 `coverage_id`）。票收與營運補貼這類不屬於單一工程的數字用全路網，不掛在任何工程底下。
+- `coverage_id`：涵蓋的路網或地域，取自第 4 節的地域定義表。
+- `cost_type`：建設／營運／維護／汰換／混合。官方把幾種綁在一起時填 `混合`，在 `official_scope` 照原文寫出包含什麼，不自行拆分。
+- `amount_role`：總額／分攤／年度預算／累計實支。**不同角色的金額不相加。**
+- `price_basis`：名目或實質、含稅與否、價格年份。官方沒寫就填 `未公開`。
+- `funding_stage`：政治承諾／預算編列／正式資金協議／實際支出。
+- `included_in_id`：這個金額若已包含在另一筆裡，填那一筆的編號。**有這個欄位的金額不得與它所屬的金額相加。**
+- `supersedes_id`：這個金額若是修訂版，填被取代的那一筆。舊列保留。
+- 不同列的金額不相加，除非確認不重疊。未公布的分攤不自行估算。
+
+### indicators.csv
+
+`indicator_id`, `name`, `geo_id`, `period_start`, `period_end`, `time_band`, `direction`, `value`, `unit`, `count_basis`, `actual_or_forecast`, `problem_ids`, `source_id`, `note`
+
+- `count_basis`：人數／上車人次／旅次／換乘計次／班次／分鐘等。不同計數方式不相加。
+- `actual_or_forecast`：`實績`／`時刻表`／`官方預測`／`作者試算`。
+
+### claims.csv
+
+`claim_id`, `chapter`, `text`, `category`, `source_ids`, `support_detail`, `limits`, `used_in`, `checked_date`, `note`
+
+- 只收會出現在摘要、各章結論與 Threads 的重點主張。
+- `category`：已觀察事實／官方預期／主辦機關自述／作者推論／待查。
+- `support_detail`：每個來源支持這句話的哪一部分。同一份官方文件可以支持某個日期，卻不能支持「成功」這類評價。
+- `used_in`：摘要／章結論／Threads（寫第幾則）。
+
+### journeys.csv
+
+`journey_id`, `case_name`, `origin`, `destination`, `selection_basis`, `travel_date`, `depart_time`, `direction`, `queried_date`, `tool`, `walk_min`, `wait_min`, `in_vehicle_min`, `transfers`, `transfer_min`, `total_min`, `modes`, `source_id`, `note`
+
+- 同一個案例可以有多次查詢（不同時段），編號用 `J-01-a`、`J-01-b`。
+- 只記查得到的現況。未來服務尚未定案時，不填未來的門到門時間。
+
+## 4. 地域定義表（草稿）
+
+資料表的 `geo_id` 與 `coverage_id` 只能填這張表內的值。填 `OTHER` 時必須在 `note` 寫明範圍。
+
+| geo_id | 名稱 | 定義 | 查證狀態 |
+|---|---|---|---|
+| `BNE_LGA` | Brisbane LGA（布里斯本市，市議會轄區） | Brisbane City Council 的行政範圍 | 待查：官方邊界與代碼 |
+| `GBRI` | Greater Brisbane（大布里斯本，統計區） | 澳洲統計局的 Greater Capital City Statistical Area，代碼 `3GBRI`，由 SA4 組成。2011 年版說明：不含 Gold Coast 與 Sunshine Coast，西南延伸到含 Beaudesert、Boonah | 部分查證（2026-11-10）。統計局第 4 版頁面（S-006，2026-07-22 發布）確認由 SA4 組成、代表首府城市的功能範圍，但該頁沒有列出 Greater Brisbane 的範圍。「不含 Gold Coast 與 Sunshine Coast」來自搜尋摘要引述的 2011 年版說明。待查：第 4 版的對照檔；Ipswich、Logan、Moreton Bay、Redland 是否全部在內 |
+| `SEQ_PLAN` | South East Queensland（昆士蘭東南部，區域規劃範圍） | ShapingSEQ 2023 區域計畫涵蓋 12 個地方政府：Brisbane、Gold Coast、Ipswich、Lockyer Valley、Logan、Moreton Bay、Noosa、Redland、Scenic Rim、Somerset、Sunshine Coast、Toowoomba | 部分查證（2026-11-10，二手轉述；州政府規劃頁讀取失敗 403）。待查：以計畫 PDF 的地圖確認名單，以及 Toowoomba 是否只含部分範圍 |
+| `SEQ_TL` | Translink 昆士蘭東南部路網 | Translink 在昆士蘭東南部的票價與服務範圍；開放資料的「South East Queensland」運量與準點都用這個範圍 | 待查：官方範圍與分區數（二手來源說法互相矛盾） |
+| `QLD` | 昆士蘭州 | 全州 | 不需查證 |
+| `CORRIDOR` | 單一走廊 | 在 `corridor` 欄或 `note` 寫明起訖 | 不適用 |
+| `OTHER` | 其他 | 必須在 `note` 寫明範圍 | 不適用 |
+
+`GBRI`、`SEQ_PLAN`、`SEQ_TL` 範圍不同，數字不可互相比較或相加。
+
+## 5. 名詞表（草稿）
+
+每章與每則 Threads 第一次出現時帶白話說明。「待查」的解釋不可直接寫進正文或 Threads。
+
+| 原文 | 中文說法 | 一句白話 | 查證狀態 |
+|---|---|---|---|
+| Brisbane Metro | Brisbane Metro（布里斯本 Metro） | 高運量、班次密集的全電動公車系統，不是地鐵。兩條路線：M1 Eight Mile Plains 到 Roma Street，M2 UQ Lakes 到 RBWH | 已查證（2026-11-10）：市府網頁寫「a high-capacity, high-frequency bus rapid transit system」與「all-electric」。待查：是否全程走公車專用道、各路線啟用日 |
+| Cross River Rail | Cross River Rail（跨河鐵路） | 穿過布里斯本河底的新鐵路隧道，加上幾座地下車站 | 部分查證（2026-11-10）：官方 FAQ（S-001）提到 twin tunnels 與 underground stations，預計 2029 年首批載客；官方介紹頁（S-012）自述為「a second river crossing at the core of the rail network」，站別頁列出 Boggo Road、Woolloongabba、Albert Street、Roma Street、Exhibition。待查：長度、哪幾站是新建的地下車站 |
+| 50 cent fares | 50 分票價 | 不分距離與車種，每趟澳幣 0.5 元 | 已查證（2026-11-10）：Translink 網頁寫全昆士蘭 Translink 路網所有分區與運具均一 50 分，不含 Airtrain 與專用校車。待查：起始日、是否永久 |
+| Brisbane's New Bus Network | 新公車路網 | 配合 Metro 上路重新調整的市區公車路線 | 待查 |
+| Busway | 公車專用道 | 只給公車走、與一般道路分開的專用道路 | 待查 |
+| CityCat | CityCat 渡輪 | 布里斯本河上的公共渡輪 | 待查 |
+| Logan and Gold Coast Faster Rail | Logan 與黃金海岸鐵路提速工程 | 把 Kuraby 到 Beenleigh 這段鐵路從兩條軌道增加到四條 | 部分查證（2026-11-10）：官方計畫頁寫 two to four tracks between Kuraby and Beenleigh。待查：成本、完工日 |
+| The Wave | The Wave | 連接陽光海岸與布里斯本的鐵路與 Metro 計畫 | 待查（官方頁 2026-11-10 讀取失敗） |
+| Translink | Translink | 昆士蘭州交通部門底下負責公共運輸的單位 | 部分查證（2026-11-10，S-007）：官方寫它是 Department of Transport and Main Roads 的一個 division，負責昆士蘭東南部的公車、火車、渡輪與輕軌。待查：票價與時刻由誰訂的官方說法 |
+| TMR | 昆士蘭運輸與主要道路部 | 州政府的交通主管部門 | 待查 |
+| Queensland Rail | 昆士蘭鐵路公司 | 營運市區與近郊火車的州營公司 | 待查 |
+| Brisbane City Council | 布里斯本市議會（市府） | 布里斯本市的地方政府，也負責開市區公車 | 部分查證（2026-11-10，S-008）：市府網頁寫「Council operates Brisbane's bus services under a contract with Translink」。待查：渡輪由誰營運 |
+| ETCS | 歐洲列車控制系統 | 新一代鐵路訊號，讓列車可以更密集、更安全地行駛 | 待查 |
+| LGA | 地方政府轄區 | 一個市或郡議會管的範圍 | 不需查證 |
+| SEQ | 昆士蘭東南部 | 以布里斯本為中心、含黃金海岸與陽光海岸的區域；不同機關的範圍不同，見地域定義表 | 見第 4 節 |
+
+## 6. 挑選規則（看資料前先寫下）
+
+作者已於 2026-11-10 確認以下規則（含第 4 條的非鐵路公車保障名額）。之後若要修改，須在這裡記下日期與原因，且不得在看到查詢結果後才改。
+
+### 完整查財源的項目（最多 10 個，預期 8 到 10 個，資料不足可更少）
+
+依序套用：
+
+1. 只從對應到 `verdict = 成立` 的問題的項目裡選。
+2. 每一類成立的問題，先選官方金額最大的一項；金額未公開時，選影響路線或人數最多的一項。
+3. 三種狀態都要有：已落地、正在推進、未來規劃，各至少一項。
+4. 還有名額時，依金額由大到小補；鐵路與公車以外的方式（道路或橋梁、步行或自行車、渡輪）合計至少兩項，前提是它們對應到成立的問題。
+5. 名額以上層計畫計算，工作包不另占；政策措施算在同一份名額內。
+6. 選定後不因查到的結果好壞而替換。資料查不到的項目留在名單上，寫明未公開。
+
+### 通勤案例（3 個主要，最多加 1 個區域案例）
+
+1. 三種類型各一：南區進市中心、Logan 或黃金海岸進布里斯本、跨郊區到大學、醫院或就業中心。
+2. 起點選該方向人口最多的地區，終點選就業或活動人數最多的地點，依第一步查到的人口與就業資料決定，並記下資料來源。
+3. 至少一個案例的起訖點不在任何選定工程的直接服務範圍內，用來觀察「改善有限」的情況。
+4. 每個案例查兩個時段：平日早上尖峰，以及平日離峰或週末其中一個。
+5. 起訖點在查詢旅程時間之前就定下，不因查詢結果替換。
+
+## 7. 示例資料
+
+`projects.csv` 與 `funding.csv` 各有幾列以 `EX-` 開頭的結構示例，金額是假的，只用來示範怎麼填：
+
+- `EX-F-0001`：一筆工程總額（逐案、混合成本、總額）。
+- `EX-F-0002`：它底下一個工作包的金額，用 `included_in_id` 指回總額。兩筆不可相加。
+- `EX-F-0003`：總額的修訂版，用 `supersedes_id` 指回舊的一筆。舊列保留。
+- `EX-F-0004`、`EX-F-0005`：兩個財政年度的全路網營運補貼，`project_id` 留空、填 `coverage_id`。兩筆是同一角色（年度預算）、不同期間，可以排成趨勢，但不與任何工程金額相加。
+
+真實資料開始填入後，這些示例列保留在檔案最上方，統計與網頁一律排除 `EX-` 開頭的列。
+
+## 8. 「誰管什麼」草稿
+
+給導讀或第一章用。只寫了有官方來源的部分。
+
+| 誰 | 層級 | 管什麼 | 查證狀態 |
+|---|---|---|---|
+| Translink | 州（Department of Transport and Main Roads 的一個部門） | 昆士蘭東南部公車、火車、渡輪與輕軌的整體統籌 | 已查證（S-007）。待查：票價、時刻與給營運者的經費是否都由它決定（搜尋摘要有此說法，未開原頁） |
+| Brisbane City Council | 市 | 依與 Translink 的合約營運布里斯本市區公車；推動 Brisbane Metro | 已查證（S-008、S-005）。待查：渡輪 |
+| Queensland Rail | 州營公司 | 市區與近郊火車的營運 | 待查 |
+| Cross River Rail Delivery Authority | 州 | 興建 Cross River Rail | 部分查證（S-001、S-012 頁尾署名）。待查：法定角色與完工後由誰營運 |
+| 澳洲聯邦政府 | 聯邦 | 出資部分大型建設 | 待查：出資了哪些、各多少 |
+
+一項已查到的經費安排：市府網頁（S-008）寫公車路網 2024-25 年度增加 7,500 萬澳幣，之後年度「州政府 75%、市府 25%」。這是市府單方的說法，沒有寫涵蓋哪些年度，也還沒看到協議原文。金額與比例尚未寫進 `funding.csv`，等第三步查到協議或預算文件再記。
+
+## 9. 探路結果（2026-11-10）
+
+規劃要求第一步先確認「改版前後的可比資料拿不拿得到」。目前查到目錄層級，還沒有下載任何資料檔。
+
+| 要確認的事 | 查到什麼 | 結論 |
+|---|---|---|
+| 同口徑的每月運量 | 已下載（S-013）。2023 年 12 月到 2026 年 6 月，共 31 個月，分公車、火車、渡輪、輕軌四種運具，單位是 passenger trips | **有資料，但只從 2023 年 12 月開始。** 涵蓋 50 分票價（2024 年 8 月試辦，日期待官方確認）與 Metro 上路前後；沒有 2019 年或疫情前的基準。範圍是整個昆士蘭東南部，公車沒有分營運者或路線，看不出 Metro 單獨的運量 |
+| 準點 | 已下載。火車尖峰準點與可靠度（S-014，2023-12 到 2026-06）、公車整體準點（S-015，2023-11 到 2026-06） | 有資料。準點的分鐘門檻在資料集裡沒寫，待查。公車同樣是全區合計 |
+| 起訖點旅次 | 「Origin-Destination Trips 2022 Onwards」（S-011）56 個檔案，2022 年 1 月到 2026 年 7 月；2022 年以前另有一個資料集，72 個檔案，約自 2016 年起 | 有資料，尚未下載（每月一個壓縮檔，2022 年初的約 1.5 MB）。這是唯一能回到 2019 年、也能看個別路線或走廊的資料 |
+| 計數方式是否改變 | 說法不一致，尚未解決。搜尋摘要說 2022 年以後的起訖點資料「只含車票與 go card，不含 EMV（感應式信用卡）」。但我實際讀到的資料集說明裡沒有這句；2022 年以前那個資料集的說明反而寫「Data from August 2020 onwards includes EMV transactions」 | **仍不確定。** 兩個說法互相矛盾，要打開資料集網頁（程式讀取被擋，需用瀏覽器）或下載一個月的檔案來看。每月運量（S-013）完全沒有說明計數方式，也要另查。在確認之前，改版前後的運量不能直接比 |
+| 改版前的時刻表 | Translink 開放資料頁（S-009）提供現行 GTFS 時刻表，授權 CC BY 4.0；頁面沒有提歷史版本 | 官方沒有說明。待查：開放資料目錄是否保留舊版檔案，或有無第三方存檔 |
+
+對第二章的影響：
+
+- 票價與 Metro 上路前後的全區運量與準點可以比，但基準只有上路前約 8 到 18 個月，而且幾項措施在同一段期間陸續上路，分不開各自的效果。
+- 沒有 Metro 路線或個別走廊的每月數字。要看走廊層級，只能用起訖點資料，而它的計數方式還沒確認。
+- 這份運量是整個昆士蘭東南部，不是布里斯本市。引用時地域要寫 `SEQ_TL`。
+- 數字尚未做任何前後計算，也還沒寫進 `indicators.csv`。計數方式確認後再做。
+
+### 下載紀錄
+
+- 頁面副本：10 個來源頁面已存到 `raw/pages/`，檔名含來源編號與擷取日 20261110。存的是伺服器回傳的原始 HTML；由程式產生的內容可能不在裡面。
+- 頁面副本的副檔名是 `.html.txt`，不是 `.html`：`tools/check_tokens.py` 會掃描工作目錄裡所有 HTML，外部網頁的樣式會讓檢查失敗並擋下提交。之後存副本一律用 `.html.txt`。
+- `raw/pages/` 列在 `.gitignore`，只留在本機，不進版本控制，做法比照既有的原始 xlsx 檔。原因是它們是其他機關網頁的完整副本。`raw/data.qld/` 的開放資料 JSON（CC BY 授權）有進版本控制。換電腦時頁面副本要重新擷取。
+- 資料：`raw/data.qld/` 有三個資料集的目錄檔（`package_*.json`）與五個檔案的完整內容（`datastore_*.json`）。
+- 取得方式：資料集網頁與 CSV 下載連結用程式讀取時回應空白（HTTP 202），改用同網站的 CKAN API（`package_show`、`datastore_search`）取得。API 回傳的是同一份資料的 JSON 形式，欄位名與官方 CSV 相同，但沒有逐格和 CSV 比對過。
+- `raw/` 裡的檔案是外部下載的原始資料，只讀不執行。

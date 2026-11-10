@@ -1,0 +1,3 @@
+project_id,level,parent_id,kind,name_en,name_zh,agency,geo_id,corridor,mode,scope,problem_ids,match_basis,full_funding_review,main_chapter,official_benefit,observed_indicator_ids,dependencies,limits,note
+EX-PR-01,計畫,,工程,Example Rail Project,示例鐵路計畫,示例機關,CORRIDOR,示例走廊,鐵路,示例範圍,待查,,是,3,,,,,結構示例，非真實資料
+EX-PR-01-A,工作包,EX-PR-01,工程,Example Signalling Package,示例訊號工作包,示例機關,CORRIDOR,示例走廊,鐵路,示例範圍,待查,,,3,,,,,結構示例，非真實資料；工作包不另占名額
