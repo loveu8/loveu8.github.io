@@ -2,4 +2,6 @@
 .claude/
 ai_report/2026/reference/data/*.xlsx
 ai_report/2026/reference/data/brisbane-transport/raw/pages/
+ai_report/2026/reference/data/brisbane-transport/raw/od/
+ai_report/2026/reference/data/brisbane-transport/raw/od-trips/*.zip
 __pycache__/
