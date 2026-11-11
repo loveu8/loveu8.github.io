@@ -4,4 +4,5 @@ ai_report/2026/reference/data/*.xlsx
 ai_report/2026/reference/data/brisbane-transport/raw/pages/
 ai_report/2026/reference/data/brisbane-transport/raw/od/
 ai_report/2026/reference/data/brisbane-transport/raw/od-trips/*.zip
+ai_report/2026/reference/data/brisbane-transport/raw/gtfs/
 __pycache__/
