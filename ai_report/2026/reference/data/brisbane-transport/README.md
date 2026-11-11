@@ -126,10 +126,10 @@
 
 | 原文 | 中文說法 | 一句白話 | 查證狀態 |
 |---|---|---|---|
-| Brisbane Metro | Brisbane Metro（布里斯本 Metro） | 高運量、班次密集的全電動公車系統，不是地鐵。兩條路線：M1 Eight Mile Plains 到 Roma Street，M2 UQ Lakes 到 RBWH | 已查證（2026-11-10）：市府網頁寫「a high-capacity, high-frequency bus rapid transit system」與「all-electric」。待查：是否全程走公車專用道、各路線啟用日 |
+| Brisbane Metro | Brisbane Metro（布里斯本 Metro） | 高運量、班次密集的全電動公車系統，不是地鐵。兩條路線：M1 Eight Mile Plains 到 Roma Street，M2 UQ Lakes 到 RBWH | 已查證（2026-11-10）：市府網頁寫「a high-capacity, high-frequency bus rapid transit system」與「all-electric」。2026-11-11 補：M2 於 2025-01-28、M1 於 2025-06-30 啟用（S-021、S-022，見第 9 節）。待查：是否全程走公車專用道 |
 | Cross River Rail | Cross River Rail（跨河鐵路） | 穿過布里斯本河底的新鐵路隧道，加上幾座地下車站 | 部分查證（2026-11-10）：官方 FAQ（S-001）提到 twin tunnels 與 underground stations，預計 2029 年首批載客；官方介紹頁（S-012）自述為「a second river crossing at the core of the rail network」，站別頁列出 Boggo Road、Woolloongabba、Albert Street、Roma Street、Exhibition。待查：長度、哪幾站是新建的地下車站 |
 | 50 cent fares | 50 分票價 | 不分距離與車種，每趟澳幣 0.5 元 | 已查證（2026-11-10）：Translink 網頁寫全昆士蘭 Translink 路網所有分區與運具均一 50 分，不含 Airtrain 與專用校車。待查：起始日、是否永久 |
-| Brisbane's New Bus Network | 新公車路網 | 配合 Metro 上路重新調整的市區公車路線 | 待查 |
+| Brisbane's New Bus Network | 新公車路網 | 配合 Metro 上路重新調整的市區公車路線 | 部分查證（2026-11-11，S-021、S-022，市長新聞稿）：分兩階段，2025-01-28 與 2025-06-30。待查：市府或 Translink 的正式路線調整清單 |
 | Busway | 公車專用道 | 只給公車走、與一般道路分開的專用道路 | 待查 |
 | CityCat | CityCat 渡輪 | 布里斯本河上的公共渡輪 | 待查 |
 | Logan and Gold Coast Faster Rail | Logan 與黃金海岸鐵路提速工程 | 把 Kuraby 到 Beenleigh 這段鐵路從兩條軌道增加到四條 | 部分查證（2026-11-10）：官方計畫頁寫 two to four tracks between Kuraby and Beenleigh。待查：成本、完工日 |
@@ -313,7 +313,21 @@
 - 2022-01 的壓縮檔存在 `raw/od-trips/`（不進版本控制），並用 Python 讀過，票種合計與瀏覽器算出的一致。
 - 其餘三個月份沒有存到本機：用程式下載回應空白，瀏覽器的連續下載被擋。改在瀏覽器裡直接讀取壓縮檔並加總，只留下上面的合計數字。要重做的話需重新下載。
 - 2019-07 的壓縮檔附的說明 PDF 是較舊的版本（檔案大小不同），沒有讀到內容。
-- `raw/od/` 裡有四個 0 位元組的檔案，是程式下載失敗留下的，沒有內容，等作者同意後刪除。
+- 程式下載失敗時在 `raw/od/` 留下四個 0 位元組的檔案，經作者同意已於 2026-11-11 連同資料夾刪除。
+
+### 2026-11-11 啟用日（改版的時間點）
+
+| 事件 | 日期 | 來源與等級 |
+|---|---|---|
+| M2（RBWH 到 UQ Lakes）正式營運，取代 66 路；新公車路網第一階段（9 條新校車路線、17 項路線調整） | 2025-01-28 | 市長新聞稿 S-021（B） |
+| 市府公車全面可用感應式信用卡，昆士蘭東南部 Smart Ticketing 完成（市府公車是 18 家營運者中最後一家） | 2025-03-24 宣布 | 州政府新聞稿 S-024（A）。實際啟用日與其他運具的啟用日，聲明沒寫 |
+| M1（Eight Mile Plains 到 Roma Street）上路，取代 111 與 160 路；新公車路網第二階段（新增 5 條路線、4 項全日服務，合併 12 條、拆分 3 條） | 2025-06-30 | 市長新聞稿 S-022（B）；Translink 計畫頁 S-023（A）寫同一天 |
+
+- 不一致之處：Translink 計畫頁寫 M1 與 M2 都在 2025-06-30 導入，市長新聞稿則寫 M2 在 2025-01-28 已正式營運。較可能是 Translink 把全面上路日當成兩線的日期，引用 M2 時以 2025-01-28 為準並註明。
+- 與起訖點檔案相符：2024-07 市區公車的感應式信用卡是 0，2025-04 有 81 萬。
+- 這幾頁是經摘要工具讀取，沒有存頁面副本，寫進正文前要開原頁再核對一次。50 分票價的起始日仍待查。
+- **對改版前時刻表的意義**：需要的是 2025-01-28 以前（第一階段前）與 2025-06-30 以前（第二階段前）的版本。第三方存檔目前讀到的最早版本是 2026 年，還沒找到這兩個日期之前的。
+- **對前後比較的意義**：改版分兩階段，中間還夾著市府公車開放感應式信用卡（2025-03），「改版前」與「改版後」要選在這三個日期之外的月份，且用同一個月份相比。
 
 ### 下載紀錄
 
