@@ -113,7 +113,7 @@
 | `BNE_LGA` | Brisbane LGA（布里斯本市，市議會轄區） | Brisbane City Council 的行政範圍 | 待查：官方邊界與代碼 |
 | `GBRI` | Greater Brisbane（大布里斯本，統計區） | 澳洲統計局的 Greater Capital City Statistical Area，代碼 `3GBRI`，由 SA4 組成。2011 年版說明：不含 Gold Coast 與 Sunshine Coast，西南延伸到含 Beaudesert、Boonah | 部分查證（2026-11-10）。統計局第 4 版頁面（S-006，2026-07-22 發布）確認由 SA4 組成、代表首府城市的功能範圍，但該頁沒有列出 Greater Brisbane 的範圍。「不含 Gold Coast 與 Sunshine Coast」來自搜尋摘要引述的 2011 年版說明。待查：第 4 版的對照檔；Ipswich、Logan、Moreton Bay、Redland 是否全部在內 |
 | `SEQ_PLAN` | South East Queensland（昆士蘭東南部，區域規劃範圍） | ShapingSEQ 2023 區域計畫涵蓋 12 個地方政府：Brisbane、Gold Coast、Ipswich、Lockyer Valley、Logan、Moreton Bay、Noosa、Redland、Scenic Rim、Somerset、Sunshine Coast、Toowoomba | 部分查證（2026-11-10，二手轉述；州政府規劃頁讀取失敗 403）。待查：以計畫 PDF 的地圖確認名單，以及 Toowoomba 是否只含部分範圍 |
-| `SEQ_TL` | Translink 昆士蘭東南部路網 | Translink 在昆士蘭東南部的票價與服務範圍；開放資料的「South East Queensland」運量與準點都用這個範圍 | 待查：官方範圍與分區數（二手來源說法互相矛盾） |
+| `SEQ_TL` | Translink 昆士蘭東南部路網 | Translink 在昆士蘭東南部的票價與服務範圍；開放資料的「South East Queensland」運量與準點都用這個範圍 | 部分查證（2026-11-11，S-029）：票價路網含昆士蘭東南部所有公車、火車（不含 Airtrain）、渡輪、輕軌與隨需服務；Toowoomba、Sunshine Coast Hinterland、Kilcoy、North Stradbroke Island 的公車不屬於這個票價路網。待查：分區數（官方頁沒寫；二手來源說 8 區）與邊界 |
 | `QLD` | 昆士蘭州 | 全州 | 不需查證 |
 | `CORRIDOR` | 單一走廊 | 在 `corridor` 欄或 `note` 寫明起訖 | 不適用 |
 | `OTHER` | 其他 | 必須在 `note` 寫明範圍 | 不適用 |
@@ -128,15 +128,15 @@
 |---|---|---|---|
 | Brisbane Metro | Brisbane Metro（布里斯本 Metro） | 高運量、班次密集的全電動公車系統，不是地鐵。兩條路線：M1 Eight Mile Plains 到 Roma Street，M2 UQ Lakes 到 RBWH | 已查證（2026-11-10）：市府網頁寫「a high-capacity, high-frequency bus rapid transit system」與「all-electric」。2026-11-11 補：M2 於 2025-01-28、M1 於 2025-06-30 啟用（S-021、S-022，見第 9 節）。待查：是否全程走公車專用道 |
 | Cross River Rail | Cross River Rail（跨河鐵路） | 穿過布里斯本河底的新鐵路隧道，加上幾座地下車站 | 部分查證（2026-11-10）：官方 FAQ（S-001）提到 twin tunnels 與 underground stations，預計 2029 年首批載客；官方介紹頁（S-012）自述為「a second river crossing at the core of the rail network」，站別頁列出 Boggo Road、Woolloongabba、Albert Street、Roma Street、Exhibition。待查：長度、哪幾站是新建的地下車站 |
-| 50 cent fares | 50 分票價 | 不分距離與車種，每趟澳幣 0.5 元 | 已查證（2026-11-10）：Translink 網頁寫全昆士蘭 Translink 路網所有分區與運具均一 50 分，不含 Airtrain 與專用校車。待查：起始日、是否永久 |
+| 50 cent fares | 50 分票價 | 不分距離與車種，每趟澳幣 0.5 元 | 已查證（2026-11-10）：Translink 網頁寫全昆士蘭 Translink 路網所有分區與運具均一 50 分，不含 Airtrain 與專用校車。2026-11-11 補（S-026，州政府新聞稿）：2024-08-05 起試辦六個月到 2025-02-09，2025-02-10 起改為常態 |
 | Brisbane's New Bus Network | 新公車路網 | 配合 Metro 上路重新調整的市區公車路線 | 部分查證（2026-11-11，S-021、S-022，市長新聞稿）：分兩階段，2025-01-28 與 2025-06-30。待查：市府或 Translink 的正式路線調整清單 |
 | Busway | 公車專用道 | 只給公車走、與一般道路分開的專用道路 | 待查 |
-| CityCat | CityCat 渡輪 | 布里斯本河上的公共渡輪 | 待查 |
+| CityCat | CityCat 渡輪 | 布里斯本河上的公共渡輪 | 部分查證（2026-11-11，S-030，營運者自己的說法）：市府把 CityCat、CityHopper 與 Cross River Ferry 的營運合約給 SeaLink Travel Group 旗下的 RiverCity Ferries。待查：市府一方的說法 |
 | Logan and Gold Coast Faster Rail | Logan 與黃金海岸鐵路提速工程 | 把 Kuraby 到 Beenleigh 這段鐵路從兩條軌道增加到四條 | 部分查證（2026-11-10）：官方計畫頁寫 two to four tracks between Kuraby and Beenleigh。待查：成本、完工日 |
-| The Wave | The Wave | 連接陽光海岸與布里斯本的鐵路與 Metro 計畫 | 待查（官方頁 2026-11-10 讀取失敗） |
+| The Wave | The Wave | 把鐵路從 Beerwah 延伸到陽光海岸東側的 Birtinya，再接一段到陽光海岸機場的 metro 式服務 | 已查證（2026-11-11，S-028，用瀏覽器開官方頁）：第一階段 Beerwah 到 Caloundra，第二階段 Caloundra 到 Birtinya，都是重軌；第三階段是 Birtinya 到機場的 metro 式服務。主體工程預計 2027 年初開工，待聯邦環評核准。待查：通車日、第三階段的車種 |
 | Translink | Translink | 昆士蘭州交通部門底下負責公共運輸的單位 | 部分查證（2026-11-10，S-007）：官方寫它是 Department of Transport and Main Roads 的一個 division，負責昆士蘭東南部的公車、火車、渡輪與輕軌。待查：票價與時刻由誰訂的官方說法 |
 | TMR | 昆士蘭運輸與主要道路部 | 州政府的交通主管部門 | 待查 |
-| Queensland Rail | 昆士蘭鐵路公司 | 營運市區與近郊火車的州營公司 | 待查 |
+| Queensland Rail | 昆士蘭鐵路局 | 營運市區與近郊火車的州法定機構 | 部分查證（2026-11-11，S-027）：自述是依 QRTA Act 設立的 statutory authority，不是公司，中文說法由「公司」改為「鐵路局」。待查：與 Translink 的合約關係 |
 | Brisbane City Council | 布里斯本市議會（市府） | 布里斯本市的地方政府，也負責開市區公車 | 部分查證（2026-11-10，S-008）：市府網頁寫「Council operates Brisbane's bus services under a contract with Translink」。待查：渡輪由誰營運 |
 | ETCS | 歐洲列車控制系統 | 新一代鐵路訊號，讓列車可以更密集、更安全地行駛 | 待查 |
 | LGA | 地方政府轄區 | 一個市或郡議會管的範圍 | 不需查證 |
@@ -184,9 +184,10 @@
 |---|---|---|---|
 | Translink | 州（Department of Transport and Main Roads 的一個部門） | 昆士蘭東南部公車、火車、渡輪與輕軌的整體統籌 | 已查證（S-007）。待查：票價、時刻與給營運者的經費是否都由它決定（搜尋摘要有此說法，未開原頁） |
 | Brisbane City Council | 市 | 依與 Translink 的合約營運布里斯本市區公車；推動 Brisbane Metro | 已查證（S-008、S-005）。待查：渡輪 |
-| Queensland Rail | 州營公司 | 市區與近郊火車的營運 | 待查 |
+| Queensland Rail | 州（法定機構） | 市區與近郊火車的營運 | 部分查證（S-027）：依 QRTA Act 設立的法定機構，設有昆士蘭東南部事業部。待查：與 Translink 的合約關係 |
+| RiverCity Ferries（SeaLink Travel Group 旗下） | 民間營運者 | 依與市府的合約營運 CityCat、CityHopper 與 Cross River Ferry，並維護船隻 | 部分查證（S-030，營運者自己的說法）。待查：市府一方的說法、船隻歸屬 |
 | Cross River Rail Delivery Authority | 州 | 興建 Cross River Rail | 部分查證（S-001、S-012 頁尾署名）。待查：法定角色與完工後由誰營運 |
-| 澳洲聯邦政府 | 聯邦 | 出資部分大型建設 | 待查：出資了哪些、各多少 |
+| 澳洲聯邦政府 | 聯邦 | 出資部分大型建設 | 部分查證（S-028）：The Wave 第一階段由聯邦與州各承諾 27.5 億澳幣。其他計畫待第三步查。金額尚未寫入 `funding.csv` |
 
 一項已查到的經費安排：市府網頁（S-008）寫公車路網 2024-25 年度增加 7,500 萬澳幣，之後年度「州政府 75%、市府 25%」。這是市府單方的說法，沒有寫涵蓋哪些年度，也還沒看到協議原文。金額與比例尚未寫進 `funding.csv`，等第三步查到協議或預算文件再記。
 
@@ -329,8 +330,27 @@
 - **對改版前時刻表的意義**：需要的是 2025-01-28 以前（第一階段前）與 2025-06-30 以前（第二階段前）的版本。第三方存檔目前讀到的最早版本是 2026 年，還沒找到這兩個日期之前的。
 - **對前後比較的意義**：改版分兩階段，中間還夾著市府公車開放感應式信用卡（2025-03），「改版前」與「改版後」要選在這三個日期之外的月份，且用同一個月份相比。
 
+### 2026-11-11 改版前的時刻表：找到存檔，尚未驗證
+
+Wayback Machine 存有官方 SEQ GTFS 檔案（網址 `gtfsrt.api.translink.com.au/GTFS/SEQ_GTFS.zip`）的歷史副本（S-025）。存檔日與兩個改版日的關係：
+
+| 存檔日 | 相對於改版 | 檔案大小（索引值） |
+|---|---|---|
+| 2024-07-09、2024-08-03、2024-10-31 | 第一階段（2025-01-28）之前 | 24 到 30 MB |
+| 2025-02-01、2025-03-29、2025-04-11 | 兩階段之間 | 23 到 36 MB |
+| 2026-10-07 | 第二階段（2025-06-30）之後 | 27 MB |
+
+- 這是官方檔案的第三方存檔，不是官方提供的歷史版本。引用時寫明「Internet Archive 於某日存下的 Translink 檔案」。
+- **只查了索引，還沒下載。** 檔案是否完整、裡面的時刻涵蓋哪些日期，要下載後才知道（需作者同意，每個 23 到 36 MB）。GTFS 通常只含之後約兩個月的班表，所以 2024-10-31 的存檔大致代表 2024 年 11、12 月的服務。
+- 2025-04-11 之後到第二階段上路之間沒有存檔；最接近第二階段前的是 2025-04-11。
+- 第二階段之後最早的存檔是 2026-10-07，離改版已超過一年，期間可能有其他調整。若要「剛改版後」的班表，Transitland 與 Mobility Database 的存檔（S-019）從 2026 年起才有，也補不上 2025 年下半年。
+- 結論：**改版前的時刻表拿得到**，第二章可以比較路線與班距；「剛改版後」那一端較弱，只能用 2026 年的版本，並說明時間差。
+
+50 分票價日期（S-026）：2024-08-05 起試辦，2025-02-10 起常態。所以前面核對的四個月份裡，2019-07 與 2024-07 都在 50 分票價之前，2025-04 在之後。
+
 ### 下載紀錄
 
+- 2026-11-11：另存 `raw/pages/S-028_tmr_the_wave_20261111.txt`（The Wave 官方頁摘錄，用瀏覽器讀取）。
 - 2026-11-11：新增兩個文字摘錄 `raw/pages/S-016_…_20261111.txt`（留言區，發布單位回覆照錄、其他留言只寫摘要）與 `S-017_…_20261111.txt`（儀表板 Glossary 摘錄）。兩者是從瀏覽器讀到的文字整理而成，不是伺服器原始 HTML。同日稍後經作者同意，下載了 2022-01 的起訖點壓縮檔到 `raw/od-trips/`（壓縮檔不進版本控制，附的說明 PDF 有進）。
 - 頁面副本：10 個來源頁面已存到 `raw/pages/`，檔名含來源編號與擷取日 20261110。存的是伺服器回傳的原始 HTML；由程式產生的內容可能不在裡面。
 - 頁面副本的副檔名是 `.html.txt`，不是 `.html`：`tools/check_tokens.py` 會掃描工作目錄裡所有 HTML，外部網頁的樣式會讓檢查失敗並擋下提交。之後存副本一律用 `.html.txt`。
