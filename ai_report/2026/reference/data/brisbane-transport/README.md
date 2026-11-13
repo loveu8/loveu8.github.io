@@ -141,7 +141,7 @@
 | TMR | 昆士蘭運輸與主要道路部 | 州政府的交通主管部門 | 待查 |
 | Queensland Rail | 昆士蘭鐵路局 | 營運市區與近郊火車的州法定機構 | 部分查證（2026-11-11，S-027）：自述是依 QRTA Act 設立的 statutory authority，不是公司，中文說法由「公司」改為「鐵路局」。待查：與 Translink 的合約關係 |
 | Brisbane City Council | 布里斯本市議會（市府） | 布里斯本市的地方政府，也負責開市區公車 | 部分查證（2026-11-10，S-008）：市府網頁寫「Council operates Brisbane's bus services under a contract with Translink」。待查：渡輪由誰營運 |
-| ETCS | 歐洲列車控制系統 | 新一代鐵路訊號，讓列車可以更密集、更安全地行駛 | 待查 |
+| ETCS | 歐洲列車控制系統 | 新一代數位鐵路訊號，讓列車可以更密集、更安全地行駛；目前在測試，還沒有載客使用 | 已查證（2026-11-13，S-038，TMR 官方頁 2026-08-06 更新）。正文不寫「已上路」；第二步列為獨立計畫，見第 9 節 |
 | LGA | 地方政府轄區 | 一個市或郡議會管的範圍 | 不需查證 |
 | SEQ | 昆士蘭東南部 | 以布里斯本為中心、含黃金海岸與陽光海岸的區域；不同機關的範圍不同，見地域定義表 | 見第 4 節 |
 
@@ -431,7 +431,7 @@ Wayback Machine 存有官方 SEQ GTFS 檔案（網址 `gtfsrt.api.translink.com.
   2. 不寫「Metro 全程走專用道」：路線圖只標車站，沒說每一段都是專用道。
 - 專用道由誰擁有、誰管理，留到「TMR、Translink 與營運者的關係」那題一起查。
 
-**第 5 題：ETCS。已查完，建議等作者確認。**
+**第 5 題：ETCS。結案。**
 
 - 來源：TMR 的 ETCS Program 頁（S-038，用瀏覽器讀取，頁面標示 Last updated 2026-08-06）。
 - 是什麼：數位鐵路訊號，即時回傳列車位置、方向與速度，讓列車安全地靠得更近、班次更密，並自動更新時刻資訊；官方提到是為 2032 年奧運的運量做準備。
@@ -439,7 +439,7 @@ Wayback Machine 存有官方 SEQ GTFS 檔案（網址 `gtfsrt.api.translink.com.
 - 各路段狀態（官方頁的表）：Beenleigh–Varsity Lakes 施工中，預計 2027 年中完工（2024-09 發包）；Kuraby–Beenleigh 施工中，與 Logan 與黃金海岸鐵路提速工程一起做（2026-03 發包）；Moorooka–Kuraby 經費到位、招標中；Elimbah–Beerwah 與 The Wave 第一階段 2026-05 給 Alstom 設計與前期工程合約；Caloundra–Birtinya 部分經費；Cross River Rail 北洞口–Northgate、Northgate–Elimbah、Petrie–Kippa-Ring 規劃中。
 - 承辦：Sequence Signalling and Systems Alliance（Hitachi Rail、Queensland Rail、Cross River Rail Delivery Authority）。經費來自州政府。
 - 二手來源有「已有限度載客」的說法（nomadlawyer.org，低品質），與官方頁不符，不採用。
-- Claude 的建議（作者尚未確認，下次先確認這三點）：
+- Claude 的建議（作者同意，2026-11-13）：
   1. 名詞表白話解釋改為「新一代數位鐵路訊號，讓列車可以更密集、更安全地行駛；目前在測試，還沒有載客使用」，狀態改為已查證。
   2. 正文不寫「ETCS 已上路」，以官方頁為準。
   3. 第二步把 ETCS 列為一個獨立計畫、各路段為工作包；與其他計畫一起發包的路段在備註寫明金額含在哪個計畫，避免重複計算（規劃 QA 的 P2-5）。
