@@ -5,4 +5,6 @@ ai_report/2026/reference/data/brisbane-transport/raw/pages/
 ai_report/2026/reference/data/brisbane-transport/raw/od/
 ai_report/2026/reference/data/brisbane-transport/raw/od-trips/*.zip
 ai_report/2026/reference/data/brisbane-transport/raw/gtfs/
+ai_report/2026/reference/data/brisbane-transport/raw/abs/MB_*.xlsx
+ai_report/2026/reference/data/brisbane-transport/raw/abs/LGA_*.xlsx
 __pycache__/

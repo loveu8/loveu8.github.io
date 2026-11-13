@@ -111,7 +111,7 @@
 | geo_id | 名稱 | 定義 | 查證狀態 |
 |---|---|---|---|
 | `BNE_LGA` | Brisbane LGA（布里斯本市，市議會轄區） | Brisbane City Council 的行政範圍 | 待查：官方邊界與代碼 |
-| `GBRI` | Greater Brisbane（大布里斯本，統計區） | 澳洲統計局的 Greater Capital City Statistical Area，代碼 `3GBRI`，由 SA4 組成。2011 年版說明：不含 Gold Coast 與 Sunshine Coast，西南延伸到含 Beaudesert、Boonah | 部分查證（2026-11-10）。統計局第 4 版頁面（S-006，2026-07-22 發布）確認由 SA4 組成、代表首府城市的功能範圍，但該頁沒有列出 Greater Brisbane 的範圍。「不含 Gold Coast 與 Sunshine Coast」來自搜尋摘要引述的 2011 年版說明。待查：第 4 版的對照檔；Ipswich、Logan、Moreton Bay、Redland 是否全部在內 |
+| `GBRI` | Greater Brisbane（大布里斯本，統計區） | 澳洲統計局的 Greater Capital City Statistical Area，代碼 `3GBRI`，由 9 個 SA4 組成：Brisbane - East、North、South、West、Inner City，以及 Ipswich、Logan - Beaudesert、Moreton Bay - North、Moreton Bay - South。以地方政府來看：Brisbane、Ipswich、Logan、Moreton Bay、Redland、Somerset 全部在內；Scenic Rim 只含 Beaudesert、Boonah（約 88% 面積）；Lockyer Valley 只含東半部（約 33%）；Sunshine Coast 只含 Bribie Island 一小塊（約 2%）；Gold Coast、Toowoomba、Noosa 不在內 | 已查證（2026-11-13，S-031，統計局第 4 版對照檔，用 `scripts/gbri_lga_overlap.py` 計算，見第 9 節）。第 4 版的 SA4 與 GCCSA 只有邊界微調，2021 年普查（第 3 版邊界）的數字可沿用 |
 | `SEQ_PLAN` | South East Queensland（昆士蘭東南部，區域規劃範圍） | ShapingSEQ 2023 區域計畫涵蓋 12 個地方政府：Brisbane、Gold Coast、Ipswich、Lockyer Valley、Logan、Moreton Bay、Noosa、Redland、Scenic Rim、Somerset、Sunshine Coast、Toowoomba | 部分查證（2026-11-10，二手轉述；州政府規劃頁讀取失敗 403）。待查：以計畫 PDF 的地圖確認名單，以及 Toowoomba 是否只含部分範圍 |
 | `SEQ_TL` | Translink 昆士蘭東南部路網 | Translink 在昆士蘭東南部的票價與服務範圍；開放資料的「South East Queensland」運量與準點都用這個範圍 | 部分查證（2026-11-11，S-029）：票價路網含昆士蘭東南部所有公車、火車（不含 Airtrain）、渡輪、輕軌與隨需服務；Toowoomba、Sunshine Coast Hinterland、Kilcoy、North Stradbroke Island 的公車不屬於這個票價路網。待查：分區數（官方頁沒寫；二手來源說 8 區）與邊界 |
 | `QLD` | 昆士蘭州 | 全州 | 不需查證 |
@@ -119,6 +119,9 @@
 | `OTHER` | 其他 | 必須在 `note` 寫明範圍 | 不適用 |
 
 `GBRI`、`SEQ_PLAN`、`SEQ_TL` 範圍不同，數字不可互相比較或相加。
+
+- 正文第一次出現「大布里斯本」時，附一句白話說明：統計局定義的布里斯本都會區，包含 Ipswich、Logan、Moreton Bay、Redland，不含黃金海岸與陽光海岸。
+- 算「每人搭乘次數」這類比例時，運量是 `SEQ_TL` 範圍，人口也要用昆士蘭東南部，不用 `GBRI`（作者確認，2026-11-13）。
 
 ## 5. 名詞表（草稿）
 
@@ -380,8 +383,21 @@ Wayback Machine 存有官方 SEQ GTFS 檔案（網址 `gtfsrt.api.translink.com.
 
 50 分票價日期（S-026）：2024-08-05 起試辦，2025-02-10 起常態。所以前面核對的四個月份裡，2019-07 與 2024-07 都在 50 分票價之前，2025-04 在之後。
 
+### 2026-11-13 待查逐題確認
+
+**第 1 題：大布里斯本（`GBRI`）的範圍。結案。**
+
+- 查法：下載統計局第 4 版對照檔（S-031）。SA2 檔列出 `3GBRI` 的 SA4；Mesh Block 檔與 LGA 檔用 Mesh Block 代碼接起來，算每個地方政府有多少面積落在 `3GBRI`（`scripts/gbri_lga_overlap.py`）。
+- 結果：見第 4 節地域定義表。比例是面積，不是人口；Scenic Rim 與 Lockyer Valley 不在內的部分多是鄉間，人口比例會和面積不同。
+- 統計局「Changes from the previous edition」頁寫第 4 版的 SA4 與 GCCSA 只有邊界微調，代碼與名稱不變，所以 2021 年普查的大布里斯本數字可直接用。
+- Claude 的建議與理由（作者同意）：
+  1. 地域定義表改為已查證：資料來自官方對照檔，不是二手轉述。
+  2. 正文第一次出現時附白話說明：讀者容易以為「大布里斯本」包含黃金海岸。
+  3. 「每人搭乘次數」的人口用昆士蘭東南部：運量資料是整個 Translink 路網，含黃金海岸與陽光海岸，分母用大布里斯本會高估。
+
 ### 下載紀錄
 
+- 2026-11-13：下載統計局第 4 版對照檔到 `raw/abs/`（S-031，CC BY 4.0）。SA2 檔（220 KB）進版本控制；Mesh Block 與 LGA 兩個大檔（各 15 到 30 MB）列在 `.gitignore`，換電腦時從 S-031 網址重新下載。
 - 2026-11-11：另存 `raw/pages/S-028_tmr_the_wave_20261111.txt`（The Wave 官方頁摘錄，用瀏覽器讀取）。
 - 2026-11-11：新增兩個文字摘錄 `raw/pages/S-016_…_20261111.txt`（留言區，發布單位回覆照錄、其他留言只寫摘要）與 `S-017_…_20261111.txt`（儀表板 Glossary 摘錄）。兩者是從瀏覽器讀到的文字整理而成，不是伺服器原始 HTML。同日稍後經作者同意，下載了 2022-01 的起訖點壓縮檔到 `raw/od-trips/`（壓縮檔不進版本控制，附的說明 PDF 有進）。
 - 頁面副本：10 個來源頁面已存到 `raw/pages/`，檔名含來源編號與擷取日 20261110。存的是伺服器回傳的原始 HTML；由程式產生的內容可能不在裡面。
