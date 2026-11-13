@@ -129,11 +129,11 @@
 
 | 原文 | 中文說法 | 一句白話 | 查證狀態 |
 |---|---|---|---|
-| Brisbane Metro | Brisbane Metro（布里斯本 Metro） | 高運量、班次密集的全電動公車系統，不是地鐵。兩條路線：M1 Eight Mile Plains 到 Roma Street，M2 UQ Lakes 到 RBWH | 已查證（2026-11-10）：市府網頁寫「a high-capacity, high-frequency bus rapid transit system」與「all-electric」。2026-11-11 補：M2 於 2025-01-28、M1 於 2025-06-30 啟用（S-021、S-022，見第 9 節）。待查：是否全程走公車專用道 |
+| Brisbane Metro | Brisbane Metro（布里斯本 Metro） | 高運量、班次密集的全電動公車系統，不是地鐵。兩條路線：M1 Eight Mile Plains 到 Roma Street，M2 UQ Lakes 到 RBWH | 已查證（2026-11-10）：市府網頁寫「a high-capacity, high-frequency bus rapid transit system」與「all-electric」。2026-11-11 補：M2 於 2025-01-28、M1 於 2025-06-30 啟用（S-021、S-022，見第 9 節）。2026-11-13 補：市府路線圖（S-036）把 M1 的 11 站、M2 的 12 站都標成專用道車站，兩線共用 5 站，合計 18 站。是否全程走專用道：官方未寫，正文只寫「停靠站都是專用道車站」 |
 | Cross River Rail | Cross River Rail（跨河鐵路） | 穿過布里斯本河底的新鐵路隧道，加上幾座地下車站 | 部分查證（2026-11-10）：官方 FAQ（S-001）提到 twin tunnels 與 underground stations，預計 2029 年首批載客；官方介紹頁（S-012）自述為「a second river crossing at the core of the rail network」，站別頁列出 Boggo Road、Woolloongabba、Albert Street、Roma Street、Exhibition。待查：長度、哪幾站是新建的地下車站 |
 | 50 cent fares | 50 分票價 | 不分距離與車種，每趟澳幣 0.5 元 | 已查證（2026-11-10）：Translink 網頁寫全昆士蘭 Translink 路網所有分區與運具均一 50 分，不含 Airtrain 與專用校車。2026-11-11 補（S-026，州政府新聞稿）：2024-08-05 起試辦六個月到 2025-02-09，2025-02-10 起改為常態 |
 | Brisbane's New Bus Network | 新公車路網 | 配合 Metro 上路重新調整的市區公車路線 | 部分查證（2026-11-11，S-021、S-022，市長新聞稿）：分兩階段，2025-01-28 與 2025-06-30。待查：市府或 Translink 的正式路線調整清單 |
-| Busway | 公車專用道 | 只給公車走、與一般道路分開的專用道路 | 待查 |
+| Busway | 公車專用道 | 只給公車走、與一般道路分開的專用道路。布里斯本有東南（South East）、北（Northern）、東（Eastern）三條主要專用道，Metro 停靠的都是專用道車站 | 已查證（2026-11-13，S-036 市府 Metro 路線圖；三條專用道的名稱來自 Translink 地圖頁 S-037，未開原頁）。總長度官方未公開，正文不寫（作者確認），見第 9 節 |
 | CityCat | CityCat 渡輪 | 布里斯本河上的公共渡輪 | 部分查證（2026-11-11，S-030，營運者自己的說法）：市府把 CityCat、CityHopper 與 Cross River Ferry 的營運合約給 SeaLink Travel Group 旗下的 RiverCity Ferries。待查：市府一方的說法 |
 | Logan and Gold Coast Faster Rail | Logan 與黃金海岸鐵路提速工程 | 把 Kuraby 到 Beenleigh 這段鐵路從兩條軌道增加到四條 | 部分查證（2026-11-10）：官方計畫頁寫 two to four tracks between Kuraby and Beenleigh。待查：成本、完工日 |
 | The Wave | The Wave | 把鐵路從 Beerwah 延伸到陽光海岸東側的 Birtinya，再接一段到陽光海岸機場的 metro 式服務 | 已查證（2026-11-11，S-028，用瀏覽器開官方頁）：第一階段 Beerwah 到 Caloundra，第二階段 Caloundra 到 Birtinya，都是重軌；第三階段是 Birtinya 到機場的 metro 式服務。主體工程預計 2027 年初開工，待聯邦環評核准。待查：通車日、第三階段的車種 |
@@ -421,6 +421,15 @@ Wayback Machine 存有官方 SEQ GTFS 檔案（網址 `gtfsrt.api.translink.com.
 - 8 區是 2016-12-19 票價改革後的結構（二手來源，B 級；時刻表檔案證實 2024 到 2025 年是 8 區）。
 - 作者決定：要記錄取消時間，但只作紀錄，不再追確切日期。正文只寫「50 分票價實施前分成 8 個票價區，跨越的區越多票價越高」；取消時間寫在附註或資料說明，不當重點。
 - 理由：從 2024-08-05 試辦起，票價就已經和距離無關，分區哪天從資料裡消失不影響分析。
+
+**第 4 題：Busway（公車專用道）。結案。**
+
+- 市府 Metro 路線圖（S-036，PDF 原檔已讀）：M1 停 Eight Mile Plains、Upper Mount Gravatt、Griffith University、Holland Park West、Greenslopes、Buranda、Mater Hill、South Bank、Cultural Centre、City Hall / King George Square、Roma Street，共 11 站；M2 停 UQ Lakes、Boggo Road、PA Hospital、Mater Hill、South Bank、Cultural Centre、City Hall / King George Square、Roma Street、Normanby、QUT Kelvin Grove、Herston、RBWH，共 12 站。共用 5 站，合計 18 站，圖例全部標為「Busway station」。
+- 總長度查不到官方數字。二手說法：25 公里（維基百科鏡像）、27.3 公里專用道／28.7 公里含混合車流路段（BRTData）、約 30 公里（2014 年州議會答詢，只算布里斯本市內）、32 公里含四段（施工廠商 UGL）。州政府交通圖資服務（Transportation/OtherTransport）有鐵路圖層，沒有專用道圖層，無法自己量。
+- Claude 的建議與理由（作者同意）：
+  1. 正文不寫專用道總長度：官方沒有公布，二手說法相差 7 公里；報告要講的是「Metro 用的是既有專用道」，不需要總長度。
+  2. 不寫「Metro 全程走專用道」：路線圖只標車站，沒說每一段都是專用道。
+- 專用道由誰擁有、誰管理，留到「TMR、Translink 與營運者的關係」那題一起查。
 
 ### 下載紀錄
 
