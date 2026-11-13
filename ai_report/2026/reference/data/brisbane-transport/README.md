@@ -113,7 +113,7 @@
 | `BNE_LGA` | Brisbane LGA（布里斯本市，市議會轄區） | Brisbane City Council 的行政範圍 | 待查：官方邊界與代碼 |
 | `GBRI` | Greater Brisbane（大布里斯本，統計區） | 澳洲統計局的 Greater Capital City Statistical Area，代碼 `3GBRI`，由 9 個 SA4 組成：Brisbane - East、North、South、West、Inner City，以及 Ipswich、Logan - Beaudesert、Moreton Bay - North、Moreton Bay - South。以地方政府來看：Brisbane、Ipswich、Logan、Moreton Bay、Redland、Somerset 全部在內；Scenic Rim 只含 Beaudesert、Boonah（約 88% 面積）；Lockyer Valley 只含東半部（約 33%）；Sunshine Coast 只含 Bribie Island 一小塊（約 2%）；Gold Coast、Toowoomba、Noosa 不在內 | 已查證（2026-11-13，S-031，統計局第 4 版對照檔，用 `scripts/gbri_lga_overlap.py` 計算，見第 9 節）。第 4 版的 SA4 與 GCCSA 只有邊界微調，2021 年普查（第 3 版邊界）的數字可沿用 |
 | `SEQ_PLAN` | South East Queensland（昆士蘭東南部，區域規劃範圍） | ShapingSEQ 2023 區域計畫涵蓋 12 個地方政府：Brisbane、Gold Coast、Ipswich、Lockyer Valley、Logan、Moreton Bay、Noosa、Redland、Scenic Rim、Somerset、Sunshine Coast，以及 Toowoomba 市區（urban extent，不是整個 Toowoomba 地方政府）。分四個分區：都會（Brisbane、Moreton Bay、Logan、Redland）、北部（Sunshine Coast、Noosa）、南部（Gold Coast）、西部（Ipswich、Somerset、Lockyer Valley、Scenic Rim、Toowoomba 市區） | 已查證（2026-11-13，S-032 官方簡介原文與地圖）。計畫是 2023 版，州政府自 2026-06 起全面重新審查（S-033），尚無新版草案；引用時註明 |
-| `SEQ_TL` | Translink 昆士蘭東南部路網 | Translink 在昆士蘭東南部的票價與服務範圍；開放資料的「South East Queensland」運量與準點都用這個範圍 | 部分查證（2026-11-11，S-029）：票價路網含昆士蘭東南部所有公車、火車（不含 Airtrain）、渡輪、輕軌與隨需服務；Toowoomba、Sunshine Coast Hinterland、Kilcoy、North Stradbroke Island 的公車不屬於這個票價路網。待查：分區數（官方頁沒寫；二手來源說 8 區）與邊界 |
+| `SEQ_TL` | Translink 昆士蘭東南部路網 | Translink 在昆士蘭東南部的票價與服務範圍；開放資料的「South East Queensland」運量與準點都用這個範圍 | 部分查證（2026-11-11，S-029）：票價路網含昆士蘭東南部所有公車、火車（不含 Airtrain）、渡輪、輕軌與隨需服務；Toowoomba、Sunshine Coast Hinterland、Kilcoy、North Stradbroke Island 的公車不屬於這個票價路網。票價分區：原為 8 區，官方時刻表檔案在 2025-04-11 到 2026-01-27 之間全部改為 1 區（見第 9 節 2026-11-13 第 3 題） |
 | `QLD` | 昆士蘭州 | 全州 | 不需查證 |
 | `CORRIDOR` | 單一走廊 | 在 `corridor` 欄或 `note` 寫明起訖 | 不適用 |
 | `OTHER` | 其他 | 必須在 `note` 寫明範圍 | 不適用 |
@@ -405,10 +405,28 @@ Wayback Machine 存有官方 SEQ GTFS 檔案（網址 `gtfsrt.api.translink.com.
   2. 統計局沒有「Toowoomba 市區」的現成人口，整個地方政府的數字又太大。
   3. 11 個地方政府都有統計局的官方人口，可以核對。
 
+**第 3 題：Translink 票價分區。結案（只作紀錄）。**
+
+- 查法：比對官方時刻表檔案（GTFS）`stops.txt` 的 `zone_id` 欄位。2024-10-31、2025-04-11、2026-10-07 三份來自 Wayback 存檔（S-025）；2026-01-27 那份來自 Mobility Database 的存檔（S-034）。另讀 Translink 現行票價頁（S-035）。
+- 結果：
+
+| 時刻表日期 | 分區 | 車站數 |
+|---|---|---|
+| 2024-10-31 | 1 到 8 區（交界車站同時屬兩區，例如 `1/2`） | 12,821 個有分區、258 個空白 |
+| 2025-04-11 | 1 到 8 區 | 12,833 個有分區、259 個空白 |
+| 2026-01-27 | 全部 1 區 | 12,798 個、259 個空白 |
+| 2026-10-07 | 全部 1 區 | 12,855 個、269 個空白 |
+
+- **取消時間：資料上是 2025-04-11 到 2026-01-27 之間。** 2025 年下半年沒有任何存檔，無法再縮小。沒找到官方宣布取消分區的公告；Translink 現行票價頁只寫不論搭多遠都是 50 分，沒有提到分區，也沒有分區地圖。
+- 8 區是 2016-12-19 票價改革後的結構（二手來源，B 級；時刻表檔案證實 2024 到 2025 年是 8 區）。
+- 作者決定：要記錄取消時間，但只作紀錄，不再追確切日期。正文只寫「50 分票價實施前分成 8 個票價區，跨越的區越多票價越高」；取消時間寫在附註或資料說明，不當重點。
+- 理由：從 2024-08-05 試辦起，票價就已經和距離無關，分區哪天從資料裡消失不影響分析。
+
 ### 下載紀錄
 
 - 2026-11-13：下載統計局第 4 版對照檔到 `raw/abs/`（S-031，CC BY 4.0）。SA2 檔（220 KB）進版本控制；Mesh Block 與 LGA 兩個大檔（各 15 到 30 MB）列在 `.gitignore`，換電腦時從 S-031 網址重新下載。
 - 2026-11-13：ShapingSEQ 2023 官方簡介（S-032）從 Wayback Machine 存檔下載，存到 `raw/pages/S-032_shapingseq_2023_factsheet_20260727.pdf`（不進版本控制）。
+- 2026-11-13：Mobility Database 的 2026-01-27 時刻表存檔（S-034）存到 `raw/gtfs/mdb/`（不進版本控制）。
 - 2026-11-11：另存 `raw/pages/S-028_tmr_the_wave_20261111.txt`（The Wave 官方頁摘錄，用瀏覽器讀取）。
 - 2026-11-11：新增兩個文字摘錄 `raw/pages/S-016_…_20261111.txt`（留言區，發布單位回覆照錄、其他留言只寫摘要）與 `S-017_…_20261111.txt`（儀表板 Glossary 摘錄）。兩者是從瀏覽器讀到的文字整理而成，不是伺服器原始 HTML。同日稍後經作者同意，下載了 2022-01 的起訖點壓縮檔到 `raw/od-trips/`（壓縮檔不進版本控制，附的說明 PDF 有進）。
 - 頁面副本：10 個來源頁面已存到 `raw/pages/`，檔名含來源編號與擷取日 20261110。存的是伺服器回傳的原始 HTML；由程式產生的內容可能不在裡面。
