@@ -1,0 +1,121 @@
+mode,line,point,direction,day,date,band,departures,avg_headway_min,max_gap_min
+Metro,M1,Buranda busway station,direction_id=0（往 Roma Street station）,週六,20261024,10:00-15:00,30,10.0,10
+Metro,M1,Buranda busway station,direction_id=0（往 Roma Street station）,平日,20261021,07:00-09:00,24,5.0,6
+Metro,M1,Buranda busway station,direction_id=0（往 Roma Street station）,平日,20261021,10:00-15:00,60,5.0,5
+Metro,M1,Buranda busway station,direction_id=0（往 Roma Street station）,平日,20261021,19:00-22:00,16,11.2,15
+Metro,M1,Buranda busway station,direction_id=1（往 Eight Mile Plains station）,週六,20261024,10:00-15:00,30,10.0,10
+Metro,M1,Buranda busway station,direction_id=1（往 Eight Mile Plains station）,平日,20261021,07:00-09:00,24,5.0,5
+Metro,M1,Buranda busway station,direction_id=1（往 Eight Mile Plains station）,平日,20261021,10:00-15:00,60,5.0,7
+Metro,M1,Buranda busway station,direction_id=1（往 Eight Mile Plains station）,平日,20261021,19:00-22:00,18,10.0,15
+Metro,M2,Boggo Road busway station,direction_id=0（往 RBWH station）,週六,20261024,10:00-15:00,30,10.0,10
+Metro,M2,Boggo Road busway station,direction_id=0（往 RBWH station）,平日,20261021,07:00-09:00,24,5.0,5
+Metro,M2,Boggo Road busway station,direction_id=0（往 RBWH station）,平日,20261021,10:00-15:00,60,5.0,5
+Metro,M2,Boggo Road busway station,direction_id=0（往 RBWH station）,平日,20261021,19:00-22:00,17,10.6,15
+Metro,M2,Boggo Road busway station,direction_id=1（往 UQ Lakes station）,週六,20261024,10:00-15:00,30,10.0,10
+Metro,M2,Boggo Road busway station,direction_id=1（往 UQ Lakes station）,平日,20261021,07:00-09:00,23,5.2,6
+Metro,M2,Boggo Road busway station,direction_id=1（往 UQ Lakes station）,平日,20261021,10:00-15:00,59,5.1,6
+Metro,M2,Boggo Road busway station,direction_id=1（往 UQ Lakes station）,平日,20261021,19:00-22:00,17,10.6,15
+渡輪,F1,South Bank ferry terminal,direction_id=0（往 UQ St Lucia）,週六,20261024,10:00-15:00,20,15.0,17
+渡輪,F1,South Bank ferry terminal,direction_id=0（往 UQ St Lucia）,平日,20261021,07:00-09:00,6,20.0,17
+渡輪,F1,South Bank ferry terminal,direction_id=0（往 UQ St Lucia）,平日,20261021,10:00-15:00,20,15.0,17
+渡輪,F1,South Bank ferry terminal,direction_id=0（往 UQ St Lucia）,平日,20261021,19:00-22:00,11,16.4,32
+渡輪,F1,South Bank ferry terminal,direction_id=1（往 Northshore Hamilton）,週六,20261024,10:00-15:00,19,15.8,16
+渡輪,F1,South Bank ferry terminal,direction_id=1（往 Northshore Hamilton）,平日,20261021,07:00-09:00,6,20.0,29
+渡輪,F1,South Bank ferry terminal,direction_id=1（往 Northshore Hamilton）,平日,20261021,10:00-15:00,20,15.0,16
+渡輪,F1,South Bank ferry terminal,direction_id=1（往 Northshore Hamilton）,平日,20261021,19:00-22:00,9,20.0,31
+火車,Airport,International Airport station,往市區,週六,20261024,10:00-15:00,10,30.0,30
+火車,Airport,International Airport station,往市區,平日,20261021,07:00-09:00,7,17.1,30
+火車,Airport,International Airport station,往市區,平日,20261021,10:00-15:00,14,21.4,30
+火車,Airport,International Airport station,往市區,平日,20261021,19:00-22:00,6,30.0,30
+火車,Airport,International Airport station,離開市區,週六,20261024,10:00-15:00,10,30.0,30
+火車,Airport,International Airport station,離開市區,平日,20261021,07:00-09:00,7,17.1,15
+火車,Airport,International Airport station,離開市區,平日,20261021,10:00-15:00,14,21.4,30
+火車,Airport,International Airport station,離開市區,平日,20261021,19:00-22:00,6,30.0,30
+火車,Beenleigh,Dutton Park station,往市區,週六,20261024,10:00-15:00,10,30.0,30
+火車,Beenleigh,Dutton Park station,往市區,平日,20261021,07:00-09:00,7,17.1,15
+火車,Beenleigh,Dutton Park station,往市區,平日,20261021,10:00-15:00,10,30.0,30
+火車,Beenleigh,Dutton Park station,往市區,平日,20261021,19:00-22:00,6,30.0,30
+火車,Beenleigh,Dutton Park station,離開市區,週六,20261024,10:00-15:00,10,30.0,30
+火車,Beenleigh,Dutton Park station,離開市區,平日,20261021,07:00-09:00,4,30.0,30
+火車,Beenleigh,Dutton Park station,離開市區,平日,20261021,10:00-15:00,10,30.0,30
+火車,Beenleigh,Dutton Park station,離開市區,平日,20261021,19:00-22:00,6,30.0,30
+火車,Caboolture,Dakabin station,往市區,週六,20261024,10:00-15:00,10,30.0,30
+火車,Caboolture,Dakabin station,往市區,平日,20261021,07:00-09:00,9,13.3,15
+火車,Caboolture,Dakabin station,往市區,平日,20261021,10:00-15:00,10,30.0,30
+火車,Caboolture,Dakabin station,往市區,平日,20261021,19:00-22:00,6,30.0,30
+火車,Caboolture,Dakabin station,離開市區,週六,20261024,10:00-15:00,10,30.0,30
+火車,Caboolture,Dakabin station,離開市區,平日,20261021,07:00-09:00,4,30.0,30
+火車,Caboolture,Dakabin station,離開市區,平日,20261021,10:00-15:00,10,30.0,30
+火車,Caboolture,Dakabin station,離開市區,平日,20261021,19:00-22:00,6,30.0,30
+火車,Cleveland,Buranda station,往市區,週六,20261024,10:00-15:00,10,30.0,30
+火車,Cleveland,Buranda station,往市區,平日,20261021,07:00-09:00,12,10.0,15
+火車,Cleveland,Buranda station,往市區,平日,20261021,10:00-15:00,20,15.0,15
+火車,Cleveland,Buranda station,往市區,平日,20261021,19:00-22:00,9,20.0,30
+火車,Cleveland,Buranda station,離開市區,週六,20261024,10:00-15:00,10,30.0,30
+火車,Cleveland,Buranda station,離開市區,平日,20261021,07:00-09:00,8,15.0,15
+火車,Cleveland,Buranda station,離開市區,平日,20261021,10:00-15:00,20,15.0,15
+火車,Cleveland,Buranda station,離開市區,平日,20261021,19:00-22:00,6,30.0,30
+火車,Doomben,Clayfield station,往市區,週六,20261024,10:00-15:00,5,60.0,60
+火車,Doomben,Clayfield station,往市區,平日,20261021,07:00-09:00,4,30.0,30
+火車,Doomben,Clayfield station,往市區,平日,20261021,10:00-15:00,10,30.0,30
+火車,Doomben,Clayfield station,往市區,平日,20261021,19:00-22:00,3,60.0,30
+火車,Doomben,Clayfield station,離開市區,週六,20261024,10:00-15:00,5,60.0,60
+火車,Doomben,Clayfield station,離開市區,平日,20261021,07:00-09:00,4,30.0,30
+火車,Doomben,Clayfield station,離開市區,平日,20261021,10:00-15:00,10,30.0,30
+火車,Doomben,Clayfield station,離開市區,平日,20261021,19:00-22:00,2,90.0,30
+火車,Ferny Grove,Windsor station,往市區,週六,20261024,10:00-15:00,10,30.0,30
+火車,Ferny Grove,Windsor station,往市區,平日,20261021,07:00-09:00,10,12.0,15
+火車,Ferny Grove,Windsor station,往市區,平日,20261021,10:00-15:00,10,30.0,30
+火車,Ferny Grove,Windsor station,往市區,平日,20261021,19:00-22:00,8,22.5,30
+火車,Ferny Grove,Windsor station,離開市區,週六,20261024,10:00-15:00,10,30.0,30
+火車,Ferny Grove,Windsor station,離開市區,平日,20261021,07:00-09:00,7,17.1,15
+火車,Ferny Grove,Windsor station,離開市區,平日,20261021,10:00-15:00,10,30.0,30
+火車,Ferny Grove,Windsor station,離開市區,平日,20261021,19:00-22:00,6,30.0,30
+火車,Gold Coast,Holmview station,往市區,週六,20261024,10:00-15:00,10,30.0,30
+火車,Gold Coast,Holmview station,往市區,平日,20261021,07:00-09:00,6,20.0,30
+火車,Gold Coast,Holmview station,往市區,平日,20261021,10:00-15:00,10,30.0,30
+火車,Gold Coast,Holmview station,往市區,平日,20261021,19:00-22:00,6,30.0,30
+火車,Gold Coast,Holmview station,離開市區,週六,20261024,10:00-15:00,10,30.0,30
+火車,Gold Coast,Holmview station,離開市區,平日,20261021,07:00-09:00,4,30.0,30
+火車,Gold Coast,Holmview station,離開市區,平日,20261021,10:00-15:00,10,30.0,30
+火車,Gold Coast,Holmview station,離開市區,平日,20261021,19:00-22:00,7,25.7,30
+火車,Ipswich/Rosewood,Wacol station,往市區,週六,20261024,10:00-15:00,10,30.0,30
+火車,Ipswich/Rosewood,Wacol station,往市區,平日,20261021,07:00-09:00,8,15.0,15
+火車,Ipswich/Rosewood,Wacol station,往市區,平日,20261021,10:00-15:00,10,30.0,30
+火車,Ipswich/Rosewood,Wacol station,往市區,平日,20261021,19:00-22:00,6,30.0,30
+火車,Ipswich/Rosewood,Wacol station,離開市區,週六,20261024,10:00-15:00,10,30.0,30
+火車,Ipswich/Rosewood,Wacol station,離開市區,平日,20261021,07:00-09:00,4,30.0,30
+火車,Ipswich/Rosewood,Wacol station,離開市區,平日,20261021,10:00-15:00,10,30.0,30
+火車,Ipswich/Rosewood,Wacol station,離開市區,平日,20261021,19:00-22:00,6,30.0,30
+火車,Redcliffe Peninsula,Kallangur station,往市區,週六,20261024,10:00-15:00,10,30.0,30
+火車,Redcliffe Peninsula,Kallangur station,往市區,平日,20261021,07:00-09:00,9,13.3,27
+火車,Redcliffe Peninsula,Kallangur station,往市區,平日,20261021,10:00-15:00,10,30.0,30
+火車,Redcliffe Peninsula,Kallangur station,往市區,平日,20261021,19:00-22:00,6,30.0,30
+火車,Redcliffe Peninsula,Kallangur station,離開市區,週六,20261024,10:00-15:00,10,30.0,30
+火車,Redcliffe Peninsula,Kallangur station,離開市區,平日,20261021,07:00-09:00,4,30.0,30
+火車,Redcliffe Peninsula,Kallangur station,離開市區,平日,20261021,10:00-15:00,10,30.0,30
+火車,Redcliffe Peninsula,Kallangur station,離開市區,平日,20261021,19:00-22:00,6,30.0,30
+火車,Shorncliffe,Bindha station,往市區,週六,20261024,10:00-15:00,10,30.0,30
+火車,Shorncliffe,Bindha station,往市區,平日,20261021,07:00-09:00,8,15.0,15
+火車,Shorncliffe,Bindha station,往市區,平日,20261021,10:00-15:00,10,30.0,30
+火車,Shorncliffe,Bindha station,往市區,平日,20261021,19:00-22:00,2,90.0,30
+火車,Shorncliffe,Bindha station,離開市區,週六,20261024,10:00-15:00,10,30.0,30
+火車,Shorncliffe,Bindha station,離開市區,平日,20261021,07:00-09:00,8,15.0,15
+火車,Shorncliffe,Bindha station,離開市區,平日,20261021,10:00-15:00,10,30.0,30
+火車,Shorncliffe,Bindha station,離開市區,平日,20261021,19:00-22:00,2,90.0,30
+火車,Springfield,Richlands station,往市區,週六,20261024,10:00-15:00,10,30.0,30
+火車,Springfield,Richlands station,往市區,平日,20261021,07:00-09:00,10,12.0,30
+火車,Springfield,Richlands station,往市區,平日,20261021,10:00-15:00,10,30.0,30
+火車,Springfield,Richlands station,往市區,平日,20261021,19:00-22:00,6,30.0,30
+火車,Springfield,Richlands station,離開市區,週六,20261024,10:00-15:00,10,30.0,30
+火車,Springfield,Richlands station,離開市區,平日,20261021,07:00-09:00,4,30.0,30
+火車,Springfield,Richlands station,離開市區,平日,20261021,10:00-15:00,10,30.0,30
+火車,Springfield,Richlands station,離開市區,平日,20261021,19:00-22:00,6,30.0,30
+火車,Sunshine Coast,Elimbah station,往市區,週六,20261024,10:00-15:00,3,100.0,90
+火車,Sunshine Coast,Elimbah station,往市區,平日,20261021,07:00-09:00,4,30.0,45
+火車,Sunshine Coast,Elimbah station,往市區,平日,20261021,10:00-15:00,3,100.0,90
+火車,Sunshine Coast,Elimbah station,往市區,平日,20261021,19:00-22:00,2,90.0,90
+火車,Sunshine Coast,Elimbah station,離開市區,週六,20261024,10:00-15:00,3,100.0,90
+火車,Sunshine Coast,Elimbah station,離開市區,平日,20261021,07:00-09:00,1,120.0,
+火車,Sunshine Coast,Elimbah station,離開市區,平日,20261021,10:00-15:00,4,75.0,90
+火車,Sunshine Coast,Elimbah station,離開市區,平日,20261021,19:00-22:00,3,60.0,90
