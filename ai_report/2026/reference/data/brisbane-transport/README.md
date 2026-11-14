@@ -133,14 +133,14 @@
 | Cross River Rail | Cross River Rail（跨河鐵路） | 穿過布里斯本河底的新鐵路隧道，加上幾座地下車站 | 部分查證（2026-11-10）：官方 FAQ（S-001）提到 twin tunnels 與 underground stations，預計 2029 年首批載客；官方介紹頁（S-012）自述為「a second river crossing at the core of the rail network」，站別頁列出 Boggo Road、Woolloongabba、Albert Street、Roma Street、Exhibition。待查：長度、哪幾站是新建的地下車站 |
 | 50 cent fares | 50 分票價 | 不分距離與車種，每趟澳幣 0.5 元 | 已查證（2026-11-10）：Translink 網頁寫全昆士蘭 Translink 路網所有分區與運具均一 50 分，不含 Airtrain 與專用校車。2026-11-11 補（S-026，州政府新聞稿）：2024-08-05 起試辦六個月到 2025-02-09，2025-02-10 起改為常態 |
 | Brisbane's New Bus Network | 新公車路網 | 配合 Metro 上路重新調整的市區公車路線 | 部分查證（2026-11-11，S-021、S-022，市長新聞稿）：分兩階段，2025-01-28 與 2025-06-30。待查：市府或 Translink 的正式路線調整清單 |
-| Busway | 公車專用道 | 只給公車走、與一般道路分開的專用道路。布里斯本有東南（South East）、北（Northern）、東（Eastern）三條主要專用道，Metro 停靠的都是專用道車站 | 已查證（2026-11-13，S-036 市府 Metro 路線圖；三條專用道的名稱來自 Translink 地圖頁 S-037，未開原頁）。總長度官方未公開，正文不寫（作者確認），見第 9 節 |
-| CityCat | CityCat 渡輪 | 布里斯本河上的公共渡輪 | 部分查證（2026-11-11，S-030，營運者自己的說法）：市府把 CityCat、CityHopper 與 Cross River Ferry 的營運合約給 SeaLink Travel Group 旗下的 RiverCity Ferries。待查：市府一方的說法 |
+| Busway | 公車專用道 | 只給公車走、與一般道路分開的專用道路。布里斯本有東南（South East）、北（Northern）、東（Eastern）三條主要專用道，Metro 停靠的都是專用道車站 | 已查證（2026-11-13，S-036 市府 Metro 路線圖；三條專用道的名稱來自 Translink 地圖頁 S-037，未開原頁）。總長度官方未公開，正文不寫（作者確認），見第 9 節。2026-11-14 補：專用道土地由 TMR 代表州政府持有（S-045），少數路段在私人土地上 |
+| CityCat | CityCat 渡輪 | 布里斯本河上的公共渡輪 | 部分查證（2026-11-11，S-030，營運者自己的說法）：市府把 CityCat、CityHopper 與 Cross River Ferry 的營運合約給 SeaLink Travel Group 旗下的 RiverCity Ferries。2026-11-14 補（S-043，市府網頁）：市府寫「市府目前營運 24 艘 CityCat、5 艘 KittyCat」，並打算出售 2 艘舊船，可見船隊屬於市府；但市府網頁沒有提營運業者或合約 |
 | Logan and Gold Coast Faster Rail | Logan 與黃金海岸鐵路提速工程 | 把 Kuraby 到 Beenleigh 這段鐵路從兩條軌道增加到四條 | 部分查證（2026-11-10）：官方計畫頁寫 two to four tracks between Kuraby and Beenleigh。待查：成本、完工日 |
 | The Wave | The Wave | 把鐵路從 Beerwah 延伸到陽光海岸東側的 Birtinya，再接一段到陽光海岸機場的 metro 式服務 | 已查證（2026-11-11，S-028，用瀏覽器開官方頁）：第一階段 Beerwah 到 Caloundra，第二階段 Caloundra 到 Birtinya，都是重軌；第三階段是 Birtinya 到機場的 metro 式服務。主體工程預計 2027 年初開工，待聯邦環評核准。待查：通車日、第三階段的車種 |
 | Translink | Translink | 昆士蘭州交通部門底下負責公共運輸的單位 | 部分查證（2026-11-10，S-007）：官方寫它是 Department of Transport and Main Roads 的一個 division，負責昆士蘭東南部的公車、火車、渡輪與輕軌。待查：票價與時刻由誰訂的官方說法 |
-| TMR | 昆士蘭運輸與主要道路部 | 州政府的交通主管部門 | 待查 |
-| Queensland Rail | 昆士蘭鐵路局 | 營運市區與近郊火車的州法定機構 | 部分查證（2026-11-11，S-027）：自述是依 QRTA Act 設立的 statutory authority，不是公司，中文說法由「公司」改為「鐵路局」。待查：與 Translink 的合約關係 |
-| Brisbane City Council | 布里斯本市議會（市府） | 布里斯本市的地方政府，也負責開市區公車 | 部分查證（2026-11-10，S-008）：市府網頁寫「Council operates Brisbane's bus services under a contract with Translink」。待查：渡輪由誰營運 |
+| TMR | 昆士蘭運輸與主要道路部 | 州政府的交通主管部門 | 部分查證（2026-11-14）：Translink 是它底下的部門（S-007）；它代表州政府管理與昆士蘭鐵路局的合約（S-039）、持有專用道土地（S-045），票款也由它收取（S-046）。待查：官方中文譯名慣例 |
+| Queensland Rail | 昆士蘭鐵路局 | 營運市區與近郊火車的州法定機構 | 已查證（2026-11-11，S-027）：自述是依 QRTA Act 設立的 statutory authority，不是公司，中文說法由「公司」改為「鐵路局」。2026-11-14 補（S-039）：依 Rail Transport Service Contract 營運客運火車，合約由 TMR 代表州政府管理 |
+| Brisbane City Council | 布里斯本市議會（市府） | 布里斯本市的地方政府，也負責開市區公車 | 已查證（2026-11-10，S-008）：市府網頁寫「Council operates Brisbane's bus services under a contract with Translink」。2026-11-14 補：市府網頁寫市府營運 CityCat 船隊，也打算出售舊船（S-043），可見船屬於市府；實際開船的是 RiverCity Ferries，但這只有營運業者自己的說法（S-030） |
 | ETCS | 歐洲列車控制系統 | 新一代數位鐵路訊號，讓列車可以更密集、更安全地行駛；目前在測試，還沒有載客使用 | 已查證（2026-11-13，S-038，TMR 官方頁 2026-08-06 更新）。正文不寫「已上路」；第二步列為獨立計畫，見第 9 節 |
 | LGA | 地方政府轄區 | 一個市或郡議會管的範圍 | 不需查證 |
 | SEQ | 昆士蘭東南部 | 以布里斯本為中心、含黃金海岸與陽光海岸的區域；不同機關的範圍不同，見地域定義表 | 見第 4 節 |
@@ -185,10 +185,12 @@
 
 | 誰 | 層級 | 管什麼 | 查證狀態 |
 |---|---|---|---|
-| Translink | 州（Department of Transport and Main Roads 的一個部門） | 昆士蘭東南部公車、火車、渡輪與輕軌的整體統籌 | 已查證（S-007）。待查：票價、時刻與給營運者的經費是否都由它決定（搜尋摘要有此說法，未開原頁） |
-| Brisbane City Council | 市 | 依與 Translink 的合約營運布里斯本市區公車；推動 Brisbane Metro | 已查證（S-008、S-005）。待查：渡輪 |
-| Queensland Rail | 州（法定機構） | 市區與近郊火車的營運 | 部分查證（S-027）：依 QRTA Act 設立的法定機構，設有昆士蘭東南部事業部。待查：與 Translink 的合約關係 |
-| RiverCity Ferries（SeaLink Travel Group 旗下） | 民間營運者 | 依與市府的合約營運 CityCat、CityHopper 與 Cross River Ferry，並維護船隻 | 部分查證（S-030，營運者自己的說法）。待查：市府一方的說法、船隻歸屬 |
+| Translink（TMR） | 州（Department of Transport and Main Roads 的一個部門） | 昆士蘭東南部公車、火車、渡輪與輕軌的整體統籌；收取票款，再付錢給各營運者 | 已查證（S-007；票款由 TMR 收取、另付營運者費用見 S-046，2020-21 年度全州票款 2.098 億、付給營運者 28 億澳幣）。待查：時刻表由誰定的官方說法 |
+| Brisbane City Council | 市 | 依與 Translink 的合約營運布里斯本市區公車；推動 Brisbane Metro；擁有 CityCat 船隊 | 已查證（S-008、S-042、S-005、S-043）。合約：2019-06 與 TMR 簽 3 年合約，州政府出約 75%（S-040）；2024-07 新協議把「州 75%、市府 25%」定為長期比例（S-041）。待查：2019 年合約 2022 年到期後是否續約、2024 年協議是不是合約本身、現行期限 |
+| Queensland Rail | 州（法定機構） | 市區與近郊火車的營運 | 已查證（S-027、S-039）：依 Rail Transport Service Contract 營運，合約由 TMR 代表州政府管理，涵蓋昆士蘭東南部與長途客運、新鐵路設施與既有路網維修的經費。合約期限與金額官方頁沒寫 |
+| 民間公車業者 | 民間營運者 | 布里斯本市以外的一般公車路線 | 部分查證（S-044）：TMR 公告「服務合約區」，在區內經營一般公車路線需要合約。待查：各區由哪家業者持有合約（第一步不需要，第三步若用到再查） |
+| RiverCity Ferries（SeaLink Travel Group 旗下） | 民間營運者 | 依與市府的合約營運 CityCat、CityHopper 與 Cross River Ferry，並維護船隻 | 部分查證（S-030，營運者自己的說法）。船隊屬於市府（S-043）。待查：市府一方對合約的說法 |
+| 公車專用道土地 | 州 | TMR 代表州政府持有專用道土地的永久租約，是土地的「所有者」 | 已查證（S-045，2017-07 官方指南第 5.1 節）。例外：有些路段（例如 Eleanor Schonell Bridge）在私人土地上。維修：施工廠商 UGL 自述受 TMR 委託（S-047，B 級）。Metro 車輛歸屬只有二手來源，未採用 |
 | Cross River Rail Delivery Authority | 州 | 興建 Cross River Rail | 部分查證（S-001、S-012 頁尾署名）。待查：法定角色與完工後由誰營運 |
 | 澳洲聯邦政府 | 聯邦 | 出資部分大型建設 | 部分查證（S-028）：The Wave 第一階段由聯邦與州各承諾 27.5 億澳幣。其他計畫待第三步查。金額尚未寫入 `funding.csv` |
 
@@ -444,8 +446,28 @@ Wayback Machine 存有官方 SEQ GTFS 檔案（網址 `gtfsrt.api.translink.com.
   2. 正文不寫「ETCS 已上路」，以官方頁為準。
   3. 第二步把 ETCS 列為一個獨立計畫、各路段為工作包；與其他計畫一起發包的路段在備註寫明金額含在哪個計畫，避免重複計算（規劃 QA 的 P2-5）。
 
+### 2026-11-14 待查逐題確認
+
+**第 6 題：TMR、Translink 與營運者的合約關係（含專用道歸屬）。結案。**
+
+- 查法：州政府新聞稿與市府網頁用摘要工具讀；TMR 與審計署網頁對程式回應 403 或讀不到內文，改用瀏覽器讀。TMR 專用道指南是 PDF，用程式解出文字後核對第 5.1 節原文（S-045）。
+- 結果：見第 8 節「誰管什麼」。重點：
+  1. Translink 是 TMR 的部門；票款由 TMR 收取，另付錢給營運者（S-046）。
+  2. 火車：TMR 代表州政府管理與昆士蘭鐵路局的 Rail Transport Service Contract（S-039）。同站另一頁是 2006–2013 年的舊合約，已過期，不採用。
+  3. 市區公車：市府依與 Translink 的合約營運（S-042）。2019-06 簽 3 年合約，州政府 3 年出 10 億澳幣、約占 75%，涵蓋 1,200 輛公車、420 多條路線（S-040）；2024-07 新協議把「州 75%、市府 25%」定為長期比例，2024-25 年度另加 7,500 萬澳幣（S-041）。
+  4. 其他公車：TMR 公告服務合約區，區內經營一般公車路線需要合約（S-044）。
+  5. 渡輪：市府網頁寫市府營運 24 艘 CityCat、5 艘 KittyCat，並打算出售 2 艘舊船（S-043），沒提營運業者；委託 RiverCity Ferries 只有營運業者的說法（S-030）。
+  6. 專用道：TMR 代表州政府持有專用道土地的永久租約（S-045，2017-07）；有些路段（例如 Eleanor Schonell Bridge）在私人土地上。
+- 沒查到的：2019 年合約 2022 年到期後是否續約、2024 年協議是不是合約本身；市府一方對渡輪合約的說法；專用道維修只有廠商自述（S-047，B 級）；Metro 車輛歸屬只有二手來源。
+- Claude 的建議與理由（作者同意，2026-11-14）：
+  1. 正文寫成一個簡單的結構：州政府（Translink）統籌、收票款、出大部分經費，分別委託昆士蘭鐵路局（火車）、市府（市區公車）與民間業者（其他公車）營運；市府再把渡輪委託民間經營；專用道土地屬於州政府。這幾點都有官方來源。
+  2. 第 8 節「誰管什麼」表補上能補的部分，查不到的照實留待查。
+  3. 2019 年與 2024 年的經費比例只記在 README，等第三步查到協議或預算文件再寫進 `funding.csv`。TMR 2025-26 年報（S-048，PDF 6.9 MB）預期有付給各營運者的金額，第三步再下載；現在不下載，因為「誰管什麼」用不到金額。
+  4. 2017 年的指南可以採用：土地歸屬不太會變。正文寫「州政府持有專用道土地」，不寫「TMR 擁有全部專用道」，因為有例外路段。
+
 ### 下載紀錄
 
+- 2026-11-14：TMR 專用道開發指南（S-045，650 KB）用摘要工具讀取時存下，複製到 `raw/pages/S-045_tmr_busway_dev_guide_201707.pdf`（不進版本控制）。
 - 2026-11-13：下載統計局第 4 版對照檔到 `raw/abs/`（S-031，CC BY 4.0）。SA2 檔（220 KB）進版本控制；Mesh Block 與 LGA 兩個大檔（各 15 到 30 MB）列在 `.gitignore`，換電腦時從 S-031 網址重新下載。
 - 2026-11-13：ShapingSEQ 2023 官方簡介（S-032）從 Wayback Machine 存檔下載，存到 `raw/pages/S-032_shapingseq_2023_factsheet_20260727.pdf`（不進版本控制）。
 - 2026-11-13：Mobility Database 的 2026-01-27 時刻表存檔（S-034）存到 `raw/gtfs/mdb/`（不進版本控制）。
