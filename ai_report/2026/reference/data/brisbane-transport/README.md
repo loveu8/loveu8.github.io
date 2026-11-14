@@ -130,12 +130,12 @@
 | 原文 | 中文說法 | 一句白話 | 查證狀態 |
 |---|---|---|---|
 | Brisbane Metro | Brisbane Metro（布里斯本 Metro） | 高運量、班次密集的全電動公車系統，不是地鐵。兩條路線：M1 Eight Mile Plains 到 Roma Street，M2 UQ Lakes 到 RBWH | 已查證（2026-11-10）：市府網頁寫「a high-capacity, high-frequency bus rapid transit system」與「all-electric」。2026-11-11 補：M2 於 2025-01-28、M1 於 2025-06-30 啟用（S-021、S-022，見第 9 節）。2026-11-13 補：市府路線圖（S-036）把 M1 的 11 站、M2 的 12 站都標成專用道車站，兩線共用 5 站，合計 18 站。是否全程走專用道：官方未寫，正文只寫「停靠站都是專用道車站」 |
-| Cross River Rail | Cross River Rail（跨河鐵路） | 穿過布里斯本河底的新鐵路隧道，加上幾座地下車站 | 部分查證（2026-11-10）：官方 FAQ（S-001）提到 twin tunnels 與 underground stations，預計 2029 年首批載客；官方介紹頁（S-012）自述為「a second river crossing at the core of the rail network」，站別頁列出 Boggo Road、Woolloongabba、Albert Street、Roma Street、Exhibition。待查：長度、哪幾站是新建的地下車站 |
+| Cross River Rail | Cross River Rail（跨河鐵路） | 全長 10.2 公里的新鐵路，其中 5.9 公里是河底和市中心地下的雙孔隧道，新增 4 座地下車站 | 已查證（2026-11-14，S-001 官方 FAQ 存檔原文：「a new 10.2km rail line that includes 5.9km of twin tunnels」；4 座新地下車站為 Boggo Road、Woolloongabba、Albert Street、Roma Street；預計 2029 年首批載客）。同一機關另負責 Exhibition 新地面站、Dutton Park 到 Salisbury 重建 7 站、黃金海岸線新增 3 站，見第 9 節 2026-11-14 第 7 題 |
 | 50 cent fares | 50 分票價 | 不分距離與車種，每趟澳幣 0.5 元 | 已查證（2026-11-10）：Translink 網頁寫全昆士蘭 Translink 路網所有分區與運具均一 50 分，不含 Airtrain 與專用校車。2026-11-11 補（S-026，州政府新聞稿）：2024-08-05 起試辦六個月到 2025-02-09，2025-02-10 起改為常態 |
 | Brisbane's New Bus Network | 新公車路網 | 配合 Metro 上路重新調整的市區公車路線 | 部分查證（2026-11-11，S-021、S-022，市長新聞稿）：分兩階段，2025-01-28 與 2025-06-30。待查：市府或 Translink 的正式路線調整清單 |
 | Busway | 公車專用道 | 只給公車走、與一般道路分開的專用道路。布里斯本有東南（South East）、北（Northern）、東（Eastern）三條主要專用道，Metro 停靠的都是專用道車站 | 已查證（2026-11-13，S-036 市府 Metro 路線圖；三條專用道的名稱來自 Translink 地圖頁 S-037，未開原頁）。總長度官方未公開，正文不寫（作者確認），見第 9 節。2026-11-14 補：專用道土地由 TMR 代表州政府持有（S-045），少數路段在私人土地上 |
 | CityCat | CityCat 渡輪 | 布里斯本河上的公共渡輪 | 部分查證（2026-11-11，S-030，營運者自己的說法）：市府把 CityCat、CityHopper 與 Cross River Ferry 的營運合約給 SeaLink Travel Group 旗下的 RiverCity Ferries。2026-11-14 補（S-043，市府網頁）：市府寫「市府目前營運 24 艘 CityCat、5 艘 KittyCat」，並打算出售 2 艘舊船，可見船隊屬於市府；但市府網頁沒有提營運業者或合約 |
-| Logan and Gold Coast Faster Rail | Logan 與黃金海岸鐵路提速工程 | 把 Kuraby 到 Beenleigh 這段鐵路從兩條軌道增加到四條 | 部分查證（2026-11-10）：官方計畫頁寫 two to four tracks between Kuraby and Beenleigh。待查：成本、完工日 |
+| Logan and Gold Coast Faster Rail | Logan 與黃金海岸鐵路提速工程 | 把 Kuraby 到 Beenleigh 這段鐵路從兩條軌道增加到四條 | 部分查證（2026-11-10）：官方計畫頁寫 two to four tracks between Kuraby and Beenleigh。待查：成本、完工日。注意：黃金海岸線的 Pimpama、Hope Island、Merrimac 三座新站屬於 Cross River Rail，不屬於這個計畫（2026-11-14，作者同意） |
 | The Wave | The Wave | 把鐵路從 Beerwah 延伸到陽光海岸東側的 Birtinya，再接一段到陽光海岸機場的 metro 式服務 | 已查證（2026-11-11，S-028，用瀏覽器開官方頁）：第一階段 Beerwah 到 Caloundra，第二階段 Caloundra 到 Birtinya，都是重軌；第三階段是 Birtinya 到機場的 metro 式服務。主體工程預計 2027 年初開工，待聯邦環評核准。待查：通車日、第三階段的車種 |
 | Translink | Translink | 昆士蘭州交通部門底下負責公共運輸的單位 | 部分查證（2026-11-10，S-007）：官方寫它是 Department of Transport and Main Roads 的一個 division，負責昆士蘭東南部的公車、火車、渡輪與輕軌。待查：票價與時刻由誰訂的官方說法 |
 | TMR | 昆士蘭運輸與主要道路部 | 州政府的交通主管部門 | 部分查證（2026-11-14）：Translink 是它底下的部門（S-007）；它代表州政府管理與昆士蘭鐵路局的合約（S-039）、持有專用道土地（S-045），票款也由它收取（S-046）。待查：官方中文譯名慣例 |
@@ -191,7 +191,7 @@
 | 民間公車業者 | 民間營運者 | 布里斯本市以外的一般公車路線 | 部分查證（S-044）：TMR 公告「服務合約區」，在區內經營一般公車路線需要合約。待查：各區由哪家業者持有合約（第一步不需要，第三步若用到再查） |
 | RiverCity Ferries（SeaLink Travel Group 旗下） | 民間營運者 | 依與市府的合約營運 CityCat、CityHopper 與 Cross River Ferry，並維護船隻 | 部分查證（S-030，營運者自己的說法）。船隊屬於市府（S-043）。待查：市府一方對合約的說法 |
 | 公車專用道土地 | 州 | TMR 代表州政府持有專用道土地的永久租約，是土地的「所有者」 | 已查證（S-045，2017-07 官方指南第 5.1 節）。例外：有些路段（例如 Eleanor Schonell Bridge）在私人土地上。維修：施工廠商 UGL 自述受 TMR 委託（S-047，B 級）。Metro 車輛歸屬只有二手來源，未採用 |
-| Cross River Rail Delivery Authority | 州 | 興建 Cross River Rail | 部分查證（S-001、S-012 頁尾署名）。待查：法定角色與完工後由誰營運 |
+| Cross River Rail Delivery Authority | 州 | 興建 Cross River Rail 隧道與 4 座地下車站，另負責 Exhibition 新地面站、南區 7 站重建與黃金海岸線 3 座新站 | 部分查證（S-001、S-012 頁尾署名）。待查：法定角色與完工後由誰營運 |
 | 澳洲聯邦政府 | 聯邦 | 出資部分大型建設 | 部分查證（S-028）：The Wave 第一階段由聯邦與州各承諾 27.5 億澳幣。其他計畫待第三步查。金額尚未寫入 `funding.csv` |
 
 一項已查到的經費安排：市府網頁（S-008）寫公車路網 2024-25 年度增加 7,500 萬澳幣，之後年度「州政府 75%、市府 25%」。這是市府單方的說法，沒有寫涵蓋哪些年度，也還沒看到協議原文。金額與比例尚未寫進 `funding.csv`，等第三步查到協議或預算文件再記。
@@ -464,6 +464,28 @@ Wayback Machine 存有官方 SEQ GTFS 檔案（網址 `gtfsrt.api.translink.com.
   2. 第 8 節「誰管什麼」表補上能補的部分，查不到的照實留待查。
   3. 2019 年與 2024 年的經費比例只記在 README，等第三步查到協議或預算文件再寫進 `funding.csv`。TMR 2025-26 年報（S-048，PDF 6.9 MB）預期有付給各營運者的金額，第三步再下載；現在不下載，因為「誰管什麼」用不到金額。
   4. 2017 年的指南可以採用：土地歸屬不太會變。正文寫「州政府持有專用道土地」，不寫「TMR 擁有全部專用道」，因為有例外路段。
+
+**第 7 題：Cross River Rail 長度與新站。結案。**
+
+- 查法：長度與車站在 11-10 存下的官方 FAQ 副本（S-001）裡已有原文；另讀官方黃金海岸新站頁（S-049）與南區車站頁（S-050）確認最新進度。
+- 結果：
+  - 全長 10.2 公里，其中 5.9 公里是河底與市中心地下的雙孔隧道；4 座新地下車站：Boggo Road、Woolloongabba、Albert Street、Roma Street。預計 2029 年首批載客。總成本 190.41 億澳幣含以下所有工程（S-001）。
+  - 同一機關另負責：Exhibition 新地面站；Dutton Park 到 Salisbury 重建 7 站；黃金海岸線新增 Pimpama、Hope Island、Merrimac 3 站（S-001）。
+
+| 工程 | 狀態 | 來源 |
+|---|---|---|
+| Pimpama 站 | 2025-10-20 已啟用 | S-049 |
+| Hope Island 站 | 2026-05-18 已啟用 | S-049 |
+| Merrimac 站 | 施工中，未公布啟用日（最新公告 2026-09-01） | S-049 |
+| Dutton Park、Salisbury、Yeerongpilly、Moorooka | 有 2026 年 11–12 月施工公告 | S-050 |
+| Fairfield、Rocklea、Yeronga | 只出現在網站選單，沒有狀態 | S-050 |
+
+- 不採用：一則搜尋摘要寫「新路線 2026 年通車」，與官方 2029 年不符。
+- Claude 的建議與理由（作者同意，2026-11-14）：
+  1. 名詞表改為已查證，白話解釋用官方 FAQ 的長度與車站：有存檔原文。
+  2. 第二步分兩層：主體是隧道與 4 座地下車站；Exhibition、南區 7 站、黃金海岸 3 站列為工作包。各部分進度差很多，整個計畫只寫一種狀態會讓讀者以為黃金海岸的站也還沒開。
+  3. 黃金海岸 3 站歸在 Cross River Rail，並在「Logan 與黃金海岸鐵路提速工程」加註，避免兩章重複介紹；經費已含在 190.41 億內，不另外加。
+  4. Fairfield、Rocklea、Yeronga 只寫「在計畫內」，第二步再逐站查狀態。
 
 ### 下載紀錄
 
