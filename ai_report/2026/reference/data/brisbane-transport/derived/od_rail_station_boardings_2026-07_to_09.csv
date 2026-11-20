@@ -1,0 +1,46 @@
+month,station,origin_stop_id,time_grouping,boardings
+2026-07,Bindha,600411,Weekday (12:00am-8:29:59am),192
+2026-07,Bindha,600411,Weekday (3:00pm-6:59:59pm),834
+2026-07,Bindha,600411,Weekday (7:00pm-11:59:59pm),31
+2026-07,Bindha,600411,Weekday (8:30am-2:59:59pm),434
+2026-07,Bindha,600411,Weekend,11
+2026-07,Clayfield,600430,Weekday (12:00am-8:29:59am),1740
+2026-07,Clayfield,600430,Weekday (3:00pm-6:59:59pm),403
+2026-07,Clayfield,600430,Weekday (7:00pm-11:59:59pm),57
+2026-07,Clayfield,600430,Weekday (8:30am-2:59:59pm),798
+2026-07,Clayfield,600430,Weekend,306
+2026-07,Elimbah,600479,Weekday (12:00am-8:29:59am),686
+2026-07,Elimbah,600479,Weekday (3:00pm-6:59:59pm),116
+2026-07,Elimbah,600479,Weekday (7:00pm-11:59:59pm),17
+2026-07,Elimbah,600479,Weekday (8:30am-2:59:59pm),174
+2026-07,Elimbah,600479,Weekend,113
+2026-08,Bindha,600411,Weekday (12:00am-8:29:59am),192
+2026-08,Bindha,600411,Weekday (3:00pm-6:59:59pm),816
+2026-08,Bindha,600411,Weekday (7:00pm-11:59:59pm),39
+2026-08,Bindha,600411,Weekday (8:30am-2:59:59pm),413
+2026-08,Bindha,600411,Weekend,37
+2026-08,Clayfield,600430,Weekday (12:00am-8:29:59am),1325
+2026-08,Clayfield,600430,Weekday (3:00pm-6:59:59pm),308
+2026-08,Clayfield,600430,Weekday (7:00pm-11:59:59pm),37
+2026-08,Clayfield,600430,Weekday (8:30am-2:59:59pm),695
+2026-08,Clayfield,600430,Weekend,243
+2026-08,Elimbah,600479,Weekday (12:00am-8:29:59am),582
+2026-08,Elimbah,600479,Weekday (3:00pm-6:59:59pm),105
+2026-08,Elimbah,600479,Weekday (7:00pm-11:59:59pm),7
+2026-08,Elimbah,600479,Weekday (8:30am-2:59:59pm),197
+2026-08,Elimbah,600479,Weekend,111
+2026-09,Bindha,600411,Weekday (12:00am-8:29:59am),157
+2026-09,Bindha,600411,Weekday (3:00pm-6:59:59pm),1184
+2026-09,Bindha,600411,Weekday (7:00pm-11:59:59pm),38
+2026-09,Bindha,600411,Weekday (8:30am-2:59:59pm),557
+2026-09,Bindha,600411,Weekend,45
+2026-09,Clayfield,600430,Weekday (12:00am-8:29:59am),1400
+2026-09,Clayfield,600430,Weekday (3:00pm-6:59:59pm),392
+2026-09,Clayfield,600430,Weekday (7:00pm-11:59:59pm),32
+2026-09,Clayfield,600430,Weekday (8:30am-2:59:59pm),588
+2026-09,Clayfield,600430,Weekend,246
+2026-09,Elimbah,600479,Weekday (12:00am-8:29:59am),729
+2026-09,Elimbah,600479,Weekday (3:00pm-6:59:59pm),141
+2026-09,Elimbah,600479,Weekday (7:00pm-11:59:59pm),12
+2026-09,Elimbah,600479,Weekday (8:30am-2:59:59pm),228
+2026-09,Elimbah,600479,Weekend,128

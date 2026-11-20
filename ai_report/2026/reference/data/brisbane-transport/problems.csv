@@ -1,1 +1,4 @@
 problem_id,type,geo_id,time_band,indicator_ids,current_value,value_year,benchmark,why_problem,limits,verdict,source_ids,added_date,added_reason,note
+P-0001,班距,CORRIDOR,週六 10:00–15:00,I-0004；I-0005,Clayfield 往市區最長班距 60 分鐘,2026,同站同向同時段週三 30 分鐘,週六錯過一班後的表定空檔較長,兩個基準日的表定火車；同時段有直達公車 300／322；實際步行、需求及候車待查,成立,S-025,2026-11-20,首批主幹時刻比較,Doomben 線；比較基準為同站平日服務
+P-0002,班距,CORRIDOR,平日 19:00–22:00,I-0006；I-0007,抽查 15 個平日：10 天各 2 班及 5 天各 6 班,2026,同站同向同時段跨日比較,往 Central 的晚間直達火車班次隨日期而異,2026-10-12 至 10-30；R348 在所查週一至週四有班次；成因及需求待查,現況描述,S-025,2026-11-20,跨日核對後限縮判定,Shorncliffe 線；I-0006／I-0007 保留 10-21 單日原始比較
+P-0003,班距,CORRIDOR,週三 10:00–15:00,I-0008,Elimbah 往市區最長班距 90 分鐘,2026,,相鄰兩班表定出發最長相隔 90 分鐘,單一基準日；13:45 的 649 可在 Caboolture 接 14:05 列車；缺服務基準或轉乘需求證據,現況描述,S-025,2026-11-20,記錄已查證班距,Sunshine Coast 線

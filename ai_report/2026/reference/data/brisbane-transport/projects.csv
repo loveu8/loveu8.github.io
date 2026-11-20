@@ -1,3 +1,52 @@
 project_id,level,parent_id,kind,name_en,name_zh,agency,geo_id,corridor,mode,scope,problem_ids,match_basis,full_funding_review,main_chapter,official_benefit,observed_indicator_ids,dependencies,limits,note
 EX-PR-01,計畫,,工程,Example Rail Project,示例鐵路計畫,示例機關,CORRIDOR,示例走廊,鐵路,示例範圍,待查,,是,3,,,,,結構示例，非真實資料
 EX-PR-01-A,工作包,EX-PR-01,工程,Example Signalling Package,示例訊號工作包,示例機關,CORRIDOR,示例走廊,鐵路,示例範圍,待查,,,3,,,,,結構示例，非真實資料；工作包不另占名額
+PR-01,計畫,,工程,Cross River Rail,跨河鐵路,Cross River Rail Delivery Authority／TMR／Queensland Rail,CORRIDOR,Dutton Park 至 Bowen Hills,鐵路,10.2 公里新鐵路；5.9 公里雙隧道及四座地下站,待查,,是,3,新增跨河鐵路通道與市中心站點,,系統整合、試車與營運準備,官方預期；未有新線載客成效,配套按工作包列；未見改善 Clayfield 班距的直接證據
+PR-01-A,工作包,PR-01,工程,Tunnels and underground stations,隧道與四座地下站,Cross River Rail Delivery Authority,CORRIDOR,Dutton Park 至 Bowen Hills,鐵路,雙隧道及 Boggo Road、Woolloongabba、Albert Street、Roma Street,待查,,,3,,,,,
+PR-01-B,工作包,PR-01,工程,Pimpama station,Pimpama 新站,Cross River Rail Delivery Authority,CORRIDOR,Gold Coast 線,鐵路,新增地面車站,待查,,,2,,,,,
+PR-01-C,工作包,PR-01,工程,Hope Island station,Hope Island 新站,Cross River Rail Delivery Authority,CORRIDOR,Gold Coast 線,鐵路,新增地面車站,待查,,,2,,,,,
+PR-01-D,工作包,PR-01,工程,Merrimac station,Merrimac 新站,Cross River Rail Delivery Authority,CORRIDOR,Gold Coast 線,鐵路,新增地面車站與月台,待查,,,3,,,,,
+PR-01-E,工作包,PR-01,工程,Exhibition station,Exhibition 車站,Cross River Rail Delivery Authority／Queensland Rail,CORRIDOR,RNA showgrounds,鐵路,地面站重建,待查,,,2,,,,,活動期間使用；新隧道載客另計
+PR-01-F,工作包,PR-01,工程,Salisbury station upgrade,Salisbury 車站改建,Cross River Rail Delivery Authority／Queensland Rail,CORRIDOR,Beenleigh 線,鐵路,車站與相鄰鐵路施工,待查,,,3,,,,,僅記 Salisbury 工作包
+PR-01-G,工作包,PR-01,工程,ETCS Shorncliffe pilot,Shorncliffe 數位訊號試點,Cross River Rail Delivery Authority／Queensland Rail,CORRIDOR,Shorncliffe 線,鐵路,ETCS Level 2 試點及人員訓練,待查,,,3,,,,,部分載客服務已使用；測試仍持續
+PR-02,計畫,,工程,Logan and Gold Coast Faster Rail,Logan 至黃金海岸鐵路升級,TMR／Queensland Rail,CORRIDOR,Kuraby 至 Beenleigh,鐵路,約 20 公里由雙線增為四線；車站與平交道配套,待查,,是,3,官方預期提升運能與可靠度,,軌道、車站及訊號整合,服務班次及載客日期待確認,與 Clayfield 班距無已查證的直接關聯
+PR-02-A,工作包,PR-02,工程,Rail Package,鐵路主工作包,TMR,CORRIDOR,Kuraby 至 Beenleigh,鐵路,四線化及沿線車站工程,待查,,,4,,,,,走廊各工點分期執行
+PR-02-B,工作包,PR-02,工程,Open Level Crossing Removal,平交道移除,TMR,CORRIDOR,Kuraby 等工點,鐵路,跨鐵路道路橋及管線遷移,待查,,,3,,,,,Kuraby 橋已確認施工
+PR-02-C,工作包,PR-02,工程,Loganlea Station Relocation,Loganlea 車站遷建,TMR,CORRIDOR,Loganlea,鐵路,新月台、步行天橋及轉乘停車場,待查,,,3,,,,,2027 預計完工；載客日期待確認
+PR-03,計畫,,工程,The Wave,陽光海岸 The Wave,Queensland TMR,CORRIDOR,Beerwah 至 Sunshine Coast Airport,鐵路／公車,兩期重軌及一期類 Metro 服務；Birtinya 轉乘,待查,,是,4,官方預期改善陽光海岸區域連結,,各期須分開交付,實際班次及載客日期待查,與 Elimbah 既有班距的影響待查
+PR-03-A,工作包,PR-03,工程,The Wave Stage 1 (Rail),第一期鐵路,Queensland TMR,CORRIDOR,Beerwah 至 Caloundra,鐵路,重軌新線及既有鐵路銜接,待查,,,4,,,,,
+PR-03-B,工作包,PR-03,工程,The Wave Stage 2 (Rail),第二期鐵路,Queensland TMR,CORRIDOR,Caloundra 至 Birtinya,鐵路,重軌延伸並在 Birtinya 銜接第三期,待查,,,4,,,,,
+PR-03-C,工作包,PR-03,工程,The Wave Stage 3 (Metro),第三期類 Metro 服務,Queensland TMR,CORRIDOR,Birtinya 至 Sunshine Coast Airport,公車,經 Mountain Creek 和 Maroochydore 的高運量公車服務,待查,,,4,,,,,
+PR-04,計畫,,工程,Brisbane Metro,布里斯本 Metro,Brisbane City Council,CORRIDOR,既有 Busway 走廊,公車,M1 與 M2 高運量電動公車服務,待查,,是,2,,,,,此列記首批路線營運
+PR-04-A,工作包,PR-04,工程,Metro M1,Metro M1,Brisbane City Council,CORRIDOR,Eight Mile Plains 至 Roma Street（啟用時）,公車,南向 Busway 服務,待查,,,2,,,,,2026-10 班距見 derived/headways_2026-10.csv
+PR-04-B,工作包,PR-04,工程,Metro M2,Metro M2,Brisbane City Council,CORRIDOR,UQ Lakes 至 RBWH,公車,跨市區 Busway 服務,待查,,,2,,,,,2026-10 班距見 derived/headways_2026-10.csv
+PR-05,計畫,,工程,Brisbane Metro expansions,布里斯本 Metro 擴建,Brisbane City Council,CORRIDOR,四條優先研究走廊,公車,研擬路線、車廠及分期的商業論證,待查,,是,4,,,,,S-066／S-080／S-081；施工與載客日期待查
+PR-05-A,工作包,PR-05,工程,Northern Metro,北向延伸,Brisbane City Council,CORRIDOR,CBD 至 Carseldine,公車,優先研究的延伸走廊,待查,,,4,,,,,走線及分期仍待商業論證
+PR-05-B,工作包,PR-05,工程,Eastern Metro,東向延伸,Brisbane City Council,CORRIDOR,CBD 至 Capalaba,公車,優先研究的延伸走廊,待查,,,4,,,,,走線及分期仍待商業論證
+PR-05-C,工作包,PR-05,工程,Southern Metro,南向延伸,Brisbane City Council,CORRIDOR,CBD 至 Springwood,公車,優先研究的延伸走廊,待查,,,4,,,,,走線及分期仍待商業論證
+PR-05-D,工作包,PR-05,工程,Airport Metro,機場延伸,Brisbane City Council,CORRIDOR,CBD 至 Brisbane Airport,公車,優先研究的延伸走廊,待查,,,4,,,,,走線及分期仍待商業論證
+PR-06,計畫,,政策,Brisbane’s New Bus Network,布里斯本新版公車路網,Brisbane City Council／Translink,CORRIDOR,布里斯本公車與 Busway 路網,公車,配合 Metro 實施路線替換、增設、改號與停駛,待查,,是,2,官方目標是增加班次及改善路網連接,,Metro M1／M2,選定路線的 GTFS 班次屬表定服務,路線與 2025／2026 年 5 月上車計次見資料 README（S-084／S-085）
+PR-07,計畫,,政策,50 cent fares,50 分票價,Queensland TMR／Translink,SEQ_TL,Translink 路網（本文運量比較限東南昆士蘭）,公車／鐵路／輕軌／渡輪,適用服務採 0.50 澳元平價；Airtrain 不適用,不適用,,是,2,降低乘車票價,,,運量變化為同期比較,票價實施及法定上限見狀態紀錄
+PR-08,計畫,,工程,Queensland Train Manufacturing Program,昆士蘭新列車製造計畫,Queensland TMR,CORRIDOR,Torbanlea／Ormeau／東南昆士蘭鐵路,鐵路,65 列六節車廂列車及製造、維修配套,待查,,是,3,,,,,獨立於 Cross River Rail 的採購計畫；班次效益待核對
+PR-08-A,工作包,PR-08,工程,New passenger fleet,新載客列車,Queensland TMR,CORRIDOR,東南昆士蘭鐵路,鐵路,65 列六節車廂列車及測試,待查,,,3,,,,,首列預期 2027 載客
+PR-08-B,工作包,PR-08,工程,Torbanlea manufacturing facility,Torbanlea 製造廠,Queensland TMR,CORRIDOR,Torbanlea,鐵路,列車製造廠與鐵路接軌,待查,,,2,,,,,部分設施已開始製造；其餘設施預期 2027 年初全數運作
+PR-08-C,工作包,PR-08,工程,Ormeau rail facility,Ormeau 停放與維修基地,Queensland TMR,CORRIDOR,Ormeau,鐵路,停放、維修新車隊,待查,,,3,,,,,本次未確認投用日期
+PR-01-H,工作包,PR-01,工程,Clapham Yard,Clapham 停車場,Cross River Rail Delivery Authority,CORRIDOR,Moorooka,鐵路,列車停放及維修配套,待查,,,3,,,,,跨河鐵路配套
+PR-01-I,工作包,PR-01,工程,Mayne Yard North,Mayne Yard 北區,Cross River Rail Delivery Authority,CORRIDOR,Bowen Hills,鐵路,新列車停放設施與員工設施,待查,,,2,,,,,狀態僅限北區工作包
+PR-01-J,工作包,PR-01,工程,Dutton Park station rebuild,Dutton Park 車站改建,Queensland TMR／Cross River Rail Delivery Authority,CORRIDOR,Dutton Park,鐵路,南區無障礙車站改建,待查,,,2,,,,,施工和載客狀態分列
+PR-01-K,工作包,PR-01,工程,Fairfield station rebuild,Fairfield 車站改建,Queensland TMR／Cross River Rail Delivery Authority,CORRIDOR,Fairfield,鐵路,南區無障礙車站改建,待查,,,2,,,,,施工和載客狀態分列
+PR-01-L,工作包,PR-01,工程,Yeronga station rebuild,Yeronga 車站改建,Queensland TMR／Cross River Rail Delivery Authority,CORRIDOR,Yeronga,鐵路,南區無障礙車站改建,待查,,,2,,,,,施工和載客狀態分列
+PR-01-M,工作包,PR-01,工程,Yeerongpilly station rebuild,Yeerongpilly 車站改建,Queensland TMR／Cross River Rail Delivery Authority,CORRIDOR,Yeerongpilly,鐵路,南區無障礙車站改建,待查,,,2,,,,,施工和載客狀態分列
+PR-01-N,工作包,PR-01,工程,Rocklea station rebuild,Rocklea 車站改建,Queensland TMR／Cross River Rail Delivery Authority,CORRIDOR,Rocklea,鐵路,南區無障礙車站改建,待查,,,2,,,,,施工和載客狀態分列
+PR-01-O,工作包,PR-01,工程,Moorooka station rebuild,Moorooka 車站改建,Queensland TMR／Cross River Rail Delivery Authority,CORRIDOR,Moorooka,鐵路,南區無障礙車站改建,待查,,,3,,,,,施工和載客狀態分列
+ETCS-P,工作包,PR-01,工程,ETCS Cross River Rail tunnels,Cross River Rail tunnels 數位訊號,Queensland TMR／Cross River Rail Delivery Authority,CORRIDOR,Cross River Rail tunnels,鐵路,分段部署 ETCS,待查,,,3,,,,,跨計畫配套；經費範圍待第三階段核對
+ETCS-Q,計畫,,工程,ETCS Beenleigh to Varsity Lakes,Beenleigh to Varsity Lakes 數位訊號,Queensland TMR／Cross River Rail Delivery Authority,CORRIDOR,Beenleigh to Varsity Lakes,鐵路,分段部署 ETCS,待查,,,3,,,,,跨計畫配套；經費範圍待第三階段核對
+ETCS-R,計畫,,工程,ETCS Kuraby to Beenleigh,Kuraby to Beenleigh 數位訊號,Queensland TMR／Cross River Rail Delivery Authority,CORRIDOR,Kuraby to Beenleigh,鐵路,分段部署 ETCS,待查,,,4,,,,,跨計畫配套；經費範圍待第三階段核對
+ETCS-S,計畫,,工程,ETCS Elimbah to Beerwah,Elimbah to Beerwah 數位訊號,Queensland TMR／Cross River Rail Delivery Authority,CORRIDOR,Elimbah to Beerwah,鐵路,分段部署 ETCS,待查,,,4,,,,,跨計畫配套；經費範圍待第三階段核對
+ETCS-T,計畫,,工程,ETCS Moorooka to Kuraby,Moorooka to Kuraby 數位訊號,Queensland TMR／Cross River Rail Delivery Authority,CORRIDOR,Moorooka to Kuraby,鐵路,分段部署 ETCS,待查,,,4,,,,,跨計畫配套；經費範圍待第三階段核對
+PR-09,計畫,,工程,Coomera Connector Stage 1,Coomera Connector 第一期,Queensland TMR,CORRIDOR,Coomera 至 Nerang,道路,約 16 公里道路；北、中、南三段,待查,,是,3,,,,,分段開放；官方預期提供 M1 替代路線
+PR-09-A,工作包,PR-09,工程,Coomera Connector Stage 1 North,第一期北段,Queensland TMR,CORRIDOR,Shipper Drive 至 Helensvale Road,道路,約 4 公里,待查,,,2,,,,,已開放交通
+PR-09-B,工作包,PR-09,工程,Coomera Connector Stage 1 Central,第一期中段,Queensland TMR,CORRIDOR,Helensvale Road 至 Smith Street Motorway,道路,第一期中段,待查,,,3,,,,,通車日期待確認
+PR-09-C,工作包,PR-09,工程,Coomera Connector Stage 1 South,第一期南段,Queensland TMR,CORRIDOR,Smith Street Motorway 至 Nerang-Broadbeach Road,道路,第一期南段,待查,,,3,,,,,通車日期待確認
+PR-10,計畫,,工程,Kangaroo Point Bridge,Kangaroo Point 步行自行車橋,Brisbane City Council,CORRIDOR,Kangaroo Point 至 CBD,步行／自行車,步行與自行車跨河通道,待查,,是,2,,,,,為中央商務區提供直接連接
+PR-11,計畫,,工程,Bulimba ferry terminal maintenance,Bulimba 渡輪碼頭維護,Brisbane City Council,CORRIDOR,Bulimba,渡輪,碼頭必要維護及臨時替代公車,待查,,,3,,,,,維護期間服務調整；財源先列附錄
