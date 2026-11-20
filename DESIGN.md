@@ -66,8 +66,8 @@
 - **`--color-warning` vs `--color-warning-text`:** `--color-warning` is a *status* color (badges, small dots, the bullet marker before a tip) — it is not dark enough to pass 4.5:1 as body/label text on light warm surfaces. `--color-warning-text` is the text-safe variant (in dark mode it equals `--color-warning`). Any warning/shop tag or tips-list text must use `--color-warning-text`, never `--color-warning` directly.
 - **Charts:** see Charts below; chart marks use `--chart-1`…`4`, not the brand colors.
 
-## Charts (STARLUX report, decided 2026-10-26)
-- **Drawn at real width:** `scripts/report-starlux.js` measures each plot and draws the SVG at that width in CSS px, so chart text is true type-scale px: values 13px bold, category labels 12px, stacked totals 14px bold. Plots are redrawn when their width changes (`ResizeObserver`, 150ms debounce), after web fonts load, and before printing (drawn at 620px and stretched to the page). Never scale a fixed-size chart down to fit; that shrinks the text below 12px.
+## Research report charts and timeline
+- **Drawn at real width:** `scripts/report-core.js` measures each plot and draws the SVG at that width in CSS px, so chart text is true type-scale px: values 13px bold, category labels 12px, stacked totals 14px bold. Plots are redrawn when their width changes (`ResizeObserver`, 150ms debounce), after web fonts load, and before printing (drawn at 620px and stretched to the page). Never scale a fixed-size chart down to fit; that shrinks the text below 12px.
 - **Heights:** line and stacked plots are 220px, 200px below 480px wide. Horizontal bars are 30px per row (40px when a label wraps to two lines).
 - **Forms:** category comparisons are **horizontal bars** on every screen size, so long names stay readable; the data lists rows top to bottom, largest first with "Other" last, and ordered categories (e.g. length of stay) keep their order. Change over time is a line chart; parts of a total are stacked columns.
 - **Label fitting:** line-chart category labels skip evenly (first and last always shown) until neighbors are 10px apart. When two series' end points are close, the lower one's value label goes below its point. Stacked totals drop the unit, then step down to 12px, then shorten (`22.0萬` / `220k`); long group names switch to their `shortLabel`.
@@ -75,6 +75,12 @@
 - **Text:** values and labels use text tokens (`--color-text`, `--color-text-soft`), never the series color; value labels carry a halo in the card color so a line behind them doesn't cut through.
 - **Interaction:** line charts show a crosshair and every series' value at the nearest category on hover, or on tap on touch screens (it stays until the reader taps elsewhere). Bars and stacks already show every value, so they have none.
 - **Accessibility:** each chart's `aria-label` is its title plus every number it shows, generated from the chart data, so keyboard and screen-reader users get what the tooltip shows. Charts with two or more series always have a legend.
+
+## Brisbane transport report
+
+- The map overview shows local government boundaries. Selecting a corridor adds official locality outlines, highlights the route and lists the localities in text. Solid lines show operating services, thick dashes show operating corridors with upgrade works, thin dashes show new lines under construction, and dots show planned services. The Wave transfer is labeled in text. The DOM station sequence provides the print and keyboard-readable alternative. Geographic data loads through local scripts for file previews.
+- The issue matrix and funding table use rows at wide widths and labeled cards below 680px. Print restores the table layout. Funding records carry the amount, basis, source and reporting end date when available.
+- Both research reports share chart and timeline rendering and styles. Report-specific content, chapter layouts and language adapters stay in their own files.
 
 ## Dark Mode Rules
 - Follow `prefers-color-scheme: dark` when no explicit `[data-theme]` is set. The theme toggle (`scripts/site.js`) sets the override and persists the choice in `localStorage` under `theme`; its first click always flips what is on screen, even when the page is following a dark system theme. A small script in each page's `<head>` applies the saved theme before first paint.
@@ -203,14 +209,16 @@
 
   | Shared file | Loaded by |
   |---|---|
-  | `styles/tokens.css`, `styles/base.css`, `scripts/site.js` | all 6 pages: `index.html`, `travel/australia/brisbane/cafe/index.html`, `travel/australia/brisbane/bakery/index.html`, `travel/australia/noosa/itinerary.html`, `travel/australia/awards/index.html`, `ai_report/2026/starlux-australia-report.html` |
+  | `styles/tokens.css`, `styles/base.css`, `scripts/site.js` | all 7 pages: `index.html`, `travel/australia/brisbane/cafe/index.html`, `travel/australia/brisbane/bakery/index.html`, `travel/australia/noosa/itinerary.html`, `travel/australia/awards/index.html`, `ai_report/2026/starlux-australia-report.html`, `ai_report/2026/brisbane-transport-report.html` |
   | `styles/app-shell.css` | the 4 travel pages (cafe, bakery, Noosa, awards) |
   | `styles/map-list.css`, `scripts/list-map-shell.js` | cafe, bakery, awards |
   | `scripts/map-list.js` | cafe, bakery |
   | `styles/awards.css`, `scripts/awards-filter.js`, `scripts/awards.js` | awards |
   | `styles/noosa.css`, `scripts/noosa.js` | Noosa |
   | `styles/home.css`, `scripts/home.js` | homepage |
+  | `styles/report.css`, `scripts/report-core.js` | STARLUX and Brisbane transport reports |
   | `styles/report-starlux.css`, `scripts/report-starlux.js` | STARLUX report |
+  | `styles/report-brisbane.css`, `scripts/report-brisbane.js` | Brisbane transport report |
 
   Load order on every page: theme pre-paint script → Google Fonts → `tokens.css` → `base.css` → (travel) `app-shell.css` → page CSS; before `</body>`: page data (`page.js`, `data.js`, report `.data.js`) → `site.js` → page script. Paths are relative (`../../../../` for cafe and bakery, `../../../` for Noosa and awards, `../../` for the report), never `/styles/…`, so `file://` previews work. Version format: `YYYYMMDD` plus a letter for a second change the same day (`20261026b`).
 - Before changing UI, read this file and check whether the change preserves the Google clarity / Instagram warmth balance.

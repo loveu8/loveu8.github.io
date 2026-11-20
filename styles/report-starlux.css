@@ -222,20 +222,6 @@
   .box.gap { border-left-color: var(--color-error); }
   .box.gap h4 { color: var(--color-error); }
 
-  /* ---------- chart card ---------- */
-  .chart-card {
-    background: var(--color-surface-soft);
-    border: 1px solid var(--color-border-soft);
-    border-radius: var(--radius-md);
-    padding: var(--space-md);
-    margin-bottom: var(--space-sm);
-  }
-  .chart-card .chart-title { font-size: var(--fs-xs); font-weight: 700; margin-bottom: var(--space-sm); color: var(--color-text-muted); }
-  .chart-legend { display: flex; flex-wrap: wrap; gap: 10px 14px; margin-top: var(--space-sm); font-size: var(--fs-2xs); color: var(--color-text-muted); }
-  .chart-legend .sw { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 5px; vertical-align: -1px; }
-  .src-note { font-size: var(--fs-2xs); color: var(--color-text-soft); margin: 0 0 var(--space-md); }
-  .src-note a { color: var(--color-text-soft); }
-
   /* ---------- pillars ---------- */
   .pillars { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--color-border-soft); border: 1px solid var(--color-border-soft); border-radius: var(--radius-md); overflow: hidden; margin-bottom: var(--space-md); }
   .pillar { background: var(--color-surface-soft); padding: var(--space-md); }
@@ -243,18 +229,6 @@
   .pillar h4 { margin: 0 0 6px; font-size: var(--fs-base); color: var(--color-text); }
   .pillar p { margin: 0; font-size: var(--fs-xs); color: var(--color-text-muted); }
   @media (max-width: 480px) { .pillars { grid-template-columns: 1fr; } }
-
-  /* ---------- timeline ---------- */
-  .timeline { margin: var(--space-md) 0; position: relative; padding-left: 26px; }
-  .timeline::before { content: ""; position: absolute; left: 4px; top: 6px; bottom: 6px; width: 1px; background: var(--color-border); }
-  .tl-item { position: relative; padding-bottom: var(--space-lg); }
-  .tl-item:last-child { padding-bottom: 0; }
-  .tl-item::before { content: ""; position: absolute; left: -26px; top: 4px; width: 10px; height: 10px; border-radius: 50%; background: var(--color-surface); border: 2px solid var(--color-secondary); }
-  .tl-item.dim::before { border-color: var(--color-border); }
-  .tl-date { font-size: var(--fs-xs); font-weight: 700; color: var(--color-secondary-strong); margin-bottom: 3px; font-variant-numeric: tabular-nums; }
-  .tl-item.dim .tl-date { color: var(--color-text-soft); }
-  .tl-item h5 { margin: 0 0 4px; font-size: var(--fs-base); color: var(--color-text); font-weight: 700; }
-  .tl-item p { margin: 0; font-size: var(--fs-sm); color: var(--color-text-muted); }
 
   /* ---------- risk list ---------- */
   .risk-list { border-top: 1px solid var(--color-border-soft); margin-bottom: var(--space-md); }
@@ -265,37 +239,6 @@
   .pill.inference { background: var(--color-warm-soft); border-color: var(--color-warm-border); color: var(--color-warning-text); }
   .pill.official { background: var(--color-primary-soft); border-color: var(--color-primary-border); color: var(--color-primary-strong); }
   .pill.gap { background: var(--color-accent-soft); border-color: var(--color-accent-border); color: var(--color-accent-strong); }
-  /* ---------- chart plot ----------
-     scripts/report-starlux.js draws each SVG at the plot's real width, so chart
-     text is type-scale px; label fitting on narrow screens is done there too. */
-  .chart-plot { position: relative; }
-  /* Halo in the card colour keeps value labels readable where a line passes behind them. */
-  .chart-card svg .c-val { paint-order: stroke; stroke: var(--color-surface-soft); stroke-width: 4px; stroke-linejoin: round; }
-  /* The line-chart hit area keeps vertical page scrolling on touch screens. */
-  .chart-card svg .c-hit { touch-action: pan-y; cursor: crosshair; }
-  .chart-tip {
-    position: absolute;
-    top: 0;
-    z-index: 2;
-    pointer-events: none;
-    padding: 6px 10px;
-    background: var(--color-surface);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-sm);
-    box-shadow: var(--shadow-soft);
-    color: var(--color-text-muted);
-    font-size: var(--fs-2xs);
-    line-height: 1.5;
-    white-space: nowrap;
-  }
-  .chart-tip .tip-cat { color: var(--color-text); font-weight: 700; }
-  .chart-tip b { color: var(--color-text); font-variant-numeric: tabular-nums; }
-  .chart-tip .sw { display: inline-block; width: 8px; height: 8px; border-radius: 2px; margin-right: 5px; }
-  @media print {
-    .chart-tip { display: none; }
-    /* Charts are redrawn at a fixed print width before printing; fill the page with them. */
-    .chart-plot svg { width: 100%; height: auto; }
-  }
   @media (max-width: 480px) {
     .risk-row { flex-direction: column; gap: 6px; }
     .pill { align-self: flex-start; margin-top: 0; }

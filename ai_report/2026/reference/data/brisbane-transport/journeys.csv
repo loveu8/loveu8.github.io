@@ -1,1 +1,5 @@
 journey_id,case_name,origin,destination,selection_basis,travel_date,depart_time,direction,queried_date,tool,walk_min,wait_min,in_vehicle_min,transfers,transfer_min,total_min,modes,source_id,note
+J-0001,南區進城,Eight Mile Plains platform 1,Cultural Centre platform 1,南向 Busway 同站前期,2025-05-14,08:00,往市區,2026-11-20,GTFS,0,0,22,0,0,22,111 公車,S-025,10824 至 10802；08:00 上車 08:22 到；步行 0 表示比較從上車點開始
+J-0002,南區進城,Eight Mile Plains platform 1,Cultural Centre platform 1,南向 Busway 同站後期,2026-10-21,08:00,往市區,2026-11-20,GTFS,0,1,22,0,0,23,M1 Metro,S-025,10824 至 10802；08:01 上車 08:23 到
+J-0003,Logan 進城,Loganlea platform 2,Central platform 3,南向鐵路升級相關走廊,2026-10-21,08:00,往市區,2026-11-20,GTFS,0,4,40,0,0,44,黃金海岸線,S-025,600231 至 600016；08:04 上車 08:44 到
+J-0004,西區到大學,Indooroopilly Shopping Centre stop C,University of Queensland（1746）,跨郊區直接改善有限,2026-10-21,08:00,往 St Lucia,2026-11-20,GTFS,0,0,16,0,0,16,432 公車,S-025,2204 至 1746；08:00 上車 08:16 到

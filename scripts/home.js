@@ -1,4 +1,4 @@
-// Homepage translation. Theme, language choice and the two toggles live in scripts/site.js.
+﻿// Homepage translation. Theme, language choice and the two toggles live in scripts/site.js.
 var translations = [
   ['.brand', '阿星 (Lorn)'],
   ['#title', 'Places in everyday life'],
@@ -17,6 +17,8 @@ var translations = [
   ['#notes-heading', 'Research notes'],
   ['#report-link', 'STARLUX entering Australia'],
   ['#report-desc', 'Research on the market, routes, and opportunities.'],
+  ['#brisbane-report-link', 'Brisbane transport developments'],
+  ['#brisbane-report-desc', 'Commuter routes, project progress and transport funding.'],
   ['footer', '© 2026 阿星 (Lorn)']
 ].map(function (row) {
   var element = document.querySelector(row[0]);
