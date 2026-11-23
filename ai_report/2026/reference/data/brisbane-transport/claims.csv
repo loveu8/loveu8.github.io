@@ -29,3 +29,4 @@ C-27,1,"人口長在外圍：2024-25 年全州成長最快地區 Ripley、Morayf
 C-28,1,"2021 年普查大布里斯本 1,194,289 名就業者的工作地點中，Brisbane City SA2 佔 12.3%；前五名有四個在市中心周邊",已觀察事實,S-061,derived/employment_workplace_sa2_2021.csv,只涵蓋大布里斯本，不含黃金海岸與陽光海岸；普查日在疫情期間,第1章|第3章|第6章,2026-11-23,前五名：Brisbane City、South Brisbane、Fortitude Valley、Rocklea-Acacia Ridge、Newstead-Bowen Hills
 C-29,1,住在外圍、在市中心上班的人沿少數進城走廊移動，尖峰需求集中在這些走廊,作者推論,S-060|S-061|S-150,由 C-27、C-28 推得；S-150 記載 Logan 線疫情前尖峰只剩站位,未使用起訖點通勤流量資料,第1章,2026-11-23,
 C-30,3,本篇查核的工程中沒有往 Ipswich 的鐵路擴建：ETCS 五個路段與 Metro 擴建四個方向都不往 Ipswich,作者推論,S-097|S-123,projects.csv 的 ETCS-P 至 ETCS-T 與 PR-05-A 至 PR-05-D,工程清單依挑選規則選出，非全部計畫；不可寫成政府沒有規劃,第3章,2026-11-23,Q23
+C-31,5,部分工程總額已含未來營運維護：跨河鐵路 2024 年 12 月主體成本 106 億含 26 億未來營運與維護；新列車計畫州出資 95 億含 20 年營運與維護,已觀察事實,S-066,審計署 Major projects 2026 第 3 章圖 3A、圖 3B；第 1 章 Queensland Train Manufacturing Program 段,併在工程總額的估計，非逐年或逐線營運費；跨河鐵路未寫涵蓋年數；兩案口徑不同不可相加比較,第5章,2026-11-23,Codex 審閱錯誤 2；Q35
