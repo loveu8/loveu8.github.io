@@ -50,3 +50,5 @@
 **QA 結果：** Claude 已於 2026-11-21 完成，判斷為「建議採用，先修改三處」。問題清單、補查項目、建議開場與待確認事項見[敘事 QA](布里斯本交通發展_敘事QA_Claude_20261121.md)。本提案尚未依 QA 修改。
 
 參考資料：[布里斯本雙語正文](../brisbane-transport-report.data.js) · [主張表](data/brisbane-transport/claims.csv) · [班表旅程資料](data/brisbane-transport/journeys.csv)
+
+**2026-11-23 更新：** 已依敘事 QA 改寫為[六章版提案](布里斯本交通發展_敘事提案_六章版_20261123.md)；本檔保留作為七章版的紀錄。
