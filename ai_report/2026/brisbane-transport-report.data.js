@@ -72,7 +72,8 @@ window.BRISBANE_TRANSPORT_REPORT = {
       "S-021",
       "S-022",
       "S-025",
-      "S-079"
+      "S-079",
+      "S-005"
     ],
     "C-04": [
       "S-084",
@@ -126,7 +127,6 @@ window.BRISBANE_TRANSPORT_REPORT = {
       "S-041",
       "S-066",
       "S-075",
-      "S-107",
       "S-108",
       "S-109",
       "S-110",
@@ -139,24 +139,92 @@ window.BRISBANE_TRANSPORT_REPORT = {
       "S-129",
       "S-130",
       "S-133",
-      "S-134",
-      "S-136",
-      "S-138",
-      "S-139",
-      "S-140"
+      "S-134"
     ],
     "C-14": [
       "S-014",
       "S-017"
+    ],
+    "C-15": [
+      "S-152",
+      "S-153",
+      "S-154",
+      "S-155",
+      "S-156",
+      "S-157"
+    ],
+    "C-16": [
+      "S-147"
+    ],
+    "C-17": [
+      "S-160",
+      "S-161"
+    ],
+    "C-18": [
+      "S-162",
+      "S-163",
+      "S-060"
+    ],
+    "C-19": [
+      "S-165"
+    ],
+    "C-20": [
+      "S-166"
+    ],
+    "C-21": [
+      "S-025",
+      "S-167",
+      "S-168"
+    ],
+    "C-22": [
+      "S-025"
+    ],
+    "C-23": [
+      "S-012",
+      "S-028",
+      "S-150",
+      "S-151"
+    ],
+    "C-24": [
+      "S-148",
+      "S-149",
+      "S-171"
+    ],
+    "C-25": [
+      "S-158",
+      "S-159",
+      "S-169"
+    ],
+    "C-26": [
+      "S-148",
+      "S-151",
+      "S-028",
+      "S-066"
+    ],
+    "C-27": [
+      "S-060",
+      "S-147"
+    ],
+    "C-28": [
+      "S-061"
+    ],
+    "C-29": [
+      "S-060",
+      "S-061",
+      "S-150"
+    ],
+    "C-30": [
+      "S-097",
+      "S-123"
+    ],
+    "C-31": [
+      "S-066"
+    ],
+    "C-32": [
+      "S-170"
     ]
   },
   "funding": {
-    "0001": {
-      "amount": "19041000000",
-      "source_id": "S-001",
-      "period_start": "",
-      "period_end": ""
-    },
     "0003": {
       "amount": "9825000000",
       "source_id": "S-066",
@@ -175,18 +243,6 @@ window.BRISBANE_TRANSPORT_REPORT = {
       "period_start": "",
       "period_end": ""
     },
-    "0015": {
-      "amount": "2875000000",
-      "source_id": "S-111",
-      "period_start": "",
-      "period_end": ""
-    },
-    "0016": {
-      "amount": "2875000000",
-      "source_id": "S-111",
-      "period_start": "",
-      "period_end": ""
-    },
     "0017": {
       "amount": "1300000000",
       "source_id": "S-066",
@@ -199,44 +255,14 @@ window.BRISBANE_TRANSPORT_REPORT = {
       "period_start": "",
       "period_end": ""
     },
-    "0024": {
-      "amount": "2750000000",
-      "source_id": "S-075",
-      "period_start": "",
-      "period_end": ""
-    },
-    "0025": {
-      "amount": "2750000000",
-      "source_id": "S-075",
-      "period_start": "",
-      "period_end": ""
-    },
     "0026": {
       "amount": "194000000",
       "source_id": "S-066",
       "period_start": "",
       "period_end": "2026-06-30"
     },
-    "0028": {
-      "amount": "40000000",
-      "source_id": "S-075",
-      "period_start": "",
-      "period_end": ""
-    },
     "0029": {
       "amount": "1650000000",
-      "source_id": "S-117",
-      "period_start": "",
-      "period_end": ""
-    },
-    "0030": {
-      "amount": "1300000000",
-      "source_id": "S-117",
-      "period_start": "",
-      "period_end": ""
-    },
-    "0031": {
-      "amount": "351500000",
       "source_id": "S-117",
       "period_start": "",
       "period_end": ""
@@ -253,24 +279,6 @@ window.BRISBANE_TRANSPORT_REPORT = {
       "period_start": "",
       "period_end": ""
     },
-    "0037": {
-      "amount": "50000000",
-      "source_id": "S-122",
-      "period_start": "",
-      "period_end": ""
-    },
-    "0038": {
-      "amount": "50000000",
-      "source_id": "S-122",
-      "period_start": "",
-      "period_end": ""
-    },
-    "0039": {
-      "amount": "50000000",
-      "source_id": "S-122",
-      "period_start": "",
-      "period_end": ""
-    },
     "0040": {
       "amount": "2000000",
       "source_id": "S-122",
@@ -282,18 +290,6 @@ window.BRISBANE_TRANSPORT_REPORT = {
       "source_id": "S-041",
       "period_start": "2024-07-01",
       "period_end": "2025-06-30"
-    },
-    "0042": {
-      "amount": "453897462",
-      "source_id": "S-126",
-      "period_start": "2024-07-01",
-      "period_end": "2025-06-30"
-    },
-    "0043": {
-      "amount": "213000000",
-      "source_id": "S-119",
-      "period_start": "2026-07-01",
-      "period_end": "2027-06-30"
     },
     "0044": {
       "amount": "324704000",
@@ -325,12 +321,6 @@ window.BRISBANE_TRANSPORT_REPORT = {
       "period_start": "2026-07-01",
       "period_end": "2027-06-30"
     },
-    "0056": {
-      "amount": "9500000000",
-      "source_id": "S-066",
-      "period_start": "",
-      "period_end": ""
-    },
     "0057": {
       "amount": "4869000000",
       "source_id": "S-109",
@@ -349,35 +339,11 @@ window.BRISBANE_TRANSPORT_REPORT = {
       "period_start": "",
       "period_end": ""
     },
-    "0066": {
-      "amount": "1750000000",
-      "source_id": "S-107",
-      "period_start": "",
-      "period_end": ""
-    },
-    "0067": {
-      "amount": "1750000000",
-      "source_id": "S-107",
-      "period_start": "",
-      "period_end": ""
-    },
     "0068": {
       "amount": "2222597000",
       "source_id": "S-109",
       "period_start": "",
       "period_end": "2026-06-30"
-    },
-    "0072": {
-      "amount": "63200000",
-      "source_id": "S-138",
-      "period_start": "",
-      "period_end": ""
-    },
-    "0073": {
-      "amount": "127000000",
-      "source_id": "S-138",
-      "period_start": "",
-      "period_end": ""
     },
     "0075": {
       "amount": "288000000",
@@ -397,9 +363,21 @@ window.BRISBANE_TRANSPORT_REPORT = {
       "title": "Cross River Rail – Frequently asked questions",
       "url": "https://crossriverrail.qld.gov.au/about/frequently-asked-questions/"
     },
+    "S-005": {
+      "title": "Brisbane Metro",
+      "url": "https://www.brisbane.qld.gov.au/transport-and-parking/public-transport/brisbane-metro"
+    },
+    "S-012": {
+      "title": "About Cross River Rail",
+      "url": "https://crossriverrail.qld.gov.au/about/"
+    },
     "S-014": {
       "title": "Punctuality and reliability - Citytrain",
       "url": "https://www.data.qld.gov.au/dataset/translink-monthly-performance-data"
+    },
+    "S-017": {
+      "title": "Translink PT performance dashboard – Glossary",
+      "url": "https://translink.com.au/about-translink/reports-and-publications/performance"
     },
     "S-021": {
       "title": "Brisbane Metro starts permanent services today",
@@ -421,9 +399,9 @@ window.BRISBANE_TRANSPORT_REPORT = {
       "title": "South East Queensland fares and zones",
       "url": "https://translink.com.au/tickets-and-fares/fares-and-zones/south-east-queensland"
     },
-    "S-017": {
-      "title": "Translink PT performance dashboard – Glossary",
-      "url": "https://translink.com.au/about-translink/reports-and-publications/performance"
+    "S-037": {
+      "title": "Maps",
+      "url": "https://translink.com.au/plan-your-journey/maps"
     },
     "S-041": {
       "title": "Media statement 100778（標題未記錄）",
@@ -453,6 +431,10 @@ window.BRISBANE_TRANSPORT_REPORT = {
       "title": "The Wave – Stages 1 and 2",
       "url": "https://www.tmr.qld.gov.au/thewaverail"
     },
+    "S-078": {
+      "title": "The Wave Rail construction and delivery",
+      "url": "https://www.yoursay-projects.tmr.qld.gov.au/thewaverail/construction-and-delivery"
+    },
     "S-079": {
       "title": "Keeping Brisbane moving",
       "url": "https://www.brisbane.qld.gov.au/transport-and-parking/public-transport/buses/keep-brisbane-moving"
@@ -469,13 +451,13 @@ window.BRISBANE_TRANSPORT_REPORT = {
       "title": "Queenslanders on Board with Permanent 50 Cent Fares",
       "url": "https://statements.qld.gov.au/statements/101980"
     },
+    "S-097": {
+      "title": "European Train Control System Program",
+      "url": "https://www.tmr.qld.gov.au/projects/programs/european-train-control-system-program"
+    },
     "S-103": {
       "title": "Annual Report 2024–25",
       "url": "https://www.brisbane.qld.gov.au/content/dam/brisbanecitycouncil/corpwebsite/about-council/documents/annual-report-2024-25.pdf.coredownload.pdf"
-    },
-    "S-107": {
-      "title": "Coomera Connector Stage 1",
-      "url": "https://www.tmr.qld.gov.au/projects/coomera-connector-stage-1"
     },
     "S-108": {
       "title": "Queensland Budget 2026–27 Service Delivery Statements – Transport and Main Roads",
@@ -537,18 +519,6 @@ window.BRISBANE_TRANSPORT_REPORT = {
       "title": "Passenger rolling stock procurements",
       "url": "https://www.industry.gov.au/publications/national-rolling-stock-procurement-pipeline/passenger-rolling-stock-procurements"
     },
-    "S-136": {
-      "title": "Georgiou to Deliver Coomera Connector Stage 1",
-      "url": "https://www.georgiou.com.au/highlights/georgiou-to-deliver-coomera-connector-stage-1/"
-    },
-    "S-138": {
-      "title": "South East Queensland City Deal Implementation Plan",
-      "url": "https://www.statedevelopment.qld.gov.au/__data/assets/pdf_file/0029/80696/south-east-queensland-city-deal-implementation-plan.pdf"
-    },
-    "S-139": {
-      "title": "Kangaroo Point Bridge opening press conference",
-      "url": "https://minister.infrastructure.gov.au/c-king/interview/transcript-press-conference-kangaroo-point-bridge"
-    },
     "S-140": {
       "title": "History making bridge opens to transform Brisbane",
       "url": "https://minister.infrastructure.gov.au/c-king/media-release/history-making-bridge-opens-transform-brisbane"
@@ -556,14 +526,6 @@ window.BRISBANE_TRANSPORT_REPORT = {
     "S-143": {
       "title": "Annual Report 2025–2026, financial statements note 3",
       "url": "https://www.publications.qld.gov.au/dataset/tmr-annual-report-2025-2026/resource/7a13cc14-1115-45a1-8a51-0d6086f487c2"
-    },
-    "S-078": {
-      "title": "The Wave Rail construction and delivery",
-      "url": "https://www.yoursay-projects.tmr.qld.gov.au/thewaverail/construction-and-delivery"
-    },
-    "S-037": {
-      "title": "Maps",
-      "url": "https://translink.com.au/plan-your-journey/maps"
     },
     "S-144": {
       "title": "South East Queensland network map",
@@ -576,6 +538,102 @@ window.BRISBANE_TRANSPORT_REPORT = {
     "S-146": {
       "title": "Journey planner",
       "url": "https://jp.translink.com.au/"
+    },
+    "S-147": {
+      "title": "Queensland Government population projections 2025 edition: local government areas, low, medium and high series, 2021 to 2046",
+      "url": "https://www.qgso.qld.gov.au/issues/5281/qld-population-projections-regions-tables-lgas-qld-low-med-high-series-2021-2046.xlsx"
+    },
+    "S-148": {
+      "title": "100 Day Review: Brisbane 2032 Olympic and Paralympic Games Infrastructure",
+      "url": "https://giica.au/uploads/documents/100%20Day%20Review%20Report%20-%208%20March%202025%20APPROVED.pdf"
+    },
+    "S-149": {
+      "title": "The 2032 Delivery Plan",
+      "url": "https://www.delivering2032.com.au/__data/assets/pdf_file/0013/105061/Queensland_Government-2032_Delivery_Plan.pdf"
+    },
+    "S-150": {
+      "title": "Business Case Evaluation Summary: Logan and Gold Coast Faster Rail (Kuraby to Beenleigh)",
+      "url": "https://www.infrastructureaustralia.gov.au/sites/default/files/2022-10/Evaluation%20Summary%20-%20Logan%20and%20Gold%20Coast%20Faster%20Rail.pdf"
+    },
+    "S-151": {
+      "title": "Business Case Evaluation Summary: Direct Sunshine Coast Rail Line (Stage 1)",
+      "url": "https://www.infrastructureaustralia.gov.au/sites/default/files/2024-05/Evaluation%20Summary%20-%20Direct%20Sunshine%20Coast%20Rail%20Line%20-%20PUBLICATION_1.pdf"
+    },
+    "S-152": {
+      "title": "Ministerial Statement: South East Busway (Hansard, 1 May 2001)",
+      "url": "https://documents.parliament.qld.gov.au/speeches/spk2001/Steve%20Bredhauer%20spk%20Cook%2020010501-1.PDF"
+    },
+    "S-153": {
+      "title": "Ministerial Statement: Public Transport (Hansard, 3 May 2001)",
+      "url": "https://documents.parliament.qld.gov.au/speeches/spk2001/Steve%20Bredhauer%20spk%20Cook%2020010503-1.PDF"
+    },
+    "S-154": {
+      "title": "History podcast Episode 15: What happened to the original Gold Coast railway?",
+      "url": "https://queenslandrail.com.au/ourhistory/the-queensland-rail-journey/history-podcast/history-podcast-episode-15"
+    },
+    "S-155": {
+      "title": "Gold Coast Railway Site Inspection (media release)",
+      "url": "https://pmtranscripts.pmc.gov.au/node/19251"
+    },
+    "S-156": {
+      "title": "Driver training to Springfield underway",
+      "url": "https://statements.qld.gov.au/statements/73686"
+    },
+    "S-157": {
+      "title": "History in the making, our newest rail line gets its name",
+      "url": "https://statements.qld.gov.au/statements/78762"
+    },
+    "S-158": {
+      "title": "Gold Coast Light Rail Stage 2 Fact Sheet (November 2015)",
+      "url": "https://www.tmr.qld.gov.au/-/media/Projects/G/Gold-Coast-Light-Rail-Stage-2/gclr2factsheet1115.pdf?la=en"
+    },
+    "S-159": {
+      "title": "Christmas comes early with Gold Coast Light Rail Stage Two",
+      "url": "https://statements.qld.gov.au/statements/83340"
+    },
+    "S-160": {
+      "title": "2016 Census General Community Profile DataPack, Local Government Areas for QLD (short header)",
+      "url": "https://www.abs.gov.au/census/find-census-data/datapacks/download/2016_GCP_LGA_for_QLD_short-header.zip"
+    },
+    "S-161": {
+      "title": "2021 Census General Community Profile DataPack, Local Government Areas for QLD (short header)",
+      "url": "https://www.abs.gov.au/census/find-census-data/datapacks/download/2021_GCP_LGA_for_QLD_short-header.zip"
+    },
+    "S-162": {
+      "title": "Vehicles on register to Queensland's South East Region as at 30 June 2020",
+      "url": "https://www.tmr.qld.gov.au/-/media/Safety/Transport-and-road-statistics/Registration/0620/vehicles-south-east-region-qld-0620.pdf"
+    },
+    "S-163": {
+      "title": "Vehicles on register to Queensland's South East Region as at 30 June 2025",
+      "url": "https://www.tmr.qld.gov.au/_/media/safety/transport-and-road-statistics/registration/2025/vehicles_south-east_region_queensland_june.docx"
+    },
+    "S-165": {
+      "title": "Transport Coordination Plan Performance Snapshot, 2024 Edition (accessible PDF)",
+      "url": "https://www.publications.qld.gov.au/dataset/b6b3c08a-3389-4716-b0f0-ea7192f9b2c7/resource/06396289-de7a-4077-bee3-42d590724898/download/attachment-4-transport-coordination-plan-performance-snapshot-2024-acc.pdf"
+    },
+    "S-166": {
+      "title": "SEQ commute times worsen as clock ticks on transport plan (RACQ Annual Travel Speeds Report)",
+      "url": "https://www.racq.com.au/news/advocacy/seq-commute-times-worsen-as-clock-ticks-on-transport-plan"
+    },
+    "S-167": {
+      "title": "Metro fleet",
+      "url": "https://metro.brisbane.qld.gov.au/metro-fleet"
+    },
+    "S-168": {
+      "title": "Project Evaluation Summary: Brisbane Metro",
+      "url": "https://www.infrastructureaustralia.gov.au/sites/default/files/2019-06/Project-Evaluation-Summary-Brisbane-Metro.pdf"
+    },
+    "S-169": {
+      "title": "G:link the popular choice for Games commuters",
+      "url": "https://statements.qld.gov.au/statements/84167"
+    },
+    "S-170": {
+      "title": "2026 Census product guide",
+      "url": "https://www.abs.gov.au/census/guide-census-data/2026-census-product-guide/latest-release"
+    },
+    "S-171": {
+      "title": "Consolidated Recommendations Table: 100 Day Review final report recommendations and Queensland Government response",
+      "url": "https://www.delivering2032.com.au/__data/assets/pdf_file/0023/105818/consolidated-final-report-recommendations-and-queensland-government-response.pdf"
     }
   },
   "journeys": [
