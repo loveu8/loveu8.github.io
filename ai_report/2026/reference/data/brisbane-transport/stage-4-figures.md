@@ -1,5 +1,7 @@
 # 第四階段圖表內容與計算紀錄
 
+> 2026-11-25：本檔是 2026-11-20 七章版的紀錄。六章版圖表見 [stage-4-figures-six-chapter.md](stage-4-figures-six-chapter.md)。
+
 ## 走廊示意
 
 以節點與連線表達，站間距離及方位不按比例。依 [工程清冊](projects.csv) 和 [狀態紀錄](status_log.csv)。
