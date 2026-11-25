@@ -68,18 +68,20 @@ def count(path, date):
 
 def main():
     out, args = sys.argv[1], sys.argv[2:]
-    f = open(out, "w", encoding="utf-8", newline="")
-    w = csv.writer(f, lineterminator="\n")
-    w.writerow(["date", "route", "hour", "departures"])
+    rows = []
     for path, date in zip(args[::2], args[1::2]):
         hours = count(path, date)
         for (route, h), n in sorted(hours.items(), key=lambda x: (x[0][0] != "全部", x[0][0], x[0][1])):
-            w.writerow([date, route, h, n])
+            rows.append([date, route, h, n])
         totals = collections.Counter()
         for (route, _), n in hours.items():
             totals[route] += n
         print(date, dict(totals), file=sys.stderr)
-    f.close()
+    # Open the output only after every input has loaded, so a failed run leaves no partial file.
+    with open(out, "w", encoding="utf-8", newline="") as f:
+        w = csv.writer(f, lineterminator="\n")
+        w.writerow(["date", "route", "hour", "departures"])
+        w.writerows(rows)
 
 
 if __name__ == "__main__":
