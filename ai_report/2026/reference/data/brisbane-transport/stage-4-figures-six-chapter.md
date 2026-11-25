@@ -114,6 +114,7 @@
 | 2032 | The Wave 一期（IA 指出須在 2031 年實質完工才能在奧運營運） | 估計交付年份 | 時程緊 | S-066、S-151 |
 | 2032 | 布里斯本奧運 | — | — | S-148 |
 
+- 英文分類標籤（Q82）：依估計趕得上 = "Expected before the Games on current estimates"；時程緊 = "Tight, with almost no margin"。標籤可縮短，但「依現有估計」（on current estimates）不能拿掉。
 - 不列：Kangaroo Point Bridge（下一版）、Pimpama 與 Hope Island 開站（正文未提）、G:link 2017 前例（只留正文，避免畫面暗示「上次趕得上，這次也會」）（Q60）。
 - 「無法判斷」的項目沒有年份，留在正文清單。
 - 說明底稿：「工程年份是審計署列出、由交付機構提供的估計，沒有區分完工或開始營運；跨河鐵路的首批載客另見交付局說法。〔C-03、C-04、C-06、C-07、C-26〕」
