@@ -487,7 +487,8 @@
         series: [
           { label: t(['舊 111（2025-05-14 週三）', 'Old 111 (Wed 14 May 2025)']), colorVar: '--chart-1', data: n3.old },
           { label: t(['M1（2026-10-21 週三）', 'M1 (Wed 21 Oct 2026)']), colorVar: '--chart-2', data: n3.m1 }
-        ]
+        ],
+        labelAt: [n3.hours.indexOf(9)] // Q92: the off-peak gap the text describes, 12 vs 4
       }
     });
     chart.append(inline(node('p', null, { class: 'figure-note' }), t([

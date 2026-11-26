@@ -215,6 +215,8 @@
         var minIdx = s.data.indexOf(Math.min.apply(null, s.data));
         var labelIdxs = [0, n - 1];
         if (series.length === 1 && labelIdxs.indexOf(minIdx) === -1) labelIdxs.push(minIdx);
+        // Opt-in: chartData.labelAt lists extra category indexes whose values the text relies on.
+        (chartData.labelAt || []).forEach(function (i) { if (i > 0 && i < n - 1 && labelIdxs.indexOf(i) === -1) labelIdxs.push(i); });
         labelIdxs.forEach(function (i) {
           var v = s.data[i];
           var y = yFor(v);
