@@ -470,11 +470,11 @@ window.BRISBANE_TRANSPORT_REPORT = {
     },
     "S-128": {
       "title": "Queensland Budget 2025–26 Budget Measures",
-      "url": "https://budget.qld.gov.au/files/Budget-2025-26-BP4-Budget-Measures.pdf"
+      "url": "https://web.archive.org/web/20251111054839/https://budget.qld.gov.au/files/Budget-2025-26-BP4-Budget-Measures.pdf"
     },
     "S-129": {
       "title": "2025–26 TMR Service Delivery Statements",
-      "url": "https://budget.qld.gov.au/files/Budget-2025-26-SDS-Department-of-Transport-and-Main-Roads.pdf"
+      "url": "https://web.archive.org/web/20251111054946/https://budget.qld.gov.au/files/Budget-2025-26-SDS-Department-of-Transport-and-Main-Roads.pdf"
     },
     "S-130": {
       "title": "Queensland Budget 2026–27 Budget Strategy and Outlook",
@@ -538,7 +538,7 @@ window.BRISBANE_TRANSPORT_REPORT = {
     },
     "S-154": {
       "title": "History podcast Episode 15: What happened to the original Gold Coast railway?",
-      "url": "https://queenslandrail.com.au/ourhistory/the-queensland-rail-journey/history-podcast/history-podcast-episode-15"
+      "url": "https://web.archive.org/web/20251207092902/https://queenslandrail.com.au/ourhistory/the-queensland-rail-journey/history-podcast/history-podcast-episode-15"
     },
     "S-155": {
       "title": "Gold Coast Railway Site Inspection (media release)",
@@ -570,7 +570,7 @@ window.BRISBANE_TRANSPORT_REPORT = {
     },
     "S-162": {
       "title": "Vehicles on register to Queensland's South East Region as at 30 June 2020",
-      "url": "https://www.tmr.qld.gov.au/-/media/Safety/Transport-and-road-statistics/Registration/0620/vehicles-south-east-region-qld-0620.pdf"
+      "url": "https://web.archive.org/web/20220225234348/https://www.tmr.qld.gov.au/-/media/Safety/Transport-and-road-statistics/Registration/0620/vehicles-south-east-region-qld-0620.pdf"
     },
     "S-163": {
       "title": "Vehicles on register to Queensland's South East Region as at 30 June 2025",

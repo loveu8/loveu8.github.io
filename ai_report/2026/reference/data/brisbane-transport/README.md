@@ -35,6 +35,7 @@
 - `published_date`、`updated_date`：頁面沒有寫就填 `未標示`。**不可填擷取日。**
 - `retrieved_date`：實際打開頁面的日期。引用時寫「於某日觀察到此說法」。
 - `grade`：A 官方原始資料直接支持／B 機關或公司說法、媒體轉述／C 作者推論或待驗。這描述來源類型，不保證整份文件每句話都正確。
+- `url`：原網址失效時改填 Wayback 存檔網址（`https://web.archive.org/web/<時間>/<原網址>`），原網址與改動日期寫進 `note`（Q90）。
 - `archive_path`：頁面副本或下載檔的位置。沒有日期的頁面必須存副本。
 
 ### problems.csv
