@@ -70,6 +70,13 @@ def main():
     en = parse(en_path)
     if len(zh['chapters']) != len(en['chapters']):
         sys.exit('Chinese and English chapter counts differ')
+    # report-brisbane.js places figures after a paragraph number (Q85), so both
+    # languages must keep the same paragraphs, blank-line separated.
+    for i, (a, b) in enumerate(zip(zh['chapters'], en['chapters']), 1):
+        na, nb = len(a['body'].split('\n\n')), len(b['body'].split('\n\n'))
+        if na != nb:
+            sys.exit(f'chapter {i}: {na} Chinese paragraphs but {nb} English; '
+                     'update the figure positions in report-brisbane.js')
 
     with open(data_path, encoding='utf-8') as f:
         raw = f.read()

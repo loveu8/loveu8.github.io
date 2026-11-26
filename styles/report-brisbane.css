@@ -97,6 +97,20 @@ figure { margin: var(--space-lg) 0; }
 @media print { .corridor-map { display: none; } }
 
 .chart-card svg { display: block; max-width: 100%; height: auto; }
+
+/* F5 timeline categories (Q66, Q82): the tag text carries the meaning, colour only supports it. */
+.tl-tag {
+  display: inline-block;
+  margin-left: var(--space-xs);
+  padding: 0 var(--space-sm);
+  border: 1px solid;
+  border-radius: var(--radius-sm);
+  font-size: var(--fs-2xs);
+  font-weight: 700;
+  vertical-align: 1px;
+}
+.tl-tag-ok { background: var(--color-secondary-soft); color: var(--color-secondary-strong); border-color: var(--color-secondary-border); }
+.tl-tag-tight { background: var(--color-warm-soft); color: var(--color-warning-text); border-color: var(--color-warm-border); }
 @media print { .chart-card, .tl-item { break-inside: avoid; } }
 
 .network-overview {

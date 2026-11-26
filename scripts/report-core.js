@@ -20,7 +20,7 @@
       var item = el("div", { class: "tl-item" + (it.dim ? " dim" : "") });
       item.appendChild(el("div", { class: "tl-date", html: t(it.date) }));
       item.appendChild(el("h5", { html: t(it.title) }));
-      item.appendChild(el("p", { html: t(it.body) }));
+      if (it.body) item.appendChild(el("p", { html: t(it.body) }));
       tl.appendChild(item);
     });
     return tl;
@@ -87,12 +87,17 @@
       return lines;
     }
 
+    // A bar's value label: its own `display` text when given (e.g. "18.3% · +41,494", or a
+    // fixed number of decimals), otherwise the number plus the chart's suffix.
+    function barValue(chart, d) {
+      return d.display ? t(d.display) : fmtNum(d.value) + (chart.suffix || "");
+    }
+
     // Horizontal bars, one series, drawn in data order (the data lists them top to bottom).
     function drawBarChart(chart, w, plot) {
       var data = chart.data;
-      var suffix = chart.suffix || "";
       var labels = data.map(function (d) { return t(d.label); });
-      var values = data.map(function (d) { return fmtNum(d.value) + suffix; });
+      var values = data.map(function (d) { return barValue(chart, d); });
       var labelMax = Math.max.apply(null, labels.map(function (l) { return textW(l, FS_VAL); }));
       var labelW = Math.min(w * 0.42, labelMax) + 10;
       var wrapped = labels.map(function (l) { return wrapLabel(l, labelW - 10, FS_VAL); });
@@ -282,9 +287,13 @@
       var padTop = 28, padBottom = 28;
       var baseY = h - padBottom;
       var slot = w / n;
-      var barW = Math.min(110, slot * 0.7);
+      // Percent columns are narrower so a segment too short for its label can carry it on the right.
+      var barW = Math.min(110, slot * (chartData.percent ? 0.4 : 0.7));
       var room = slot - 4; // labels are centered in their slots, so the slots keep them apart
-      var max = Math.max.apply(null, groups.map(function (g) { return g.total; })) * 1.15;
+      // Percent mode: segments are shares that add up to 100, so every column is the same
+      // height; each segment carries its share and the column top keeps the group total.
+      var percent = !!chartData.percent;
+      var max = (percent ? 100 : Math.max.apply(null, groups.map(function (g) { return g.total; }))) * 1.15;
 
       function fitsAll(texts, size, weight) {
         return texts.every(function (s) { return textW(s, size, weight) <= room; });
@@ -308,11 +317,20 @@
       groups.forEach(function (g, i) {
         var x = i * slot + (slot - barW) / 2;
         var yCursor = baseY;
+        var outsideY = null;
         g.segments.forEach(function (seg) {
           var segH = (seg.value / max) * (baseY - padTop);
           yCursor -= segH;
           // A 2px stroke in the card colour leaves a gap between stacked segments (C.9 #4).
           if (segH > 0) svg.appendChild(svgEl("rect", { x: x, y: yCursor, width: barW, height: segH, style: "fill:var(" + seg.colorVar + ");stroke:var(--color-surface-soft)", "stroke-width": 2 }));
+          if (percent && seg.value > 0) {
+            var inside = segH >= FS_CAT + 4;
+            var labelY = yCursor + segH / 2;
+            // Outside labels stack upward with the segments; keep each one a line above the last.
+            if (!inside && outsideY !== null) labelY = Math.min(labelY, outsideY - (FS_CAT + 2));
+            if (!inside) outsideY = labelY;
+            addText(svg, fmtNum(seg.value) + "%", { class: "c-val", x: inside ? x + barW / 2 : x + barW + 4, y: labelY, dy: "0.35em", "text-anchor": inside ? "middle" : "start", "font-size": FS_CAT, "font-weight": 700, style: "fill:var(--color-text)" });
+          }
         });
         addText(svg, totals[i], { class: "c-val", x: x + barW / 2, y: yCursor - 9, "text-anchor": "middle", "font-size": totalSize, "font-weight": 800, style: "fill:var(--color-text)" });
         addText(svg, names[i], { class: "c-cat", x: x + barW / 2, y: baseY + 18, "text-anchor": "middle", "font-size": FS_CAT, style: "fill:var(--color-text-soft)" });
@@ -328,7 +346,7 @@
       var suffix = chart.suffix || "";
       var parts;
       if (chart.type === "bar") {
-        parts = [chart.data.map(function (d) { return t(d.label) + " " + fmtNum(d.value) + suffix; }).join(sep)];
+        parts = [chart.data.map(function (d) { return t(d.label) + " " + barValue(chart, d); }).join(sep)];
       } else if (chart.type === "line") {
         var series = chart.data.series || [{ data: chart.data.data }];
         parts = series.map(function (s) {
@@ -339,7 +357,7 @@
         var unit = chart.data.unit ? t(chart.data.unit) : fleetUnit();
         parts = chart.data.groups.map(function (g) {
           var segs = g.segments.filter(function (s) { return s.value > 0; })
-            .map(function (s) { return t(s.label) + " " + fmtNum(s.value); }).join(sep);
+            .map(function (s) { return t(s.label) + " " + fmtNum(s.value) + (chart.data.percent ? "%" : ""); }).join(sep);
           return t(g.label) + " " + fmtNum(g.total) + " " + unit + (zh ? "（" + segs + "）" : " (" + segs + ")");
         });
       }

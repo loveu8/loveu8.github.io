@@ -3,7 +3,9 @@
 
   const data = window.BRISBANE_TRANSPORT_REPORT;
   const report = document.getElementById('report');
-  const sections = ['network', 'changes', 'rail', 'expansion', 'journeys', 'funding', 'conclusions'];
+  const sections = ['foundations', 'reforms', 'projects', 'games', 'funding', 'conclusions'];
+  // Paragraphs per chapter (blank-line separated) that the figure positions in render() assume (Q85).
+  const paragraphCounts = [13, 5, 7, 5, 3, 3];
   const routes = [
     [['南向 Busway · Metro M1', 'South East Busway · Metro M1'], [
       ['Eight Mile Plains', 'open'], ['Cultural Centre', 'open'], ['Roma Street Busway']]],
@@ -27,17 +29,14 @@
     [['Brisbane Metro 擴建', 'Brisbane Metro extensions'], ['聯邦、州及協議所列其他出資', 'Federal, state and other contributions listed in the agreement'], '0036', '0040'],
     [['新版公車路網', 'New bus network'], ['州政府追加款；後續另有州、市分攤安排', 'State funding increase; subsequent state and council sharing arrangements'], '0041', null],
     [['50 分票價', '50-cent fares'], ['州政府', 'Queensland Government'], '0046', null],
-    [['昆士蘭新車', 'Queensland Train Manufacturing Program'], ['州政府', 'Queensland Government'], '0057', '0058'],
-    ['Coomera Connector · Stage 1', ['聯邦與州各半', 'Federal and state governments, equal shares'], '0065', '0068'],
-    ['Kangaroo Point Bridge', ['聯邦與市府；開橋公告列交付成本', 'Federal government and council; delivery cost reported at opening'], '0075', null]
+    [['昆士蘭新車', 'Queensland Train Manufacturing Program'], ['州政府', 'Queensland Government'], '0057', '0058']
   ];
   const scope = {
     '0003': ['約略資本預算', 'Approximate capital budget'], '0014': ['主案預算', 'Main project budget'],
     '0023': ['一期預算', 'Stage 1 budget'], '0029': ['交付預算', 'Delivery budget'],
     '0036': ['商業論證', 'Business cases'], '0041': ['2024–25 追加款', '2024–25 funding increase'],
     '0046': ['2024–25 至 2028–29 政策估計', '2024–25 to 2028–29 policy estimate'],
-    '0057': ['列車計畫資本預算', 'Train program capital budget'], '0065': ['一期資本預算', 'Stage 1 capital budget'],
-    '0075': ['2024 年開橋公告', '2024 opening announcement']
+    '0057': ['列車計畫資本預算', 'Train program capital budget']
   };
 
   const routeLegend = [
@@ -394,42 +393,122 @@
     return figure;
   }
 
+  // F5, chapter 4 (Q60, Q66, Q82): project years carry a text category, never colour alone.
   function milestones(t) {
+    const tags = {
+      ok: ['依估計趕得上', 'Expected before the Games on current estimates'],
+      tight: ['時程緊', 'Tight, with almost no margin']
+    };
+    const estimate = ['估計交付年份。', 'Estimated delivery year.'];
     const events = [
-      ['2024-08', ['50 分票價試辦', '50-cent fare trial'], ['適用的 Translink 服務開始試辦。', 'The trial begins on eligible Translink services.']],
-      ['2024-12', ['Kangaroo Point Bridge 開放', 'Kangaroo Point Bridge opens'], ['步行與自行車可直接跨河。', 'A new river crossing for walking and cycling.']],
-      ['2025-01 / 06', ['M2、M1 分階段上路', 'M2 and M1 enter service'], ['新版公車路網第二階段與 M1 同日上路。', 'M1 begins on the same day as stage 2 of the new bus network.']],
-      ['2025-10 / 2026-05', ['Pimpama 與 Hope Island 新站開放', 'Pimpama and Hope Island stations open'], ['兩站加入 Gold Coast 線。', 'Both stations join the Gold Coast line.']],
-      ['2029', ['Cross River Rail 首批載客', 'First Cross River Rail passenger services'], ['官方預期，須完成整合、試車及營運準備。', 'Official expectation, subject to integration, testing and operational readiness.'], true],
-      ['2031', ['南向鐵路升級', 'Southern rail upgrade'], ['審計署估計完成年份。', 'Estimated completion year reported by the Queensland Audit Office.'], true],
-      ['2032', ['The Wave 一期', 'The Wave Stage 1'], ['審計署估計完成年份。', 'Estimated completion year reported by the Queensland Audit Office.'], true]
+      ['2024-08', ['50 分票價試辦', '50-cent fare trial']],
+      ['2025-01', ['M2 上路', 'M2 enters service']],
+      ['2025-02', ['50 分票價常態化（Airtrain 除外）', '50-cent fares made permanent (excluding Airtrain)']],
+      ['2025-06', ['M1 與新版公車路網第二階段上路', 'M1 and stage 2 of the new bus network begin']],
+      ['2029', ['跨河鐵路首批載客', 'Cross River Rail first passenger services'],
+        ['估計交付年份；交付局說明為首批載客。', 'Estimated delivery year; the delivery authority states this is when first passenger services are expected.'], 'ok'],
+      ['2031', ['Logan 至黃金海岸鐵路', 'Logan and Gold Coast Faster Rail'], estimate, 'tight'],
+      ['2032', ['The Wave 一期', 'The Wave Stage 1'],
+        ['估計交付年份；Infrastructure Australia 指出須在 2031 年實質完工才能在奧運營運。',
+          'Estimated delivery year; Infrastructure Australia notes it must reach practical completion by 2031 to operate for the Games.'], 'tight'],
+      ['2032', ['布里斯本奧運', 'Brisbane 2032 Games']]
     ];
-    const items = events.map(([date, title, body, dim]) => ({ date, title, body, dim }));
+    const escape = (text) => text.replace(/&/g, '&amp;').replace(/</g, '&lt;');
+    const items = events.map(([date, title, body, tag]) => ({
+      date,
+      title: escape(t(title)) + (tag ? ' <span class="tl-tag tl-tag-' + tag + '">' + escape(t(tags[tag])) + '</span>' : ''),
+      body: body ? escape(t(body)) : '',
+      dim: date >= '2029'
+    }));
     const section = node('div');
-    section.append(node('h3', t(['主要里程碑', 'Key milestones'])),
-      ReportCore.renderTimeline(items, (field) => Array.isArray(field) ? t(field) : field));
+    section.append(node('h3', t(['主要里程碑（2024–2032）', 'Key milestones, 2024–2032'])),
+      ReportCore.renderTimeline(items, (field) => field));
     section.append(inline(node('p', null, { class: 'figure-note' }), t([
-      '已發生和預計事件按年份排列。〔C-03、C-04、C-05、C-06、C-07〕',
-      'Observed and expected milestones are shown by year. [C-03, C-04, C-05, C-06, C-07]'
+      '工程年份是審計署列出、由交付機構提供的估計，沒有區分完工或開始營運；跨河鐵路的首批載客另見交付局說法。〔C-03、C-04、C-06、C-07、C-26〕',
+      'Project years are estimated delivery years provided by the delivery agencies and listed by the Queensland Audit Office, without distinguishing completion from the start of operations; for Cross River Rail’s first passenger services, see the delivery authority’s statement. [C-03, C-04, C-06, C-07, C-26]'
     ])));
     return section;
   }
 
-  function journeyTable(t) {
-    const rows = data.journeys.map((journey) => [
-      journey.origin.replace(/ platform \d| stop C/g, '') + ' → ' +
-        journey.destination.replace(/ platform \d|（1746）/g, ''), journey.travel_date,
-      journey.wait_min, journey.in_vehicle_min, journey.total_min
-    ]);
-    const figure = table(t(['站到站旅程比較', 'Scheduled stop-to-stop journeys']), [
-      t(['旅程', 'Journey']), t(['日期', 'Date']), t(['候車（分）', 'Wait (min)']),
-      t(['車程（分）', 'On board (min)']), t(['08:00 起到下車（分）', '08:00 to arrival (min)'])
-    ], rows);
-    figure.append(inline(node('figcaption', null, { class: 'figure-note' }), t([
-      '候車只代表 08:00 剛好到站時要等多久，不含兩端步行。〔C-08、C-09、C-10〕',
-      'Waits apply to arrival at the stop at exactly 08:00. Walking at either end is outside the comparison. [C-08, C-09, C-10]'
+  // N1, chapter 1 (Q63): growth rate and people added, highest rate first, 11-LGA total last.
+  function populationChart(charts, t) {
+    const rows = data.figures.n1.map((row) => ({
+      label: row.name === 'total' ? t(['11 個地方政府合計', '11 LGAs combined']) : row.name,
+      value: row.pct,
+      display: row.pct.toFixed(1) + '% · +' + row.change.toLocaleString('en-US')
+    }));
+    const chart = charts.build({
+      title: t(['人口增幅與增加人數（2020→2025）', 'Population growth and people added, 2020→2025']),
+      type: 'bar', data: rows
+    });
+    chart.append(inline(node('p', null, { class: 'figure-note' }), t([
+      '2020 年 6 月到 2025 年 6 月的估計常住人口。比例最高的在外圍，增加人數最多的是 Brisbane 市。2025 年為初步數字。〔C-01、C-27〕',
+      'Estimated resident population, June 2020 to June 2025. The highest growth rates are on the outskirts, and Brisbane City added the most people. 2025 figures are preliminary. [C-01, C-27]'
     ])));
-    return figure;
+    return chart;
+  }
+
+  // N2, chapter 1 (Q64, Q88): shares of people who travelled to work, 2016 Census.
+  function commuteChart(charts, t) {
+    const parts = [
+      ['car', ['只開車或搭車', 'Car only (driver or passenger)'], '--chart-1'],
+      ['pt', ['大眾運輸', 'Public transport'], '--chart-2'],
+      ['other', ['其他', 'Other'], '--chart-3']
+    ];
+    const names = { total: ['11 個地方政府', '11 LGAs'], brisbane: ['Brisbane 市', 'Brisbane City'] };
+    const groups = data.figures.n2.map((row) => ({
+      label: t(names[row.name]), total: row.travelled,
+      segments: parts.map(([key, label, colorVar]) => ({ label: t(label), value: row[key], colorVar }))
+    }));
+    const chart = charts.build({
+      title: t(['2016 年普查：怎麼去上班', 'How people travelled to work, 2016 Census']),
+      type: 'stacked',
+      data: {
+        percent: true, unit: t(['人', 'people']), groups,
+        legend: parts.map(([, label, colorVar]) => ({ label: t(label), colorVar }))
+      }
+    });
+    chart.append(inline(node('p', null, { class: 'figure-note' }), t([
+      '2016 年普查（疫情前），只計普查當天有出門上班的人，柱頂為人數。大眾運輸只計原表可辨識的組合，其餘未拆分的多種方式組合歸入其他。2021 年普查日在疫情期間，在家工作從 5% 升到 17%，不和 2016 年比較。〔C-17〕',
+      '2016 Census (before the pandemic), counting only people who travelled to work on Census day; the number above each column is that count. Public transport counts only the combinations identifiable in the original table; other combinations of several modes that the table does not split are grouped as other. Census day in 2021 fell during the pandemic, when working from home rose from 5% to 17%, so it is not compared with 2016. [C-17]'
+    ])));
+    return chart;
+  }
+
+  // N3, chapter 2 (Q65, Q87): scheduled inbound trunk services by hour, line chart.
+  function hourlyChart(charts, t) {
+    const n3 = data.figures.n3;
+    const chart = charts.build({
+      title: t(['Eight Mile Plains 往市區主線逐時班次（表定）', 'Hourly inbound trunk services at Eight Mile Plains (scheduled)']),
+      type: 'line',
+      data: {
+        categories: n3.hours.map((hour) => String(hour).padStart(2, '0') + t([' 時', ':00'])),
+        series: [
+          { label: t(['舊 111（2025-05-14 週三）', 'Old 111 (Wed 14 May 2025)']), colorVar: '--chart-1', data: n3.old },
+          { label: t(['M1（2026-10-21 週三）', 'M1 (Wed 21 Oct 2026)']), colorVar: '--chart-2', data: n3.m1 }
+        ]
+      }
+    });
+    chart.append(inline(node('p', null, { class: 'figure-note' }), t([
+      '往市區方向的主線（舊 111／M1）。07–08 時是早尖峰，兩年都是每小時 12 班；增加的主要在其他時段。同站另有 555，未畫入（07 時 5→4 班、08 時 4→4 班）。表定班次，各抽查一個週三，不是實際行車紀錄。〔C-21〕',
+      'Inbound trunk services (old 111 / M1). The 7 and 8 am hours are the morning peak, with 12 services an hour in both years; the increase is mainly at other times. Route 555 also serves the stop and is not shown (7 am: 5 to 4 services; 8 am: 4 to 4). Scheduled services on one sampled Wednesday each, not operating records. [C-21]'
+    ])));
+    return chart;
+  }
+
+  // F8 and F9, chapter 5 (Q59): 億澳幣 in Chinese, A$ million in English, at the source's precision.
+  function moneyChart(charts, t, lang, title, rows, note) {
+    const zh = lang !== 'en';
+    const values = rows.map(([label, id]) => {
+      const amount = Number(data.funding[id].amount);
+      const value = zh ? amount / 1e8 : amount / 1e6;
+      const display = zh ? value.toFixed(2)
+        : value.toLocaleString('en-US', { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+      return { label: Array.isArray(label) ? t(label) : label, value, display };
+    });
+    const chart = charts.build({ title: t(title), type: 'bar', data: values });
+    chart.append(inline(node('p', null, { class: 'figure-note' }), t(note)));
+    return chart;
   }
 
   function comparisonChart(charts, title, suffix, values, note) {
@@ -459,8 +538,7 @@
       return result;
     }
     const paid = {
-      '0040': ['聯邦已付', 'Federal payments'],
-      '0068': ['州資本表累計支出估計', 'Estimated cumulative spending in state capital statement']
+      '0040': ['聯邦已付', 'Federal payments']
     };
     const label = t(['累計支出', 'Cumulative expenditure']);
     const rows = funding.map(([name, funder, budget, spent]) => [
@@ -468,12 +546,12 @@
       spent ? amount(spent, paid[spent] ? t(paid[spent]) : label, true)
         : t(['未取得同範圍的累計支出', 'No cumulative spending figure found for this scope'])
     ]);
-    const figure = table(t(['十案財源', 'Funding for ten cases']),
+    const figure = table(t(['八項工程與政策的財源', 'Funding for eight projects and policies']),
       [t(['項目', 'Project']), t(['出資者', 'Funding parties']), t(['金額與用途', 'Amount and scope']), t(['支出或付款（截至日）', 'Expenditure or payments (to date)'])], rows);
-    figure.append(node('figcaption', t([
-      '跨河鐵路全案估計 190.41 億澳幣，另含配套及維護；新車全案估計 95 億，含建造及 20 年營運維護。兩案表內使用資本預算，跨河鐵路按審計署同表取約 98 億（詳細列報 98.25 億）。Metro 開通準備與新版公車路網有共同工作。點選金額可查來源。',
-      'Cross River Rail is estimated at A$19.041 billion overall, including related works and maintenance. The train program’s A$9.5 billion estimate includes construction and 20 years of operations and maintenance. The table uses capital budgets for both, including the audit summary’s rounded A$9.8 billion for Cross River Rail (A$9.825 billion in the detailed figure). Metro launch preparation and the new bus network share some work. Select an amount to open its source.'
-    ]), { class: 'figure-note' }));
+    figure.append(inline(node('figcaption', null, { class: 'figure-note' }), t([
+      '跨河鐵路全案連同相關工程估計 190.41 億，其中隧道與地下站的設計、興建與維護約 124 億；新列車計畫 95 億含興建與 20 年營運維護。表中兩案都用資本預算，跨河鐵路採審計摘要的約 98 億（細表 98.25 億）。Metro 開通準備與新版公車路網有共同項目。點金額可開啟來源。〔C-13、C-31〕',
+      'Cross River Rail’s whole project, together with associated works, is estimated at A$19.041 billion, of which about A$12.4 billion is for the design, construction and maintenance of the tunnels and underground stations; the new train program’s A$9.5 billion includes construction and 20 years of operations and maintenance. The table uses capital budgets for both, taking the audit summary’s about A$9.8 billion for Cross River Rail (A$9.825 billion in the detailed table). Metro launch preparation and the new bus network share some work. Select an amount to open its source. [C-13, C-31]'
+    ])));
     return figure;
   }
 
@@ -515,7 +593,7 @@
     const map = corridorMap(t);
     charts.clear();
     const cover = node('header', null, { class: 'report-panel' });
-    cover.append(node('h1', content.title), node('p', t(['資料查核至 2026-11-20', 'Research checked to 20 November 2026']), { class: 'report-meta' }));
+    cover.append(node('h1', content.title), node('p', t(['資料查核至 2026-11-25', 'Research checked to 25 November 2026']), { class: 'report-meta' }));
     prose(cover, content.summary);
     const nav = node('nav', null, { class: 'report-nav', 'aria-label': t(['章節導覽', 'Chapters']) });
     const chapters = node('ul');
@@ -533,45 +611,52 @@
       share.className = 'chapter-link';
       heading.append(node('h2', (i + 1) + '. ' + chapter.title), share);
       section.append(heading);
-      const paragraphs = chapter.body.split(/\n(?=\*\*(?:本章結論。|Takeaway\.))/);
-      if (i === 0) {
-        const openingEnd = paragraphs[0].indexOf('\n\n');
-        prose(section, paragraphs[0].slice(0, openingEnd));
-        section.append(networkOverview(t), map.figure, schematic(t));
-        prose(section, paragraphs[0].slice(openingEnd + 2));
-      } else {
-        prose(section, paragraphs[0]);
+      // Figures sit right after the paragraph they support (Q85): chapter -> paragraph number -> figures.
+      const figuresAfter = {
+        0: {
+          2: () => [networkOverview(t), map.figure, schematic(t)],
+          4: () => [populationChart(charts, t)],
+          7: () => [commuteChart(charts, t)]
+        },
+        1: {
+          1: () => [hourlyChart(charts, t)],
+          3: () => [comparisonChart(charts,
+            t(['上車刷卡次數', 'Card taps at boarding']), '',
+            [['111 + 160 · 2025-05', 193986], ['M1 · 2026-05', 382655]],
+            t(['只計 go card 和感應銀行卡。轉乘一次就多一筆紀錄，同期路網也有調整。這不代表搭車的人加倍，也無法區分新乘客和原本乘客搭得更多。兩個月份都在 50 分票價常態化之後；上車紀錄也無法看出有多少人從開車改搭。〔C-04〕',
+              'Go card and contactless bank cards only. Each transfer adds another record, and the network changed at the same time. This does not mean the number of people travelling doubled, and the data cannot separate new passengers from existing passengers travelling more. Both months fall after 50-cent fares became permanent; boarding records also cannot show how many people switched from driving. [C-04]']))]
+        },
+        3: { 3: () => [milestones(t)] },
+        4: {
+          0: () => [finance(t, lang)],
+          1: () => [
+            moneyChart(charts, t, lang, ['昆士蘭交通部帳列票收（億澳幣）', 'TMR fare revenue (A$ million)'],
+              [['2023–24', '0044'], ['2024–25', '0045'], ['2025–26', '0076']],
+              ['部門帳列票收，範圍與東南昆士蘭營運補助不同。期間 50 分票價先試辦再常態實施。〔C-11〕',
+                'Departmental fare revenue, with different coverage from the South East Queensland operating subsidy. 50-cent fares were first trialled and then made permanent during this period. [C-11]']),
+            moneyChart(charts, t, lang, ['東南昆士蘭一般公共交通補助（億澳幣）', 'General SEQ public transport subsidy (A$ million)'],
+              [[['2025–26 估計實支', '2025–26 estimated actual'], '0053'], [['2026–27 預算', '2026–27 budget'], '0054']],
+              ['州預算所列，涵蓋東南昆士蘭一般公共交通營運。〔C-11〕',
+                'State budget figures covering general public transport operations in South East Queensland. [C-11]'])
+          ]
+        }
+      }[i] || {};
+      const paragraphs = chapter.body.split('\n\n');
+      if (paragraphs.length !== paragraphCounts[i]) {
+        console.error('Chapter ' + (i + 1) + ' has ' + paragraphs.length + ' paragraphs; figure positions assume ' + paragraphCounts[i] + '.');
       }
-      if (i === 1) section.append(comparisonChart(charts,
-        t(['上車刷卡次數', 'Card taps at boarding']), '',
-        [['111 + 160 · 2025-05', 193986], ['M1 · 2026-05', 382655]],
-        t(['只計 go card 和感應銀行卡。轉乘可能另計，且同期路線有調整。〔C-04〕',
-          'Go card and contactless bank cards only. Transfers can generate an additional tap, and the network changed between the samples. [C-04]'])));
-      if (i === 1) section.append(milestones(t));
-      if (i === 4) section.append(journeyTable(t));
-      if (i === 5) {
-        section.append(finance(t, lang));
-        section.append(comparisonChart(charts,
-          t(['昆士蘭交通部帳列票收（百萬澳幣）', 'TMR fare revenue (A$ million)']), '',
-          [['2023–24', Number(data.funding['0044'].amount) / 1e6],
-            ['2024–25', Number(data.funding['0045'].amount) / 1e6],
-            ['2025–26', Number(data.funding['0076'].amount) / 1e6]],
-          t(['部門帳列票收，範圍與東南昆士蘭營運補助不同。〔C-11〕', 'Departmental fare revenue, with different coverage from the South East Queensland operating subsidy. [C-11]'])));
-        section.append(comparisonChart(charts,
-          t(['東南昆士蘭一般公共交通補助（百萬澳幣）', 'General SEQ public transport subsidy (A$ million)']), '',
-          [[t(['2025–26 估計實支', '2025–26 estimated actual']), Number(data.funding['0053'].amount) / 1e6],
-            [t(['2026–27 預算', '2026–27 budget']), Number(data.funding['0054'].amount) / 1e6]],
-          t(['州預算所列，涵蓋一般公共交通營運。〔C-11〕',
-            'State budget figures for general public transport operations. [C-11]'])));
+      if (i === 2) {
+        // Q89: the projects in chapter 3 are on the chapter 1 corridor map.
+        const pointer = node('p');
+        pointer.append(t(['這幾項工程的位置，見第 1 章的', 'The ']),
+          link(t(['走廊地圖', 'corridor map']), '#corridor-map'),
+          t(['。', ' in Chapter 1 shows where these projects are.']));
+        section.append(pointer);
       }
-      if (i === 6) section.append(table(t(['問題與工程對照', 'Service issues and projects']), [
-        t(['問題', 'Issue']), t(['服務證據', 'Evidence']), t(['工程關聯', 'Project response']), t(['資料缺口', 'Evidence gap'])
-      ], [[
-        'Clayfield', t(['抽查週六最長 60 分鐘，同時段週三 30 分鐘。附近有進城公車。', 'Longest sampled gap: 60 minutes on Saturday, 30 in the same Wednesday window. Nearby buses run into the city.']),
-        t(['尚無可核對的週六增班方案。', 'No verifiable Saturday service increase identified.']),
-        t(['逐站運行紀錄及步行轉乘資料。', 'Stop-level operating records and walking access data.'])
-      ]]));
-      if (paragraphs[1]) prose(section, paragraphs[1]);
+      paragraphs.forEach((paragraph, p) => {
+        prose(section, paragraph);
+        if (figuresAfter[p]) section.append(...figuresAfter[p]());
+      });
       return section;
     });
     report.replaceChildren(cover, ...panels, sources(t));

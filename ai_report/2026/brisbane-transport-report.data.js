@@ -81,11 +81,6 @@ window.BRISBANE_TRANSPORT_REPORT = {
       "S-086",
       "S-029"
     ],
-    "C-05": [
-      "S-066",
-      "S-103",
-      "S-140"
-    ],
     "C-06": [
       "S-001",
       "S-065",
@@ -333,24 +328,6 @@ window.BRISBANE_TRANSPORT_REPORT = {
       "period_start": "",
       "period_end": "2026-06-30"
     },
-    "0065": {
-      "amount": "3500000000",
-      "source_id": "S-109",
-      "period_start": "",
-      "period_end": ""
-    },
-    "0068": {
-      "amount": "2222597000",
-      "source_id": "S-109",
-      "period_start": "",
-      "period_end": "2026-06-30"
-    },
-    "0075": {
-      "amount": "288000000",
-      "source_id": "S-140",
-      "period_start": "",
-      "period_end": ""
-    },
     "0076": {
       "amount": "88100000",
       "source_id": "S-143",
@@ -455,10 +432,6 @@ window.BRISBANE_TRANSPORT_REPORT = {
       "title": "European Train Control System Program",
       "url": "https://www.tmr.qld.gov.au/projects/programs/european-train-control-system-program"
     },
-    "S-103": {
-      "title": "Annual Report 2024–25",
-      "url": "https://www.brisbane.qld.gov.au/content/dam/brisbanecitycouncil/corpwebsite/about-council/documents/annual-report-2024-25.pdf.coredownload.pdf"
-    },
     "S-108": {
       "title": "Queensland Budget 2026–27 Service Delivery Statements – Transport and Main Roads",
       "url": "https://budget.qld.gov.au/files/2026-27-budget-sds-department-of-transport-and-main-roads.pdf"
@@ -518,10 +491,6 @@ window.BRISBANE_TRANSPORT_REPORT = {
     "S-134": {
       "title": "Passenger rolling stock procurements",
       "url": "https://www.industry.gov.au/publications/national-rolling-stock-procurement-pipeline/passenger-rolling-stock-procurements"
-    },
-    "S-140": {
-      "title": "History making bridge opens to transform Brisbane",
-      "url": "https://minister.infrastructure.gov.au/c-king/media-release/history-making-bridge-opens-transform-brisbane"
     },
     "S-143": {
       "title": "Annual Report 2025–2026, financial statements note 3",
@@ -636,38 +605,152 @@ window.BRISBANE_TRANSPORT_REPORT = {
       "url": "https://www.delivering2032.com.au/__data/assets/pdf_file/0023/105818/consolidated-final-report-recommendations-and-queensland-government-response.pdf"
     }
   },
-  "journeys": [
-    {
-      "origin": "Eight Mile Plains platform 1",
-      "destination": "Cultural Centre platform 1",
-      "travel_date": "2025-05-14",
-      "wait_min": "0",
-      "in_vehicle_min": "22",
-      "total_min": "22"
-    },
-    {
-      "origin": "Eight Mile Plains platform 1",
-      "destination": "Cultural Centre platform 1",
-      "travel_date": "2026-10-21",
-      "wait_min": "1",
-      "in_vehicle_min": "22",
-      "total_min": "23"
-    },
-    {
-      "origin": "Loganlea platform 2",
-      "destination": "Central platform 3",
-      "travel_date": "2026-10-21",
-      "wait_min": "4",
-      "in_vehicle_min": "40",
-      "total_min": "44"
-    },
-    {
-      "origin": "Indooroopilly Shopping Centre stop C",
-      "destination": "University of Queensland（1746）",
-      "travel_date": "2026-10-21",
-      "wait_min": "0",
-      "in_vehicle_min": "16",
-      "total_min": "16"
+  "figures": {
+    "n1": [
+      {
+        "name": "Ipswich",
+        "pct": 18.3,
+        "change": 41494
+      },
+      {
+        "name": "Logan",
+        "pct": 17.4,
+        "change": 59694
+      },
+      {
+        "name": "Sunshine Coast",
+        "pct": 12.9,
+        "change": 43568
+      },
+      {
+        "name": "Moreton Bay",
+        "pct": 11.7,
+        "change": 55823
+      },
+      {
+        "name": "Lockyer Valley",
+        "pct": 11.3,
+        "change": 4692
+      },
+      {
+        "name": "Gold Coast",
+        "pct": 10.4,
+        "change": 64888
+      },
+      {
+        "name": "Brisbane",
+        "pct": 8.8,
+        "change": 111801
+      },
+      {
+        "name": "Scenic Rim",
+        "pct": 8.5,
+        "change": 3692
+      },
+      {
+        "name": "Redland",
+        "pct": 7.7,
+        "change": 12413
+      },
+      {
+        "name": "Somerset",
+        "pct": 6.4,
+        "change": 1614
+      },
+      {
+        "name": "Noosa",
+        "pct": 5.1,
+        "change": 2889
+      },
+      {
+        "name": "total",
+        "pct": 11.2,
+        "change": 402568
+      }
+    ],
+    "n2": [
+      {
+        "name": "total",
+        "travelled": 1267836,
+        "car": 80.7,
+        "pt": 10.8,
+        "other": 8.5
+      },
+      {
+        "name": "brisbane",
+        "travelled": 485868,
+        "car": 70.9,
+        "pt": 18.5,
+        "other": 10.6
+      }
+    ],
+    "n3": {
+      "hours": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "old": [
+        1,
+        4,
+        6,
+        12,
+        12,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        6,
+        6,
+        5,
+        4,
+        4,
+        4,
+        4,
+        3
+      ],
+      "m1": [
+        3,
+        6,
+        12,
+        12,
+        12,
+        12,
+        12,
+        12,
+        12,
+        12,
+        12,
+        12,
+        12,
+        12,
+        6,
+        6,
+        6,
+        4,
+        4,
+        3
+      ]
     }
-  ]
+  }
 };
