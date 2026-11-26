@@ -476,27 +476,24 @@
     return chart;
   }
 
-  // N4, chapter 1 (Q96, Q97): population and public transport trips, both 2015–16 = 100.
-  // Pandemic years are shaded; 2025–26 has trips only, its population is not yet published.
+  // N4, chapter 1 (Q96–Q98): public transport trips per person a year, the measure Australian
+  // trend reports use (Q98). Pandemic years are shaded; 2025–26 waits for its population.
   function ridershipChart(charts, t) {
     const n4 = data.figures.n4;
     const at = (year) => n4.years.indexOf(year);
     const chart = charts.build({
-      title: t(['人口與大眾運輸運量（2015–16 年度＝100）', 'Population and public transport trips (2015–16 = 100)']),
+      title: t(['每人每年搭乘大眾運輸次數', 'Public transport trips per person a year']),
       type: 'line',
       data: {
         categories: n4.years,
-        series: [
-          { label: t(['11 個地方政府人口', 'Population, 11 LGAs']), colorVar: '--chart-1', data: n4.population },
-          { label: t(['大眾運輸運量（東南昆士蘭）', 'Public transport trips (SEQ)']), colorVar: '--chart-2', data: n4.trips }
-        ],
+        series: [{ label: t(['每人每年搭乘次數', 'Trips per person a year']), colorVar: '--chart-1', data: n4.perPerson }],
         bands: [{ from: at('2019–20'), to: at('2021–22'), label: t(['疫情', 'Pandemic']) }],
-        labelAt: [at('2018–19'), at('2021–22'), at('2024–25')] // the values the text compares
+        labelAt: [at('2018–19')] // the pre-pandemic year the text compares with
       }
     });
     chart.append(inline(node('p', null, { class: 'figure-note' }), t([
-      '兩條線都以 2015–16 年度為 100；年度是 7 月到隔年 6 月。運量是 Translink 東南昆士蘭全路網的搭乘次數（一人一次單向移動），人口是 11 個地方政府的年中估計常住人口，兩者範圍接近但不相同。灰底是受疫情影響的年度。2025–26 年度的人口要到 2027 年才公布，只畫運量。運量增加不代表班次和座位夠用。〔C-33〕',
-      'Both lines are indexed to 2015–16 = 100; years run from July to June. Trips are passenger trips on the whole Translink network in South East Queensland (one person making one one-way journey); population is the mid-year estimated resident population of the 11 local government areas, so the two areas are close but not identical. The shaded years were affected by the pandemic. Population for 2025–26 will not be published until 2027, so only trips are shown for that year. More trips do not mean that services and seats are sufficient. [C-33]'
+      'Translink 東南昆士蘭全路網的年度搭乘次數（一人一次單向移動），除以 11 個地方政府的年中估計常住人口；兩者範圍接近但不相同。年度是 7 月到隔年 6 月，灰底是受疫情影響的年度。2025–26 年度的人口要到 2027 年才公布，所以只畫到 2024–25 年度。搭乘次數增加不代表班次和座位夠用。〔C-33〕',
+      'Annual passenger trips on the whole Translink network in South East Queensland (one person making one one-way journey), divided by the mid-year estimated resident population of the 11 local government areas; the two areas are close but not identical. Years run from July to June, and the shaded years were affected by the pandemic. Population for 2025–26 will not be published until 2027, so the chart ends at 2024–25. More trips do not mean that services and seats are sufficient. [C-33]'
     ])));
     return chart;
   }
