@@ -13,8 +13,9 @@ What goes in (only what the page actually uses):
   funding  every funding row whose 4-digit ID ('0003' for F-0003) appears quoted in PAGE_JS
   sources  sources of those claims and funding rows, plus S-ids named in PAGE_JS
   figures  N1 population growth, N2 2016 travel to work, N3 Eight Mile Plains hourly
-           services, read from DATA_DIR/derived (Q86) and checked against the
-           figures in stage-4-figures-six-chapter.md
+           services, N4 population and public transport trips index (Q97), read from
+           DATA_DIR/derived (Q86) and checked against the figures in
+           stage-4-figures-six-chapter.md
 Any cited ID missing from its CSV, or a figure number that no longer matches,
 stops the script without writing. The unused "journeys" entry is removed (Q58).
 """
@@ -89,7 +90,20 @@ def figures(data_dir):
     expect('N3 old 111 day total', sum(n3['old']), 99)
     expect('N3 M1 day total', sum(n3['m1']), 182)
     expect('N3 07-08 h', (n3['old'][3:5], n3['m1'][3:5]), ([12, 12], [12, 12]))
-    return {'n1': n1, 'n2': n2, 'n3': n3}
+
+    rows = read_rows(f'{derived}/patronage_population_2015-16_2025-26.csv')
+    num = lambda v: round(float(v)) if v else None  # whole index points; empty = not yet published
+    n4 = {'years': [r['financial_year'].replace('-', '–') for r in rows],
+          'population': [num(r['population_index']) for r in rows],
+          'trips': [num(r['trips_index']) for r in rows]}
+    per_person = {r['financial_year']: r['trips_per_person'] for r in rows}
+    expect('N4 years', (n4['years'][0], n4['years'][-1]), ('2015–16', '2025–26'))
+    expect('N4 2018-19', (n4['population'][3], n4['trips'][3]), (106, 106))
+    expect('N4 2021-22 trips', n4['trips'][6], 63)
+    expect('N4 2024-25', (n4['population'][9], n4['trips'][9]), (120, 107))
+    expect('N4 2025-26', (n4['population'][10], n4['trips'][10]), (None, 119))
+    expect('N4 trips per person', (per_person['2018-19'], per_person['2024-25']), ('54.2', '48.7'))
+    return {'n1': n1, 'n2': n2, 'n3': n3, 'n4': n4}
 
 
 def main():

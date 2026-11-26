@@ -5,7 +5,7 @@ window.BRISBANE_TRANSPORT_REPORT = {
     "chapters": [
       {
         "title": "底子與壓力：路網怎麼來的？人長了多少？大家怎麼移動？",
-        "body": "### 現在的路網怎麼來的\n\n本篇看的幾項主要建設，是過去三十年陸續加入既有路網的；其中幾項，官方當時就是為了人口與通勤壓力而建。黃金海岸鐵路 1996 年起陸續開通，1998 年延伸到 Robina；時任總理 Keating 在 1992 年說，黃金海岸到布里斯本一帶的發展缺少合適的大眾運輸。South East Busway 在 2001 年 4 月底開始一般營運，就是開場那個月台所在的路段：部長當時說，Eight Mile Plains 尖峰進城最長要一小時，走專用道約 18 分鐘。同年 5 月 Airtrain 通車，連接機場、市區與黃金海岸。之後鐵路延伸到 Springfield（2013 年）與 Redcliffe 半島（2016 年）。〔C-15〕\n\n2001 年的 18 分鐘是部長說法，2026 年 M1 表定 22 分鐘是站到站時間，兩者算法不同，不能拿來說變快或變慢。〔C-15、C-08〕\n\n### 人長在哪裡、要去哪裡\n\n2020 年 6 月到 2025 年 6 月，11 個地方政府的常住人口由約 360 萬增至 401 萬，增加 11.2%，約 40 萬人。增幅最快的在外圍：五年增幅前兩名是 Ipswich（18.3%）與 Logan（17.4%）；統計局列出 2024–25 年全州成長率最高的地區 Ripley、Morayfield、Greenbank–North Maclean，分別在 Ipswich、Moreton Bay 和 Logan 的外圍。昆士蘭政府統計處 2025 年版推估，中推估到 2031 年約 442 萬人，低、高推估在 432 萬到 453 萬之間；再往後看，2021 到 2046 年 Ipswich 人口約翻倍（23 萬增至 48 萬），Logan 增加約三分之二，Brisbane 市約三分之一。這些是推估，不是實績。〔C-01、C-16、C-27〕\n\n工作最集中的地方則在市中心。2021 年普查，大布里斯本約 119 萬名就業者的工作地點中，Brisbane City 這一區就佔 12.3%；排名前五的地區有四個在市中心周邊（Brisbane City、South Brisbane、Fortitude Valley、Newstead–Bowen Hills），四區合計約佔兩成（19.4%）。這份資料只涵蓋統計局的大布里斯本統計區，不含黃金海岸，陽光海岸只含 Bribie Island 一小塊，普查日也在疫情期間。可以推想，住在外圍、在市中心上班的人，會讓尖峰的進城需求集中在幾條主要走廊；不過本篇沒有居住地到工作地的起訖資料，這是推論，不是觀測。〔C-28、C-29〕\n\n### 路上：上班多半靠汽車\n\n疫情前的 2016 年普查，11 個地方政府有出門上班的人，約八成只開車或搭別人的車，搭大眾運輸的約一成；就算在大眾運輸比例最高的 Brisbane 市，也不到兩成。2021 年普查日在疫情期間，在家工作的人佔全部就業者的比例，從 5% 升到 17%，比例不能和 2016 年比較變化。2020 到 2025 年，登記的乘用車增加 14.2%，比人口的 11.2% 快；每千人乘用車從 591 輛增至 607 輛。登記數不等於每天開車的人數。〔C-17、C-18〕\n\nTMR 的績效簡報顯示，2022/23 年東南昆士蘭州管道路的抽樣路段，每 10 公里行車時間早尖峰比前四年（2018/19 至 2021/22）平均多 30 秒，晚尖峰多 39 秒；這個基準包含疫情年份。另外，2022 年的旅運調查和 2017–2019 年相比，東南昆士蘭的大眾運輸分擔率下降 1.9 個百分點，平均上班通勤時間卻縮短了 9.8%；兩組比較都跨越疫情，簡報沒有說明原因。汽車會員組織 RACQ 在倡議文章中引用自家的年度車速報告指出，2025 年尖峰時段，布里斯本與黃金海岸約 512 公里的主要路段中，超過七成比 2019 年慢。2026 年普查的上班方式結果預計 2027 年 10 月發布，可提供疫情後、這幾項鐵路通車前的基準。〔C-19、C-20、C-32〕\n\n這些數字在本篇是大眾運輸要面對的需求背景，道路建設本身留到下一篇檢查。\n\n### 離峰和週末，有些路線仍很疏\n\nDoomben 線上的 Clayfield 可直達市區。抽查 2026 年 10 月 21 日（週三）與 24 日（週六）10:00–15:00，往市區的直達火車最長分別隔 30 和 60 分鐘，附近另有 300、322 公車。已查的鐵路工程沒有公布這一站的週末增班。2026 年 6 月，Citytrain 全網尖峰準點率 95.16%、全天班次履行率 99.84%（已依官方做法排除風災等無法控制的事件）；全網數字不能代表個別車站的實際候車。〔C-02、C-12、C-14〕\n\n**本章結論。** 1996 到 2016 年間，這幾項建設陸續加入既有路網，其中黃金海岸鐵路和公車專用道，官方當時說明是為了人口與通勤壓力。人口還在快速增加，增幅最快的在外圍，工作最集中的地方在市中心；上班多半靠汽車（2016 年普查），車比人增加得快，州管道路抽樣路段的尖峰行車時間變長，2022 年調查也顯示大眾運輸佔比比 2017–2019 年低。〔C-01、C-15 至 C-19、C-27 至 C-29〕"
+        "body": "### 現在的路網怎麼來的\n\n本篇看的幾項主要建設，是過去三十年陸續加入既有路網的；其中幾項，官方當時就是為了人口與通勤壓力而建。黃金海岸鐵路 1996 年起陸續開通，1998 年延伸到 Robina；時任總理 Keating 在 1992 年說，黃金海岸到布里斯本一帶的發展缺少合適的大眾運輸。South East Busway 在 2001 年 4 月底開始一般營運，就是開場那個月台所在的路段：部長當時說，Eight Mile Plains 尖峰進城最長要一小時，走專用道約 18 分鐘。同年 5 月 Airtrain 通車，連接機場、市區與黃金海岸。之後鐵路延伸到 Springfield（2013 年）與 Redcliffe 半島（2016 年）。〔C-15〕\n\n2001 年的 18 分鐘是部長說法，2026 年 M1 表定 22 分鐘是站到站時間，兩者算法不同，不能拿來說變快或變慢。〔C-15、C-08〕\n\n### 人長在哪裡、要去哪裡\n\n2020 年 6 月到 2025 年 6 月，11 個地方政府的常住人口由約 360 萬增至 401 萬，增加 11.2%，約 40 萬人。增幅最快的在外圍：五年增幅前兩名是 Ipswich（18.3%）與 Logan（17.4%）；統計局列出 2024–25 年全州成長率最高的地區 Ripley、Morayfield、Greenbank–North Maclean，分別在 Ipswich、Moreton Bay 和 Logan 的外圍。昆士蘭政府統計處 2025 年版推估，中推估到 2031 年約 442 萬人，低、高推估在 432 萬到 453 萬之間；再往後看，2021 到 2046 年 Ipswich 人口約翻倍（23 萬增至 48 萬），Logan 增加約三分之二，Brisbane 市約三分之一。這些是推估，不是實績。〔C-01、C-16、C-27〕\n\n工作最集中的地方則在市中心。2021 年普查，大布里斯本約 119 萬名就業者的工作地點中，Brisbane City 這一區就佔 12.3%；排名前五的地區有四個在市中心周邊（Brisbane City、South Brisbane、Fortitude Valley、Newstead–Bowen Hills），四區合計約佔兩成（19.4%）。這份資料只涵蓋統計局的大布里斯本統計區，不含黃金海岸，陽光海岸只含 Bribie Island 一小塊，普查日也在疫情期間。可以推想，住在外圍、在市中心上班的人，會讓尖峰的進城需求集中在幾條主要走廊；不過本篇沒有居住地到工作地的起訖資料，這是推論，不是觀測。〔C-28、C-29〕\n\n### 路上：上班多半靠汽車\n\n疫情前的 2016 年普查，11 個地方政府有出門上班的人，約八成只開車或搭別人的車，搭大眾運輸的約一成；就算在大眾運輸比例最高的 Brisbane 市，也不到兩成。2021 年普查日在疫情期間，在家工作的人佔全部就業者的比例，從 5% 升到 17%，比例不能和 2016 年比較變化。2020 到 2025 年，登記的乘用車增加 14.2%，比人口的 11.2% 快；每千人乘用車從 591 輛增至 607 輛。登記數不等於每天開車的人數。〔C-17、C-18〕\n\n人變多了，搭大眾運輸的有沒有跟著變多？把 Translink 東南昆士蘭全路網的年度運量和 11 個地方政府人口，都以 2015–16 年度（7 月到隔年 6 月）為 100 來比較：疫情前兩者同步，到 2018–19 年度都約 106。疫情期間運量大跌，2021–22 年度只剩 63。2024–25 年度人口到 120，運量回到 107；換算每人每年搭乘 48.7 次，比疫情前 2018–19 年度的 54.2 次少約一成，而這一年還有 50 分票價先試辦、再常態化。2025–26 年度運量再升到 119，追近人口的走勢，但當年人口要到 2027 年才公布，還不能說已經追上。運量增加代表搭乘次數變多，不代表班次和座位夠用。〔C-33〕\n\nTMR 的績效簡報顯示，2022/23 年東南昆士蘭州管道路的抽樣路段，每 10 公里行車時間早尖峰比前四年（2018/19 至 2021/22）平均多 30 秒，晚尖峰多 39 秒；這個基準包含疫情年份。另外，2022 年的旅運調查和 2017–2019 年相比，東南昆士蘭的大眾運輸分擔率下降 1.9 個百分點，平均上班通勤時間卻縮短了 9.8%；兩組比較都跨越疫情，簡報沒有說明原因。汽車會員組織 RACQ 在倡議文章中引用自家的年度車速報告指出，2025 年尖峰時段，布里斯本與黃金海岸約 512 公里的主要路段中，超過七成比 2019 年慢。2026 年普查的上班方式結果預計 2027 年 10 月發布，可提供疫情後、這幾項鐵路通車前的基準。〔C-19、C-20、C-32〕\n\n這些數字在本篇是大眾運輸要面對的需求背景，道路建設本身留到下一篇檢查。\n\n### 離峰和週末，有些路線仍很疏\n\nDoomben 線上的 Clayfield 可直達市區。抽查 2026 年 10 月 21 日（週三）與 24 日（週六）10:00–15:00，往市區的直達火車最長分別隔 30 和 60 分鐘，附近另有 300、322 公車。已查的鐵路工程沒有公布這一站的週末增班。2026 年 6 月，Citytrain 全網尖峰準點率 95.16%、全天班次履行率 99.84%（已依官方做法排除風災等無法控制的事件）；全網數字不能代表個別車站的實際候車。〔C-02、C-12、C-14〕\n\n**本章結論。** 1996 到 2016 年間，這幾項建設陸續加入既有路網，其中黃金海岸鐵路和公車專用道，官方當時說明是為了人口與通勤壓力。人口還在快速增加，增幅最快的在外圍，工作最集中的地方在市中心；上班多半靠汽車（2016 年普查），車比人增加得快，州管道路抽樣路段的尖峰行車時間變長，2022 年調查也顯示大眾運輸佔比比 2017–2019 年低。大眾運輸運量疫情前與人口同步，2024–25 年度仍落後人口，2025–26 年度才追近。〔C-01、C-15 至 C-19、C-27 至 C-29、C-33〕"
       },
       {
         "title": "已經上路的改革：改了什麼？多載了多少人？",
@@ -35,7 +35,7 @@ window.BRISBANE_TRANSPORT_REPORT = {
     "chapters": [
       {
         "title": "Foundations and pressure: how was the network built, how much has the population grown, and how do people travel?",
-        "body": "### How today's network came about\n\nThe major projects covered here were added to the existing network over the past thirty years, and for several of them the government of the day cited population and commuting pressure. The Gold Coast railway opened in stages from 1996 and reached Robina in 1998; in 1992 then Prime Minister Keating said development in the Gold Coast–Brisbane region had taken place without appropriate public transport. The South East Busway began regular services at the end of April 2001, on the section that includes the platform in the opening: the minister said at the time that a peak trip from Eight Mile Plains to the city could take up to an hour, against about 18 minutes on the busway. Airtrain opened in May the same year, linking the airport, the city and the Gold Coast. Rail later reached Springfield (2013) and the Redcliffe Peninsula (2016). [C-15]\n\nThe 18 minutes in 2001 is a minister's statement, while the M1's scheduled 22 minutes in 2026 is a stop-to-stop time. The two are measured differently and cannot show whether the trip became faster or slower. [C-15, C-08]\n\n### Where people live and where they work\n\nFrom June 2020 to June 2025, the estimated resident population of the 11 local government areas rose from about 3.60 million to 4.01 million, an increase of 11.2%, or about 400,000 people. Growth was fastest on the outskirts: the two highest five-year growth rates were Ipswich (18.3%) and Logan (17.4%), and the areas with the highest growth rate in the state in 2024–25 listed by the Australian Bureau of Statistics, Ripley, Morayfield and Greenbank–North Maclean, are on the outskirts of Ipswich, Moreton Bay and Logan, respectively. The Queensland Government Statistician's Office 2025 edition projects about 4.42 million people by 2031 in the medium series, with the low and high series between 4.32 and 4.53 million. Looking further ahead, from 2021 to 2046 Ipswich's population roughly doubles (from about 230,000 to 480,000), Logan grows by about two-thirds and Brisbane City by about a third. These are projections, not actual estimates. [C-01, C-16, C-27]\n\nJobs, by contrast, are most concentrated in the inner city. In the 2021 Census, 12.3% of the roughly 1.19 million employed people whose workplace was in Greater Brisbane worked in the Brisbane City area alone; four of the top five areas are around the inner city (Brisbane City, South Brisbane, Fortitude Valley and Newstead–Bowen Hills), together about one-fifth (19.4%). These data cover only the ABS Greater Brisbane statistical area, which excludes the Gold Coast and includes only a small part of the Sunshine Coast on Bribie Island, and Census day fell during the pandemic. People living on the outskirts and working in the inner city could concentrate peak inbound demand on a few main corridors; however, this report has no origin–destination data from home to work, so this is an inference, not an observation. [C-28, C-29]\n\n### On the road: most commuters travelled by car only\n\nIn the 2016 Census, before the pandemic, about eight in ten people in the 11 local government areas who travelled to work went by car only, as driver or passenger, and about one in ten used public transport; even in Brisbane City, where the public transport share is highest, it was under one in five. Census day in 2021 fell during the pandemic, and the share of all employed people working from home rose from 5% to 17%, so the shares cannot be compared with 2016 to measure change. From 2020 to 2025, registered passenger cars increased by 14.2%, faster than the population's 11.2%; passenger cars per 1,000 people rose from 591 to 607. Registrations are not the same as the number of people driving each day. [C-17, C-18]\n\nA TMR performance snapshot shows that in 2022/23, on sampled sections of state-controlled roads in South East Queensland, travel time per 10 km was 30 seconds longer in the morning peak and 39 seconds longer in the afternoon peak than the average of the previous four years (2018/19 to 2021/22); this baseline includes pandemic years. Separately, a 2022 travel survey compared with 2017–2019 found that the public transport mode share in South East Queensland fell by 1.9 percentage points, while average commuting time to work fell by 9.8%; both comparisons span the pandemic, and the snapshot gives no reason. In an advocacy article by RACQ, a motoring member organisation, citing its own annual travel speeds report, more than 70% of about 512 km of key road sections in Brisbane and the Gold Coast were slower in the 2025 peak than in 2019. Results for travel to work from the 2026 Census are expected in October 2027 and can provide a post-pandemic baseline before these rail projects open. [C-19, C-20, C-32]\n\nIn this report these figures are the demand background that public transport has to face; road projects themselves are examined in the next report.\n\n### Off-peak and weekends: some services are still sparse\n\nClayfield, on the Doomben line, has direct trains to the city. In samples taken from 10:00 to 15:00 on 21 October 2026 (Wednesday) and 24 October (Saturday), the longest gaps between direct inbound trains were 30 and 60 minutes respectively; buses 300 and 322 also run nearby. The rail projects checked here have announced no weekend service increase for this station. In June 2026, across the Citytrain network 95.16% of peak services ran on time and 99.84% of scheduled services were delivered across the day (adjusted, as the official method does, to exclude events such as storms that are beyond control); network-wide figures do not represent actual waiting times at individual stations. [C-02, C-12, C-14]\n\n**Takeaway.** Between 1996 and 2016 these projects were added to the existing network, and for the Gold Coast railway and the busway the government of the day cited population and commuting pressure. The population is still growing quickly, growth is fastest on the outskirts, and jobs are most concentrated in the inner city; most commuters travelled by car only, as driver or passenger (2016 Census), cars are increasing faster than people, peak travel times rose on sampled sections of state-controlled roads, and the 2022 travel survey also showed a lower public transport share than in 2017–2019. [C-01, C-15 to C-19, C-27 to C-29]"
+        "body": "### How today's network came about\n\nThe major projects covered here were added to the existing network over the past thirty years, and for several of them the government of the day cited population and commuting pressure. The Gold Coast railway opened in stages from 1996 and reached Robina in 1998; in 1992 then Prime Minister Keating said development in the Gold Coast–Brisbane region had taken place without appropriate public transport. The South East Busway began regular services at the end of April 2001, on the section that includes the platform in the opening: the minister said at the time that a peak trip from Eight Mile Plains to the city could take up to an hour, against about 18 minutes on the busway. Airtrain opened in May the same year, linking the airport, the city and the Gold Coast. Rail later reached Springfield (2013) and the Redcliffe Peninsula (2016). [C-15]\n\nThe 18 minutes in 2001 is a minister's statement, while the M1's scheduled 22 minutes in 2026 is a stop-to-stop time. The two are measured differently and cannot show whether the trip became faster or slower. [C-15, C-08]\n\n### Where people live and where they work\n\nFrom June 2020 to June 2025, the estimated resident population of the 11 local government areas rose from about 3.60 million to 4.01 million, an increase of 11.2%, or about 400,000 people. Growth was fastest on the outskirts: the two highest five-year growth rates were Ipswich (18.3%) and Logan (17.4%), and the areas with the highest growth rate in the state in 2024–25 listed by the Australian Bureau of Statistics, Ripley, Morayfield and Greenbank–North Maclean, are on the outskirts of Ipswich, Moreton Bay and Logan, respectively. The Queensland Government Statistician's Office 2025 edition projects about 4.42 million people by 2031 in the medium series, with the low and high series between 4.32 and 4.53 million. Looking further ahead, from 2021 to 2046 Ipswich's population roughly doubles (from about 230,000 to 480,000), Logan grows by about two-thirds and Brisbane City by about a third. These are projections, not actual estimates. [C-01, C-16, C-27]\n\nJobs, by contrast, are most concentrated in the inner city. In the 2021 Census, 12.3% of the roughly 1.19 million employed people whose workplace was in Greater Brisbane worked in the Brisbane City area alone; four of the top five areas are around the inner city (Brisbane City, South Brisbane, Fortitude Valley and Newstead–Bowen Hills), together about one-fifth (19.4%). These data cover only the ABS Greater Brisbane statistical area, which excludes the Gold Coast and includes only a small part of the Sunshine Coast on Bribie Island, and Census day fell during the pandemic. People living on the outskirts and working in the inner city could concentrate peak inbound demand on a few main corridors; however, this report has no origin–destination data from home to work, so this is an inference, not an observation. [C-28, C-29]\n\n### On the road: most commuters travelled by car only\n\nIn the 2016 Census, before the pandemic, about eight in ten people in the 11 local government areas who travelled to work went by car only, as driver or passenger, and about one in ten used public transport; even in Brisbane City, where the public transport share is highest, it was under one in five. Census day in 2021 fell during the pandemic, and the share of all employed people working from home rose from 5% to 17%, so the shares cannot be compared with 2016 to measure change. From 2020 to 2025, registered passenger cars increased by 14.2%, faster than the population's 11.2%; passenger cars per 1,000 people rose from 591 to 607. Registrations are not the same as the number of people driving each day. [C-17, C-18]\n\nAs the population grew, did public transport use grow with it? Indexing annual trips on the whole Translink network in South East Queensland and the population of the 11 local government areas to 2015–16 = 100 (years run from July to June): before the pandemic the two moved together, both reaching about 106 in 2018–19. Trips fell sharply during the pandemic, to 63 in 2021–22. In 2024–25 the population reached 120 and trips recovered to 107; that is 48.7 trips per person a year, about one-tenth fewer than the 54.2 of 2018–19 before the pandemic, even though 50-cent fares were first trialled and then made permanent that year. In 2025–26 trips rose again to 119, closing in on the population line, but the population for that year will not be published until 2027, so it cannot yet be said that trips have caught up. More trips mean more journeys, not that services and seats are sufficient. [C-33]\n\nA TMR performance snapshot shows that in 2022/23, on sampled sections of state-controlled roads in South East Queensland, travel time per 10 km was 30 seconds longer in the morning peak and 39 seconds longer in the afternoon peak than the average of the previous four years (2018/19 to 2021/22); this baseline includes pandemic years. Separately, a 2022 travel survey compared with 2017–2019 found that the public transport mode share in South East Queensland fell by 1.9 percentage points, while average commuting time to work fell by 9.8%; both comparisons span the pandemic, and the snapshot gives no reason. In an advocacy article by RACQ, a motoring member organisation, citing its own annual travel speeds report, more than 70% of about 512 km of key road sections in Brisbane and the Gold Coast were slower in the 2025 peak than in 2019. Results for travel to work from the 2026 Census are expected in October 2027 and can provide a post-pandemic baseline before these rail projects open. [C-19, C-20, C-32]\n\nIn this report these figures are the demand background that public transport has to face; road projects themselves are examined in the next report.\n\n### Off-peak and weekends: some services are still sparse\n\nClayfield, on the Doomben line, has direct trains to the city. In samples taken from 10:00 to 15:00 on 21 October 2026 (Wednesday) and 24 October (Saturday), the longest gaps between direct inbound trains were 30 and 60 minutes respectively; buses 300 and 322 also run nearby. The rail projects checked here have announced no weekend service increase for this station. In June 2026, across the Citytrain network 95.16% of peak services ran on time and 99.84% of scheduled services were delivered across the day (adjusted, as the official method does, to exclude events such as storms that are beyond control); network-wide figures do not represent actual waiting times at individual stations. [C-02, C-12, C-14]\n\n**Takeaway.** Between 1996 and 2016 these projects were added to the existing network, and for the Gold Coast railway and the busway the government of the day cited population and commuting pressure. The population is still growing quickly, growth is fastest on the outskirts, and jobs are most concentrated in the inner city; most commuters travelled by car only, as driver or passenger (2016 Census), cars are increasing faster than people, peak travel times rose on sampled sections of state-controlled roads, and the 2022 travel survey also showed a lower public transport share than in 2017–2019. Public transport trips kept pace with the population before the pandemic, were still behind it in 2024–25, and closed in only in 2025–26. [C-01, C-15 to C-19, C-27 to C-29, C-33]"
       },
       {
         "title": "Reforms already in place: what changed, and how many more people did it carry?",
@@ -217,6 +217,12 @@ window.BRISBANE_TRANSPORT_REPORT = {
     ],
     "C-32": [
       "S-170"
+    ],
+    "C-33": [
+      "S-172",
+      "S-013",
+      "S-060",
+      "S-026"
     ]
   },
   "funding": {
@@ -348,6 +354,10 @@ window.BRISBANE_TRANSPORT_REPORT = {
       "title": "About Cross River Rail",
       "url": "https://crossriverrail.qld.gov.au/about/"
     },
+    "S-013": {
+      "title": "Patronage - South East Queensland（Translink monthly performance data 的一個檔案）",
+      "url": "https://www.data.qld.gov.au/dataset/translink-monthly-performance-data"
+    },
     "S-014": {
       "title": "Punctuality and reliability - Citytrain",
       "url": "https://www.data.qld.gov.au/dataset/translink-monthly-performance-data"
@@ -367,6 +377,10 @@ window.BRISBANE_TRANSPORT_REPORT = {
     "S-025": {
       "title": "Wayback Machine 存檔的官方 SEQ GTFS 檔案（gtfsrt.api.translink.com.au/GTFS/SEQ_GTFS.zip）",
       "url": "https://web.archive.org/web/*/gtfsrt.api.translink.com.au/GTFS/SEQ_GTFS.zip"
+    },
+    "S-026": {
+      "title": "Queenslanders on Board with the LNP's Permanent 50 Cent Fares（Media statement）",
+      "url": "https://statements.qld.gov.au/statements/101980"
     },
     "S-028": {
       "title": "The Wave – Stages 1 and 2",
@@ -603,6 +617,10 @@ window.BRISBANE_TRANSPORT_REPORT = {
     "S-171": {
       "title": "Consolidated Recommendations Table: 100 Day Review final report recommendations and Queensland Government response",
       "url": "https://www.delivering2032.com.au/__data/assets/pdf_file/0023/105818/consolidated-final-report-recommendations-and-queensland-government-response.pdf"
+    },
+    "S-172": {
+      "title": "Patronage and complaints（Translink monthly performance data 的一個檔案，每週）",
+      "url": "https://www.data.qld.gov.au/dataset/translink-monthly-performance-data"
     }
   },
   "figures": {
@@ -750,6 +768,47 @@ window.BRISBANE_TRANSPORT_REPORT = {
         4,
         4,
         3
+      ]
+    },
+    "n4": {
+      "years": [
+        "2015–16",
+        "2016–17",
+        "2017–18",
+        "2018–19",
+        "2019–20",
+        "2020–21",
+        "2021–22",
+        "2022–23",
+        "2023–24",
+        "2024–25",
+        "2025–26"
+      ],
+      "population": [
+        100,
+        102,
+        104,
+        106,
+        108,
+        110,
+        112,
+        114,
+        118,
+        120,
+        null
+      ],
+      "trips": [
+        100,
+        99,
+        102,
+        106,
+        85,
+        66,
+        63,
+        85,
+        93,
+        107,
+        119
       ]
     }
   }

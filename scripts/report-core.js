@@ -39,6 +39,10 @@
       return n.toLocaleString("en-US");
     }
 
+    function isNum(v) {
+      return typeof v === "number";
+    }
+
     /* ============ SVG CHART BUILDERS ============ */
     /* Charts are drawn at the plot's real width in CSS px, not on a fixed canvas
        scaled down, so chart text is true type-scale px on every screen; they are
@@ -184,9 +188,12 @@
       var suffix = chart.suffix || "";
       var n = names.length;
       var h = w < NARROW ? 200 : 220;
-      var padX = 6, padTop = 26, padBottom = 28;
+      // Opt-in: chartData.bands shades category ranges ({from, to, label}); their labels get a row above the plot.
+      var bands = chartData.bands || [];
+      var padX = 6, padTop = 26 + (bands.length ? FS_CAT + 6 : 0), padBottom = 28;
+      // A null value is a category with no data for that series (e.g. not yet published): no dot, no label.
       var allVals = [];
-      series.forEach(function (s) { allVals = allVals.concat(s.data); });
+      series.forEach(function (s) { allVals = allVals.concat(s.data.filter(isNum)); });
       var max = Math.max.apply(null, allVals) * 1.18;
       var min = Math.min(0, Math.min.apply(null, allVals));
       var stepX = (w - padX * 2) / (n - 1);
@@ -196,27 +203,40 @@
       function anchorFor(i) { return i === 0 ? "start" : (i === n - 1 ? "end" : "middle"); }
 
       var svg = newSvg(w, h, chart);
+      bands.forEach(function (b) {
+        var x1 = Math.max(0, xFor(b.from) - stepX / 2);
+        var x2 = Math.min(w, xFor(b.to) + stepX / 2);
+        svg.appendChild(svgEl("rect", { class: "c-band", x: x1, y: padTop - FS_CAT - 10, width: x2 - x1, height: baseY - padTop + FS_CAT + 10, style: "fill:var(--color-border)" }));
+        addText(svg, t(b.label), { class: "c-cat", x: (x1 + x2) / 2, y: padTop - FS_CAT, "text-anchor": "middle", "font-size": FS_CAT, style: "fill:var(--color-text-soft)" });
+      });
       svg.appendChild(svgEl("line", { x1: padX, y1: baseY, x2: w - padX, y2: baseY, style: "stroke:var(--color-border-soft)", "stroke-width": 1 }));
       var cross = svgEl("line", { class: "c-cross", x1: 0, y1: padTop - 8, x2: 0, y2: baseY, style: "stroke:var(--color-text-soft)", "stroke-width": 1, "stroke-dasharray": "3 3", visibility: "hidden" });
       svg.appendChild(cross);
 
       series.forEach(function (s) {
-        var pts = s.data.map(function (v, i) { return xFor(i) + "," + yFor(v); }).join(" ");
-        svg.appendChild(svgEl("polyline", { points: pts, fill: "none", style: "stroke:var(" + s.colorVar + ")", "stroke-width": 2.5, "stroke-linejoin": "round" }));
+        // Consecutive values form one line; a null breaks it.
+        var run = [];
+        s.data.concat([null]).forEach(function (v, i) {
+          if (isNum(v)) { run.push(xFor(i) + "," + yFor(v)); return; }
+          if (run.length > 1) svg.appendChild(svgEl("polyline", { points: run.join(" "), fill: "none", style: "stroke:var(" + s.colorVar + ")", "stroke-width": 2.5, "stroke-linejoin": "round" }));
+          run = [];
+        });
         s.data.forEach(function (v, i) {
-          svg.appendChild(svgEl("circle", { cx: xFor(i), cy: yFor(v), r: 3, style: "fill:var(" + s.colorVar + ")" }));
+          if (isNum(v)) svg.appendChild(svgEl("circle", { cx: xFor(i), cy: yFor(v), r: 3, style: "fill:var(" + s.colorVar + ")" }));
         });
       });
 
       // Value labels are drawn after every line and dot so no line runs through a number.
+      var placed = [];
       series.forEach(function (s, si) {
-        // Label first + last always; label the low point only for single-series charts
+        // Label the series' first + last values always; label the low point only for single-series charts
         // (avoids overlapping labels when series share a near-zero minimum).
-        var minIdx = s.data.indexOf(Math.min.apply(null, s.data));
-        var labelIdxs = [0, n - 1];
+        var known = s.data.map(function (v, i) { return isNum(v) ? i : -1; }).filter(function (i) { return i >= 0; });
+        var minIdx = s.data.indexOf(Math.min.apply(null, s.data.filter(isNum)));
+        var labelIdxs = [known[0], known[known.length - 1]];
         if (series.length === 1 && labelIdxs.indexOf(minIdx) === -1) labelIdxs.push(minIdx);
         // Opt-in: chartData.labelAt lists extra category indexes whose values the text relies on.
-        (chartData.labelAt || []).forEach(function (i) { if (i > 0 && i < n - 1 && labelIdxs.indexOf(i) === -1) labelIdxs.push(i); });
+        (chartData.labelAt || []).forEach(function (i) { if (i > 0 && i < n - 1 && isNum(s.data[i]) && labelIdxs.indexOf(i) === -1) labelIdxs.push(i); });
         labelIdxs.forEach(function (i) {
           var v = s.data[i];
           var y = yFor(v);
@@ -225,7 +245,7 @@
           // and higher, this label goes below its point so the two labels don't overlap.
           if (series.length > 1) {
             isBelow = series.some(function (o, oi) {
-              if (oi === si) return false;
+              if (oi === si || !isNum(o.data[i])) return false;
               var ov = o.data[i];
               return Math.abs(yFor(ov) - y) < FS_VAL * 2 && (ov > v || (ov === v && oi < si));
             });
@@ -233,11 +253,27 @@
             // labels; go back above when the higher point leaves at least one label height.
             if (isBelow && y + FS_VAL + 6 > baseY) {
               isBelow = !series.every(function (o, oi) {
-                return oi === si || y - yFor(o.data[i]) >= FS_VAL + 4 || yFor(o.data[i]) >= y;
+                return oi === si || !isNum(o.data[i]) || y - yFor(o.data[i]) >= FS_VAL + 4 || yFor(o.data[i]) >= y;
               });
             }
           }
-          addText(svg, fmtNum(v) + suffix, { class: "c-val", x: xFor(i), y: isBelow ? y + FS_VAL + 6 : y - 9, "text-anchor": anchorFor(i), "font-size": FS_VAL, "font-weight": 700, style: "fill:var(--color-text)" });
+          var str = fmtNum(v) + suffix;
+          var lw = textW(str, FS_VAL, 700);
+          // A line that stops early (later values null) labels its last value like a line end.
+          var a = i === known[known.length - 1] ? "end" : (i === known[0] ? "start" : anchorFor(i));
+          var left = a === "start" ? xFor(i) : (a === "end" ? xFor(i) - lw : xFor(i) - lw / 2);
+          function boxAt(below) {
+            var base = below ? y + FS_VAL + 6 : y - 9;
+            return { l: left, r: left + lw, t: base - FS_VAL, b: base };
+          }
+          function hits(box) {
+            return placed.some(function (p) { return box.l < p.r + 2 && p.l < box.r + 2 && box.t < p.b && p.t < box.b; });
+          }
+          // A label that would cover one already placed at a neighboring category (close values on a
+          // narrow plot) moves to the other side of its point when that side is free and clear of the axis.
+          if (hits(boxAt(isBelow)) && !hits(boxAt(!isBelow)) && (isBelow || y + FS_VAL + 6 <= baseY)) isBelow = !isBelow;
+          placed.push(boxAt(isBelow));
+          addText(svg, str, { class: "c-val", x: xFor(i), y: isBelow ? y + FS_VAL + 6 : y - 9, "text-anchor": a, "font-size": FS_VAL, "font-weight": 700, style: "fill:var(--color-text)" });
         });
       });
 
@@ -276,7 +312,7 @@
             row.appendChild(sw);
             row.appendChild(document.createTextNode(t(s.label) + " "));
           }
-          row.appendChild(el("b", {}, [document.createTextNode(fmtNum(s.data[i]) + suffix)]));
+          row.appendChild(el("b", {}, [document.createTextNode(isNum(s.data[i]) ? fmtNum(s.data[i]) + suffix : "—")]));
           tip.appendChild(row);
         });
         tip.hidden = false;
@@ -389,7 +425,8 @@
       } else if (chart.type === "line") {
         var series = chart.data.series || [{ data: chart.data.data }];
         parts = series.map(function (s) {
-          var pts = s.data.map(function (v, i) { return t(chart.data.categories[i]) + " " + fmtNum(v) + suffix; }).join(sep);
+          var pts = s.data.map(function (v, i) { return isNum(v) ? t(chart.data.categories[i]) + " " + fmtNum(v) + suffix : null; })
+            .filter(function (p) { return p !== null; }).join(sep);
           return s.label ? t(s.label) + (zh ? "：" : ": ") + pts : pts;
         });
       } else {

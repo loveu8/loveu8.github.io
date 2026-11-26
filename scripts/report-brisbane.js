@@ -5,7 +5,7 @@
   const report = document.getElementById('report');
   const sections = ['foundations', 'reforms', 'projects', 'games', 'funding', 'conclusions'];
   // Paragraphs per chapter (blank-line separated) that the figure positions in render() assume (Q85).
-  const paragraphCounts = [13, 5, 7, 5, 3, 3];
+  const paragraphCounts = [14, 5, 7, 5, 3, 3];
   const routes = [
     [['南向 Busway · Metro M1', 'South East Busway · Metro M1'], [
       ['Eight Mile Plains', 'open'], ['Cultural Centre', 'open'], ['Roma Street Busway']]],
@@ -476,6 +476,31 @@
     return chart;
   }
 
+  // N4, chapter 1 (Q96, Q97): population and public transport trips, both 2015–16 = 100.
+  // Pandemic years are shaded; 2025–26 has trips only, its population is not yet published.
+  function ridershipChart(charts, t) {
+    const n4 = data.figures.n4;
+    const at = (year) => n4.years.indexOf(year);
+    const chart = charts.build({
+      title: t(['人口與大眾運輸運量（2015–16 年度＝100）', 'Population and public transport trips (2015–16 = 100)']),
+      type: 'line',
+      data: {
+        categories: n4.years,
+        series: [
+          { label: t(['11 個地方政府人口', 'Population, 11 LGAs']), colorVar: '--chart-1', data: n4.population },
+          { label: t(['大眾運輸運量（東南昆士蘭）', 'Public transport trips (SEQ)']), colorVar: '--chart-2', data: n4.trips }
+        ],
+        bands: [{ from: at('2019–20'), to: at('2021–22'), label: t(['疫情', 'Pandemic']) }],
+        labelAt: [at('2018–19'), at('2021–22'), at('2024–25')] // the values the text compares
+      }
+    });
+    chart.append(inline(node('p', null, { class: 'figure-note' }), t([
+      '兩條線都以 2015–16 年度為 100；年度是 7 月到隔年 6 月。運量是 Translink 東南昆士蘭全路網的搭乘次數（一人一次單向移動），人口是 11 個地方政府的年中估計常住人口，兩者範圍接近但不相同。灰底是受疫情影響的年度。2025–26 年度的人口要到 2027 年才公布，只畫運量。運量增加不代表班次和座位夠用。〔C-33〕',
+      'Both lines are indexed to 2015–16 = 100; years run from July to June. Trips are passenger trips on the whole Translink network in South East Queensland (one person making one one-way journey); population is the mid-year estimated resident population of the 11 local government areas, so the two areas are close but not identical. The shaded years were affected by the pandemic. Population for 2025–26 will not be published until 2027, so only trips are shown for that year. More trips do not mean that services and seats are sufficient. [C-33]'
+    ])));
+    return chart;
+  }
+
   // N3, chapter 2 (Q65, Q87): scheduled inbound trunk services by hour, line chart.
   function hourlyChart(charts, t) {
     const n3 = data.figures.n3;
@@ -622,7 +647,8 @@
         0: {
           2: () => [networkOverview(t), map.figure, schematic(t)],
           4: () => [populationChart(charts, t)],
-          7: () => [commuteChart(charts, t)]
+          7: () => [commuteChart(charts, t)],
+          8: () => [ridershipChart(charts, t)]
         },
         1: {
           1: () => [hourlyChart(charts, t)],
