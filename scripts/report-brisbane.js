@@ -139,7 +139,7 @@
     const labels = [
       ['Eight Mile Plains → Mount Gravatt → South Brisbane → 市中心', 'Eight Mile Plains → Mount Gravatt → South Brisbane → city centre'],
       ['Dutton Park → Woolloongabba → Brisbane River → 市中心 → Bowen Hills', 'Dutton Park → Woolloongabba → Brisbane River → city centre → Bowen Hills'],
-      ['Kuraby → Loganlea → Beenleigh → 黃金海岸；四線化範圍為 Kuraby 至 Beenleigh。', 'Kuraby → Loganlea → Beenleigh → Gold Coast. The track upgrade covers Kuraby to Beenleigh.'],
+      ['Kuraby → Loganlea → Beenleigh → 黃金海岸；四線化範圍為 Kuraby 至 Beenleigh。', 'Kuraby → Loganlea → Beenleigh → Gold Coast. The upgrade from two tracks to four covers Kuraby to Beenleigh.'],
       ['Beerwah 接既有鐵路往布里斯本。規劃新線經 Caloundra 到 Birtinya，再轉公車經 Mountain Creek、Maroochydore 到機場。', 'Beerwah connects to the existing railway towards Brisbane. The planned line runs via Caloundra to Birtinya, where passengers would change to a bus via Mountain Creek and Maroochydore to the airport.'],
       ['Indooroopilly → St Lucia 昆士蘭大學，顯示報告通勤案例路段。', 'Indooroopilly → University of Queensland at St Lucia, showing the section used in the report’s journey example.']
     ];
@@ -470,8 +470,8 @@
       }
     });
     chart.append(inline(node('p', null, { class: 'figure-note' }), t([
-      '2016 年普查（疫情前），只計普查當天有出門上班的人，柱頂為人數。大眾運輸只計原表可辨識的組合，其餘未拆分的多種方式組合歸入其他。2021 年普查日在疫情期間，在家工作從 5% 升到 17%，不和 2016 年比較。〔C-17〕',
-      '2016 Census (before the pandemic), counting only people who travelled to work on Census day; the number above each column is that count. Public transport counts only the combinations identifiable in the original table; other combinations of several modes that the table does not split are grouped as other. Census day in 2021 fell during the pandemic, when working from home rose from 5% to 17%, so it is not compared with 2016. [C-17]'
+      '2016 年普查（疫情前），只計普查當天有出門上班的人，柱頂為人數。大眾運輸只計原表可辨識的組合，其餘未拆分的多種方式組合歸入其他。2021 年普查日在疫情期間，在家工作佔全部就業者的比例從 5% 升到 17%，所以只畫 2016 年。〔C-17〕',
+      '2016 Census (before the pandemic), counting only people who travelled to work on Census day; the number above each column is that count. Public transport counts only the combinations identifiable in the original table; other combinations of several modes that the table does not split are grouped as other. Census day in 2021 fell during the pandemic, and the share of all employed people working from home rose from 5% to 17%, so the chart shows 2016 only. [C-17]'
     ])));
     return chart;
   }
@@ -493,7 +493,7 @@
     });
     chart.append(inline(node('p', null, { class: 'figure-note' }), t([
       '往市區方向的主線（舊 111／M1）。07–08 時是早尖峰，兩年都是每小時 12 班；增加的主要在其他時段。同站另有 555，未畫入（07 時 5→4 班、08 時 4→4 班）。表定班次，各抽查一個週三，不是實際行車紀錄。〔C-21〕',
-      'Inbound trunk services (old 111 / M1). The 7 and 8 am hours are the morning peak, with 12 services an hour in both years; the increase is mainly at other times. Route 555 also serves the stop and is not shown (7 am: 5 to 4 services; 8 am: 4 to 4). Scheduled services on one sampled Wednesday each, not operating records. [C-21]'
+      'Inbound trunk services (old 111 / M1). In the morning peak, both years have 12 services in the hour starting at 7 am and 12 in the hour starting at 8 am; the increase is mainly at other times. Route 555 also serves the stop and is not shown (7 am: 5 to 4 services; 8 am: 4 to 4). Scheduled timetable for one sampled Wednesday in each year, not operating records. [C-21]'
     ])));
     return chart;
   }
@@ -524,10 +524,14 @@
 
   function finance(t, lang) {
     function displayAmount(id, value) {
-      if (id === '0003') return t(['約 98 億澳幣', 'about A$9.8 billion']);
-      if (lang === 'en') return new Intl.NumberFormat('en-AU', {
-        style: 'currency', currency: 'AUD', currencyDisplay: 'code', maximumFractionDigits: 0
-      }).format(value);
+      if (id === '0003') return t(['約 98 億澳幣', 'about A$9.8 billion']);
+      // English follows the body text (Q93, U04): A$ billion from a billion up, otherwise A$ million.
+      if (lang === 'en') {
+        const n = Number(value);
+        return n >= 1e9
+          ? 'A$' + (n / 1e9).toLocaleString('en-AU', { maximumFractionDigits: 4 }) + ' billion'
+          : 'A$' + (n / 1e6).toLocaleString('en-AU', { maximumFractionDigits: 1 }) + ' million';
+      }
       return new Intl.NumberFormat('zh-TW', { maximumFractionDigits: 3 }).format(Number(value) / 1e8) + ' 億澳幣';
     }
     function amount(id, label, showEnd = false) {
@@ -536,7 +540,7 @@
       result.append(label + ' ');
       const source = data.sources[record.source_id];
       result.append(link(displayAmount(id, record.amount), source.url));
-      if (showEnd && record.period_end) result.append(' · ' + record.period_end);
+      if (showEnd && record.period_end) result.append(' · ', node('span', record.period_end, { class: 'fund-date' }));
       return result;
     }
     const paid = {
@@ -549,10 +553,10 @@
         : t(['未取得同範圍的累計支出', 'No cumulative spending figure found for this scope'])
     ]);
     const figure = table(t(['八項工程與政策的財源', 'Funding for eight projects and policies']),
-      [t(['項目', 'Project']), t(['出資者', 'Funding parties']), t(['金額與用途', 'Amount and scope']), t(['支出或付款（截至日）', 'Expenditure or payments (to date)'])], rows);
+      [t(['項目', 'Item']), t(['出資者', 'Funders']), t(['金額與用途', 'Amount and scope']), t(['支出或付款（截至日）', 'Expenditure or payments (as at the date shown)'])], rows);
     figure.append(inline(node('figcaption', null, { class: 'figure-note' }), t([
-      '跨河鐵路全案連同相關工程估計 190.41 億，其中隧道與地下站的設計、興建與維護約 124 億；新列車計畫 95 億含興建與 20 年營運維護。表中兩案都用資本預算，跨河鐵路採審計摘要的約 98 億（細表 98.25 億）。Metro 開通準備與新版公車路網有共同項目。點金額可開啟來源。〔C-13、C-31〕',
-      'Cross River Rail’s whole project, together with associated works, is estimated at A$19.041 billion, of which about A$12.4 billion is for the design, construction and maintenance of the tunnels and underground stations; the new train program’s A$9.5 billion includes construction and 20 years of operations and maintenance. The table uses capital budgets for both, taking the audit summary’s about A$9.8 billion for Cross River Rail (A$9.825 billion in the detailed table). Metro launch preparation and the new bus network share some work. Select an amount to open its source. [C-13, C-31]'
+      '跨河鐵路全案連同相關工程估計約 190.41 億，其中隧道與地下站的設計、興建與維護約 124 億；新列車計畫 95 億含興建與 20 年營運維護。表中兩案都用資本預算，跨河鐵路採審計摘要的約 98 億（細表 98.25 億）。Metro 開通準備與新版公車路網有共同項目。點金額可開啟來源。〔C-13、C-31〕',
+      'Cross River Rail’s whole project, together with associated works, is estimated at about A$19.041 billion, of which about A$12.4 billion is for the design, construction and maintenance of the tunnels and underground stations; the Queensland Train Manufacturing Program’s A$9.5 billion includes construction and 20 years of operations and maintenance. The table uses capital budgets for both. For Cross River Rail it uses the audit summary figure of about A$9.8 billion; the detailed audit table gives A$9.825 billion. Metro launch preparation and the new bus network share some work. Select an amount to open its source. [C-13, C-31]'
     ])));
     return figure;
   }
@@ -632,7 +636,7 @@
         4: {
           0: () => [finance(t, lang)],
           1: () => [
-            moneyChart(charts, t, lang, ['昆士蘭交通部帳列票收（億澳幣）', 'TMR fare revenue (A$ million)'],
+            moneyChart(charts, t, lang, ['昆士蘭交通部帳列票收（億澳幣）', 'TMR departmental fare revenue (A$ million)'],
               [['2023–24', '0044'], ['2024–25', '0045'], ['2025–26', '0076']],
               ['部門帳列票收，範圍與東南昆士蘭營運補助不同。期間 50 分票價先試辦再常態實施。〔C-11〕',
                 'Departmental fare revenue, with different coverage from the South East Queensland operating subsidy. 50-cent fares were first trialled and then made permanent during this period. [C-11]']),

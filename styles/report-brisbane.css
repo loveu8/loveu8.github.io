@@ -111,6 +111,9 @@ figure { margin: var(--space-lg) 0; }
 }
 .tl-tag-ok { background: var(--color-secondary-soft); color: var(--color-secondary-strong); border-color: var(--color-secondary-border); }
 .tl-tag-tight { background: var(--color-warm-soft); color: var(--color-warning-text); border-color: var(--color-warm-border); }
+
+/* Funding table: a reporting date never splits at its hyphens (Q93). */
+.fund-date { white-space: nowrap; }
 @media print { .chart-card, .tl-item { break-inside: avoid; } }
 
 .network-overview {
