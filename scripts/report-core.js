@@ -98,6 +98,10 @@
       var data = chart.data;
       var labels = data.map(function (d) { return t(d.label); });
       var values = data.map(function (d) { return barValue(chart, d); });
+      if (chart.labelsAboveWhenNarrow && w < NARROW) {
+        drawBarChartLabelsAbove(chart, w, plot, labels, values);
+        return;
+      }
       var labelMax = Math.max.apply(null, labels.map(function (l) { return textW(l, FS_VAL); }));
       var labelW = Math.min(w * 0.42, labelMax) + 10;
       var wrapped = labels.map(function (l) { return wrapLabel(l, labelW - 10, FS_VAL); });
@@ -124,6 +128,29 @@
         addText(svg, values[i], { class: "c-val", x: labelW + barW + 6, y: mid, dy: "0.35em", "font-size": FS_VAL, "font-weight": 700, style: "fill:var(--color-text)" });
       });
       svg.appendChild(svgEl("line", { x1: labelW, y1: 0, x2: labelW, y2: h, style: "stroke:var(--color-border)", "stroke-width": 1 }));
+      plot.appendChild(svg);
+    }
+
+    // Opt-in narrow layout (chart.labelsAboveWhenNarrow): each name gets its own line above its bar,
+    // so long value labels no longer squeeze the bars and names never wrap.
+    function drawBarChartLabelsAbove(chart, w, plot, labels, values) {
+      var data = chart.data;
+      var barH = 14;
+      var gap = 4;
+      var rowH = FS_VAL + gap + barH + 12;
+      var valueW = Math.max.apply(null, values.map(function (v) { return textW(v, FS_VAL, 700); })) + 8;
+      var barMax = w - valueW;
+      var max = Math.max.apply(null, data.map(function (d) { return d.value; }));
+      var h = data.length * rowH;
+      var svg = newSvg(w, h, chart);
+      data.forEach(function (d, i) {
+        var top = i * rowH;
+        var barY = top + FS_VAL + gap;
+        var barW = Math.max(2, max > 0 ? (d.value / max) * barMax : 0);
+        addText(svg, labels[i], { class: "c-cat", x: 0, y: top + FS_VAL - 2, "font-size": FS_VAL, style: "fill:var(--color-text-soft)" });
+        svg.appendChild(svgEl("rect", { x: 0, y: barY, width: barW, height: barH, rx: 3, style: "fill:var(--chart-1)" }));
+        addText(svg, values[i], { class: "c-val", x: barW + 6, y: barY + barH / 2, dy: "0.35em", "font-size": FS_VAL, "font-weight": 700, style: "fill:var(--color-text)" });
+      });
       plot.appendChild(svg);
     }
 

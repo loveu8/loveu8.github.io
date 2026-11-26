@@ -439,7 +439,8 @@
     }));
     const chart = charts.build({
       title: t(['人口增幅與增加人數（2020→2025）', 'Population growth and people added, 2020→2025']),
-      type: 'bar', data: rows
+      type: 'bar', data: rows,
+      labelsAboveWhenNarrow: true // Q91: on phones the long values left 10–28px bars
     });
     chart.append(inline(node('p', null, { class: 'figure-note' }), t([
       '2020 年 6 月到 2025 年 6 月的估計常住人口。比例最高的在外圍，增加人數最多的是 Brisbane 市。2025 年為初步數字。〔C-01、C-27〕',
