@@ -13,7 +13,8 @@ What goes in (only what the page actually uses):
   funding  every funding row whose 4-digit ID ('0003' for F-0003) appears quoted in PAGE_JS
   sources  sources of those claims and funding rows, plus S-ids named in PAGE_JS
   figures  N1 population growth, N2 2016 travel to work, N3 Eight Mile Plains hourly
-           services, N4 public transport trips per person (Q97, Q98), read from
+           services, N4 public transport trips per person (Q97, Q98), N5 total trips a
+           year (Q99), read from
            DATA_DIR/derived (Q86) and checked against the figures in
            stage-4-figures-six-chapter.md
 Any cited ID missing from its CSV, or a figure number that no longer matches,
@@ -92,12 +93,15 @@ def figures(data_dir):
     expect('N3 07-08 h', (n3['old'][3:5], n3['m1'][3:5]), ([12, 12], [12, 12]))
 
     rows = read_rows(f'{derived}/patronage_population_2015-16_2025-26.csv')
+    n5 = {'years': [r['financial_year'].replace('-', '–') for r in rows],
+          'millions': [round(int(r['trips']) / 1e6) for r in rows]}
+    expect('N5 trips (million)', [n5['millions'][i] for i in (0, 3, 6, 9, 10)], [180, 190, 113, 193, 214])
     rows = [r for r in rows if r['trips_per_person']]  # 2025-26 has no population yet
     n4 = {'years': [r['financial_year'].replace('-', '–') for r in rows],
           'perPerson': [float(r['trips_per_person']) for r in rows]}
     expect('N4 years', (n4['years'][0], n4['years'][-1]), ('2015–16', '2024–25'))
     expect('N4 trips per person', [n4['perPerson'][i] for i in (0, 3, 6, 9)], [54.6, 54.2, 30.7, 48.7])
-    return {'n1': n1, 'n2': n2, 'n3': n3, 'n4': n4}
+    return {'n1': n1, 'n2': n2, 'n3': n3, 'n4': n4, 'n5': n5}
 
 
 def main():
