@@ -200,6 +200,13 @@
               var ov = o.data[i];
               return Math.abs(yFor(ov) - y) < FS_VAL * 2 && (ov > v || (ov === v && oi < si));
             });
+            // A point this close to the axis has no room below without running into the category
+            // labels; go back above when the higher point leaves at least one label height.
+            if (isBelow && y + FS_VAL + 6 > baseY) {
+              isBelow = !series.every(function (o, oi) {
+                return oi === si || y - yFor(o.data[i]) >= FS_VAL + 4 || yFor(o.data[i]) >= y;
+              });
+            }
           }
           addText(svg, fmtNum(v) + suffix, { class: "c-val", x: xFor(i), y: isBelow ? y + FS_VAL + 6 : y - 9, "text-anchor": anchorFor(i), "font-size": FS_VAL, "font-weight": 700, style: "fill:var(--color-text)" });
         });
@@ -327,12 +334,15 @@
             var inside = segH >= FS_CAT + 4;
             var labelY = yCursor + segH / 2;
             // Outside labels stack upward with the segments; keep each one a line above the last.
-            if (!inside && outsideY !== null) labelY = Math.min(labelY, outsideY - (FS_CAT + 2));
+            if (!inside && outsideY !== null) labelY = Math.min(labelY, outsideY - (FS_CAT + 4));
             if (!inside) outsideY = labelY;
             addText(svg, fmtNum(seg.value) + "%", { class: "c-val", x: inside ? x + barW / 2 : x + barW + 4, y: labelY, dy: "0.35em", "text-anchor": inside ? "middle" : "start", "font-size": FS_CAT, "font-weight": 700, style: "fill:var(--color-text)" });
           }
         });
-        addText(svg, totals[i], { class: "c-val", x: x + barW / 2, y: yCursor - 9, "text-anchor": "middle", "font-size": totalSize, "font-weight": 800, style: "fill:var(--color-text)" });
+        // The column total sits above the bar; an outside share label near the top pushes it up a little.
+        var totalY = yCursor - 9;
+        if (outsideY !== null) totalY = Math.min(totalY, outsideY - FS_CAT / 2 - 6);
+        addText(svg, totals[i], { class: "c-val", x: x + barW / 2, y: totalY, "text-anchor": "middle", "font-size": totalSize, "font-weight": 800, style: "fill:var(--color-text)" });
         addText(svg, names[i], { class: "c-cat", x: x + barW / 2, y: baseY + 18, "text-anchor": "middle", "font-size": FS_CAT, style: "fill:var(--color-text-soft)" });
       });
       plot.appendChild(svg);
