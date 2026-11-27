@@ -5,7 +5,7 @@
   const report = document.getElementById('report');
   const sections = ['today', 'foundations', 'reforms', 'projects', 'games', 'funding', 'conclusions'];
   // Paragraphs per chapter (blank-line separated) that the figure positions in render() assume (Q85).
-  const paragraphCounts = [4, 15, 5, 7, 5, 3, 3];
+  const paragraphCounts = [4, 15, 6, 7, 5, 3, 3];
   const routes = [
     [['南向 Busway · Metro M1', 'South East Busway · Metro M1'], [
       ['Eight Mile Plains', 'open'], ['Cultural Centre', 'open'], ['Roma Street Busway']]],
@@ -69,7 +69,8 @@
     return element;
   }
 
-  function prose(parent, text) {
+  // `number` (optional) returns the prefix for the next subheading, e.g. "2.1 " (Q121).
+  function prose(parent, text, number) {
     let list = null;
     for (const line of text.split('\n')) {
       if (!line.trim()) { list = null; continue; }
@@ -78,7 +79,7 @@
         list.append(inline(node('li'), line.slice(2)));
       } else {
         const heading = line.startsWith('### ');
-        parent.append(inline(node(heading ? 'h3' : 'p'), heading ? line.slice(4) : line));
+        parent.append(inline(node(heading ? 'h3' : 'p'), heading ? (number ? number() : '') + line.slice(4) : line));
       }
     }
   }
@@ -114,7 +115,7 @@
     const localities = window.BRISBANE_ROUTE_LOCALITIES;
     const corridorIds = ["m1", "cross-river", "southern-rail", "the-wave", "432"];
     const figure = node('figure', null, { class: 'corridor-map', id: 'corridor-map' });
-    figure.append(node('h3', t(['本篇五條交通走廊', 'The five corridors in this report'])));
+    figure.append(node('h3', t(['第 3、4 章要看的五條走廊', 'The five corridors examined in Chapters 3 and 4'])));
     figure.append(node('p', t([
       'M1、432 公車和南向鐵路都有車可搭，南向鐵路部分路段同時在擴建。跨河鐵路正在施工，The Wave 仍在規劃。',
       'M1, bus 432 and southern rail services are operating. Part of the southern rail corridor is also being upgraded. Cross River Rail is under construction and The Wave is planned.'
@@ -761,14 +762,16 @@
         // Chapter 2 order (Q120): population and jobs, then the network, then peak pressure.
         1: {
           1: () => [populationChart(charts, t)],
-          5: () => [networkOverview(t), map.figure, schematic(t)],
+          5: () => [networkOverview(t)],
           7: () => [commuteChart(charts, t)],
           8: () => [ridershipChart(charts, t)],
           9: () => [crowdingChart(charts, t)]
         },
+        // Chapter 3 opens with the five corridors that chapters 3 and 4 examine (Q121).
         2: {
-          1: () => [hourlyChart(charts, t)],
-          3: () => [comparisonChart(charts,
+          0: () => [map.figure, schematic(t)],
+          2: () => [hourlyChart(charts, t)],
+          4: () => [comparisonChart(charts,
             t(['上車刷卡次數', 'Card taps at boarding']), '',
             [['111 + 160 · 2025-05', 193986], ['M1 · 2026-05', 382655]],
             t(['只計 go card 和感應銀行卡。轉乘一次就多一筆紀錄，同期路網也有調整。這不代表搭車的人加倍，也無法區分新乘客和原本乘客搭得更多。兩個月份都在 50 分票價常態化之後；上車紀錄也無法看出有多少人從開車改搭。〔C-04〕',
@@ -794,15 +797,17 @@
         console.error('Chapter ' + (i + 1) + ' has ' + paragraphs.length + ' paragraphs; figure positions assume ' + paragraphCounts[i] + '.');
       }
       if (i === 3) {
-        // Q89: the projects in chapter 4 are on the chapter 2 corridor map.
+        // Q89: the projects in chapter 4 are on the corridor map (chapter 3 since Q121).
         const pointer = node('p');
-        pointer.append(t(['這幾項工程的位置，見第 2 章的', 'The ']),
+        pointer.append(t(['這幾項工程的位置，見第 3 章的', 'The ']),
           link(t(['走廊地圖', 'corridor map']), '#corridor-map'),
-          t(['。', ' in Chapter 2 shows where these projects are.']));
+          t(['。', ' in Chapter 3 shows where these projects are.']));
         section.append(pointer);
       }
+      let subheadings = 0;
+      const number = () => (i + 1) + '.' + (++subheadings) + ' ';
       paragraphs.forEach((paragraph, p) => {
-        prose(section, paragraph);
+        prose(section, paragraph, number);
         if (figuresAfter[p]) section.append(...figuresAfter[p]());
       });
       return section;
