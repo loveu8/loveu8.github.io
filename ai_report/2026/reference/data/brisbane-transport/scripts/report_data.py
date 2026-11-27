@@ -12,9 +12,10 @@ What goes in (only what the page actually uses):
            "C-15 to C-19" ranges expanded), with source_ids from claims.csv
   funding  every funding row whose 4-digit ID ('0003' for F-0003) appears quoted in PAGE_JS
   sources  sources of those claims and funding rows, plus S-ids named in PAGE_JS
-  figures  N1 population growth, N2 2016 travel to work, N3 Eight Mile Plains hourly
-           services, N4 public transport trips per person (Q97, Q98), N5 total trips a
-           year (Q99), read from
+  figures  N6 mode cards, N7 trips by mode, N8 bus routes per LGA (chapter 1, Q112–Q116),
+           N1 population growth, N2 2016 travel to work, N3 Eight Mile Plains hourly
+           services, N4 public transport trips per person (Q97, Q98), read from
+           (N5 total trips a year, Q99, was replaced by N7)
            DATA_DIR/derived (Q86) and checked against the figures in
            stage-4-figures-six-chapter.md
 Any cited ID missing from its CSV, or a figure number that no longer matches,
@@ -93,15 +94,57 @@ def figures(data_dir):
     expect('N3 07-08 h', (n3['old'][3:5], n3['m1'][3:5]), ([12, 12], [12, 12]))
 
     rows = read_rows(f'{derived}/patronage_population_2015-16_2025-26.csv')
-    n5 = {'years': [r['financial_year'].replace('-', '–') for r in rows],
-          'millions': [round(int(r['trips']) / 1e6) for r in rows]}
-    expect('N5 trips (million)', [n5['millions'][i] for i in (0, 3, 6, 9, 10)], [180, 190, 113, 193, 214])
     rows = [r for r in rows if r['trips_per_person']]  # 2025-26 has no population yet
     n4 = {'years': [r['financial_year'].replace('-', '–') for r in rows],
           'perPerson': [float(r['trips_per_person']) for r in rows]}
     expect('N4 years', (n4['years'][0], n4['years'][-1]), ('2015–16', '2024–25'))
     expect('N4 trips per person', [n4['perPerson'][i] for i in (0, 3, 6, 9)], [54.6, 54.2, 30.7, 48.7])
-    return {'n1': n1, 'n2': n2, 'n3': n3, 'n4': n4, 'n5': n5}
+
+    # N7, chapter 1 (Q107, Q116): trips a year by mode, 2018-19 to 2025-26, millions.
+    rows = read_rows(f'{derived}/patronage_by_mode_2018-19_2025-26.csv')
+    modes = ['bus', 'rail', 'tram', 'ferry']
+    n7 = {'years': [r['financial_year'].replace('-', '–') for r in rows]}
+    for m in modes + ['total']:
+        n7[m] = [float(r[f'{m}_m']) for r in rows]
+    expect('N7 years', (n7['years'][0], n7['years'][-1], len(n7['years'])), ('2018–19', '2025–26', 8))
+    expect('N7 totals', [n7['total'][i] for i in (0, 1, 3, 7)], [189.72, 152.59, 113.42, 214.36])
+
+    # N6, chapter 1 (Q112–Q114): one card per mode, 2025-26 against 2018-19.
+    first, last = 0, len(n7['years']) - 1
+    routes = read_rows(f'{derived}/routes_by_mode_2020-2026.csv')[-1]  # 2026-10 capture
+    expect('N6 route capture', routes['sample_date'], '2026-10-14')
+    n6 = {'total': n7['total'][last], 'totalGrowth': round((n7['total'][last] / n7['total'][first] - 1) * 100),
+          'modes': []}
+    size = {'bus': {'routes': int(routes['bus_routes'])},
+            'rail': {'lines': 12, 'stations': 153},  # S-176 line list, S-175 stations (C-35)
+            'tram': {'routes': int(routes['tram_routes'])},
+            'ferry': {'routes': int(routes['ferry_routes'])}}
+    for m in modes:
+        n6['modes'].append(dict(key=m, trips=n7[m][last],
+                                share=round(n7[m][last] / n7['total'][last] * 100),
+                                growth=round((n7[m][last] / n7[m][first] - 1) * 100), **size[m]))
+    expect('N6 total', (n6['total'], n6['totalGrowth']), (214.36, 13))
+    expect('N6 cards', [(c['key'], c['share'], c['growth']) for c in n6['modes']],
+           [('bus', 62, 14), ('rail', 26, 3), ('tram', 7, 42), ('ferry', 4, 32)])
+    expect('N6 sizes', [n6['modes'][0]['routes'], n6['modes'][2]['routes'], n6['modes'][3]['routes']], [435, 1, 9])
+
+    # N8, chapter 1 (Q106, Q108): bus routes per LGA, April 2020 and October 2026, with
+    # population growth 2020-2025; largest population first, total last.
+    rows = read_rows(f'{derived}/bus_routes_lga_2020-2026.csv')
+    first_cap, last_cap = rows[0]['capture'], rows[-1]['capture']
+    count = {(r['capture'], r['lga']): int(r['bus_routes']) for r in rows}
+    if any(count[(c, 'outside 11 LGAs')] for c in (first_cap, last_cap)):
+        sys.exit('N8: routes outside the 11 LGAs')
+    pop = {r['lga_name']: r for r in read_rows(f'{derived}/population_lga_2020-2025.csv')}
+    names = sorted((n for n in pop if n != total_name), key=lambda n: -int(pop[n]['erp_2025']))
+    n8 = [{'name': n, 'routes2020': count[(first_cap, n)], 'routes2026': count[(last_cap, n)],
+           'popPct': float(pop[n]['change_pct'])} for n in names]
+    n8.append({'name': 'total', 'routes2020': sum(r['routes2020'] for r in n8),
+               'routes2026': sum(r['routes2026'] for r in n8), 'popPct': float(pop[total_name]['change_pct'])})
+    expect('N8 dates', (rows[0]['sample_date'], rows[-1]['sample_date']), ('2020-04-01', '2026-10-14'))
+    expect('N8 first', tuple(n8[0][k] for k in ('name', 'routes2020', 'routes2026')), ('Brisbane', 227, 217))
+    expect('N8 total', (n8[-1]['routes2020'], n8[-1]['routes2026'], n8[-1]['popPct']), (431, 435, 11.2))
+    return {'n1': n1, 'n2': n2, 'n3': n3, 'n4': n4, 'n6': n6, 'n7': n7, 'n8': n8}
 
 
 def main():

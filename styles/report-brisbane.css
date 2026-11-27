@@ -116,6 +116,56 @@ figure { margin: var(--space-lg) 0; }
 .fund-date { white-space: nowrap; }
 @media print { .chart-card, .tl-item { break-inside: avoid; } }
 
+/* N6 mode cards (Q112–Q114): same pattern as the STARLUX stat and stat-grid, on the type
+   scale (no viewport-scaled number). Four across on wide screens, two by two on phones.
+   The mode colour is only a top rule matching the N7 legend; the name carries the meaning. */
+.mode-overview {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-xs) var(--space-sm);
+  margin: var(--space-sm) 0 var(--space-md);
+  padding: var(--space-md);
+  background: var(--color-primary-soft);
+  border: 1px solid var(--color-primary-border);
+  border-radius: var(--radius-md);
+}
+.mode-overview .stat-value { font-size: var(--fs-xl); font-weight: 800; color: var(--color-primary-strong); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.mode-overview .stat-label { font-size: var(--fs-sm); color: var(--color-text-muted); }
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1px;
+  margin: 0 0 var(--space-sm);
+  padding: 0;
+  list-style: none;
+  background: var(--color-border-soft);
+  border: 1px solid var(--color-border-soft);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+.stat-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: var(--space-md);
+  background: var(--color-surface-soft);
+  border-top: 3px solid var(--color-border);
+}
+.stat-cell[data-mode="bus"] { border-top-color: var(--chart-1); }
+.stat-cell[data-mode="rail"] { border-top-color: var(--chart-2); }
+.stat-cell[data-mode="tram"] { border-top-color: var(--chart-3); }
+.stat-cell[data-mode="ferry"] { border-top-color: var(--chart-4); }
+.stat-cell .mode-name { font-size: var(--fs-sm); color: var(--color-text); }
+.stat-cell .n { font-size: var(--fs-lg); font-weight: 800; color: var(--color-text); font-variant-numeric: tabular-nums; }
+.stat-cell .l { font-size: var(--fs-xs); color: var(--color-text-muted); line-height: 1.5; }
+@media screen and (max-width: 680px) {
+  .stat-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .stat-cell { padding: var(--space-sm); }
+  .stat-cell .n { font-size: var(--fs-md); white-space: nowrap; }
+}
+@media print { .mode-cards { break-inside: avoid; } }
+
 .network-overview {
   background: var(--color-surface-soft);
   border: 1px solid var(--color-border);

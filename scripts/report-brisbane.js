@@ -3,9 +3,9 @@
 
   const data = window.BRISBANE_TRANSPORT_REPORT;
   const report = document.getElementById('report');
-  const sections = ['foundations', 'reforms', 'projects', 'games', 'funding', 'conclusions'];
+  const sections = ['today', 'foundations', 'reforms', 'projects', 'games', 'funding', 'conclusions'];
   // Paragraphs per chapter (blank-line separated) that the figure positions in render() assume (Q85).
-  const paragraphCounts = [14, 5, 7, 5, 3, 3];
+  const paragraphCounts = [4, 14, 5, 7, 5, 3, 3];
   const routes = [
     [['南向 Busway · Metro M1', 'South East Busway · Metro M1'], [
       ['Eight Mile Plains', 'open'], ['Cultural Centre', 'open'], ['Roma Street Busway']]],
@@ -393,7 +393,7 @@
     return figure;
   }
 
-  // F5, chapter 4 (Q60, Q66, Q82): project years carry a text category, never colour alone.
+  // F5, chapter 5 (Q60, Q66, Q82): project years carry a text category, never colour alone.
   function milestones(t) {
     const tags = {
       ok: ['依估計趕得上', 'Expected before the Games on current estimates'],
@@ -430,7 +430,7 @@
     return section;
   }
 
-  // N1, chapter 1 (Q63): growth rate and people added, highest rate first, 11-LGA total last.
+  // N1, chapter 2 (Q63): growth rate and people added, highest rate first, 11-LGA total last.
   function populationChart(charts, t) {
     const rows = data.figures.n1.map((row) => ({
       label: row.name === 'total' ? t(['11 個地方政府合計', '11 LGAs combined']) : row.name,
@@ -449,7 +449,7 @@
     return chart;
   }
 
-  // N2, chapter 1 (Q64, Q88): shares of people who travelled to work, 2016 Census.
+  // N2, chapter 2 (Q64, Q88): shares of people who travelled to work, 2016 Census.
   function commuteChart(charts, t) {
     const parts = [
       ['car', ['只開車或搭車', 'Car only (driver or passenger)'], '--chart-1'],
@@ -476,29 +476,98 @@
     return chart;
   }
 
-  // N5, chapter 1 (Q99): total trips a year, shown before N4 so the scale and the latest year
-  // (which has no population yet) are visible before trips are divided by population.
-  function tripsChart(charts, t) {
-    const n5 = data.figures.n5;
-    const at = (year) => n5.years.indexOf(year);
+  const modes = {
+    bus: ['--chart-1', ['公車', 'Bus']],
+    rail: ['--chart-2', ['火車', 'Rail']],
+    tram: ['--chart-3', ['輕軌', 'Light rail']],
+    ferry: ['--chart-4', ['渡輪', 'Ferry']]
+  };
+  // 億 in Chinese, millions in English (the body text uses 2.14 億 / 214 million).
+  function tripsLabel(t, millions, digits) {
+    return t([(millions / 100).toFixed(2) + ' 億人次', millions.toFixed(digits) + ' million trips']);
+  }
+
+  // N6, chapter 1 (Q112–Q114): one card per mode under a one-line overview; 2025–26, growth
+  // against 2018–19 (before the pandemic, Q113). Sizes are routes on a sampled weekday.
+  function modeCards(t) {
+    const n6 = data.figures.n6;
+    const figure = node('figure', null, { class: 'mode-cards' });
+    figure.append(node('h3', t(['四種運具一覽（2025–26 年度）', 'The four modes at a glance, 2025–26'])));
+    const overview = node('p', null, { class: 'mode-overview' });
+    overview.append(node('span', tripsLabel(t, n6.total, 0), { class: 'stat-value' }),
+      node('span', t(['一年的搭乘次數，比疫情前（2018–19 年度）多 ' + n6.totalGrowth + '%',
+        'trips a year, ' + n6.totalGrowth + '% more than before the pandemic (2018–19)']), { class: 'stat-label' }));
+    figure.append(overview);
+    const size = {
+      bus: (c) => t(['約 ' + c.routes + ' 條路線', 'About ' + c.routes + ' routes']),
+      rail: (c) => t([c.lines + ' 條線・' + c.stations + ' 個車站', c.lines + ' lines · ' + c.stations + ' stations']),
+      tram: (c) => t([c.routes + ' 條（黃金海岸）', c.routes + ' line (Gold Coast)']),
+      ferry: (c) => t([c.routes + ' 條路線', c.routes + ' routes'])
+    };
+    const grid = node('ul', null, { class: 'stat-grid' });
+    for (const card of n6.modes) {
+      const name = modes[card.key][1];
+      const cell = node('li', null, { class: 'stat-cell', 'data-mode': card.key }); // colour rule in report-brisbane.css
+      cell.append(node('strong', t(name), { class: 'mode-name' }),
+        // English drops "trips" from the big number so it stays on one line on phones.
+        node('span', t([(card.trips / 100).toFixed(2) + ' 億人次', card.trips.toFixed(1) + ' million']), { class: 'n' }),
+        node('span', size[card.key](card), { class: 'l' }),
+        node('span', t(['佔 ' + card.share + '%', card.share + '% of trips']), { class: 'l' }),
+        node('span', t(['比疫情前 +' + card.growth + '%', '+' + card.growth + '% on 2018–19']), { class: 'l' }));
+      grid.append(cell);
+    }
+    figure.append(grid);
+    figure.append(inline(node('p', null, { class: 'figure-note' }), t([
+      '搭乘次數是運輸部年報的東南昆士蘭政府簽約服務；公車含 Brisbane Metro。路線數是 2026 年 10 月 14 日（週三）表定有班次的路線；火車線數取 Translink 火車時刻表總表，車站數取運輸部 2024–25 年報。輕軌、渡輪的人數基數小，百分比看起來較大；2018–19 年度渡輪受 Queen’s Wharf 工程影響偏低。〔C-34、C-35〕',
+      'Trips are TMR annual report figures for government contracted services in South East Queensland; bus includes Brisbane Metro. Route counts are routes with scheduled services on Wednesday 14 October 2026; the rail line count is from Translink’s list of all train timetables, and the station count from the TMR 2024–25 annual report. Light rail and ferry start from small numbers, so their percentages look large; ferry trips in 2018–19 were held down by Queen’s Wharf works. [C-34, C-35]'
+    ])));
+    return figure;
+  }
+
+  // N7, chapter 1 (Q107, Q116): trips a year by mode, stacked; replaces the N5 line (Q99).
+  function modeTripsChart(charts, t) {
+    const n7 = data.figures.n7;
+    const keys = Object.keys(modes);
+    const groups = n7.years.map((year, i) => ({
+      // On phones "2018–19" does not fit eight slots; the short label is the end year ('19).
+      label: year, shortLabel: '’' + year.slice(-2), total: Math.round(n7.total[i]),
+      segments: keys.map((key) => ({ label: t(modes[key][1]), value: n7[key][i], colorVar: modes[key][0] }))
+    }));
     const chart = charts.build({
-      title: t(['每年大眾運輸搭乘次數（百萬人次）', 'Public transport trips a year (millions)']),
-      type: 'line',
+      title: t(['每年搭乘次數，依運具（百萬人次）', 'Trips a year by mode (millions)']),
+      type: 'stacked',
       data: {
-        categories: n5.years,
-        series: [{ label: t(['搭乘次數', 'Trips']), colorVar: '--chart-1', data: n5.millions }],
-        bands: [{ from: at('2019–20'), to: at('2021–22'), label: t(['疫情', 'Pandemic']) }],
-        labelAt: [at('2018–19'), at('2024–25')] // the years the text compares
+        unit: t(['百萬', 'million']), groups,
+        legend: keys.map((key) => ({ label: t(modes[key][1]), colorVar: modes[key][0] }))
       }
     });
     chart.append(inline(node('p', null, { class: 'figure-note' }), t([
-      'Translink 東南昆士蘭全路網一年的搭乘次數（一人一次單向移動），四捨五入到百萬。年度是 7 月到隔年 6 月，灰底是受疫情影響的年度。總數沒有考慮人口增加，扣掉人口的結果見下一張圖。〔C-33〕',
-      'A year’s passenger trips on the whole Translink network in South East Queensland (one person making one one-way journey), rounded to the nearest million. Years run from July to June, and the shaded years were affected by the pandemic. The totals do not allow for population growth; the next chart divides them by population. [C-33]'
+      '運輸部年報的東南昆士蘭政府簽約服務搭乘次數，柱頂是合計（四捨五入到百萬）。年度是 7 月到隔年 6 月，窄螢幕上以結束年份標示（’19 是 2018–19 年度）；2019–20 年度從 2020 年 3 月起受疫情影響，2020–21、2021–22 年度最低。2024–25 年度起有 50 分票價。〔C-34〕',
+      'TMR annual report trips on government contracted services in South East Queensland; the number above each column is the total, rounded to the nearest million. Years run from July to June; on narrow screens each is labelled by its end year (’19 is 2018–19); 2019–20 was affected by the pandemic from March 2020, and 2020–21 and 2021–22 were the lowest. 50-cent fares apply from 2024–25. [C-34]'
     ])));
     return chart;
   }
 
-  // N4, chapter 1 (Q96–Q98): public transport trips per person a year, the measure Australian
+  // N8, chapter 1 (Q106, Q108): bus routes per LGA with population growth, largest first.
+  function busRoutesTable(t) {
+    const n8 = data.figures.n8;
+    const signed = (n) => (n > 0 ? '+' : '') + n;
+    const rows = n8.map((row) => [
+      row.name === 'total' ? t(['11 個地方政府合計', '11 LGAs combined']) : row.name,
+      String(row.routes2020), String(row.routes2026), signed(row.routes2026 - row.routes2020),
+      row.popPct.toFixed(1) + '%'
+    ]);
+    const figure = table(t(['各地方政府的公車路線數', 'Bus routes by local government area']),
+      [t(['地方政府', 'Local government area']), t(['2020 年 4 月', 'April 2020']), t(['2026 年 10 月', 'October 2026']),
+        t(['增減', 'Change']), t(['人口增幅（2020→2025）', 'Population growth, 2020→2025'])], rows);
+    figure.append(inline(node('figcaption', null, { class: 'figure-note' }), t([
+      '依人口由多到少排列。每條路線算在它多數站牌所在的地方政府，跨區路線只算一次；路線數不看長度和班次。各抽查一個週三（2020-04-01、2026-10-14）的表定班表，2020-04-01 在疫情封鎖期間。〔C-01、C-36〕',
+      'Ordered by population, largest first. Each route is counted in the local government area holding most of its stops, so a route crossing areas is counted once; the count ignores route length and frequency. Scheduled timetable for one sampled Wednesday each (1 April 2020, 14 October 2026); 1 April 2020 fell during the pandemic lockdown. [C-01, C-36]'
+    ])));
+    return figure;
+  }
+
+  // N4, chapter 2 (Q96–Q98): public transport trips per person a year, the measure Australian
   // trend reports use (Q98). Pandemic years are shaded; 2025–26 waits for its population.
   function ridershipChart(charts, t) {
     const n4 = data.figures.n4;
@@ -520,7 +589,7 @@
     return chart;
   }
 
-  // N3, chapter 2 (Q65, Q87): scheduled inbound trunk services by hour, line chart.
+  // N3, chapter 3 (Q65, Q87): scheduled inbound trunk services by hour, line chart.
   function hourlyChart(charts, t) {
     const n3 = data.figures.n3;
     const chart = charts.build({
@@ -542,7 +611,7 @@
     return chart;
   }
 
-  // F8 and F9, chapter 5 (Q59): 億澳幣 in Chinese, A$ million in English, at the source's precision.
+  // F8 and F9, chapter 6 (Q59): 億澳幣 in Chinese, A$ million in English, at the source's precision.
   function moneyChart(charts, t, lang, title, rows, note) {
     const zh = lang !== 'en';
     const values = rows.map(([label, id]) => {
@@ -643,7 +712,7 @@
     const map = corridorMap(t);
     charts.clear();
     const cover = node('header', null, { class: 'report-panel' });
-    cover.append(node('h1', content.title), node('p', t(['資料查核至 2026-11-25', 'Research checked to 25 November 2026']), { class: 'report-meta' }));
+    cover.append(node('h1', content.title), node('p', t(['資料查核至 2026-11-27', 'Research checked to 27 November 2026']), { class: 'report-meta' }));
     prose(cover, content.summary);
     const nav = node('nav', null, { class: 'report-nav', 'aria-label': t(['章節導覽', 'Chapters']) });
     const chapters = node('ul');
@@ -664,12 +733,17 @@
       // Figures sit right after the paragraph they support (Q85): chapter -> paragraph number -> figures.
       const figuresAfter = {
         0: {
+          0: () => [modeCards(t)],
+          1: () => [modeTripsChart(charts, t)],
+          2: () => [busRoutesTable(t)]
+        },
+        1: {
           2: () => [networkOverview(t), map.figure, schematic(t)],
           4: () => [populationChart(charts, t)],
           7: () => [commuteChart(charts, t)],
-          8: () => [tripsChart(charts, t), ridershipChart(charts, t)]
+          8: () => [ridershipChart(charts, t)]
         },
-        1: {
+        2: {
           1: () => [hourlyChart(charts, t)],
           3: () => [comparisonChart(charts,
             t(['上車刷卡次數', 'Card taps at boarding']), '',
@@ -677,8 +751,8 @@
             t(['只計 go card 和感應銀行卡。轉乘一次就多一筆紀錄，同期路網也有調整。這不代表搭車的人加倍，也無法區分新乘客和原本乘客搭得更多。兩個月份都在 50 分票價常態化之後；上車紀錄也無法看出有多少人從開車改搭。〔C-04〕',
               'Go card and contactless bank cards only. Each transfer adds another record, and the network changed at the same time. This does not mean the number of people travelling doubled, and the data cannot separate new passengers from existing passengers travelling more. Both months fall after 50-cent fares became permanent; boarding records also cannot show how many people switched from driving. [C-04]']))]
         },
-        3: { 3: () => [milestones(t)] },
-        4: {
+        4: { 3: () => [milestones(t)] },
+        5: {
           0: () => [finance(t, lang)],
           1: () => [
             moneyChart(charts, t, lang, ['昆士蘭交通部帳列票收（億澳幣）', 'TMR departmental fare revenue (A$ million)'],
@@ -696,12 +770,12 @@
       if (paragraphs.length !== paragraphCounts[i]) {
         console.error('Chapter ' + (i + 1) + ' has ' + paragraphs.length + ' paragraphs; figure positions assume ' + paragraphCounts[i] + '.');
       }
-      if (i === 2) {
-        // Q89: the projects in chapter 3 are on the chapter 1 corridor map.
+      if (i === 3) {
+        // Q89: the projects in chapter 4 are on the chapter 2 corridor map.
         const pointer = node('p');
-        pointer.append(t(['這幾項工程的位置，見第 1 章的', 'The ']),
+        pointer.append(t(['這幾項工程的位置，見第 2 章的', 'The ']),
           link(t(['走廊地圖', 'corridor map']), '#corridor-map'),
-          t(['。', ' in Chapter 1 shows where these projects are.']));
+          t(['。', ' in Chapter 2 shows where these projects are.']));
         section.append(pointer);
       }
       paragraphs.forEach((paragraph, p) => {
