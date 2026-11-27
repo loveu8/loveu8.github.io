@@ -5,7 +5,7 @@
   const report = document.getElementById('report');
   const sections = ['today', 'foundations', 'reforms', 'projects', 'games', 'funding', 'conclusions'];
   // Paragraphs per chapter (blank-line separated) that the figure positions in render() assume (Q85).
-  const paragraphCounts = [4, 15, 6, 7, 5, 3, 3];
+  const paragraphCounts = [4, 15, 10, 7, 5, 3, 3];
   const routes = [
     [['南向 Busway · Metro M1', 'South East Busway · Metro M1'], [
       ['Eight Mile Plains', 'open'], ['Cultural Centre', 'open'], ['Roma Street Busway']]],
@@ -115,7 +115,7 @@
     const localities = window.BRISBANE_ROUTE_LOCALITIES;
     const corridorIds = ["m1", "cross-river", "southern-rail", "the-wave", "432"];
     const figure = node('figure', null, { class: 'corridor-map', id: 'corridor-map' });
-    figure.append(node('h3', t(['第 3、4 章要看的五條走廊', 'The five corridors examined in Chapters 3 and 4'])));
+    figure.append(node('h3', t(['五條走廊地圖', 'Map of the five corridors'])));
     figure.append(node('p', t([
       'M1、432 公車和南向鐵路都有車可搭，南向鐵路部分路段同時在擴建。跨河鐵路正在施工，The Wave 仍在規劃。',
       'M1, bus 432 and southern rail services are operating. Part of the southern rail corridor is also being upgraded. Cross River Rail is under construction and The Wave is planned.'
@@ -769,9 +769,9 @@
         },
         // Chapter 3 opens with the five corridors that chapters 3 and 4 examine (Q121).
         2: {
-          0: () => [map.figure, schematic(t)],
-          2: () => [hourlyChart(charts, t)],
-          4: () => [comparisonChart(charts,
+          1: () => [map.figure, schematic(t)],
+          5: () => [hourlyChart(charts, t)],
+          8: () => [comparisonChart(charts,
             t(['上車刷卡次數', 'Card taps at boarding']), '',
             [['111 + 160 · 2025-05', 193986], ['M1 · 2026-05', 382655]],
             t(['只計 go card 和感應銀行卡。轉乘一次就多一筆紀錄，同期路網也有調整。這不代表搭車的人加倍，也無法區分新乘客和原本乘客搭得更多。兩個月份都在 50 分票價常態化之後；上車紀錄也無法看出有多少人從開車改搭。〔C-04〕',
