@@ -5,7 +5,7 @@
   const report = document.getElementById('report');
   const sections = ['today', 'foundations', 'reforms', 'projects', 'games', 'funding', 'conclusions'];
   // Paragraphs per chapter (blank-line separated) that the figure positions in render() assume (Q85).
-  const paragraphCounts = [4, 15, 10, 7, 5, 3, 3];
+  const paragraphCounts = [4, 15, 13, 7, 5, 3, 3];
   const routes = [
     [['南向 Busway · Metro M1', 'South East Busway · Metro M1'], [
       ['Eight Mile Plains', 'open'], ['Cultural Centre', 'open'], ['Roma Street Busway']]],
@@ -590,6 +590,39 @@
     return chart;
   }
 
+  // N10, chapter 3 (Q123): average weekly trips per complete half year, whole SEQ network.
+  // zh in 萬 (10,000s), en in millions, so point labels stay short.
+  function weeklyTripsChart(charts, t) {
+    const n10 = data.figures.n10;
+    const at = (period) => n10.findIndex((row) => row.period === period);
+    const zh = t([true, false]);
+    const chart = charts.build({
+      title: t(['東南昆士蘭全路網每週搭乘人次（每半年平均，萬人次）', 'Weekly passenger trips on the South East Queensland network (half-year average, millions)']),
+      type: 'line',
+      data: {
+        categories: n10.map((row) => {
+          const [year, half] = row.period.split('H');
+          return zh ? year + (half === '1' ? ' 上半' : ' 下半') : 'H' + half + ' ' + year;
+        }),
+        series: [{
+          label: t(['每週平均（萬人次）', 'Weekly average (million trips)']),
+          colorVar: '--chart-1',
+          data: n10.map((row) => zh ? Math.round(row.trips / 1e4) : Math.round(row.trips / 1e4) / 100)
+        }],
+        bands: [
+          { from: at('2020H1'), to: at('2022H1'), label: t(['疫情', 'Pandemic']) },
+          { from: at('2024H2'), to: at('2025H2'), label: t(['50 分票價', '50-cent fares']) }
+        ],
+        labelAt: [at('2019H2'), at('2024H1')] // the half years the text compares with
+      }
+    });
+    chart.append(inline(node('p', null, { class: 'figure-note' }), t([
+      'Translink 每週公布的東南昆士蘭全路網搭乘次數（一人一次單向移動），依週結束日歸到上半年（1–6 月）或下半年（7–12 月）後取平均。50 分票價 2024 年 8 月 5 日起試辦、2025 年 2 月 10 日常態化；M1 於 2025 年 6 月上路。平日和週末合計，無法分開。2026 年 1 月底到 4 月初缺資料，所以 2026 年不畫。〔C-38〕',
+      'Weekly passenger trips on the whole Translink network in South East Queensland (one person making one one-way journey), averaged by the half year (January–June or July–December) of each week’s end date. 50-cent fares began as a trial on 5 August 2024 and became permanent on 10 February 2025; the M1 began in June 2025. Weekdays and weekends are combined and cannot be separated. Data are missing from late January to early April 2026, so 2026 is not shown. [C-38]'
+    ])));
+    return chart;
+  }
+
   // N9, chapter 2 (Q120): share of "limited space" cells by train line, weekday 7-9 am inbound,
   // most crowded first, all lines last.
   function crowdingChart(charts, t) {
@@ -770,8 +803,9 @@
         // Chapter 3 opens with the five corridors that chapters 3 and 4 examine (Q121).
         2: {
           1: () => [map.figure, schematic(t)],
-          5: () => [hourlyChart(charts, t)],
-          8: () => [comparisonChart(charts,
+          5: () => [weeklyTripsChart(charts, t)],
+          8: () => [hourlyChart(charts, t)],
+          11: () => [comparisonChart(charts,
             t(['上車刷卡次數', 'Card taps at boarding']), '',
             [['111 + 160 · 2025-05', 193986], ['M1 · 2026-05', 382655]],
             t(['只計 go card 和感應銀行卡。轉乘一次就多一筆紀錄，同期路網也有調整。這不代表搭車的人加倍，也無法區分新乘客和原本乘客搭得更多。兩個月份都在 50 分票價常態化之後；上車紀錄也無法看出有多少人從開車改搭。〔C-04〕',

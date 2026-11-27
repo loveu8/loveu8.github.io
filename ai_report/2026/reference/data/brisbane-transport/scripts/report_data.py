@@ -15,7 +15,8 @@ What goes in (only what the page actually uses):
   figures  N6 mode cards, N7 trips by mode, N8 bus routes per LGA (chapter 1, Q112–Q116),
            N1 population growth, N2 2016 travel to work, N3 Eight Mile Plains hourly
            services, N4 public transport trips per person (Q97, Q98), N9 crowded
-           train lines in the weekday morning peak (Q120), read from
+           train lines in the weekday morning peak (Q120), N10 average weekly
+           trips per half year (Q123), read from
            (N5 total trips a year, Q99, was replaced by N7)
            DATA_DIR/derived (Q86) and checked against the figures in
            stage-4-figures-six-chapter.md
@@ -152,7 +153,14 @@ def figures(data_dir):
     expect('N9 rows', len(n9), 13)
     expect('N9 first', (n9[0]['line'], n9[0]['limited']), ('Springfield Line', 46.0))
     expect('N9 all lines', (n9[-1]['line'], n9[-1]['limited'], n9[-1]['cells']), ('All train lines', 18.7, 8800))
-    return {'n1': n1, 'n2': n2, 'n3': n3, 'n4': n4, 'n6': n6, 'n7': n7, 'n8': n8, 'n9': n9}
+
+    # N10, chapter 3 (Q123): average weekly trips per complete half year, whole SEQ network.
+    rows = read_rows(f'{derived}/patronage_weekly_halfyear_2018-2026.csv')
+    n10 = [{'period': r['period'], 'trips': int(r['avg_weekly_trips'])} for r in rows if r['complete'] == '1']
+    expect('N10 range', (len(n10), n10[0]['period'], n10[-1]['period']), (16, '2018H1', '2025H2'))
+    expect('N10 points', tuple(r['trips'] for r in n10 if r['period'] in ('2019H2', '2024H1', '2024H2', '2025H2')),
+           (3670573, 3236068, 3681185, 4040791))
+    return {'n1': n1, 'n2': n2, 'n3': n3, 'n4': n4, 'n6': n6, 'n7': n7, 'n8': n8, 'n9': n9, 'n10': n10}
 
 
 def main():

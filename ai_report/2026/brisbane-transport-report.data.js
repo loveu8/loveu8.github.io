@@ -12,7 +12,7 @@ window.BRISBANE_TRANSPORT_REPORT = {
       },
       {
         "title": "已經上路的改革：改了什麼？多載了多少人？",
-        "body": "### 第 3、4 章要看的五條走廊\n\n第 3、4 章沿著五條走廊，看面對這些壓力做了什麼：M1 是已經上路的改革，在本章；跨河鐵路、南向鐵路和 The Wave 是正在蓋或規劃中的工程，在第 4 章；432 公車走的是工程沒碰到的路線，在第 4 章當作對照。\n\n### 改了什麼：Metro 與 50 分票價\n\nBrisbane Metro 是走公車專用道的電動公車。M2 於 2025 年 1 月上路，M1 與第二批公車路線調整於同年 6 月上路；50 分票價自 2025 年 2 月常態化，適用 Translink 的指定服務，Airtrain 除外。〔C-03、C-04〕\n\n### 班次：離峰變密，尖峰沒變\n\n以南區 South East Busway 上的 Eight Mile Plains 站為例。抽查 2025 年 5 月 14 日與 2026 年 10 月 21 日兩個週三，從這一站可搭往 Cultural Centre 的主線班次，全天由舊 111 的 99 班增為 M1 的 182 班。早上七、八點兩者都是每 5 分鐘一班；同站另有 555，早上七點那一小時從 5 班變 4 班。M1 用的是 24.4 公尺長的 Metro 車輛（市府說約是一般公車的兩倍長），官方說每輛舒適載客 150 人；按尖峰每小時 12 班計算，往市區每小時約有 1,800 個舒適載客名額。舊 111 每班用哪種車沒有公開資料，所以尖峰能多載多少人，無法算出。上午九點到下午四點，從每小時 4 班變成 12 班。和第 2 章的 Clayfield 對照，離峰變密是這條走廊的改變，不是全市的常態。若看整條路線雙向全天，舊 111 與 160 合計 328 班，M1 為 364 班。〔C-03、C-21〕\n\n改制也不是處處多了車。舊 160 從 Garden City 的車廠站牌（MacGregor St，兩個站牌）出發直達市區，M1 不經過這一站。抽查的週三，從這裡直達 Cultural Centre 的班次從 149 班減為 93 班，只剩 150 路；原本搭 160 的人，有些可能要到 Upper Mt Gravatt 轉搭 M1。〔C-22〕\n\n### 搭的人：刷卡紀錄增加\n\n刷卡紀錄也有變化。同在 50 分票價常態化之後的兩個五月，2025 年舊 111、160 與 2026 年 M1 的 go card 和感應銀行卡上車次數，分別為 193,986 和 382,655。這不代表搭車的人加倍：轉乘一次就多一筆紀錄，路網也同時調整；也不代表開車的人變少，手上的資料無法區分新乘客和原本乘客搭得更多。〔C-04〕\n\n**本章結論。** 改制後，這條走廊的離峰班次變密；兩個五月相比，舊 111、160 與 M1 的上車刷卡次數也增加了，但無法分出多少來自改制本身。往市區的早尖峰班距沒有變，改用 Metro 車輛，但舊 111 的車型沒有公開資料，運能增加多少無法算出；部分站點的直達班次反而減少。要大幅增加尖峰運能，本篇查到的主要是鐵路。〔C-03、C-04、C-21、C-22、C-23〕"
+        "body": "### 第 3、4 章要看的五條走廊\n\n第 3、4 章沿著五條走廊，看面對這些壓力做了什麼：M1 是已經上路的改革，在本章；跨河鐵路、南向鐵路和 The Wave 是正在蓋或規劃中的工程，在第 4 章；432 公車走的是工程沒碰到的路線，在第 4 章當作對照。\n\n### 改了什麼：Metro 與 50 分票價\n\nBrisbane Metro 是走公車專用道的電動公車。M2 於 2025 年 1 月上路，M1 與第二批公車路線調整於同年 6 月上路；50 分票價自 2024 年 8 月起試辦，2025 年 2 月常態化，適用 Translink 的指定服務，Airtrain 除外。〔C-03、C-04〕\n\n### 全路網：搭的人變多了嗎\n\n先看全路網。Translink 每週公布東南昆士蘭全路網的搭乘次數，下圖把每半年的週平均連成線。疫情前每週約 360 萬到 370 萬人次，疫情期間跌到約 210 萬到 240 萬，2023 年起回升。2024 年 8 月 50 分票價開始試辦，那年下半年的週平均比上半年多約一成四（324 萬增至 368 萬）。2025 年 2 月票價常態化、6 月 M1 上路，2025 年下半年再增至約 404 萬，比疫情前同期（2019 年下半年，367 萬）多約一成。運輸部在國會答詢中表示，常態化後到 6 月底共搭乘逾 7,700 萬人次，比前一年同期多 15.3%。成長在變慢：2026 年 4 到 8 月只比前一年同期多約 7%。〔C-38〕\n\n這些數字有三個限制。第一，每週資料是平日和週末的合計，看不出兩者各自的變化。第二，票價、Metro 和路網調整前後只隔幾個月，人口也在增加，無法分出成長各來自哪裡。第三，總次數增加不代表每人搭得更多，扣掉人口後的比較見第 2 章。〔C-33、C-38〕\n\n### M1 走廊：離峰變密，尖峰沒變\n\n全路網的數字看不出班次怎麼變，以下改看一條走廊：南區 South East Busway 上的 Eight Mile Plains 站。抽查 2025 年 5 月 14 日與 2026 年 10 月 21 日兩個週三，從這一站可搭往 Cultural Centre 的主線班次，全天由舊 111 的 99 班增為 M1 的 182 班。早上七、八點兩者都是每 5 分鐘一班；同站另有 555，早上七點那一小時從 5 班變 4 班。M1 用的是 24.4 公尺長的 Metro 車輛（市府說約是一般公車的兩倍長），官方說每輛舒適載客 150 人；按尖峰每小時 12 班計算，往市區每小時約有 1,800 個舒適載客名額。舊 111 每班用哪種車沒有公開資料，所以尖峰能多載多少人，無法算出。上午九點到下午四點，從每小時 4 班變成 12 班。和第 2 章的 Clayfield 對照，離峰變密是這條走廊的改變，不是全市的常態。若看整條路線雙向全天，舊 111 與 160 合計 328 班，M1 為 364 班。〔C-03、C-21〕\n\n改制也不是處處多了車。舊 160 從 Garden City 的車廠站牌（MacGregor St，兩個站牌）出發直達市區，M1 不經過這一站。抽查的週三，從這裡直達 Cultural Centre 的班次從 149 班減為 93 班，只剩 150 路；原本搭 160 的人，有些可能要到 Upper Mt Gravatt 轉搭 M1。〔C-22〕\n\n### M1 走廊：刷卡紀錄增加\n\n同在 50 分票價常態化之後的兩個五月，2025 年舊 111、160 與 2026 年 M1 的 go card 和感應銀行卡上車次數，分別為 193,986 和 382,655。這不代表搭車的人加倍：轉乘一次就多一筆紀錄，路網也同時調整；也不代表開車的人變少，手上的資料無法區分新乘客和原本乘客搭得更多。〔C-04〕\n\n**本章結論。** 全路網的搭乘次數在 2024 年 8 月 50 分票價試辦後明顯增加，2025 年下半年每週平均比疫情前同期多約一成，但成長在變慢，也分不出多少來自票價、Metro 或人口。拉近到 M1 走廊：離峰班次變密，兩個五月的上車刷卡次數也增加了；往市區的早尖峰班距沒有變，改用 Metro 車輛，但舊 111 的車型沒有公開資料，運能增加多少無法算出；部分站點的直達班次反而減少。要大幅增加尖峰運能，本篇查到的主要是鐵路。〔C-03、C-04、C-21、C-22、C-23、C-38〕"
       },
       {
         "title": "正在蓋的工程：能增加多少運能？",
@@ -45,7 +45,7 @@ window.BRISBANE_TRANSPORT_REPORT = {
       },
       {
         "title": "Reforms already in place: what changed, and how many more people did it carry?",
-        "body": "### The five corridors examined in Chapters 3 and 4\n\nChapters 3 and 4 follow five corridors to see what has been done about these pressures: the M1 is a reform already in place, covered in this chapter; Cross River Rail, the southern rail corridor and The Wave are projects under construction or in planning, covered in Chapter 4; and bus 432 runs where no project reaches, serving as a comparison in Chapter 4.\n\n### What changed: Metro and 50-cent fares\n\nBrisbane Metro is an electric bus service running on the busways. M2 began in January 2025, and M1 began in June that year together with the second stage of bus route changes; 50-cent fares became permanent from February 2025 on eligible Translink services, excluding Airtrain. [C-03, C-04]\n\n### Services: more off-peak, peak unchanged\n\nTake Eight Mile Plains, a stop on the South East Busway. Comparing two sampled Wednesdays, 14 May 2025 and 21 October 2026, the trunk services from this stop to Cultural Centre rose across the day from 99 on the old 111 to 182 on the M1. At 7 and 8 am both ran every 5 minutes; route 555 also serves the stop, and in the 7 am hour it went from 5 services to 4. The M1 uses 24.4-metre Metro vehicles (the council says about twice the length of a standard bus), and officially each vehicle comfortably carries 150 passengers; at 12 services an hour in the peak, that works out to about 1,800 passengers an hour towards the city at that comfortable capacity. No public data shows which vehicles ran each old 111 service, so how many more people can be carried in the peak cannot be calculated. Between 9 am and 4 pm, services went from 4 an hour to 12. Compared with Clayfield in Chapter 2, the more frequent off-peak service is a change on this corridor, not the norm across the city. Counting whole routes in both directions across the day, the old 111 and 160 together ran 328 services and the M1 runs 364. [C-03, C-21]\n\nThe change did not add services everywhere. The old 160 started from the Garden City depot stops (MacGregor St, two stops) and ran directly to the city; the M1 does not serve these stops. On the sampled Wednesdays, direct services from here to Cultural Centre fell from 149 to 93, leaving only route 150; some former 160 passengers may need to transfer to the M1 at Upper Mt Gravatt. [C-22]\n\n### Passengers: more card taps\n\nCard records also changed. In two Mays, both after 50-cent fares became permanent, card taps at boarding with go card and contactless bank cards were 193,986 on the old 111 and 160 in 2025 and 382,655 on the M1 in 2026. This does not mean the number of people travelling doubled: each transfer adds another record, and the network was changed at the same time. Nor does it mean fewer people are driving; the data cannot separate new passengers from existing passengers travelling more. [C-04]\n\n**Takeaway.** Since the change, off-peak services on this corridor have become more frequent; comparing the two Mays, card taps at boarding on the old 111, 160 and the M1 also rose, but how much comes from the change itself cannot be separated. The inbound morning-peak frequency did not change, and services now use Metro vehicles, but no public data describes the old 111 vehicles, so the added capacity cannot be calculated; direct services from some stops actually fell. The large increases in peak capacity identified in this report come mainly from rail. [C-03, C-04, C-21, C-22, C-23]"
+        "body": "### The five corridors examined in Chapters 3 and 4\n\nChapters 3 and 4 follow five corridors to see what has been done about these pressures: the M1 is a reform already in place, covered in this chapter; Cross River Rail, the southern rail corridor and The Wave are projects under construction or in planning, covered in Chapter 4; and bus 432 runs where no project reaches, serving as a comparison in Chapter 4.\n\n### What changed: Metro and 50-cent fares\n\nBrisbane Metro is an electric bus service running on the busways. M2 began in January 2025, and M1 began in June that year together with the second stage of bus route changes; 50-cent fares began as a trial in August 2024 and became permanent from February 2025 on eligible Translink services, excluding Airtrain. [C-03, C-04]\n\n### The whole network: are more people travelling?\n\nStart with the whole network. Translink publishes weekly passenger trips for the South East Queensland network, and the chart below joins the weekly average for each half year. Before the pandemic there were about 3.6 to 3.7 million trips a week; during the pandemic this fell to about 2.1 to 2.4 million, recovering from 2023. 50-cent fares began as a trial in August 2024, and the weekly average in the second half of that year was about 14% higher than in the first half (3.24 million to 3.68 million). Fares became permanent in February 2025 and the M1 began in June; by the second half of 2025 the weekly average had reached about 4.04 million, about 10% above the same half before the pandemic (3.67 million in the second half of 2019). In answers to a parliamentary committee, the department said there were more than 77 million trips from the change to permanent fares to the end of June, 15.3% more than the same period a year earlier. Growth is slowing: April to August 2026 was only about 7% above the same weeks a year earlier. [C-38]\n\nThese figures have three limits. First, the weekly data combine weekdays and weekends, so the two cannot be seen separately. Second, the fare change, Metro and network changes came only months apart, and the population was also growing, so the growth cannot be split between them. Third, more trips in total does not mean each person is travelling more; Chapter 2 compares trips per person. [C-33, C-38]\n\n### The M1 corridor: more off-peak, peak unchanged\n\nThe network figures do not show how services changed, so the rest of this chapter looks at one corridor: Eight Mile Plains, a stop on the South East Busway. Comparing two sampled Wednesdays, 14 May 2025 and 21 October 2026, the trunk services from this stop to Cultural Centre rose across the day from 99 on the old 111 to 182 on the M1. At 7 and 8 am both ran every 5 minutes; route 555 also serves the stop, and in the 7 am hour it went from 5 services to 4. The M1 uses 24.4-metre Metro vehicles (the council says about twice the length of a standard bus), and officially each vehicle comfortably carries 150 passengers; at 12 services an hour in the peak, that works out to about 1,800 passengers an hour towards the city at that comfortable capacity. No public data shows which vehicles ran each old 111 service, so how many more people can be carried in the peak cannot be calculated. Between 9 am and 4 pm, services went from 4 an hour to 12. Compared with Clayfield in Chapter 2, the more frequent off-peak service is a change on this corridor, not the norm across the city. Counting whole routes in both directions across the day, the old 111 and 160 together ran 328 services and the M1 runs 364. [C-03, C-21]\n\nThe change did not add services everywhere. The old 160 started from the Garden City depot stops (MacGregor St, two stops) and ran directly to the city; the M1 does not serve these stops. On the sampled Wednesdays, direct services from here to Cultural Centre fell from 149 to 93, leaving only route 150; some former 160 passengers may need to transfer to the M1 at Upper Mt Gravatt. [C-22]\n\n### The M1 corridor: more card taps\n\nIn two Mays, both after 50-cent fares became permanent, card taps at boarding with go card and contactless bank cards were 193,986 on the old 111 and 160 in 2025 and 382,655 on the M1 in 2026. This does not mean the number of people travelling doubled: each transfer adds another record, and the network was changed at the same time. Nor does it mean fewer people are driving; the data cannot separate new passengers from existing passengers travelling more. [C-04]\n\n**Takeaway.** Trips across the whole network rose clearly after the 50-cent fare trial began in August 2024, and in the second half of 2025 the weekly average was about 10% above the same half before the pandemic; but growth is slowing, and how much comes from fares, Metro or population cannot be separated. Closer in, on the M1 corridor, off-peak services have become more frequent, and comparing the two Mays, card taps at boarding also rose. The inbound morning-peak frequency did not change, and services now use Metro vehicles, but no public data describes the old 111 vehicles, so the added capacity cannot be calculated; direct services from some stops actually fell. The large increases in peak capacity identified in this report come mainly from rail. [C-03, C-04, C-21, C-22, C-23, C-38]"
       },
       {
         "title": "Projects under construction: how much capacity will they add?",
@@ -248,6 +248,11 @@ window.BRISBANE_TRANSPORT_REPORT = {
     ],
     "C-37": [
       "S-179"
+    ],
+    "C-38": [
+      "S-172",
+      "S-026",
+      "S-089"
     ]
   },
   "funding": {
@@ -470,6 +475,10 @@ window.BRISBANE_TRANSPORT_REPORT = {
     "S-086": {
       "title": "Queenslanders on Board with Permanent 50 Cent Fares",
       "url": "https://statements.qld.gov.au/statements/101980"
+    },
+    "S-089": {
+      "title": "Transport and Main Roads committee questions on notice",
+      "url": "https://documents.parliament.qld.gov.au/com/SDIWC-1AF9/C20252026-4826/on%20Notice%20from%20the%20committee%20and%20responses%2C%20Minister%20Transport%20and%20Main%20Roads.pdf"
     },
     "S-097": {
       "title": "European Train Control System Program",
@@ -1089,6 +1098,72 @@ window.BRISBANE_TRANSPORT_REPORT = {
         "line": "All train lines",
         "limited": 18.7,
         "cells": 8800
+      }
+    ],
+    "n10": [
+      {
+        "period": "2018H1",
+        "trips": 3619342
+      },
+      {
+        "period": "2018H2",
+        "trips": 3613170
+      },
+      {
+        "period": "2019H1",
+        "trips": 3668409
+      },
+      {
+        "period": "2019H2",
+        "trips": 3670573
+      },
+      {
+        "period": "2020H1",
+        "trips": 2178624
+      },
+      {
+        "period": "2020H2",
+        "trips": 2165327
+      },
+      {
+        "period": "2021H1",
+        "trips": 2404312
+      },
+      {
+        "period": "2021H2",
+        "trips": 2214589
+      },
+      {
+        "period": "2022H1",
+        "trips": 2115981
+      },
+      {
+        "period": "2022H2",
+        "trips": 2805747
+      },
+      {
+        "period": "2023H1",
+        "trips": 3054449
+      },
+      {
+        "period": "2023H2",
+        "trips": 3181867
+      },
+      {
+        "period": "2024H1",
+        "trips": 3236068
+      },
+      {
+        "period": "2024H2",
+        "trips": 3681185
+      },
+      {
+        "period": "2025H1",
+        "trips": 3719539
+      },
+      {
+        "period": "2025H2",
+        "trips": 4040791
       }
     ]
   }

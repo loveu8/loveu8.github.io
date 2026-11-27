@@ -207,7 +207,10 @@
         var x1 = Math.max(0, xFor(b.from) - stepX / 2);
         var x2 = Math.min(w, xFor(b.to) + stepX / 2);
         svg.appendChild(svgEl("rect", { class: "c-band", x: x1, y: padTop - FS_CAT - 10, width: x2 - x1, height: baseY - padTop + FS_CAT + 10, style: "fill:var(--color-border)" }));
-        addText(svg, t(b.label), { class: "c-cat", x: (x1 + x2) / 2, y: padTop - FS_CAT, "text-anchor": "middle", "font-size": FS_CAT, style: "fill:var(--color-text-soft)" });
+        // Keep the label inside the chart when a band sits at either edge (narrow screens clipped it).
+        var half = textW(t(b.label), FS_CAT) / 2 + 2;
+        var labelX = Math.min(Math.max((x1 + x2) / 2, half), w - half);
+        addText(svg, t(b.label), { class: "c-cat", x: labelX, y: padTop - FS_CAT, "text-anchor": "middle", "font-size": FS_CAT, style: "fill:var(--color-text-soft)" });
       });
       svg.appendChild(svgEl("line", { x1: padX, y1: baseY, x2: w - padX, y2: baseY, style: "stroke:var(--color-border-soft)", "stroke-width": 1 }));
       var cross = svgEl("line", { class: "c-cross", x1: 0, y1: padTop - 8, x2: 0, y2: baseY, style: "stroke:var(--color-text-soft)", "stroke-width": 1, "stroke-dasharray": "3 3", visibility: "hidden" });
