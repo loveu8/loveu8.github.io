@@ -10,6 +10,12 @@ Columns, read from each table header:
 - 2024-25 report: 2020-21..2023-24 actual, 2024-25 target, 2024-25 actual
 - 2025-26 report, Table 29: 2021-22..2024-25 actual, 2025-26 target, 2025-26 actual
 
+2018-19 (pre-COVID base, Q113) comes from the 2018-19 report's Appendices
+volume (the full report is only on tmr.qld.gov.au, which blocks scripts): a
+single-year table, rows "Bus 115.67 117.38" (target, actual) under the header
+"2018-19 Target / estimate 2018-19 Actual"; its SEQ total sits on the
+"South East Queensland (SEQ): 1 186.36 189.72 -" line.
+
 Every actual is taken from the latest report that lists it; the script stops if
 any two reports disagree on the same year and mode, or if a total does not equal
 the sum of the four modes (to 0.02 rounding).
@@ -44,9 +50,28 @@ def read_report(year):
     return found
 
 
+def read_2018_19():
+    lines = (RAW / "tmr_annual_report_2018-19_appendices.txt").read_text(encoding="utf-8", errors="replace").splitlines()
+    start = next(i for i, l in enumerate(lines) if "Patronage on Government contracted services (millions)" in l)
+    if "2018" not in lines[start - 2] or "Actual" not in lines[start - 2]:
+        sys.exit("2018-19 appendices: table header not where expected")
+    found = {}
+    m = re.match(r"South East Queensland \(SEQ\):\s*\d\s+[\d.]+\s+([\d.]+)", lines[start + 1])
+    if not m:
+        sys.exit("2018-19 appendices: SEQ total line not found")
+    found["Total"] = float(m.group(1))
+    for line in lines[start + 2:start + 6]:
+        m = re.match(r"(Bus|Rail|Tram|Ferry)(?:\s+\d)?\s+[\d.]+\s+([\d.]+)\s*$", line)
+        if m:
+            found[m.group(1)] = float(m.group(2))
+    if set(found) != set(MODES):
+        sys.exit(f"2018-19 appendices: got {sorted(found)}")
+    return found
+
+
 def main():
     out = sys.argv[1]
-    values = {}  # (fy, mode) -> (value, report)
+    values = {("2018-19", m): (v, "2018-19") for m, v in read_2018_19().items()}  # (fy, mode) -> (value, report)
     for rep, cols in REPORTS.items():
         rows = read_report(rep)
         for mode in MODES:
