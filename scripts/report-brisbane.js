@@ -713,9 +713,9 @@
     charts.clear();
     const cover = node('header', null, { class: 'report-panel' });
     cover.append(node('h1', content.title), node('p', t(['資料查核至 2026-11-27', 'Research checked to 27 November 2026']), { class: 'report-meta' }));
-    prose(cover, content.summary);
+    // No opening text under the title (Q118): the numbered chapter list is the table of contents.
     const nav = node('nav', null, { class: 'report-nav', 'aria-label': t(['章節導覽', 'Chapters']) });
-    const chapters = node('ul');
+    const chapters = node('ol');
     content.chapters.forEach((chapter, i) => {
       const entry = node('li');
       entry.append(link(chapter.title, '#' + sections[i]));

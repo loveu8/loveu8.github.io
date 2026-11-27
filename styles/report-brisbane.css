@@ -17,7 +17,11 @@ h2 { font-size: var(--fs-lg); }
 h3 { font-size: var(--fs-md); }
 a { color: var(--color-primary-strong); }
 .report-meta, .figure-note { color: var(--color-text-muted); font-size: var(--fs-sm); }
-.report-nav ul, .button-row { display: flex; flex-wrap: wrap; gap: var(--space-sm) var(--space-md); padding: 0; list-style: none; }
+.button-row { display: flex; flex-wrap: wrap; gap: var(--space-sm) var(--space-md); padding: 0; list-style: none; }
+/* Table of contents under the title (Q118): one numbered chapter per line, no opening text. */
+.report-nav ol { margin: var(--space-md) 0 0; padding-left: var(--space-lg); }
+.report-nav li::marker { color: var(--color-text-muted); }
+.report-nav a { padding-block: var(--space-xs); }
 .report-nav a, .chapter-link { display: inline-flex; align-items: center; min-height: 44px; }
 .chapter-heading { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-sm); }
 .chapter-link { font-size: var(--fs-sm); }
@@ -54,7 +58,8 @@ figure { margin: var(--space-lg) 0; }
   .cell-label { display: block; color: var(--color-text-muted); font-weight: 600; }
 }
 @media print {
-  .site-header, .report-nav, .chapter-link { display: none; }
+  .site-header, .chapter-link { display: none; }
+  .report-nav a { min-height: 0; color: inherit; text-decoration: none; }
   .page { display: block; padding: 0; }
   .report-panel { margin-block: var(--space-md); padding: 0; border: 0; }
   .route, .report-table tr { break-inside: avoid; }

@@ -6,17 +6,17 @@ Usage (from the repo root):
 Only the "zh-TW" and "en" entries of DATA_JS are replaced; claims, funding,
 sources and journeys are kept as they are. Mapping:
     "# title"            -> title
-    "## 開場" / Opening   -> summary
     "## N title"         -> chapters[N-1] (number dropped; the page adds it)
     "## 附錄" / Appendix  -> not copied (the page has its own sources section)
 The line between the H1 and the first "##" is the draft's own note and is skipped.
+There is no opening section any more (Q118): the page shows the title and the
+chapter list only, so a "## 開場" / "## Opening" heading stops the script.
 """
 import json
 import re
 import sys
 
 PREFIX = 'window.BRISBANE_TRANSPORT_REPORT = '
-OPENING = {'開場', 'Opening'}
 APPENDIX = {'附錄', 'Appendix'}
 CHAPTER = re.compile(r'^(\d+)[\s　]+(.+)$')
 
@@ -40,12 +40,9 @@ def parse(path):
         joined = '\n'.join(body).strip()
         return re.sub(r'\n{3,}', '\n\n', joined)
 
-    summary = None
     chapters = []
     for heading, body in blocks:
-        if heading in OPENING:
-            summary = text(body)
-        elif heading in APPENDIX:
+        if heading in APPENDIX:
             continue
         else:
             m = CHAPTER.match(heading)
@@ -54,12 +51,10 @@ def parse(path):
             if int(m.group(1)) != len(chapters) + 1:
                 sys.exit(f'{path}: chapter {m.group(1)} out of order')
             chapters.append({'title': m.group(2).strip(), 'body': text(body)})
-    if summary is None:
-        sys.exit(f'{path}: no opening section')
     for ch in chapters[:-1]:  # the last chapter is itself the conclusion
         if not re.search(r'\n\*\*(本章結論。|Takeaway\.)\*\*', ch['body']):
             sys.exit(f'{path}: chapter "{ch["title"]}" has no takeaway marker')
-    return {'title': title, 'summary': summary, 'chapters': chapters}
+    return {'title': title, 'chapters': chapters}
 
 
 def main():
