@@ -5,7 +5,7 @@
   const report = document.getElementById('report');
   const sections = ['today', 'foundations', 'reforms', 'projects', 'games', 'funding', 'conclusions'];
   // Paragraphs per chapter (blank-line separated) that the figure positions in render() assume (Q85).
-  const paragraphCounts = [4, 14, 5, 7, 5, 3, 3];
+  const paragraphCounts = [4, 15, 5, 7, 5, 3, 3];
   const routes = [
     [['南向 Busway · Metro M1', 'South East Busway · Metro M1'], [
       ['Eight Mile Plains', 'open'], ['Cultural Centre', 'open'], ['Roma Street Busway']]],
@@ -589,6 +589,27 @@
     return chart;
   }
 
+  // N9, chapter 2 (Q120): share of "limited space" cells by train line, weekday 7-9 am inbound,
+  // most crowded first, all lines last.
+  function crowdingChart(charts, t) {
+    const name = (line) => {
+      if (line === 'All train lines') return t(['所有火車線', 'All train lines']);
+      const short = line.replace('Redcliffe Peninsula', 'Redcliffe').replace(/ Lines?$/, '');
+      return t([short.replace('/', '／') + ' 線', short]);
+    };
+    const chart = charts.build({
+      title: t(['平日早上 7–9 點進城：各火車線「空間有限」的比例', 'Weekdays 7–9 am inbound: share of “limited space” by train line']),
+      type: 'bar',
+      data: data.figures.n9.map((row) => ({ label: name(row.line), value: row.limited, display: row.limited.toFixed(1) + '%' })),
+      labelsAboveWhenNarrow: true // on phones "Ipswich/Rosewood" was clipped at the left edge
+    });
+    chart.append(inline(node('p', null, { class: 'figure-note' }), t([
+      'Translink 服務空位預測（Service Capacity Tracker）開放資料，2025-06-06 更新，早於 Metro 上路。每條線把每一站、每 15 分鐘分成三級，比例是週一到週五 7:00–8:45 各格中標為「空間有限」的比例；單位是「站 × 15 分鐘」，不是班次或人數。這是官方預測，各級門檻未公開；沒有班次的時段也有一格，比例可能偏低。〔C-37〕',
+      'Translink Service Capacity Tracker open data, last updated 6 June 2025, before Metro started. Each line gives one of three levels for every stop and 15-minute period; the share is the proportion of cells from 7:00 to 8:45 on weekdays marked “limited space”. The unit is stop × 15 minutes, not services or passengers. These are official forecasts and the thresholds for each level are not published; periods without a service also have a cell, so the shares may be understated. [C-37]'
+    ])));
+    return chart;
+  }
+
   // N3, chapter 3 (Q65, Q87): scheduled inbound trunk services by hour, line chart.
   function hourlyChart(charts, t) {
     const n3 = data.figures.n3;
@@ -737,11 +758,13 @@
           1: () => [modeTripsChart(charts, t)],
           2: () => [busRoutesTable(t)]
         },
+        // Chapter 2 order (Q120): population and jobs, then the network, then peak pressure.
         1: {
-          2: () => [networkOverview(t), map.figure, schematic(t)],
-          4: () => [populationChart(charts, t)],
+          1: () => [populationChart(charts, t)],
+          5: () => [networkOverview(t), map.figure, schematic(t)],
           7: () => [commuteChart(charts, t)],
-          8: () => [ridershipChart(charts, t)]
+          8: () => [ridershipChart(charts, t)],
+          9: () => [crowdingChart(charts, t)]
         },
         2: {
           1: () => [hourlyChart(charts, t)],

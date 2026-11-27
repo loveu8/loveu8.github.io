@@ -14,7 +14,8 @@ What goes in (only what the page actually uses):
   sources  sources of those claims and funding rows, plus S-ids named in PAGE_JS
   figures  N6 mode cards, N7 trips by mode, N8 bus routes per LGA (chapter 1, Q112–Q116),
            N1 population growth, N2 2016 travel to work, N3 Eight Mile Plains hourly
-           services, N4 public transport trips per person (Q97, Q98), read from
+           services, N4 public transport trips per person (Q97, Q98), N9 crowded
+           train lines in the weekday morning peak (Q120), read from
            (N5 total trips a year, Q99, was replaced by N7)
            DATA_DIR/derived (Q86) and checked against the figures in
            stage-4-figures-six-chapter.md
@@ -144,7 +145,14 @@ def figures(data_dir):
     expect('N8 dates', (rows[0]['sample_date'], rows[-1]['sample_date']), ('2020-04-01', '2026-10-14'))
     expect('N8 first', tuple(n8[0][k] for k in ('name', 'routes2020', 'routes2026')), ('Brisbane', 227, 217))
     expect('N8 total', (n8[-1]['routes2020'], n8[-1]['routes2026'], n8[-1]['popPct']), (431, 435, 11.2))
-    return {'n1': n1, 'n2': n2, 'n3': n3, 'n4': n4, 'n6': n6, 'n7': n7, 'n8': n8}
+
+    # N9, chapter 2 (Q120): share of "limited space" cells by train line, weekday 7-9 am inbound.
+    rows = read_rows(f'{derived}/capacity_am_peak_by_line_2025-06.csv')
+    n9 = [{'line': r['line'], 'limited': float(r['limited_pct']), 'cells': int(r['cells'])} for r in rows]
+    expect('N9 rows', len(n9), 13)
+    expect('N9 first', (n9[0]['line'], n9[0]['limited']), ('Springfield Line', 46.0))
+    expect('N9 all lines', (n9[-1]['line'], n9[-1]['limited'], n9[-1]['cells']), ('All train lines', 18.7, 8800))
+    return {'n1': n1, 'n2': n2, 'n3': n3, 'n4': n4, 'n6': n6, 'n7': n7, 'n8': n8, 'n9': n9}
 
 
 def main():
