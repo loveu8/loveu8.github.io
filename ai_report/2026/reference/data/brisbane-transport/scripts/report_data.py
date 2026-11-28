@@ -99,11 +99,11 @@ def figures(data_dir):
     n5 = {'years': [r['financial_year'].replace('-', '–') for r in rows],
           'millions': [round(int(r['trips']) / 1e6) for r in rows]}
     expect('N5 trips (million)', [n5['millions'][i] for i in (0, 3, 6, 9, 10)], [180, 190, 113, 193, 214])
-    rows = [r for r in rows if r['trips_per_person']]  # 2025-26 has no population yet
-    n4 = {'years': [r['financial_year'].replace('-', '–') for r in rows],
-          'perPerson': [float(r['trips_per_person']) for r in rows]}
-    expect('N4 years', (n4['years'][0], n4['years'][-1]), ('2015–16', '2024–25'))
-    expect('N4 trips per person', [n4['perPerson'][i] for i in (0, 3, 6, 9)], [54.6, 54.2, 30.7, 48.7])
+    # Same years as N5 so the two charts line up (Q125); 2025-26 has no population yet -> null.
+    n4 = {'years': n5['years'],
+          'perPerson': [float(r['trips_per_person']) if r['trips_per_person'] else None for r in rows]}
+    expect('N4 years', (n4['years'][0], n4['years'][-1]), ('2015–16', '2025–26'))
+    expect('N4 trips per person', [n4['perPerson'][i] for i in (0, 3, 6, 9, 10)], [54.6, 54.2, 30.7, 48.7, None])
 
     # N7, chapter 1 (Q107, Q116): trips a year by mode, 2018-19 to 2025-26, millions.
     rows = read_rows(f'{derived}/patronage_by_mode_2018-19_2025-26.csv')

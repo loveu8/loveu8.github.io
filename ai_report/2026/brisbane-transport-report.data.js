@@ -847,7 +847,8 @@ window.BRISBANE_TRANSPORT_REPORT = {
         "2021–22",
         "2022–23",
         "2023–24",
-        "2024–25"
+        "2024–25",
+        "2025–26"
       ],
       "perPerson": [
         54.6,
@@ -859,7 +860,8 @@ window.BRISBANE_TRANSPORT_REPORT = {
         30.7,
         40.5,
         43.3,
-        48.7
+        48.7,
+        null
       ]
     },
     "n5": {
