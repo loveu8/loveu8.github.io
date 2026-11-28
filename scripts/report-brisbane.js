@@ -568,6 +568,29 @@
     return figure;
   }
 
+  // N5, chapter 2 (Q99, back in Q124): total trips a year, shown right before N4 so the scale
+  // and the latest year (which has no population yet) are visible before dividing by population.
+  // Millions in both languages, matching N7 in chapter 1.
+  function tripsChart(charts, t) {
+    const n5 = data.figures.n5;
+    const at = (year) => n5.years.indexOf(year);
+    const chart = charts.build({
+      title: t(['每年大眾運輸搭乘次數（百萬人次）', 'Public transport trips a year (millions)']),
+      type: 'line',
+      data: {
+        categories: n5.years,
+        series: [{ label: t(['搭乘次數', 'Trips']), colorVar: '--chart-1', data: n5.millions }],
+        bands: [{ from: at('2019–20'), to: at('2021–22'), label: t(['疫情', 'Pandemic']) }],
+        labelAt: [at('2018–19'), at('2024–25')] // the years the text compares
+      }
+    });
+    chart.append(inline(node('p', null, { class: 'figure-note' }), t([
+      'Translink 東南昆士蘭全路網一年的搭乘次數（一人一次單向移動），四捨五入到百萬。年度是 7 月到隔年 6 月，灰底是受疫情影響的年度。總數沒有考慮人口增加，除以人口的結果見下一張圖。〔C-33〕',
+      'A year’s passenger trips on the whole Translink network in South East Queensland (one person making one one-way journey), rounded to the nearest million. Years run from July to June, and the shaded years were affected by the pandemic. The totals do not allow for population growth; the next chart divides them by population. [C-33]'
+    ])));
+    return chart;
+  }
+
   // N4, chapter 2 (Q96–Q98): public transport trips per person a year, the measure Australian
   // trend reports use (Q98). Pandemic years are shaded; 2025–26 waits for its population.
   function ridershipChart(charts, t) {
@@ -797,7 +820,7 @@
           1: () => [populationChart(charts, t)],
           5: () => [networkOverview(t)],
           7: () => [commuteChart(charts, t)],
-          8: () => [ridershipChart(charts, t)],
+          8: () => [tripsChart(charts, t), ridershipChart(charts, t)],
           9: () => [crowdingChart(charts, t)]
         },
         // Chapter 3 opens with the five corridors that chapters 3 and 4 examine (Q121).

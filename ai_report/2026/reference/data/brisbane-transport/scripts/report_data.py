@@ -14,10 +14,10 @@ What goes in (only what the page actually uses):
   sources  sources of those claims and funding rows, plus S-ids named in PAGE_JS
   figures  N6 mode cards, N7 trips by mode, N8 bus routes per LGA (chapter 1, Q112–Q116),
            N1 population growth, N2 2016 travel to work, N3 Eight Mile Plains hourly
-           services, N4 public transport trips per person (Q97, Q98), N9 crowded
-           train lines in the weekday morning peak (Q120), N10 average weekly
-           trips per half year (Q123), read from
-           (N5 total trips a year, Q99, was replaced by N7)
+           services, N5 total trips a year (Q99; replaced by N7 in Q116, back
+           before N4 in Q124), N4 public transport trips per person (Q97, Q98),
+           N9 crowded train lines in the weekday morning peak (Q120), N10
+           average weekly trips per half year (Q123), read from
            DATA_DIR/derived (Q86) and checked against the figures in
            stage-4-figures-six-chapter.md
 Any cited ID missing from its CSV, or a figure number that no longer matches,
@@ -96,6 +96,9 @@ def figures(data_dir):
     expect('N3 07-08 h', (n3['old'][3:5], n3['m1'][3:5]), ([12, 12], [12, 12]))
 
     rows = read_rows(f'{derived}/patronage_population_2015-16_2025-26.csv')
+    n5 = {'years': [r['financial_year'].replace('-', '–') for r in rows],
+          'millions': [round(int(r['trips']) / 1e6) for r in rows]}
+    expect('N5 trips (million)', [n5['millions'][i] for i in (0, 3, 6, 9, 10)], [180, 190, 113, 193, 214])
     rows = [r for r in rows if r['trips_per_person']]  # 2025-26 has no population yet
     n4 = {'years': [r['financial_year'].replace('-', '–') for r in rows],
           'perPerson': [float(r['trips_per_person']) for r in rows]}
@@ -160,7 +163,7 @@ def figures(data_dir):
     expect('N10 range', (len(n10), n10[0]['period'], n10[-1]['period']), (16, '2018H1', '2025H2'))
     expect('N10 points', tuple(r['trips'] for r in n10 if r['period'] in ('2019H2', '2024H1', '2024H2', '2025H2')),
            (3670573, 3236068, 3681185, 4040791))
-    return {'n1': n1, 'n2': n2, 'n3': n3, 'n4': n4, 'n6': n6, 'n7': n7, 'n8': n8, 'n9': n9, 'n10': n10}
+    return {'n1': n1, 'n2': n2, 'n3': n3, 'n4': n4, 'n5': n5, 'n6': n6, 'n7': n7, 'n8': n8, 'n9': n9, 'n10': n10}
 
 
 def main():
