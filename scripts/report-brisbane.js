@@ -656,14 +656,15 @@
       return t([short.replace('/', '／') + ' 線', short]);
     };
     const chart = charts.build({
-      title: t(['平日早上 7–9 點進城：各火車線「空間有限」的比例', 'Weekdays 7–9 am inbound: share of “limited space” by train line']),
+      // Plain-language title with the data date (Q126): readers took 0% to mean no seats.
+      title: t(['平日早上 7–9 點進城，各火車線預測車上擁擠的比例（2025 年 6 月）', 'Weekdays 7–9 am inbound: share forecast as crowded, by train line (June 2025)']),
       type: 'bar',
       data: data.figures.n9.map((row) => ({ label: name(row.line), value: row.limited, display: row.limited.toFixed(1) + '%' })),
       labelsAboveWhenNarrow: true // on phones "Ipswich/Rosewood" was clipped at the left edge
     });
     chart.append(inline(node('p', null, { class: 'figure-note' }), t([
-      'Translink 服務空位預測（Service Capacity Tracker）開放資料，2025-06-06 更新，早於 Metro 上路。每條線把每一站、每 15 分鐘分成三級，比例是週一到週五 7:00–8:45 各格中標為「空間有限」的比例；單位是「站 × 15 分鐘」，不是班次或人數。這是官方預測，各級門檻未公開；沒有班次的時段也有一格，比例可能偏低。〔C-37〕',
-      'Translink Service Capacity Tracker open data, last updated 6 June 2025, before Metro started. Each line gives one of three levels for every stop and 15-minute period; the share is the proportion of cells from 7:00 to 8:45 on weekdays marked “limited space”. The unit is stop × 15 minutes, not services or passengers. These are official forecasts and the thresholds for each level are not published; periods without a service also have a cell, so the shares may be understated. [C-37]'
+      '比例越高越擠；0% 表示這段時間各站都預測有空位。Translink 服務空位預測（Service Capacity Tracker）把每條線、每一站、每 15 分鐘車上擠不擠分成三級：可能有空位、還有一些空位、空間有限（可能要站）；比例是週一到週五 7:00–8:45 各站各時段中，預測為「空間有限」的比例。開放資料 2025-06-06 更新，早於 Metro 上路；官方沒有公開預測根據哪段期間的搭乘資料，也沒有公開各級門檻。單位是「站 × 15 分鐘」，不是班次或人數；沒有班次的時段也算一格，比例可能偏低。〔C-37〕',
+      'The higher the share, the more crowded; 0% means every stop in this period is forecast to have space. Translink’s Service Capacity Tracker rates how crowded trains will be for every line, stop and 15-minute period in three levels: space available, some space available, and limited space (you may have to stand). The share is the proportion of stop-and-period cells from 7:00 to 8:45 on weekdays forecast as “limited space”. The open data were last updated on 6 June 2025, before Metro started; Translink does not publish the period of travel data behind the forecasts or the thresholds for each level. The unit is stop × 15 minutes, not services or passengers; periods without a service also count as a cell, so the shares may be understated. [C-37]'
     ])));
     return chart;
   }
