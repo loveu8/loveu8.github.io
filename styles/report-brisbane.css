@@ -41,6 +41,8 @@ figure { margin: var(--space-lg) 0; }
 .report-table th, .report-table td { text-align: start; vertical-align: top; border-bottom: 1px solid var(--color-border); padding: var(--space-sm); }
 .report-table thead { background: var(--color-surface-soft); }
 .cell-label { display: none; }
+/* N11 (Q127): fewer than one train an hour. Bold as well as colour, same pair as the "tight" milestone tag. */
+.cell-sparse { font-weight: 700; color: var(--color-warning-text); background: var(--color-warm-soft); padding: 0 var(--space-xs); border-radius: var(--radius-sm); }
 .source-list { overflow-wrap: anywhere; }
 @media screen and (max-width: 680px) {
   .route ol { display: block; }

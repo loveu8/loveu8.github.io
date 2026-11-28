@@ -5,7 +5,7 @@
   const report = document.getElementById('report');
   const sections = ['today', 'foundations', 'reforms', 'projects', 'games', 'funding', 'conclusions'];
   // Paragraphs per chapter (blank-line separated) that the figure positions in render() assume (Q85).
-  const paragraphCounts = [4, 15, 13, 7, 5, 3, 3];
+  const paragraphCounts = [4, 16, 13, 7, 5, 3, 3];
   const routes = [
     [['南向 Busway · Metro M1', 'South East Busway · Metro M1'], [
       ['Eight Mile Plains', 'open'], ['Cultural Centre', 'open'], ['Roma Street Busway']]],
@@ -568,6 +568,27 @@
     return figure;
   }
 
+  // N11, chapter 2 (Q127): inbound trains per hour by line, weekday peak / day / evening and Saturday.
+  // A table, not bars: most cells are 2, so equal-length bars would hide the few sparse lines.
+  function trainFrequencyTable(t) {
+    const fmt = (n) => (Number.isInteger(n) ? String(n) : n.toFixed(1));
+    const cell = (n) => (n < 1 ? node('span', fmt(n), { class: 'cell-sparse' }) : fmt(n));
+    const rows = data.figures.n11.map((row) => {
+      const line = row.line.replace('Redcliffe Peninsula', 'Redcliffe');
+      return [t([line + ' 線（' + row.station + '）', line + ' (' + row.station + ')']),
+        cell(row.peak), cell(row.day), cell(row.evening), cell(row.saturday)];
+    });
+    const figure = table(t(['往市區的火車，每小時幾班', 'Inbound trains per hour']),
+      [t(['火車線（量測站）', 'Line (measuring station)']), t(['平日 7–9 點', 'Weekdays 7–9 am']),
+        t(['平日 10–15 點', 'Weekdays 10 am–3 pm']), t(['平日 19–22 點', 'Weekdays 7–10 pm']),
+        t(['週六 10–15 點', 'Saturday 10 am–3 pm'])], rows);
+    figure.append(inline(node('figcaption', null, { class: 'figure-note' }), t([
+      '數字越大班次越密；每小時 2 班約 30 分鐘一班，標底色加粗的是不到每小時 1 班。2026 年 10 月的表定時刻表，抽查 10 月 21 日（週三）與 24 日（週六），沒有週日；表定班次不等於實際開出。每條線只量一個站：從市區出發、只有這條線停的第一站，所以只算這條線自己的班次。依平日早上的班次由多到少排列。〔C-39〕',
+      'Higher numbers mean more frequent trains; 2 an hour is about one every 30 minutes, and cells in bold with a shaded background are below 1 an hour. October 2026 timetable, sampled on 21 October (Wednesday) and 24 October (Saturday); Sunday is not covered, and scheduled services are not the same as services actually run. Each line is measured at one station, the first one out from the city served only by that line, so only that line’s own trains are counted. Ordered by weekday morning frequency, highest first. [C-39]'
+    ])));
+    return figure;
+  }
+
   // N5, chapter 2 (Q99, back in Q124): total trips a year, shown right before N4 so the scale
   // and the latest year (which has no population yet) are visible before dividing by population.
   // Millions in both languages, matching N7 in chapter 1.
@@ -823,7 +844,8 @@
           5: () => [networkOverview(t)],
           7: () => [commuteChart(charts, t)],
           8: () => [tripsChart(charts, t), ridershipChart(charts, t)],
-          9: () => [crowdingChart(charts, t)]
+          9: () => [crowdingChart(charts, t)],
+          13: () => [trainFrequencyTable(t)] // 2.4, after the network-wide paragraph (Q127)
         },
         // Chapter 3 opens with the five corridors that chapters 3 and 4 examine (Q121).
         2: {

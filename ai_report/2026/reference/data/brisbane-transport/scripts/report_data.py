@@ -17,7 +17,8 @@ What goes in (only what the page actually uses):
            services, N5 total trips a year (Q99; replaced by N7 in Q116, back
            before N4 in Q124), N4 public transport trips per person (Q97, Q98),
            N9 crowded train lines in the weekday morning peak (Q120), N10
-           average weekly trips per half year (Q123), read from
+           average weekly trips per half year (Q123), N11 inbound trains per hour
+           by line and time of day (Q127), read from
            DATA_DIR/derived (Q86) and checked against the figures in
            stage-4-figures-six-chapter.md
 Any cited ID missing from its CSV, or a figure number that no longer matches,
@@ -163,7 +164,30 @@ def figures(data_dir):
     expect('N10 range', (len(n10), n10[0]['period'], n10[-1]['period']), (16, '2018H1', '2025H2'))
     expect('N10 points', tuple(r['trips'] for r in n10 if r['period'] in ('2019H2', '2024H1', '2024H2', '2025H2')),
            (3670573, 3236068, 3681185, 4040791))
-    return {'n1': n1, 'n2': n2, 'n3': n3, 'n4': n4, 'n5': n5, 'n6': n6, 'n7': n7, 'n8': n8, 'n9': n9, 'n10': n10}
+
+    # N11, chapter 2 (Q127): inbound trains per hour by line, weekday peak / off-peak / evening and
+    # Saturday, at each line's own measuring station; ordered by weekday peak, busiest first.
+    hours = {'07:00-09:00': 2, '10:00-15:00': 5, '19:00-22:00': 3}
+    bands = [('平日', '07:00-09:00', 'peak'), ('平日', '10:00-15:00', 'day'),
+             ('平日', '19:00-22:00', 'evening'), ('週六', '10:00-15:00', 'saturday')]
+    rows = [r for r in read_rows(f'{derived}/headways_2026-10.csv') if r['mode'] == '火車' and r['direction'] == '往市區']
+    n11 = []
+    for line in dict.fromkeys(r['line'] for r in rows):
+        got = {(r['day'], r['band']): r for r in rows if r['line'] == line}
+        item = {'line': line, 'station': got[bands[0][:2]]['point'].removesuffix(' station')}
+        for day, band, key in bands:
+            item[key] = round(int(got[(day, band)]['departures']) / hours[band], 1)
+        n11.append(item)
+    n11.sort(key=lambda r: -r['peak'])  # stable: lines with the same peak keep the CSV order
+    expect('N11 dates', sorted({r['date'] for r in rows}), ['20261021', '20261024'])
+    expect('N11 rows', len(n11), 12)
+    expect('N11 Cleveland', tuple(n11[0][k] for k in ('line', 'peak', 'day', 'evening', 'saturday')),
+           ('Cleveland', 6.0, 4.0, 3.0, 2.0))
+    expect('N11 sparse', [(r['line'], r['day'], r['saturday']) for r in n11 if r['line'] in ('Doomben', 'Sunshine Coast')],
+           [('Doomben', 2.0, 1.0), ('Sunshine Coast', 0.6, 0.6)])
+    expect('N11 two an hour', (sum(r['day'] == 2 for r in n11), sum(r['saturday'] == 2 for r in n11)), (9, 10))
+    return {'n1': n1, 'n2': n2, 'n3': n3, 'n4': n4, 'n5': n5, 'n6': n6, 'n7': n7, 'n8': n8, 'n9': n9, 'n10': n10,
+            'n11': n11}
 
 
 def main():
